@@ -1,19 +1,26 @@
 backend:
   name: github
   repo: oacore/content
+  branch: netlifycms
+  site_domain: oacore-content.netlify.app
+  cms_label_prefix: ''
+
 media_folder: uploads
 public_folder: ''
+
+publish_mode: editorial_workflow
+
 collections:
   -
-    label: Pages
-    name: pages
+    label: CORE
+    name: core
     files:
       -
         file: about.yml
         name: about
         label: About
         fields:
-          - 
+          -
             name: title
             label: Title
             widget: string
