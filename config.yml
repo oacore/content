@@ -3,7 +3,7 @@ backend:
   repo: oacore/content
   branch: netlifycms
   site_domain: oacore-content.netlify.app
-  cms_label_prefix: ''
+  cms_label_prefix: edit/
 
 media_folder: uploads
 public_folder: ''
