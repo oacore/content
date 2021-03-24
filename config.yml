@@ -1,3 +1,5 @@
+site_url: https://oacore.github.io/content
+
 backend:
   name: github
   repo: oacore/content
