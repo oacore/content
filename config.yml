@@ -24,7 +24,7 @@ collections:
           -
             name: mission
             label: Mission
-            widget: onject
+            widget: object
             fields:
               -
                 name: title
