@@ -8,5 +8,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oacore/content.git"
+  },
+  "dependencies": {
+    "netlify-cms-oauth-provider-node": "latest"
+  },
+  "scripts": {
+    "clean": "rm -rf public/",
+    "prebuild": "npm run clean",
+    "build": "mkdir public && cp index.html config.yml public/"
   }
 }
