@@ -1,0 +1,12 @@
+{
+  "name": "@oacore/content",
+  "version": "1.0.0",
+  "description": "CORE Content - a single place for all texts in CORE",
+  "author": "CORE Team <dev@core.ac.uk>",
+  "license": "MIT",
+  "homepage": "https://oacore.github.io/content",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oacore/content.git"
+  }
+}
