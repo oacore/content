@@ -6,6 +6,8 @@ description: >
 mission:
   title: Mission
   body: |-
+    ![](api.svg)
+
     CORE’s mission is to aggregate all open access research worldwide
     and deliver unrestricted access for all:
 
