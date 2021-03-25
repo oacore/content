@@ -4,9 +4,11 @@ backend:
   name: github
   repo: oacore/content
   branch: netlifycms
-  site_domain: oacore-content.netlify.app
+  site_domain: content.oacore.vercel.app
   cms_label_prefix: edit/
-  auth_endpoint: api/begin
+
+  base_url: content.oacore.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: uploads
 public_folder: ''
