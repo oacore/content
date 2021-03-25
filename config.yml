@@ -6,6 +6,7 @@ backend:
   branch: netlifycms
   site_domain: oacore-content.netlify.app
   cms_label_prefix: edit/
+  auth_endpoint: api/begin
 
 media_folder: uploads
 public_folder: ''
