@@ -3,7 +3,7 @@ const ORIGIN_GITHUB = 'oacore.github.io'
 
 const config = {
   origin: [ORIGN_VERCEL, ORIGIN_GITHUB],
-  completeUrl: `https://${ORIGN_VERCEL}/api/auth/done`,
+  completeUrl: `https://${ORIGN_VERCEL}/api/auth/complete`,
 }
 
 module.exports = config
