@@ -4,6 +4,7 @@ last-name: Knoth
 role: Founder & Head of CORE
 photo: images/team/petr-knoth.jpg
 past: false
+order: 100
 ---
 Responsible for leading the team, development & research effort, funding and
 product strategy. Believes in free unrestricted access to research for all.
