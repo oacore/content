@@ -3,6 +3,7 @@ title: |
   When I look at the papers I have authored, I am not pleased with the
   similar papers suggested by the CORE Recommender.
   How can I change that?
+category: CORE services
 ---
 The CORE recommender uses the popular [content-based filtering
 system](https://blog.core.ac.uk/2016/10/04/core-recommender/).

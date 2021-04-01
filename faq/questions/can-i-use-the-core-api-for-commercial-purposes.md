@@ -1,6 +1,7 @@
 ---
 title: |
   Can I use the CORE API for commercial purposes?
+category: CORE services
 ---
 Yes, you can use the CORE API for commercial purposes, but you need
 to contact us first and let us know about it. Commercial use of our

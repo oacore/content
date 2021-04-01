@@ -1,5 +1,6 @@
 ---
 title: "CORE harvests full text PDFs only. Does this mean that outputs with\nfull text in other formats, e.g.\_word documents or text files, will\nnot be considered as REF2021 compliant outputs?\n"
+category: CORE guidance on REF2021 Audit
 ---
 CORE harvests both metadata and full texts, currently only in PDF
 format but we will include support for other formats in the future.

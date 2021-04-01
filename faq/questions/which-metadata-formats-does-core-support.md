@@ -1,6 +1,7 @@
 ---
 title: |
   Which metadata formats does CORE support?
+category: 'Aggregation: Technical'
 ---
 We mainly support oai\_dc, the mainstream metadata format used in the
 [OAI-PMH Protocol](http://www.openarchives.org/OAI/openarchivesprotocol.html),

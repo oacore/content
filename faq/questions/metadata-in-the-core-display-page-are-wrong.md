@@ -2,6 +2,7 @@
 title: >
   The metadata in the CORE display page are wrong. How can I have them
   corrected?
+category: 'Aggregation: General'
 ---
 CORE does not create the metadata, but rather harvests
 them from its content providers. If the metadata are wrong

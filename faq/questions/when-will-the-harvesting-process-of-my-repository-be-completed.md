@@ -1,6 +1,7 @@
 ---
 title: |
   When will the harvesting process of my repository be completed?
+category: 'Aggregation: General'
 ---
 Depending on the size of the repository and the existing traffic
 in CORE's servers, the harvesting can last from a couple of hours

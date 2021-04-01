@@ -2,6 +2,7 @@
 title: |
   How can I see the deposit date from my repository's REF-able outputs
   in CORE?
+category: CORE guidance on REF2021 Audit
 ---
 Deposit dates are available via the
 [CORE Repositorу Edition](~services/repository-edition). Repository

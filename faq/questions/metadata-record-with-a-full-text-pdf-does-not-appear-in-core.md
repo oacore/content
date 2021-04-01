@@ -4,6 +4,7 @@ title: |
   own repository but it has been harvested from another repository. What
   if the record was not deposited on time at the other repository. Will
   this have an impact with regards to the REF2021 compliance?
+category: CORE guidance on REF2021 Audit
 ---
 CORE can identify deposits of the same articles from across
 repositories. By doing so, an output deposited late in repository A

@@ -1,6 +1,7 @@
 ---
 title: |
   Can CORE just index our content, but not store it on its servers?
+category: 'Aggregation: Technical'
 ---
 To provide its service, it is essential for CORE to be able to store
 a cached copy of the harvested content. This is needed to verify open

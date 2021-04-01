@@ -1,6 +1,7 @@
 ---
 title: |
   What are the technical requirements for being aggregated?
+category: 'Aggregation: Technical'
 ---
 In order to realise the data transfer and regular data updates of
 CORE and your system, CORE uses a variety of protocols to ingest

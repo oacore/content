@@ -1,6 +1,7 @@
 ---
 title: |
   Can CORE offer any statistics about the content it harvests?
+category: 'Aggregation: General'
 ---
 CORE can offer repository or journal full text download statistics per month via the
 [CORE Repository Dashboard](~services/repository-dashboard) but is not in position

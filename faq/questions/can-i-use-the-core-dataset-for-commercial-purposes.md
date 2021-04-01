@@ -1,6 +1,7 @@
 ---
 title: |
   Can I use the CORE dataset for commercial purposes?
+category: CORE services
 ---
 Please note the dataset has been created from information that was
 publicly available on the Internet. Every effort has been made

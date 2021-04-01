@@ -1,6 +1,7 @@
 ---
 title: |
   Does CORE offer a higher download quota of the CORE API?
+category: CORE services
 ---
 Yes, this is possible but there is usually a cost associated with it.
 Please [email us](~contact) the name of your
