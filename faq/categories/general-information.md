@@ -1,4 +1,4 @@
 ---
-title: General information about CORE
+title: General information about CORE 11
 caption: General information
 ---
