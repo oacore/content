@@ -1,6 +1,7 @@
 ---
 title: |
   Can I use the CORE API in a project?
+category: CORE services
 ---
 If you plan to use the CORE API we kindly ask the following:
 - attribute CORE by including in your website

@@ -1,6 +1,7 @@
 ---
 title: |
   How do I register my repository or journal with CORE?
+category: Joining CORE as data provider
 ---
 CORE uses information from various registries, such as
 [OpenDOAR](http://opendoar.org/) and [DOAJ](https://doaj.org/),

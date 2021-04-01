@@ -1,6 +1,7 @@
 ---
 title: |
   How is CORE different from Google Scholar?
+category: 'Aggregation: General'
 ---
 Google Scholar is a search engine containing scholarly research papers but
 it is not designed to aggregate repository and journal systems.

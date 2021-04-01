@@ -1,6 +1,7 @@
 ---
 title: |
   How often does CORE harvest the repositories?
+category: 'Aggregation: General'
 ---
 CORE does not harvest all the repositories that exist in our
 database with the same frequency. Repositories are harvested

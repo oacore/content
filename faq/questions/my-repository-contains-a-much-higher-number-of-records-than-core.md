@@ -2,6 +2,7 @@
 title: |
   My repository contains a much higher number of records than CORE.
   What can I do?
+category: 'Aggregation: General'
 ---
 Log in to the [CORE Repository Dashboard](~services/repository-dashboard)
 and look under the issues tab. Examine whether CORE has the correct oai base

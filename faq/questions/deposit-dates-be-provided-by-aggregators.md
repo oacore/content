@@ -2,6 +2,7 @@
 title: |
   Why should deposit dates be provided by aggregators and not by
   single institutions?
+category: CORE guidance on REF2021 Audit
 ---
 Due to cross university collaborations some outputs that could be
 considered non-compliant due to a late deposit may be compliant

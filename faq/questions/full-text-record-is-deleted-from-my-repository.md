@@ -2,6 +2,7 @@
 title: |
   A full text record is deleted from my repository, but is still
   available in CORE
+category: Removing full text or metadata
 ---
 CORE’s system is fully automated and relies on data made available
 in a machine readable form. Our system understands that the

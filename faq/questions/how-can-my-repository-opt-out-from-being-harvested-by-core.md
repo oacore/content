@@ -1,6 +1,7 @@
 ---
 title: |
   How can my repository opt out from being harvested by CORE?
+category: 'Aggregation: Technical'
 ---
 CORE uses information from various registries, such as
 [OpenDOAR](http://opendoar.org/), to include new repositories,

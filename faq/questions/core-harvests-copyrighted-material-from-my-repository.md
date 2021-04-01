@@ -1,6 +1,7 @@
 ---
 title: |
   CORE harvests copyrighted material from my repository
+category: Removing full text or metadata
 ---
 CORE’s system is fully automated and relies on data made available
 in a machine readable form. If your repository hosts full text with

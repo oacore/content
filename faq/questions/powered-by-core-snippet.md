@@ -1,6 +1,7 @@
 ---
 title: |
   How can I embed the “powered by CORE” snippet on my website?
+category: General information about CORE
 ---
 ![powered-by-core](/resources/powered-by-core-orange.png)
 ```

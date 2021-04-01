@@ -1,6 +1,7 @@
 ---
 title: |
   Are the research papers offered by CORE peer-reviewed?
+category: 'Aggregation: General'
 ---
 Yes it does. CORE harvests content from repositories and journals. The first
 do not perform peer review of the deposited content but the latter

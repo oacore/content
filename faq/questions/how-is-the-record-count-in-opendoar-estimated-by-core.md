@@ -1,6 +1,7 @@
 ---
 title: |
   How is the record count in OpenDOAR estimated by CORE?
+category: 'Aggregation: General'
 ---
 CORE has created definitions with regards to the statistics it provided to OpenDOAR.
 

@@ -2,6 +2,7 @@
 title: |
   I do not see the “Download” button in the CORE display page.
   How can I access the full text?
+category: 'Aggregation: General'
 ---
 CORE harvests content that is available open access elsewhere,
 i.e. repositories and open access journals. When the “Download”

@@ -1,5 +1,6 @@
 ---
 title: What does non-commercial use mean?
+category: CORE services
 ---
 Non-commercial means:
 - The organisation is a registered charity or a not-for-profit AND

@@ -1,6 +1,7 @@
 ---
 title: |
   How does CORE ensure that the harvested content is Open Access?
+category: Removing full text or metadata
 ---
 CORE aggregates content from repositories registered in
 [OpenDOAR](http://www.opendoar.org), journals registered

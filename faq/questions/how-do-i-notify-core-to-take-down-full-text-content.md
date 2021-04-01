@@ -1,6 +1,7 @@
 ---
 title: |
   How do I notify CORE to take down full text content?
+category: Removing full text or metadata
 ---
 If full text content appears in CORE but not in the
 hosting service your repository manager can take it down via the
