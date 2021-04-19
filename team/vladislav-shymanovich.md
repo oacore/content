@@ -2,7 +2,7 @@
 first-name: Vladislav
 last-name: Shymanovich
 role: Front-End Developer
-photo: /images/team/vladislav_shymanovich.png
+photo: images/team/vladislav-shymanovich.png
 past: false
 order: 0
 ---
