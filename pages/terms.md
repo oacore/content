@@ -1,7 +1,6 @@
 ---
 title: Terms & Conditions
-description: This page sets the Terms & Conditions under which CORE data can be
-  used by others.
+description: Terms & Conditions under which CORE data can be used by others.
 ---
 <style>
   ol p + ol, ol p + ul, ul p + ol, ul p + ul {
