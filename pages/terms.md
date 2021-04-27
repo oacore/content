@@ -1,6 +1,7 @@
 ---
 title: Terms & Conditions
-description: Changing to ODC-BY
+description: This page sets the Terms & Conditions under which CORE data can be
+  used by others.
 ---
 <style>
   ol p + ol, ol p + ul, ul p + ol, ul p + ul {
