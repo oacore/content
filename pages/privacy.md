@@ -1,18 +1,18 @@
 ---
 title: Privacy notice
+description: CORE Privacy Notice
 ---
-
 Here is an overview about how we process personal data.
 
 This page supplements the information provided in 
-[The Open University's Privacy Notice][ou-privacy].
+[The Open University's Privacy Notice](https://www.open.ac.uk/about/main/strategy-and-policies/policies-and-statements/website-privacy-ou).
 
 ## Measuring our visitors
 
 We collect anonymous statistics to help us improve our site using 
 [Google Analytics](https://support.google.com/analytics/answer/6004245).
 We use this data to understand how our site is used and to make it better. 
-You may also [opt out](https://tools.google.com/dlpage/gaoptout) if you wish.
+You may also [opt-out](https://tools.google.com/dlpage/gaoptout) if you wish.
 
 ## Registering for our services
 
@@ -37,5 +37,3 @@ notify you by email of any changes to this privacy notice.
 
 If you have any questions regarding our use of your data or for any other
 reason, please [contact us](~contact).
-
-[ou-privacy]: https://www.open.ac.uk/about/main/strategy-and-policies/policies-and-statements/website-privacy-ou
