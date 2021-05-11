@@ -9,7 +9,7 @@ link:
     CORE (COnnecting REpositories) aims to facilitate free access to scholarly 
     publications distributed across many systems.
 image:
-  src: history/images/core-2015.png
+  src: images/history/core-2015.png
   alt: Screenshot of the core.ac.uk website on February 2015
 ---
 The first grant for CORE is awarded by Jisc in January and the project commences on 1st February 2011, initiating a long-term collaboration of the Open University and Jisc (which is not yet known at this time). CORE embarks on a mission to facilitate free, unrestricted access to research for all. 

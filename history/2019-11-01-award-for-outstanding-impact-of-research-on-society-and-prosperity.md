@@ -11,7 +11,7 @@ link:
     anniversary of The Open University, CORE was presented with the award for
     “Outstanding Impact of Research on Society and Prosperity Award”.
 image:
-  src: images/history/core-rea-team.png
+  src: images/history/core-rea-team.jpg
   alt: CORE team holding the award star after the ceremony
 ---
 CORE is continuing to grow both its content, user-base and range of services. With now close to 14 million full texts and 135 million metadata items from about 10,000 providers, CORE aims to facilitate free, unrestricted access to research for all.

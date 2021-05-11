@@ -8,5 +8,8 @@ link:
   description: >-
     We have developed a mobile application for the Android system that allows
     navigating and downloading content harvested from Open Access repositories.
+image:
+  src: images/history/android-app-motorola.png
+  alt: Motorola phone with the CORE android app main screen
 ---
 First release of a mobile application for Android.

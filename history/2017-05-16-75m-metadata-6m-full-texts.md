@@ -11,7 +11,7 @@ link:
     scientific research articles harvested from both open access journals and
     repositories.
 image:
-  src: images/history/75m-metadata-pie.webp
+  src: images/history/76m-metadata-pie.png
   alt: >-
     A pie showing that only one small part of the metadata records have a full
     text
