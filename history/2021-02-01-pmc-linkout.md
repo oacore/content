@@ -2,7 +2,7 @@
 date: 2021-02-01T00:00:00.000Z
 title: CORE participates in PMC LinkOut
 image:
-  src: /images/history/pubmed-discovery.png
+  src: images/history/pubmed-discovery.png
   alt: CORE Discovery button integrated into the PubMed interface
 link:
   href: https://blog.core.ac.uk/2021/02/04/core-pubmed-collaborate-for-further-full-text-dissemination/
