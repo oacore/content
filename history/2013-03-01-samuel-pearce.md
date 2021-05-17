@@ -10,4 +10,4 @@ link:
   label: CORE Team
   description: The list of all current and past team members of CORE.
 ---
-CORE would never be CORE without Samuel Pearce who gorgeously joined the team working for a better future for all.
+CORE would never be CORE without Samuel Pearce, who gorgeously joined the team to become the forever oldest-and-youngest CORE team member.
