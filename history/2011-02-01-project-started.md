@@ -1,16 +1,15 @@
 ---
 date: 2011-02-01T00:00:00.000Z
-title: CORE project started
+title: CORE project
+image:
+  src: images/history/core-2015.png
+  alt: Screenshot of the core.ac.uk website on February 2015
 link:
   href: https://web.archive.org/web/20150213215116/http://core.ac.uk/
   type: Page on Internet Archive
   label: CORE (home page)
-  description: >-
-    CORE (COnnecting REpositories) aims to facilitate free access to scholarly 
-    publications distributed across many systems.
-image:
-  src: images/history/core-2015.png
-  alt: Screenshot of the core.ac.uk website on February 2015
+  description: CORE (COnnecting REpositories) aims to facilitate free access to
+    scholarly  publications distributed across many systems.
 ---
 The first grant for CORE is awarded by Jisc in January and the project commences on 1st February 2011, initiating a long-term collaboration of the Open University and Jisc (which is not yet known at this time). CORE embarks on a mission to facilitate free, unrestricted access to research for all. 
 
