@@ -1,5 +1,5 @@
 ---
-title: s
+title: Something
 description: Test page
 headline: ""
 ---
