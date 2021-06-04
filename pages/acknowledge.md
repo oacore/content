@@ -25,4 +25,4 @@ by giving you a 30-day notice.
 
 [logo]: /resources/core-logo.png
 [powered-by-banner]: /resources/powered-by-core-orange.png
-[research-outputs] https://core.ac.uk/about/research-outputs
+[research-outputs]: https://core.ac.uk/about/research-outputs
