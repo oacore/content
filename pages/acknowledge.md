@@ -5,7 +5,7 @@ title: How to acknowledge the use of CORE
 If you use CORE in your work, you should acknowledge it as follows:
 
 1.  **In research papers:** provide an explicit citation to one or more of
-    our relevant research outputs. Please, do not just provide
+    our relevant [research outputs][research-outputs]. Please, do not just provide
     a&nbsp;URL to&nbsp;CORE in a footnote.
 
 2.  **A website using/powered by CORE:** we expect an attribution at
@@ -25,3 +25,4 @@ by giving you a 30-day notice.
 
 [logo]: /resources/core-logo.png
 [powered-by-banner]: /resources/powered-by-core-orange.png
+[research-outputs]https://core.ac.uk/about/research-outputs
