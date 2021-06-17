@@ -6,5 +6,5 @@ photo: images/team/maria-tarasiuk.jpg
 past: false
 order: 0
 ---
-Software services and infrastrucutre developer. Keeping and continuously
+Software services and infrastructure developer. Maintaining and continuously
 improving our backend systems.
