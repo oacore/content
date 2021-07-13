@@ -2,7 +2,7 @@
 first-name: Kostiantyn
 last-name: Voskoboinik
 role: Front-End developer
-photo: /images/team/kostiantyn_voskoboinik.png
+photo: /content/images/team/kostiantyn_voskoboinik.png
 past: false
 order: 0
 ---
