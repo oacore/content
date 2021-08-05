@@ -2,7 +2,7 @@
 first-name: Matteo
 last-name: Cancellieri
 role: Lead Developer (Backend)
-photo: images/team/matteo-cancellieri.jpg
+photo: /images/team/matteo-cancellieri.jpg
 past: false
 order: 0
 ---
