@@ -2,7 +2,7 @@
 first-name: Suchetha
 last-name: N.Kunnath
 role: PhD Student
-photo: images/team/suchetha-nambanoor-kunnath.jpg
+photo: /images/team/suchetha-nambanoor-kunnath.jpg
 past: false
 order: 0
 ---

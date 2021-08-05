@@ -2,7 +2,7 @@
 first-name: Catherine
 last-name: Kuliavets
 role: Personal & Team Administrative Assistant
-photo: images/team/catherine-kuliavets.jpg
+photo: /images/team/catherine-kuliavets.jpg
 past: false
 order: 0
 ---

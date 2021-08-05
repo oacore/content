@@ -2,7 +2,7 @@
 first-name: Maria
 last-name: Tarasiuk
 role: Software Developer
-photo: images/team/maria-tarasiuk.jpg
+photo: /images/team/maria-tarasiuk.jpg
 past: false
 order: 0
 ---

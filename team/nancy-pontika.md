@@ -2,7 +2,7 @@
 first-name: Nancy
 last-name: Pontika
 role: Open Access Specialist & Communications
-photo: images/team/nancy-pontika.jpg
+photo: /images/team/nancy-pontika.jpg
 past: false
 order: 0
 ---

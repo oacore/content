@@ -2,7 +2,7 @@
 first-name: Bethany
 last-name: Walker
 role: Manager, Business & Partnerships
-photo: images/team/bethany-walker.jpg
+photo: /images/team/bethany-walker.jpg
 past: false
 order: 0
 ---
