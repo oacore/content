@@ -2,7 +2,7 @@
 first-name: Petr
 last-name: Knoth
 role: Founder & Head of CORE
-photo: images/team/petr-knoth.jpg
+photo: /images/team/petr-knoth.jpg
 past: false
 order: 100
 ---
