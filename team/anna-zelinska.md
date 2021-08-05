@@ -2,7 +2,7 @@
 first-name: Anna
 last-name: Zelinska
 role: Project manager
-photo: images/team/anna-zelinska.jpeg
+photo: /images/team/anna-zelinska.jpeg
 past: false
 order: 0
 ---
