@@ -2,7 +2,7 @@
 first-name: Anton
 last-name: Zhuk
 role: Back-end developer
-photo: images/team/anton_zhuk.png
+photo: /images/team/anton_zhuk.png
 past: false
 order: 0
 ---
