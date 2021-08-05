@@ -2,7 +2,7 @@
 first-name: Samuel
 last-name: Pearce
 role: Developer and Infrastructure Specialist
-photo: images/team/samuel-pearce.jpg
+photo: /images/team/samuel-pearce.jpg
 past: false
 order: 0
 ---
