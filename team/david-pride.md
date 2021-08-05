@@ -2,7 +2,7 @@
 first-name: David
 last-name: Pride
 role: Research Associate
-photo: images/team/david-pride.jpg
+photo: /images/team/david-pride.jpg
 past: false
 order: 0
 ---
