@@ -2,7 +2,7 @@
 first-name: Valeriy
 last-name: Budko
 role: Full Stack Developer
-photo: images/team/valeriy-budko.jpg
+photo: /images/team/valeriy-budko.jpg
 past: false
 order: 0
 ---
