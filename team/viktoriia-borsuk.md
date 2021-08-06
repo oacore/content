@@ -2,7 +2,7 @@
 first-name: Viktoriia
 last-name: Borsuk
 role: UX designer
-photo: /content/images/team/viktoriia-borsuk.png
+photo: /images/team/viktoriia-borsuk.png
 past: false
 order: 0
 ---
