@@ -1,6 +1,6 @@
 ---
 first-name: Viktoriia
-last-name: Borsuk
+last-name: Pavlenko
 role: UX designer
 photo: /images/team/viktoriia-borsuk.png
 past: false
