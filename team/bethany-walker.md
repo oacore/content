@@ -3,7 +3,7 @@ first-name: Bethany
 last-name: Walker
 role: Manager, Business & Partnerships
 photo: /images/team/bethany-walker.jpg
-past: false
+past: true
 order: 0
 ---
 Bethany is responsible for CORE’s business development and maintaining our
