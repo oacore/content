@@ -1,6 +1,6 @@
 ---
 title: Communities
-short-title: communities
+short-title: Communities
 action-label: Ambasasdors’ community
 extra-action-label: Researchers’ сommunity
 ---
