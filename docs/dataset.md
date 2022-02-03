@@ -8,7 +8,7 @@ description: CORE Dataset
 
 **Dataset 2020-03-18**
 
-[Register for Access](/dataset/getdatadump)
+[Register for Access](/services/dataset#what-is-included)
 
 Full dataset (~400GB, 2.1TB Extracted)
 
@@ -22,7 +22,7 @@ Please read the section "Structure of datasets" below for more information.
 
 **Dataset 2020-03-18**
 
-[Register for Access](/dataset/getdatadump)
+[Register for Access](/services/dataset#what-is-included)
 
 Full dataset (~400GB, 2.1TB Extracted)
 
@@ -34,7 +34,7 @@ Please read the section "Structure of datasets" below for more information.
 
 **Dataset 2018-03-01**
 
-[Register for Access](/dataset/getdatadump)
+[Register for Access](/services/dataset#what-is-included)
 
 Metadata only dataset (beta) (127 GB) - 123M metadata items, 85.6M items with abstract
 
@@ -48,7 +48,7 @@ For extracting all repositories, you will need up to 509 GB (metadata) or 1.3 TB
 
 **Deduplication Dataset 2020**
 
-[Register for Access](/dataset/getdatadump)
+[Register for Access](/services/dataset#what-is-included)
 
 Dataset created for Deduplication of Scholarly Documents using Locality Sensitive Hashing and Word Embeddings (LREC 2020) (62 MB compressed, 204 MB in total)
 
@@ -57,7 +57,7 @@ Dataset created for Deduplication of Scholarly Documents using Locality Sensitiv
 
 **CORE-MAG Mapping 2019-04-01**
 
-[Register for Access](/dataset/getdatadump)
+[Register for Access](/services/dataset#what-is-included)
 
 CORE Dataset to Microsoft Academic Graph (MAG) mapping (80MB compressed, 173 MB in total) - 8.9M items
 
@@ -68,7 +68,7 @@ CORE Dataset to Microsoft Academic Graph (MAG) mapping (80MB compressed, 173 MB 
 
 **Dataset 2017-11-01**  
 
-[Register for Access](/dataset/getdatadump)
+[Register for Access](/services/dataset#what-is-included)
 
 Metadata only dataset (beta) (22.65 GB) - 64 million items
 
@@ -84,22 +84,22 @@ Beta notice: while in beta, we cannot guarantee completeness or integrity of the
 These datasets conform to the dataset structure described below as 'Pre-2017'
 
 * **Dataset 2016-10**\
-  [Register for Access](/dataset/getdatadump).\
+  [Register for Access](/services/dataset#what-is-included)).\
   Metadata dataset (9.0 GB) - (23.9 million items)\
   Content dataset (102 GB) - (4 million items)  
 * **Dataset 2015-09**\
-  [Register for Access](/dataset/getdatadump)\
+  [Register for Access](/services/dataset#what-is-included))\
   Metadata dataset (4.5 GB)\
   Content dataset (30.5 GB)  
 * **Dataset 2014-06-13** *(used for dataset track of [DL2014](https://wosp.core.ac.uk/dl2014/#dataset))*\
-  [Register for Access](/dataset/getdatadump)\
+  [Register for Access](/services/dataset#what-is-included))\
   Metadata dataset (3.7 GB)\
   Content dataset (24 GB)  
 * **Dataset 2013-12-15**\
-  [Register for Access](/dataset/getdatadump)\
+  [Register for Access](/services/dataset#what-is-included))\
   Metadata dataset (1.7 GB)  
 * **Dataset 2013-04-12**\
-  [Register for Access](/dataset/getdatadump)\
+  [Register for Access](/services/dataset#what-is-included))\
   Metadata dataset (181 MB)\
   Metadata dataset as RDF (835 MB)  
 
