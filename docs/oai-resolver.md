@@ -38,7 +38,7 @@ block_3_column_1: >-
   \
 
   This approach has the potential to increase the importance of repositories in the process of disseminating knowledge. CORE proivides a global **OAI Resolver** built on top of the CORE research outputs aggregation system.
-block_3_column_2of2: "OAI identifiers do not replace DOIs, but complement them.
+block_3_column_2: "OAI identifiers do not replace DOIs, but complement them.
   According to the DOI handbook “Uniqueness (specification by a DOI name of one
   and only one referent) is enforced by the DOI system. It is desirable that two
   DOI names should not be assigned to the same thing.” A DOI typically
