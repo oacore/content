@@ -20,14 +20,14 @@ block_2_column_1: >-
 
   There is no strict format for the identifier apart from it having to be a URI, but a Cgood practice is for it to consist of a globally unique prefix identifying the repository and a suffix that is locally unique to a given metadata record in the repository.
 block_2_column_2: |-
-  ####   The following are examples of OAIs available in CORE
+  **The following are examples of OAIs available in CORE**
 
   * oai:eprints.gla.ac.uk:129357
   * oai:digitalcommons.odu.edu:oaweek-1012
   * oai:oro.open.ac.uk:75049
   * oai:dspace.stir.ac.uk:1893/24654
 block_3_column_1: >-
-  #### Why do we need OAI identifiers?
+  <div class="subTitle">Why do we need OAI identifiers?</div>
 
 
   OAI Identifiers are viable PIDs for repositories that can be, as opposed to DOIs, minted in a **distributed fashion** and cost-free, and which can be **resolvable directly to the repository** rather than to the publisher.
@@ -42,14 +42,16 @@ block_3_column_2: "OAI identifiers do not replace DOIs, but complement them.
   Identifier a metadata record in a repository. As there often exist multiple
   copies of a paper across repositories, it is, in fact, desirable that these
   records identified using an OAI Identifier are linked to a single DOI. "
-block_4_column_1: |-2
-    **CORE provides a global resolver for OAI identifiers at**
+block_4_column_1: |-
+  <div class="subTitle">OAI Resolver</div>
 
-    * https://core.ac.uk/oai_resolver
+  **CORE provides a global resolver for OAI identifiers at**
 
-    **The RESTful call to resolve an OAI is available at:**
+  * https://core.ac.uk/oai_resolver
 
-    * https://oai.core.ac.uk/<oai-identifier>
+  **The RESTful call to resolve an OAI is available at:**
+
+  * https://oai.core.ac.uk/<oai-identifier>
 block_4_column_2: >-
   As CORE aggregates data from repositories from across the globe, it is aware
   of OAI Identifiers for each repository record across this network. This means
