@@ -69,4 +69,6 @@ block_4_column_2of2: >-
 
   Find out more in our Open Repositories 2022 article.
 ---
-There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories. 
+### What is an OAI identifier?
+
+There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
