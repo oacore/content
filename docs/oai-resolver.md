@@ -1,10 +1,10 @@
 ---
 title: OAI resolver
 description: OAI resolver
-block_1_column_1: An **OAI (Open Archives Initiative) identifier** is a
-  unique identifier of a metadata record. OAI identifiers are used in the
-  context of repositories using the Open Archives Initiative Protocol for
-  Metadata Harvesting
+block_1_column_1: An **OAI (Open Archives Initiative) identifier** is a unique
+  identifier of a metadata record. OAI identifiers are used in the context of
+  repositories using the Open Archives Initiative Protocol for Metadata
+  Harvesting
   ([OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html)),
   however, the process by which they are assigned can be, in principle, used
   more broadly elsewhere.
@@ -18,24 +18,20 @@ block_2_column_1: >-
   persistent level of support.
 
 
-  \
-
   There is no strict format for the identifier apart from it having to be a URI, but a Cgood practice is for it to consist of a globally unique prefix identifying the repository and a suffix that is locally unique to a given metadata record in the repository.
-block_2_column_2: |-2
-    The following are examples of OAIs available in CORE
+block_2_column_2: |-
+  ####   The following are examples of OAIs available in CORE
 
-    * oai:eprints.gla.ac.uk:129357
-    * oai:digitalcommons.odu.edu:oaweek-1012
-    * oai:oro.open.ac.uk:75049
-    * oai:dspace.stir.ac.uk:1893/24654
+  * oai:eprints.gla.ac.uk:129357
+  * oai:digitalcommons.odu.edu:oaweek-1012
+  * oai:oro.open.ac.uk:75049
+  * oai:dspace.stir.ac.uk:1893/24654
 block_3_column_1: >-
-  ### Why do we need OAI identifiers?  
+  #### Why do we need OAI identifiers?
 
 
   OAI Identifiers are viable PIDs for repositories that can be, as opposed to DOIs, minted in a **distributed fashion** and cost-free, and which can be **resolvable directly to the repository** rather than to the publisher.
 
-
-  \
 
   This approach has the potential to increase the importance of repositories in the process of disseminating knowledge. CORE proivides a global **OAI Resolver** built on top of the CORE research outputs aggregation system.
 block_3_column_2: "OAI identifiers do not replace DOIs, but complement them.
