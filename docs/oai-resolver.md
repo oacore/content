@@ -49,10 +49,6 @@ block_4_column_1: |-
   <table>OAI Resolver</table>
   <p>OAI Resolver</p>
 
-  > test
-
-  **[link test](#test#)**
-
   **CORE provides a global resolver for OAI identifiers at**
 
   * https://core.ac.uk/oai_resolver
@@ -80,6 +76,18 @@ block_4_column_2: >-
 
   Find out more in our Open Repositories 2022 article.
 ---
+<style>
+.subTitle {
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: 500;
+}
+li {
+color: background: #B75400;
+
+}
+</style>
+
 ### What is an OAI identifier?
 
 There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
