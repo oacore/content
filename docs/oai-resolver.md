@@ -53,9 +53,7 @@ block_4_column_1: |-
 
   <div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div>
 block_4_column_2: >-
-  <div class="subTitle"></div>
-
-
+  <div class="textNoSubTitle">
 
 
   As CORE aggregates data from repositories from across the globe, it is aware of OAI Identifiers for each repository record across this network. This means that repositories do not need to do anything to register their OAI identifiers to allow the OAI resolver to work on their records apart from making sure that they expose their metadata using OAI-PMH, which is a widely supported functionality. 
@@ -68,14 +66,22 @@ block_4_column_2: >-
 
 
   Find out more in our Open Repositories 2022 article.
+
+
+  </div>
 ---
 <style>
 .subTitle {
   line-height: 24px;
   font-size: 24px;
   font-weight: 500; 
-
  margin-bottom: 49px;
+}
+
+.textNoSubTitle {
+
+margin-top: 73px;
+
 }
 .oaiLinkBlock {
   position:relative;
