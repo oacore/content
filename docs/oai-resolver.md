@@ -49,6 +49,9 @@ block_4_column_1: |-
   <table>OAI Resolver</table>
   <p>OAI Resolver</p>
 
+  > test
+
+  **[link test](#test#)**
 
   **CORE provides a global resolver for OAI identifiers at**
 
