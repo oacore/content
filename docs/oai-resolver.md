@@ -47,6 +47,7 @@ block_4_column_1: |-
   <div className="subTitle">OAI Resolver</div>
   <div>OAI Resolver</div>
   <table>OAI Resolver</table>
+  <p>OAI Resolver</p>
 
 
   **CORE provides a global resolver for OAI identifiers at**
