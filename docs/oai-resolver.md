@@ -53,21 +53,18 @@ block_4_column_1: |-
 
   <div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div>
 block_4_column_2: >-
-  As CORE aggregates data from repositories from across the globe, it is aware
-  of OAI Identifiers for each repository record across this network. This means
-  that repositories do not need to do anything to register their OAI identifiers
-  to allow the OAI resolver to work on their records apart from making sure that
-  they expose their metadata using OAI-PMH, which is a widely supported
-  functionality. 
+  <div class="subTitle"></div>
 
+
+
+
+  As CORE aggregates data from repositories from across the globe, it is aware of OAI Identifiers for each repository record across this network. This means that repositories do not need to do anything to register their OAI identifiers to allow the OAI resolver to work on their records apart from making sure that they expose their metadata using OAI-PMH, which is a widely supported functionality. 
 
 
   However, we recommend that repositories register for the [CORE Repository Dashboard](https://core.ac.uk/services/repository-dashboard) to check that their metadata records are harvested correctly in their entirety. This is an extremely low barrier to adoption with the resolver effectively working out-of-the-box. 
 
 
-
   CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to the repository page (coming up). To route redirection directly to the repository, it is necessary to provide a mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly. 
-
 
 
   Find out more in our Open Repositories 2022 article.
@@ -76,7 +73,9 @@ block_4_column_2: >-
 .subTitle {
   line-height: 24px;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 500; 
+
+ margin-bottom: 49px;
 }
 .oaiLinkBlock {
   position:relative;
