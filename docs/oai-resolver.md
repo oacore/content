@@ -27,7 +27,7 @@ block_2_column_2: |-
   * oai:oro.open.ac.uk:75049
   * oai:dspace.stir.ac.uk:1893/24654
 block_3_column_1: >-
-  <div className="subTitle">Why do we need OAI identifiers?</div>
+  Why do we need OAI identifiers?
 
 
   OAI Identifiers are viable PIDs for repositories that can be, as opposed to DOIs, minted in a **distributed fashion** and cost-free, and which can be **resolvable directly to the repository** rather than to the publisher.
@@ -44,6 +44,8 @@ block_3_column_2: "OAI identifiers do not replace DOIs, but complement them.
   records identified using an OAI Identifier are linked to a single DOI. "
 block_4_column_1: |-
   <div class="subTitle">OAI Resolver</div>
+  <div className="subTitle">OAI Resolver</div>
+  <div>OAI Resolver</div>
 
   **CORE provides a global resolver for OAI identifiers at**
 
