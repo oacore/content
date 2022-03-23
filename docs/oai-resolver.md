@@ -22,10 +22,10 @@ block_2_column_1: >-
 block_2_column_2: |-
   **The following are examples of OAIs available in CORE**
 
-  * oai:eprints.gla.ac.uk:129357
-  * oai:digitalcommons.odu.edu:oaweek-1012
-  * oai:oro.open.ac.uk:75049
-  * oai:dspace.stir.ac.uk:1893/24654
+  <div class='oaiLink'>oai:eprints.gla.ac.uk:129357</div>
+  <div class='oaiLink'>oai:digitalcommons.odu.edu:oaweek-1012</div>
+  <div class='oaiLink'>oai:oro.open.ac.uk:75049</div>
+  <div class='oaiLink'>oai:dspace.stir.ac.uk:1893/24654</div>
 block_3_column_1: >-
   Why do we need OAI identifiers?
 
@@ -82,7 +82,7 @@ block_4_column_2: >-
   font-size: 24px;
   font-weight: 500;
 }
-li {
+.oaiLink {
 color: background: #B75400;
 
 }
