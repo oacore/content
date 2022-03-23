@@ -22,12 +22,12 @@ block_2_column_1: >-
 block_2_column_2: |-
   **The following are examples of OAIs available in CORE**
 
-  * oai:eprints.gla.ac.uk:129357
-  * oai:digitalcommons.odu.edu:oaweek-1012
-  * oai:oro.open.ac.uk:75049
-  * oai:dspace.stir.ac.uk:1893/24654
+  <div class='oaiLink'>oai:eprints.gla.ac.uk:129357</div>
+  <div class='oaiLink'>oai:digitalcommons.odu.edu:oaweek-1012</div>
+  <div class='oaiLink'>oai:oro.open.ac.uk:75049</div>
+  <div class='oaiLink'>oai:dspace.stir.ac.uk:1893/24654</div>
 block_3_column_1: >-
-  Why do we need OAI identifiers?
+  <div class="subTitle">Why do we need OAI identifiers?</div>
 
 
   OAI Identifiers are viable PIDs for repositories that can be, as opposed to DOIs, minted in a **distributed fashion** and cost-free, and which can be **resolvable directly to the repository** rather than to the publisher.
@@ -44,22 +44,14 @@ block_3_column_2: "OAI identifiers do not replace DOIs, but complement them.
   records identified using an OAI Identifier are linked to a single DOI. "
 block_4_column_1: |-
   <div class="subTitle">OAI Resolver</div>
-  <div className="subTitle">OAI Resolver</div>
-  <div>OAI Resolver</div>
-  <table>OAI Resolver</table>
-  <p>OAI Resolver</p>
-
-  > test
-
-  **[link test](#test#)**
 
   **CORE provides a global resolver for OAI identifiers at**
 
-  * https://core.ac.uk/oai_resolver
+  <div class='oaiLink'>https://core.ac.uk/oai_resolver</div
 
   **The RESTful call to resolve an OAI is available at:**
 
-  * https://oai.core.ac.uk/<oai-identifier>
+  <div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div>
 block_4_column_2: >-
   As CORE aggregates data from repositories from across the globe, it is aware
   of OAI Identifiers for each repository record across this network. This means
@@ -80,6 +72,22 @@ block_4_column_2: >-
 
   Find out more in our Open Repositories 2022 article.
 ---
+<style>
+.subTitle {
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.oaiLinkBlock {
+  position:relative;
+}
+.oaiLink {
+  color: #B75400;
+  line-height: 24px;
+  font-size: 16px;
+}
+</style>
+
 ### What is an OAI identifier?
 
 There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
