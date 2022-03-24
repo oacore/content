@@ -58,9 +58,7 @@ block_4_column_1: >-
   <div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>
 
 
-
-
-  **The RESTful call to resolve an OAI is available at:**
+  **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
 
 
   <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
