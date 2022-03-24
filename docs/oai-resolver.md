@@ -8,7 +8,10 @@ block_1_column_1: An **OAI (Open Archives Initiative) identifier** is a unique
   ([OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html)),
   however, the process by which they are assigned can be, in principle, used
   more broadly elsewhere.
-block_1_column_2: "oai:oro.open.ac.uk : 73739"
+block_1_column_2: |-
+  Structure:
+
+  oai:oro.open.ac.uk : 73739
 block_2_column_1: >-
   In comparison to DOIs, OAI identifiers are registered in a distributed rather
   than centralised manner and there is therefore no cost for minting them. OAI
@@ -56,6 +59,8 @@ block_4_column_1: >-
 
 
   <div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>
+
+
 
 
   **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
