@@ -21,13 +21,17 @@ block_2_column_1: >-
 
 
   There is no strict format for the identifier apart from it having to be a URI, but a Cgood practice is for it to consist of a globally unique prefix identifying the repository and a suffix that is locally unique to a given metadata record in the repository.
-block_2_column_2: |-
+block_2_column_2: >-
   **The following are examples of OAIs available in CORE**
 
-  <div class='oaiLink'>oai:eprints.gla.ac.uk:129357</div>
-  <div class='oaiLink'>oai:digitalcommons.odu.edu:oaweek-1012</div>
-  <div class='oaiLink'>oai:oro.open.ac.uk:75049</div>
-  <div class='oaiLink'>oai:dspace.stir.ac.uk:1893/24654</div>
+
+  <div class='oaiLinkBlock'><div class='oaiLink'>oai:eprints.gla.ac.uk:129357</div></div>
+
+  <div class='oaiLinkBlock'><div class='oaiLink'>oai:digitalcommons.odu.edu:oaweek-1012</div></div>
+
+  <div class='oaiLinkBlock'><div class='oaiLink'>oai:oro.open.ac.uk:75049</div></div>
+
+  <div class='oaiLinkBlock'><div class='oaiLink'>oai:dspace.stir.ac.uk:1893/24654</div></div>
 block_3_column_1: >-
   <div class="subTitle">Why do we need OAI identifiers?</div>
 
@@ -40,20 +44,24 @@ block_3_column_2: >-
   <div class="textNoSubTitle">
 
 
-  OAI identifiers do not replace DOIs, but complement them. According to the DOI handbook <span class="primeColor">“Uniqueness (specification by a DOI name of one and only one referent) is enforced by the DOI system. It is desirable that two DOI names should not be assigned to the same thing.”</span> A DOI typically identifies the canonical final version of record (VoR) of a paper. An OAI Identifier a metadata record in a repository. As there often exist multiple copies of a paper across repositories, it is, in fact, desirable that these records identified using an OAI Identifier are linked to a single DOI. 
+  OAI identifiers do not replace DOIs, but complement them. According to the DOI handbook <span class="primeColor italic">“Uniqueness (specification by a DOI name of one and only one referent) is enforced by the DOI system. It is desirable that two DOI names should not be assigned to the same thing.”</span> A DOI typically identifies the canonical final version of record (VoR) of a paper. An OAI Identifier a metadata record in a repository. As there often exist multiple copies of a paper across repositories, it is, in fact, desirable that these records identified using an OAI Identifier are linked to a single DOI. 
 
 
   </div>
-block_4_column_1: |-
+block_4_column_1: >-
   <div class="subTitle">OAI Resolver</div>
+
 
   **CORE provides a global resolver for OAI identifiers at**
 
-  <div class='oaiLink'>https://core.ac.uk/oai_resolver</div
+
+  <div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>
+
 
   **The RESTful call to resolve an OAI is available at:**
 
-  <div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div>
+
+  <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
 block_4_column_2: >-
   <div class="textNoSubTitle">
 
@@ -91,14 +99,32 @@ margin-top: 73px;
   color: #B75400;
 
 }
+
+.italic {
+
+font-style: italic;
+
+}
 .oaiLinkBlock {
   position:relative;
+}
+
+.oaiLinkBlock {
+
+position: relative;
+
 }
 .oaiLink {
   color: #B75400;
   line-height: 24px;
   font-size: 16px;
+
+margin-left: 20px;
 }
+
+.oaiLink:before { content: ''; background: #B75400; width: 4px; height: 36px; position: absolute; 
+
+display: block; top: 0;}
 </style>
 
 ### What is an OAI identifier?
