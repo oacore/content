@@ -13,10 +13,10 @@ block_2_column_1: >-
   In comparison to DOIs, OAI identifiers are registered in a distributed rather
   than centralised manner and there is therefore no cost for minting them. OAI
   identifiers are persistent identifiers in repositories that declare their
-  level of support for deleted documents in the <span
-  class="primeColor">deletedRecord</span> element of the <span
-  class="primeColor">Identify</span> response as <span
-  class="primeColor">persistent</span>. CORE recommends repositories to provide
+  level of support for deleted documents in the <span class="primeColor
+  fontRobotoMono">deletedRecord</span> element of the <span class="primeColor
+  fontRobotoMono">Identify</span> response as <span class="primeColor
+  fontRobotoMono">persistent</span>. CORE recommends repositories to provide
   this persistent level of support.
 
 
@@ -58,6 +58,8 @@ block_4_column_1: >-
   <div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>
 
 
+
+
   **The RESTful call to resolve an OAI is available at:**
 
 
@@ -72,10 +74,10 @@ block_4_column_2: >-
   However, we recommend that repositories register for the [CORE Repository Dashboard](https://core.ac.uk/services/repository-dashboard) to check that their metadata records are harvested correctly in their entirety. This is an extremely low barrier to adoption with the resolver effectively working out-of-the-box. 
 
 
-  CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to the repository page (coming up). To route redirection directly to the repository, it is necessary to provide a mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly. 
+  CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to the repository page <span class="primeColor">(coming up)</span>. To route redirection directly to the repository, it is necessary to provide a mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly. 
 
 
-  Find out more in our Open Repositories 2022 article.
+  Find out more in our <span class="primeColor">Open Repositories 2022 article.</span>
 
 
   </div>
@@ -101,12 +103,8 @@ font-style: italic;
 }
 
 .fontRobotoMono{
-
 font-family: Roboto Mono;
-
 }
-
-\
 
 .oaiLinkBlock {
   position:relative;
