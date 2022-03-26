@@ -1,6 +1,7 @@
 ---
 title: OAI resolver
 description: OAI resolver
+headline: ""
 block_1_column_1: An **OAI (Open Archives Initiative) identifier** is a unique
   identifier of a metadata record. OAI identifiers are used in the context of
   repositories using the Open Archives Initiative Protocol for Metadata
@@ -8,7 +9,10 @@ block_1_column_1: An **OAI (Open Archives Initiative) identifier** is a unique
   ([OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html)),
   however, the process by which they are assigned can be, in principle, used
   more broadly elsewhere.
-block_1_column_2: "oai:oro.open.ac.uk : 73739"
+block_1_column_2: |-
+  Structure:
+
+  oai:oro.open.ac.uk : 73739
 block_2_column_1: >-
   In comparison to DOIs, OAI identifiers are registered in a distributed rather
   than centralised manner and there is therefore no cost for minting them. OAI
@@ -60,7 +64,7 @@ block_4_column_1: >-
 
 
 
-  **The RESTful call to resolve an OAI is available at:**
+  **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
 
 
   <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
@@ -82,56 +86,7 @@ block_4_column_2: >-
 
   </div>
 ---
-<style>
-.subTitle {
-  line-height: 24px;
-  font-size: 24px;
-  font-weight: 500; 
- margin-bottom: 49px;
-}
-
-.textNoSubTitle {
-margin-top: 73px;
-}
-
-.primeColor{
-  color: #B75400;
-}
-
-.italic {
-font-style: italic;
-}
-
-.fontRobotoMono{
-font-family: Roboto Mono;
-}
-
-.oaiLinkBlock {
-  position:relative;
-}
-.oaiLinkBlock {
-position: relative;
-margin-bottom: 15px; max-width:365px;
-}
-.oaiLink {
-color: #B75400;
-line-height: 36px;
-font-size: 16px;margin-left: 20px;
-height: 36px;
-}
-
-.oaiLink:before { content: ''; background: #B75400; width: 4px; height: 36px; position: absolute; 
-display: block; top: 0; left:3px;
-}
-
-.oaiLink:after{
-content: '';
-position: absolute; 
-display: block; 
-border: 1px solid #E0E0E0; width: 100%;
-}
-
-</style>
+<style> .subTitle {   line-height: 24px;   font-size: 24px;   font-weight: 500;   margin-bottom: 49px; }  .textNoSubTitle {   margin-top: 73px; }  .primeColor {   color: #B75400; }  .italic {   font-style: italic; }  .fontRobotoMono {   font-family: Roboto Mono; }  .oaiLinkBlock {   position: relative; }  .oaiLinkBlock {   position: relative;   margin-bottom: 15px;   max-width: 365px; }  .oaiLink {   color: #B75400;   line-height: 36px;   font-size: 16px;   margin-left: 20px;   height: 36px; }  .oaiLink:before {   content: '';   background: #B75400;   width: 4px;   height: 36px;   position: absolute;   display: block;   top: 0;   left: 3px; }  .oaiLink:after {   content: '';   position: absolute;   display: block;   border: 1px solid #E0E0E0;   width: 100%; } </style >
 
 ### What is an OAI identifier?
 
