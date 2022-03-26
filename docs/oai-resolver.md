@@ -12,7 +12,22 @@ block_1_column_1: An **OAI (Open Archives Initiative) identifier** is a unique
 block_1_column_2: |-
   Structure:
 
-  oai:oro.open.ac.uk : 73739
+  <div class="oaiInput">
+
+  <div class="oaiText">
+  <div class="oaiElem">oai:oro.open.ac.uk</div>
+  <div class="oaiElem">:</div>
+  <div class="oaiElem">73739</div>
+  </div>
+
+  </div>
+
+  <div class="bracket"></div>
+
+  <div class="helperBlock">
+  <div class="helperText">globally unique OAI Prefix</div>
+  <div class="helperText">locally unique identifier</div>
+  </div>
 block_2_column_1: >-
   In comparison to DOIs, OAI identifiers are registered in a distributed rather
   than centralised manner and there is therefore no cost for minting them. OAI
