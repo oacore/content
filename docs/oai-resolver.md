@@ -88,4 +88,4 @@ block_4_column_2: >-
 ---
 ### What is an OAI identifier?
 
-There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
+<div class={primeColor}>There is a need</div> for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
