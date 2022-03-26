@@ -88,4 +88,12 @@ block_4_column_2: >-
 ---
 ### What is an OAI identifier?
 
-<div class={primeColor}>There is a need</div> for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
+There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
+
+<div class={primeColor}>d1</div>
+
+<div className={primeColor}>d2</div>
+
+<div className="primeColor">d3</div>
+
+<div class="primeColor">d4</div>
