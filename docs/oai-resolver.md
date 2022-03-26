@@ -13,20 +13,18 @@ block_1_column_2: |-
   Structure:
 
   <div class="oaiInput">
-
   <div class="oaiText">
-  <div class="oaiElem">oai:oro.open.ac.uk</div>
-  <div class="oaiElem">:</div>
-  <div class="oaiElem">73739</div>
+  <span class="oaiElem">oai:oro.open.ac.uk</span>
+  <span class="oaiElem">:</span>
+  <span class="oaiElem">73739</span>
   </div>
-
   </div>
 
   <div class="bracket"></div>
 
   <div class="helperBlock">
-  <div class="helperText">globally unique OAI Prefix</div>
-  <div class="helperText">locally unique identifier</div>
+  <span class="helperText">globally unique OAI Prefix</span>
+  <span class="helperText">locally unique identifier</span>
   </div>
 block_2_column_1: >-
   In comparison to DOIs, OAI identifiers are registered in a distributed rather
