@@ -90,6 +90,9 @@ block_4_column_2: >-
 
 
 <img src="/images/logos/core-api.svg" alt="OAI resolver" />
-### What is an OAI identifier?
+
+<img src="/components/images/core-logo.png" alt="OAI resolver" />
+
+\### What is an OAI identifier?
 
 There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
