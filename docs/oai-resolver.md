@@ -86,8 +86,13 @@ block_4_column_2: >-
 
   </div>
 ---
-<style> .subTitle { line-height: 24px; font-size: 24px; font-weight: 500; margin-bottom: 49px; } .textNoSubTitle { margin-top: 73px; } .primeColor { color: #B75400; } .italic { font-style: italic; } .fontRobotoMono { font-family: Roboto Mono; } .oaiLinkBlock { position: relative; margin-bottom: 15px; max-width: 365px; } .oaiLink { color: #B75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #B75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after { content: ''; position: absolute; display: block; border: 1px solid #E0E0E0; width: 100%; } </style >
+<style>
+.subTitle { line-height: 24px; font-size: 24px; font-weight: 500; margin-bottom: 49px; } .textNoSubTitle { margin-top: 73px; } .primeColor { color: #B75400; } .italic { font-style: italic; } .fontRobotoMono { font-family: Roboto Mono; } .oaiLinkBlock { position: relative; margin-bottom: 15px; max-width: 365px; } .oaiLink { color: #B75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #B75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after { content: ''; position: absolute; display: block; border: 1px solid #E0E0E0; width: 100%; } 
+</style >
 
-### What is an OAI identifier?
+
+### 
+What is an OAI identifier?
+
 
 There is a need for globally unique decentralised persistent identifiers (PIDs) for identifying research outputs resolvable to repositories.
