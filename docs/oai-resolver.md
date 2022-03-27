@@ -20,7 +20,7 @@ block_1_column_2: |-
   </div>
   </div>
 
-  <div class="bracket">
+  <div class="bracketBlock">
 
     <div class="el firstPart">
       <div class="left"></div>
