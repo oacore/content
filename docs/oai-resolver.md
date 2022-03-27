@@ -20,7 +20,19 @@ block_1_column_2: |-
   </div>
   </div>
 
-  <div class="bracket"></div>
+  <div class="bracketBlock">
+
+    <div class="el firstPart">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+
+    <div class="el secondPart">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+
+  </div>
 
   <div class="helperBlock">
   <span class="helperText">globally unique OAI Prefix</span>
