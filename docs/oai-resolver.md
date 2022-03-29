@@ -80,9 +80,7 @@ block_4_column_1: >-
   **CORE provides a global resolver for OAI identifiers at**
 
 
-  [<div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>](https://core.ac.uk/oai_resolver)
-
-
+  <div class='oaiLinkBlock'><div class='oaiLink'><https://core.ac.uk/oai_resolver></div></div>
 
 
   **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
@@ -108,9 +106,13 @@ block_4_column_2: >-
   </div>
 ---
 <style>.pageTitle{ font-size: 24px; line-height: 24px; margin-bottom: 24px; }
-.subTitle { line-height: 24px; font-size: 24px; font-weight: 500; margin-bottom: 49px; } .textNoSubTitle { margin-top: 73px; } .primeColor { color: #B75400; } .italic { font-style: italic; } .fontRobotoMono { font-family: Roboto Mono; } .oaiLinkBlock { position: relative; margin-bottom: 15px; max-width: 365px; } .oaiLink { color: #B75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #B75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after { content: ''; position: absolute; display: block; border: 1px solid #E0E0E0; width: 100%; } .oaiInput { background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.12); box-sizing: border-box; border-radius: 2px; width: 520px; height: 48px; } .oaiText { color: #B75400; margin-left: 16px; } .oaiElem { margin: 0 5px; line-height: 48px; }.helperText { color: #9E9E9E; font-size: 14px; line-height: 12px; } .helperText:first-child { margin-left: 5px; } .helperText:last-child{ margin-left: 15px; }
+.subTitle { line-height: 24px; font-size: 24px; font-weight: 500; margin-bottom: 49px; } .textNoSubTitle { margin-top: 73px; } .primeColor { color: #B75400; } .italic { font-style: italic; } .fontRobotoMono { font-family: Roboto Mono; } .oaiLinkBlock { position: relative; margin-bottom: 15px; max-width: 365px; } .oaiLink:after { content: ''; position: absolute; display: block; border: 1px solid #E0E0E0; width: 100%; } .oaiInput { background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.12); box-sizing: border-box; border-radius: 2px; width: 520px; height: 48px; } .oaiText { color: #B75400; margin-left: 16px; } .oaiElem { margin: 0 5px; line-height: 48px; }.helperText { color: #9E9E9E; font-size: 14px; line-height: 12px; } .helperText:first-child { margin-left: 5px; } .helperText:last-child{ margin-left: 15px; }
 
 .firstPart { margin-left: 20px; } .secondPart { margin-left: 25px; } .el { display: inline-flex; } .firstPart > div { width: 57px; } .secondPart > div { width: 13px; } .el > div { height: 1px; background: #666666; margin: 10px 5px; position: relative; } .el > div:before, .el > div:after { content: ''; position: absolute; width: 5px; height: 5px; border-top-left-radius: 200px; border: 1px solid #666666; border-right: none; border-bottom: none; } .el > div:after { right: -5px; } .right:after { transform: rotate(-180deg); top: -4px; } .left:before { transform: rotate(-90deg); top: -4px; left: -5px; } .left:after { transform: rotate(90deg); } .right:before { left: -5px; }
+
+.oaiLink, .oaiLink a{ color: #b75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before, .oaiLink a:before { content: ''; background: #b75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after, .oaiLink a:after { content: ''; position: absolute; display: block; border: 1px solid #e0e0e0; width: 100%; }
+
+
 </style >
 
 <div className="pageTitle">What is an OAI identifier?</div>
