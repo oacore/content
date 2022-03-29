@@ -89,9 +89,7 @@ block_4_column_1: >-
   <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
 
 
-
-
-  <img src="https://oai.core.ac.uk/images/oai_resolve/explore.png" width="370px"/>
+  <div class="resolverImg"></div>
 block_4_column_2: >-
   <div class="textNoSubTitle">
 
@@ -117,7 +115,7 @@ block_4_column_2: >-
 
 .oaiLink{ color: #b75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #b75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after{ content: ''; position: absolute; display: block; border: 1px solid #e0e0e0; width: 100%; }
 
-
+.resolverImg { background: url(https://oai.core.ac.uk/images/oai_resolve/explore.png) no-repeat 50% 50%; height: 255px; width: 375px; background-size: 100%; }
 </style >
 
 <div className="pageTitle">What is an OAI identifier?</div>
