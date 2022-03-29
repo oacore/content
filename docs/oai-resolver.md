@@ -80,7 +80,7 @@ block_4_column_1: >-
   **CORE provides a global resolver for OAI identifiers at**
 
 
-  <div class='oaiLinkBlock'><div class='oaiLink'><https://core.ac.uk/oai_resolver></div></div>
+  <div class='oaiLinkBlock'><div class='oaiLink'><a href="https://core.ac.uk/oai_resolver" target="_blank">https://core.ac.uk/oai_resolver</a></div></div>
 
 
   **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
@@ -110,7 +110,7 @@ block_4_column_2: >-
 
 .firstPart { margin-left: 20px; } .secondPart { margin-left: 25px; } .el { display: inline-flex; } .firstPart > div { width: 57px; } .secondPart > div { width: 13px; } .el > div { height: 1px; background: #666666; margin: 10px 5px; position: relative; } .el > div:before, .el > div:after { content: ''; position: absolute; width: 5px; height: 5px; border-top-left-radius: 200px; border: 1px solid #666666; border-right: none; border-bottom: none; } .el > div:after { right: -5px; } .right:after { transform: rotate(-180deg); top: -4px; } .left:before { transform: rotate(-90deg); top: -4px; left: -5px; } .left:after { transform: rotate(90deg); } .right:before { left: -5px; }
 
-.oaiLink, .oaiLink a{ color: #b75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before, .oaiLink a:before { content: ''; background: #b75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after, .oaiLink a:after { content: ''; position: absolute; display: block; border: 1px solid #e0e0e0; width: 100%; }
+.oaiLink{ color: #b75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #b75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after{ content: ''; position: absolute; display: block; border: 1px solid #e0e0e0; width: 100%; }
 
 
 </style >
