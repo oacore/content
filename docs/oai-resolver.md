@@ -80,7 +80,13 @@ block_4_column_1: >-
   **CORE provides a global resolver for OAI identifiers at**
 
 
-  <div class='oaiLinkBlock'><div class='oaiLink'><https://core.ac.uk/oai_resolver></div></div>
+  <div class='oaiLinkBlock'><div class='oaiLink'>
+
+
+  <https://core.ac.uk/oai_resolver>
+
+
+  </div></div>
 
 
   **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
@@ -100,7 +106,7 @@ block_4_column_2: >-
   CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to the repository page <span class="primeColor">(coming up)</span>. To route redirection directly to the repository, it is necessary to provide a mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly. 
 
 
-  Find out more in our <span class="primeColor">Open Repositories 2022 article.</span>
+  Find out more in our [Open Repositories 2022 article](https://core.ac.uk/resources/oai-identifiers-and-resolver-2022.pdf).
 
 
   </div>
