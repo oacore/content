@@ -64,7 +64,7 @@ block_3_column_1: >-
   OAI Identifiers are viable PIDs for repositories that can be, as opposed to DOIs, minted in a **distributed fashion** and cost-free, and which can be **resolvable directly to the repository** rather than to the publisher.
 
 
-  This approach has the potential to increase the importance of repositories in the process of disseminating knowledge. CORE proivides a global **OAI Resolver** built on top of the CORE research outputs aggregation system.
+  This approach has the potential to increase the importance of repositories in the process of disseminating knowledge. CORE provides a global **[OAI Resolver](https://oai.core.ac.uk/)** built on top of the CORE research outputs aggregation system.
 block_3_column_2: >-
   <div class="textNoSubTitle">
 
@@ -80,9 +80,7 @@ block_4_column_1: >-
   **CORE provides a global resolver for OAI identifiers at**
 
 
-  <div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>
-
-
+  <div class='oaiLinkBlock'><div class='oaiLink'><https://core.ac.uk/oai_resolver></div></div>
 
 
   **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
