@@ -87,6 +87,11 @@ block_4_column_1: >-
 
 
   <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
+
+
+
+
+  <img src="https://oai.core.ac.uk/images/oai_resolve/explore.png" width="370px"/>
 block_4_column_2: >-
   <div class="textNoSubTitle">
 
