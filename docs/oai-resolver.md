@@ -80,8 +80,7 @@ block_4_column_1: >-
   **CORE provides a global resolver for OAI identifiers at**
 
 
-
-  [<div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>](https://core.ac.uk/oai_resolver)
+  <div class='oaiLinkBlock'><div class='oaiLink'>https://core.ac.uk/oai_resolver</div></div>
 
 
   **The**  <span class="fontRobotoMono">RESTful</span> **call to resolve an OAI is available at:**
