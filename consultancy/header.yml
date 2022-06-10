@@ -1,0 +1,14 @@
+title: Consulting services
+description: >
+  CORE is a team of consultants specialising in harvesting and sharing the
+  values of open research data with a focus on scholarly communication, and
+  research information management, policy and infrastructure.
+icon: /images/consultancy/consultancy.svg
+image: /images/consultancy/partnership.svg
+actions:
+  - variant: contained
+    caption: Apply now
+    url: "#form"
+  - variant: outilned
+    caption: Download our flyer
+    url: "#"
