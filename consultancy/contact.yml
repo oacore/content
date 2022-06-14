@@ -1,6 +1,6 @@
 title: Contact us
 caption: Get in touch with us and find out how we can help your next project
-image: https://github.com/oacore/content/blob/main/images/consultancy/contact-us.svg
+image: /images/consultancy/contact-us.svg
 action:
   caption: get in touch
   url: /about#contact
