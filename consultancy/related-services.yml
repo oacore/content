@@ -1,0 +1,14 @@
+title: You might be also interested in
+related-services:
+  - title: CORE Dataset
+    url: dataset
+    picture: https://github.com/oacore/content/blob/main/images/consultancy/dataset.svg
+  - title: CORE FastSync
+    url: fastsync
+    picture: https://github.com/oacore/content/blob/main/images/consultancy/fastsync.svg
+  - title: CORE Recommender
+    url: recommender
+    picture: https://github.com/oacore/content/blob/main/images/consultancy/recommender.svg
+  - picture: https://github.com/oacore/content/blob/main/images/consultancy/discovery.svg
+    url: discovery
+    title: CORE Discovery
