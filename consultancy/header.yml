@@ -3,8 +3,8 @@ description: >
   CORE is a team of consultants specialising in harvesting and sharing the
   values of open research data with a focus on scholarly communication, and
   research information management, policy and infrastructure.
-icon: https://github.com/oacore/content/blob/main/images/consultancy/consultancy.svg
-image: https://github.com/oacore/content/blob/main/images/consultancy/partnership.svg
+icon: /images/consultancy/consultancy.svg
+image: /images/consultancy/partnership.svg
 actions:
   - variant: contained
     caption: Apply now
