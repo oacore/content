@@ -9,6 +9,6 @@ actions:
   - variant: contained
     caption: Apply now
     url: "#form"
-  - variant: outilned
+  - variant: outlined
     caption: Download our flyer
     url: "#"
