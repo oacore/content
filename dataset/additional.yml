@@ -32,7 +32,7 @@ items:
         Footer: "md5: 9215a3f6a91b54bc276b50605fae2ccf"
         License: "**License**: All rights reserved. See our [Terms &
           Conditions](https://core.ac.uk/terms)."
-        note: "**Note**: Please read the section [Structure of datasets](#structure2020)
+        note: "**Note**: Please read the section [Structure of datasets](#dataset2020)
           below for more information."
         action:
           caption: Register for Access
