@@ -1,0 +1,26 @@
+title: CORE Dataset documentation
+image: /images/dataset/header.svg
+links:
+  title: "Content:"
+  items:
+    - label: "How to download the Dataset "
+      link: instruction
+    - label: Latest datasets
+      link: latest
+    - label: Other datasets
+      link: other
+    - label: Archived datasets
+      link: archived
+    - label: Structure of dataset 2020
+      link: dataset2020
+    - label: Structure of dataset 2018 onwards
+      link: dataset2018
+    - label: Structure of datasets 2017
+      link: dataset2017
+    - label: Structure of dataset pre - 2017
+      link: dataset2017pre
+caption: >-
+  It’s more than 300GB so we recommend you to use appropriate tools for
+  downloading it and make the recovery easy.
+
+  For example there is a dedicated tool to keep the file downloading efficiently, in the past I used aria2 <https://aria2.github.io/>.
