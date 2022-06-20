@@ -19,3 +19,21 @@ items:
         action:
           caption: Register for Access
           url: https://core.ac.uk/services/dataset#what-is-included
+  - title: "Archived datasets:"
+    id: archived
+    boxes:
+      - title: Dataset 2020-03-18
+        caption: Full dataset (Full text & metadata)
+        dataSize:
+          - count: 400 GB
+            dataType: compressed
+          - count: 2.1 TB
+            dataType: extracted
+        Footer: "md5: 9215a3f6a91b54bc276b50605fae2ccf"
+        License: "**License**: All rights reserved. See our [Terms &
+          Conditions](https://core.ac.uk/terms)."
+        note: "**Note**: Please read the section [Structure of datasets](#structure2020)
+          below for more information."
+        action:
+          caption: Register for Access
+          url: https://core.ac.uk/services/dataset#what-is-included
