@@ -5,12 +5,16 @@ recommended: >-2
 
   * **wget** -c (url of the data dump ending in .tar.gz)
 
-  * **curl** -L -O -C - (url of the data dump ending in .tar.gz)\
-    \
-    For bigger datasets, you might want to consider using dedicated tools such as aria2 https://aria2.github.io/.\
-    \
-    For the **CURL** request, notice the hyphen *after* the –C and *before* the .\
-    If the download is halted, you can resume downloading by re-running the same command.
+  * **curl** -L -O -C - (url of the data dump ending in .tar.gz)
+
+
+  For bigger datasets, you might want to consider using dedicated tools such as aria2 <https://aria2.github.io/>.
+
+
+  For the **CURL** request, notice the hyphen *after* the –C and *before* the .
+
+
+  If the download is halted, you can resume downloading by re-running the same command.
 reminder:
   title: "Reminder:"
   description: CORE’s data is changing all the time and the Dataset download is
