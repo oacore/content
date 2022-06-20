@@ -1,0 +1,19 @@
+title: "How to download the Dataset "
+id: instruction
+recommended: >-2
+   We recommend that you download the files using **CURL** or **WGET**
+
+  * **wget** -c (url of the data dump ending in .tar.gz)
+
+  * **curl** -L -O -C - (url of the data dump ending in .tar.gz)\
+    \
+    For bigger datasets, you might want to consider using dedicated tools such as aria2 https://aria2.github.io/.\
+    \
+    For the **CURL** request, notice the hyphen *after* the –C and *before* the .\
+    If the download is halted, you can resume downloading by re-running the same command.
+reminder:
+  title: "Reminder:"
+  description: CORE’s data is changing all the time and the Dataset download is
+    only complete at the moment of generation. This means that this Dataset
+    download is a snap-shot in time from the date it was created, and may not
+    contain the most recent data.
