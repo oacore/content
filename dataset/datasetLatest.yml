@@ -13,13 +13,13 @@ box:
       caption: Register for access
       url: https://core.ac.uk/services/dataset#what-is-included
   text: >-
-    Contains full text and metadata dataset.\
+    Contains full text and metadata dataset.
 
-    \
 
     `md5: 9215a3f6a91b54bc276b50605fae2ccf`
 
 
-    License: All rights reserved. See our [Terms & Conditions](https://core.ac.uk/terms).\
+    License: All rights reserved. See our [Terms & Conditions](https://core.ac.uk/terms).
 
-    **Note**: Please read the section ["Structure of datasets"](#dataset2020) below for more information.
+
+    **Note**: Please read the section "[Structure of datasets](#dataset2020)" below for more information.
