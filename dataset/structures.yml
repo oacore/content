@@ -11,12 +11,13 @@ items:
       Note that this is an extremely large file (&Tilde;395GB) and appropriate tools are necessary for downloading it. Once extracted it will use about 2.1TB of filesystem.
 
 
-      1. Perform the extraction by running:
+      Perform the extraction by running:
 
          ```sh
          tar -xf resync_dump.tar.xz -C /target/directory
          ```
-      2. The previous steps will extract the big archive in multiple smaller files.
+
+      The previous steps will extract the big archive in multiple smaller files.
          Each archive contains all the resources for a specific CORE data provider
          the full list which you can find at our [data providers](/data-providers)
          page.
