@@ -1,0 +1,21 @@
+items:
+  - title: Other datasets
+    id: other
+    boxes:
+      - title: CORE-MAG mapping 2019-04-01
+        caption: CORE Dataset to Microsoft Academic Graph mapping
+        dataSizes:
+          - count: 173 MB
+            dataType: in total
+          - count: 80 MB
+            dataType: compressed
+          - count: 8.9M
+            dataType: matches
+        footer: "'md5: 9215a3f6a91b54bc276b50605fae2ccf'"
+        license: "**License**: [Open Data Commons Attribution
+          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
+        note: "**Note**: Please read the section [Structure of datasets](#dataset2020)
+          below for more information."
+        action:
+          caption: Register for Access
+          url: https://core.ac.uk/services/dataset#what-is-included
