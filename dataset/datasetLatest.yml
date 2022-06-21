@@ -2,7 +2,7 @@ title: "Latest datasets:"
 id: latest
 box:
   title: Dataset 2021
-  icon: /images/dataset/cloug.svg
+  icon: /images/dataset/cloud.svg
   dataSize:
     - count: 393 GB
       dataType: compressed
