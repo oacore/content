@@ -175,3 +175,58 @@ items:
       | issn                      | The issn of the journal where the article was published on. This information is extracted from the [Crossref](https://crossref.org) data.                                                                                                                                                                                  |
 
       | fullText                  | The text extracted from the hosted full text.                                                                                                                                                                                                                                                                              |
+  - title: Structure of dataset 2018
+    id: dataset2018
+    text: >-
+      The downloadable tar file contains XZ compressed files of Article
+      Metadata. The XZ compressed file is a file named \[repositoryID].json.xz.
+      Once decompressed, each line in the text file contains the metadata for 1
+      article in JSON.
+
+
+      We chose the xz format due to a better compression ratio vs bzip2 or gzip. The downside is the tools are not always installed by default.\
+
+      Most Linux distributions have xz available for installation in the default package manager. Mac users can install xz via Brew or MacPorts and there are many other free alternatives. Windows users can use 7-zip. If you have any trouble extracting the files, please contact us.
+
+
+      Please note that each JSON file is *not* valid JSON however, each line is. Each line is delimited using a Windows formatted newline (\r\n).
+
+
+      The dump structure has changed to following format:
+
+
+      ```json
+
+      {
+        "doi": str|None,
+        "coreId": str|None,
+        "oai": str|None
+        "identifiers": [str],
+        "title": str|None,
+        "authors": [str],
+        "enrichments": {
+          "references": [str],
+          "documentType": {
+             "type": str|None,
+             "confidence": str|None
+          }
+        },
+        "contributors": [str],
+        "datePublished": str|None,
+        "abstract": str|None,
+        "downloadUrl": str|None,
+        "fullTextIdentifier": str|None,
+        "pdfHashValue": str|None,
+        "publisher": str|None,
+        "rawRecordXml": str|None
+        "journals":[str],
+        "language": str|None,
+        "relations": [str],
+        "year": int|None,
+        "topics": [str],
+        "subjects": [str],
+        "fullText": str|None
+      }
+
+      ```
+    fields: '""'
