@@ -79,3 +79,16 @@ items:
         action:
           caption: Register for Access
           url: https://core.ac.uk/services/dataset#what-is-included
+      - title: Dataset 2017-11-01
+        caption: Full text dataset
+        footer: "md5: bbb9e83f80ceeaf44baf167b7928fe47 "
+        dataSizes:
+          - count: 157.38 GB
+            dataType: in total
+        action:
+          url: https://core.ac.uk/services/dataset#what-is-included
+          caption: Register for Access
+        note: "**Note**: Please read the section [Structure of datasets](#dataset2017)
+          below for more information."
+        license: "**License**: [Open Data Commons Attribution
+          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
