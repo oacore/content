@@ -19,6 +19,22 @@ items:
         action:
           caption: Register for Access
           url: https://core.ac.uk/services/dataset#what-is-included
+      - title: Deduplication Dataset 2020
+        caption: Сreated for Deduplication of Scholarly Documents using Locality
+          Sensitive Hashing and Word Embeddings (LREC 2020)
+        dataSizes:
+          - count: 204 MB
+            dataType: in total
+          - count: 62 MB
+            dataType: compressed
+        footer: "md5: 9215a3f6a91b54bc276b50605fae2ccf"
+        license: "**License**: [Open Data Commons Attribution
+          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
+        note: "**Note**: Please read the section [Structure of datasets](#dataset2020)
+          below for more information."
+        action:
+          caption: Register for Access
+          url: https://core.ac.uk/services/dataset#what-is-included
   - title: "Archived datasets:"
     id: archived
     boxes:
