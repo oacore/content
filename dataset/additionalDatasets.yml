@@ -53,3 +53,16 @@ items:
         action:
           caption: Register for Access
           url: https://core.ac.uk/services/dataset#what-is-included
+      - title: Dataset 2018-03-01
+        caption: Full text only
+        dataSizes:
+          - count: 330 GB
+            dataType: in total
+        footer: "md5: 9215a3f6a91b54bc276b50605fae2ccf"
+        license: "**License**: [Open Data Commons Attribution
+          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
+        note: "**Note**: Please read the section [Structure of datasets](#dataset2018)
+          below for more information."
+        action:
+          url: https://core.ac.uk/services/dataset#what-is-included
+          caption: Register for Access
