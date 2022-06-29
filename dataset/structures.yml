@@ -11,37 +11,54 @@ items:
       Note that this is an extremely large file (&Tilde;395GB) and appropriate tools are necessary for downloading it. Once extracted it will use about 2.1TB of filesystem.
 
 
-      1. Perform the extraction by running:
+      Perform the extraction by running:
 
-         ```sh
-         tar -xf resync_dump.tar.xz -C /target/directory
-         ```
-      2. The previous steps will extract the big archive in multiple smaller files.
-         Each archive contains all the resources for a specific CORE data provider
-         the full list which you can find at our [data providers](/data-providers)
-         page.
 
-         The following command extracts every single archive in the
-         appropriate folder.
+      ```sh
 
-         ```sh
-         #!/bin/bash
+      tar -xf resync_dump.tar.xz -C /target/directory
 
-         for FILE in `ls -1 tmp/*.tar.xz`;
-         do
-                 PROVIDER="${FILE%.*.*}"
-                 echo $PROVIDER
-                 echo $FILE
-                 mkdir -p output/$PROVIDER
-         	tar xf $FILE -C output/$PROVIDER/
-         done
-         ```
+      ```
 
-         Replace *PROVIDER* with the ID of every single archive.
+
+      The previous steps will extract the big archive in multiple smaller files.
+
+      Each archive contains all the resources for a specific CORE data provider
+
+      the full list which you can find at our [data providers](/data-providers)
+
+      page.
+
+
+      The following command extracts every single archive in the
+
+      appropriate folder.
+
+
+      ```sh
+
+      #!/bin/bash
+
+
+      for FILE in `ls -1 tmp/*.tar.xz`;
+
+      do
+              PROVIDER="${FILE%.*.*}"
+              echo $PROVIDER
+              echo $FILE
+              mkdir -p output/$PROVIDER
+      	tar xf $FILE -C output/$PROVIDER/
+      done
+
+      ```
+
+
+      Replace **PROVIDER** with the **ID** of every single archive.
+
 
       The extracted folder generated in step 4, is a two-level deep
 
-      file structure and includes a Manifest named manifest.xml file
+      file structure and includes a Manifest named **manifest.xml** file
 
       in the root, which lists the resources. Below is the format of
 
@@ -63,16 +80,13 @@ items:
       ```
 
 
-      The url inside the `<loc></loc>` tags is the ID of the file that can be used
+      The **url** inside the `<loc></loc>` tags is the **ID** of the file that can be used
 
       for tracking future updates on the resource. The path attribute is where the
 
       file can be found in the folder structure, and in order to validate the file,
 
       a md5 checksum and the file size are also provided.
-
-
-      #### Data structure
 
 
       This is a sample data structure from the Dataset
