@@ -229,4 +229,4 @@ items:
       }
 
       ```
-    fields: '""'
+    fields: <span>{" "}</span>
