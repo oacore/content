@@ -92,3 +92,16 @@ items:
           below for more information."
         license: "**License**: [Open Data Commons Attribution
           (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
+      - title: Dataset 2017-11-01
+        caption: Metadata only dataset
+        dataSizes:
+          - count: 22.65 GB
+            dataType: in total
+        license: "**License**: [Open Data Commons Attribution
+          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
+        footer: "md5: f70fa05dbb484bf85444e8bc2d5c4319"
+        note: "**Note**: Please read the section [Structure of datasets](#dataset2017)
+          below for more information."
+        action:
+          caption: Register for Access
+          url: https://core.ac.uk/services/dataset#what-is-included
