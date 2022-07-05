@@ -1,7 +1,7 @@
 title: "Latest datasets:"
 id: latest
 box:
-  title: Dataset 2021
+  title: Dataset 2022
   icon: /images/dataset/cloud.svg
   dataSize:
     - count: 393 GB
