@@ -3,7 +3,7 @@ first-name: Samuel
 last-name: Pearce
 role: Developer and Infrastructure Specialist
 photo: /images/team/samuel-pearce.jpg
-past: false
+past: true
 order: 0
 ---
 Main responsible for CORE's impressive high availability infrastructure.
