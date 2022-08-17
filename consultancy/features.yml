@@ -1,12 +1,13 @@
 features:
   - title: Qualitative Research
-    description: Analysis and synthesis of data to support evidence, clear
-      visualisation and interpretation.
+    description: "Analysis of large amounts of data using state-of-the-art methods:
+      natural language processing, AI / deep learning. "
   - title: Mixed-Methods Research
     description: Combining qualitative and quantitative research to deliver insight
       and clear recommendations.
-  - title: Bespoke Consultancy
-    description: Bringing consultancy capacity and expertise to address their
-      dimensions and capability gaps.
-  - title: Reviews
-    description: Reviews of research papers, metadata and full texts.
+  - title: Knowledge Exchange
+    description: "Sharing ideas, experiences and skills to maximise the impact of
+      your organisation. "
+  - title: Literature Reviews
+    description: Desk research, literature reviews and structured reviews (e.g.
+      rapid evidence assessments).
