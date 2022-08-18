@@ -15,3 +15,12 @@ testimonials:
       We want to make open access articles more easily accessible and more
       useful to researchers and the open public and we see the CORE API as a way
       to speed that up.”
+  - content: “The CORE team understand data mining. As an independent company, we
+      had no obvious access to big, diverse scholarly data – a killer in our
+      drive to develop classification algorithms. The CORE repository, available
+      in bulk, was a breakthrough. Now our algorithms outperform even those from
+      huge publishers.”
+    author:
+      name: William Cullerne Bown
+      role: CEO ResearchResearch.com
+      picture: /images/consultancy/bown.jpeg
