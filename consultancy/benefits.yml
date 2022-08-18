@@ -1,26 +1,23 @@
 title: What we provide?
 benefits:
-  - description: Review and evaluation of strategy, policy and operations at
-      project, organisation, national and international levels.
-    title: Review & Evaluation
+  - description: "Develop new or provide improvements to existing models to help
+      your organisation. "
+    title: Machine Learning Models
     icon: /images/consultancy/automation.svg
-  - title: Market Insights & Business Cases
-    description: Developing business cases, value proposition design and
-      propositions for new or strategic developments.
+  - title: Data-driven Business Insights
+    description: "Identifying strengths, opportunities, challenges and threats. "
     icon: /images/consultancy/automation.svg
-  - title: Strategy & Policy
-    description: Strategy and policy development at organisational, national and
-      international levels.
+  - title: Research Management & Benchmarking
+    description: Comparative analysis of research strengths to enable benchmarking
+      with peers, reviews of research management, operations and systems.
     icon: /images/consultancy/automation.svg
-  - title: Training & Capacity Building
-    description: Augmenting the capacity and capability of clients’ in house teams;
-      delivering training on key topics.
+  - title: Analytical Reports
+    description: "Analysing and interpreting data for you and with you. "
     icon: /images/consultancy/automation.svg
-  - title: Management & Benchmarking
-    description: Comparative analysis to enable benchmarking with peers, reviews of
-      research management, operations and systems.
+  - title: Bespoke Datasets
+    description: "Creating bespoke datasets tailored to your needs. "
     icon: /images/consultancy/automation.svg
-  - title: Impact
-    description: Enabling and assessing impact from research, innovation and
-      scholarly communication.
+  - title: Impact Reports
+    description: "Enabling and assessing impact from research, innovation and
+      scholarly communication. "
     icon: /images/consultancy/automation.svg
