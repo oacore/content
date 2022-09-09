@@ -65,14 +65,15 @@ block_3_column_1: >-
 
 
   This approach has the potential to increase the importance of repositories in the process of disseminating knowledge. CORE provides a global **[OAI Resolver](https://oai.core.ac.uk/)** built on top of the CORE research outputs aggregation system.
-block_3_column_2: >-
-  <div class="textNoSubTitle">
-
-
-  OAI identifiers do not replace DOIs, but complement them. According to the DOI handbook <span class="primeColor italic">“Uniqueness (specification by a DOI name of one and only one referent) is enforced by the DOI system. It is desirable that two DOI names should not be assigned to the same thing.”</span> A DOI typically identifies the canonical final version of record (VoR) of a paper. An OAI Identifier a metadata record in a repository. As there often exist multiple copies of a paper across repositories, it is, in fact, desirable that these records identified using an OAI Identifier are linked to a single DOI. 
-
-
-  </div>
+block_3_column_2: <div class="textNoSubTitle">OAI identifiers do not replace
+  DOIs, but complement them. According to the DOI handbook <span
+  class="primeColor italic">“Uniqueness (specification by a DOI name of one and
+  only one referent) is enforced by the DOI system. It is desirable that two DOI
+  names should not be assigned to the same thing.”</span> A DOI typically
+  identifies the canonical final version of record (VoR) of a paper. An OAI
+  Identifier a metadata record in a repository. As there often exist multiple
+  copies of a paper across repositories, it is, in fact, desirable that these
+  records identified using an OAI Identifier are linked to a single DOI.</div>
 block_4_column_1: >-
   <div class="subTitle">OAI Resolver</div>
 
