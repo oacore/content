@@ -36,7 +36,7 @@ block_2_column_1: In comparison to DOIs, OAI identifiers are registered in a
   class='primeColor fontRobotoMono'>Identify</span> response as <span
   class='primeColor fontRobotoMono'>persistent</span>. CORE recommends
   repositories to provide this persistent level of support.<br/><br/>There is no
-  strict format for the identifier apart from it having to be a URI, but a Cgood
+  strict format for the identifier apart from it having to be a URI, but a good
   practice is for it to consist of a globally unique prefix identifying the
   repository and a suffix that is locally unique to a given metadata record in
   the repository.
