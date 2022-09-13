@@ -18,19 +18,13 @@ block_1_column_2: |-
   <span class="oaiElem">:</span>
   <span class="oaiElem">73739</span>
   </div>
-  </div>
-
-    <div class="el firstPart">
+  </div><div class="el firstPart">
       <div class="left"></div>
       <div class="right"></div>
-    </div>
-
-    <div class="el secondPart">
+    </div><div class="el secondPart">
       <div class="left"></div>
       <div class="right"></div>
-    </div>
-
-  <div class="helperBlock">
+    </div><div class="helperBlock">
   <span class="helperText">globally unique OAI Prefix</span>
   <span class="helperText">locally unique identifier</span>
   </div>
