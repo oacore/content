@@ -28,18 +28,18 @@ block_1_column_2: |-
   <span class="helperText">globally unique OAI Prefix</span>
   <span class="helperText">locally unique identifier</span>
   </div>
-block_2_column_1: >-
-  In comparison to DOIs, OAI identifiers are registered in a distributed rather
-  than centralised manner and there is therefore no cost for minting them. OAI
-  identifiers are **persistent** identifiers in repositories that declare their
-  level of support for deleted documents in the <span className="primeColor
-  fontRobotoMono">deletedRecord</span> element of the <span class="primeColor
-  fontRobotoMono">Identify</span> response as <span class="primeColor
-  fontRobotoMono">persistent</span>. CORE recommends repositories to provide
-  this persistent level of support.
-
-
-  There is no strict format for the identifier apart from it having to be a URI, but a Cgood practice is for it to consist of a globally unique prefix identifying the repository and a suffix that is locally unique to a given metadata record in the repository.
+block_2_column_1: In comparison to DOIs, OAI identifiers are registered in a
+  distributed rather than centralised manner and there is therefore no cost for
+  minting them. OAI identifiers are **persistent** identifiers in repositories
+  that declare their level of support for deleted documents in the <span
+  className="primeColor fontRobotoMono">deletedRecord</span> element of the
+  <span class="primeColor fontRobotoMono">Identify</span> response as <span
+  class="primeColor fontRobotoMono">persistent</span>. CORE recommends
+  repositories to provide this persistent level of support.<br/><br/>There is no
+  strict format for the identifier apart from it having to be a URI, but a Cgood
+  practice is for it to consist of a globally unique prefix identifying the
+  repository and a suffix that is locally unique to a given metadata record in
+  the repository.
 block_2_column_2: >-
   **The following are examples of OAIs available in CORE**
 
@@ -108,7 +108,7 @@ block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
 <style>.pageTitle{ font-size: 24px; line-height: 24px; margin-bottom: 24px; }
 .subTitle { line-height: 24px; font-size: 24px; font-weight: 500; margin-bottom: 49px; } .textNoSubTitle { margin-top: 73px; } .primeColor { color: #B75400; } .italic { font-style: italic; } .fontRobotoMono { font-family: Roboto Mono; } .oaiLinkBlock { position: relative; margin-bottom: 15px; max-width: 365px; } .oaiLink:after { content: ''; position: absolute; display: block; border: 1px solid #E0E0E0; width: 100%; } .oaiInput { background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.12); box-sizing: border-box; border-radius: 2px; width: 520px; height: 48px; } .oaiText { color: #B75400; margin-left: 16px; } .oaiElem { margin: 0 5px; line-height: 48px; }.helperText { color: #9E9E9E; font-size: 14px; line-height: 12px; } .helperText:first-child { margin-left: 5px; } .helperText:last-child{ margin-left: 15px; }
 
-.firstPart { margin-left: 20px; } .secondPart { margin-left: 25px; } .el { display: inline-flex; } .firstPart > div { width: 57px; } .secondPart > div { width: 13px; } .el > div { height: 1px; background: #666666; margin: 10px 5px; position: relative; } .el > div:before, .el > div:after { content: ''; position: absolute; width: 5px; height: 5px; border-top-left-radius: 200px; border: 1px solid #666666; border-right: none; border-bottom: none; } .el > div:after { right: -5px; } .right:after { transform: rotate(-180deg); top: -4px; } .left:before { transform: rotate(-90deg); top: -4px; left: -5px; } .left:after { transform: rotate(90deg); } .right:before { left: -5px; }
+.firstPart { margin-left: 20px; } .secondPart { margin-left: 29px; } .el { display: inline-flex; } .firstPart > div { width: 57px; } .secondPart > div { width: 13px; } .el > div { height: 1px; background: #666666; margin: 10px 5px; position: relative; } .el > div:before, .el > div:after { content: ''; position: absolute; width: 5px; height: 5px; border-top-left-radius: 200px; border: 1px solid #666666; border-right: none; border-bottom: none; } .el > div:after { right: -5px; } .right:after { transform: rotate(-180deg); top: -4px; } .left:before { transform: rotate(-90deg); top: -4px; left: -5px; } .left:after { transform: rotate(90deg); } .right:before { left: -5px; }
 
 .oaiLink{ color: #b75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #b75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after{ content: ''; position: absolute; display: block; border: 1px solid #e0e0e0; width: 100%; }
 
