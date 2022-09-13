@@ -32,9 +32,9 @@ block_2_column_1: In comparison to DOIs, OAI identifiers are registered in a
   distributed rather than centralised manner and there is therefore no cost for
   minting them. OAI identifiers are **persistent** identifiers in repositories
   that declare their level of support for deleted documents in the <span
-  className="primeColor fontRobotoMono">deletedRecord</span> element of the
-  <span class="primeColor fontRobotoMono">Identify</span> response as <span
-  class="primeColor fontRobotoMono">persistent</span>. CORE recommends
+  className='primeColor fontRobotoMono'>deletedRecord</span> element of the
+  <span class='primeColor fontRobotoMono'>Identify</span> response as <span
+  class='primeColor fontRobotoMono'>persistent</span>. CORE recommends
   repositories to provide this persistent level of support.<br/><br/>There is no
   strict format for the identifier apart from it having to be a URI, but a Cgood
   practice is for it to consist of a globally unique prefix identifying the
