@@ -10,7 +10,7 @@ image: /images/consultancy/partnership.svg
 actions:
   - variant: contained
     caption: Apply now
-    url: "#form"
+    url: https://core.ac.uk/about#contact
   - variant: text
     caption: Download our flyer
-    url: "#"
+    url: https://core.ac.uk/resources/flyer_CORE_Consulting_services.pdf
