@@ -2,7 +2,7 @@
 first-name: Halyna
 last-name: Torchylo
 role: Personal & Team Administrative Assistant
-photo: /images/team/halyna-torchylo-.jpg
+photo: /images/team/halyna-torchylo-1.png
 past: false
 order: 0
 ---
