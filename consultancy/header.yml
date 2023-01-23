@@ -14,3 +14,4 @@ actions:
   - variant: text
     caption: Download our flyer
     url: https://core.ac.uk/resources/flyer_CORE_Consulting_services.pdf
+    target: _blank
