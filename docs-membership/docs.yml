@@ -3,9 +3,12 @@ items:
     id: dashboard
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       The Dashboard is the central hub from which you can access all membership benefits.  
       In the Dashboard you can:
@@ -20,9 +23,12 @@ items:
     id: discovery
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       CORE Discovery helps users to discover freely accessible copies of research papers. It is available as a  plugin. This plugin enriches a metadata record in your repository with a full text link of the described article, whenever an open access version of the document is available anywhere across the open research network. 
       You can install the CORE Discovery plugin directly from the Dashboard by clicking on the Plugins tab on the sidebar.
@@ -31,18 +37,24 @@ items:
     id: search
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       Your data will be indexed and become searchable in the CORE Search engine, allowing millions of users to discover and find your papers. 
   - title: "CORE Recommender"
     id: recommender
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       The Recommender plugin helps your users to find related content within your own repository and from across the global open repositories network. 
       You can install the Recommender directly from the Dashboard by clicking on the Plugins sidebar.
@@ -51,18 +63,24 @@ items:
     id: download-statistics
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       If you install the IRUS (Institutional Repository Usage Statistics) tracker in your repository or journal system, you will be able to access your download statistics from within the Dashboard. This includes the downloads statistics for your papers in CORE as well as those directly realised in our system. After installing the IRUS tracker, a graph with statistical information on downloads will appear in the Overview tab on the Dashboard.
   - title: "Repository Discovery Boost"
     id: repository-discovery-boost
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       Increases the discoverability of your content via:
       PMC LinkOut - open access full texts from your repository promoted to PubMed Central via their  LinkOut service. 
@@ -72,9 +90,12 @@ items:
     id: OAI-identifiers
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       An OAI (Open Archives Initiative) identifier is a unique identifier of a metadata record. OAI identifiers are used in the context of repositories using the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH). 
       CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to your repository page. To route directly to the repository, it is necessary to provide mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly.
@@ -83,9 +104,12 @@ items:
     id: logos-papers
     image:
     membership:
-      - starting: 0
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       By uploading your logo to your Dashboard account, you can associate your research papers in CORE with your official organisational logo. Your logo will from then become visible to millions of CORE users and will be displayed in a range of places across the CORE ecosystem including:
       - CORE Search 
@@ -98,9 +122,12 @@ items:
     id: logo-banner
     image: /images/logos/core-api.svg
     membership:
-      - starting: 0
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       We display banners acknowledging the generous support of our Supporting and Sustaining members in multiple places in the CORE ecosystem including:
       CORE Search: Logos of our Supporting and Sustaining members are rotated to give all members exposure. 
@@ -111,9 +138,12 @@ items:
     id: personalised-banner
     image: /images/logos/core-api.svg
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       You can promote your research conferences, events, academic jobs and other mission-aligned communications on the CORE website. To do so, send us your proposed personalised banner. The banner should have the following size: XXXXX and be in XXX format.
       Example of a personalised banner:
@@ -121,9 +151,12 @@ items:
     id: general-support
     image:
     membership:
-      - starting: 1
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       Our enthusiastic open access team is ready to answer general queries about CORE. To contact support click on the link below.  
       Contact support
@@ -131,9 +164,12 @@ items:
     id: technical-support
     image:
     membership:
-      - starting: 0
-      - supporting: 1
-      - sustaining: 0
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 0
     description: >-
       Our team has extensive experience in working with repositories and open scholarly infrastructures. We are here to assist our members with technical issues relating to issues, such as:
       indexing and discoverability of your articles 
@@ -146,18 +182,24 @@ items:
     id: unlimited-support
     image:
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       Sustaining members receive unlimited and prioritised Technical support via a dedicated email address.
   - title: "Board of Supporters"
     id: board-supporters
     image:
     membership:
-      - starting: 0
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       CORE Supporting and Sustaining Members are invited to join our Board of Supporters. The Board meets annually to identify opportunities, collect feedback and help prioritise the development of the service.
       You can help shape our development roadmap by having a formal say on our Board of Supporters (1 vote for Supporting, 2 votes for Sustaining member). 
@@ -166,9 +208,12 @@ items:
     id: АPI-organisation
     image:
     membership:
-      - starting: 0
-      - supporting: 1
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     description: >-
       The CORE API allows members of your organisation to develop applications, products or services and to conduct research using our vast corpus of searchable research papers. The API provides: 
       Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts.
@@ -180,9 +225,12 @@ items:
     id: dataset-university
     image:
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       The Dataset allows members of your organisation to download our vast corpus of open research papers and use it for research and research analytics. 
       Many of our Dataset users are researchers, masters and PhD students in all domains who need to  programmatically and systematically interrogate 
@@ -197,9 +245,12 @@ items:
     id: compliance-dashboard
     image:
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       Tools for Open Access compliance monitoring. Currently we support the monitoring of the time lag between 
       the deposit of a paper into a repository and its publication date. These features are continuously  being  
@@ -210,9 +261,12 @@ items:
     id: repository-health-check
     image:
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       We can perform a data-driven metadata quality assessment consultation for your institution. We will assess current level of metadata quality, in relation to FAIRness and Open Access compliance polices and we will provide guidance on how to improve it. (1 consultation per year included)
       If you are interested in us helping you to check your repository health, please contact us.
@@ -220,9 +274,12 @@ items:
     id: promoted-articles
     image:
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       This feature is under development.
       Whenever research papers from your organisation would appear on pages 2-4 of 
@@ -231,9 +288,12 @@ items:
     id: hosted-activities
     image:
     membership:
-      - starting: 0
-      - supporting: 0
-      - sustaining: 1
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     description: >-
       We are keen to provide a hosted or interview-style post on the CORE blog about open access, open science 
       and other relevant mission-oriented activities your organisation is involved in. We would love to hear from you, 
