@@ -97,7 +97,7 @@ block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
   their entirety. This is an extremely low barrier to adoption with the resolver
   effectively working out-of-the-box.</br></br>CORE can resolve any OAI
   identifier to either a metadata page of the record in CORE or route it
-  directly to the repository page <span class="primeColor">(coming up)</span>.
+  directly to the repository page.
   To route redirection directly to the repository, it is necessary to provide
   mapping in the CORE Repository page between the OAI prefix of a repository and
   the currently used URL for the repository metadata record display page/splash.
