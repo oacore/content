@@ -1,7 +1,7 @@
 items:
   - title: "CORE Dashboard"
     id: dashboard
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -21,7 +21,7 @@ items:
       Access to Dashboard account: It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the Settings tab.
   - title: "CORE Discovery"
     id: discovery
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -35,7 +35,7 @@ items:
       More information about how this works can be found on the CORE Discovery page.
   - title: "CORE Search"
     id: search
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -47,7 +47,7 @@ items:
       Your data will be indexed and become searchable in the CORE Search engine, allowing millions of users to discover and find your papers. 
   - title: "CORE Recommender"
     id: recommender
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -61,7 +61,7 @@ items:
       More information about how this works can be found on the CORE Recommender page.
   - title: "Download statistics"
     id: download-statistics
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -73,7 +73,7 @@ items:
       If you install the IRUS (Institutional Repository Usage Statistics) tracker in your repository or journal system, you will be able to access your download statistics from within the Dashboard. This includes the downloads statistics for your papers in CORE as well as those directly realised in our system. After installing the IRUS tracker, a graph with statistical information on downloads will appear in the Overview tab on the Dashboard.
   - title: "Repository Discovery Boost"
     id: repository-discovery-boost
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -88,7 +88,7 @@ items:
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member. 
   - title: "Get your OAI identifiers resolved to your repository"
     id: OAI-identifiers
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -102,7 +102,10 @@ items:
       To register your OAI mapping you should go to the Settings tab in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver documentation page.
   - title: "Logos for your papers"
     id: logos-papers
-    image:
+    images:
+      - file: /images/docs-membership/data-provider-page.png
+      - file: /images/docs-membership/core-search.png
+      - file: /images/docs-membership/discovery-recommender.png
     membership:
       - name: starting
         status: 0
@@ -120,7 +123,8 @@ items:
       Examples of how your logos will feature are listed below:
   - title: "Logo banner"
     id: logo-banner
-    image: /images/logos/core-api.svg
+    images:
+      - file: /images/docs-membership/logo-banner.png
     membership:
       - name: starting
         status: 0
@@ -136,7 +140,8 @@ items:
       An Example logo banner is displayed below:
   - title: "Personalised banner"
     id: personalised-banner
-    image: /images/logos/core-api.svg
+    images:
+      - file: /images/docs-membership/personalised-banner.png
     membership:
       - name: starting
         status: 0
@@ -149,7 +154,7 @@ items:
       Example of a personalised banner:
   - title: "General support"
     id: general-support
-    image:
+    images:
     membership:
       - name: starting
         status: 1
@@ -162,7 +167,7 @@ items:
       Contact support
   - title: "Technical support (≤5)"
     id: technical-support
-    image:
+    images:
     membership:
       - name: starting
         status: 0
@@ -180,7 +185,7 @@ items:
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
   - title: "Unlimited and prioritised support"
     id: unlimited-support
-    image:
+    images:
     membership:
       - name: starting
         status: 0
@@ -192,7 +197,7 @@ items:
       Sustaining members receive unlimited and prioritised Technical support via a dedicated email address.
   - title: "Board of Supporters"
     id: board-supporters
-    image:
+    images:
     membership:
       - name: starting
         status: 0
@@ -206,7 +211,7 @@ items:
       By becoming a CORE Supporting or Sustaining member you will automatically appear on the Board of Supporters website.
   - title: "АPI use for your organisation"
     id: АPI-organisation
-    image:
+    images:
     membership:
       - name: starting
         status: 0
@@ -223,7 +228,7 @@ items:
       The membership provides you with a licence to use the CORE API within your organisation, except for commercial purposes, subject to our T&Cs.
   - title: "Dataset use for your university"
     id: dataset-university
-    image:
+    images:
     membership:
       - name: starting
         status: 0
@@ -243,7 +248,8 @@ items:
       Detailed information about how to use the CORE Dataset can be found in the Dataset documentation.
   - title: "CORE OA Compliance Dashboard"
     id: compliance-dashboard
-    image:
+    images:
+      - file: /images/docs-membership/oa-compliance.png
     membership:
       - name: starting
         status: 0
@@ -259,7 +265,7 @@ items:
       please contact us and we will consider adding support for it.
   - title: "Repository health check"
     id: repository-health-check
-    image:
+    images:
     membership:
       - name: starting
         status: 0
@@ -272,7 +278,8 @@ items:
       If you are interested in us helping you to check your repository health, please contact us.
   - title: "Promoted / spotlight / featured articles"
     id: promoted-articles
-    image:
+    images:
+      - file: /images/docs-membership/featured-articles.png
     membership:
       - name: starting
         status: 0
@@ -286,7 +293,7 @@ items:
       CORE Search results, your paper is promoted to the front of the first page and is highlighted as a featured article.
   - title: "Hosted or interview style blog post on mission-aligned activities"
     id: hosted-activities
-    image:
+    images:
     membership:
       - name: starting
         status: 0
