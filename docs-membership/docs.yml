@@ -35,7 +35,7 @@ items:
     description: |
       CORE Discovery helps users to discover freely accessible copies of research papers. It is available as a  plugin. This plugin enriches a metadata record in your repository with a full text link of the described article, whenever an open access version of the document is available anywhere across the open research network.
       
-      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the [Plugins](https://dashboard.core.ac.uk/data-providers/{{id}}/plugins). <dynamic href="plugins">Plugins</dynamic> tab on the sidebar.
+      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the [Plugins](https://dashboard.core.ac.uk/data-providers/{{id}}/plugins) tab on the sidebar.
       
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
   - title: "CORE Search"
