@@ -35,7 +35,7 @@ items:
     description: |
       CORE Discovery helps users to discover freely accessible copies of research papers. It is available as a  plugin. This plugin enriches a metadata record in your repository with a full text link of the described article, whenever an open access version of the document is available anywhere across the open research network.
       
-      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the <dynamic href="Plugins">Plugins</dynamic> tab on the sidebar.
+      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the <dynamic href="plugins">Plugins</dynamic> tab on the sidebar.
       
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
   - title: "CORE Search"
@@ -63,7 +63,7 @@ items:
     description: |
       The Recommender plugin helps your users to find related content within your own repository and from across the global open repositories network. 
       
-      You can install the Recommender directly from the Dashboard by clicking on the <dynamic href="Plugins">Plugins</dynamic> sidebar. 
+      You can install the Recommender directly from the Dashboard by clicking on the <dynamic href="plugins">Plugins</dynamic> sidebar. 
       
       More information about how this works can be found on the [CORE Recommender page](https://core.ac.uk/services/discovery).
   - title: "Download statistics"
@@ -77,7 +77,7 @@ items:
       - name: sustaining
         status: 1
     description: |
-      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional Repository Usage Statistics) tracker in your repository or journal system, you will be able to access your download statistics from within the Dashboard. This includes the downloads statistics for your papers in CORE as well as those directly realised in our system. After installing the IRUS tracker, a graph with statistical information on downloads will appear in the <dynamic href="Overview">Overview</dynamic> tab on the Dashboard.
+      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional Repository Usage Statistics) tracker in your repository or journal system, you will be able to access your download statistics from within the Dashboard. This includes the downloads statistics for your papers in CORE as well as those directly realised in our system. After installing the IRUS tracker, a graph with statistical information on downloads will appear in the <dynamic href="overview">Overview</dynamic> tab on the Dashboard.
   - title: "Repository Discovery Boost"
     id: repository-discovery-boost
     images:
