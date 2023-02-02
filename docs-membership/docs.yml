@@ -18,7 +18,7 @@ items:
       - manage how metadata from your repository is exposed across the open access research network,
       - monitor and access statistics, such as on downloads, enrichments and OA compliance. 
       - install repository plugins, such as the CORE Recommender and Discovery.
-      Access to Dashboard account: It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the Settings tab.
+      Access to Dashboard account: It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the <dynamic href="Settings">Settings</dynamic> tab.
   - title: "CORE Discovery"
     id: discovery
     images:
@@ -31,7 +31,7 @@ items:
         status: 1
     description: >-
       CORE Discovery helps users to discover freely accessible copies of research papers. It is available as a  plugin. This plugin enriches a metadata record in your repository with a full text link of the described article, whenever an open access version of the document is available anywhere across the open research network. 
-      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the Plugins tab on the sidebar.
+      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the <dynamic href="Plugins">Plugins</dynamic> tab on the sidebar.
       More information about how this works can be found on the CORE Discovery page.
   - title: "CORE Search"
     id: search
@@ -44,7 +44,7 @@ items:
       - name: sustaining
         status: 1
     description: >-
-      Your data will be indexed and become searchable in the CORE Search engine, allowing millions of users to discover and find your papers. 
+      Your data will be indexed and become searchable in the CORE Search engine, allowing millions of users to discover and find your papers.
   - title: "CORE Recommender"
     id: recommender
     images:
@@ -83,9 +83,9 @@ items:
         status: 1
     description: >-
       Increases the discoverability of your content via:
-      PMC LinkOut - open access full texts from your repository promoted to PubMed Central via their  LinkOut service. 
-      Recommended across the repositories network - your organisation's research becomes discoverable from within hundreds of repositories who use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
-      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member. 
+      **PMC LinkOut** - open access full texts from your repository promoted to PubMed Central via their  LinkOut service. 
+      <b>Recommended across the repositories network</b> - your organisation's research becomes discoverable from within hundreds of repositories who use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
+      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
   - title: "Get your OAI identifiers resolved to your repository"
     id: OAI-identifiers
     images:
@@ -304,4 +304,4 @@ items:
     description: >-
       We are keen to provide a hosted or interview-style post on the CORE blog about open access, open science 
       and other relevant mission-oriented activities your organisation is involved in. We would love to hear from you, 
-      feel free to contact us to arrange this.
+      feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
