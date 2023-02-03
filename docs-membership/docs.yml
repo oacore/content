@@ -66,6 +66,20 @@ items:
       You can install the Recommender directly from the Dashboard by clicking on the [Plugins](https://dashboard.core.ac.uk/data-providers/{{id}}/plugins) sidebar. 
       
       More information about how this works can be found on the [CORE Recommender page](https://core.ac.uk/services/discovery).
+  - title: "General support"
+    id: general-support
+    images:
+    membership:
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    description: |
+      Our enthusiastic open access team is ready to answer general queries about CORE. To contact support click on the link below.  
+      
+      [Contact support](https://core.ac.uk/about#contact)
   - title: "Download statistics"
     id: download-statistics
     images:
@@ -170,20 +184,22 @@ items:
       You can promote your research conferences, events, academic jobs and other mission-aligned communications on the CORE website. To do so, send us your proposed personalised banner. The banner should have the following size: XXXXX and be in XXX format.
       
       Example of a personalised banner:
-  - title: "General support"
-    id: general-support
+  - title: "Board of Supporters"
+    id: board-supporters
     images:
     membership:
       - name: starting
-        status: 1
+        status: 0
       - name: supporting
         status: 1
       - name: sustaining
         status: 1
     description: |
-      Our enthusiastic open access team is ready to answer general queries about CORE. To contact support click on the link below.  
+      CORE Supporting and Sustaining Members are invited to join our Board of Supporters. The Board meets annually to identify opportunities, collect feedback and help prioritise the development of the service.
       
-      [Contact support](https://core.ac.uk/about#contact)
+      You can help shape our development roadmap by having a formal say on our Board of Supporters (1 vote for Supporting, 2 votes for Sustaining member). 
+      
+      By becoming a CORE Supporting or Sustaining member you will automatically appear on the [Board of Supporters website](https://core.ac.uk/community/supporters).
   - title: "Technical support (≤5)"
     id: technical-support
     images:
@@ -204,34 +220,6 @@ items:
       * any technical queries relating to the use of CORE Dashboard
       
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
-  - title: "Unlimited and prioritised support"
-    id: unlimited-support
-    images:
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 0
-      - name: sustaining
-        status: 1
-    description: |
-      Sustaining members receive unlimited and prioritised Technical support via a dedicated email address.
-  - title: "Board of Supporters"
-    id: board-supporters
-    images:
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
-    description: |
-      CORE Supporting and Sustaining Members are invited to join our Board of Supporters. The Board meets annually to identify opportunities, collect feedback and help prioritise the development of the service.
-      
-      You can help shape our development roadmap by having a formal say on our Board of Supporters (1 vote for Supporting, 2 votes for Sustaining member). 
-      
-      By becoming a CORE Supporting or Sustaining member you will automatically appear on the [Board of Supporters website](https://core.ac.uk/community/supporters).
   - title: "АPI use for your organisation"
     id: АPI-organisation
     images:
@@ -252,6 +240,35 @@ items:
       Many of our API users are researchers, masters and PhD students in all domains who need to programmatically and systematically interrogate a large research corpus. The API is often used  in the context of national and international research projects. Increasingly, it is also being used to provide research analytics for academic institutions.
       
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
+  - title: "Unlimited and prioritised support"
+    id: unlimited-support
+    images:
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
+    description: |
+      Sustaining members receive unlimited and prioritised Technical support via a dedicated email address.
+  - title: "CORE OA Compliance Dashboard"
+    id: compliance-dashboard
+    images:
+      - file: /images/docs-membership/oa-compliance.png
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
+    description: |
+      Tools for Open Access compliance monitoring. Currently we support the monitoring of the time lag between 
+      the deposit of a paper into a repository and its publication date. These features are continuously  being  
+      developed to accommodate changes in recent OA policies. Particularly, we are working hard to provide tools to support 
+      the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
+      please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
   - title: "Dataset use for your university"
     id: dataset-university
     images:
@@ -277,23 +294,6 @@ items:
       The membership provides you with a licence to use the [CORE Dataset](https://core.ac.uk/documentation/dataset#latest) within your organisation, except for  commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
       
       Detailed information about how to use the CORE Dataset can be found in the [Dataset documentation](https://core.ac.uk/documentation/dataset).
-  - title: "CORE OA Compliance Dashboard"
-    id: compliance-dashboard
-    images:
-      - file: /images/docs-membership/oa-compliance.png
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 0
-      - name: sustaining
-        status: 1
-    description: |
-      Tools for Open Access compliance monitoring. Currently we support the monitoring of the time lag between 
-      the deposit of a paper into a repository and its publication date. These features are continuously  being  
-      developed to accommodate changes in recent OA policies. Particularly, we are working hard to provide tools to support 
-      the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
-      please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
   - title: "Repository health check"
     id: repository-health-check
     images:
