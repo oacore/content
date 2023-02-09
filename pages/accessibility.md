@@ -12,7 +12,7 @@ We follow the [Open University accessibility standards](https://www.open.ac.uk/a
 
 Where possible this site has been built using code compliant with W3C standards for HTML and CSS. The site should display correctly in current browsers on Windows, MacOS, Android and iOS.
 
-If you use a screen reader to access websites, you may find the following instructions useful: [access pdfs with a screen reader](https://www.open.ac.uk/about/main/strategy-and-policies/policies-and-statements/how-access-pdfs-screen-reader).
+If you use a screen reader to access websites, you may find the following instructions useful: [access pdfs with a screen reader](https://www.open.ac.uk/about/main/policies-and-reports/policies-and-statements/how-access-pdfs-screen-reader).
 
 ## Exceptions and issues
 
