@@ -2,9 +2,6 @@ items:
   - title: CORE Dashboard
     id: dashboard
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -54,14 +51,9 @@ items:
       * install repository plugins, such as the CORE Recommender and Discovery.
 
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
-    imagesList:
-      - file: data-provider-page.png
   - title: CORE Discovery
     id: discovery
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -96,9 +88,6 @@ items:
   - title: CORE Search
     id: search
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -115,9 +104,6 @@ items:
   - title: CORE Recommender
     id: recommender
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -146,9 +132,6 @@ items:
   - title: General support
     id: general-support
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -171,9 +154,6 @@ items:
   - title: Download statistics
     id: download-statistics
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -202,9 +182,6 @@ items:
   - title: Repository Discovery Boost
     id: repository-discovery-boost
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -235,9 +212,6 @@ items:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 1
@@ -324,8 +298,6 @@ items:
     id: logo-banner
     images:
       - file: /images/docs-membership/logo-banner.png
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -365,8 +337,6 @@ items:
     id: personalised-banner
     images:
       - file: /images/docs-membership/personalised-banner.png
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -393,9 +363,6 @@ items:
   - title: Board of Supporters
     id: board-supporters
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -426,9 +393,6 @@ items:
   - title: Technical support (≤5)
     id: technical-support
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -475,9 +439,6 @@ items:
   - title: АPI use for your organisation
     id: АPI-organisation
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -524,9 +485,6 @@ items:
   - title: Unlimited and prioritised support
     id: unlimited-support
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -544,8 +502,6 @@ items:
     id: compliance-dashboard
     images:
       - file: /images/docs-membership/oa-compliance.png
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -578,9 +534,6 @@ items:
   - title: Dataset use for your university
     id: dataset-university
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -641,9 +594,6 @@ items:
   - title: Repository health check
     id: repository-health-check
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -671,8 +621,6 @@ items:
     id: promoted-articles
     images:
       - file: /images/docs-membership/featured-articles.png
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
@@ -698,9 +646,6 @@ items:
   - title: Hosted or interview style blog post on mission-aligned activities
     id: hosted-activities
     images:
-      - ? file
-      - ? file
-      - ? file
     membership:
       - name: starting
         status: 0
