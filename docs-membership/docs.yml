@@ -51,6 +51,10 @@ items:
       * install repository plugins, such as the CORE Recommender and Discovery.
 
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: CORE Discovery
     id: discovery
     images: null
@@ -85,6 +89,10 @@ items:
 
 
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: CORE Search
     id: search
     images: null
@@ -101,6 +109,10 @@ items:
     descriptionDashboard: >
       Your data will be indexed and become searchable in the CORE Search engine,
       allowing millions of users to discover and find your papers.
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: CORE Recommender
     id: recommender
     images: null
@@ -129,6 +141,10 @@ items:
 
 
       More information about how this works can be found on the [CORE Recommender page](https://core.ac.uk/services/discovery).
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: General support
     id: general-support
     images: null
@@ -151,6 +167,10 @@ items:
 
 
       [Contact support](https://core.ac.uk/about#contact)
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: Download statistics
     id: download-statistics
     images: null
@@ -179,6 +199,10 @@ items:
       appear in the
       [Overview](https://dashboard.core.ac.uk/data-providers/{{id}}/overview)
       tab on the Dashboard.
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: Repository Discovery Boost
     id: repository-discovery-boost
     images: null
@@ -209,6 +233,10 @@ items:
 
 
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
+    membership-types:
+      sustaining: Yes
+      supporting: Yes
+      starting: Yes
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images: null
@@ -241,6 +269,10 @@ items:
 
 
       To register your OAI mapping you should go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
+    membership-types:
+      sustaining: Yes
+      supporting: Yes
+      starting: Yes
   - title: Logos for your papers
     id: logos-papers
     images:
@@ -294,6 +326,10 @@ items:
 
 
       Examples of how your logos will feature are listed below:
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
   - title: Logo banner
     id: logo-banner
     images:
@@ -333,6 +369,10 @@ items:
 
 
       An Example logo banner is displayed below:
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
   - title: Personalised banner
     id: personalised-banner
     images:
@@ -360,6 +400,10 @@ items:
 
 
       Example of a personalised banner:
+    membership-types:
+      sustaining: Yes
+      supporting: No
+      starting: No
   - title: Board of Supporters
     id: board-supporters
     images: null
@@ -390,6 +434,10 @@ items:
 
 
       By becoming a CORE Supporting or Sustaining member you will automatically appear on the [Board of Supporters website](https://core.ac.uk/community/supporters).
+    membership-types:
+      sustaining: Yes
+      supporting: Yes
+      starting: No
   - title: Technical support (≤5)
     id: technical-support
     images: null
@@ -436,6 +484,10 @@ items:
 
 
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
+    membership-types:
+      supporting: Yes
+      starting: No
+      sustaining: No
   - title: АPI use for your organisation
     id: АPI-organisation
     images: null
@@ -482,6 +534,10 @@ items:
 
 
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
+    membership-types:
+      sustaining: Yes
+      supporting: Yes
+      starting: No
   - title: Unlimited and prioritised support
     id: unlimited-support
     images: null
@@ -498,6 +554,10 @@ items:
     descriptionDashboard: >
       Sustaining members receive unlimited and prioritised Technical support via
       a dedicated email address.
+    membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
   - title: CORE OA Compliance Dashboard
     id: compliance-dashboard
     images:
@@ -531,6 +591,10 @@ items:
       the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
 
       please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
+    membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
   - title: Dataset use for your university
     id: dataset-university
     images: null
@@ -591,6 +655,10 @@ items:
 
 
       Detailed information about how to use the CORE Dataset can be found in the [Dataset documentation](https://core.ac.uk/documentation/dataset).
+    membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
   - title: Repository health check
     id: repository-health-check
     images: null
@@ -617,6 +685,10 @@ items:
 
 
       If you are interested in us helping you to check your repository health, please [contact us](https://core.ac.uk/about#contact).
+    membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
   - title: Promoted / spotlight / featured articles
     id: promoted-articles
     images:
@@ -642,6 +714,10 @@ items:
       Whenever research papers from your organisation would appear on pages 2-4 of 
 
       CORE Search results, your paper is promoted to the front of the first page and is highlighted as a featured article.
+    membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
   - title: Hosted or interview style blog post on mission-aligned activities
     id: hosted-activities
     images: null
@@ -666,3 +742,7 @@ items:
       and other relevant mission-oriented activities your organisation is involved in. We would love to hear from you, 
 
       feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
+    membership-types:
+      sustaining: Yes
+      supporting: No
+      starting: No
