@@ -372,6 +372,7 @@ items:
     membership-type:
       sustaining: true
       supporting: true
+      starting: true
   - title: Personalised banner
     id: personalised-banner
     images:
@@ -401,6 +402,8 @@ items:
       Example of a personalised banner:
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
   - title: Board of Supporters
     id: board-supporters
     images: null
@@ -434,6 +437,7 @@ items:
     membership-type:
       supporting: true
       sustaining: true
+      starting: true
   - title: Technical support (≤5)
     id: technical-support
     images: null
@@ -482,6 +486,8 @@ items:
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
     membership-type:
       supporting: true
+      starting: true
+      sustaining: true
   - title: АPI use for your organisation
     id: АPI-organisation
     images: null
@@ -531,6 +537,7 @@ items:
     membership-type:
       supporting: true
       sustaining: true
+      starting: true
   - title: Unlimited and prioritised support
     id: unlimited-support
     images: null
@@ -549,6 +556,8 @@ items:
       a dedicated email address.
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
   - title: CORE OA Compliance Dashboard
     id: compliance-dashboard
     images:
@@ -584,6 +593,8 @@ items:
       please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
   - title: Dataset use for your university
     id: dataset-university
     images: null
@@ -646,6 +657,8 @@ items:
       Detailed information about how to use the CORE Dataset can be found in the [Dataset documentation](https://core.ac.uk/documentation/dataset).
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
   - title: Repository health check
     id: repository-health-check
     images: null
@@ -674,6 +687,8 @@ items:
       If you are interested in us helping you to check your repository health, please [contact us](https://core.ac.uk/about#contact).
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
   - title: Promoted / spotlight / featured articles
     id: promoted-articles
     images:
@@ -701,6 +716,8 @@ items:
       CORE Search results, your paper is promoted to the front of the first page and is highlighted as a featured article.
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
   - title: Hosted or interview style blog post on mission-aligned activities
     id: hosted-activities
     images: null
@@ -727,3 +744,5 @@ items:
       feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
     membership-type:
       sustaining: true
+      supporting: true
+      starting: true
