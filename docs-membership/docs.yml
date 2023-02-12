@@ -744,5 +744,5 @@ items:
       feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
     membership-type:
       sustaining: true
-      supporting: true
-      starting: true
+      supporting: false
+      starting: false
