@@ -52,7 +52,7 @@ items:
 
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
     membership-type:
-      starting: true
+      starting: false
       supporting: true
       sustaining: true
   - title: CORE Discovery
