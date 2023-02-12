@@ -1,10 +1,10 @@
 items:
-  - title: "CORE Dashboard"
+  - title: CORE Dashboard
     id: dashboard
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -12,38 +12,56 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      The Dashboard is the central hub from which you can access all membership benefits.  
-      
+    descriptionAbout: >
+      The Dashboard is the central hub from which you can access all membership
+      benefits.  
+
+
       In the Dashboard you can:
-      
+
+
       * control and configure how CORE indexes your data and how it displays information about you as a data provider within the CORE ecosystem,
+
       * set up your repository so that our OAI Resolver can resolve your OAI identifiers directly to your repository,
+
       * validate that your repository metadata conforms to best practices and standards,
+
       * manage how metadata from your repository is exposed across the open access research network,
+
       * monitor and access statistics, such as on downloads, enrichments and OA compliance.
+
       * install repository plugins, such as the CORE Recommender and Discovery.
-      
+
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the **Settings tab**.
-    descriptionDashboard: |
-      The Dashboard is the central hub from which you can access all membership benefits.  
-      
+    descriptionDashboard: >
+      The Dashboard is the central hub from which you can access all membership
+      benefits.  
+
+
       In the Dashboard you can:
-      
+
+
       * control and configure how CORE indexes your data and how it displays information about you as a data provider within the CORE ecosystem,
+
       * set up your repository so that our OAI Resolver can resolve your OAI identifiers directly to your repository,
+
       * validate that your repository metadata conforms to best practices and standards,
+
       * manage how metadata from your repository is exposed across the open access research network,
+
       * monitor and access statistics, such as on downloads, enrichments and OA compliance.
+
       * install repository plugins, such as the CORE Recommender and Discovery.
-      
+
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
-  - title: "CORE Discovery"
+    imagesList:
+      - file: data-provider-page.png
+  - title: CORE Discovery
     id: discovery
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -51,24 +69,36 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      CORE Discovery helps users to discover freely accessible copies of research papers. It is available as a  plugin. This plugin enriches a metadata record in your repository with a full text link of the described article, whenever an open access version of the document is available anywhere across the open research network.
-      
+    descriptionAbout: >
+      CORE Discovery helps users to discover freely accessible copies of
+      research papers. It is available as a  plugin. This plugin enriches a
+      metadata record in your repository with a full text link of the described
+      article, whenever an open access version of the document is available
+      anywhere across the open research network.
+
+
       You can install the CORE Discovery plugin directly from the Dashboard by clicking on the *Plugins tab* on the sidebar.
-      
+
+
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
-    descriptionDashboard: |
-      CORE Discovery helps users to discover freely accessible copies of research papers. It is available as a  plugin. This plugin enriches a metadata record in your repository with a full text link of the described article, whenever an open access version of the document is available anywhere across the open research network.
-      
+    descriptionDashboard: >
+      CORE Discovery helps users to discover freely accessible copies of
+      research papers. It is available as a  plugin. This plugin enriches a
+      metadata record in your repository with a full text link of the described
+      article, whenever an open access version of the document is available
+      anywhere across the open research network.
+
+
       You can install the CORE Discovery plugin directly from the Dashboard by clicking on the [Plugins](https://dashboard.core.ac.uk/data-providers/{{id}}/plugins) tab on the sidebar.
-      
+
+
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
-  - title: "CORE Search"
+  - title: CORE Search
     id: search
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -76,16 +106,18 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      Your data will be indexed and become searchable in the CORE Search engine, allowing millions of users to discover and find your papers.
-    descriptionDashboard: |
-      Your data will be indexed and become searchable in the CORE Search engine, allowing millions of users to discover and find your papers.
-  - title: "CORE Recommender"
+    descriptionAbout: >
+      Your data will be indexed and become searchable in the CORE Search engine,
+      allowing millions of users to discover and find your papers.
+    descriptionDashboard: >
+      Your data will be indexed and become searchable in the CORE Search engine,
+      allowing millions of users to discover and find your papers.
+  - title: CORE Recommender
     id: recommender
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -93,24 +125,30 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      The Recommender plugin helps your users to find related content within your own repository and from across the global open repositories network. 
+    descriptionAbout: >
+      The Recommender plugin helps your users to find related content within
+      your own repository and from across the global open repositories network. 
+
 
       You can install the Recommender directly from the Dashboard by clicking on the Plugins sidebar. 
 
+
       More information about how this works can be found on the [CORE Recommender page](https://core.ac.uk/services/discovery).
-    descriptionDashboard: |
-      The Recommender plugin helps your users to find related content within your own repository and from across the global open repositories network. 
-      
+    descriptionDashboard: >
+      The Recommender plugin helps your users to find related content within
+      your own repository and from across the global open repositories network. 
+
+
       You can install the Recommender directly from the Dashboard by clicking on the [Plugins](https://dashboard.core.ac.uk/data-providers/{{id}}/plugins) sidebar. 
-      
+
+
       More information about how this works can be found on the [CORE Recommender page](https://core.ac.uk/services/discovery).
-  - title: "General support"
+  - title: General support
     id: general-support
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -118,20 +156,24 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      Our enthusiastic open access team is ready to answer general queries about CORE. To contact support click on the link below.  
-      
+    descriptionAbout: >
+      Our enthusiastic open access team is ready to answer general queries about
+      CORE. To contact support click on the link below.  
+
+
       [Contact support](https://core.ac.uk/about#contact)
-    descriptionDashboard: |
-      Our enthusiastic open access team is ready to answer general queries about CORE. To contact support click on the link below.  
-      
+    descriptionDashboard: >
+      Our enthusiastic open access team is ready to answer general queries about
+      CORE. To contact support click on the link below.  
+
+
       [Contact support](https://core.ac.uk/about#contact)
-  - title: "Download statistics"
+  - title: Download statistics
     id: download-statistics
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -139,16 +181,30 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional Repository Usage Statistics) tracker in your repository or journal system, you will be able to access your download statistics from within the Dashboard. This includes the downloads statistics for your papers in CORE as well as those directly realised in our system. After installing the IRUS tracker, a graph with statistical information on downloads will appear in the *Overview tab* on the Dashboard.
-    descriptionDashboard: |
-      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional Repository Usage Statistics) tracker in your repository or journal system, you will be able to access your download statistics from within the Dashboard. This includes the downloads statistics for your papers in CORE as well as those directly realised in our system. After installing the IRUS tracker, a graph with statistical information on downloads will appear in the [Overview](https://dashboard.core.ac.uk/data-providers/{{id}}/overview) tab on the Dashboard.
-  - title: "Repository Discovery Boost"
+    descriptionAbout: >
+      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
+      Repository Usage Statistics) tracker in your repository or journal system,
+      you will be able to access your download statistics from within the
+      Dashboard. This includes the downloads statistics for your papers in CORE
+      as well as those directly realised in our system. After installing the
+      IRUS tracker, a graph with statistical information on downloads will
+      appear in the *Overview tab* on the Dashboard.
+    descriptionDashboard: >
+      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
+      Repository Usage Statistics) tracker in your repository or journal system,
+      you will be able to access your download statistics from within the
+      Dashboard. This includes the downloads statistics for your papers in CORE
+      as well as those directly realised in our system. After installing the
+      IRUS tracker, a graph with statistical information on downloads will
+      appear in the
+      [Overview](https://dashboard.core.ac.uk/data-providers/{{id}}/overview)
+      tab on the Dashboard.
+  - title: Repository Discovery Boost
     id: repository-discovery-boost
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -156,26 +212,32 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
+    descriptionAbout: >
       Increases the discoverability of your content via:
-      
+
+
       * **PMC LinkOut** - open access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service. 
+
       * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories who use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
-      
+
+
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
-    descriptionDashboard: |
+    descriptionDashboard: >
       Increases the discoverability of your content via:
-      
+
+
       * **PMC LinkOut** - open access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service. 
+
       * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories who use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
-      
+
+
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
-  - title: "Get your OAI identifiers resolved to your repository"
+  - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 1
@@ -183,19 +245,29 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      An OAI (Open Archives Initiative) identifier is a unique identifier of a metadata record. OAI identifiers are used in the context of repositories using the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH). 
-      
+    descriptionAbout: >
+      An OAI (Open Archives Initiative) identifier is a unique identifier of a
+      metadata record. OAI identifiers are used in the context of repositories
+      using the Open Archives Initiative Protocol for Metadata Harvesting
+      (OAI-PMH). 
+
+
       CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to your repository page. To route directly to the repository, it is necessary to provide mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly.
-      
+
+
       To register your OAI mapping you should go to the **Settings tab** in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
-    descriptionDashboard: |
-      An OAI (Open Archives Initiative) identifier is a unique identifier of a metadata record. OAI identifiers are used in the context of repositories using the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH). 
-      
+    descriptionDashboard: >
+      An OAI (Open Archives Initiative) identifier is a unique identifier of a
+      metadata record. OAI identifiers are used in the context of repositories
+      using the Open Archives Initiative Protocol for Metadata Harvesting
+      (OAI-PMH). 
+
+
       CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to your repository page. To route directly to the repository, it is necessary to provide mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly.
-      
+
+
       To register your OAI mapping you should go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
-  - title: "Logos for your papers"
+  - title: Logos for your papers
     id: logos-papers
     images:
       - file: /images/docs-membership/data-provider-page.png
@@ -208,34 +280,52 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      By uploading your logo to your Dashboard account, you can associate your research papers in CORE with your official organisational logo. Your logo will from then become visible to millions of CORE users and will be displayed in a range of places across the CORE ecosystem including:
-      
+    descriptionAbout: >
+      By uploading your logo to your Dashboard account, you can associate your
+      research papers in CORE with your official organisational logo. Your logo
+      will from then become visible to millions of CORE users and will be
+      displayed in a range of places across the CORE ecosystem including:
+
+
       * CORE Search 
+
       * CORE Recommender
+
       * CORE Discovery
+
       * Your data provider page in CORE
-      
+
+
       To upload your your logo, go to the **Settings tab.**
-      
+
+
       Examples of how your logos will feature are listed below:
-    descriptionDashboard: |
-      By uploading your logo to your Dashboard account, you can associate your research papers in CORE with your official organisational logo. Your logo will from then become visible to millions of CORE users and will be displayed in a range of places across the CORE ecosystem including:
-      
+    descriptionDashboard: >
+      By uploading your logo to your Dashboard account, you can associate your
+      research papers in CORE with your official organisational logo. Your logo
+      will from then become visible to millions of CORE users and will be
+      displayed in a range of places across the CORE ecosystem including:
+
+
       * CORE Search 
+
       * CORE Recommender
+
       * CORE Discovery
+
       * Your data provider page in CORE
-      
+
+
       To upload your your logo, go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
-      
+
+
       Examples of how your logos will feature are listed below:
-  - title: "Logo banner"
+  - title: Logo banner
     id: logo-banner
     images:
       - file: /images/docs-membership/logo-banner.png
-      - file:
-      - file:
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -243,30 +333,40 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      We display banners acknowledging the generous support of our Supporting and Sustaining members in multiple places in the CORE ecosystem including:
-      
+    descriptionAbout: >
+      We display banners acknowledging the generous support of our Supporting
+      and Sustaining members in multiple places in the CORE ecosystem including:
+
+
       * **CORE Search**: Logos of our Supporting and Sustaining members are rotated to give all members exposure. 
+
       * **Board of Supporters**: Lists all Supporting and Sustaining members. 
-      
+
+
       This banner is either automatically created based on the logo you upload in the **Settings tab** in the Dashboard or you can send us your own version. The banner should have the following size: XXXXX and be in XXX format.
-      
+
+
       An Example logo banner is displayed below:
-    descriptionDashboard: |
-      We display banners acknowledging the generous support of our Supporting and Sustaining members in multiple places in the CORE ecosystem including:
-      
+    descriptionDashboard: >
+      We display banners acknowledging the generous support of our Supporting
+      and Sustaining members in multiple places in the CORE ecosystem including:
+
+
       * **CORE Search**: Logos of our Supporting and Sustaining members are rotated to give all members exposure. 
+
       * **Board of Supporters**: Lists all Supporting and Sustaining members. 
-      
+
+
       This banner is either automatically created based on the logo you upload in the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab in the Dashboard or you can send us your own version. The banner should have the following size: XXXXX and be in XXX format.
-      
+
+
       An Example logo banner is displayed below:
-  - title: "Personalised banner"
+  - title: Personalised banner
     id: personalised-banner
     images:
       - file: /images/docs-membership/personalised-banner.png
-      - file:
-      - file:
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -274,20 +374,28 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      You can promote your research conferences, events, academic jobs and other mission-aligned communications on the CORE website. To do so, send us your proposed personalised banner. The banner should have the following size: XXXXX and be in XXX format.
-      
+    descriptionAbout: >
+      You can promote your research conferences, events, academic jobs and other
+      mission-aligned communications on the CORE website. To do so, send us your
+      proposed personalised banner. The banner should have the following size:
+      XXXXX and be in XXX format.
+
+
       Example of a personalised banner:
-    descriptionDashboard: |
-      You can promote your research conferences, events, academic jobs and other mission-aligned communications on the CORE website. To do so, send us your proposed personalised banner. The banner should have the following size: XXXXX and be in XXX format.
-      
+    descriptionDashboard: >
+      You can promote your research conferences, events, academic jobs and other
+      mission-aligned communications on the CORE website. To do so, send us your
+      proposed personalised banner. The banner should have the following size:
+      XXXXX and be in XXX format.
+
+
       Example of a personalised banner:
-  - title: "Board of Supporters"
+  - title: Board of Supporters
     id: board-supporters
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -295,24 +403,32 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      CORE Supporting and Sustaining Members are invited to join our Board of Supporters. The Board meets annually to identify opportunities, collect feedback and help prioritise the development of the service.
-      
+    descriptionAbout: >
+      CORE Supporting and Sustaining Members are invited to join our Board of
+      Supporters. The Board meets annually to identify opportunities, collect
+      feedback and help prioritise the development of the service.
+
+
       You can help shape our development roadmap by having a formal say on our Board of Supporters (1 vote for Supporting, 2 votes for Sustaining member). 
-      
+
+
       By becoming a CORE Supporting or Sustaining member you will automatically appear on the [Board of Supporters website](https://core.ac.uk/community/supporters).
-    descriptionDashboard: |
-      CORE Supporting and Sustaining Members are invited to join our Board of Supporters. The Board meets annually to identify opportunities, collect feedback and help prioritise the development of the service.
-      
+    descriptionDashboard: >
+      CORE Supporting and Sustaining Members are invited to join our Board of
+      Supporters. The Board meets annually to identify opportunities, collect
+      feedback and help prioritise the development of the service.
+
+
       You can help shape our development roadmap by having a formal say on our Board of Supporters (1 vote for Supporting, 2 votes for Sustaining member). 
-      
+
+
       By becoming a CORE Supporting or Sustaining member you will automatically appear on the [Board of Supporters website](https://core.ac.uk/community/supporters).
-  - title: "Technical support (≤5)"
+  - title: Technical support (≤5)
     id: technical-support
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -320,32 +436,48 @@ items:
         status: 1
       - name: sustaining
         status: 0
-    descriptionAbout: |
-      Our team has extensive experience in working with repositories and open scholarly infrastructures. We are here to assist our members with technical issues relating to issues, such as:
-      
+    descriptionAbout: >
+      Our team has extensive experience in working with repositories and open
+      scholarly infrastructures. We are here to assist our members with
+      technical issues relating to issues, such as:
+
+
       * indexing and discoverability of your articles 
+
       * guidance relating to providing interoperable metadata, i.e. metadata conforming to best practices and standards,
+
       * supporting researchers and developers at your institution in processing research content via the CORE API and CORE Dataset. 
+
       * providing support for your Recommender and Discovery installations
+
       * any technical queries relating to the use of CORE Dashboard
-      
+
+
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
-    descriptionDashboard: |
-      Our team has extensive experience in working with repositories and open scholarly infrastructures. We are here to assist our members with technical issues relating to issues, such as:
-      
+    descriptionDashboard: >
+      Our team has extensive experience in working with repositories and open
+      scholarly infrastructures. We are here to assist our members with
+      technical issues relating to issues, such as:
+
+
       * indexing and discoverability of your articles 
+
       * guidance relating to providing interoperable metadata, i.e. metadata conforming to best practices and standards,
+
       * supporting researchers and developers at your institution in processing research content via the CORE API and CORE Dataset. 
+
       * providing support for your Recommender and Discovery installations
+
       * any technical queries relating to the use of CORE Dashboard
-      
+
+
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
-  - title: "АPI use for your organisation"
+  - title: АPI use for your organisation
     id: АPI-organisation
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -353,32 +485,48 @@ items:
         status: 1
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      The [CORE API](https://core.ac.uk/services/api) allows members of your organisation to develop applications, products or services and to conduct research using our vast corpus of searchable research papers. The API provides: 
-      
+    descriptionAbout: >
+      The [CORE API](https://core.ac.uk/services/api) allows members of your
+      organisation to develop applications, products or services and to conduct
+      research using our vast corpus of searchable research papers. The API
+      provides: 
+
+
       * Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts.
+
       * Harmonised access to data across CORE’s data providers network.
+
       * Detailed [API documentation](https://api.core.ac.uk/docs/v3) with live examples and wrappers to common programming languages.
-      
+
+
       Many of our API users are researchers, masters and PhD students in all domains who need to programmatically and systematically interrogate a large research corpus. The API is often used  in the context of national and international research projects. Increasingly, it is also being used to provide research analytics for academic institutions.
-      
+
+
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
-    descriptionDashboard: |
-      The [CORE API](https://core.ac.uk/services/api) allows members of your organisation to develop applications, products or services and to conduct research using our vast corpus of searchable research papers. The API provides: 
-      
+    descriptionDashboard: >
+      The [CORE API](https://core.ac.uk/services/api) allows members of your
+      organisation to develop applications, products or services and to conduct
+      research using our vast corpus of searchable research papers. The API
+      provides: 
+
+
       * Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts.
+
       * Harmonised access to data across CORE’s data providers network.
+
       * Detailed [API documentation](https://api.core.ac.uk/docs/v3) with live examples and wrappers to common programming languages.
-      
+
+
       Many of our API users are researchers, masters and PhD students in all domains who need to programmatically and systematically interrogate a large research corpus. The API is often used  in the context of national and international research projects. Increasingly, it is also being used to provide research analytics for academic institutions.
-      
+
+
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
-  - title: "Unlimited and prioritised support"
+  - title: Unlimited and prioritised support
     id: unlimited-support
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -386,16 +534,18 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      Sustaining members receive unlimited and prioritised Technical support via a dedicated email address.
-    descriptionDashboard: |
-      Sustaining members receive unlimited and prioritised Technical support via a dedicated email address.
-  - title: "CORE OA Compliance Dashboard"
+    descriptionAbout: >
+      Sustaining members receive unlimited and prioritised Technical support via
+      a dedicated email address.
+    descriptionDashboard: >
+      Sustaining members receive unlimited and prioritised Technical support via
+      a dedicated email address.
+  - title: CORE OA Compliance Dashboard
     id: compliance-dashboard
     images:
       - file: /images/docs-membership/oa-compliance.png
-      - file:
-      - file:
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -403,24 +553,34 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      Tools for Open Access compliance monitoring. Currently we support the monitoring of the time lag between 
+    descriptionAbout: >
+      Tools for Open Access compliance monitoring. Currently we support the
+      monitoring of the time lag between 
+
       the deposit of a paper into a repository and its publication date. These features are continuously  being  
+
       developed to accommodate changes in recent OA policies. Particularly, we are working hard to provide tools to support 
+
       the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
+
       please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
-    descriptionDashboard: |
-      Tools for Open Access compliance monitoring. Currently we support the monitoring of the time lag between 
+    descriptionDashboard: >
+      Tools for Open Access compliance monitoring. Currently we support the
+      monitoring of the time lag between 
+
       the deposit of a paper into a repository and its publication date. These features are continuously  being  
+
       developed to accommodate changes in recent OA policies. Particularly, we are working hard to provide tools to support 
+
       the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
+
       please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
-  - title: "Dataset use for your university"
+  - title: Dataset use for your university
     id: dataset-university
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -428,42 +588,62 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      The [Dataset](https://core.ac.uk/documentation/dataset#latest) allows members of your organisation to download our vast corpus of open research papers and use it for research and research analytics. 
-      
+    descriptionAbout: >
+      The [Dataset](https://core.ac.uk/documentation/dataset#latest) allows
+      members of your organisation to download our vast corpus of open research
+      papers and use it for research and research analytics. 
+
+
       Many of our Dataset users are researchers, masters and PhD students in all domains who need to  programmatically and systematically interrogate 
+
       a large research corpus within their own infrastructure. The Dataset is often used to train machine learning models for a wide range of activities 
+
       in the context of national and international research projects. 
-      
+
+
       The Dataset provides you with:
-      
+
+
       * The entire CORE corpus of both metadata and full texts in a machine readable format.
+
       * Detailed [documentation](https://api.core.ac.uk/docs/v3) on how to download the CORE dataset and how data is organised.
-      
+
+
       The membership provides you with a licence to use the [CORE Dataset](https://core.ac.uk/documentation/dataset#latest) within your organisation, except for  commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
-      
+
+
       Detailed information about how to use the CORE Dataset can be found in the [Dataset documentation](https://core.ac.uk/documentation/dataset).
-    descriptionDashboard: |
-      The [Dataset](https://core.ac.uk/documentation/dataset#latest) allows members of your organisation to download our vast corpus of open research papers and use it for research and research analytics. 
-      
+    descriptionDashboard: >
+      The [Dataset](https://core.ac.uk/documentation/dataset#latest) allows
+      members of your organisation to download our vast corpus of open research
+      papers and use it for research and research analytics. 
+
+
       Many of our Dataset users are researchers, masters and PhD students in all domains who need to  programmatically and systematically interrogate 
+
       a large research corpus within their own infrastructure. The Dataset is often used to train machine learning models for a wide range of activities 
+
       in the context of national and international research projects. 
-      
+
+
       The Dataset provides you with:
-      
+
+
       * The entire CORE corpus of both metadata and full texts in a machine readable format.
+
       * Detailed [documentation](https://api.core.ac.uk/docs/v3) on how to download the CORE dataset and how data is organised.
-      
+
+
       The membership provides you with a licence to use the [CORE Dataset](https://core.ac.uk/documentation/dataset#latest) within your organisation, except for  commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
-      
+
+
       Detailed information about how to use the CORE Dataset can be found in the [Dataset documentation](https://core.ac.uk/documentation/dataset).
-  - title: "Repository health check"
+  - title: Repository health check
     id: repository-health-check
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -471,20 +651,28 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      We can perform a data-driven metadata quality assessment consultation for your institution. We will assess current level of metadata quality, in relation to FAIRness and Open Access compliance polices and we will provide guidance on how to improve it. (1 consultation per year included)
-      
+    descriptionAbout: >
+      We can perform a data-driven metadata quality assessment consultation for
+      your institution. We will assess current level of metadata quality, in
+      relation to FAIRness and Open Access compliance polices and we will
+      provide guidance on how to improve it. (1 consultation per year included)
+
+
       If you are interested in us helping you to check your repository health, please [contact us](https://core.ac.uk/about#contact).
-    descriptionDashboard: |
-      We can perform a data-driven metadata quality assessment consultation for your institution. We will assess current level of metadata quality, in relation to FAIRness and Open Access compliance polices and we will provide guidance on how to improve it. (1 consultation per year included)
-      
+    descriptionDashboard: >
+      We can perform a data-driven metadata quality assessment consultation for
+      your institution. We will assess current level of metadata quality, in
+      relation to FAIRness and Open Access compliance polices and we will
+      provide guidance on how to improve it. (1 consultation per year included)
+
+
       If you are interested in us helping you to check your repository health, please [contact us](https://core.ac.uk/about#contact).
-  - title: "Promoted / spotlight / featured articles"
+  - title: Promoted / spotlight / featured articles
     id: promoted-articles
     images:
       - file: /images/docs-membership/featured-articles.png
-      - file:
-      - file:
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -492,22 +680,27 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
+    descriptionAbout: >
       *This feature is under development.*
-      
+
+
       Whenever research papers from your organisation would appear on pages 2-4 of 
+
       CORE Search results, your paper is promoted to the front of the first page and is highlighted as a featured article.
-    descriptionDashboard: |
+    descriptionDashboard: >
       *This feature is under development.*
-      
+
+
       Whenever research papers from your organisation would appear on pages 2-4 of 
+
       CORE Search results, your paper is promoted to the front of the first page and is highlighted as a featured article.
-  - title: "Hosted or interview style blog post on mission-aligned activities"
+    imagesList: []
+  - title: Hosted or interview style blog post on mission-aligned activities
     id: hosted-activities
     images:
-      - file:
-      - file:
-      - file:
+      - ? file
+      - ? file
+      - ? file
     membership:
       - name: starting
         status: 0
@@ -515,11 +708,17 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionAbout: |
-      We are keen to provide a hosted or interview-style post on the CORE blog about open access, open science 
+    descriptionAbout: >
+      We are keen to provide a hosted or interview-style post on the CORE blog
+      about open access, open science 
+
       and other relevant mission-oriented activities your organisation is involved in. We would love to hear from you, 
+
       feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
-    descriptionDashboard: |
-      We are keen to provide a hosted or interview-style post on the CORE blog about open access, open science 
+    descriptionDashboard: >
+      We are keen to provide a hosted or interview-style post on the CORE blog
+      about open access, open science 
+
       and other relevant mission-oriented activities your organisation is involved in. We would love to hear from you, 
+
       feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
