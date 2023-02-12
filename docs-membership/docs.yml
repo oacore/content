@@ -234,9 +234,9 @@ items:
 
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
     membership-types:
-      sustaining: Yes
-      supporting: Yes
       starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images: null
@@ -270,9 +270,9 @@ items:
 
       To register your OAI mapping you should go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
     membership-types:
-      sustaining: Yes
-      supporting: Yes
       starting: Yes
+      supporting: Yes
+      sustaining: Yes
   - title: Logos for your papers
     id: logos-papers
     images:
@@ -401,9 +401,9 @@ items:
 
       Example of a personalised banner:
     membership-types:
-      sustaining: Yes
-      supporting: No
       starting: No
+      supporting: No
+      sustaining: Yes
   - title: Board of Supporters
     id: board-supporters
     images: null
@@ -435,9 +435,9 @@ items:
 
       By becoming a CORE Supporting or Sustaining member you will automatically appear on the [Board of Supporters website](https://core.ac.uk/community/supporters).
     membership-types:
-      sustaining: Yes
-      supporting: Yes
       starting: No
+      supporting: Yes
+      sustaining: Yes
   - title: Technical support (≤5)
     id: technical-support
     images: null
@@ -485,8 +485,8 @@ items:
 
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
     membership-types:
-      supporting: Yes
       starting: No
+      supporting: Yes
       sustaining: No
   - title: АPI use for your organisation
     id: АPI-organisation
@@ -535,9 +535,9 @@ items:
 
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
     membership-types:
-      sustaining: Yes
-      supporting: Yes
       starting: No
+      supporting: Yes
+      sustaining: Yes
   - title: Unlimited and prioritised support
     id: unlimited-support
     images: null
@@ -743,6 +743,6 @@ items:
 
       feel free to [contact us](https://core.ac.uk/about#contact) to arrange this.
     membership-types:
-      sustaining: Yes
-      supporting: No
       starting: No
+      supporting: No
+      sustaining: Yes
