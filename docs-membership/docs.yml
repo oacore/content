@@ -89,6 +89,10 @@ items:
 
 
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
+    membership-type:
+      starting: true
+      supporting: true
+      sustaining: true
   - title: CORE Search
     id: search
     images: null
@@ -105,6 +109,10 @@ items:
     descriptionDashboard: >
       Your data will be indexed and become searchable in the CORE Search engine,
       allowing millions of users to discover and find your papers.
+    membership-type:
+      starting: true
+      supporting: true
+      sustaining: true
   - title: CORE Recommender
     id: recommender
     images: null
