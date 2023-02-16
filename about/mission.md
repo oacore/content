@@ -5,7 +5,7 @@ video:
   title: Introducing CORE
   src: https://youtube.com/embed/-gFYNg_8ySQ
 ---
-CORE’s mission is to aggregate all open access research worldwide
+CORE’s mission is to index all open access research worldwide
 and deliver unrestricted access for all.
 
 In doing so, we:
