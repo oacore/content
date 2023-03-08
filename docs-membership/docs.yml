@@ -25,7 +25,7 @@ items:
 
       * manage how metadata from your repository is exposed across the open access research network,
 
-      * monitor and access statistics, such as on downloads, enrichments and OA compliance.
+      * monitor and access statistics, such as on downloads, enrichments and OA compliance,
 
       * install repository plugins, such as the CORE Recommender and Discovery.
 
@@ -46,7 +46,7 @@ items:
 
       * manage how metadata from your repository is exposed across the open access research network,
 
-      * monitor and access statistics, such as on downloads, enrichments and OA compliance.
+      * monitor and access statistics, such as on downloads, enrichments and OA compliance,
 
       * install repository plugins, such as the CORE Recommender and Discovery.
 
@@ -73,7 +73,7 @@ items:
       anywhere across the open research network.
 
 
-      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the *Plugins tab* on the sidebar.
+      You can install the CORE Discovery plugin directly from the Dashboard by clicking on the **Plugins tab** on the sidebar.
 
 
       More information about how this works can be found on the [CORE Discovery page](https://core.ac.uk/services/discovery).
@@ -188,7 +188,7 @@ items:
       Dashboard. This includes the downloads statistics for your papers in CORE
       as well as those directly realised in our system. After installing the
       IRUS tracker, a graph with statistical information on downloads will
-      appear in the *Overview tab* on the Dashboard.
+      appear in the **Overview tab** on the Dashboard.
     descriptionDashboard: >
       If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
       Repository Usage Statistics) tracker in your repository or journal system,
@@ -217,9 +217,9 @@ items:
       Increases the discoverability of your content via:
 
 
-      * **PMC LinkOut** - open access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service. 
+      * **PMC LinkOut** - open-access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service,
 
-      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories who use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
+      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
 
 
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
@@ -227,9 +227,9 @@ items:
       Increases the discoverability of your content via:
 
 
-      * **PMC LinkOut** - open access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service. 
+      * **PMC LinkOut** - open-access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service,
 
-      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories who use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
+      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
 
 
       The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
@@ -289,20 +289,20 @@ items:
     descriptionAbout: >
       By uploading your logo to your Dashboard account, you can associate your
       research papers in CORE with your official organisational logo. Your logo
-      will from then become visible to millions of CORE users and will be
-      displayed in a range of places across the CORE ecosystem including:
+      will then become visible to millions of CORE users and will be displayed
+      in a range of places across the CORE ecosystem including:
 
 
-      * CORE Search 
+      * CORE Search,
 
-      * CORE Recommender
+      * CORE Recommender,
 
-      * CORE Discovery
+      * CORE Discovery,
 
-      * Your data provider page in CORE
+      * Your data provider page in CORE.
 
 
-      To upload your your logo, go to the **Settings tab.**
+      To upload your logo, go to the **Settings tab.**
 
 
       Examples of how your logos will feature are listed below:
@@ -313,16 +313,16 @@ items:
       displayed in a range of places across the CORE ecosystem including:
 
 
-      * CORE Search 
+      * CORE Search,
 
-      * CORE Recommender
+      * CORE Recommender,
 
-      * CORE Discovery
+      * CORE Discovery,
 
-      * Your data provider page in CORE
+      * Your data provider page in CORE.
 
 
-      To upload your your logo, go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
+      To upload your logo, go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
 
 
       Examples of how your logos will feature are listed below:
@@ -346,12 +346,17 @@ items:
       and Sustaining members in multiple places in the CORE ecosystem including:
 
 
-      * **CORE Search**: Logos of our Supporting and Sustaining members are rotated to give all members exposure. 
+      * **CORE Search**: Logos of our Supporting and Sustaining members are rotated to give all members exposure,
 
       * **Board of Supporters**: Lists all Supporting and Sustaining members. 
 
 
-      This banner is either automatically created based on the logo you upload in the **Settings tab** in the Dashboard or you can send us your own version. The banner should have the following size: XXXXX and be in XXX format.
+      This banner is either automatically created based on the logo you upload in the **Settings tab** in the Dashboard or you can send us your own version. The banner should have the following size and format: 
+
+
+      * 1:1 ratio;
+
+      * png, jpeg, svg.
 
 
       An Example logo banner is displayed below:
@@ -360,7 +365,7 @@ items:
       and Sustaining members in multiple places in the CORE ecosystem including:
 
 
-      * **CORE Search**: Logos of our Supporting and Sustaining members are rotated to give all members exposure. 
+      * **CORE Search**: Logos of our Supporting and Sustaining members are rotated to give all members exposure,
 
       * **Board of Supporters**: Lists all Supporting and Sustaining members. 
 
@@ -454,15 +459,15 @@ items:
       technical issues relating to issues, such as:
 
 
-      * indexing and discoverability of your articles 
+      * indexing and discoverability of your articles,
 
       * guidance relating to providing interoperable metadata, i.e. metadata conforming to best practices and standards,
 
-      * supporting researchers and developers at your institution in processing research content via the CORE API and CORE Dataset. 
+      * supporting researchers and developers at your institution in processing research content via the CORE API and CORE Dataset, 
 
-      * providing support for your Recommender and Discovery installations
+      * providing support for your Recommender and Discovery installations,
 
-      * any technical queries relating to the use of CORE Dashboard
+      * any technical queries relating to the use of CORE Dashboard.
 
 
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
@@ -472,15 +477,15 @@ items:
       technical issues relating to issues, such as:
 
 
-      * indexing and discoverability of your articles 
+      * indexing and discoverability of your articles,
 
       * guidance relating to providing interoperable metadata, i.e. metadata conforming to best practices and standards,
 
-      * supporting researchers and developers at your institution in processing research content via the CORE API and CORE Dataset. 
+      * supporting researchers and developers at your institution in processing research content via the CORE API and CORE Dataset,
 
-      * providing support for your Recommender and Discovery installations
+      * providing support for your Recommender and Discovery installations,
 
-      * any technical queries relating to the use of CORE Dashboard
+      * any technical queries relating to the use of CORE Dashboard.
 
 
       Supporting members get a guaranteed technical support of up to 5 technical queries per year via a dedicated email address. Sustaining members can have an unlimited number of queries.
@@ -505,9 +510,9 @@ items:
       provides: 
 
 
-      * Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts.
+      * Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts,
 
-      * Harmonised access to data across CORE’s data providers network.
+      * Harmonised access to data across CORE’s data providers network,
 
       * Detailed [API documentation](https://api.core.ac.uk/docs/v3) with live examples and wrappers to common programming languages.
 
@@ -523,9 +528,9 @@ items:
       provides: 
 
 
-      * Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts.
+      * Real-time machine access to the world's largest corpus of open access research papers, containing both metadata and full texts,
 
-      * Harmonised access to data across CORE’s data providers network.
+      * Harmonised access to data across CORE’s data providers network,
 
       * Detailed [API documentation](https://api.core.ac.uk/docs/v3) with live examples and wrappers to common programming languages.
 
@@ -621,7 +626,7 @@ items:
       The Dataset provides you with:
 
 
-      * The entire CORE corpus of both metadata and full texts in a machine readable format.
+      * The entire CORE corpus of both metadata and full texts in a machine readable format,
 
       * Detailed [documentation](https://api.core.ac.uk/docs/v3) on how to download the CORE dataset and how data is organised.
 
@@ -646,7 +651,7 @@ items:
       The Dataset provides you with:
 
 
-      * The entire CORE corpus of both metadata and full texts in a machine readable format.
+      * The entire CORE corpus of both metadata and full texts in a machine readable format,
 
       * Detailed [documentation](https://api.core.ac.uk/docs/v3) on how to download the CORE dataset and how data is organised.
 
