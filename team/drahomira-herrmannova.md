@@ -3,7 +3,7 @@ first-name: Drahomira
 last-name: Herrmannova
 role: Data Analyst & Researcher
 photo: images/team/drahomira-herrmannova.jpg
-past: false
+past: true
 order: 0
 ---
 Works with the rest of the team on both front- and back-end development.
