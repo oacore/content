@@ -751,3 +751,39 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+  - title: CORE badges
+    id: core-badges
+    images:
+      - file: /resources/indexed_by_core.svg
+        source: <img src="https://core.ac.uk/resources/indexed_by_core.png"/>
+      - file: /resources/core_starting_member_line.svg
+        source: <img src="https://core.ac.uk/resources/core_starting_member_line.png"/>
+      - file: /resources/core_supporting_member_line.svg
+        source: <img src="https://core.ac.uk/resources/core_supporting_member_line.png"/>
+      - file: /resources/core_sustaining_member_line.svg
+        source: <img src="https://core.ac.uk/resources/core_sustaining_member_line.png"/>
+      - file: /resources/core_starting_member_square.svg
+        source: <img src="https://core.ac.uk/resources/core_starting_member_square.png"/>
+      - file: /resources/core_supporting_member_square.svg
+        source: <img src="https://core.ac.uk/resources/core_supporting_member_square.png"/>
+      - file: /resources/core_sustaining_member_square.svg
+        source: <img src="https://core.ac.uk/resources/core_sustaining_member_square.png"/>
+    membership:
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    descriptionAbout: >
+      You can use the below badges on your website to show that your content is indexed by CORE and that you
+      are a part of CORE and Open Research community. Please chose the badges according to your
+      membership tier and include the badges in your system by means of the supplied html tags.
+    descriptionDashboard: >
+      You can use the below badges on your website to show that your content is indexed by CORE and that you
+      are a part of CORE and Open Research community. Please chose the badges according to your
+      membership tier and include the badges in your system by means of the supplied html tags.
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
