@@ -755,19 +755,19 @@ items:
     id: core-badges
     images:
       - file: /resources/indexed_by_core.svg
-        source: <img src="https://core.ac.uk/resources/indexed_by_core.png"/>
+        source: <img src="https://core.ac.uk/resources/indexed_by_core.svg"/>
       - file: /resources/core_starting_member_line.svg
-        source: <img src="https://core.ac.uk/resources/core_starting_member_line.png"/>
+        source: <img src="https://core.ac.uk/resources/core_starting_member_line.svg"/>
       - file: /resources/core_supporting_member_line.svg
-        source: <img src="https://core.ac.uk/resources/core_supporting_member_line.png"/>
+        source: <img src="https://core.ac.uk/resources/core_supporting_member_line.svg"/>
       - file: /resources/core_sustaining_member_line.svg
-        source: <img src="https://core.ac.uk/resources/core_sustaining_member_line.png"/>
+        source: <img src="https://core.ac.uk/resources/core_sustaining_member_line.svg"/>
       - file: /resources/core_starting_member_square.svg
-        source: <img src="https://core.ac.uk/resources/core_starting_member_square.png"/>
+        source: <img src="https://core.ac.uk/resources/core_starting_member_square.svg"/>
       - file: /resources/core_supporting_member_square.svg
-        source: <img src="https://core.ac.uk/resources/core_supporting_member_square.png"/>
+        source: <img src="https://core.ac.uk/resources/core_supporting_member_square.svg"/>
       - file: /resources/core_sustaining_member_square.svg
-        source: <img src="https://core.ac.uk/resources/core_sustaining_member_square.png"/>
+        source: <img src="https://core.ac.uk/resources/core_sustaining_member_square.svg"/>
     membership:
       - name: starting
         status: 1
