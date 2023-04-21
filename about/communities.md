@@ -1,8 +1,7 @@
 ---
-title: Communities
-short-title: Communities
-action-label: Ambassadors’ community
-extra-action-label: Researchers’ community
-icon-url: images/icons/community.svg
+title: Governance
+short-title: Governance
+action-label: Find out more
+icon-url: images/icons/governance.svg
 ---
-We are supported by a global network of ambassadors and researchers
+CORE is a community governed service. Our organisational structure reflects the diversity of our stakeholders ensuring our activities are kept in alignment with our mission and community needs. Take part and help shape the future of CORE.
