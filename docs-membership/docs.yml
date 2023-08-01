@@ -273,6 +273,81 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+  - title: RIOXX metadata validator
+    id: rioxx-validator
+    images:
+      - file: /images/docs-membership/rioxValid.png
+    membership:
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    descriptionAbout: >
+      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The RIOXX metadata validator is a tool that helps you validate compliance of individual metadata records with RIOXX, a widely used metadata standard for repositories.
+    descriptionDashboard: >
+      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The RIOXX metadata validator is a tool that helps you validate compliance of individual metadata records with RIOXX, a widely used metadata standard for repositories.
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+  - title: Versions and duplicates detection
+    id: versions-duplicates
+    images:
+      - file: /images/docs-membership/deduplication.png
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    descriptionAbout: >
+      Our technology searches your repository to identify different versions of your articles and potential duplicates within your repository. This can help you in managing and curating your repository content. We periodically detect near-duplicate records and versions and allow you to compare them side by side. This can help you improve your repository metadata and keep the repository clean. When investigating the detected matches, you can mark them either as duplicates, different version or not the same article. This advises CORE how to index them. Please note that it is not possible to delete or merge duplicates in your repository directly from this dashboard. However, you can use this tool to identify these potential issues and then resolve them in a way that is supported by your specific repository platform. Matches can be downloaded in a .csv format.
+      
+      The list of possible duplicates in your repository  contains the potential duplicates which CORE identified. You can compare them to this record and review how they differ. You can subsequently mark them as “to be removed” or “different from the reference paper”. 
+      
+      * **“To be removed”**: this indicates that one of the other presented records in the repository are the same as this record. You decided to mark this record as the one to be removed.
+      * **“Different from the reference paper”**: this indicates that this record is not related to the reference paper. You decided to disassociate this record from the reference paper. This will remove the connection of this record from the reference Works entity.
+      
+      When you mark a paper as “to be removed” or “different from the reference paper”, then this marking will be exporter in a .csv format when you download the data using the download button.
+      
+      When you mark a paper as different from the reference paper, then this will impact how CORE displays this article in Search, API and other services. Specifically, this article will be disassociated from the reference Work entity.
+    descriptionDashboard: >
+      Our technology searches your repository to identify different versions of your articles and potential duplicates within your repository. This can help you in managing and curating your repository content. We periodically detect near-duplicate records and versions and allow you to compare them side by side. This can help you improve your repository metadata and keep the repository clean. When investigating the detected matches, you can mark them either as duplicates, different version or not the same article. This advises CORE how to index them. Please note that it is not possible to delete or merge duplicates in your repository directly from this dashboard. However, you can use this tool to identify these potential issues and then resolve them in a way that is supported by your specific repository platform. Matches can be downloaded in a .csv format.
+
+      The list of possible duplicates in your repository  contains the potential duplicates which CORE identified. You can compare them to this record and review how they differ. You can subsequently mark them as “to be removed” or “different from the reference paper”. 
+
+      * **“To be removed”**: this indicates that one of the other presented records in the repository are the same as this record. You decided to mark this record as the one to be removed.
+      * **“Different from the reference paper”**: this indicates that this record is not related to the reference paper. You decided to disassociate this record from the reference paper. This will remove the connection of this record from the reference Works entity.
+
+      When you mark a paper as “to be removed” or “different from the reference paper”, then this marking will be exporter in a .csv format when you download the data using the download button.
+
+      When you mark a paper as different from the reference paper, then this will impact how CORE displays this article in Search, API and other services. Specifically, this article will be disassociated from the reference Work entity.
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
+  - title: Monitor RIOXX compliance
+    id: rioxx-compliance
+    images:
+      - file: /images/docs-membership/riox.png
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    descriptionAbout: >
+      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The Monitor RIOXX Compliance feature constantly monitors metadata records in your repository, helping you to keep your repository FAIR.
+    descriptionDashboard: >
+      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The Monitor RIOXX Compliance feature constantly monitors metadata records in your repository, helping you to keep your repository FAIR.
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
   - title: Logos for your papers
     id: logos-papers
     images:
