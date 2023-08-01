@@ -309,6 +309,7 @@ items:
       The list of possible duplicates in your repository  contains the potential duplicates which CORE identified. You can compare them to this record and review how they differ. You can subsequently mark them as “to be removed” or “different from the reference paper”. 
       
       * **“To be removed”**: this indicates that one of the other presented records in the repository are the same as this record. You decided to mark this record as the one to be removed.
+      
       * **“Different from the reference paper”**: this indicates that this record is not related to the reference paper. You decided to disassociate this record from the reference paper. This will remove the connection of this record from the reference Works entity.
       
       When you mark a paper as “to be removed” or “different from the reference paper”, then this marking will be exporter in a .csv format when you download the data using the download button.
@@ -320,6 +321,7 @@ items:
       The list of possible duplicates in your repository  contains the potential duplicates which CORE identified. You can compare them to this record and review how they differ. You can subsequently mark them as “to be removed” or “different from the reference paper”. 
 
       * **“To be removed”**: this indicates that one of the other presented records in the repository are the same as this record. You decided to mark this record as the one to be removed.
+      
       * **“Different from the reference paper”**: this indicates that this record is not related to the reference paper. You decided to disassociate this record from the reference paper. This will remove the connection of this record from the reference Works entity.
 
       When you mark a paper as “to be removed” or “different from the reference paper”, then this marking will be exporter in a .csv format when you download the data using the download button.
