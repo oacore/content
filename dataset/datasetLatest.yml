@@ -1,7 +1,7 @@
 title: "Latest datasets:"
 id: latest
 box:
-  title: Dataset 2022
+  title: Dataset 2023
   icon: /images/dataset/cloud.svg
   dataSize:
     - count: 393 GB
@@ -16,7 +16,7 @@ box:
     Contains full text and metadata dataset.
 
 
-    `md5: 73efe0336a6e730bae7a34b2c5e21309`
+    `md5: 5f9688c52a92d0225cc064354d02ea04`
 
 
     License: All rights reserved. See our [Terms & Conditions](https://core.ac.uk/terms).
@@ -24,7 +24,7 @@ box:
 
     **Note**: Please read the section "[Structure of datasets](#dataset2020)" below for more information.
   dataSizes:
-    - count: "393 GB "
+    - count: "680 GB "
       dataType: compressed
-    - count: 3.5 TB
+    - count: ~4.8 TB
       dataType: extracted
