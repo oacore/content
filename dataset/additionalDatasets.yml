@@ -105,3 +105,22 @@ items:
         action:
           caption: Register for Access
           url: https://core.ac.uk/services/dataset#what-is-included
+      - title: Dataset 2022
+        caption: |-
+          Register for Access
+
+          https://core.ac.uk/services/dataset#what-is-included
+        dataSizes:
+          - count: "393 GB "
+            dataType: compressed
+          - count: 3.5 TB
+            dataType: extracted
+        license: "[Open Data Commons Attribution
+          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
+        note: Please read the section [Structure of
+          datasets](https://core.ac.uk/edit#dataset2020) below for more
+          information.
+        footer: Full dataset (Full text & metadata)
+        action:
+          caption: Register for access
+          url: https://core.ac.uk/services/dataset#what-is-included
