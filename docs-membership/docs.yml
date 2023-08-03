@@ -285,9 +285,9 @@ items:
       - name: sustaining
         status: 1
     descriptionAbout: >
-      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The RIOXX metadata validator is a tool that helps you validate compliance of individual metadata records with [RIOXX](https://www.rioxx.net/profiles/), a widely used metadata standard for repositories.
+      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The RIOXX metadata validator is a tool that helps you validate compliance of individual metadata records with RIOXX, a widely used metadata standard for repositories.
     descriptionDashboard: >
-      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The RIOXX metadata validator is a tool that helps you validate compliance of individual metadata records with [RIOXX](https://www.rioxx.net/profiles/), a widely used metadata standard for repositories.
+      Aligning with established metadata practices is key for the interoperability of your repository with external systems and for meeting FAIR principles. Funders increasingly mandate the use of established metadata profiles. The RIOXX metadata validator is a tool that helps you validate compliance of individual metadata records with RIOXX, a widely used metadata standard for repositories.
     membership-types:
       starting: Yes
       supporting: Yes
