@@ -132,6 +132,90 @@ items:
       }
 
       ```
+
+    fields_table:
+      title: Fields description
+      table:
+        - column_1: Field name
+          column_2: Description
+        - column_1: doi
+          column_2:  >-
+            [Digital Object Identifier](https://www.doi.org). A persistent and unique identifier for the document. This data is collected from the data provider or discovered by enrichment processes by CORE using [Crossref](https://crossref.org) and other DOIs collections.
+        - column_1: coreId
+          column_2:  >-
+            The persistent identifier of a document in the CORE infrastructure.
+        - column_1: oai
+          column_2:  >-
+            The identifier of a resource harvested from a repository. It usually contains a static part identifying the data provider and a variable part identifying the single record. It is originated by data provider using the OAI-PMH protocol but if the data provider is not using it, CORE will generate one for the record.
+        - column_1: identifiers
+          column_2: >-
+            A list of identifiers for the document, it might contains urls, PMC IDs, DOI etc. This information is collected from the data provider (`dc.identifier` tag) and enriched by CORE. 
+        - column_1: title
+          column_2: >-
+            The title of the document
+        - column_1: authors
+          column_2: >-
+            An array containing the list of authors.
+        - column_1: enrichments
+          column_2: >-
+            This sub-object contains enrichments to the data harvested from the data provider.
+        - column_1: enrichments.references
+          column_2: >-
+            A list of references (other documents) discovered by CORE.
+        - column_1: enrichments.documentType
+          column_2: >-
+            The type of the document. We use a machine learning algorithm to discover the document type, the type has also a confidence associated.
+        - column_1: enrichments.citationCount
+          column_2: >-
+            The count of papers citing the paper. This information is extracted via [Microsoft Academic Graph](https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/).
+        - column_1: contributors
+          column_2: >-
+            Matches the `dc.contributors` tag in the Dublin Core metadata format.
+        - column_1: datePublished
+          column_2: >-
+            Date of when the document has been published. If the data is not available from the original data provider, CORE will try to discover this using other data sources.
+        - column_1: abstract
+          column_2: >-
+            The abstract of the document
+        - column_1: downloadUrl
+          column_2: >-
+            The url where the full text is available. If the full text is hosted in CORE this will be a CORE url, otherwise it will be a url to a different data source.
+        - column_1: fullTextIdentifier
+          column_2: >-
+            This url is the location where CORE managed to find the hosted full text.
+        - column_1: pdfHashValue
+          column_2: >-
+            An hash value of the pdf, to validate the integrity of a document and test for duplicates and changes.
+        - column_1: publisher
+          column_2: >-
+            Coming from `dc.publisher`
+        - column_1: rawRecordXml
+          column_2: >-
+            left-aligned
+        - column_1: journals
+          column_2: >-
+            Sub object containing metadata about the journal where the record has been publish.
+        - column_1: language
+          column_2: >-
+            Language of the record discovered by CORE.
+        - column_1: relations
+          column_2: >-
+            Coming from `dc.relations`
+        - column_1: year
+          column_2: >-
+            Based on the different dates available for the record, this field contains the year on which this document has been published. It uses only year because data quality is variable and many document don't have detailed informations.
+        - column_1: topics
+          column_2: >-
+            Coming from `dc.topic`.
+        - column_1: subjects
+          column_2: >-
+            Coming from `dc.subject`
+        - column_1: issn
+          column_2: >-
+            The issn of the journal where the article was published on. This information is extracted from the [Crossref](https://crossref.org) data.
+        - column_1: fullText
+          column_2: >-
+            The text extracted from the hosted full text.
     fields: >-
       ##### Fields description
 
