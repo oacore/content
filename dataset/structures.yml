@@ -133,21 +133,117 @@ items:
 
       ```
     fields: |-
+      ##### Fields description
+      
+      
       <table>
         <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
+          <th>Field name</th>
+          <th>Description</th>
         </tr>
         <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
+          <td>doi</td>
+          <td>[Digital Object Identifier](https://www.doi.org). A persistent and unique identifier for the document. This data is collected from the data provider or discovered by enrichment processes by CORE using [Crossref](https://crossref.org) and other DOIs collections.</td>
         </tr>
         <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
+          <td>coreId</td>
+          <td>The persistent identifier of a document in the CORE infrastructure.</td>
+        </tr>
+        <tr>
+          <td>oai</td>
+          <td>The identifier of a resource harvested from a repository. It usually contains a static part identifying the data provider and a variable part identifying the single record. It is originated by data provider using the OAI-PMH protocol but if the data provider is not using it, CORE will generate one for the record.</td>
+        </tr>
+        <tr>
+          <td>identifiers</td>
+          <td>A list of identifiers for the document, it might contains urls, PMC IDs, DOI etc. This information is collected from the data provider (`dc.identifier` tag) and enriched by CORE. </td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>The title of the document </td>
+        </tr>
+        <tr>
+          <td>authors</td>
+          <td>An array containing the list of authors. </td>
+        </tr>
+        <tr>
+          <td>enrichments</td>
+          <td>This sub-object contains enrichments to the data harvested from the data provider.</td>
+        </tr>
+        <tr>
+          <td>enrichments.references</td>
+          <td>A list of references (other documents) discovered by CORE.</td>
+        </tr>
+        <tr>
+          <td>enrichments.documentType</td>
+          <td>The type of the document. We use a machine learning algorithm to discover the document type, the type has also a confidence associated.</td>
+        </tr>
+        <tr>
+          <td>enrichments.citationCount</td>
+          <td>The count of papers citing the paper. This information is extracted via [Microsoft Academic Graph](https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/).</td>
+        </tr>
+        <tr>
+          <td>contributors</td>
+          <td>Matches the `dc.contributors` tag in the Dublin Core metadata format.</td>
+        </tr>
+        <tr>
+          <td>datePublished</td>
+          <td>Date of when the document has been published. If the data is not available from the original data provider, CORE will try to discover this using other data sources.</td>
+        </tr>
+        <tr>
+          <td>abstract</td>
+          <td>The abstract of the document</td>
+        </tr>
+        <tr>
+          <td>downloadUrl</td>
+          <td>The url where the full text is available. If the full text is hosted in CORE this will be a CORE url, otherwise it will be a url to a different data source. </td>
+        </tr>
+        <tr>
+          <td>fullTextIdentifier</td>
+          <td>This url is the location where CORE managed to find the hosted full text.</td>
+        </tr>
+        <tr>
+          <td>pdfHashValue</td>
+          <td>An hash value of the pdf, to validate the integrity of a document and test for duplicates and changes.</td>
+        </tr>
+        <tr>
+          <td>publisher</td>
+          <td>Coming from `dc.publisher`</td>
+        </tr>
+        <tr>
+          <td>rawRecordXml</td>
+          <td>left-aligned</td>
+        </tr>
+        <tr>
+          <td>journals</td>
+          <td>Sub object containing metadata about the journal where the record has been publish.</td>
+        </tr>
+        <tr>
+          <td>language</td>
+          <td>Language of the record discovered by CORE.</td>
+        </tr>
+        <tr>
+          <td>relations</td>
+          <td>Coming from `dc.relations`</td>
+        </tr>
+        <tr>
+          <td>year</td>
+          <td>Based on the different dates available for the record, this field contains the year on which this document has been published. It uses only year because data quality is variable and many document don't have detailed informations.</td>
+        </tr>
+        <tr>
+          <td>topics</td>
+          <td>Coming from `dc.topic`.</td>
+        </tr>
+        <tr>
+          <td>subjects</td>
+          <td>Coming from `dc.subject`</td>
+        </tr>
+        <tr>
+          <td>issn</td>
+          <td>The issn of the journal where the article was published on. This information is extracted from the [Crossref](https://crossref.org) data.</td>
+        </tr>
+        <tr>
+          <td>fullText</td>
+          <td>The text extracted from the hosted full text.</td>
         </tr>
       </table>
   - title: Structure of dataset 2018 onwards
