@@ -3,7 +3,7 @@ first-name: Nancy
 last-name: Pontika
 role: Open Access Specialist & Communications
 photo: /images/team/nancy-pontika.jpg
-past: false
+past: true
 order: 0
 ---
 A communications guru in the 'dominated by developers' CORE team. Her job is
