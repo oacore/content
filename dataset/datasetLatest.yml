@@ -13,7 +13,7 @@ box:
       caption: Register for access
       url: https://core.ac.uk/services/dataset#what-is-included
   text: >-
-    Contains full text and metadata dataset.
+    Full dataset (Full text & metadata).
 
 
     `md5: 5f9688c52a92d0225cc064354d02ea04`
