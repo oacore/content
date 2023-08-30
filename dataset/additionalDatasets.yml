@@ -39,10 +39,7 @@ items:
     id: archived
     boxes:
       - title: Dataset 2022
-        caption: |-
-          Register for Access
-
-          https://core.ac.uk/services/dataset#what-is-included
+        caption: Full dataset (Full text & metadata)
         dataSizes:
           - count: "393 GB "
             dataType: compressed
@@ -50,8 +47,8 @@ items:
             dataType: extracted
         license: "**License**: All rights reserved. See our [Terms &
           Conditions](https://core.ac.uk/terms)."
-        note: Please read the section [Structure of datasets](#dataset2020)
-          below for more information.
+        note: Please read the section [Structure of datasets](#dataset2020) below for
+          more information.
         footer: Full dataset (Full text & metadata)
         action:
           caption: Register for access
