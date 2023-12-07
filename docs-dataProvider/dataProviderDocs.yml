@@ -22,6 +22,7 @@ items:
     images: null
     subTitle: null
     subDescription: null
+    divider: true
   - title: 3. Requirements and guidelines for indexing repository content
     id: guideline
     descriptionAbout: >
@@ -29,6 +30,7 @@ items:
     images: null
     subTitle: null
     subDescription: null
+    divider: true
   - title: 3.1 Repository configuration
     id: configuration
     descriptionAbout: null
@@ -81,7 +83,8 @@ items:
       An OAI (Open Archives Initiative) identifier is a unique identifier of a metadata record minted in a decentralised manner. OAI identifiers are formed using a globally unique prefix and a locally unique suffix. Together they form a globally unique identifier of a metadata record.
     images:
       - file: /images/docs-membership/OAI.png
-    subTitle: Figure 2. OAI identifier
+    subTitle: >
+      **Figure 2. OAI identifier**
     subDescription: >
       CORE registers OAI identifiers supplied by repositories during the harvesting process and use them to deliver a global [OAI Resolver](https://oai.core.ac.uk) service. The use of OAI Identifiers is automatic for data providers supporting OAI-PMH. However, it is important that these identifiers are correctly managed. Specifically:
       
@@ -183,11 +186,12 @@ items:
       
       * It provides mechanisms for distinguishing resources under the custodianship of the repository from those under external custodianship, enabling CORE to prefer linking to the repository where possible (and appropriate) instead of linking externally to the publisher's website.
       
+      
       CORE provides a [metadata validator for data providers supporting Rioxx](/membership-documentation#rioxx-validator) in the CORE Dashboard.
     images:
       - file: /images/docs-membership/riox-metadata.png
     subTitle: >
-      Figure 3: Rioxx metadata validation tool in CORE Dashboard
+      **Figure 3: Rioxx metadata validation tool in CORE Dashboard**
     subDescription: null
   - title: 3.3 Full text configuration	10
     id: text-configuration
@@ -207,38 +211,47 @@ items:
     id: same-domain
     descriptionAbout: >
       CORE requires that the full text must be hosted on the same domain or subdomains as the OAI-PMH endpoint. This is to ensure that content of other external data providers linked from the repository is not treated as content belonging to the repository. Exceptions are made where the domain is owned by the same organisation. We advise data providers to contact us in those circumstances.
-      
-      
+    images: null
+    subTitle: null
+    subDescription: >
       **Example Scenario**
 
+
       *Same domain hosting*
+
       The fictional organisation “We Love Open Access”, has an OAI-PMH endpoint at
       https://weloveopenaccess.org/cgi/oai2. By default, CORE accepts any papers hosted as follows:
+
       * https://weloveopenaccess.org/files/paper.pdf
       Notice that the files and the OAI-PMH endpoint are hosted on the same domain (weloveopenaccess.org).
 
 
       *Subdomain hosting*
+
       We can accept the following setup, but please contact us to allow a specific exception:
       * https://files.weloveopenaccess.org/files/paper.pdf (with exception)
+
       * https://weloveopenaccess-files.org/files/paper.pdf (with exception)
 
 
       *Out-of-domain hosting with a dedicated repository content section*
+
       We may also accept where there is a clear link between the owner of the OAI-PMH and the hosting website:
+
       * https://parent-organisation.org/weloveopenaccess/files/paper.pdf (with exception and proof of ownership)
 
 
       *Out-of-domain hosting*
+
       CORE does not support this option. 
+
       * https://publisher-website.com/files/paper.pdf
 
 
       CORE does not allow indexing full texts hosted on shared services such as Dropbox, Google Drive or OneDrive.
+
       * https://drive.google.com/… or https://dropbox.com… or https://onedrive.com
-    images: null
-    subTitle: null
-    subDescription: null
+    border: true
   - title: 3.3.3 Linking to the full text of an article
     id: linking-full-text
     descriptionAbout: >
@@ -249,11 +262,47 @@ items:
   - title: i. Direct link to the full text (Recommended) 11
     id: Direct-full-text
     descriptionAbout: >
-      CORE recommends that data providers provide an unambiguous link to the full text in the metadata. The correct linking strategy depends on the employed metadata schema. 
-    images:
-      - file: /images/docs-membership/full-text.png
+      CORE recommends that data providers provide an unambiguous link to the full text in the metadata. The correct linking strategy depends on the employed metadata schema.
+    images: null
     subTitle: null
-    subDescription: null
+    subDescription: >
+      **Dublin Core (Minimum)**
+      
+      
+      Where Dublin Core is used, it is recommended to provide a direct link to the full text in the first occurrence of dc:identifier.
+      
+      
+      <dc:identifier>http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
+      
+      
+      EPrints follows this recommendation by default. This approach significantly reduces the load that CORE places on the repository during indexing.
+      
+      
+      If this is not possible, then CORE can index the content if there is a well-defined link in the metadata that directs to a machine-accessible document (either PDF, or Microsoft Word doc/docx format). 
+      
+      
+      **Rioxx v3 (Recommended)**
+      
+      In Rioxx v3, the data provider links to the landing page in dc:identifier and the lists the direct link to the full text in dc:relation specifying the rel=”item” property with the type=”application/pdf”
+      
+      
+      **Example**
+      
+      <dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
+      <dc:relation
+          rel="item"
+          type="application/pdf"
+          coar_type="http://purl.org/coar/resource_type/YZ1N-ZFT9"
+          deposit_date="2023-10-18"
+          resource_exposed_date="2023-10-18"
+          access_rights="https://purl.org/coar/access_right/c_abf2"
+          license_ref="https://creativecommons.org/licenses/by/4.0/">
+          https://eprints.whiterose.ac.uk/204315/9/amt-16-4375-2023-supplement.pdf
+      </dc:relation>
+      
+      
+      <dc:relation rel="cite-as">https://oai.core.ac.uk/oai:eprints.whiterose.ac.uk:204315</dc:relation>
+    border: true
   - title: ii. Indirect link to the full text (Supported)
     id: indirect-link
     descriptionAbout: >
@@ -290,6 +339,7 @@ items:
     images: null
     subTitle: null
     subDescription: null
+    divider: true
   - title: 4.1 Submitting the data provider OAI base URL (Required)
     id: oai-base
     descriptionAbout: |
@@ -342,3 +392,4 @@ items:
     images: null
     subTitle: null
     subDescription: null
+    divider: true
