@@ -51,8 +51,9 @@ items:
     descriptionAbout: >
       Can use the Open Archives [OAI-PMH validator](https://www.openarchives.org/Register/ValidateSite) tool. The tool expects an HTTP(s) URI of the OAI-PMH endpoint (also called the OAI-PMH base URL) and conducts a number of checks to assess the validity and correct configuration of the endpoint. If the validator returns errors, then these will need to be fixed prior to getting registered with CORE. It is advised that this step is conducted prior to attempting registration with CORE.
     images:
-      - file: /images/docs-membership/rioxValid.png
-    subTitle: null
+      - file: /images/docs-membership/oai-pmh.png
+    subTitle: >
+      **Figure 2: Sample OAI-PMH validation check for University of Manchester**
     subDescription: null
   - title: Data providers registering with CORE
     id: null
@@ -193,31 +194,32 @@ items:
     subTitle: >
       **Figure 3: Rioxx metadata validation tool in CORE Dashboard**
     subDescription: null
-  - title: 3.3 Full text configuration	10
+  - title: 3.3 Full text configuration
     id: text-configuration
     descriptionAbout: >
       A number of powerful capabilities of CORE are derived from CORE’s ability to index full text content. These include full text search [(CORE Search)](https://core.ac.uk), full text-based recommendation of content [(CORE Recommender)](/services/recommender), helping researchers to discover full text open access content when they hit a paywall [(CORE Discovery)](/services/discovery), the provision of full text links to repositories from within PubMed [(Repository Discovery Boost)](/membership-documentation#repository-discovery-boost), detection of versions and duplicate content [(Versions and Duplicates Detection)](/membership-documentation#versions-duplicates), [detection of Rights retention Strategy Statements](https://blog.core.ac.uk/2023/11/21/identifying-and-extracting-authors-rights-retention-statements-from-full-text-academic-articles/), and others.
     images: null
     subTitle: null
     subDescription: null
-  - title: 3.3.1 Supported full-text formats (Required)	10
+  - title: 3.3.1 Supported full-text formats (Required)
     id: full-text
     descriptionAbout: >
       CORE only supports valid PDFs, doc or docx files where there is extractable text. If a PDF is not digitally born, e.g. it is a scan, then the use of the document in CORE will be limited. 
     images: null
     subTitle: null
     subDescription: null
-  - title: 3.3.2 Same-domain policy for hosting full texts (Required)	10
+  - title: 3.3.2 Same-domain policy for hosting full texts (Required)
     id: same-domain
     descriptionAbout: >
       CORE requires that the full text must be hosted on the same domain or subdomains as the OAI-PMH endpoint. This is to ensure that content of other external data providers linked from the repository is not treated as content belonging to the repository. Exceptions are made where the domain is owned by the same organisation. We advise data providers to contact us in those circumstances.
     images: null
     subTitle: null
-    subDescription: >
+    subDescription: |
       **Example Scenario**
 
 
-      *Same domain hosting*
+      **Same domain hosting**
+      
 
       The fictional organisation “We Love Open Access”, has an OAI-PMH endpoint at
       https://weloveopenaccess.org/cgi/oai2. By default, CORE accepts any papers hosted as follows:
@@ -226,22 +228,26 @@ items:
       Notice that the files and the OAI-PMH endpoint are hosted on the same domain (weloveopenaccess.org).
 
 
-      *Subdomain hosting*
+      **Subdomain hosting**
+      
 
       We can accept the following setup, but please contact us to allow a specific exception:
+      
       * https://files.weloveopenaccess.org/files/paper.pdf (with exception)
 
       * https://weloveopenaccess-files.org/files/paper.pdf (with exception)
 
 
-      *Out-of-domain hosting with a dedicated repository content section*
+      **Out-of-domain hosting with a dedicated repository content section**
+      
 
       We may also accept where there is a clear link between the owner of the OAI-PMH and the hosting website:
 
       * https://parent-organisation.org/weloveopenaccess/files/paper.pdf (with exception and proof of ownership)
 
 
-      *Out-of-domain hosting*
+      **Out-of-domain hosting**
+      
 
       CORE does not support this option. 
 
@@ -259,7 +265,7 @@ items:
     images: null
     subTitle: null
     subDescription: null
-  - title: i. Direct link to the full text (Recommended) 11
+  - title: i. Direct link to the full text (Recommended)
     id: Direct-full-text
     descriptionAbout: >
       CORE recommends that data providers provide an unambiguous link to the full text in the metadata. The correct linking strategy depends on the employed metadata schema.
@@ -272,7 +278,7 @@ items:
       Where Dublin Core is used, it is recommended to provide a direct link to the full text in the first occurrence of dc:identifier.
       
       
-      <dc:identifier>http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
+      < dc:identifier >http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
       
       
       EPrints follows this recommendation by default. This approach significantly reduces the load that CORE places on the repository during indexing.
@@ -289,15 +295,25 @@ items:
       **Example**
       
       <dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
+      
       <dc:relation
+      
           rel="item"
+      
           type="application/pdf"
+      
           coar_type="http://purl.org/coar/resource_type/YZ1N-ZFT9"
+      
           deposit_date="2023-10-18"
+      
           resource_exposed_date="2023-10-18"
+      
           access_rights="https://purl.org/coar/access_right/c_abf2"
+      
           license_ref="https://creativecommons.org/licenses/by/4.0/">
+      
           https://eprints.whiterose.ac.uk/204315/9/amt-16-4375-2023-supplement.pdf
+      
       </dc:relation>
       
       
