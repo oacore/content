@@ -222,6 +222,7 @@ items:
       
 
       The fictional organisation “We Love Open Access”, has an OAI-PMH endpoint at
+      
       https://weloveopenaccess.org/cgi/oai2. By default, CORE accepts any papers hosted as follows:
 
       * https://weloveopenaccess.org/files/paper.pdf
@@ -234,7 +235,7 @@ items:
       We can accept the following setup, but please contact us to allow a specific exception:
       
       * https://files.weloveopenaccess.org/files/paper.pdf (with exception)
-
+      
       * https://weloveopenaccess-files.org/files/paper.pdf (with exception)
 
 
@@ -271,14 +272,14 @@ items:
       CORE recommends that data providers provide an unambiguous link to the full text in the metadata. The correct linking strategy depends on the employed metadata schema.
     images: null
     subTitle: null
-    subDescription: >
+    subDescription: |
       **Dublin Core (Minimum)**
       
       
       Where Dublin Core is used, it is recommended to provide a direct link to the full text in the first occurrence of dc:identifier.
       
       
-      < dc:identifier >http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
+      <dc:identifier>http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
       
       
       EPrints follows this recommendation by default. This approach significantly reduces the load that CORE places on the repository during indexing.
@@ -289,12 +290,14 @@ items:
       
       **Rioxx v3 (Recommended)**
       
+      
       In Rioxx v3, the data provider links to the landing page in dc:identifier and the lists the direct link to the full text in dc:relation specifying the rel=”item” property with the type=”application/pdf”
       
       
       **Example**
       
-      <dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
+      "<dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>"
+      
       
       <dc:relation
       
