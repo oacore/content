@@ -56,14 +56,12 @@ items:
       **Figure 2: Sample OAI-PMH validation check for University of Manchester**
     subDescription: null
   - title: Data providers registering with CORE
-    id: null
     descriptionAbout: >
       Can visit the CORE [data provider registration page](/benefits#join-core) and enter their OAI-PMH base URL. If the OAI-PMH base URL is valid, then the repository will be registered in CORE, subject to additional checks described in Section 4.1. It is important to note that checking that the OAI-PMH endpoint is configured correctly does not guarantee that it correctly exposes all the metadata records from the repository system. This can only be checked once CORE has attempted harvesting of the repository. 
     images: null
     subTitle: null
     subDescription: null
   - title: Data providers already registered in CORE
-    id: already-registered
     descriptionAbout: >
       Registered data providers can claim access to the [CORE Dashboard](/services/repository-dashboard) in accordance with the procedure described in Section 4.2. The Dashboard provides access to a harvesting report, which includes information such as, the last time of successful harvesting, the number of metadata and full text records found and indexed, any errors or warnings encountered during the harvesting process. 
     images:
