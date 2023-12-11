@@ -277,7 +277,7 @@ items:
       Where Dublin Core is used, it is recommended to provide a direct link to the full text in the first occurrence of dc:identifier.
       
       
-      \<dc:identifier>\http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
+      \<dc:identifier>http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
       
       
       EPrints follows this recommendation by default. This approach significantly reduces the load that CORE places on the repository during indexing.
@@ -294,7 +294,7 @@ items:
       
       **Example**
       
-      "<dc:identifier>"https://eprints.whiterose.ac.uk/204315/</dc:identifier>
+      \<dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
       
       
       <dc:relation
