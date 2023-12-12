@@ -72,7 +72,7 @@ items:
   - title: 3.1.3 Use of OAI-PMH sets (Required)
     id: oai-pmh-usage
     descriptionAbout: >
-      [OAI-PMH](https://www.openarchives.org/OAI/openarchivesprotocol.html#SelectiveHarvesting) Sets allows data providers to segment the content of their repository in a flexible way. CORE can use the capabilities of OAI-PMH selective harvesting to limit harvesting requests to portions of the metadata available from a repository. It is recommended that if repositories want CORE to limit its indexing only to a portion of the repository, then they should contact the CORE team for support.
+      [OAI-PMH](https://www.openarchives.org/OAI/openarchivesprotocol.html#SelectiveHarvesting) allows data providers to segment the content of their repository flexibly. CORE can use the capabilities of OAI-PMH selective harvesting to limit harvesting requests to portions of the metadata available from a repository. It is recommended that if repositories want CORE to limit its indexing only to a portion of the repository, then they should contact the CORE team for support.
     images: null
     subTitle: null
     subDescription: null
@@ -100,22 +100,22 @@ items:
   - title: 3.1.5 Access for machine agents - (Required)
     id: machine-agents
     descriptionAbout: >
-      A robots.txt file provides a commonly used mechanism with which the webmaster can limit access to a website for machine agents, such as crawlers, and control the load on the server.
+      A robots.txt file provides a commonly used mechanism with which the webmaster can limit access to a website for machine agents, such as crawlers, and control the load on the server. The CORE agent obeys information in the robots.txt file. As a result, if the repository has a robots.txt file, then the CORE agent must be allowed access.
       
       
-      The CORE agent obeys information in the robots.txt file. It is therefore important that:
+      It is therefore important that:
       
       
-      * The “core” agent is allowed to index the repository, including the landing pages as well as the full text files
+      * The “core” agent is allowed to access the repository, including the landing pages and the full text files
       
-      * No crawl-delay should be specified for the “core” agent. As repositories often contain tens of thousands of records, it is important to understand that a crawl-delay of just 10s, could result in the inability to harvest the repository within a reasonable time frame. This is also why some search engines, such as Google, ignore this directive. 
+      * No crawl-delay should be specified for the “core” agent. As repositories often contain tens of thousands of records, it is important to understand that a crawl-delay of just 10s, could result in the inability to harvest the repository within a reasonable time frame. This is also why some search engines, such as Google, ignore this directive.
     images: null
     subTitle: null
     subDescription: null
   - title: 3.1.6 Repository registration in open registries (Recommended)
     id: open-registries
     descriptionAbout: >
-      CORE uses established open registries of repositories, such as [OpenDOAR](https://v2.sherpa.ac.uk/opendoar/), to identify new data providers of open access content. It is therefore advisable that your repository is included in an international repositories list and that your OAI-PMH base URL is kept up to date in that registry. Apart from repositories, CORE also automatically indexes content from journals in the [Directory of Open Access Journals](https://doaj.org), several preprint servers and any research articles in [Crossref](https://www.crossref.org).
+      CORE uses established open registries of repositories, such as [OpenDOAR](https://v2.sherpa.ac.uk/opendoar/), to identify new data providers of open access content. It is therefore advisable that your repository is included in an international repositories list and that the OAI-PMH base URL is kept up to date in that registry. Apart from repositories, CORE also automatically indexes content from journals in the [Directory of Open Access Journals](https://doaj.org), several preprint servers and scholarly works that have PIDs registered in [Crossref](https://www.crossref.org).
     images: null
     subTitle: null
     subDescription: null
@@ -157,7 +157,7 @@ items:
   - title: i. Dublin Core / Extended Dublin Core (Minimum)
     id: dublin-core
     descriptionAbout: >
-      The Dublin Core Metadata Element Set is one of the simplest and most widely used metadata schemas. Originally developed to describe web resources, Dublin Core has been used to describe a variety of physical and digital resources and has been formally standardised internationally as ISO 15836. An enriched version, Qualified Dublin Core, containing many more elements was also developed. This was then further extended and formalised as the [DCMI Metadata terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) in 2020, with approximately 70 data fields. While Dublin Core and Extended Dublin Core are sufficient for getting indexed in CORE, the schema provides only limited capabilities for describing scholarly resources compared to OpenAIRE Guidelines and Rioxx.
+      Dublin Core is one of the simplest and most widely used metadata schemas. An extended version was formalised as the [DCMI Metadata terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) in 2020, with approximately 70 data fields. While Dublin Core and Extended Dublin Core are sufficient for getting indexed in CORE, the schema provides only limited capabilities for describing scholarly resources compared to OpenAIRE Guidelines and Rioxx.
     images: null
     subTitle: null
     subDescription: null
@@ -212,7 +212,7 @@ items:
       CORE requires that the full text must be hosted on the same domain or subdomains as the OAI-PMH endpoint. This is to ensure that content of other external data providers linked from the repository is not treated as content belonging to the repository. Exceptions are made where the domain is owned by the same organisation. We advise data providers to contact us in those circumstances.
     images: null
     subTitle: null
-    subDescription: |
+    subDescription: >
       **Example Scenario**
 
 
@@ -293,6 +293,7 @@ items:
       
       
       **Example**
+      
       
       \<dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
       
