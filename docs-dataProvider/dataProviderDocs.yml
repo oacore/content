@@ -218,15 +218,18 @@ items:
 
       **Same domain hosting**
       
+
       The fictional organisation “We Love Open Access”, has an OAI-PMH endpoint at
       
       https://weloveopenaccess.org/cgi/oai2. By default, CORE accepts any papers hosted as follows:
+
       * https://weloveopenaccess.org/files/paper.pdf
       Notice that the files and the OAI-PMH endpoint are hosted on the same domain (weloveopenaccess.org).
 
 
       **Subdomain hosting**
       
+
       We can accept the following setup, but please contact us to allow a specific exception:
       
       * https://files.weloveopenaccess.org/files/paper.pdf (with exception)
@@ -236,14 +239,16 @@ items:
 
       **Out-of-domain hosting with a dedicated repository content section**
       
+
       We may also accept where there is a clear link between the owner of the OAI-PMH and the hosting website:
 
       * https://parent-organisation.org/weloveopenaccess/files/paper.pdf (with exception and proof of ownership)
 
 
       **Out-of-domain hosting**
+      
 
-      CORE does not support this option. 
+      CORE does not support this option.
 
       * https://publisher-website.com/files/paper.pdf
 
@@ -288,6 +293,7 @@ items:
       
       
       **Example**
+      
       
       \<dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
       
