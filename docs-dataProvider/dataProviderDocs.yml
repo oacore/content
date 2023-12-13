@@ -224,6 +224,7 @@ items:
       https://weloveopenaccess.org/cgi/oai2. By default, CORE accepts any papers hosted as follows:
 
       * https://weloveopenaccess.org/files/paper.pdf
+      
       Notice that the files and the OAI-PMH endpoint are hosted on the same domain (weloveopenaccess.org).
 
 
