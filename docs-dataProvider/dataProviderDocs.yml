@@ -1,8 +1,8 @@
 items:
-  - title: 1. Who this document is for
+  - title: 1. Who is this document is for
     id: usage
     descriptionAbout: >
-      This document is to assist institutions and repository managers to configure their harvesting via CORE. Content aggregated by CORE is made more visible to the researcher community. Millions of users access CORE papers monthly, and many thousands of researchers do research using the CORE API and dataset. This document aims to ensure each repository is harvested to maximum effect. By reading and following the instructions in this article, repository managers can ensure their institutional research content, and relevant metadata, are visible to the world.
+      These guidelines aim to assist institutions and repository managers in configuring their harvesting via CORE. Content indexed by CORE is made more visible to the researcher community. Millions of users access CORE papers monthly, and many thousands of researchers do research using the CORE API and Dataset. This document aims to ensure each repository is harvested to maximum effect. By reading and following the instructions in this article, repository managers can ensure their institutional research content and relevant metadata, are visible to the world.
     images: null
     subTitle: null
     subDescription: null
