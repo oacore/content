@@ -5,7 +5,7 @@ video:
   title: Introducing CORE
   src: https://youtube.com/embed/-gFYNg_8ySQ
 ---
-CORE’s mission is to index all open access research worldwide
+CORE’s mission is to index all research worldwide
 and deliver unrestricted access for all.
 
 In doing so, we:
@@ -14,7 +14,7 @@ In doing so, we:
   technologies to aid  discoverability,
 * enable others to develop new tools and use cases on top
   of the CORE platform,
-* support the network of open access repositories and journals
+* support the network of [open access repositories and journals](~how-core-supports-open-access)
   with innovative technical, solutions and,
 * facilitate a scalable, cost-effective route for the delivery
   of open scholarship.
