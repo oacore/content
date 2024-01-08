@@ -4,7 +4,7 @@ title: ""
 
 ## CORE serves Open Access
 
-CORE’s mission to “index all open access research outputs from
+CORE’s mission to index all open access research outputs from
 repositories and journals worldwide and make them available to the public”
 aligns with the aims of the [Budapest Open Access Initiative][oa-initiative]
 to “accelerate research, enrich education … make the literature as useful as
