@@ -393,7 +393,30 @@ items:
     images: null
     subTitle: null
     subDescription: null
-  - title: 5. Further reading
+  - title: 5. How does CORE process data supplied by Data Providers
+    id: process
+    descriptionAbout: >
+      CORE is a not-for-profit open scholarly infrastructure service dedicated to the open access and open science mission and a subscriber to the [Principles of Open Scholarly Infrastructures (POSI)](https://openscholarlyinfrastructure.org/posse/).  CORE’s mission is to index all research worldwide and deliver unrestricted access for all.
+      
+      
+      CORE endeavours to index research papers and associated data, such as information about datasets and research software, that the CORE crawler discovers on the Web. 
+      
+      
+      CORE supports and follows industry practices used by crawlers and search engines to locate and access the resources it indexes. These standards include [robots.txt](https://en.wikipedia.org/wiki/Robots.txt), which can be used by repository managers to control which resources within the Data Providers systems can be accessed by the core indexing agent. 
+      
+      
+      CORE promotes and advocates for the use of machine-readable licencing descriptions. In particular, we advise the use of the [NISO Access License and Indicators (ALI) Schema](https://www.niso-sts.org/TagLibrary/niso-sts-TL-1-0-html/element/ali-license_ref.html). This schema is supported, for instance, by the [Rioxx v3+ metadata schema](https://rioxx.net), which is the recommended metadata standard for CORE. We advise Data Providers with complex licensing arrangements to adopt Rioxx and the ALI schema. 
+      
+      
+      CORE Data Providers can also freely register for the CORE Dashboard to control which of and how their content is indexed in CORE. 
+      
+      
+      The Data provider-supplied OAI identifiers for metadata records are automatically identified and registered with CORE for resolution in the [CORE OAI Resolver](https://oai.core.ac.uk). We advise that repositories check the configuration of OAI resolution to their repository on the Settings tab in the CORE Dashboard. This provides repositories with a free decentralised identifier (which can be managed as a persistent identifier (PID)) for their metadata records. The registered OAIs resolve to the landing pages in Data Providers systems and the OAI resolver is used throughout the CORE ecosystem, including in CORE Search, to maintain and acknowledge the provenance of the supplied information.
+    images: null
+    subTitle: null
+    subDescription: null
+    divider: true
+  - title: 6. Further reading
     id: reading
     descriptionAbout: >
       The objective of this document was to document the requirements and guidelines for data providers, helping them to understand what they need to do in order to get content indexed.
