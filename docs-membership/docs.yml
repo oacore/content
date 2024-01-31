@@ -250,7 +250,7 @@ items:
     descriptionAbout: >
       An OAI (Open Archives Initiative) identifier is a unique identifier of a
       metadata record. OAI identifiers are used in the context of repositories
-      using the Open Archives Initiative Protocol for Metadata Harvesting
+      using the Open Archives Initiative Protocol for Metadata Indexing
       (OAI-PMH). 
 
 
