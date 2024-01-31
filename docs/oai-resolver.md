@@ -93,7 +93,7 @@ block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
   their metadata using OAI-PMH, which is a widely supported
   functionality.</br></br>However, we recommend that repositories register for
   the <a href="https://core.ac.uk/services/repository-dashboard">CORE Repository
-  Dashboard</a> to check that their metadata records are harvested correctly in
+  Dashboard</a> to check that their metadata records are indexed correctly in
   their entirety. This is an extremely low barrier to adoption with the resolver
   effectively working out-of-the-box.</br></br>CORE can resolve any OAI
   identifier to either a metadata page of the record in CORE or route it
