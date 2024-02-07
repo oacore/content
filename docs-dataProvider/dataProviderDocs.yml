@@ -1,16 +1,24 @@
 items:
-  - title: 1. Who is this document for
+  - title: 1. Who is this document for?
     id: usage
     descriptionAbout: >
-      These guidelines aim to assist institutions and repository managers in configuring their harvesting via CORE. Content indexed by CORE is made more visible to the researcher community. Millions of users access CORE papers monthly, and many thousands of researchers do research using the CORE API and Dataset. This document aims to ensure each repository is harvested to maximum effect. By reading and following the instructions in this article, repository managers can ensure their institutional research content and relevant metadata, are visible to the world.
+      These guidelines aim to assist institutions and repository managers in
+      configuring their harvesting via CORE. Content indexed by CORE is made
+      more visible to the researcher community. Millions of users access CORE
+      papers monthly, and many thousands of researchers do research using the
+      CORE API and Dataset. This document aims to ensure each repository is
+      harvested to maximum effect. By reading and following the instructions in
+      this article, repository managers can ensure their institutional research
+      content and relevant metadata, are visible to the world.
     images: null
     subTitle: null
     subDescription: null
   - title: 2. Terminology
     id: terminology
     descriptionAbout: >
-      This section provides clarifications on the meaning of the terms used within this document.
-      
+      This section provides clarifications on the meaning of the terms used
+      within this document.
+
        * **Data provider:** an institutional repository, journal, preprint server, etc. exposing content to CORE.
        * **Repository:** In this document, we use the term repository to denote the software platform of data providers. As a result, we sometimes use the term repository not only to refer to software platforms of institutional repositories but also to refer to platforms of journals and preprint servers.
        * **Landing page:** An HTML page in a repository where one typically enters when accessing a scholarly publication and from which one can access the associated resources.
@@ -26,7 +34,8 @@ items:
   - title: 3. Requirements and guidelines for indexing repository content
     id: guideline
     descriptionAbout: >
-      The following section details requirements and guidelines to ensure repositories are best configured for indexing with CORE.
+      The following section details requirements and guidelines to ensure
+      repositories are best configured for indexing with CORE.
     images: null
     subTitle: null
     subDescription: null
@@ -39,9 +48,14 @@ items:
     subDescription: null
   - title: 3.1.1 Ensuring your repository is visible via OAI-PMH (Required)
     id: oai-pmh
-    descriptionAbout: |
-      CORE uses the [Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)](https://www.openarchives.org/OAI/openarchivesprotocol.html) to regularly harvest and update the information it holds about its data providers. In order to get indexed, CORE data providers must expose information about their resources via OAI-PMH.
-      
+    descriptionAbout: >
+      CORE uses the [Open Archives Initiative Protocol for Metadata Harvesting
+      (OAI-PMH)](https://www.openarchives.org/OAI/openarchivesprotocol.html) to
+      regularly harvest and update the information it holds about its data
+      providers. In order to get indexed, CORE data providers must expose
+      information about their resources via OAI-PMH.
+
+
       It is a relatively common problem that the OAI-PMH endpoint of the data provider is misconfigured or not functional. This can occur even when other functionalities of the repository appear to be working without issues. It is therefore important that repositories monitor that their OAI-PMH endpoint remains functional. This can be done in several ways.
     images: null
     subTitle: null
@@ -49,65 +63,110 @@ items:
   - title: 3.1.2 Data providers considering registration with CORE
     id: registration
     descriptionAbout: >
-      Can use the Open Archives [OAI-PMH validator](https://www.openarchives.org/Register/ValidateSite) tool. The tool expects an HTTP(s) URI of the OAI-PMH endpoint (also called the OAI-PMH base URL) and conducts a number of checks to assess the validity and correct configuration of the endpoint. If the validator returns errors, then these will need to be fixed prior to getting registered with CORE. It is advised that this step is conducted prior to attempting registration with CORE.
+      Can use the Open Archives [OAI-PMH
+      validator](https://www.openarchives.org/Register/ValidateSite) tool. The
+      tool expects an HTTP(s) URI of the OAI-PMH endpoint (also called the
+      OAI-PMH base URL) and conducts a number of checks to assess the validity
+      and correct configuration of the endpoint. If the validator returns
+      errors, then these will need to be fixed prior to getting registered with
+      CORE. It is advised that this step is conducted prior to attempting
+      registration with CORE.
     images:
       - file: /images/docs-membership/oai-pmh.svg
-    subTitle: >
+    subTitle: |
       **Figure 2: Sample OAI-PMH validation check for University of Manchester**
     subDescription: null
   - title: Data providers registering with CORE
     descriptionAbout: >
-      Can visit the CORE [data provider registration page](/benefits#join-core) and enter their OAI-PMH base URL. If the OAI-PMH base URL is valid, then the repository will be registered in CORE, subject to additional checks described in Section 4.1. It is important to note that checking that the OAI-PMH endpoint is configured correctly does not guarantee that it correctly exposes all the metadata records from the repository system. This can only be checked once CORE has attempted harvesting of the repository. 
+      Can visit the CORE [data provider registration page](/benefits#join-core)
+      and enter their OAI-PMH base URL. If the OAI-PMH base URL is valid, then
+      the repository will be registered in CORE, subject to additional checks
+      described in Section 4.1. It is important to note that checking that the
+      OAI-PMH endpoint is configured correctly does not guarantee that it
+      correctly exposes all the metadata records from the repository system.
+      This can only be checked once CORE has attempted harvesting of the
+      repository. 
     images: null
     subTitle: null
     subDescription: null
   - title: Data providers already registered in CORE
     descriptionAbout: >
-      Registered data providers can claim access to the [CORE Dashboard](/services/repository-dashboard) in accordance with the procedure described in Section 4.2. The Dashboard provides access to a harvesting report, which includes information such as, the last time of successful harvesting, the number of metadata and full text records found and indexed, any errors or warnings encountered during the harvesting process. 
+      Registered data providers can claim access to the [CORE
+      Dashboard](/services/repository-dashboard) in accordance with the
+      procedure described in Section 4.2. The Dashboard provides access to a
+      harvesting report, which includes information such as, the last time of
+      successful harvesting, the number of metadata and full text records found
+      and indexed, any errors or warnings encountered during the harvesting
+      process. 
     images:
       - file: /images/docs-membership/harvesting.svg
-    subTitle: > 
-      **Figure 1. Sample Dashboard harvesting information for the Open University repository, Open Research Online**
-    subDescription: It is not uncommon for the number of indexed metadata records in CORE to be slightly different from the number that the data provider might see in their repository system, as the Dashboard provides an independent outside view of the repository. Deviations can occur due to a number of reasons, such as your repository not exposing all records through its OAI-PMH interface, some records being disabled or their metadata not meeting the minimum quality requirements. As a result, we recommend that data providers regularly check and resolve any errors and warnings indicated on the Dashboard.
+    subTitle: >
+      **Figure 1. Sample Dashboard harvesting information for the Open
+      University repository, Open Research Online**
+    subDescription: It is not uncommon for the number of indexed metadata records in
+      CORE to be slightly different from the number that the data provider might
+      see in their repository system, as the Dashboard provides an independent
+      outside view of the repository. Deviations can occur due to a number of
+      reasons, such as your repository not exposing all records through its
+      OAI-PMH interface, some records being disabled or their metadata not
+      meeting the minimum quality requirements. As a result, we recommend that
+      data providers regularly check and resolve any errors and warnings
+      indicated on the Dashboard.
   - title: 3.1.3 Use of OAI-PMH sets (Required)
     id: oai-pmh-usage
     descriptionAbout: >
-      [OAI-PMH](https://www.openarchives.org/OAI/openarchivesprotocol.html#SelectiveHarvesting) allows data providers to segment the content of their repository flexibly. CORE can use the capabilities of OAI-PMH selective harvesting to limit harvesting requests to portions of the metadata available from a repository. It is recommended that if repositories want CORE to limit its indexing only to a portion of the repository, then they should contact the CORE team for support.
+      [OAI-PMH](https://www.openarchives.org/OAI/openarchivesprotocol.html#SelectiveHarvesting)
+      allows data providers to segment the content of their repository flexibly.
+      CORE can use the capabilities of OAI-PMH selective harvesting to limit
+      harvesting requests to portions of the metadata available from a
+      repository. It is recommended that if repositories want CORE to limit its
+      indexing only to a portion of the repository, then they should contact the
+      CORE team for support.
     images: null
     subTitle: null
     subDescription: null
   - title: 3.1.4 OAI identifiers (Required)
     id: oai-identifier
     descriptionAbout: >
-      An OAI (Open Archives Initiative) identifier is a unique identifier of a metadata record minted in a decentralised manner. OAI identifiers are formed using a globally unique prefix and a locally unique suffix. Together they form a globally unique identifier of a metadata record.
+      An OAI (Open Archives Initiative) identifier is a unique identifier of a
+      metadata record minted in a decentralised manner. OAI identifiers are
+      formed using a globally unique prefix and a locally unique suffix.
+      Together they form a globally unique identifier of a metadata record.
     images:
       - file: /images/docs-membership/OAI.svg
-    subTitle: >
+    subTitle: |
       **Figure 2. OAI identifier**
     subDescription: >
-      CORE registers OAI identifiers supplied by repositories during the harvesting process and use them to deliver a global [OAI Resolver](https://oai.core.ac.uk) service. The use of OAI Identifiers is automatic for data providers supporting OAI-PMH. However, it is important that these identifiers are correctly managed. Specifically:
-      
-      
-      * Every metadata record indexed by CORE must have an OAI ID.
-      
-      * Repositories that declare their level of support for deleted documents in the **deletedRecord** element of the Identify response as persistent. CORE recommends repositories to provide this persistent level of support. CORE recommends that  repositories never regenerate OAI IDs for their records, for instance during migration to new repository software, previously assigned OAI IDs should remain unchanged.
-      
-      * Data providers should register their OAI prefix and mapping on the Settings tab of the CORE Dashboard. This will prevent OAI ID conflicts and ensure that the OAI Resolver service can correctly link resources supplied by your repository to their respective repository landing page.
-      
-      
-      OAI IDs will resolve to the landing page of the repository when configured correctly. If the OAI Resolver is misconfigured for your repository, then linking to your content might produce errors. If your repository does not support linking to landing pages via the OAI Resolver or you disable it for your repository, then CORE will resolve OAI IDs to the version of the record in CORE (instead of linking to your repository).
+      CORE registers OAI identifiers supplied by repositories during the
+      harvesting process and use them to deliver a global [OAI
+      Resolver](https://oai.core.ac.uk) service. The use of OAI Identifiers is
+      automatic for data providers supporting OAI-PMH. However, it is important
+      that these identifiers are correctly managed. Specifically:
 
+
+      * Every metadata record indexed by CORE must have an OAI ID.
+
+      * Repositories that declare their level of support for deleted documents in the **deletedRecord** element of the Identify response as persistent. CORE recommends repositories to provide this persistent level of support. CORE recommends that  repositories never regenerate OAI IDs for their records, for instance during migration to new repository software, previously assigned OAI IDs should remain unchanged.
+
+      * Data providers should register their OAI prefix and mapping on the Settings tab of the CORE Dashboard. This will prevent OAI ID conflicts and ensure that the OAI Resolver service can correctly link resources supplied by your repository to their respective repository landing page.
+
+
+      OAI IDs will resolve to the landing page of the repository when configured correctly. If the OAI Resolver is misconfigured for your repository, then linking to your content might produce errors. If your repository does not support linking to landing pages via the OAI Resolver or you disable it for your repository, then CORE will resolve OAI IDs to the version of the record in CORE (instead of linking to your repository).
   - title: 3.1.5 Access for machine agents - (Required)
     id: machine-agents
     descriptionAbout: >
-      A robots.txt file provides a commonly used mechanism with which the webmaster can limit access to a website for machine agents, such as crawlers, and control the load on the server. The CORE agent obeys information in the robots.txt file. As a result, if the repository has a robots.txt file, then the CORE agent must be allowed access.
-      
-      
+      A robots.txt file provides a commonly used mechanism with which the
+      webmaster can limit access to a website for machine agents, such as
+      crawlers, and control the load on the server. The CORE agent obeys
+      information in the robots.txt file. As a result, if the repository has a
+      robots.txt file, then the CORE agent must be allowed access.
+
+
       It is therefore important that:
-      
-      
+
+
       * The “core” agent is allowed to access the repository, including the landing pages and the full text files
-      
+
       * No crawl-delay should be specified for the “core” agent. As repositories often contain tens of thousands of records, it is important to understand that a crawl-delay of just 10s, could result in the inability to harvest the repository within a reasonable time frame. This is also why some search engines, such as Google, ignore this directive.
     images: null
     subTitle: null
@@ -115,27 +174,42 @@ items:
   - title: 3.1.6 Repository registration in open registries (Recommended)
     id: open-registries
     descriptionAbout: >
-      CORE uses established open registries of repositories, such as [OpenDOAR](https://v2.sherpa.ac.uk/opendoar/), to identify new data providers of open access content. It is therefore advisable that your repository is included in an international repositories list and that the OAI-PMH base URL is kept up to date in that registry. Apart from repositories, CORE also automatically indexes content from journals in the [Directory of Open Access Journals](https://doaj.org), several preprint servers and scholarly works that have PIDs registered in [Crossref](https://www.crossref.org).
+      CORE uses established open registries of repositories, such as
+      [OpenDOAR](https://v2.sherpa.ac.uk/opendoar/), to identify new data
+      providers of open access content. It is therefore advisable that your
+      repository is included in an international repositories list and that the
+      OAI-PMH base URL is kept up to date in that registry. Apart from
+      repositories, CORE also automatically indexes content from journals in the
+      [Directory of Open Access Journals](https://doaj.org), several preprint
+      servers and scholarly works that have PIDs registered in
+      [Crossref](https://www.crossref.org).
     images: null
     subTitle: null
     subDescription: null
   - title: 3.1.7 Meta-tags (Recommended)
     id: meta-tags
     descriptionAbout: >
-      Meta-tags describe webpage content using code, which makes the content visible to machines rather than humans. Crawlers of harvesting services, like CORE, rely on meta-tags in the webpage to be able to determine if the page they are on represents a scholarly document. There is a helpful list of meta-tags that are useful to aggregators [here](https://scholar.google.co.uk/intl/en/scholar/inclusion.html#indexing). Failure to add meta-tags may result in crawlers making guesses about the content, or completely omitting it.
-      
-      
+      Meta-tags describe webpage content using code, which makes the content
+      visible to machines rather than humans. Crawlers of harvesting services,
+      like CORE, rely on meta-tags in the webpage to be able to determine if the
+      page they are on represents a scholarly document. There is a helpful list
+      of meta-tags that are useful to aggregators
+      [here](https://scholar.google.co.uk/intl/en/scholar/inclusion.html#indexing).
+      Failure to add meta-tags may result in crawlers making guesses about the
+      content, or completely omitting it.
+
+
       The meta-tags CORE recommends are:
-      
-      
+
+
       * Title
-      
+
       * Author
-      
+
       * Publication date
-      
+
       * Journal title (or conference title)
-      
+
       * Publisher, that is, the institution (for theses and dissertations)
     images: null
     subTitle: null
@@ -143,73 +217,126 @@ items:
   - title: 3.2 Metadata Configuration
     id: meta-configuration
     descriptionAbout: >
-      In order for CORE to harvest a repository successfully, the repository must have an OAI-PMH compliant endpoint as previously discussed. Most common software such as EPrints, DSpace or Open Journal Systems (OJS) support OAI-PMH. In addition to this, ensuring the metadata for the repository’s records are correct and in a supported format is critical to successful indexing. 
+      In order for CORE to harvest a repository successfully, the repository
+      must have an OAI-PMH compliant endpoint as previously discussed. Most
+      common software such as EPrints, DSpace or Open Journal Systems (OJS)
+      support OAI-PMH. In addition to this, ensuring the metadata for the
+      repository’s records are correct and in a supported format is critical to
+      successful indexing. 
     images: null
     subTitle: null
     subDescription: null
   - title: 3.2.1 Supported application profiles (Required)
     id: supported-application
     descriptionAbout: >
-      Several standard metadata formats for describing scholarly documents are supported by CORE. The metadata must, as a minimum, be exposed in one of the following application profiles: 
+      Several standard metadata formats for describing scholarly documents are
+      supported by CORE. The metadata must, as a minimum, be exposed in one of
+      the following application profiles: 
     images: null
     subTitle: null
     subDescription: null
   - title: i. Dublin Core / Extended Dublin Core (Minimum)
     id: dublin-core
     descriptionAbout: >
-      Dublin Core is one of the simplest and most widely used metadata schemas. An extended version was formalised as the [DCMI Metadata terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) in 2020, with approximately 70 data fields. While Dublin Core and Extended Dublin Core are sufficient for getting indexed in CORE, the schema provides only limited capabilities for describing scholarly resources compared to OpenAIRE Guidelines and Rioxx.
+      Dublin Core is one of the simplest and most widely used metadata schemas.
+      An extended version was formalised as the [DCMI Metadata
+      terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+      in 2020, with approximately 70 data fields. While Dublin Core and Extended
+      Dublin Core are sufficient for getting indexed in CORE, the schema
+      provides only limited capabilities for describing scholarly resources
+      compared to OpenAIRE Guidelines and Rioxx.
     images: null
     subTitle: null
     subDescription: null
   - title: ii. OpenAIRE Guidelines (Supported)
     id: openaire
     descriptionAbout: >
-      The [OpenAIRE Guidelines](https://guidelines.openaire.eu/en/latest/) were established to support the [Open Access](https://commission.europa.eu/research-and-innovation_en?pg=openaccess) strategy of the European Commission and to meet the requirements of the OpenAIRE infrastructure. This new version of the Guidelines, according to the expansion of the aims of the OpenAIRE initiative and its infrastructure, has a broader scope. By implementing these Guidelines, repository managers will enable authors who deposit publications in their repository to fulfil the EC Open Access requirements.
+      The [OpenAIRE Guidelines](https://guidelines.openaire.eu/en/latest/) were
+      established to support the [Open
+      Access](https://commission.europa.eu/research-and-innovation_en?pg=openaccess)
+      strategy of the European Commission and to meet the requirements of the
+      OpenAIRE infrastructure. This new version of the Guidelines, according to
+      the expansion of the aims of the OpenAIRE initiative and its
+      infrastructure, has a broader scope. By implementing these Guidelines,
+      repository managers will enable authors who deposit publications in their
+      repository to fulfil the EC Open Access requirements.
     images: null
     subTitle: null
     subDescription: null
   - title: iii. RIOXX v3 (Recommended)
     id: rioxx
     descriptionAbout: >
-      CORE recommends that repositories use [RIOXX v3](https://rioxx.net/profiles/v3-0-final/), which we consider to be the most suitable metadata application profile for describing scholarly research outputs. Rioxx: The Research Outputs Metadata Schema was developed for institutional repositories to share metadata about the scholarly resources they contain. Originally designed to meet the reporting requirements of [Research Councils UK (RCUK)](https://www.ukri.org), Rioxx has also proved to be useful as a standard for sharing metadata between repositories and network services such as large-scale metadata aggregators like CORE. Rioxx focuses on applying consistency to the metadata fields used for identifiers of scholarly outputs, people and organisations, research funders and project/grants, and is designed to support the consistent tracking of open-access research publications across scholarly systems.
-      
-      
+      CORE recommends that repositories use [RIOXX
+      v3](https://rioxx.net/profiles/v3-0-final/), which we consider to be the
+      most suitable metadata application profile for describing scholarly
+      research outputs. Rioxx: The Research Outputs Metadata Schema was
+      developed for institutional repositories to share metadata about the
+      scholarly resources they contain. Originally designed to meet the
+      reporting requirements of [Research Councils UK
+      (RCUK)](https://www.ukri.org), Rioxx has also proved to be useful as a
+      standard for sharing metadata between repositories and network services
+      such as large-scale metadata aggregators like CORE. Rioxx focuses on
+      applying consistency to the metadata fields used for identifiers of
+      scholarly outputs, people and organisations, research funders and
+      project/grants, and is designed to support the consistent tracking of
+      open-access research publications across scholarly systems.
+
+
       Rioxx has several benefits over other schemas, including:
-      
-      
+
+
       * It has been designed with a particular focus on enabling efficient data exchange between repositories and machine agents, making harvesting run faster and more accurately due to avoiding ambiguity in linking metadata describing resources, such as full texts, datasets and software, and the resources themselves.
-      
+
       * It provides comprehensive capabilities for describing a wide range of scholarly properties useful in reporting and analysing research, such as grant IDs, project IDs, funder IDs, licensing information, etc.
-      
+
       * The Rioxx schema is compatible with and logically integrates with other protocols for machine access to scholarly documents, specifically [Signposting](https://signposting.org) and [ResourceSync](https://www.openarchives.org/rs/1.1/resourcesync).
-      
+
       * It provides mechanisms for distinguishing resources under the custodianship of the repository from those under external custodianship, enabling CORE to prefer linking to the repository where possible (and appropriate) instead of linking externally to the publisher's website.
-      
-      
+
+
       CORE provides a [metadata validator for data providers supporting Rioxx](/membership-documentation#rioxx-validator) in the CORE Dashboard.
     images:
       - file: /images/docs-membership/riox-metadata.svg
-    subTitle: >
+    subTitle: |
       **Figure 3: Rioxx metadata validation tool in CORE Dashboard**
     subDescription: null
   - title: 3.3 Full text configuration
     id: text-configuration
     descriptionAbout: >
-      A number of powerful capabilities of CORE are derived from CORE’s ability to index full text content. These include full text search [(CORE Search)](https://core.ac.uk), full text-based recommendation of content [(CORE Recommender)](/services/recommender), helping researchers to discover full text open access content when they hit a paywall [(CORE Discovery)](/services/discovery), the provision of full text links to repositories from within PubMed [(Repository Discovery Boost)](/membership-documentation#repository-discovery-boost), detection of versions and duplicate content [(Versions and Duplicates Detection)](/membership-documentation#versions-duplicates), [detection of Rights retention Strategy Statements](https://blog.core.ac.uk/2023/11/21/identifying-and-extracting-authors-rights-retention-statements-from-full-text-academic-articles/), and others.
+      A number of powerful capabilities of CORE are derived from CORE’s ability
+      to index full text content. These include full text search [(CORE
+      Search)](https://core.ac.uk), full text-based recommendation of content
+      [(CORE Recommender)](/services/recommender), helping researchers to
+      discover full text open access content when they hit a paywall [(CORE
+      Discovery)](/services/discovery), the provision of full text links to
+      repositories from within PubMed [(Repository Discovery
+      Boost)](/membership-documentation#repository-discovery-boost), detection
+      of versions and duplicate content [(Versions and Duplicates
+      Detection)](/membership-documentation#versions-duplicates), [detection of
+      Rights retention Strategy
+      Statements](https://blog.core.ac.uk/2023/11/21/identifying-and-extracting-authors-rights-retention-statements-from-full-text-academic-articles/),
+      and others.
     images: null
     subTitle: null
     subDescription: null
   - title: 3.3.1 Supported full-text formats (Required)
     id: full-text
     descriptionAbout: >
-      CORE only supports valid PDFs, doc or docx files where there is extractable text. If a PDF is not digitally born, e.g. it is a scan, then the use of the document in CORE will be limited. 
+      CORE only supports valid PDFs, doc or docx files where there is
+      extractable text. If a PDF is not digitally born, e.g. it is a scan, then
+      the use of the document in CORE will be limited. 
     images: null
     subTitle: null
     subDescription: null
   - title: 3.3.2 Same-domain policy for hosting full texts (Required)
     id: same-domain
     descriptionAbout: >
-      CORE requires that the full text must be hosted on the same domain or subdomains as the OAI-PMH endpoint. This is to ensure that content of other external data providers linked from the repository is not treated as content belonging to the repository. Exceptions are made where the domain is owned by the same organisation. We advise data providers to contact us in those circumstances.
+      CORE requires that the full text must be hosted on the same domain or
+      subdomains as the OAI-PMH endpoint. This is to ensure that content of
+      other external data providers linked from the repository is not treated as
+      content belonging to the repository. Exceptions are made where the domain
+      is owned by the same organisation. We advise data providers to contact us
+      in those circumstances.
     images: null
     subTitle: null
     subDescription: >
@@ -217,29 +344,29 @@ items:
 
 
       **Same domain hosting**
-      
+
 
       The fictional organisation “We Love Open Access”, has an OAI-PMH endpoint at
-      
+
       https://weloveopenaccess.org/cgi/oai2. By default, CORE accepts any papers hosted as follows:
 
       * https://weloveopenaccess.org/files/paper.pdf
-      
+
       Notice that the files and the OAI-PMH endpoint are hosted on the same domain (weloveopenaccess.org).
 
 
       **Subdomain hosting**
-      
+
 
       We can accept the following setup, but please contact us to allow a specific exception:
-      
+
       * https://files.weloveopenaccess.org/files/paper.pdf (with exception)
-      
+
       * https://weloveopenaccess-files.org/files/paper.pdf (with exception)
 
 
       **Out-of-domain hosting with a dedicated repository content section**
-      
+
 
       We may also accept where there is a clear link between the owner of the OAI-PMH and the hosting website:
 
@@ -247,7 +374,7 @@ items:
 
 
       **Out-of-domain hosting**
-      
+
 
       CORE does not support this option.
 
@@ -261,79 +388,85 @@ items:
   - title: 3.3.3 Linking to the full text of an article
     id: linking-full-text
     descriptionAbout: >
-      For CORE to successfully index full text content, it must be linked in one of the following ways:
+      For CORE to successfully index full text content, it must be linked in one
+      of the following ways:
     images: null
     subTitle: null
     subDescription: null
   - title: i. Direct link to the full text (Recommended)
     id: Direct-full-text
     descriptionAbout: >
-      CORE recommends that data providers provide an unambiguous link to the full text in the metadata. The correct linking strategy depends on the employed metadata schema.
+      CORE recommends that data providers provide an unambiguous link to the
+      full text in the metadata. The correct linking strategy depends on the
+      employed metadata schema.
     images: null
     subTitle: null
     subDescription: >
       **Dublin Core (Minimum)**
-      
-      
+
+
       Where Dublin Core is used, it is recommended to provide a direct link to the full text in the first occurrence of dc:identifier.
-      
-      
+
+
       \<dc:identifier>http://oro.open.ac.uk/37823/1/jcdl2013_v7.pdf</dc:identifier>
-      
-      
+
+
       EPrints follows this recommendation by default. This approach significantly reduces the load that CORE places on the repository during indexing.
-      
-      
+
+
       If this is not possible, then CORE can index the content if there is a well-defined link in the metadata that directs to a machine-accessible document (either PDF, or Microsoft Word doc/docx format). 
-      
-      
+
+
       **Rioxx v3 (Recommended)**
-      
-      
+
+
       In Rioxx v3, the data provider links to the landing page in dc:identifier and the lists the direct link to the full text in dc:relation specifying the rel=”item” property with the type=”application/pdf”
-      
-      
+
+
       **Example**
-      
-      
+
+
       \<dc:identifier>https://eprints.whiterose.ac.uk/204315/</dc:identifier>
-      
-      
+
+
       <dc:relation
-      
+
           rel="item"
-      
+
           type="application/pdf"
-      
+
           coar_type="http://purl.org/coar/resource_type/YZ1N-ZFT9"
-      
+
           deposit_date="2023-10-18"
-      
+
           resource_exposed_date="2023-10-18"
-      
+
           access_rights="https://purl.org/coar/access_right/c_abf2"
-      
+
           license_ref="https://creativecommons.org/licenses/by/4.0/">
-      
+
           https://eprints.whiterose.ac.uk/204315/9/amt-16-4375-2023-supplement.pdf
-      
+
       </dc:relation>
-      
-      
+
+
       <dc:relation rel="cite-as">https://oai.core.ac.uk/oai:eprints.whiterose.ac.uk:204315</dc:relation>
     border: true
   - title: ii. Indirect link to the full text (Supported)
     id: indirect-link
     descriptionAbout: >
-      CORE will automatically detect where the data provider does not specify the link to the full text directly, as described above. In such cases, the CORE indexer will visit the landing page, collect links from it, just as a human user would, trying to locate the link to the document on the page.
-      
-      
+      CORE will automatically detect where the data provider does not specify
+      the link to the full text directly, as described above. In such cases, the
+      CORE indexer will visit the landing page, collect links from it, just as a
+      human user would, trying to locate the link to the document on the page.
+
+
       To validate that CORE found the correct full text, i.e. full text matching the metadata record, CORE runs a process to match the title of the record with the title contained in the pdf. This process is not 100% accurate, causes extra load on the server and requires more processing time per document. This does not work for documents requiring OCR and they will be thus discarded.
-      
-      
+
+
       Resolvers and registries such as [handle.net](http://handle.net) and [doi.org](http://doi.org) are supported in this scenario. When external resolution services, such as [Handle.Net](http://hdl.handle.net) or [doi](https://dx.doi.org), are used, it is important to ensure that the URL produced works properly, and it links to an actual document and not to a dead page. However, as these services frequently use (chained) HTTP redirection mechanisms, this significantly slows down the indexing process and therefore this approach is not desirable.
-      
-      
+
+
       As a result, we strongly recommend following our “Direct link to the fulltext” guidelines described above. These guidelines enable CORE to run more efficiently, place less load on the repository and improve the overall accuracy of each harvest. Where an indirect link to the full text approach is used, it is recommended that the repository implements [FAIR Signposting](https://signposting.org/FAIR/), which enables the machine agent to navigate from the landing page to the full text resource.
     images: null
     subTitle: null
@@ -341,12 +474,18 @@ items:
   - title: 3.3.4 FAIR Signposting (Recommended)
     id: fair-signposting
     descriptionAbout: >
-      Pages that host scholarly articles are designed with human viewers in mind, those pages are not optimised for use by machine agents that navigate the scholarly web. Signposting caters to machine agents by providing metadata, links to documents and more, in a standards-based way, using [Typed Links](https://www.iana.org/assignments/link-relations/link-relations.xhtml) as a means to clarify patterns that occur repeatedly in scholarly portals.
-      
-      
+      Pages that host scholarly articles are designed with human viewers in
+      mind, those pages are not optimised for use by machine agents that
+      navigate the scholarly web. Signposting caters to machine agents by
+      providing metadata, links to documents and more, in a standards-based way,
+      using [Typed
+      Links](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
+      as a means to clarify patterns that occur repeatedly in scholarly portals.
+
+
       As an administrator of a repository platform that hosts research outputs, you can help machines to navigate the information systems you manage by implementing the [FAIR Signposting Profile](https://signposting.org/FAIR/) that provides concrete recipes aimed at uniformity across systems.
-      
-      
+
+
       Signposting has especially significant benefits in the case of indirect linking. It allows CORE to navigate from the landing page to the resources in an unambiguous and efficient manner using HTTP Headers.
     images: null
     subTitle: null
@@ -354,18 +493,24 @@ items:
   - title: 4. Registering a data provider with CORE
     id: data-provider
     descriptionAbout: >
-      Below details the steps required to register your repository with CORE. Once set up, indexing repository content becomes largely automatic - no additional human input is usually required. 
+      Below details the steps required to register your repository with CORE.
+      Once set up, indexing repository content becomes largely automatic - no
+      additional human input is usually required. 
     images: null
     subTitle: null
     subDescription: null
     divider: true
   - title: 4.1 Submitting the data provider OAI base URL (Required)
     id: oai-base
-    descriptionAbout: |
-      Open the CORE [website page for new data providers](/benefits#join-core). Click on the "Join Now" button on the CORE webpage to request that you are included as a new data provider.
-      
+    descriptionAbout: >
+      Open the CORE [website page for new data providers](/benefits#join-core).
+      Click on the "Join Now" button on the CORE webpage to request that you are
+      included as a new data provider.
+
+
       In the form, you will be asked to provide your OAI-PMH based URL and your institutional email address. Start by submitting the OAI base URL of your data provider into the provided form. CORE has an automatic system that guesses the OAI URL from your normal URL, so if you don’t know the URL at first you can try to use your repository homepage URL first.
-      
+
+
       Next, add the email address of the contact person. This email address will be used by CORE to notify the contact once the repository has been included in CORE and harvested for the first time.
     images: null
     subTitle: null
@@ -373,12 +518,14 @@ items:
   - title: 4.2 Indexing the data provider’s content
     id: indexing
     descriptionAbout: >
-      Once registered, CORE will begin indexing your content. The time required for this process can vary. Repositories are placed in an indexing queue and scheduled for harvesting according to a range of criteria.
-      
-      
+      Once registered, CORE will begin indexing your content. The time required
+      for this process can vary. Repositories are placed in an indexing queue
+      and scheduled for harvesting according to a range of criteria.
+
+
       Several factors can influence the speed of harvesting, including the size of your repository (larger repositories may take longer to process), technical issues (any technical issues that arise during the process can cause delays), and system workload. i.e. the overall workload on the CORE system at the time of your request. All these may affect how quickly CORE can process a new repository.
-      
-      
+
+
       Once the harvesting process has been completed, CORE will send a notification to the designated contact. This email will contain a link to the data provider's CORE profile page. Note that the repository content will only be visible on the CORE website after the harvesting process has been entirely finished. Once this has completed, the repository manager can claim access to the CORE Dashboard account.
     images: null
     subTitle: null
@@ -386,9 +533,16 @@ items:
   - title: 4.3 Claiming access to the CORE Dashboard (Recommended)
     id: dashboard
     descriptionAbout: >
-      The CORE Dashboard offers various tools for repository management, content enrichment, metadata quality assessment, and open access compliance checking. Repository managers are invited to gain free access to the [CORE Dashboard](/services/repository-dashboard). The claiming procedure requires that the authenticity of the repository manager is validated by means of confirming access to the email address of the registered contact listed in the OAI-PMH administrator field. Once validated, access to the CORE Dashboard is granted.
-      
-      
+      The CORE Dashboard offers various tools for repository management, content
+      enrichment, metadata quality assessment, and open access compliance
+      checking. Repository managers are invited to gain free access to the [CORE
+      Dashboard](/services/repository-dashboard). The claiming procedure
+      requires that the authenticity of the repository manager is validated by
+      means of confirming access to the email address of the registered contact
+      listed in the OAI-PMH administrator field. Once validated, access to the
+      CORE Dashboard is granted.
+
+
       The Dashboard also provides the opportunity to check and to revise your OAI-PMH base URL, link your repository [ROR ID](https://ror.org), register your OAI prefix for the CORE OAI Resolver and to upload the data provider’s logo used across the CORE services ecosystem.
     images: null
     subTitle: null
@@ -396,21 +550,26 @@ items:
   - title: 5. How does CORE process data supplied by Data Providers
     id: process
     descriptionAbout: >
-      CORE is a not-for-profit open scholarly infrastructure service dedicated to the open access and open science mission and a subscriber to the [Principles of Open Scholarly Infrastructures (POSI)](https://openscholarlyinfrastructure.org/posse/).  CORE’s mission is to index all research worldwide and deliver unrestricted access for all.
-      
-      
+      CORE is a not-for-profit open scholarly infrastructure service dedicated
+      to the open access and open science mission and a subscriber to the
+      [Principles of Open Scholarly Infrastructures
+      (POSI)](https://openscholarlyinfrastructure.org/posse/).  CORE’s mission
+      is to index all research worldwide and deliver unrestricted access for
+      all.
+
+
       CORE endeavours to index research papers and associated data, such as information about datasets and research software, that the CORE crawler discovers on the Web. 
-      
-      
+
+
       CORE supports and follows industry practices used by crawlers and search engines to locate and access the resources it indexes. These standards include [robots.txt](https://en.wikipedia.org/wiki/Robots.txt), which can be used by repository managers to control which resources within the Data Providers systems can be accessed by the core indexing agent. 
-      
-      
+
+
       CORE promotes and advocates for the use of machine-readable licencing descriptions. In particular, we advise the use of the [NISO Access License and Indicators (ALI) Schema](https://www.niso-sts.org/TagLibrary/niso-sts-TL-1-0-html/element/ali-license_ref.html). This schema is supported, for instance, by the [Rioxx v3+ metadata schema](https://rioxx.net), which is the recommended metadata standard for CORE. We advise Data Providers with complex licensing arrangements to adopt Rioxx and the ALI schema. 
-      
-      
+
+
       CORE Data Providers can also freely register for the CORE Dashboard to control which of and how their content is indexed in CORE. 
-      
-      
+
+
       The Data provider-supplied OAI identifiers for metadata records are automatically identified and registered with CORE for resolution in the [CORE OAI Resolver](https://oai.core.ac.uk). We advise that repositories check the configuration of OAI resolution to their repository on the Settings tab in the CORE Dashboard. This provides repositories with a free decentralised identifier (which can be managed as a persistent identifier (PID)) for their metadata records. The registered OAIs resolve to the landing pages in Data Providers systems and the OAI resolver is used throughout the CORE ecosystem, including in CORE Search, to maintain and acknowledge the provenance of the supplied information.
     images: null
     subTitle: null
@@ -419,17 +578,19 @@ items:
   - title: 6. Further reading
     id: reading
     descriptionAbout: >
-      The objective of this document was to document the requirements and guidelines for data providers, helping them to understand what they need to do in order to get content indexed.
-      
-      
+      The objective of this document was to document the requirements and
+      guidelines for data providers, helping them to understand what they need
+      to do in order to get content indexed.
+
+
       For further details on the way CORE operates, we refer you to the below publication.
-      
+
       * Knoth, P., Herrmannova, D., Cancellieri, M. et al. CORE: A Global Aggregation Service for Open Access Papers. Nature Scientific Data 10, 366 (2023). [https://doi.org/10.1038/s41597-023-02208-w](https://www.nature.com/articles/s41597-023-02208-w)
-      
-      
+
+
       For further information about features offered by the CORE Dashboard, access the [CORE Membership documentation.](/membership-documentation)
-      
-      
+
+
       For information about any other CORE services, such as the CORE API, Dataset, Discovery, etc. visit the [CORE Services page.](/services)
     images: null
     subTitle: null
