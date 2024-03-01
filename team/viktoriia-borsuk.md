@@ -2,7 +2,7 @@
 first-name: Viktoriia
 last-name: Pavlenko
 role: UX designer
-photo: /images/team/viktoriia-borsuk.png
+photo: /images/team/viktoriia-pavlenko.png
 past: false
 order: 0
 ---
