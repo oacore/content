@@ -2,6 +2,10 @@ items:
   - title: CORE Dashboard
     id: dashboard
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -58,6 +62,10 @@ items:
   - title: CORE Discovery
     id: discovery
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -96,6 +104,10 @@ items:
   - title: CORE Search
     id: search
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -116,6 +128,10 @@ items:
   - title: CORE Recommender
     id: recommender
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -148,6 +164,10 @@ items:
   - title: General support
     id: general-support
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -174,6 +194,10 @@ items:
   - title: Download statistics
     id: download-statistics
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -206,6 +230,10 @@ items:
   - title: Repository Discovery Boost
     id: repository-discovery-boost
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -240,6 +268,10 @@ items:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 1
@@ -523,6 +555,10 @@ items:
   - title: Technical support (≤5)
     id: technical-support
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      url: Watch tutorial
     membership:
       - name: starting
         status: 0
