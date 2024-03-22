@@ -4,8 +4,8 @@ items:
     images: null
     tutorial:
       text: Watch tutorial
-      img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      img: /images/docs-membership/play.png
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -65,7 +65,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -107,7 +107,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -131,7 +131,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -167,7 +167,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -197,7 +197,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -233,7 +233,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -271,7 +271,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 1
@@ -558,7 +558,7 @@ items:
     tutorial:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
-      url: Watch tutorial
+      src: https://youtube.com/embed/-gFYNg_8ySQ
     membership:
       - name: starting
         status: 0
