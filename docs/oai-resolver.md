@@ -84,7 +84,7 @@ block_4_column_1: >-
   <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
 
 
-  <div class="resolverImg"></div>
+  <div id="resolverImg" class="resolverImg" data-modal-trigger="true"></div>
 block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
   repositories from across the globe, it is aware of OAI Identifiers for each
   repository record across this network. This means that repositories do not
