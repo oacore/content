@@ -84,7 +84,8 @@ block_4_column_1: >-
   <div class='oaiLinkBlock'><div class='oaiLink'>https://oai.core.ac.uk/< oai-identifier></div></div>
 
 
-  <div id="resolverImg" data-modal-trigger="true"><div class="resolverImg"></div><button class="resolverBtn">Watch video</button></div>
+  <div class="resolverImg"></div>
+  <div class="btnWrapper"><button id="resolverBtn" data-modal-trigger="true" class="resolverBtn">Watch video</button></div>
 block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
   repositories from across the globe, it is aware of OAI Identifiers for each
   repository record across this network. This means that repositories do not
@@ -112,8 +113,11 @@ block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
 
 .oaiLink{ color: #b75400; line-height: 36px; font-size: 16px; margin-left: 20px; height: 36px; } .oaiLink:before { content: ''; background: #b75400; width: 4px; height: 36px; position: absolute; display: block; top: 0; left: 3px; } .oaiLink:after{ content: ''; position: absolute; display: block; border: 1px solid #e0e0e0; width: 100%; }
 
-.resolverImg { background: url(https://oai.core.ac.uk/images/oai_resolve/video.svg) no-repeat 50% 50%; height: 255px; max-width: 375px; background-size: 100%; }
-.resolverBtn { border-radius: 2px; border: 1px solid #B75400; width: 150px; margin-top: 24px; padding: 8px 16px; color:  #B75400; text-align: center; font-size: 14px; font-style: normal; font-weight: 500; line-height: 16px; letter-spacing: 0.175px;}
+.resolverImg { background: url(https://oai.core.ac.uk/images/oai_resolve/explore.png) no-repeat 50% 50%; height: 255px; max-width: 375px; background-size: 100%; }
+
+.btnWrapper {display: flex; justify-content: center; align-items: center; margin-top: 24px; }
+
+.resolverBtn { border-radius: 2px; border: 1px solid #B75400; width: 150px; padding: 8px 16px; color:  #B75400; text-align: center; font-size: 14px; font-style: normal; font-weight: 500; line-height: 16px; letter-spacing: 0.175px; }
 </style >
 
 <div className="pageTitle">What is an OAI identifier?</div>
