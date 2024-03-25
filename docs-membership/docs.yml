@@ -825,10 +825,8 @@ items:
       - name: sustaining
         status: 1
     descriptionAbout: >
-      *This feature is under development.*
-
-
-      Whenever research papers from your organisation would appear on pages 2-4 of 
+      Whenever research papers from your organisation would appear on pages 2-4
+      of 
 
       CORE Search results, your paper is promoted to the front of the first page and is highlighted as a featured article.
     descriptionDashboard: >
