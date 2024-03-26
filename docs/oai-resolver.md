@@ -85,7 +85,7 @@ block_4_column_1: >-
 
 
   <div class="resolverImg"></div>
-  <div class="btnWrapper"><button id="resolverBtn" data-modal-trigger="true" class="resolverBtn">Watch video</button></div>
+#  <div class="btnWrapper"><button id="resolverBtn" data-modal-trigger="true" class="resolverBtn">Watch video</button></div>
 block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
   repositories from across the globe, it is aware of OAI Identifiers for each
   repository record across this network. This means that repositories do not
@@ -115,7 +115,7 @@ block_4_column_2: <div class="textNoSubTitle">As CORE aggregates data from
 
 .resolverImg { background: url(https://oai.core.ac.uk/images/oai_resolve/explore.png) no-repeat 50% 50%; height: 255px; max-width: 375px; background-size: 100%; }
 
-.btnWrapper {display: flex; justify-content: center; align-items: center; margin-top: 24px; }
+.btnWrapper {display: flex; justify-content: center; align-items: center; margin-top: 24px; max-width: 375px; }
 
 .resolverBtn { border-radius: 2px; border: 1px solid #B75400; width: 150px; padding: 8px 16px; color:  #B75400; text-align: center; font-size: 14px; font-style: normal; font-weight: 500; line-height: 16px; letter-spacing: 0.175px; }
 </style >
