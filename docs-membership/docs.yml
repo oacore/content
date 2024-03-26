@@ -1,7 +1,11 @@
 items:
-  - title: CORE dashboard
+  - title: CORE Dashboard
     id: dashboard
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/play.png
+      src: https://www.youtube.com/embed/nxAbFFSqddQ
     membership:
       - name: starting
         status: 1
@@ -222,7 +226,7 @@ items:
       * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
 
 
-      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member
+      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
     descriptionDashboard: >
       Increases the discoverability of your content via:
 
@@ -240,6 +244,10 @@ items:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images: null
+#    tutorial:
+#      text: Watch tutorial
+#      img: /images/docs-membership/tutorial.svg
+#      src: https://www.youtube.com/embed/nxAbFFSqddQ
     membership:
       - name: starting
         status: 1
@@ -250,7 +258,7 @@ items:
     descriptionAbout: >
       An OAI (Open Archives Initiative) identifier is a unique identifier of a
       metadata record. OAI identifiers are used in the context of repositories
-      using the Open Archives Initiative Protocol for Metadata Harvesting
+      using the Open Archives Initiative Protocol for Metadata Indexing
       (OAI-PMH). 
 
 
@@ -306,6 +314,10 @@ items:
     id: versions-duplicates
     images:
       - file: /images/docs-membership/deduplication.png
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/56KqdNtq_1A
     membership:
       - name: starting
         status: 0
@@ -398,6 +410,10 @@ items:
       - file: /images/docs-membership/data-provider-page.png
       - file: /images/docs-membership/core-search.png
       - file: /images/docs-membership/discovery-recommender.png
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/qcQP3ZWMP30
     membership:
       - name: starting
         status: 0
@@ -615,6 +631,10 @@ items:
   - title: АPI use for your organisation
     id: АPI-organisation
     images: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/cC-S8Vlrkus
     membership:
       - name: starting
         status: 0
@@ -686,6 +706,10 @@ items:
     id: compliance-dashboard
     images:
       - file: /images/docs-membership/oa-compliance.png
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/X-A64CoTtcE
     membership:
       - name: starting
         status: 0
