@@ -3,7 +3,12 @@ title: CORE Recommender documentation
 description: The recommender is a plugin that can be installed in repositories
   and journal systems to suggest similar articles. Its purpose is to support
   users in finding articles relevant to what they read.
+block_1_column_1: ""
 ---
+
+
+
+
 The recommender is a plugin that can be installed in repositories and journal
 systems to suggest similar articles. Its purpose is to support users in
 finding articles relevant to what they read.
