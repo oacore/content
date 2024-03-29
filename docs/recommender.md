@@ -28,6 +28,6 @@ Uniqueness of the CORE Recommender:
 Find out more in the [blog post about the CORE Recommender](https://blog.core.ac.uk/2021/06/02/experience-of-using-core-recommender/).
 To install the Recommender visit our [registration page](/recommender/register).
 
-For those with access to the [CORE Dashboard](services#dashboard):
+For those with access to the [CORE Dashboard](https://core.ac.uk/services/repository-dashboard):
 the Recommender installation guidelines and an installation key can be found in
-the Dashboard. Log into the Dashboard and then choose the tab "Get the recommender".
+the Dashboard. Log into the Dashboard and then choose the tab "Plugins"
