@@ -20,15 +20,15 @@ such as on the CORE Portal and in institutional repositories and journals.
 
 Uniqueness of the CORE Recommender:
 
-\* Our methods rely on the availability of full-texts. We don’t base our 
+\* Our methods rely on the availability of full-texts.
 
-\* recommendations solely on abstracts or metadata. We ensure that the
+\* We don’t base our recommendations solely on abstracts or metadata. 
 
-\* recommended articles are available open access. We provide our
+\* We ensure that the recommended articles are available open access. 
 
-\* recommendation service for free. We provide it using a machine accessible
+\* We provide our recommendation service for free. 
 
-\* interface ([API](https://core.ac.uk/services/api)).
+\* We provide it using a machine accessible interface ([API](https://core.ac.uk/services/api)).
 
 Find out more in the [blog post about the CORE Recommender](https://blog.core.ac.uk/2021/06/02/experience-of-using-core-recommender/).
 To install the Recommender visit our [registration page](/recommender/register).
