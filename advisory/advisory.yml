@@ -1,9 +1,3 @@
-header:
-  title: Advisory Board
-  description: Our advisory board comprises of distinguished open research experts
-    who advise on strategic directions and ensure mission alignment with the
-    community needs.
-  image: /images/advisory-board.svg
 table:
   title: Advisory Board List
   data:
