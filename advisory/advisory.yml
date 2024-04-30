@@ -5,7 +5,7 @@ header:
     community needs.
   image: /images/advisory-board.svg
 table:
-  title: Advisory Board
+  title: Advisory Board List
   data:
     - name: Rachel Bruce & Andy Hepburn
       image: /images/ukri.svg
