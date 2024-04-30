@@ -33,7 +33,7 @@ items:
 
       * install repository plugins, such as the CORE Recommender and Discovery.
 
-       **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the **Settings tab**.
+       **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. 
     descriptionDashboard: >
       The Dashboard is the central hub from which you can access all membership
       benefits.  
@@ -244,10 +244,6 @@ items:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images: null
-#    tutorial:
-#      text: Watch tutorial
-#      img: /images/docs-membership/tutorial.svg
-#      src: https://www.youtube.com/embed/nxAbFFSqddQ
     membership:
       - name: starting
         status: 1
