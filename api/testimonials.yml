@@ -1,0 +1,13 @@
+testimonials:
+  -
+    id: Botev
+    content: |
+      “We are integrating the CORE API into our product, IRIS, because so far it is the open access portal that covers almost all open access content, provides easy to integrate API and has a powerful search querying engine. We want to make open access articles more easily accessible and more useful to researchers and the open public and we see the CORE API as a way to speed that up.”
+    author:
+      name: Viktor Botev
+      role: CTO, Iris AI AS
+      picture: /images/people/botev.jpg
+    action:
+      title: SEE More testimonials
+      url: /about/endorsements#partner-projects
+      variant: outlined

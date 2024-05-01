@@ -1,0 +1,14 @@
+header:
+  id: header
+  title: CORE Dataset
+  icon: /images/services/dataset.svg
+  image: /images/services/cloud.svg
+  description: Download millions of research outputs for text and data analysis and process it directly in your own infrastructure.
+  actions:
+    - caption: Register now
+      variant: contained
+      url: '#form'
+    - caption: Download our flyer
+      variant: text
+      url: /resources/core-dataset-flyer.pdf
+      target: _blankank

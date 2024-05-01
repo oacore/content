@@ -1,0 +1,14 @@
+stats:
+  items:
+    - title: more than
+      count: "6K"
+      caption: users
+    - title: more than
+      count: "{{fullTextCount}}"
+      caption: full texts
+    - title: more than
+      count: "{{totalArticlesCount}}"
+      caption: searchable research papers
+    - title: more than
+      count: "150"
+      caption: countries

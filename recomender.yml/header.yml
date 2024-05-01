@@ -1,0 +1,17 @@
+header:
+  id: header
+  title: CORE Recommender
+  icon: /images/services/recommender.svg
+  image: /images/services/profiles.svg
+  description: |
+    A leading research papers recommendation solution.
+    Get instant recommendations and discover articles of interest
+    from across the network.
+  actions:
+    - caption: Install
+      variant: contained
+      url: '#additional'
+    - caption: Download our flyer
+      variant: text
+      url: /resources/core_flyer_recomender.pdf
+      target: _blank

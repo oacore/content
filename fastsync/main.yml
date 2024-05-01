@@ -1,0 +1,12 @@
+main:
+  items:
+    - title: Where to start?
+      content: |
+        FastSync implements an improved version of the ResourceSync protocol.
+        We provide our customers with a data client they can install on their servers.
+        Customers can run this client as often as they desire, receiveing incremental updates from CORE.
+        We also provide technical support for this service, so you can be confident that you can rely on it.
+  note: If you use CORE in your work, we kindly request you to cite one of our publications.
+  action:
+    title: cite publication
+    url: https://core.ac.uk/about/research-outputs

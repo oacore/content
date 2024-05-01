@@ -1,0 +1,21 @@
+additional:
+  id: discovery
+  title: |
+    The tool is available as:
+  image: /images/screenshots/discovery.svg
+  content: |
+    * Browser extension for researchers and anyone interested in reading scientific documents
+    * Plugin for repositories, enriching metadata only pages in repositories with links to freely available copies of the paper
+    * API for developers and third party services
+  actions:
+    -
+      url: https://chrome.google.com/webstore/detail/core-discovery/ockidfiihjhkngdalfnbeeepgfbmkmlh
+      caption: Get browser extention
+      hint: For those who are CORE Data Providers
+      primary: true
+      target: _blank
+    -
+      url: https://core.ac.uk/documentation/discovery-plugin
+      caption: Get repository plugin
+      hint: For those who are not CORE Data Providers
+      target: _blank

@@ -1,0 +1,21 @@
+header:
+  id: header
+  title: CORE Dashboard
+  icon: /images/services/repository-dashboard.svg
+  image: /images/services/dashboard-charts.svg
+  description: |
+    The Repository Dashboard is a service provided to CORE Members.
+    It offers a range of tools for repository management,
+    content enrichment, metadata quality assessment and open access
+    compliance checking. It serves as a central hub for accessing
+    member services for data providers, such as to  configure
+    CORE’s [OAI Resolver](https://core.ac.uk/documentation/oai-resolver), Recommender and Discovery services
+    for your repository or to promote your organisation to millions
+    of CORE’s users.
+  actions:
+    - caption: BECOME A MEMBER TO GET ACCESS
+      variant: contained
+      url: /membership
+    - caption: Log in
+      variant: outlined
+      url: https://dashboard.core.ac.uk/login

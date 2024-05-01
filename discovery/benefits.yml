@@ -1,0 +1,30 @@
+benefits:
+  title: What’s included?
+  items:
+    - title: Highest coverage of freely available content
+      description: |
+        Our tests have shown that CORE Discovery delivers state-of-the-art
+        performance compared to other discovery tools in terms of both content
+        coverage (finding a freely available copy when it is available) and
+        precision (reliably delivering a free copy of the paper on success).
+      icon: /images/services/coverage.svg
+    - title: Free service for researchers by researchers.
+      description: |
+        CORE Discovery is the only free content discovery extension developed
+        by researchers for researchers. There is no major publisher
+        or enterprise controlling and profiting from your usage data.
+      icon: /images/services/grip.svg
+    - title: Best grip on open repository content.
+      description: |
+        Due to CORE being a leader in indexing open access literature,
+        CORE Discovery has the best grip on open content from open repositories
+        as opposed to other services that disproportionately focus only
+        on content indexed in major commercial databases.
+      icon: /images/services/laptop.svg
+    - title: Repository integration and discovering documents without a DOI.
+      description: |
+        The only service offering seamless and free integration
+        into repositories. CORE Discovery is also the only discovery system
+        that can locate scientific content even for items with
+        an unknown DOI or which do not have a DOI.
+      icon: /images/services/doi.svg

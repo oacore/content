@@ -1,0 +1,15 @@
+related-services:
+  title: You might be also interested in
+  services:
+    - title: CORE API
+      picture: /images/services/api.svg
+      url: api
+    - title: CORE FastSync
+      picture: /images/services/fastsync.svg
+      url: fastsync
+    - title: CORE Recommender
+      picture: /images/services/recommender.svg
+      url: recommender
+    - title: CORE Discovery
+      picture: /images/services/discovery.svg
+      url: discovery

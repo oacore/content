@@ -1,0 +1,25 @@
+main:
+  items:
+    - title: Where to start?
+      content: |
+        For those with access to the CORE Repository Dashboard - the
+        Recommender installation guidelines and an installation key can
+        be accessed via the Dashboard.
+        Log into the Dashboard and then choose the tab Get the recommender.
+        
+        Otherwise, visit our registration page to gain access to the Recommender.
+        
+        Find out more about the CORE Recommender in our blog post and
+        in our research section.
+    - title: How can I download the CORE Recommender?
+      content: |
+        If you have access to the CORE Repositories Dashboard,
+        log into the CORE Repository Dashboard and you will get the
+        instructions on how to download the CORE Recommender.
+        Otherwise, visit our recommender registration page,
+        where you will also find the installation instructions.
+        Repository managers are highly recommended to use the CORE Repositories Dashboard.
+  note: If you use CORE in your work, we kindly request you to cite one of our publications.
+  action:
+    title: cite publication
+    url: https://core.ac.uk/about/research-outputs

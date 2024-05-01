@@ -1,0 +1,18 @@
+stats:
+  items:
+    - title: more than
+      count: "{{fullTextCount}}"
+      caption: full texts
+    - title: more than
+      count: "{{totalArticlesCount}}"
+      caption: searchable research papers
+    - title: more than
+      count: "{{repositoriesCount}}"
+      caption: data providers
+    - title: more than
+      count: "150"
+      caption: countries
+  action:
+    title: see data statistics
+    url: /data
+    variant: outlined

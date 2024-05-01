@@ -1,0 +1,19 @@
+additional:
+  title: Uniqueness of the CORE Recommender
+  image: /images/screenshots/recommender2.png
+  content: |
+    * We ensure that the recommended articles are available open access, ensuring that what
+    gets recommended can also be freely read.
+    * Our state-of-the-art recommendation algorithm makes use of article full texts, not just
+    metadata, in addition to a wide range of other features. Read more on how the algorithm
+    works in our [research](~research-outputs) section.
+  actions:
+    -
+      url: /services/repository-dashboard
+      caption: Install via Repository Dashboard
+      hint: For those who are CORE Data Providers
+      primary: true
+    -
+      url: /about#contact
+      caption: Contact us to install
+      hint: For those who are not CORE Data Providers

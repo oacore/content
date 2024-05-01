@@ -1,0 +1,19 @@
+related-services:
+  title: You might be also interested in
+  services:
+    -
+      title: CORE Discovery
+      picture: /images/services/discovery.svg
+      url: discovery
+    -
+      title: CORE Search
+      picture: /images/services/search.svg
+      url: /
+    -
+      title: CORE Recommeneder
+      picture: /images/services/recommender.svg
+      url: recommender
+    -
+      title: CORE API
+      picture: /images/services/api.svg
+      url: api
