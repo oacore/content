@@ -1,0 +1,17 @@
+features:
+  -
+    title: Managing content
+    description: |
+      Monitor repository indexing and health. Manage access to documents from your repository in CORE and see your download stats.
+  -
+    title: Register your OAI identifiers
+    description: |
+      Freely register your OAI identifiers so that our OAI Resolver can resolve these PIDs directly and persistently to your repository system.
+  -
+    title: Content enrichments
+    description: |
+      Obtain DOI enrichments detected by CORE for your content.
+  -
+    title: Compliance checking
+    description: |
+      Assess how your repository meets  open access policies and best practices.

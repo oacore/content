@@ -1,0 +1,52 @@
+materials:
+  title: Dashboard features overview
+  cards:
+    - image: /images/membership/videoPreview.svg
+      key: access
+      title: How to access the CORE dashboard
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/nxAbFFSqddQ
+    - image: /images/membership/videoPreview.svg
+      key: duplicates
+      title: Checking duplicates in your repository
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/56KqdNtq_1A
+    - image: /images/membership/videoPreview.svg
+      key: oa
+      title: Using CORE to check OA compliance
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/X-A64CoTtcE
+    - image: /images/membership/videoPreview.svg
+      key: notifications
+      title: Setting up notifications
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/Ezgckn-4B1Q
+    - image: /images/membership/videoPreview.svg
+      key: logo
+      title: Using CORE to check your repository
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/YyZ_MXLKcRs
+    - image: /images/membership/videoPreview.svg
+      key: ror
+      title: Setting your repository in the Dashboard - ROR ID set up
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/aT1CORAmv-0
+    - image: /images/membership/videoPreview.svg
+      key: repository
+      title: How to upload your logo to articles appearing in CORE
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/qcQP3ZWMP30

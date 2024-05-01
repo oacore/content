@@ -1,0 +1,9 @@
+how-it-works:
+  title: How it works
+  image: /images/services/work.svg
+  description: |
+    The recommender is a plugin for repositories, journal systems and web interfaces that provides suggestions
+      on relevant articles to the one currently displayed. Its purpose is to support users in discovering
+      articles of interest from across the network of open access repositories. We have validated that
+      all recommended articles are free to read and can be accessed without a paywall. Thus, the CORE
+      Recommender increases the visibility of open access content. Being open should pay off!

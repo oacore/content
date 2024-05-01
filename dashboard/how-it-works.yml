@@ -1,0 +1,22 @@
+how-it-works:
+  title: How it works
+  image: /images/services/work.svg
+  description: |
+    The Repository Dashboard provides an online interface offering
+    valuable technical information and statistics for content providers.
+    It is the tool you need to check that your repository is
+    configured correctly to provide maximum visibility to your research
+    outputs. Additional features include OAI Resolver resolution,
+    persistent identifiers (PIDs) enrichments, access to repository tools
+    enhancing user experience (Recommender and Discovery) and ability to
+    promote your logos across the CORE ecosystem. For UK members,
+    it also offers REF Open Access compliance monitoring and a RIOXX
+    metadata quality validator.
+  action:
+    - title: Log in
+      variant: outlined
+      url: https://dashboard.core.ac.uk/login
+    - title: dashboard presentation
+      url: /resources/CORE-Dashboard-tool-for-the-management-of-open-access-content.pdf
+      variant: contained
+      target: _blank

@@ -1,0 +1,21 @@
+header:
+  id: header
+  title: CORE Discovery
+  icon: /images/services/discoveryLock.svg
+  image: /images/services/discoveryImage.svg
+  description: |
+    One-click access to free copies of research papers whenever you hit the paywall
+  actionButton:
+    caption: Download our flyer
+    variant: text
+    url: /resources/core_flyer_recomender.pdf
+    target: _blank
+  actions:
+    - caption: Get browser extention
+      variant: contained
+      url: 'https://chrome.google.com/webstore/detail/core-discovery/ockidfiihjhkngdalfnbeeepgfbmkmlh'
+      target: _blank
+    - caption: Get repository plugin
+      variant: text
+      url: /documentation/discovery-plugin
+      target: _blank

@@ -1,0 +1,24 @@
+main:
+  items:
+    - title: Available datasets
+      content: |
+        **Dataset 2020-03-18**
+
+        Full dataset (~400GB, 2.1TB Extracted)
+
+        **Dataset 2018-03-01**
+
+        Metadata only dataset (beta) (127 GB) - 123M metadata items,
+        85.6M items with abstract
+
+        With full text dataset (beta) (330 GB) - 123M metadata items,
+        85.6M items with abstract, 9.8M items with fulltext.
+
+        [Documentation and access to previous datasets](~documentation/dataset).
+    - title: How often is the CORE dataset updated?
+      content: |
+        Older dumps of the CORE Dataset are free and ODC-By licensed. Organisations that register for the CORE Dataset can purchase a licence for the more recent datasets. Sustaining Members receive access to the most recent datasets as a free member benefit.
+  note: If you use CORE in your work, we kindly request you to cite one of our publications.
+  action:
+    title: cite publication
+    url: https://core.ac.uk/about/research-outputs

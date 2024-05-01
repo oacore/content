@@ -1,0 +1,38 @@
+main:
+  items:
+    - title: Institutions using the Repository Dashboard
+      content: |
+        Here are some of the insitutions using the CORE Repository Dashboard
+        around the world.
+        
+        **Australia**
+        - University of Adelaide
+        - University of Canberra
+        
+        **Belgium**
+        - University of Li&egrave;ge
+        - University of Louvain
+        
+        **Netherlands**
+        - Utrecth University
+        - TU Delft University
+        
+        **South Africa**
+        - University of Cape Town
+        
+        **United Kingdom**
+        - Cambridge University
+        - University of Leeds
+        - University of Sheffield
+        - University of York
+        - London School of Economics
+        - Imperial College London
+        - Strathclyde University
+        
+        **United States**
+        - Columbia University
+        - Harvard University
+  note: If you use CORE in your work, we kindly request you to cite one of our publications.
+  action:
+    title: cite publication
+    url: https://core.ac.uk/about/research-outputs

@@ -1,0 +1,15 @@
+what-is-included:
+  title: What’s included ?
+  content: |
+    FastSync provides you with:
+
+    * Ability to keep in sync with CORE, receiving updates as frequently as desired.
+    * An initial data dump and a client for incremental updates.
+    * Technical support for the duration of the service.
+
+    If you are interested in more information about CORE FastSync or would like to subscribe [Contact us](https://core.ac.uk/about#contact).
+  action:
+    caption: Contact us for a quote
+    variant: contained
+    url: https://core.ac.uk/about#contact
+  image: /images/services/includedFastSync.svg

@@ -1,0 +1,12 @@
+testimonials:
+  - id: Kim
+    content: |
+      “By integrating with CORE, we have significantly increased the number of research papers in the Naver Academic indexes. In fact, CORE is Naver’s largest provider of full text content. CORE’s data are now synchronised with Naver using CORE FastSync, reducing the amount of effort that would be needed to collect these data in traditional ways.”
+    author:
+      name: Kim Sejin
+      role: Content Manager, Naver Academic Service
+      picture: /images/people/sejin.png
+    action:
+      title: SEE More testimonials
+      url: /about/endorsements#partner-projects
+      variant: outlined

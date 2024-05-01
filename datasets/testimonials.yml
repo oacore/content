@@ -1,0 +1,12 @@
+testimonials:
+  - id: Olsen
+    content: |
+      “To build the product we have always envisioned, having a robust and comprehensive dataset of machine-readable, peer-reviewed papers is absolutely essential. We are incredibly grateful to be able to partner with an organization like CORE that not only can meet our data needs, but also shares our vision of making science more accessible and consumable. This unique combination of best-in-class data-offering and mission-alignment makes CORE an ideal partner for Consensus.”
+    author:
+      name: Eric Olson
+      role: Consensus, co-founder and CEO
+      picture: /images/people/olson.png
+    action:
+      title: SEE More testimonials
+      url: /about/endorsements#partner-projects
+      variant: outlined
