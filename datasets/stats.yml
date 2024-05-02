@@ -1,15 +1,19 @@
 stats:
   items:
     - title: dataset
+      count: 2023
       caption: year
       badge: Latest
       url: /documentation/dataset#latest
     - title: datasets
+      count: 2022
       caption: year
       url: /documentation/dataset#other
     - title: datasets
+      count: 2021
       caption: year
       url: /documentation/dataset#other
     - title: datasets
+      count: 2020
       caption: year
       url: /documentation/dataset#other
