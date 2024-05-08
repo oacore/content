@@ -1,20 +1,14 @@
 testimonials:
-  - Content: " “We are integrating the CORE API into our product, IRIS, because so
-      far it is the open access portal that covers almost all open access
-      content, provides easy to integrate API and has a powerful search querying
-      engine. We want to make open access articles more easily accessible and
-      more useful to researchers and the open public and we see the CORE API as
-      a way to speed that up.”"
-    author:
-      name: Botev
-      role: CTO, Iris AI AS
-      picture: /images/consultancy/botev.jpg
-    content: “We are integrating the CORE API into our product, IRIS, because so far
+  - content: “We are integrating the CORE API into our product, IRIS, because so far
       it is the open access portal that covers almost all open access content,
       provides easy to integrate API and has a powerful search querying engine.
       We want to make open access articles more easily accessible and more
       useful to researchers and the open public and we see the CORE API as a way
       to speed that up.”
+    author:
+      name: Botev
+      role: CTO, Iris AI AS
+      picture: /images/consultancy/botev.jpg
   - content: “The CORE team understand data mining. As an independent company, we
       had no obvious access to big, diverse scholarly data – a killer in our
       drive to develop classification algorithms. The CORE repository, available
