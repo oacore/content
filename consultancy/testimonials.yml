@@ -8,7 +8,7 @@ testimonials:
     author:
       name: Botev
       role: CTO, Iris AI AS
-      picture: /images/services/botev.jpg
+      picture: /images/people/botev.jpg
   - content: “The CORE team understand data mining. As an independent company, we
       had no obvious access to big, diverse scholarly data – a killer in our
       drive to develop classification algorithms. The CORE repository, available
@@ -17,4 +17,4 @@ testimonials:
     author:
       name: William Cullerne Bown
       role: CEO ResearchResearch.com
-      picture: /images/services/bown.jpeg
+      picture: /images/people/bown.jpeg
