@@ -4,21 +4,21 @@ benefits:
     - description: "Develop new or provide improvements to existing models to help
         your organisation. "
       title: Machine Learning Models
-      icon: /images/consultancy/automation.svg
+      icon: /images/services/automation.svg
     - title: Data-driven Business Insights
       description: "Identifying strengths, opportunities, challenges and threats. "
-      icon: /images/consultancy/automation.svg
+      icon: /images/services/automation.svg
     - title: Research Management & Benchmarking
       description: Comparative analysis of research strengths to enable benchmarking
         with peers, reviews of research management, operations and systems.
-      icon: /images/consultancy/automation.svg
+      icon: /images/services/automation.svg
     - title: Analytical Reports
       description: "Analysing and interpreting data for you and with you. "
-      icon: /images/consultancy/automation.svg
+      icon: /images/services/automation.svg
     - title: Bespoke Datasets
       description: "Creating bespoke datasets tailored to your needs. "
-      icon: /images/consultancy/automation.svg
+      icon: /images/services/automation.svg
     - title: Impact Reports
       description: "Enabling and assessing impact from research, innovation and
         scholarly communication. "
-      icon: /images/consultancy/automation.svg
+      icon: /images/services/automation.svg

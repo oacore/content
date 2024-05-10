@@ -1,14 +1,15 @@
-title: You might be also interested in
 related-services:
-  - title: CORE Dataset
-    url: dataset
-    picture: /images/consultancy/dataset.svg
-  - title: CORE FastSync
-    url: fastsync
-    picture: /images/consultancy/fastsync.svg
-  - title: CORE Recommender
-    url: recommender
-    picture: /images/consultancy/recommender.svg
-  - picture: /images/consultancy/discovery.svg
-    url: discovery
-    title: CORE Discovery
+  title: You might be also interested in
+  services:
+    - title: CORE Dataset
+      url: dataset
+      picture: /images/consultancy/dataset.svg
+    - title: CORE FastSync
+      url: fastsync
+      picture: /images/consultancy/fastsync.svg
+    - title: CORE Recommender
+      url: recommender
+      picture: /images/consultancy/recommender.svg
+    - title: CORE Discovery
+      url: discovery
+      picture: /images/consultancy/discovery.svg
