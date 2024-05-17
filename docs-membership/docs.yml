@@ -243,7 +243,7 @@ items:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
-      - file: oai_membership_documentation_image.svg
+      - file: oai_membership_documentation_image.png
     membership:
       - name: starting
         status: 1
