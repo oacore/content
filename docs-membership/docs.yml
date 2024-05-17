@@ -242,7 +242,8 @@ items:
       sustaining: Yes
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
-    images: null
+    images:
+      - file: oai_membership_documentation_image.svg
     membership:
       - name: starting
         status: 1
