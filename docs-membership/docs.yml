@@ -371,6 +371,56 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+  - id: rrs-identification
+    title: Rights Retention Strategy (RRS) Identification
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      Rights Retention Strategy (RRS) enables authors to exercise the authorship
+      rights they have on their manuscripts to deposit a copy of the Author
+      Accepted Manuscript (AAM) in a repository on publication and provide open
+      access to it. RRS is typically implemented by means of authors inserting a
+      rights retention statement in their manuscript. CORE provides
+      functionality to automatically identify papers with these Rights Retention
+      Strategy statements, by means of testing if the rights retention statement
+      is present in the paper’s full text.
+
+
+      There are three  sections in the RRS strategy tab in the CORE Dashboard:
+
+      * **Outputs with RRS statements:* ** This will display all papers that have been identified to contain an RRS statement within your repository collection.
+
+      * **RRS checker:* ** This a tool that allows to check if there are RRS statements in a manuscript you upload. PDF and DOC formats are supported.
+
+      * **RRS statements to review:* ** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
+
+
+      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
+    descriptionDashboard: >-
+      Rights Retention Strategy (RRS) enables authors to exercise the authorship
+      rights they have on their manuscripts to deposit a copy of the Author
+      Accepted Manuscript (AAM) in a repository on publication and provide open
+      access to it. RRS is typically implemented by means of authors inserting a
+      rights retention statement in their manuscript. CORE provides
+      functionality to automatically identify papers with these Rights Retention
+      Strategy statements, by means of testing if the rights retention statement
+      is present in the paper’s full text.
+
+
+      There are three  sections in the RRS strategy tab in the CORE Dashboard:
+
+      * **Outputs with RRS statements:* ** This will display all papers that have been identified to contain an RRS statement within your repository collection.
+
+      * **RRS checker:* ** This a tool that allows to check if there are RRS statements in a manuscript you upload. PDF and DOC formats are supported.
+
+      * **RRS statements to review:* ** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
+
+
+      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
+    images:
+      - file: rrs-documetation-images.svg
   - title: Monitor RIOXX compliance
     id: rioxx-compliance
     images:
@@ -932,53 +982,3 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
-  - id: RRS
-    title: Rights Retention Strategy (RRS) Identification
-    membership-types:
-      starting: No
-      supporting: Yes
-      sustaining: Yes
-    descriptionAbout: >-
-      Rights Retention Strategy (RRS) enables authors to exercise the authorship
-      rights they have on their manuscripts to deposit a copy of the Author
-      Accepted Manuscript (AAM) in a repository on publication and provide open
-      access to it. RRS is typically implemented by means of authors inserting a
-      rights retention statement in their manuscript. CORE provides
-      functionality to automatically identify papers with these Rights Retention
-      Strategy statements, by means of testing if the rights retention statement
-      is present in the paper’s full text.
-
-
-      There are three  sections in the RRS strategy tab in the CORE Dashboard:
-
-      * **Outputs with RRS statements:* ** This will display all papers that have been identified to contain an RRS statement within your repository collection.
-
-      * **RRS checker:* ** This a tool that allows to check if there are RRS statements in a manuscript you upload. PDF and DOC formats are supported.
-
-      * **RRS statements to review:* ** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
-
-
-      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
-    descriptionDashboard: >-
-      Rights Retention Strategy (RRS) enables authors to exercise the authorship
-      rights they have on their manuscripts to deposit a copy of the Author
-      Accepted Manuscript (AAM) in a repository on publication and provide open
-      access to it. RRS is typically implemented by means of authors inserting a
-      rights retention statement in their manuscript. CORE provides
-      functionality to automatically identify papers with these Rights Retention
-      Strategy statements, by means of testing if the rights retention statement
-      is present in the paper’s full text.
-
-
-      There are three  sections in the RRS strategy tab in the CORE Dashboard:
-
-      * **Outputs with RRS statements:* ** This will display all papers that have been identified to contain an RRS statement within your repository collection.
-
-      * **RRS checker:* ** This a tool that allows to check if there are RRS statements in a manuscript you upload. PDF and DOC formats are supported.
-
-      * **RRS statements to review:* ** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
-
-
-      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
-    images:
-      - file: rrs-documetation-images.svg
