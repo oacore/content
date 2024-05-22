@@ -243,7 +243,7 @@ items:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
-      - file: oai_membership_documentation_image.png
+      - file: /images/docs-membership/oai_membership_documentation_image.png
     membership:
       - name: starting
         status: 1
@@ -397,7 +397,7 @@ items:
       * **RRS statements to review:** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
 
 
-      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
+      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to.
     descriptionDashboard: >-
       Rights Retention Strategy (RRS) enables authors to exercise the authorship
       rights they have on their manuscripts to deposit a copy of the Author
@@ -418,9 +418,9 @@ items:
       * **RRS statements to review:* ** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
 
 
-      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
+      We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to.
     images:
-      - file: rrs-documetation-images.svg
+      - file: /images/docs-membership/rrs-documetation-images.svg
   - title: Monitor RIOXX compliance
     id: rioxx-compliance
     images:
