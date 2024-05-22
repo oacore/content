@@ -390,11 +390,11 @@ items:
 
       There are three  sections in the RRS strategy tab in the CORE Dashboard:
 
-      * **Outputs with RRS statements:* ** This will display all papers that have been identified to contain an RRS statement within your repository collection.
+      * **Outputs with RRS statements:** This will display all papers that have been identified to contain an RRS statement within your repository collection.
 
-      * **RRS checker:* ** This a tool that allows to check if there are RRS statements in a manuscript you upload. PDF and DOC formats are supported.
+      * **RRS checker:** This a tool that allows to check if there are RRS statements in a manuscript you upload. PDF and DOC formats are supported.
 
-      * **RRS statements to review:* ** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
+      * **RRS statements to review:** This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review RRS button you will find the specific RRS sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
 
 
       We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to. 
