@@ -11,5 +11,5 @@ header:
       url: "#form"
     - caption: Download our flyer
       variant: text
-      url: flyer-core-sponsorship.pdf
+      url: /resources/flyer-core-sponsorship.pdf
       target: _blank
