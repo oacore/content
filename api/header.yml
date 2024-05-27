@@ -3,12 +3,13 @@ header:
   title: CORE API
   icon: /images/serviceSrc/api.svg
   image: /images/serviceSrc/server.svg
-  description: Develop applications, products or services based on [our vast corpus](https://core.ac.uk/data) of searchable research papers
+  description: Develop applications, products or services based on [our vast
+    corpus](https://core.ac.uk/data) of searchable research papers
   actions:
     - caption: Register now
       variant: contained
-      url: '#form'
+      url: "#form"
     - caption: Download our flyer
       variant: text
-      url: /flyers/Flyer-API-Service.pdf
+      url: flyer-core-sponsorship.pdf
       target: _blank
