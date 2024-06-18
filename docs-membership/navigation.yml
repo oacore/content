@@ -1,5 +1,5 @@
 navItems:
-  - item: CORE Dashboard
+  - item: CORE board
     href: "#dashboard"
   - item: CORE Discovery
     href: "#discovery"
