@@ -1,7 +1,6 @@
 navItems:
-  - item: |
-      **1. Who this document is for**
-    href: '#usage'
+  - item: "**1. Who this document is**"
+    href: "#usage"
   - item: |
       **2. Terminology**
     href: "#terminology"
