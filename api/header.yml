@@ -1,8 +1,8 @@
 header:
   id: header
   title: CORE API
-  icon: /images/services/consultancy.svg
-  image: /images/services/partnership.svg
+  icon: /images/services/api.svg
+  image: /images/services/server.svg
   description: Develop applications, products or services based on [our vast
     corpus](https://core.ac.uk/data) of searchable research papers
   actions:
@@ -11,5 +11,5 @@ header:
       url: "#form"
     - caption: Download our flyer
       variant: text
-      url: https://core.ac.uk/resources/flyer_CORE_Consulting_services.pdf
+      url: https://core.ac.uk/resources/Flyer-API-Service.pdf
       target: _blank
