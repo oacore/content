@@ -383,14 +383,14 @@ items:
     redirect: null
   - id: rrs-identification
     title: Rights Retention Strategy (RRS) Identification
-    membership-types:
-      starting: No
-      supporting: Yes
-      sustaining: Yes
     redirect:
       link: https://core.ac.uk/rights-retention
       text: Try web version of identification checker
       image: /images/docs-membership/redirectLink.svg
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
     descriptionAbout: >-
       Rights Retention Strategy (RRS) enables authors to exercise the authorship
       rights they have on their manuscripts to deposit a copy of the Author
