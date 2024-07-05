@@ -58,6 +58,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: CORE Discovery
     id: discovery
     images: null
@@ -96,6 +97,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: CORE Search
     id: search
     images: null
@@ -116,6 +118,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: CORE Recommender
     id: recommender
     images: null
@@ -148,6 +151,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: General support
     id: general-support
     images: null
@@ -174,6 +178,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Download statistics
     id: download-statistics
     images: null
@@ -206,6 +211,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Repository Discovery Boost
     id: repository-discovery-boost
     images: null
@@ -240,6 +246,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
@@ -277,6 +284,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: RIOXX metadata validator
     id: rioxx-validator
     images:
@@ -306,6 +314,7 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Versions and duplicates detection
     id: versions-duplicates
     images:
@@ -371,12 +380,20 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - id: rrs-identification
     title: Rights Retention Strategy (RRS) Identification
-    membership-types:
-      starting: No
-      supporting: Yes
-      sustaining: Yes
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    redirect:
+      link: https://core.ac.uk/rights-retention
+      text: Try web version of identification checker
+      image: /images/docs-membership/redirectLink.svg
     descriptionAbout: >-
       Rights Retention Strategy (RRS) enables authors to exercise the authorship
       rights they have on their manuscripts to deposit a copy of the Author
@@ -419,6 +436,10 @@ items:
 
 
       We recommend that you regularly review the automatically extracted RRS statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed RRS statements, for instance, for the purposes of importing this information into your repository. The RRS identification runs on your full texts, CORE cannot detect RRS statements from papers CORE doesn’t have access to.
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
     images:
       - file: /images/docs-membership/rrs-documetation-images.svg
   - title: Monitor RIOXX compliance
@@ -450,6 +471,7 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Logos for your papers
     id: logos-papers
     images:
@@ -511,6 +533,7 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Logo banner
     id: logo-banner
     images:
@@ -559,6 +582,7 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Personalised banner
     id: personalised-banner
     images:
@@ -590,6 +614,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: Board of Supporters
     id: board-supporters
     images: null
@@ -624,6 +649,7 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Technical support (≤5)
     id: technical-support
     images: null
@@ -674,6 +700,7 @@ items:
       starting: No
       supporting: Yes
       sustaining: No
+    redirect: null
   - title: АPI use for your organisation
     id: АPI-organisation
     images: null
@@ -728,6 +755,7 @@ items:
       starting: No
       supporting: Yes
       sustaining: Yes
+    redirect: null
   - title: Unlimited and prioritised support
     id: unlimited-support
     images: null
@@ -748,6 +776,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: CORE OA Compliance Dashboard
     id: compliance-dashboard
     images:
@@ -789,6 +818,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: Dataset use for your university
     id: dataset-university
     images: null
@@ -853,6 +883,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: Repository health check
     id: repository-health-check
     images: null
@@ -883,6 +914,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: Promoted / spotlight / featured articles
     id: promoted-articles
     images:
@@ -910,6 +942,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: Hosted or interview style blog post on mission-aligned activities
     id: hosted-activities
     images: null
@@ -938,6 +971,7 @@ items:
       starting: No
       supporting: No
       sustaining: Yes
+    redirect: null
   - title: CORE badges
     id: core-badges
     images:
@@ -982,3 +1016,4 @@ items:
       starting: Yes
       supporting: Yes
       sustaining: Yes
+    redirect: null
