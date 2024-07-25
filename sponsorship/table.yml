@@ -1,0 +1,58 @@
+table:
+  content:
+    - &website
+      title: Listing of the sponsor on the CORE donors page together with their sponsorship level.
+      plans: [ Strategic partner, Platinum, Gold, Silver, Bronze ]
+    - &logo
+      title: Acknowledgement of the sponsor’s generous support and their sponsorship level in CORE Search
+      plans: [ Strategic partner, Platinum, Gold, Silver ]
+    - &baner
+      title: Acknowledgement of support in a CORE communication and/or promotion material
+      plans: [ Strategic partner, Platinum, Gold ]
+    - &acknowledgement
+      title: Invited post on CORE blog*
+      plans: [ Strategic partner, Platinum ]
+    - &blog
+      title: Acknowledgement in presentations delivered by the CORE team
+      plans: [ Strategic partner, Platinum ]
+    - &sponsor
+      title: Listing as a key sponsor on the CORE homepage
+      plans: [ Strategic partner, Platinum ]
+    - &partner
+      title: Listing as a strategic partner within the CORE footer of every CORE page right next to The Open University logo
+      plans: [ Strategic partner ]
+    - &paper
+      title: Acknowledgement of financial support provided in relevant research papers produced by the CORE team
+      plans: [ Strategic partner ]
+
+  comparison-table:
+    title: Sponsorship benefits
+    headers:
+      - name: ''
+        defaultText: ""
+      - name: Strategic partner
+        defaultText: "Starting from £50K"
+        status: p.a.
+      - name: Platinum
+        defaultText: "£20,000"
+        status: p.a.
+      - name: Gold
+        defaultText: "£10,000 "
+        status: p.a.
+      - name: Silver
+        defaultText: "£5,000 "
+        status: p.a.
+      - name: Bronze
+        defaultText: "£2,500 "
+        status: p.a.
+
+    rows:
+      - *website
+      - *logo
+      - *baner
+      - *acknowledgement
+      - *blog
+      - *sponsor
+      - *partner
+      - *paper
+    warning: "* This cannot be used for advertising and is subject to compliance with CORE's T&Cs. It can be used for addressing topics relevant to open research delivered in a way that engages the open scholarly community."

@@ -1,0 +1,12 @@
+how-it-works:
+  title: Find out more about membership benefits
+  image: /images/work.svg
+  description: |
+    Here you can find a comparison table with detailed information about each benefit. It can help you choose the most suitable membership level for you. Also you can access Membership documentation where described how each feature works.
+  actions:
+    - action:
+        default: Comparison table
+        active: Comparison table
+    - action:
+        caption: Access documentation
+        url: /documentation/membership-documentation

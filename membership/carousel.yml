@@ -1,0 +1,23 @@
+carousel:
+  items:
+    - img: /images/oxford.svg
+      alt: "oxford"
+    - img: /images/cambridgeBg.svg
+      alt: "cambridge"
+    - img: /images/bristol.svg
+      alt: "bristol"
+    - img: /images/city.svg
+      alt: "city"
+    - img: /images/george.svg
+      alt: "george"
+    - img: /images/kent.png
+      alt: "kent"
+    - img: /images/lancaster.svg
+      alt: "lancaster"
+    - img: /images/sussex.svg
+      alt: "sussex"
+    - img: /images/belfast.png
+      alt: "belfast"
+  action:
+    caption: See all CORE members
+    url: 'https://core.ac.uk/governance/supporters/#membership-list'

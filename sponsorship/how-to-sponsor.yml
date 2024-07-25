@@ -1,0 +1,19 @@
+how-to-sponsor:
+  title: How to sponsor?
+  image: /images/howToSponsor.svg
+  description: |
+    We offer five levels of sponsorship enabling organisations to select the most suitable option. In becoming a CORE Sponsor you make a very public statement of support for Open Access and Open Research.
+  action:
+    title: Access documentation
+    url: https://api.core.ac.uk/docs/v3
+  types:
+    -
+      title: Strategic partner
+    -
+      title: Platinum
+    -
+      title: Gold
+    -
+      title:  Silver
+    -
+      title: Bronze
