@@ -1,0 +1,87 @@
+materials:
+  title: Membership materials
+  cards:
+    - image: /images/videoPreview.svg
+      key: introducing
+      title: Introducing CORE
+      action:
+        caption: Watch video
+      video:
+        src: https://youtube.com/embed/-gFYNg_8ySQ
+    - image: /images/pdfView.svg
+      key: intro
+      title: CORE Membership Introduction
+      action:
+        caption: Open presentation
+        url: /resources/core-member-benefits-presentation.pdf
+        target: _blank
+    - image: /images/pdfView.svg
+      key: overview
+      title: CORE Membership benefits overview
+      action:
+        caption: Open flyer
+        url: /resources/CORE-Flyer-2023.pdf
+        target: _blank
+    - image: /images/videoPreview.svg
+      key: access
+      title: How to access the CORE dashboard
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/nxAbFFSqddQ
+    - image: /images/videoPreview.svg
+      key: duplicates
+      title: Checking duplicates in your repository
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/56KqdNtq_1A
+    - image: /images/videoPreview.svg
+      key: oa
+      title: Using CORE to check OA compliance
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/X-A64CoTtcE
+    - image: /images/videoPreview.svg
+      key: oai
+      title: How to become a data provider
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/dBa_FGL6ppo
+    - image: /images/videoPreview.svg
+      key: logo
+      title: How to upload your logo to articles appearing in CORE
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/qcQP3ZWMP30
+    - image: /images/videoPreview.svg
+      key: ror
+      title: Setting your repository in the Dashboard - ROR ID set up
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/aT1CORAmv-0
+    - image: /images/videoPreview.svg
+      key: notifications
+      title: Setting up notifications
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/Ezgckn-4B1Q
+    - image: /images/videoPreview.svg
+      key: repository
+      title: Using CORE to check your repository
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/YyZ_MXLKcRs
+    - image: /images/videoPreview.svg
+      key: api
+      title: Registering for the CORE API
+      action:
+        caption: Watch video
+      video:
+        src: https://www.youtube.com/embed/cC-S8Vlrkus

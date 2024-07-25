@@ -1,0 +1,8 @@
+contact-us:
+  title: Contact us
+  image: /images/contact.svg
+  description: |
+    If you still have some question send us a request and we will be happy to get in touch with you.
+  action:
+    title: Register your interest
+    url: https://docs.google.com/forms/d/1M8kSnsjxBlVyZZsMvprxLgr_yxN1AP82Yp_hfw2K_QE/edit

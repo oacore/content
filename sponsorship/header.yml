@@ -1,0 +1,13 @@
+header:
+  id: header
+  title: CORE Sponsorship
+  description: CORE is a mission-driven and not-for-profit endeavour and we rely on the generous support of our sponsors to support and sustain the service.
+  logo: /images/sponsorship.svg
+  actions:
+    - caption: Register your interest
+      url: https://forms.gle/hTmouubv97ULf5rA7
+      variant: contained
+    - caption: download our flyer
+      url: /resources/flyer-CORE-Sponsorship.pdf
+      variant: text
+      target: _blank

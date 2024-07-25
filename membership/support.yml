@@ -1,0 +1,12 @@
+support:
+  title: What does your membership support?
+  description: Our Supporting and Sustaining members are the pillars of our open scholarly infrastructure service. They enable us in delivering on our [mission](~about#mission).
+  cards:
+    - title: Supporting
+      caption: Co-funds the maintenance of CORE services as they are.
+      img: /images/supporting.svg
+    - title: Sustaining
+      caption: Co-funds the maintenance of CORE services and their continuous improvement.
+      img: /images/sustaining.svg
+    - title: CORE Members
+      caption: Have already become part of the CORE open access community.
