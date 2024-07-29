@@ -1,0 +1,155 @@
+fee:
+  title: Membership fee for <span>{{planName}}</span> members*
+  caption: 30% Early spring CORE Membership discount (ends March 31st, 2023)
+  description:
+    supporting: |
+      Our Supporting members are the pillars of our open scholarly infrastructure service. They enable us in delivering on our mission. Co-funds the maintenance of CORE services as they are.
+    sustaining: |
+      Our Sustaining members are the pillars of our open scholarly infrastructure service. They enable us in delivering on our mission. Co-funds the maintenance of CORE services and their continuous improvement.
+  note:
+    supporting: |
+      *All fees are excluding VAT.
+    sustaining: |
+      *All fees are excluding VAT.
+  noteSecond: |
+    **This discount is available for those who sign up for 3 or 5 years. Both annual and single upfront payment invoicing is possible on multiyear subscriptions.
+  action:
+    caption: Become member
+    url: '/member'
+    google-form: 'https://docs.google.com/forms/d/e/1FAIpQLSfFJmMIspYfOEM5aOKG4FTZoK4qeqozyds47O75Wm4dJ1ta2w/viewform'
+  table:
+    headers:
+      - name: Data provider size
+      - name: |
+          [Low-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+        type: low
+      - name: |
+          [Middle-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+        type: middle
+      - name: |
+          [High-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+        type: higg
+    supporting:
+      rows:
+        - title: Band 1
+          caption: up to 5k articles
+          prices:
+            - type: low
+              original: 625
+              discount: 500
+            - type: middle
+              original: 1250
+              discount: 875
+            - type: hign
+              original: 2000
+              discount: 1375
+        - title: Band 2
+          caption: 5k - 10k articles
+          prices:
+            - type: low
+              original: 1250
+              discount: 875
+            - type: middle
+              original: 2375
+              discount: 1625
+            - type: high
+              original: 4000
+              discount: 2750
+        - title: Band 3
+          caption: 10k - 20k articles
+          prices:
+            - type: low
+              original: 1750
+              discount: 1250
+            - type: middle
+              original: 3625
+              discount: 2500
+            - type: high
+              original: 6000
+              discount: 4250
+        - title: Band 4
+          caption: 20k - 40k articles
+          prices:
+            - type: low
+              original: 2375
+              discount: 1625
+            - type: middle
+              original: 4750
+              discount: 3375
+            - type: high
+              original: 8000
+              discount: 5625
+        - title: Band 5
+          caption: 40k+ articles
+          prices:
+            - type: low
+              original: 3000
+              discount: 2125
+            - type: middle
+              original: 6000
+              discount: 4250
+            - type: high
+              original: 10000
+              discount: 7000
+    sustaining:
+      rows:
+        - title: Band 1
+          caption: up to 5k articles
+          prices:
+            - type: low
+              original: 1250
+              discount: 1000
+            - type: middle
+              original: 2500
+              discount: 1750
+            - type: hign
+              original: 4000
+              discount: 2750
+        - title: Band 2
+          caption: 5k - 10k articles
+          prices:
+            - type: low
+              original: 2500
+              discount: 1750
+            - type: middle
+              original: 4750
+              discount: 3250
+            - type: high
+              original: 8000
+              discount: 5500
+        - title: Band 3
+          caption: 10k - 20k articles
+          prices:
+            - type: low
+              original: 3500
+              discount: 2500
+            - type: middle
+              original: 7250
+              discount: 5000
+            - type: high
+              original: 12000
+              discount: 8500
+        - title: Band 4
+          caption: 20k - 40k articles
+          prices:
+            - type: low
+              original: 4750
+              discount: 3250
+            - type: middle
+              original: 9500
+              discount: 6750
+            - type: high
+              original: 16000
+              discount: 11250
+        - title: Band 5
+          caption: 40k+ articles
+          prices:
+            - type: low
+              original: 6000
+              discount: 4250
+            - type: middle
+              original: 12000
+              discount: 8500
+            - type: high
+              original: 20000
+              discount: 14000
