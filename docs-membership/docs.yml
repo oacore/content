@@ -1,18 +1,8 @@
 items:
-  - title: CORE Dashboard
-    id: dashboard
-    images: null
-    tutorial:
-      text: Watch tutorial
-      img: /images/docs-membership/play.png
-      src: https://www.youtube.com/embed/nxAbFFSqddQ
-    membership:
-      - name: starting
-        status: 1
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
+  - membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
     descriptionAbout: >
       The Dashboard is the central hub from which you can access all membership
       benefits.  
@@ -33,6 +23,13 @@ items:
 
       * install repository plugins, such as the CORE Recommender and Discovery.
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the **Settings tab**.
+    membership:
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     descriptionDashboard: >
       The Dashboard is the central hub from which you can access all membership
       benefits.  
@@ -54,11 +51,14 @@ items:
       * install repository plugins, such as the CORE Recommender and Discovery.
 
        **Access to Dashboard account:** It is possible to have multiple Dashboard accounts for one organisation. You can send an invitation to your colleagues from the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
+    title: CORE Dashboard
+    images: null
+    id: dashboard
     redirect: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/play.png
+      src: https://www.youtube.com/embed/nxAbFFSqddQ
   - title: CORE Discovery
     id: discovery
     images: null
@@ -268,7 +268,7 @@ items:
       CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to your repository page. To route directly to the repository, it is necessary to provide mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly.
 
 
-      To register your OAI mapping you should go to the **Settings tab** in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
+      To register your OAI mapping you should go to the [Settings tab] (https://dashboard.core.ac.uk/data-providers/{{id}}/settings) in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
     descriptionDashboard: >
       An OAI (Open Archives Initiative) identifier is a unique identifier of a
       metadata record. OAI identifiers are used in the context of repositories
@@ -315,21 +315,10 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - title: Versions and duplicates detection
-    id: versions-duplicates
-    images:
-      - file: /images/docs-membership/deduplication.png
-    tutorial:
-      text: Watch tutorial
-      img: /images/docs-membership/tutorial.svg
-      src: https://www.youtube.com/embed/56KqdNtq_1A
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
+  - membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
     descriptionAbout: >
       Our technology searches your repository to identify different versions of
       your articles and potential duplicates within your repository. This can
@@ -353,6 +342,13 @@ items:
       When you mark a paper as “to be removed” or “different from the reference paper”, then this marking will be exporter in a .csv format when you download the data using the download button.
 
       When you mark a paper as different from the reference paper, then this will impact how CORE displays this article in Search, API and other services. Specifically, this article will be disassociated from the reference Work entity.
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     descriptionDashboard: >
       Our technology searches your repository to identify different versions of
       your articles and potential duplicates within your repository. This can
@@ -376,11 +372,15 @@ items:
       When you mark a paper as “to be removed” or “different from the reference paper”, then this marking will be exporter in a .csv format when you download the data using the download button.
 
       When you mark a paper as different from the reference paper, then this will impact how CORE displays this article in Search, API and other services. Specifically, this article will be disassociated from the reference Work entity.
-    membership-types:
-      starting: No
-      supporting: Yes
-      sustaining: Yes
+    title: Versions and duplicates detection
+    images:
+      - file: /images/docs-membership/deduplication.png
+    id: versions-duplicates
     redirect: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/56KqdNtq_1A
   - id: rrs-identification
     title: Rights Retention Strategy (RRS) Identification
     membership:
@@ -472,23 +472,10 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - title: Logos for your papers
-    id: logos-papers
-    images:
-      - file: /images/docs-membership/data-provider-page.png
-      - file: /images/docs-membership/core-search.png
-      - file: /images/docs-membership/discovery-recommender.png
-    tutorial:
-      text: Watch tutorial
-      img: /images/docs-membership/tutorial.svg
-      src: https://www.youtube.com/embed/qcQP3ZWMP30
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
+  - membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
     descriptionAbout: >
       By uploading your logo to your Dashboard account, you can associate your
       research papers in CORE with your official organisational logo. Your logo
@@ -509,6 +496,13 @@ items:
 
 
       Examples of how your logos will feature are listed below:
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     descriptionDashboard: >
       By uploading your logo to your Dashboard account, you can associate your
       research papers in CORE with your official organisational logo. Your logo
@@ -529,11 +523,17 @@ items:
 
 
       Examples of how your logos will feature are listed below:
-    membership-types:
-      starting: No
-      supporting: Yes
-      sustaining: Yes
+    title: Logos for your papers
+    images:
+      - file: /images/docs-membership/data-provider-page.png
+      - file: /images/docs-membership/core-search.png
+      - file: /images/docs-membership/discovery-recommender.png
+    id: logos-papers
     redirect: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/qcQP3ZWMP30
   - title: Logo banner
     id: logo-banner
     images:
@@ -701,20 +701,10 @@ items:
       supporting: Yes
       sustaining: No
     redirect: null
-  - title: АPI use for your organisation
-    id: АPI-organisation
-    images: null
-    tutorial:
-      text: Watch tutorial
-      img: /images/docs-membership/tutorial.svg
-      src: https://www.youtube.com/embed/cC-S8Vlrkus
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
+  - membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
     descriptionAbout: >
       The [CORE API](https://core.ac.uk/services/api) allows members of your
       organisation to develop applications, products or services and to conduct
@@ -733,6 +723,13 @@ items:
 
 
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
     descriptionDashboard: >
       The [CORE API](https://core.ac.uk/services/api) allows members of your
       organisation to develop applications, products or services and to conduct
@@ -751,11 +748,14 @@ items:
 
 
       The membership provides you with a licence to use the [CORE API](https://core.ac.uk/services/api) within your organisation, except for commercial purposes, subject to our [T&Cs](https://core.ac.uk/terms).
-    membership-types:
-      starting: No
-      supporting: Yes
-      sustaining: Yes
+    title: АPI use for your organisation
+    images: null
+    id: АPI-organisation
     redirect: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/cC-S8Vlrkus
   - title: Unlimited and prioritised support
     id: unlimited-support
     images: null
@@ -777,21 +777,10 @@ items:
       supporting: No
       sustaining: Yes
     redirect: null
-  - title: CORE OA Compliance Dashboard
-    id: compliance-dashboard
-    images:
-      - file: /images/docs-membership/oa-compliance.png
-    tutorial:
-      text: Watch tutorial
-      img: /images/docs-membership/tutorial.svg
-      src: https://www.youtube.com/embed/X-A64CoTtcE
-    membership:
-      - name: starting
-        status: 0
-      - name: supporting
-        status: 0
-      - name: sustaining
-        status: 1
+  - membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
     descriptionAbout: >
       Tools for Open Access compliance monitoring. Currently we support the
       monitoring of the time lag between 
@@ -803,6 +792,13 @@ items:
       the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
 
       please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
+    membership:
+      - name: starting
+        status: 0
+      - name: supporting
+        status: 0
+      - name: sustaining
+        status: 1
     descriptionDashboard: >
       Tools for Open Access compliance monitoring. Currently we support the
       monitoring of the time lag between 
@@ -814,11 +810,15 @@ items:
       the monitoring of Plan S and UKRI OA policies. If you are interested in us monitoring a policy that we do not currently support, 
 
       please [contact us](https://core.ac.uk/about#contact) and we will consider adding support for it.
-    membership-types:
-      starting: No
-      supporting: No
-      sustaining: Yes
+    title: CORE OA Compliance Dashboard
+    images:
+      - file: /images/docs-membership/oa-compliance.png
+    id: compliance-dashboard
     redirect: null
+    tutorial:
+      text: Watch tutorial
+      img: /images/docs-membership/tutorial.svg
+      src: https://www.youtube.com/embed/X-A64CoTtcE
   - title: Dataset use for your university
     id: dataset-university
     images: null
@@ -1017,3 +1017,75 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - id: request-reindexing
+    title: Request reindexing button
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      “Request  Reindexing” is a feature for repository managers. This function
+      is available from the CORE dashboard, [Indexing status tab]
+      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
+      performs indexing periodically. The frequency depends on a range of
+      criteria, including how often you make changes to your repository, and the
+      repository size. But by clicking on this button, you can send a request to
+      have your repository reindexed;  you can jump the queue.
+
+
+      When might you want to apply for reindexing? 
+
+      *Your repository has been indexed more than two months ago.
+
+      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
+
+      *You have fixed some other issues in your repository. 
+
+
+      When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
+
+      * **Scheduled:** Your request for reindexing has been submitted. Our team will review the request and submit your repository for reindexing. After this status will change to “In progress”. 
+
+      * **In progress:** Your repository is now being indexed. This process can take 1-2 weeks (depending on the size and complexity of your repository). After indexing has finished, the status will change to Completed.
+
+      * **Completed:** Reindexing of your repository is finished.
+
+
+      When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
+
+
+      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
+    descriptionDashboard: >-
+      “Request  Reindexing” is a feature for repository managers. This function
+      is available from the CORE dashboard, [Indexing status tab]
+      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
+      performs indexing periodically. The frequency depends on a range of
+      criteria, including how often you make changes to your repository, and the
+      repository size. But by clicking on this button, you can send a request to
+      have your repository reindexed;  you can jump the queue.
+
+
+      When might you want to apply for reindexing? 
+
+      *Your repository has been indexed more than two months ago.
+
+      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
+
+      *You have fixed some other issues in your repository. 
+
+
+      When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
+
+      * **Scheduled:** Your request for reindexing has been submitted. Our team will review the request and submit your repository for reindexing. After this status will change to “In progress”. 
+
+      * **In progress:** Your repository is now being indexed. This process can take 1-2 weeks (depending on the size and complexity of your repository). After indexing has finished, the status will change to Completed.
+
+      * **Completed:** Reindexing of your repository is finished.
+
+
+      When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
+
+
+      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
+    images:
+      - file: request-reindexing.svg
