@@ -315,6 +315,78 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - id: request-reindexing
+    title: Request reindexing button
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      “Request  Reindexing” is a feature for repository managers. This function
+      is available from the CORE dashboard, [Indexing status tab]
+      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
+      performs indexing periodically. The frequency depends on a range of
+      criteria, including how often you make changes to your repository, and the
+      repository size. But by clicking on this button, you can send a request to
+      have your repository reindexed;  you can jump the queue.
+
+
+      When might you want to apply for reindexing? 
+
+      *Your repository has been indexed more than two months ago.
+
+      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
+
+      *You have fixed some other issues in your repository. 
+
+
+      When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
+
+      * **Scheduled:** Your request for reindexing has been submitted. Our team will review the request and submit your repository for reindexing. After this status will change to “In progress”. 
+
+      * **In progress:** Your repository is now being indexed. This process can take 1-2 weeks (depending on the size and complexity of your repository). After indexing has finished, the status will change to Completed.
+
+      * **Completed:** Reindexing of your repository is finished.
+
+
+      When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
+
+
+      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
+    descriptionDashboard: >-
+      “Request  Reindexing” is a feature for repository managers. This function
+      is available from the CORE dashboard, [Indexing status tab]
+      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
+      performs indexing periodically. The frequency depends on a range of
+      criteria, including how often you make changes to your repository, and the
+      repository size. But by clicking on this button, you can send a request to
+      have your repository reindexed;  you can jump the queue.
+
+
+      When might you want to apply for reindexing? 
+
+      *Your repository has been indexed more than two months ago.
+
+      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
+
+      *You have fixed some other issues in your repository. 
+
+
+      When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
+
+      * **Scheduled:** Your request for reindexing has been submitted. Our team will review the request and submit your repository for reindexing. After this status will change to “In progress”. 
+
+      * **In progress:** Your repository is now being indexed. This process can take 1-2 weeks (depending on the size and complexity of your repository). After indexing has finished, the status will change to Completed.
+
+      * **Completed:** Reindexing of your repository is finished.
+
+
+      When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
+
+
+      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
+    images:
+      - file: request-reindexing.svg
   - membership-types:
       starting: No
       supporting: Yes
@@ -1017,75 +1089,3 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - id: request-reindexing
-    title: Request reindexing button
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
-    descriptionAbout: >-
-      “Request  Reindexing” is a feature for repository managers. This function
-      is available from the CORE dashboard, [Indexing status tab]
-      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
-      performs indexing periodically. The frequency depends on a range of
-      criteria, including how often you make changes to your repository, and the
-      repository size. But by clicking on this button, you can send a request to
-      have your repository reindexed;  you can jump the queue.
-
-
-      When might you want to apply for reindexing? 
-
-      *Your repository has been indexed more than two months ago.
-
-      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
-
-      *You have fixed some other issues in your repository. 
-
-
-      When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
-
-      * **Scheduled:** Your request for reindexing has been submitted. Our team will review the request and submit your repository for reindexing. After this status will change to “In progress”. 
-
-      * **In progress:** Your repository is now being indexed. This process can take 1-2 weeks (depending on the size and complexity of your repository). After indexing has finished, the status will change to Completed.
-
-      * **Completed:** Reindexing of your repository is finished.
-
-
-      When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
-
-
-      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
-    descriptionDashboard: >-
-      “Request  Reindexing” is a feature for repository managers. This function
-      is available from the CORE dashboard, [Indexing status tab]
-      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
-      performs indexing periodically. The frequency depends on a range of
-      criteria, including how often you make changes to your repository, and the
-      repository size. But by clicking on this button, you can send a request to
-      have your repository reindexed;  you can jump the queue.
-
-
-      When might you want to apply for reindexing? 
-
-      *Your repository has been indexed more than two months ago.
-
-      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
-
-      *You have fixed some other issues in your repository. 
-
-
-      When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
-
-      * **Scheduled:** Your request for reindexing has been submitted. Our team will review the request and submit your repository for reindexing. After this status will change to “In progress”. 
-
-      * **In progress:** Your repository is now being indexed. This process can take 1-2 weeks (depending on the size and complexity of your repository). After indexing has finished, the status will change to Completed.
-
-      * **Completed:** Reindexing of your repository is finished.
-
-
-      When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
-
-
-      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
-    images:
-      - file: request-reindexing.svg
