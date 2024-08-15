@@ -41,14 +41,17 @@ fee:
               deal: 3-year fixed deal
             - type: low
               deal: 5-year fixed deal
+              indicator: true
             - type: middle
               deal: 3-year fixed deal
             - type: middle
               deal: 5-year fixed deal
+              indicator: true
             - type: high
               deal: 3-year fixed deal
             - type: high
               deal: 5-year fixed deal
+              indicator: true
         - title: Band 1
           caption: up to 5K articles
           prices:
@@ -56,14 +59,17 @@ fee:
               original: 563
             - type: low
               original: 531
+              indicator: true
             - type: middle
               original: 1125
             - type: middle
               original: 1063
+              indicator: true
             - type: high
               original: 1800
             - type: high
               original: 1700
+              indicator: true
         - title: Band 2
           caption: 5K - 10K articles
           prices:
@@ -71,14 +77,17 @@ fee:
               original: 1125
             - type: low
               original: 1063
+              indicator: true
             - type: middle
               original: 2138
             - type: middle
               original: 2019
+              indicator: true
             - type: high
               original: 3600
             - type: high
               original: 3400
+              indicator: true
         - title: Band 3
           caption: 10K - 20K articles
           prices:
@@ -86,14 +95,17 @@ fee:
               original: 1575
             - type: low
               original: 1488
+              indicator: true
             - type: middle
               original: 3263
             - type: middle
               original: 3081
+              indicator: true
             - type: high
               original: 5400
             - type: high
               original: 5100
+              indicator: true
         - title: Band 4
           caption: 20K - 40K articles
           prices:
@@ -101,14 +113,17 @@ fee:
               original: 2138
             - type: low
               original: 2019
+              indicator: true
             - type: middle
               original: 4275
             - type: middle
               original: 4038
+              indicator: true
             - type: high
               original: 7200
             - type: high
               original: 6800
+              indicator: true
         - title: Band 5
           caption: 40K+ articles
           prices:
@@ -116,14 +131,17 @@ fee:
               original: 2700
             - type: low
               original: 2550
+              indicator: true
             - type: middle
               original: 5400
             - type: middle
               original: 5100
+              indicator: true
             - type: high
               original: 9000
             - type: high
               original: 8500
+              indicator: true
     sustaining:
       rows:
         - prices:
@@ -131,14 +149,17 @@ fee:
               deal: 3-year fixed deal
             - type: low
               deal: 5-year fixed deal
+              indicator: true
             - type: middle
               deal: 3-year fixed deal
             - type: middle
               deal: 5-year fixed deal
+              indicator: true
             - type: high
               deal: 3-year fixed deal
             - type: high
               deal: 5-year fixed deal
+              indicator: true
         - title: Band 1
           caption: up to 5K articles
           prices:
@@ -146,14 +167,17 @@ fee:
               original: 1125
             - type: low
               original: 1063
+              indicator: true
             - type: middle
               original: 2250
             - type: middle
               original: 2125
+              indicator: true
             - type: high
               original: 3600
             - type: high
               original: 3400
+              indicator: true
         - title: Band 2
           caption: 5K - 10K articles
           prices:
@@ -161,14 +185,17 @@ fee:
               original: 2250
             - type: low
               original: 2125
+              indicator: true
             - type: middle
               original: 4275
             - type: middle
               original: 4038
+              indicator: true
             - type: high
               original: 4275
             - type: high
               original: 4038
+              indicator: true
         - title: Band 3
           caption: 10K - 20K articles
           prices:
@@ -176,14 +203,17 @@ fee:
               original: 3150
             - type: low
               original: 2975
+              indicator: true
             - type: middle
               original: 6525
             - type: middle
               original: 6163
+              indicator: true
             - type: high
               original: 10800
             - type: high
               original: 10200
+              indicator: true
         - title: Band 4
           caption: 20K - 40K articles
           prices:
@@ -191,14 +221,17 @@ fee:
               original: 4275
             - type: low
               original: 4038
+              indicator: true
             - type: middle
               original: 8550
             - type: middle
               original: 8075
+              indicator: true
             - type: high
               original: 14400
             - type: high
               original: 13600
+              indicator: true
         - title: Band 5
           caption: 40K+ articles
           prices:
@@ -206,11 +239,14 @@ fee:
               original: 5400
             - type: low
               original: 5100
+              indicator: true
             - type: middle
               original: 10800
             - type: middle
               original: 10200
+              indicator: true
             - type: high
               original: 18000
             - type: high
               original: 17000
+              indicator: true
