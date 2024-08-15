@@ -268,7 +268,7 @@ items:
       CORE can resolve any OAI identifier to either a metadata page of the record in CORE or route it directly to your repository page. To route directly to the repository, it is necessary to provide mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page/splash. The redirection will change instantly.
 
 
-      To register your OAI mapping you should go to the [Settings tab] (https://dashboard.core.ac.uk/data-providers/{{id}}/settings) in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
+      To register your OAI mapping you should go to the [Settings tab](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) in the Dashboard. More information about OAI identifiers, why they are important and how you can enable OAI resolving to your repository can be found on the OAI Resolver [documentation](https://core.ac.uk/documentation/oai-resolver) page.
     descriptionDashboard: >
       An OAI (Open Archives Initiative) identifier is a unique identifier of a
       metadata record. OAI identifiers are used in the context of repositories
@@ -323,8 +323,8 @@ items:
       sustaining: Yes
     descriptionAbout: >-
       “Request  Reindexing” is a feature for repository managers. This function
-      is available from the CORE dashboard, [Indexing status tab]
-      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
+      is available from the CORE dashboard, [Indexing status
+      tab](https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
       performs indexing periodically. The frequency depends on a range of
       criteria, including how often you make changes to your repository, and the
       repository size. But by clicking on this button, you can send a request to
@@ -333,11 +333,11 @@ items:
 
       When might you want to apply for reindexing? 
 
-      *Your repository has been indexed more than two months ago.
+      * Your repository has been indexed more than two months ago.
 
-      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
+      * You have made some updates to your metadata, and you would like the changes to appear on CORE.
 
-      *You have fixed some other issues in your repository. 
+      * You have fixed some other issues in your repository. 
 
 
       When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
@@ -355,8 +355,8 @@ items:
       Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
     descriptionDashboard: >-
       “Request  Reindexing” is a feature for repository managers. This function
-      is available from the CORE dashboard, [Indexing status tab]
-      (https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
+      is available from the CORE dashboard, [Indexing status
+      tab](https://dashboard.core.ac.uk/data-providers{{id}}/indexing). CORE
       performs indexing periodically. The frequency depends on a range of
       criteria, including how often you make changes to your repository, and the
       repository size. But by clicking on this button, you can send a request to
@@ -365,11 +365,11 @@ items:
 
       When might you want to apply for reindexing? 
 
-      *Your repository has been indexed more than two months ago.
+      * Your repository has been indexed more than two months ago.
 
-      *You have made some updates to your metadata, and you would like the changes to appear on CORE.
+      * You have made some updates to your metadata, and you would like the changes to appear on CORE.
 
-      *You have fixed some other issues in your repository. 
+      * You have fixed some other issues in your repository. 
 
 
       When you request a reindex, you should state why you want your content to be reindexed. After you have clicked on the “request reindexing” button, you will see three different messages, based on  where CORE is with the indexing cycle:
