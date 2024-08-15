@@ -386,7 +386,7 @@ items:
 
       Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
     images:
-      - file: request-reindexing.svg
+      - file: request-reindexing.png
   - membership-types:
       starting: No
       supporting: Yes
