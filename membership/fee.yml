@@ -36,257 +36,181 @@ fee:
         type: high
     supporting:
       rows:
-        - title:
-          caption:
-          prices:
+        - prices:
             - type: low
               deal: 3-year fixed deal
-              discount:
             - type: low
               deal: 5-year fixed deal
-              discount:
             - type: middle
               deal: 3-year fixed deal
-              discount:
             - type: middle
               deal: 5-year fixed deal
-              discount:
             - type: high
               deal: 3-year fixed deal
-              discount:
             - type: high
               deal: 5-year fixed deal
-              discount:
         - title: Band 1
           caption: up to 5K articles
           prices:
             - type: low
               original: 563
-              discount:
             - type: low
               original: 531
-              discount:
             - type: middle
               original: 1125
-              discount:
             - type: middle
               original: 1063
-              discount:
             - type: high
               original: 1800
-              discount:
             - type: high
               original: 1700
-              discount:
         - title: Band 2
           caption: 5K - 10K articles
           prices:
             - type: low
               original: 1125
-              discount:
             - type: low
               original: 1063
-              discount:
             - type: middle
               original: 2138
-              discount:
             - type: middle
               original: 2019
-              discount:
             - type: high
               original: 3600
-              discount:
             - type: high
               original: 3400
-              discount:
         - title: Band 3
           caption: 10K - 20K articles
           prices:
             - type: low
               original: 1575
-              discount:
             - type: low
               original: 1488
-              discount:
             - type: middle
               original: 3263
-              discount:
             - type: middle
               original: 3081
-              discount:
             - type: high
               original: 5400
-              discount:
             - type: high
               original: 5100
-              discount:
         - title: Band 4
           caption: 20K - 40K articles
           prices:
             - type: low
               original: 2138
-              discount:
             - type: low
               original: 2019
-              discount:
             - type: middle
               original: 4275
-              discount:
             - type: middle
               original: 4038
-              discount:
             - type: high
               original: 7200
-              discount:
             - type: high
               original: 6800
-              discount:
         - title: Band 5
           caption: 40K+ articles
           prices:
             - type: low
               original: 2700
-              discount:
             - type: low
               original: 2550
-              discount:
             - type: middle
               original: 5400
-              discount:
             - type: middle
               original: 5100
-              discount:
             - type: high
               original: 9000
-              discount:
             - type: high
               original: 8500
-              discount:
     sustaining:
       rows:
-        - title:
-          caption:
-          prices:
+        - prices:
             - type: low
               deal: 3-year fixed deal
-              discount:
             - type: low
               deal: 5-year fixed deal
-              discount:
             - type: middle
               deal: 3-year fixed deal
-              discount:
             - type: middle
               deal: 5-year fixed deal
-              discount:
             - type: high
               deal: 3-year fixed deal
-              discount:
             - type: high
               deal: 5-year fixed deal
-              discount:
         - title: Band 1
           caption: up to 5K articles
           prices:
             - type: low
               original: 1125
-              discount:
             - type: low
               original: 1063
-              discount:
             - type: middle
               original: 2250
-              discount:
             - type: middle
               original: 2125
-              discount:
             - type: high
               original: 3600
-              discount:
             - type: high
               original: 3400
-              discount:
         - title: Band 2
           caption: 5K - 10K articles
           prices:
             - type: low
               original: 2250
-              discount:
             - type: low
               original: 2125
-              discount:
             - type: middle
               original: 4275
-              discount:
             - type: middle
               original: 4038
-              discount:
             - type: high
               original: 4275
-              discount:
             - type: high
               original: 4038
-              discount:
         - title: Band 3
           caption: 10K - 20K articles
           prices:
             - type: low
               original: 3150
-              discount:
             - type: low
               original: 2975
-              discount:
             - type: middle
               original: 6525
-              discount:
             - type: middle
               original: 6163
-              discount:
             - type: high
               original: 10800
-              discount:
             - type: high
               original: 10200
-              discount:
         - title: Band 4
           caption: 20K - 40K articles
           prices:
             - type: low
               original: 4275
-              discount:
             - type: low
               original: 4038
-              discount:
             - type: middle
               original: 8550
-              discount:
             - type: middle
               original: 8075
-              discount:
             - type: high
               original: 14400
-              discount:
             - type: high
               original: 13600
-              discount:
         - title: Band 5
           caption: 40K+ articles
           prices:
             - type: low
               original: 5400
-              discount:
             - type: low
               original: 5100
-              discount:
             - type: middle
               original: 10800
-              discount:
             - type: middle
               original: 10200
-              discount:
             - type: high
               original: 18000
-              discount:
             - type: high
               original: 17000
-              discount:
