@@ -17,6 +17,8 @@ navItems:
     href: "#OAI-identifiers"
   - item: RIOXX metadata validator
     href: "#rioxx-validator"
+  - item: Request reindexing button
+    href: "#request-reindexing"
   - item: Versions and duplicates detection
     href: "#versions-duplicates"
   - item: Rights Retention Strategy Identification
