@@ -386,7 +386,7 @@ items:
 
       Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
     images:
-      - file: request-reindexing.png
+      - file: /images/docs-membership/request-reindexing.svg
   - membership-types:
       starting: No
       supporting: Yes
@@ -446,7 +446,7 @@ items:
       When you mark a paper as different from the reference paper, then this will impact how CORE displays this article in Search, API and other services. Specifically, this article will be disassociated from the reference Work entity.
     title: Versions and duplicates detection
     images:
-      - file: deduplication.png
+      - file: /images/docs-membership/deduplication.png
     id: versions-duplicates
     redirect: null
     tutorial:
@@ -513,7 +513,7 @@ items:
       supporting: Yes
       sustaining: Yes
     images:
-      - file: rrs-documetation-images.svg
+      - file: /images/docs-membership/rrs-documetation-images.svg
   - title: Monitor RIOXX compliance
     id: rioxx-compliance
     images:
