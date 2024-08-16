@@ -446,7 +446,7 @@ items:
       When you mark a paper as different from the reference paper, then this will impact how CORE displays this article in Search, API and other services. Specifically, this article will be disassociated from the reference Work entity.
     title: Versions and duplicates detection
     images:
-      - file: /images/docs-membership/deduplication.png
+      - file: deduplication.png
     id: versions-duplicates
     redirect: null
     tutorial:
@@ -513,7 +513,7 @@ items:
       supporting: Yes
       sustaining: Yes
     images:
-      - file: /images/docs-membership/rrs-documetation-images.svg
+      - file: rrs-documetation-images.svg
   - title: Monitor RIOXX compliance
     id: rioxx-compliance
     images:
