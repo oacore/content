@@ -11,6 +11,6 @@ header:
       url: "#membership-levels"
       variant: contained
     - caption: download PRESENTATION
-      url: /images/pdfs/core-adaptable-promo-text.pdf
+      url: /images/pdfs/core-member-benefits-presentation.pdf
       variant: text
       target: _blank
