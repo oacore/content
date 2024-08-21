@@ -9,6 +9,6 @@ header:
       url: https://forms.gle/hTmouubv97ULf5rA7
       variant: contained
     - caption: download our flyer
-      url: /resources/flyer-CORE-Sponsorship.pdf
+      url: /images/flyer-CORE-Sponsorship.pdf
       variant: text
       target: _blank
