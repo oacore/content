@@ -10,5 +10,5 @@ header:
       url: https://core.ac.uk/about#contact
     - caption: Download our flyer
       variant: text
-      url: /resources/core-api-flyer.pdf
+      url: /images/pdfs/core-api-flyer.pdf
       target: _blank

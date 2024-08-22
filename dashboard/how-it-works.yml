@@ -17,6 +17,6 @@ how-it-works:
       variant: outlined
       url: https://dashboard.core.ac.uk/login
     - title: dashboard presentation
-      url: /resources/CORE-Dashboard-tool-for-the-management-of-open-access-content.pdf
+      url: /images/pdfs/CORE-Dashboard-tool-for-the-management-of-open-access-content.pdf
       variant: contained
       target: _blank

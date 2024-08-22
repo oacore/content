@@ -8,7 +8,7 @@ header:
   actionButton:
     caption: Download our flyer
     variant: text
-    url: /resources/core_flyer_recomender.pdf
+    url: /images/pdfs/core_flyer_recomender.pdf
     target: _blank
   actions:
     - caption: Get browser extention

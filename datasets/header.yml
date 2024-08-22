@@ -11,5 +11,5 @@ header:
       url: "#form"
     - caption: Download our flyer
       variant: text
-      url: /resources/core-dataset-flyer.pdf
+      url: /images/pdfs/core-dataset-flyer.pdf
       target: _blankank
