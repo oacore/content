@@ -11,5 +11,5 @@ header:
       url: "#form"
     - caption: Download our flyer
       variant: text
-      url: https://core.ac.uk/resources/Flyer-API-Service.pdf
+      url: /images/pdfs/Flyer-API-Service.pdf
       target: _blank
