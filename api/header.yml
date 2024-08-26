@@ -1,6 +1,6 @@
 header:
   id: header
-  title: CORE API
+  title: API
   icon: /images/services/api.svg
   image: /images/services/server.svg
   description: Develop applications, products or services based on [our vast
