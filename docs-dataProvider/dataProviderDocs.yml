@@ -3,11 +3,11 @@ items:
     id: usage
     descriptionAbout: >
       These guidelines aim to assist institutions and repository managers in
-      configuring their harvesting via CORE. Content indexed by CORE is made
+      configuring their indexing via CORE. Content indexed by CORE is made
       more visible to the researcher community. Millions of users access CORE
       papers monthly, and many thousands of researchers do research using the
       CORE API and Dataset. This document aims to ensure each repository is
-      harvested to maximum effect. By reading and following the instructions in
+      indexed to maximum effect. By reading and following the instructions in
       this article, repository managers can ensure their institutional research
       content and relevant metadata, are visible to the world.
     images: null
@@ -49,9 +49,9 @@ items:
   - title: 3.1.1 Ensuring your repository is visible via OAI-PMH (Required)
     id: oai-pmh
     descriptionAbout: >
-      CORE uses the [Open Archives Initiative Protocol for Metadata Harvesting
+      CORE uses the [Open Archives Initiative Protocol for Metadata indexing
       (OAI-PMH)](https://www.openarchives.org/OAI/openarchivesprotocol.html) to
-      regularly harvest and update the information it holds about its data
+      regularly index and update the information it holds about its data
       providers. In order to get indexed, CORE data providers must expose
       information about their resources via OAI-PMH.
 
@@ -84,7 +84,7 @@ items:
       described in Section 4.1. It is important to note that checking that the
       OAI-PMH endpoint is configured correctly does not guarantee that it
       correctly exposes all the metadata records from the repository system.
-      This can only be checked once CORE has attempted harvesting of the
+      This can only be checked once CORE has attempted indexing of the
       repository. 
     images: null
     subTitle: null
@@ -94,14 +94,14 @@ items:
       Registered data providers can claim access to the [CORE
       Dashboard](/services/repository-dashboard) in accordance with the
       procedure described in Section 4.2. The Dashboard provides access to a
-      harvesting report, which includes information such as, the last time of
-      successful harvesting, the number of metadata and full text records found
-      and indexed, any errors or warnings encountered during the harvesting
+      indexing report, which includes information such as, the last time of
+      successful indexing, the number of metadata and full text records found
+      and indexed, any errors or warnings encountered during the indexing
       process. 
     images:
       - file: /images/docs-membership/harvesting.svg
     subTitle: >
-      **Figure 1. Sample Dashboard harvesting information for the Open
+      **Figure 1. Sample Dashboard indexing information for the Open
       University repository, Open Research Online**
     subDescription: It is not uncommon for the number of indexed metadata records in
       CORE to be slightly different from the number that the data provider might
@@ -117,8 +117,8 @@ items:
     descriptionAbout: >
       [OAI-PMH](https://www.openarchives.org/OAI/openarchivesprotocol.html#SelectiveHarvesting)
       allows data providers to segment the content of their repository flexibly.
-      CORE can use the capabilities of OAI-PMH selective harvesting to limit
-      harvesting requests to portions of the metadata available from a
+      CORE can use the capabilities of OAI-PMH selective indexing to limit
+      indexing requests to portions of the metadata available from a
       repository. It is recommended that if repositories want CORE to limit its
       indexing only to a portion of the repository, then they should contact the
       CORE team for support.
@@ -138,7 +138,7 @@ items:
       **Figure 2. OAI identifier**
     subDescription: >
       CORE registers OAI identifiers supplied by repositories during the
-      harvesting process and use them to deliver a global [OAI
+      indexing process and use them to deliver a global [OAI
       Resolver](https://oai.core.ac.uk) service. The use of OAI Identifiers is
       automatic for data providers supporting OAI-PMH. However, it is important
       that these identifiers are correctly managed. Specifically:
@@ -167,7 +167,7 @@ items:
 
       * The “core” agent is allowed to access the repository, including the landing pages and the full text files
 
-      * No crawl-delay should be specified for the “core” agent. As repositories often contain tens of thousands of records, it is important to understand that a crawl-delay of just 10s, could result in the inability to harvest the repository within a reasonable time frame. This is also why some search engines, such as Google, ignore this directive.
+      * No crawl-delay should be specified for the “core” agent. As repositories often contain tens of thousands of records, it is important to understand that a crawl-delay of just 10s, could result in the inability to index the repository within a reasonable time frame. This is also why some search engines, such as Google, ignore this directive.
     images: null
     subTitle: null
     subDescription: null
@@ -190,7 +190,7 @@ items:
     id: meta-tags
     descriptionAbout: >
       Meta-tags describe webpage content using code, which makes the content
-      visible to machines rather than humans. Crawlers of harvesting services,
+      visible to machines rather than humans. Crawlers of indexing services,
       like CORE, rely on meta-tags in the webpage to be able to determine if the
       page they are on represents a scholarly document. There is a helpful list
       of meta-tags that are useful to aggregators
@@ -217,7 +217,7 @@ items:
   - title: 3.2 Metadata Configuration
     id: meta-configuration
     descriptionAbout: >
-      In order for CORE to harvest a repository successfully, the repository
+      In order for CORE to index a repository successfully, the repository
       must have an OAI-PMH compliant endpoint as previously discussed. Most
       common software such as EPrints, DSpace or Open Journal Systems (OJS)
       support OAI-PMH. In addition to this, ensuring the metadata for the
@@ -285,7 +285,7 @@ items:
       Rioxx has several benefits over other schemas, including:
 
 
-      * It has been designed with a particular focus on enabling efficient data exchange between repositories and machine agents, making harvesting run faster and more accurately due to avoiding ambiguity in linking metadata describing resources, such as full texts, datasets and software, and the resources themselves.
+      * It has been designed with a particular focus on enabling efficient data exchange between repositories and machine agents, making indexing run faster and more accurately due to avoiding ambiguity in linking metadata describing resources, such as full texts, datasets and software, and the resources themselves.
 
       * It provides comprehensive capabilities for describing a wide range of scholarly properties useful in reporting and analysing research, such as grant IDs, project IDs, funder IDs, licensing information, etc.
 
@@ -467,7 +467,7 @@ items:
       Resolvers and registries such as [handle.net](http://handle.net) and [doi.org](http://doi.org) are supported in this scenario. When external resolution services, such as [Handle.Net](http://hdl.handle.net) or [doi](https://dx.doi.org), are used, it is important to ensure that the URL produced works properly, and it links to an actual document and not to a dead page. However, as these services frequently use (chained) HTTP redirection mechanisms, this significantly slows down the indexing process and therefore this approach is not desirable.
 
 
-      As a result, we strongly recommend following our “Direct link to the fulltext” guidelines described above. These guidelines enable CORE to run more efficiently, place less load on the repository and improve the overall accuracy of each harvest. Where an indirect link to the full text approach is used, it is recommended that the repository implements [FAIR Signposting](https://signposting.org/FAIR/), which enables the machine agent to navigate from the landing page to the full text resource.
+      As a result, we strongly recommend following our “Direct link to the fulltext” guidelines described above. These guidelines enable CORE to run more efficiently, place less load on the repository and improve the overall accuracy of each index. Where an indirect link to the full text approach is used, it is recommended that the repository implements [FAIR Signposting](https://signposting.org/FAIR/), which enables the machine agent to navigate from the landing page to the full text resource.
     images: null
     subTitle: null
     subDescription: null
@@ -511,7 +511,7 @@ items:
       In the form, you will be asked to provide your OAI-PMH based URL and your institutional email address. Start by submitting the OAI base URL of your data provider into the provided form. CORE has an automatic system that guesses the OAI URL from your normal URL, so if you don’t know the URL at first you can try to use your repository homepage URL first.
 
 
-      Next, add the email address of the contact person. This email address will be used by CORE to notify the contact once the repository has been included in CORE and harvested for the first time.
+      Next, add the email address of the contact person. This email address will be used by CORE to notify the contact once the repository has been included in CORE and indexed for the first time.
     images: null
     subTitle: null
     subDescription: null
@@ -520,13 +520,13 @@ items:
     descriptionAbout: >
       Once registered, CORE will begin indexing your content. The time required
       for this process can vary. Repositories are placed in an indexing queue
-      and scheduled for harvesting according to a range of criteria.
+      and scheduled for indexing according to a range of criteria.
 
 
-      Several factors can influence the speed of harvesting, including the size of your repository (larger repositories may take longer to process), technical issues (any technical issues that arise during the process can cause delays), and system workload. i.e. the overall workload on the CORE system at the time of your request. All these may affect how quickly CORE can process a new repository.
+      Several factors can influence the speed of indexing, including the size of your repository (larger repositories may take longer to process), technical issues (any technical issues that arise during the process can cause delays), and system workload. i.e. the overall workload on the CORE system at the time of your request. All these may affect how quickly CORE can process a new repository.
 
 
-      Once the harvesting process has been completed, CORE will send a notification to the designated contact. This email will contain a link to the data provider's CORE profile page. Note that the repository content will only be visible on the CORE website after the harvesting process has been entirely finished. Once this has completed, the repository manager can claim access to the CORE Dashboard account.
+      Once the indexing process has been completed, CORE will send a notification to the designated contact. This email will contain a link to the data provider's CORE profile page. Note that the repository content will only be visible on the CORE website after the indexing process has been entirely finished. Once this has completed, the repository manager can claim access to the CORE Dashboard account.
     images: null
     subTitle: null
     subDescription: null
