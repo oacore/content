@@ -82,7 +82,7 @@ by giving you a 30-day notice.
 
 ## Disclaimer
 
-The term **CORE data** refers to a database created by harvesting and
+The term **CORE data** refers to a database created by indexing and
 processing information publicly available on the Internet. Every effort has
 been made to ensure this dataset contains open access content only. We have
 included content only from repositories and journals that are listed in

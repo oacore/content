@@ -9,4 +9,4 @@ link:
     An infrastructure to increase collaboration of Aggregators with Open
     Repositories.
 ---
-The Repository Dashboard is launched. It initially provides an online interface for repositories and content providers to manage harvesting. However, the functionality is regularly updated.
+The Repository Dashboard is launched. It initially provides an online interface for repositories and content providers to manage indexing. However, the functionality is regularly updated.

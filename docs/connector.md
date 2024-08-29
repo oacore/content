@@ -4,7 +4,7 @@ title: CORE Publisher Connector documentation
 
 The **CORE Publisher Connector** is a software providing seamless access to
 Gold and Hybrid Gold Open Access articles aggregated from non-standard systems
-of major publishers. CORE now harvests from several publishers using the
+of major publishers. CORE now indexes from several publishers using the
 Publisher connector engine, which offers a unique way of accessing scientific
 content from scholarly publishers. Data is exposed via the ResourceSync
 protocol.

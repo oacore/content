@@ -66,7 +66,7 @@ According to the Confederation of Open Access Repositories (COAR)
 
 The Next Generation Repositories Working Group of COAR also
 [advocates][nextgen-repos] for repositories to provide better support for full
-text harvesting and support use cases enabled by it, including those based on
+text indexing and support use cases enabled by it, including those based on
 text and data mining of repositories’ content.
 
 Additionally, SPARC’s position paper on the role of repositories specifically
@@ -79,7 +79,7 @@ says:
 > access via multiple search engines and other discovery tools. An
 > institution does not necessarily need to implement searching and
 > indexing functionality to satisfy this demand: it could simply maintain
-> and expose metadata, allowing other services to harvest and search the
+> and expose metadata, allowing other services to index and search the
 > content. This simplicity lowers the barrier to repository operation for
 > many institutions, as it only requires a file system to hold the content
 > and the ability to create and share metadata with external systems.

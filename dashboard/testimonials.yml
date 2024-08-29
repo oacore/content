@@ -3,8 +3,8 @@ testimonials:
     id: Botev
     content: |
       “The [CORE Repository Dashboard](https://core.ac.uk/services/repository-dashboard) provides an excellent level of
-      feedback and control over what gets harvested, aggregated and exposed.
-      It also provides intelligence on harvesting errors which may need
+      feedback and control over what gets indexed, aggregated and exposed.
+      It also provides intelligence on indexing errors which may need
       troubleshooting, thereby ensuring optimum repository health for text mining
       as well as discovery of repository content.”
     author:

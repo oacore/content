@@ -9,7 +9,7 @@ link:
 image:
   src: images/history/initial-architecture.png
   alt: >-
-    CORE architecture consisting of multiple OAI-PMH connected to harvested, 
+    CORE architecture consisting of multiple OAI-PMH connected to indexed, 
     processed through Index and PDF Store, sent to SemRelAnalyzer, then to RDF 
     triples, stored in the Triple Store and demonstrated over http
 ---

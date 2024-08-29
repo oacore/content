@@ -7,7 +7,7 @@ link:
   label: CORE Mobile Application
   description: >-
     We have developed a mobile application for the Android system that allows
-    navigating and downloading content harvested from Open Access repositories.
+    navigating and downloading content indexed from Open Access repositories.
 image:
   src: images/history/mobile-app.png
   alt: Motorola phone with the CORE android app main screen

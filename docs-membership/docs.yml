@@ -272,7 +272,7 @@ items:
     descriptionDashboard: >
       An OAI (Open Archives Initiative) identifier is a unique identifier of a
       metadata record. OAI identifiers are used in the context of repositories
-      using the Open Archives Initiative Protocol for Metadata Harvesting
+      using the Open Archives Initiative Protocol for Metadata Indexing
       (OAI-PMH). 
 
 
@@ -352,7 +352,7 @@ items:
       When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
 
 
-      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
+      Note: if you change your OAI-PMH indexing address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
     descriptionDashboard: >-
       “Request  Reindexing” is a feature for repository managers. This function
       is available from the CORE dashboard, [Indexing status
@@ -384,7 +384,7 @@ items:
       When you request a reindex, you will see a confirmation message, confirming that your repository is now being indexed. It sometimes happens that the reindexing halts without completion, before the process is complete. If your reindexing has been in progress for longer than two weeks, you can send us a message to investigate via this form. 
 
 
-      Note: if you change your OAI-PMH harvesting address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
+      Note: if you change your OAI-PMH indexing address, for example when you change the software used for your repository platform, CORE will automatically reindex your content – you don’t have to request a reindex.
     images:
       - file: /images/docs-membership/request-reindexing.svg
   - membership-types:
