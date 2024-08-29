@@ -20,7 +20,7 @@ what-is-included:
     #        image: /images/tutorial.svg
     #        src: https://www.youtube.com/watch?v=X-A64CoTtcE
     - item: |
-        Information about detected technical issues and suggestions for improving harvesting efficiency.
+        Information about detected technical issues and suggestions for improving indexing efficiency.
       video:
         image: /images/tutorial.svg
         src: https://www.youtube.com/embed/YyZ_MXLKcRs

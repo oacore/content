@@ -3,7 +3,7 @@ title: CORE API documentation
 ---
 ![CORE API image](images/api-core.png)
 
-CORE harvests, maintains, enriches and makes available metadata and full-text
+CORE indexes, maintains, enriches and makes available metadata and full-text
 content (typically a PDF) from many Open Access journals and repositories.
 This makes it a useful access point for those who would like to develop
 applications making use of this content. To support these activities, CORE is

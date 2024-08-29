@@ -9,7 +9,7 @@ CORE and other data providers.
 
 CORE Discovery processes and validates information from a number of large third 
 party scholarly data sources to build and maintain a database of links pointing 
-to freely available copies. The service also relies on information harvested by 
+to freely available copies. The service also relies on information indexed by 
 CORE from thousands of repositories and journals, meaning that CORE discovery 
 maximises the coverage and accuracy of the Discovery service.
 

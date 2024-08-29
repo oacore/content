@@ -83,7 +83,7 @@ quality of the data held by CORE to support the REF Audit as well as increase
 the discoverability and visibility of the institutions’ research outputs.  
 
 1. **Make sure that your institutional repository/ies are registered in CORE**: 
-We are constantly working towards CORE harvesting all repositories available.
+We are constantly working towards CORE indexing all repositories available.
 However, as repositories sometimes change their web locations, platforms or
 some institutions introduce multiple repositories, we advise institutions to
 check that their repositories are registered and listed on the CORE’s data
@@ -110,7 +110,7 @@ be done sufficiently in advance of the audit taking place for all outputs where
 DOI has been assigned. According to RIOXX, DOI of the resource should be put in
 the *rioxxterms:version_of_record* field.
 
-4. **Release deposit dates publicly, so that they are harvestable by CORE**: At
+4. **Release deposit dates publicly, so that they are indexable by CORE**: At
 present, record deposit dates are not explicitly exposed by repositories in both
 RIOXX nor standard Dublin Core (DC). We are working with the RIOXX team to
 encourage explicit sharing of this information in a machine-readable form and
@@ -148,10 +148,10 @@ the majority of cases, the OAI-PMH endpoint will be correctly working in your
 repository by default. To check its operation there are freely available
 [validators](http://validator.oaipmh.com/) that ensure the correct response of
 the endpoint. However, the validator does not fully ensure that the data from 
-the repository could be harvested without issues, which could be a potential
+the repository could be indexed without issues, which could be a potential
 problem, especially for larger repositories. Any repository can register freely
 for the [CORE Repository Dashboard](~services/repository-dashboard/) account
-which enables the repository to check its harvesting status.  
+which enables the repository to check its indexing status.  
 
 Below is an example of a RIOXX record with all recommended fields populated:
 
@@ -207,7 +207,7 @@ Below is an example of a RIOXX record with all recommended fields populated:
 
 <h2 id="collect-info">How will CORE collect the information?</h2>
 
-CORE regularly harvests data from repositories. If all the recommendations
+CORE regularly indexes data from repositories. If all the recommendations
 described above are followed, then the procedure is straightforward. If any
 deviations are present, CORE will try to collect the data in alternative ways. 
 These include:
@@ -237,24 +237,24 @@ These include:
   * Where deposit dates cannot be obtained using scraping, CORE makes
     use of the record’s Datestamp provided in the record’s metadata. This
     is done in the following way. CORE stores the first Datestamp it
-    receives for a given record, i.e. the first time CORE harvests the
+    receives for a given record, i.e. the first time CORE indexes the
     record, as the deposit date. Subsequent changes to the Datestamp, which
     could be due to the record’s updates, will not affect the deposit date.
-    Due to the frequent harvesting, this provides a close estimation of the
+    Due to the frequent indexing, this provides a close estimation of the
     deposit date.
 
 This describes the method we use to collect data from repositories that
 currently do not support RIOXX. We might update this method if we identify a
 way of improving it, such as to make the data we collect more accurate.
 
-When on rare occassions the collected data might be incomplete, it will be up to the discretion of Research England perfroming the audit to interpret the data. We believe that if a record present in the repository has not been harvested by CORE or it was not possible to capture some metadata, this should not negatively affect the audit result. To this end, our aim is to support institutions to identify and resolve any issues prior to the audit. 
+When on rare occassions the collected data might be incomplete, it will be up to the discretion of Research England perfroming the audit to interpret the data. We believe that if a record present in the repository has not been indexed by CORE or it was not possible to capture some metadata, this should not negatively affect the audit result. To this end, our aim is to support institutions to identify and resolve any issues prior to the audit. 
 
 <h2 id="repo-representation">
   How can CORE help you with making sure your repository is represented well?
 </h2>
 
 CORE Repository Dashboard already provides useful information to check that your
-repository is being properly harvested. Additionally, we have released a brand new version of the CORE Repository Dashboard, from which the deposit dates can be retrieved and we will release it soon. We also offer a free 
+repository is being properly indexed. Additionally, we have released a brand new version of the CORE Repository Dashboard, from which the deposit dates can be retrieved and we will release it soon. We also offer a free 
 [CORE Discovery](~services/discovery) repository plugin which can help repositories discover Open Access full text versions of articles for metadata records in repositories which do not have a full text manuscript attached.
 
 To answer further questions, we have also established and maintain an [FAQ

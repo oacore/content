@@ -151,7 +151,7 @@ items:
         </tr>
         <tr>
           <td>oai</td>
-          <td>The identifier of a resource harvested from a repository. It usually contains a static part identifying the data provider and a variable part identifying the single record. It is originated by data provider using the OAI-PMH protocol but if the data provider is not using it, CORE will generate one for the record.</td>
+          <td>The identifier of a resource indexed from a repository. It usually contains a static part identifying the data provider and a variable part identifying the single record. It is originated by data provider using the OAI-PMH protocol but if the data provider is not using it, CORE will generate one for the record.</td>
         </tr>
         <tr>
           <td>identifiers</td>
@@ -167,7 +167,7 @@ items:
         </tr>
         <tr>
           <td>enrichments</td>
-          <td>This sub-object contains enrichments to the data harvested from the data provider.</td>
+          <td>This sub-object contains enrichments to the data indexed from the data provider.</td>
         </tr>
         <tr>
           <td>enrichments.references</td>

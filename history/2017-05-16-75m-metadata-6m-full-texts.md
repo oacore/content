@@ -8,7 +8,7 @@ link:
   label: 'CORE reaches a new milestone: 75 million metadata and 6 million full text'
   description: >-
     This month we have reached 75 million metadata and 6 million full of text
-    scientific research articles harvested from both open access journals and
+    scientific research articles indexed from both open access journals and
     repositories.
 image:
   src: images/history/76m-metadata-pie.png
@@ -16,4 +16,4 @@ image:
     A pie showing that only one small part of the metadata records have a full
     text
 ---
-CORE reaches the milestone of 75 million metadata records and 6 million full text research articles harvested from open access journals and repositories.
+CORE reaches the milestone of 75 million metadata records and 6 million full text research articles indexed from open access journals and repositories.
