@@ -1,12 +1,12 @@
 title: "Latest datasets:"
 id: latest
 box:
-  title: Dataset 2023
+  title: Dataset 2024
   icon: /images/dataset/cloud.svg
   dataSize:
-    - count: 393 GB
+    - count: 749 GB
       dataType: compressed
-    - count: 3.5 TB
+    - count: 2.7 TB
       dataType: extracted
   actions:
     - variant: text
@@ -24,7 +24,7 @@ box:
 
     **Note**: Please read the section "[Structure of datasets](#dataset2020)" below for more information.
   dataSizes:
-    - count: "680 GB "
+    - count: "749 GB "
       dataType: compressed
-    - count: ~4.8 TB
+    - count: ~2.7 TB
       dataType: extracted
