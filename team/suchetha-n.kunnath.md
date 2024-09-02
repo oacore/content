@@ -1,12 +1,9 @@
 ---
 first-name: Suchetha
 last-name: N.Kunnath
-role: PhD Student
+role: Research Associate
 photo: /images/team/suchetha-nambanoor-kunnath.jpg
 past: false
 order: 0
 ---
-Suchetha’s research focusses on the classification of citations based on their
-purpose and influence. The main areas of research interest include Text
-Mining, Machine Learning and Natural Language Processing. Outside of work,
-she likes to travel and experiment with photography.
+Suchetha's research focuses on the author's affiliation extraction from scientific meta-data and classification of scholarly publications based on the UN Sustainable Development Goals using NLP and IR. Outside of work, she likes to experiment with photography.
