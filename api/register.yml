@@ -1,6 +1,9 @@
 form:
   title: Register for an API key
-  subtitle: Enter your email address to register for a new API key, or restore a previous API key. If you are registering in an institutional capacity, please enter your institutional email.
+  subtitle: Enter your email address to register for a new API key, or restore a
+    previous API key. If you are registering in an institutional capacity,
+    please enter your institutional email.
   helper: We will send the key and instructions to this address
   action: Register now
-  note: Check our [Terms & Conditions](https://core.ac.uk/terms) to see if you are elegible for a free license.
+  note: Check our [Terms & Conditions](https://core.ac.uk/terms) to see if you are
+    eligible for a free license.
