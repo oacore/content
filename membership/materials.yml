@@ -13,7 +13,7 @@ materials:
       title: CORE Membership Introduction
       action:
         caption: Open presentation
-        url: /mages/pdfs/core-member-benefits-presentation.pdf
+        url: /images/pdfs/core-membership-introduction-.pdf
         target: _blank
     - image: /images/pdfView.svg
       key: overview
