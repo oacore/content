@@ -19,8 +19,8 @@ materials:
       key: overview
       title: CORE Membership benefits overview
       action:
-        caption: Open flyer
-        url: /images/pdfs/CORE-Flyer-2023.pdf
+        caption: Open presentation
+        url: /images/pdfs/core-membership-benefits-overview.pdf
         target: _blank
     - image: /images/videoPreview.svg
       key: access
