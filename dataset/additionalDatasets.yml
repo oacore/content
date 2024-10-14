@@ -38,12 +38,12 @@ items:
   - title: "Archived datasets:"
     id: archived
     boxes:
-      - title: Dataset 2024-03-18
+      - title: Dataset 2023-03-18
         caption: Full dataset (Full text & metadata)
         dataSizes:
-          - count: "749 GB "
+          - count: "393 GB "
             dataType: compressed
-          - count: 2.7 TB
+          - count: 3.5 TB
             dataType: extracted
         license: "**License**: All rights reserved. See our [Terms &
           Conditions](https://core.ac.uk/terms)."
