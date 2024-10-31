@@ -1,0 +1,14 @@
+header:
+  id: header
+  title: FAIR Repository Certification
+  icon: /images/services/certification.svg
+  image: /images/services/coreCertification.svg
+  description: The CORE FAIR Certification Programme offers an opportunity for open repositories to enhance their adherence to the widely recognised FAIR (Findable, Accessible, Interoperable, Reusable) principles, essential for maximising the value and usability of research data. Meeting these standards is crucial for repositories to ensure their content is easily discoverable, accessible, and reusable across systems and disciplines. Through CORE FAIR Certification, repositories can improve their FAIRness by undergoing automated, objective checks against their repository software, leading to tangible improvements. Successful repositories receive a trusted certificate, validating their commitment to FAIR principles.
+  actions:
+    - caption: Register your interest
+      variant: contained
+      url: ""
+    - caption: download our flyer
+      variant: text
+      url: ""
+      target: _blank

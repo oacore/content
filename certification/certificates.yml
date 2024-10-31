@@ -1,0 +1,13 @@
+certificates:
+  - title: Bronze
+    picture: /images/services/bronze.svg
+    description: |
+      We provide services for organisations of all shapes and sizes: not-for-profit and commercial; small and large; local, national.
+  - title: Silver
+    picture: /images/services/silver.svg
+    description: |
+      It validates that a repository adheres to the FAIR principles, ensuring its content is findable, accessible, interoperable, and reusable.
+  - title: Gold
+    picture: /images/services/gold.svg
+    description: |
+      We provide services for organisations of all shapes and sizes: not-for-profit and commercial; small and large; local, national.
