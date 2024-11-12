@@ -1,0 +1,24 @@
+title: How to download the latest dataset (2024)
+id: latest
+recommended: >-2
+  We recommend you download the files using **CURL** or **WGET**
+
+
+  Since we changed the structure of **Dataset 2024**, you don't need to download one big archive; now, you can download smaller parts individually.
+
+
+  To check a list of Dataset batches visit **[LINK]**. To get access to this page you need to use a **[username]** and **[password]** should be shared with you in a separate message.
+reminder:
+  title:  |
+    Example to download one single Dataset archive:
+
+
+    * **wget** --c https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
+
+    * **curl** -L -O -C - https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
+  descriptions:
+    option: To download all archives, you can save and parse the **dataset_index.xml** file with links for archives
+    option2: |
+      **https://core.ac.uk/[link]/dataset_index.xml**
+
+
