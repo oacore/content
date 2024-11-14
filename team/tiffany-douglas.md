@@ -2,7 +2,7 @@
 first-name: Tiffany
 last-name: Douglas
 role: Communications and Dissemination Specialist
-photo: /images/team/screenshot_20241104_155503.jpg
+photo: /images/team/tiffany_douglas.jpg
 past: false
 order: 0
 ---
