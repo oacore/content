@@ -1,15 +1,15 @@
 logos:
   items:
     - img: /images/logos/turnitin.svg
-      alt: "turnitin"
-    - img: /images/logos/grammarly.svg
-      alt: "grammarly"
+      alt: turnitin
+    - img: /images/anthropic_logo.svg.png
+      alt: grammarly
     - img: /images/logos/naver.svg
-      alt: "naver"
+      alt: naver
     - img: /images/logos/cypris.svg
-      alt: "cypris"
+      alt: cypris
     - img: /images/logos/ontochemIt.png
-      alt: "ontochem"
+      alt: ontochem
   action:
     caption: Show all
-    url: '/about/endorsements'
+    url: /about/endorsements
