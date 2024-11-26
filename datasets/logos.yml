@@ -2,7 +2,7 @@ logos:
   items:
     - img: /images/logos/nvidia.svg
       alt: nvidia
-    - img: /images/logos/anthropic.svg
+    - img: /images/anthropic_logo.svg.png
       alt: anthropic
     - img: /images/logo_techdico.png
       alt: grammarly
