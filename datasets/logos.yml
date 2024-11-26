@@ -1,15 +1,15 @@
 logos:
   items:
     - img: /images/logos/nvidia.svg
-      alt: "nvidia"
+      alt: nvidia
     - img: /images/logos/anthropic.svg
-      alt: "anthropic"
-    - img: /images/logos/grammarly.svg
-      alt: "grammarly"
+      alt: anthropic
+    - img: /images/logo_techdico.png
+      alt: grammarly
     - img: /images/logos/lean.svg
-      alt: "lean"
+      alt: lean
     - img: /images/logos/caktus.svg
-      alt: "caktus"
+      alt: caktus
   action:
     caption: Show all
-    url: '/about/endorsements'
+    url: /about/endorsements
