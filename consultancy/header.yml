@@ -8,7 +8,7 @@ header:
     value from large amounts of research data, empowering them to understand,
     interpret and build on new knowledge.   "
   icon: /images/services/consultancy.svg
-  image: /images/consultancy/partnership.svg
+  image: /images/consultancy/images.png
   actions:
     - variant: contained
       caption: Apply now
