@@ -1,14 +1,14 @@
 logos:
   items:
-    - img: /images/nvidia.svg
+    - img: /images/logos/nvidia.svg
       alt: nvidia
-    - img: /images/anthropic.svg
+    - img: /images/logos/anthropic.svg
       alt: anthropic
-    - img: /images/techdico.png
+    - img: /images/logos/logo_techdico.png
       alt: techdico
-    - img: /images/lean.svg
+    - img: /images/logos/lean.svg
       alt: lean
-    - img: /images/caktus.svg
+    - img: /images/logos/caktus.svg
       alt: caktus
   action:
     caption: Show all
