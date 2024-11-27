@@ -1,14 +1,14 @@
 logos:
   items:
-    - img: /images/logos/turnitin.svg
+    - img: /images/turnitin.svg
       alt: turnitin
-    - img: /images/logos/anthropic.svg
+    - img: /images/anthropic.svg
       alt: anthropic
-    - img: /images/logos/naver.svg
+    - img: /images/naver.svg
       alt: naver
-    - img: /images/logos/cypris.svg
+    - img: /images/cypris.svg
       alt: cypris
-    - img: /images/logos/ontochemIt.png
+    - img: /images/ontochemIt.png
       alt: ontochem
   action:
     caption: Show all
