@@ -12,8 +12,8 @@ links:
       link: other
     - label: Archived datasets
       link: archived
-    - label: Structure of dataset 2020
-      link: dataset2020
+    - label: Current dataset structure (from 2020 onwards)
+      link: Currentdataset
     - label: Structure of dataset 2018 onwards
       link: dataset2018
     - label: Structure of datasets 2017
