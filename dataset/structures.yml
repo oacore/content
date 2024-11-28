@@ -1,6 +1,6 @@
 title: Structure of datasets
 items:
-  - title: Structure of dataset 2020
+  - title: Current dataset structure (from 2020 onwards)
     id: dataset2020
     text: >-
       The CORE dump implements the approach of the [ResourceSync Framework
@@ -128,14 +128,17 @@ items:
         "topics": ["TOPIC1","TOPIC2" ],
         "subjects": ["SUBJECT1", "SUBJECT2"],
         "issn": "ISSN-IDENTIFIER",
-        "fullText": "FULL TEXT"
+        "fullText": "FULL TEXT",
+        "﻿urls": ["URL1", "URL2"], 
+        "﻿issn": "ISSN"
       }
 
       ```
-    fields: |-
+    fields: >-
       ##### Fields description
-      
-      
+
+
+
       <table>
         <tr>
           <th>Field name</th>
@@ -245,6 +248,14 @@ items:
           <td>fullText</td>
           <td>The text extracted from the hosted full text.</td>
         </tr>
+         <tr>
+                <td>urls</td>
+                <td>The urls connected to the record.</td>
+              </tr>
+         <tr>
+                <td>issn</td>
+                <td>The standard identification number for the publication venue, if the record is a journal article</td>
+              </tr>
       </table>
   - title: Structure of dataset 2018 onwards
     id: dataset2018
