@@ -53,6 +53,8 @@ navItems:
     href: "#indirect-link"
   - item: 3.3.4 FAIR Signposting (Recommended)
     href: "#fair-signposting"
+  - item: 3.4 Full text licence information
+    href: "#licence-information"
   - item: |
       **4. Registering a data provider with CORE**
     href: "#data-provider"
