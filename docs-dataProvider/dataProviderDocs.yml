@@ -502,23 +502,39 @@ items:
       CORE advocates and recommends the use of machine readable licences. Data providers can pass licence information in the relevant fields as follows:
 
 
-      | Metadata schema | Guideline | Reference documentation | Examples |
+      **1) Dublin Core** 
 
-      | ------------ | ------------- | ------------- | -------------| 
+           * Guideline: use the dcterms:license field. We strongly recommend to specify licence as a URL or alternatively use the exact literal “all rights reserved”
 
-      |**Dublin Core** | use the dcterms:license field. We strongly recommend to specify licence as a URL or alternatively use the exact literal “all rights reserved” | [https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/license/](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/license/) | [https://creativecommons.org/licenses/by/4.0/deed.en](https://creativecommons.org/licenses/by/4.0/deed.en)
+           * Reference documentation: [https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/license/](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/license/)
+
+           * Examples:  [https://creativecommons.org/licenses/by/4.0/deed.en](https://creativecommons.org/licenses/by/4.0/deed.en)
        [https://creativecommons.org/publicdomain/zero/1.0/](https://creativecommons.org/publicdomain/zero/1.0/) 
-      all rights reserved |
+      all rights reserved
 
-      |**OpenAIRE Guidelines** | use the oaire:licenseCondition field | [https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_licensecondition.html#aire-licensecondition](https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_licensecondition.html#aire-licensecondition) | <oaire:licenseCondition startDate="2019-02-01" uri="[http://creativecommons.org/licenses/by-nc/4.0/](http://creativecommons.org/licenses/by-nc/4.0/)">Creative Commons Attribution-NonCommercial</oaire:licenseCondition>|
 
-      |**Rioxx (recommended)** | NISO < ali:licence_ref > standard (https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html) by applying the license_ref attribute in dc:relation
+      **2) OpenAIRE Guidelines** 
 
-      This allows specifying a different licence for he full text and other assets described in the record. | <dc:relation  rel="item" type="application/pdf" coar_type="https://purl.org/coar/resource_type/c_6501"  coar_version="https://purl.org/coar/version/c_ab4af688f83e57aa" deposit_date="2023-03-28"  resource_exposed_date="2023-03-28"  access_rights="https://purl.org/coar/access_right/c_abf2" license_ref="https://creativecommons.org/licenses/by/4.0/"> https://strathprints.strath.ac.uk/84907/7/Jiang_etal_IEEETGRS_2023_Microseismic_event_classification.pdf </dc:relation>
+           * Guideline: use the oaire:licenseCondition field
 
-      To mark non-OA content, we recommend the use of the You can also use http://www.rioxx.net/licenses/all-rights-reserved in the license_ref attribute. | CORE supports the NISO <ali:licence_ref> standard (https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html) If your metadata schema support ali:licence_ref, then we recommend that you use it. However, if your metadata schema does not support it yet, the you can pass machine readable information about licence in the relevant licence fielde, e.g. dc:licence.
+           * Reference documentation: [https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_licensecondition.html#aire-licensecondition](https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_licensecondition.html#aire-licensecondition)
 
-      Ensuring that licence information is correctly encoded is essential for making sure that CORE knows how to treat the content in your repository. Where the licence information is exposed, CORE will be able to know how to comply with it and will ensure the conditions of the licence are met. Currently supported licences include all Creative Commons licences. |
+           * Examples:  <oaire:licenseCondition startDate="2019-02-01" uri="[http://creativecommons.org/licenses/by-nc/4.0/](http://creativecommons.org/licenses/by-nc/4.0/)">Creative Commons Attribution-NonCommercial</oaire:licenseCondition>
+
+      **2) Rioxx (recommended)** 
+
+           * Guideline: NISO <ali:licence_ref> standard [https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html](https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html) by applying the license_ref attribute in dc:relation
+      This allows specifying a different licence for he full text and other assets described in the record.
+
+           * Reference documentation: <dc:relation  rel="item" type="application/pdf" coar_type="[https://purl.org/coar/resource_type/c_6501](https://purl.org/coar/resource_type/c_6501)"  coar_version="[https://purl.org/coar/version/c_ab4af688f83e57aa](https://purl.org/coar/version/c_ab4af688f83e57aa)" deposit_date="2023-03-28"  resource_exposed_date="2023-03-28"  access_rights="[https://purl.org/coar/access_right/c_abf2](https://purl.org/coar/access_right/c_abf2)" license_ref="[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)"> [https://strathprints.strath.ac.uk/84907/7/Jiang_etal_IEEETGRS_2023_Microseismic_event_classification.pdf](https://strathprints.strath.ac.uk/84907/7/Jiang_etal_IEEETGRS_2023_Microseismic_event_classification.pdf ) </dc:relation>
+
+      To mark non-OA content, we recommend the use of the You can also use [http://www.rioxx.net/licenses/all-rights-reserved](http://www.rioxx.net/licenses/all-rights-reserved) in the license_ref attribute.
+
+           * Examples:  CORE supports the NISO <ali:licence_ref> standard ([https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html](https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html)) 
+      If your metadata schema support ali:licence_ref, then we recommend that you use it. However, if your metadata schema does not support it yet, the you can pass machine readable information about licence in the relevant licence fielde, e.g. dc:licence.
+
+
+      Ensuring that licence information is correctly encoded is essential for making sure that CORE knows how to treat the content in your repository. Where the licence information is exposed, CORE will be able to know how to comply with it and will ensure the conditions of the licence are met. Currently supported licences include all Creative Commons licences.
   - title: 4. Registering a data provider with CORE
     id: data-provider
     descriptionAbout: >
