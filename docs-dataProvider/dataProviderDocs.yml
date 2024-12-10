@@ -550,25 +550,38 @@ items:
 
       * Reference documentation:
 
-           * <dc:relation  
+
+      <dc:relation  
+
+
       rel="item" type="application/pdf" 
 
-      coar_type="[https://purl.org/coar/resource_type/c_6501](https://purl.org/coar/resource_type/c_6501)"  
 
-      coar_version="[https://purl.org/coar/version/c_ab4af688f83e57aa](https://purl.org/coar/version/c_ab4af688f83e57aa)" 
+      coar_type="https://purl.org/coar/resource_type/c_6501"
 
-      deposit_date="2023-03-28"  
 
-      resource_exposed_date="2023-03-28"  
+      coar_version="https://purl.org/coar/version/c_ab4af688f83e57aa"
 
-      access_rights="[https://purl.org/coar/access_right/c_abf2](https://purl.org/coar/access_right/c_abf2)" 
 
-      license_ref="[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)"> [https://strathprints.strath.ac.uk/84907/7/Jiang_etal_IEEETGRS_2023_Microseismic_event_classification.pdf](https://strathprints.strath.ac.uk/84907/7/Jiang_etal_IEEETGRS_2023_Microseismic_event_classification.pdf ) 
+      deposit_date="2023-03-28"
+
+
+      resource_exposed_date="2023-03-28"
+
+
+      access_rights="https://purl.org/coar/access_right/c_abf2" 
+
+
+      license_ref="https://creativecommons.org/licenses/by/4.0/"> 
+
+
+      https://strathprints.strath.ac.uk/84907/7/Jiang_etal_IEEETGRS_2023_Microseismic_event_classification.pdf
+
 
       </dc:relation>
 
 
-      To mark non-OA content, we recommend the use of the You can also use [http://www.rioxx.net/licenses/all-rights-reserved](http://www.rioxx.net/licenses/all-rights-reserved) in the license_ref attribute.
+      To mark non-OA content, we recommend the use of the [http://www.rioxx.net/licenses/all-rights-reserved](http://www.rioxx.net/licenses/all-rights-reserved) value, which should be embedded into the license_ref .
 
 
       * Examples:  CORE supports the NISO <ali:licence_ref> standard ([https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html](https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html)) 
