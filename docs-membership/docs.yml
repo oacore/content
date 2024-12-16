@@ -1179,3 +1179,63 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - id: sdg-insights
+    title: SDG Insights
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      The SDG Classification Module is a tool integrated into the CORE Dashboard
+      that automates the classification of academic research according to the 17
+      United Nations Sustainable Development Goals (SDGs) using AI and text
+      mining techniques. Classification of research into UN SDGs is important
+      for efficiently monitoring and aligning an institutions’ research efforts
+      with specific SDGs, targeted resource allocation and facilitating
+      impact-driven decision-making. 
+
+
+      The module analyzes research content, not just keywords, to classify it across multiple SDGs. It supports various research types, including journal articles, datasets, and reports. It allows institutions to compare their SDG research performance, identify gaps, and improve alignment with global sustainability goals.
+
+
+      **Using our interactive bar chart you will be able to:**
+
+      * choose specific timeframe,
+
+      * compare data separately for each SDG,
+
+      * download lists of articles in csv,
+
+      * monitor SDG overall distribution,
+
+      * review statistic data in different formats (% and numbers).
+    redirect:
+      link: https://core.ac.uk/labs/sdg
+      text: "Try web version of SDG identification checker "
+      image: /images/docs-membership/redirectLink.svg
+    descriptionDashboard: >-
+      The SDG Classification Module is a tool integrated into the CORE Dashboard
+      that automates the classification of academic research according to the 17
+      United Nations Sustainable Development Goals (SDGs) using AI and text
+      mining techniques. Classification of research into UN SDGs is important
+      for efficiently monitoring and aligning an institutions’ research efforts
+      with specific SDGs, targeted resource allocation and facilitating
+      impact-driven decision-making. 
+
+
+      The module analyzes research content, not just keywords, to classify it across multiple SDGs. It supports various research types, including journal articles, datasets, and reports. It allows institutions to compare their SDG research performance, identify gaps, and improve alignment with global sustainability goals.
+
+
+      **Using our interactive bar chart you will be able to:**
+
+      * choose specific timeframe,
+
+      * compare data separately for each SDG,
+
+      * download lists of articles in csv,
+
+      * monitor SDG overall distribution,
+
+      * review statistic data in different formats (% and numbers).
+    images:
+      - file: /images/docs-membership/sdg-documetation-images.svg
