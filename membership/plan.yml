@@ -237,6 +237,14 @@ table:
       descriptionCardTable: |
         CORE provides functionality to automatically identify papers with Rights Retention Strategy statements in your repository by means of testing if the rights retention statement is present in the paper’s full text. This can be used to reduce time of repository staff in reviewing access rights and improve repository metadata. [ Rights Retention Strategy statement identification demo.](~rights-retention)
       plans: [ Supporting, Sustaining ]
+    - &sdg
+      id: 27
+      title: SDG Insights
+      descriptionCardCard: |
+        CORE Dashboard provides an SDG Insights module that helps you to learn and monitor how research at your institution contributes to [UN Sustainable Development Goals](https://sdgs.un.org/goals). Read more in [SDG Insights documentation](https://core.ac.uk/documentation/membership-documentation#sdg-insights) or visit [SDG demo webpage](https://core.ac.uk/labs/sdg).
+      descriptionCardTable: |
+        CORE Dashboard provides an SDG Insights module that helps you to learn and monitor how research at your institution contributes to [UN Sustainable Development Goals](https://sdgs.un.org/goals). The classification is obtained using a state-of-the-art multi-label AI model trained on SDG data. Read more in [SDG Insights documentation](https://core.ac.uk/documentation/membership-documentation#sdg-insights) or visit [SDG demo webpage](https://core.ac.uk/labs/sdg).
+      plans: [ Supporting, Sustaining ]
 
   plans:
     title: CORE Membership levels
@@ -278,6 +286,7 @@ table:
         advantages:
           - *versions
           - *rrs
+          - *sdg
           - *api
           - *tech-support
           - *logos
@@ -327,6 +336,7 @@ table:
       - *riox
       - *versions
       - *rrs
+      - *sdg
       - *rioxCompliance
       - *logos
       - *logo-banner
