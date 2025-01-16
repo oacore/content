@@ -514,6 +514,66 @@ items:
       sustaining: Yes
     images:
       - file: /images/docs-membership/rrs-documetation-images.svg
+  - id: sdg-insights
+    title: SDG Insights
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      The SDG Classification Module is a tool integrated into the CORE Dashboard
+      that automates the classification of academic research according to the 17
+      United Nations Sustainable Development Goals (SDGs) using AI and text
+      mining techniques. Classification of research into UN SDGs is important
+      for efficiently monitoring and aligning an institutions’ research efforts
+      with specific SDGs, targeted resource allocation and facilitating
+      impact-driven decision-making. 
+
+
+      The module analyses research content, not just keywords, to classify it across multiple SDGs. It supports various research types, including journal articles, datasets, and reports. It allows institutions to compare their SDG research performance, identify gaps, and improve alignment with global sustainability goals.
+
+
+      **Using our interactive bar chart you will be able to:**
+
+      * choose specific timeframe,
+
+      * compare data separately for each SDG,
+
+      * download lists of articles in csv,
+
+      * monitor SDG overall distribution,
+
+      * review statistic data in different formats (% and numbers).
+    redirect:
+      link: https://core.ac.uk/labs/sdg
+      text: "Try web version of SDG identification checker "
+      image: /images/docs-membership/redirectLink.svg
+    descriptionDashboard: >-
+      The SDG Classification Module is a tool integrated into the CORE Dashboard
+      that automates the classification of academic research according to the 17
+      United Nations Sustainable Development Goals (SDGs) using AI and text
+      mining techniques. Classification of research into UN SDGs is important
+      for efficiently monitoring and aligning an institutions’ research efforts
+      with specific SDGs, targeted resource allocation and facilitating
+      impact-driven decision-making. 
+
+
+      The module analyzes research content, not just keywords, to classify it across multiple SDGs. It supports various research types, including journal articles, datasets, and reports. It allows institutions to compare their SDG research performance, identify gaps, and improve alignment with global sustainability goals.
+
+
+      **Using our interactive bar chart you will be able to:**
+
+      * choose specific timeframe,
+
+      * compare data separately for each SDG,
+
+      * download lists of articles in csv,
+
+      * monitor SDG overall distribution,
+
+      * review statistic data in different formats (% and numbers).
+    images:
+      - file: /images/docs-membership/sdg-documetation-images.svg
   - title: Monitor RIOXX compliance
     id: rioxx-compliance
     images:
@@ -1179,63 +1239,77 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - id: sdg-insights
-    title: SDG Insights
+  - id: oai-pmh-url
+    title: "OAI PMH URL "
     membership-types:
-      starting: No
+      starting: Yes
       supporting: Yes
       sustaining: Yes
-    descriptionAbout: >-
-      The SDG Classification Module is a tool integrated into the CORE Dashboard
-      that automates the classification of academic research according to the 17
-      United Nations Sustainable Development Goals (SDGs) using AI and text
-      mining techniques. Classification of research into UN SDGs is important
-      for efficiently monitoring and aligning an institutions’ research efforts
-      with specific SDGs, targeted resource allocation and facilitating
-      impact-driven decision-making. 
-
-
-      The module analyzes research content, not just keywords, to classify it across multiple SDGs. It supports various research types, including journal articles, datasets, and reports. It allows institutions to compare their SDG research performance, identify gaps, and improve alignment with global sustainability goals.
-
-
-      **Using our interactive bar chart you will be able to:**
-
-      * choose specific timeframe,
-
-      * compare data separately for each SDG,
-
-      * download lists of articles in csv,
-
-      * monitor SDG overall distribution,
-
-      * review statistic data in different formats (% and numbers).
-    redirect:
-      link: https://core.ac.uk/labs/sdg
-      text: "Try web version of SDG identification checker "
-      image: /images/docs-membership/redirectLink.svg
-    descriptionDashboard: >-
-      The SDG Classification Module is a tool integrated into the CORE Dashboard
-      that automates the classification of academic research according to the 17
-      United Nations Sustainable Development Goals (SDGs) using AI and text
-      mining techniques. Classification of research into UN SDGs is important
-      for efficiently monitoring and aligning an institutions’ research efforts
-      with specific SDGs, targeted resource allocation and facilitating
-      impact-driven decision-making. 
-
-
-      The module analyzes research content, not just keywords, to classify it across multiple SDGs. It supports various research types, including journal articles, datasets, and reports. It allows institutions to compare their SDG research performance, identify gaps, and improve alignment with global sustainability goals.
-
-
-      **Using our interactive bar chart you will be able to:**
-
-      * choose specific timeframe,
-
-      * compare data separately for each SDG,
-
-      * download lists of articles in csv,
-
-      * monitor SDG overall distribution,
-
-      * review statistic data in different formats (% and numbers).
     images:
-      - file: /images/docs-membership/sdg-documetation-images.svg
+      - file: /images/docs-membership/oai_pmh_url_setting.svg
+    descriptionAbout: >-
+      CORE enables you to check of your OAI-PMH URL directly on the Dashboard.
+      You can then if you wish update the address. Here is how the process
+      works.
+
+
+      **Navigation Path**
+
+      Dashboard > Settings > Repository > Your Repository > OAI-based URL
+
+
+      **Key Features**
+
+      *View your existing OAI-PMH URL: easily access and verify your current OAI-PMH URL.
+
+      *Request changes: you can propose changes to your OAI-PMH URL.
+
+
+      **How the change process works**
+
+      *Make changes to your current OAI-based URL in the Dashboard (we recommend you to use the [Open Archives OAI-PMH validator](https://validator.oaipmh.com/#:~:text=The%20OAI%2DPMH%20validator%20and,validation%20of%20OAI%2DPMH%20services.) tool to validate the OAI PMH URL of your repository).
+
+      *The CORE team receives an automated notification about the proposed change.
+
+      *A CORE team member reviews and validates the new URL.
+
+      *Upon successful verification, the CORE team manually updates the OAI-PMH URL in the system.
+
+      *We will inform you when the change is complete.
+
+
+      **Why is the updating process manual?**
+       Changes to the OAI-PMH URL are not applied automatically. Each request undergoes a review process to ensure accuracy and compliance with data indexing standards. This procedure ensures better alignment between repositories and our platform, improving the quality and reliability of indexing research data.
+    descriptionDashboard: >-
+      CORE enables you to check of your OAI-PMH URL directly on the Dashboard.
+      You can then if you wish update the address. Here is how the process
+      works.
+
+
+      **Navigation Path**
+
+      Dashboard > Settings > Repository > Your Repository > OAI-based URL
+
+
+      **Key Features**
+
+      *View your existing OAI-PMH URL: easily access and verify your current OAI-PMH URL.
+
+      *Request changes: you can propose changes to your OAI-PMH URL.
+
+
+      **How the change process works**
+
+      *Make changes to your current OAI-based URL in the Dashboard (we recommend you to use the [Open Archives OAI-PMH validator](https://validator.oaipmh.com/#:~:text=The%20OAI%2DPMH%20validator%20and,validation%20of%20OAI%2DPMH%20services.) tool to validate the OAI PMH URL of your repository).
+
+      *The CORE team receives an automated notification about the proposed change.
+
+      *A CORE team member reviews and validates the new URL.
+
+      *Upon successful verification, the CORE team manually updates the OAI-PMH URL in the system.
+
+      *We will inform you when the change is complete.
+
+
+      **Why is the updating process manual?**
+       Changes to the OAI-PMH URL are not applied automatically. Each request undergoes a review process to ensure accuracy and compliance with data indexing standards. This procedure ensures better alignment between repositories and our platform, improving the quality and reliability of indexing research data.
