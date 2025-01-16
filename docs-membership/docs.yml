@@ -1104,6 +1104,80 @@ items:
       supporting: No
       sustaining: Yes
     redirect: null
+  - id: oai-pmh-url
+    title: "OAI PMH URL "
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    images:
+      - file: /images/docs-membership/oai_pmh_url_setting.svg
+    descriptionAbout: >-
+      CORE enables you to check of your OAI-PMH URL directly on the Dashboard.
+      You can then if you wish update the address. Here is how the process
+      works.
+
+
+      **Navigation Path**
+
+      Dashboard > Settings > Repository > Your Repository > OAI-based URL
+
+
+      **Key Features**
+
+      * View your existing OAI-PMH URL: easily access and verify your current OAI-PMH URL.
+
+      * Request changes: you can propose changes to your OAI-PMH URL.
+
+
+      **How the change process works**
+
+      * Make changes to your current OAI-based URL in the Dashboard (we recommend you to use the [Open Archives OAI-PMH validator](https://validator.oaipmh.com/#:~:text=The%20OAI%2DPMH%20validator%20and,validation%20of%20OAI%2DPMH%20services.) tool to validate the OAI PMH URL of your repository).
+
+      * The CORE team receives an automated notification about the proposed change.
+
+      * A CORE team member reviews and validates the new URL.
+
+      * Upon successful verification, the CORE team manually updates the OAI-PMH URL in the system.
+
+      * We will inform you when the change is complete.
+
+
+      **Why is the updating process manual?**
+       Changes to the OAI-PMH URL are not applied automatically. Each request undergoes a review process to ensure accuracy and compliance with data indexing standards. This procedure ensures better alignment between repositories and our platform, improving the quality and reliability of indexing research data.
+    descriptionDashboard: >-
+      CORE enables you to check of your OAI-PMH URL directly on the Dashboard.
+      You can then if you wish update the address. Here is how the process
+      works.
+
+
+      **Navigation Path**
+
+      Dashboard > Settings > Repository > Your Repository > OAI-based URL
+
+
+      **Key Features**
+
+      * View your existing OAI-PMH URL: easily access and verify your current OAI-PMH URL.
+
+      * Request changes: you can propose changes to your OAI-PMH URL.
+
+
+      **How the change process works**
+
+      * Make changes to your current OAI-based URL in the Dashboard (we recommend you to use the [Open Archives OAI-PMH validator](https://validator.oaipmh.com/#:~:text=The%20OAI%2DPMH%20validator%20and,validation%20of%20OAI%2DPMH%20services.) tool to validate the OAI PMH URL of your repository).
+
+      * The CORE team receives an automated notification about the proposed change.
+
+      * A CORE team member reviews and validates the new URL.
+
+      * Upon successful verification, the CORE team manually updates the OAI-PMH URL in the system.
+
+      * We will inform you when the change is complete.
+
+
+      **Why is the updating process manual?**
+       Changes to the OAI-PMH URL are not applied automatically. Each request undergoes a review process to ensure accuracy and compliance with data indexing standards. This procedure ensures better alignment between repositories and our platform, improving the quality and reliability of indexing research data.
   - id: licencing
     title: Licencing
     membership-types:
@@ -1239,77 +1313,3 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - id: oai-pmh-url
-    title: "OAI PMH URL "
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
-    images:
-      - file: /images/docs-membership/oai_pmh_url_setting.svg
-    descriptionAbout: >-
-      CORE enables you to check of your OAI-PMH URL directly on the Dashboard.
-      You can then if you wish update the address. Here is how the process
-      works.
-
-
-      **Navigation Path**
-
-      Dashboard > Settings > Repository > Your Repository > OAI-based URL
-
-
-      **Key Features**
-
-      *View your existing OAI-PMH URL: easily access and verify your current OAI-PMH URL.
-
-      *Request changes: you can propose changes to your OAI-PMH URL.
-
-
-      **How the change process works**
-
-      *Make changes to your current OAI-based URL in the Dashboard (we recommend you to use the [Open Archives OAI-PMH validator](https://validator.oaipmh.com/#:~:text=The%20OAI%2DPMH%20validator%20and,validation%20of%20OAI%2DPMH%20services.) tool to validate the OAI PMH URL of your repository).
-
-      *The CORE team receives an automated notification about the proposed change.
-
-      *A CORE team member reviews and validates the new URL.
-
-      *Upon successful verification, the CORE team manually updates the OAI-PMH URL in the system.
-
-      *We will inform you when the change is complete.
-
-
-      **Why is the updating process manual?**
-       Changes to the OAI-PMH URL are not applied automatically. Each request undergoes a review process to ensure accuracy and compliance with data indexing standards. This procedure ensures better alignment between repositories and our platform, improving the quality and reliability of indexing research data.
-    descriptionDashboard: >-
-      CORE enables you to check of your OAI-PMH URL directly on the Dashboard.
-      You can then if you wish update the address. Here is how the process
-      works.
-
-
-      **Navigation Path**
-
-      Dashboard > Settings > Repository > Your Repository > OAI-based URL
-
-
-      **Key Features**
-
-      *View your existing OAI-PMH URL: easily access and verify your current OAI-PMH URL.
-
-      *Request changes: you can propose changes to your OAI-PMH URL.
-
-
-      **How the change process works**
-
-      *Make changes to your current OAI-based URL in the Dashboard (we recommend you to use the [Open Archives OAI-PMH validator](https://validator.oaipmh.com/#:~:text=The%20OAI%2DPMH%20validator%20and,validation%20of%20OAI%2DPMH%20services.) tool to validate the OAI PMH URL of your repository).
-
-      *The CORE team receives an automated notification about the proposed change.
-
-      *A CORE team member reviews and validates the new URL.
-
-      *Upon successful verification, the CORE team manually updates the OAI-PMH URL in the system.
-
-      *We will inform you when the change is complete.
-
-
-      **Why is the updating process manual?**
-       Changes to the OAI-PMH URL are not applied automatically. Each request undergoes a review process to ensure accuracy and compliance with data indexing standards. This procedure ensures better alignment between repositories and our platform, improving the quality and reliability of indexing research data.
