@@ -2,7 +2,7 @@ header:
   id: header
   title: CORE FastSync
   icon: /images/services/fastsync.svg
-  image: /images/contact.svg
+  image: /images/services/coreFastSync.svg
   description: Keep your data in sync with CORE and never miss a new research output.
   actions:
     - caption: Contact us for a quote
