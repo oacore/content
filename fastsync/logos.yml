@@ -1,14 +1,14 @@
 logos:
   items:
-    - img: /images/logos/turnitin.svg
+    - img: /images/services/turnitin.svg
       alt: turnitin
-    - img: /images/logos/anthropic.svg
+    - img: /images/services/anthropic.svg
       alt: anthropic
-    - img: /images/logos/naver.svg
+    - img: /images/services/naver.svg
       alt: naver
-    - img: /images/logos/microsoft_logo.png
+    - img: /images/services/microsoft_logo.png
       alt: microsoft
-    - img: /images/logos/ontochemIt.png
+    - img: /images/services/ontochemIt.png
       alt: ontochem
   action:
     caption: Show all
