@@ -10,19 +10,19 @@ what-is-included:
     - item: |
         Finding versions and near-duplicate records in your repository.
       video:
-        image: /images/tutorial.svg
+        image: /images/services/tutorial.svg
         src: https://www.youtube.com/embed/56KqdNtq_1A
     - item: |
         Content and download statistics.
     - item:  |
         Register your repository OAI Prefix, to make your OAI identifiers resolve directly to your system.
     #      video:
-    #        image: /images/tutorial.svg
+    #        image: /images/services/tutorial.svg
     #        src: https://www.youtube.com/watch?v=X-A64CoTtcE
     - item: |
         Information about detected technical issues and suggestions for improving indexing efficiency.
       video:
-        image: /images/tutorial.svg
+        image: /images/services/tutorial.svg
         src: https://www.youtube.com/embed/YyZ_MXLKcRs
     - item: |
         Tailored suggestions for metadata quality improvements to make your repository FAIRer.
@@ -31,11 +31,11 @@ what-is-included:
     - item: |
         Check compliance with open access policies.
       video:
-        image: /images/tutorial.svg
+        image: /images/services/tutorial.svg
         src: https://www.youtube.com/embed/X-A64CoTtcE
     - item: |
         Show the logos of your institution in CORE search and across the CORE ecosystem.
       video:
-        image: /images/tutorial.svg
+        image: /images/services/tutorial.svg
         src: https://www.youtube.com/embed/qcQP3ZWMP30
   image: /images/services/delivery.svg
