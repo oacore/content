@@ -2,7 +2,7 @@ additional:
   id: discovery
   title: |
     The tool is available as:
-  image: /images/screenshots/discovery.svg
+  image: /images/services/discovery.svg
   content: |
     * Browser extension for researchers and anyone interested in reading scientific documents
     * Plugin for repositories, enriching metadata only pages in repositories with links to freely available copies of the paper
