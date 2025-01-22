@@ -1,14 +1,14 @@
 logos:
   items:
-    - img: /images/logos/iris.png
+    - img: /images/services/iris.png
       alt: "iris"
-    - img: /images/logos/audemic.svg
+    - img: /images/services/audemic.svg
       alt: "audemic"
-    - img: /images/logos/interac.svg
+    - img: /images/services/interac.svg
       alt: "interac"
-    - img: /images/logos/flowcite.svg
+    - img: /images/services/flowcite.svg
       alt: "flow"
-    - img: /images/logos/cypris.svg
+    - img: /images/services/cypris.svg
       alt: "cypris"
   action:
     caption: Show all
