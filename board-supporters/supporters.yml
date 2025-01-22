@@ -9,10 +9,10 @@ items:
       href: "#membership-list"
   header:
     id: header
-    image: /images/community/research/header.svg
+    image: /images/community/header.svg
   tagline: Help shape the future of open research infrastructures
   principles:
-    image: /images/supporters/supporters.svg
+    image: /images/community/supporters.svg
     description: >
       While support for open access and open research is growing rapidly, the
       future of open scholarly infrastructure services, including CORE, is by no
@@ -61,19 +61,19 @@ items:
     title: How it works
     services:
       - title: Bi-annual Meetings
-        image: /images/supporters/meetings.svg
+        image: /images/community/meetings.svg
         description: >
           The board meets every six months to review recent progress, and the
           CORE operations team estimates time and costs for proposed
           enhancements. Members state their priority for specific enhancements.
       - title: Collecting Feedback 
-        image: /images/supporters/feedback.svg
+        image: /images/community/feedback.svg
         description: >
           Any user of CORE can provide suggestions at any time. Working with our
           members ensures we are always fully aware of the needs of the
           community. 
       - title: Prioritising Development Directions
-        image: /images/supporters/directions.svg
+        image: /images/community/directions.svg
         description: >
           Following member feedback, the roadmap for the next six months is
           determined. In this way, CORE commits resources to the development of

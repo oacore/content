@@ -7,8 +7,8 @@ header:
     policy, and infrastructures. We help organisations to analyse and derive
     value from large amounts of research data, empowering them to understand,
     interpret and build on new knowledge.   "
-  icon: /images/services/consultancy.svg
-  image: /images/consultancy/images.png
+  icon: /images/consultancy/consultancy.svg
+  image: /images/consultancy/partnership.svg
   actions:
     - variant: contained
       caption: Apply now
