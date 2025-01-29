@@ -1,0 +1,22 @@
+features:
+  -
+    id: sdg
+    logo: /images/sdg.svg
+    title: SDG classification
+    tag: Demo
+    description: |
+      SDG classification allows institutions to gain rapid insights into the current mapping of their research outputs to the 17 UN SDG goals, significantly reducing the manual effort required to map research outputs to global sustainability objectives.
+    action:
+      caption: Try it now
+      url: /labs/sdg
+
+  -
+    id: rrs
+    logo: /images/dataset.svg
+    title: RRS identification
+    tag: Demo
+    description: |
+      RRS checker provides an easy way to find Rights Retention Strategy statements in papers. 
+    action:
+      caption: Try it now
+      url: /rights-retention
