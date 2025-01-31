@@ -12,7 +12,7 @@ features:
 
   -
     id: rrs
-    logo: /images/dataset.svg
+    logo: /images/rrs.svg
     title: RRS identification
     tag: Demo
     description: |
