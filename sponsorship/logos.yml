@@ -1,0 +1,14 @@
+logos:
+  items:
+    - img: /images/oclc.svg
+      alt: "oclc"
+      label: "Gold sponsorship"
+      background: "#FFF"
+    - img: /images/microsoft_logo.png
+      alt: "microsoft"
+      label: "Strategic partner"
+      background: "#FFF"
+    - img: /images/jiscLogoSquare.svg
+      alt: "jisc"
+      label: "Silver sponsorship"
+      background: "#E85E13"
