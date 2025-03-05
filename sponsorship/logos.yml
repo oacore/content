@@ -4,7 +4,7 @@ logos:
       alt: "oclc"
       label: "Gold sponsorship"
       background: "#FFF"
-    - img: /images/microsoft_logo.png
+    - img: /images/microsoft.svg
       alt: "microsoft"
       label: "Strategic partner"
       background: "#FFF"
