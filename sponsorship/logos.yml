@@ -2,7 +2,7 @@ logos:
   items:
     - img: /images/oclc.svg
       alt: "oclc"
-      label: "Gold sponsorship"
+      label: "Gold sponsor"
       background: "#FFF"
     - img: /images/microsoft.svg
       alt: "microsoft"
@@ -10,5 +10,5 @@ logos:
       background: "#FFF"
     - img: /images/jiscLogoSquare.svg
       alt: "jisc"
-      label: "Silver sponsorship"
+      label: "Silver sponsor"
       background: "#E85E13"
