@@ -1,6 +1,6 @@
-title: How to download the latest dataset (2024)
+title: How to download the latest dataset (2024-07-12)
 id: latest
-recommended: >-2
+recommended: >-
   We recommend you download the files using **CURL** or **WGET**
 
 
@@ -13,21 +13,22 @@ recommended: >-2
     * **https://core.ac.uk/[link]/dataset_index.xml,**
 
     * **[username]** 
-  
-    * **[password]** 
-  
-  **The link and credentials will be shared with you via email.**
 
+    * **[password]** 
+
+  **The link and credentials will be shared with you via email.**
 reminder:
   title: "Example::"
-  description: |
+  description: >
     Example to download one single Dataset archive:
+
 
 
     * **wget** -c https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
 
-    * **curl** -L -O -C - https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
-    
-    
-    To download all archives, you can save and parse the **dataset_index.xml** file with links for archives
 
+    * **curl** -L -O -C - https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
+
+
+
+    To download all archives, you can save and parse the **dataset_index.xml** file with links for archives
