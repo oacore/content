@@ -1313,3 +1313,31 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - id: usrn-validator
+    title: USRN Desirable Characteristics Repository Validator
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      Using the USRN Desirable Characteristics for Digital Publication
+      Repositories, repository managers can check the degree of adherence of
+      your repository to best practice.
+
+
+      The term “desirable characteristics” is a set of best practices for repositories to follow. They include the use of unique identifiers (OAI, DOI, ORCID, ROR, etc.), ensuring the repository has a long-term sustainability plan, providing high-quality metadata, allowing for broad and measure reuse, and identifying provenance and integrity of the contents. For each item, the tool provides, as applicable, either a yes/no answer or percentage completion scores. In addition, for each metrics, as appropriate, recommendations are provided for the repository to take action.
+
+
+      The tool generates a report that can be used to identify areas for improvement. Although these guidelines have been developed with the goal of improving the discoverability of repository content in the United States, the principles are widely applicable and will be beneficial for repositories outside of the United States.
+    descriptionDashboard: >-
+      Using the USRN Desirable Characteristics for Digital Publication
+      Repositories, repository managers can check the degree of adherence of
+      your repository to best practice.
+
+
+      The term “desirable characteristics” is a set of best practices for repositories to follow. They include the use of unique identifiers (OAI, DOI, ORCID, ROR, etc.), ensuring the repository has a long-term sustainability plan, providing high-quality metadata, allowing for broad and measure reuse, and identifying provenance and integrity of the contents. For each item, the tool provides, as applicable, either a yes/no answer or percentage completion scores. In addition, for each metrics, as appropriate, recommendations are provided for the repository to take action.
+
+
+      The tool generates a report that can be used to identify areas for improvement. Although these guidelines have been developed with the goal of improving the discoverability of repository content in the United States, the principles are widely applicable and will be beneficial for repositories outside of the United States.
+    images:
+      - file: /images/docs-membership/usrn-validator.svg
