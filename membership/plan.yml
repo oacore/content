@@ -245,6 +245,14 @@ table:
       descriptionCardTable: |
         CORE Dashboard provides an SDG Insights module that helps you to learn and monitor how research at your institution contributes to [UN Sustainable Development Goals](https://sdgs.un.org/goals). The classification is obtained using a state-of-the-art multi-label AI model trained on SDG data. Read more in [SDG Insights documentation](https://core.ac.uk/documentation/membership-documentation#sdg-insights) or visit [SDG demo webpage](https://core.ac.uk/labs/sdg).
       plans: [ Supporting, Sustaining ]
+    - &validator
+      id: 28
+      title: Desirable Characteristics Repository Validator
+      descriptionCardCard: |
+        This tool checks compliance of your repository against the [USRN Desirable Characteristic for Digital Publication Repositories.](https://sparcopen.org/wp-content/uploads/2022/10/Desirable-Characteristics-of-Digital-Publication-Repositories-APPROVED-20230331.pdf) It generates a report that you can use to identify areas for improvement. Although these guidelines have been developed with the goal of improving the discoverability of repository content in the United States, the principles are widely applicable and can be beneficial for repositories outside of the United States. [read more](~documentation/membership-documentation#usrn-validator)
+      descriptionCardTable: |
+        This tool checks compliance of your repository against the [USRN Desirable Characteristic for Digital Publication Repositories.](https://sparcopen.org/wp-content/uploads/2022/10/Desirable-Characteristics-of-Digital-Publication-Repositories-APPROVED-20230331.pdf) It generates a report that you can use to identify areas for improvement. Although these guidelines have been developed with the goal of improving the discoverability of repository content in the United States, the principles are widely applicable and can be beneficial for repositories outside of the United States.
+      plans: [ Starting, Supporting, Sustaining ]
 
   plans:
     title: CORE Membership levels
@@ -271,6 +279,7 @@ table:
           - *statistics
           - *discovery-boost
           - *riox
+          - *validator
         action:
           title: Become a member
           #        url: '/membership/starting'
@@ -333,6 +342,7 @@ table:
       - *support
       - *statistics
       - *discovery-boost
+      - *validator
       - *riox
       - *versions
       - *rrs
