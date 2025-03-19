@@ -605,7 +605,7 @@ items:
       sustaining: Yes
     redirect: null
   - id: usrn-validator
-    title: USRN Desirable Characteristics Repository Validator
+    title: Desirable Characteristics Repository Validator
     membership-types:
       starting: Yes
       supporting: Yes
