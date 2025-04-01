@@ -1,11 +1,9 @@
 ---
 first-name: Catherine
 last-name: Kuliavets
-role: Personal & Team Administrative Assistant
-photo: /images/team/catherine-kuliavets.jpg
-past: true
+role: Community and Relationship Manager
+photo: /images/team/catherine_-kuliavets.png
+past: false
 order: 0
 ---
-Responsible for acting as the first point of contact for a range of tasks and common queries.
-Manages diaries and meetings,  helps with organising events and conferences; collects information
-from external sources; liaises with staff, suppliers and clients.
+Being able to find solutions for customers and build trusted relationships is my mission at CORE. I will always go above and beyond to make sure they are taken care of. I'm really excited to be able to develop new relationships and become their reliable source of help. My philosophy is equally uplifting. "*Laughter is the best medicine!*"  In my free time, I enjoy  spending time with my family and being outdoors.
