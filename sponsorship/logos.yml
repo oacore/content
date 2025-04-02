@@ -8,6 +8,10 @@ logos:
       alt: "microsoft"
       label: "Strategic partner"
       background: "#FFF"
+    - img: /images/sussexLogo.svg
+      alt: "sussex"
+      label: "Silver partner"
+      background: "#FFF"
     - img: /images/jiscLogoSquare.svg
       alt: "jisc"
       label: "Silver sponsor"
