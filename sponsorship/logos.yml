@@ -1,18 +1,18 @@
 logos:
   items:
     - img: /images/oclc.svg
-      alt: "oclc"
-      label: "Gold sponsor"
+      alt: oclc
+      label: Gold sponsor
       background: "#FFF"
     - img: /images/microsoft.svg
-      alt: "microsoft"
-      label: "Strategic partner"
+      alt: microsoft
+      label: Strategic partner
       background: "#FFF"
     - img: /images/sussexLogo.svg
-      alt: "sussex"
-      label: "Silver partner"
+      alt: sussex
+      label: Silver sponsor
       background: "#FFF"
     - img: /images/jiscLogoSquare.svg
-      alt: "jisc"
-      label: "Silver sponsor"
+      alt: jisc
+      label: Silver sponsor
       background: "#E85E13"
