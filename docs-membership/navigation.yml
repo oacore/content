@@ -23,6 +23,8 @@ navItems:
     href: "#versions-duplicates"
   - item: Rights Retention Strategy Identification
     href: "#rrs-identification"
+  - item: Data Availability Statement (DAS) identification
+    href: "#das-identification"
   - item: SDG Insights
     href: "#sdg-insights"
   - item: Monitor RIOXX compliance
