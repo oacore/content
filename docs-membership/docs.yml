@@ -1341,3 +1341,61 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - id: das-identification
+    title: Data Availability Statement (DAS) Identification
+    membership-types:
+      starting: No
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      We use a rule-based model based on regular expressions to identify Data
+      Availability Statements in research papers. Data availability statements
+      are descriptions found within the text of the publication that describe
+      whether and where data supporting the study’s findings is available and
+      how it can be accessed and under what conditions it can be used. Data
+      availability statements ensure transparency by providing details on data
+      storage, sharing policies, and any restrictions due to ethical, legal, or
+      proprietary reasons.
+
+
+      For repositories, having DAS ensures that stored research outputs remain valuable, accessible, and aligned with best practices in open science.
+
+
+      There are three  sections in the DAS identification tab in the CORE Dashboard:
+
+
+      * **Outputs with DAS statements:** This will display all papers that have been identified to contain an DA statement within your repository collection.
+
+      * **DAS checker:** This a tool that allows to check if there are DA statements in a manuscript you upload. PDF and DOC formats are supported.
+
+      * **DA statements to review:** - This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review DAS button you will find the specific DA sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
+
+
+      We recommend that you regularly review the automatically extracted DA statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed DA statements, for instance, for the purposes of importing this information into your repository. The DAS identification runs on your full texts, CORE cannot detect DA statements from papers CORE doesn’t have access to. 
+    images:
+      - file: /images/docs-membership/das-documetation-images.svg
+    descriptionDashboard: >-
+      We use a rule-based model based on regular expressions to identify Data
+      Availability Statements in research papers. Data availability statements
+      are descriptions found within the text of the publication that describe
+      whether and where data supporting the study’s findings is available and
+      how it can be accessed and under what conditions it can be used. Data
+      availability statements ensure transparency by providing details on data
+      storage, sharing policies, and any restrictions due to ethical, legal, or
+      proprietary reasons.
+
+
+      For repositories, having DAS ensures that stored research outputs remain valuable, accessible, and aligned with best practices in open science.
+
+
+      There are three  sections in the DAS identification tab in the CORE Dashboard:
+
+
+      * **Outputs with DAS statements:** This will display all papers that have been identified to contain an DA statement within your repository collection.
+
+      * **DAS checker:** This a tool that allows to check if there are DA statements in a manuscript you upload. PDF and DOC formats are supported.
+
+      * **DA statements to review:** - This indicates the number of papers in your repository which we recommend you to review. By clicking on the Review DAS button you will find the specific DA sentence CORE identified within the manuscript.  You have the possibility to mark it as “Correct” or “Wrong”.
+
+
+      We recommend that you regularly review the automatically extracted DA statements to confirm they are correct. You will then be able to download a .csv file which contains these reviewed DA statements, for instance, for the purposes of importing this information into your repository. The DAS identification runs on your full texts, CORE cannot detect DA statements from papers CORE doesn’t have access to. 
