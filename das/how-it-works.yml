@@ -1,0 +1,12 @@
+how-it-works:
+  title: Why it’s important
+  image: /images/services/work.svg
+  description: |
+    A Data Availability Statement is essential for ensuring research transparency and reproducibility. It specifies whether the data supporting a study is available, where it can be accessed, and under what conditions. Including a DAS in a research paper helps to:
+    * enhance transparency – clearly stating how and where research data can be accessed,
+    
+    * supports reproducibility – enables other researchers to validate and build upon this work,
+    
+    * improves compliance –meets the requirements of journals, funders, and Open Science initiatives,
+    
+    * increases research impact – properly documented datasets attract more citations and collaborations.

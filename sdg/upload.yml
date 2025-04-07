@@ -1,0 +1,30 @@
+upload:
+  default:
+    title: Identify SDG in your paper
+    subTitle: Drag and drop your file here
+    action:
+      title: Browse files
+  success:
+    title: SDG labels found
+    description: "Found SDG labels:"
+    image: /images/success.svg
+    action:
+      title: Upload new file
+  fail:
+    title: SDG labels not found
+    description: SDG labels not found in this paper.
+    image: /images/fail.svg
+    action:
+      title: Upload new file
+  noSupport:
+    title: This format is not supported
+    sizeTitle: File is too big
+    image: /images/fail.svg
+    action: Upload new file
+  subInfo:
+    format: |
+      Supported formats: pdf
+    size: |
+      Maximum  size: 10MB
+
+
