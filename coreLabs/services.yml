@@ -9,7 +9,6 @@ features:
     action:
       caption: Try it now
       url: /labs/sdg
-
   -
     id: rrs
     logo: /images/rrs.svg
@@ -20,3 +19,13 @@ features:
     action:
       caption: Try it now
       url: /rights-retention
+  -
+    id: das
+    logo: /images/das.svg
+    title: Data Availability Statement identification
+    tag: Demo
+    description: |
+      DAS checker helps researchers, publishers, and repository managers to automatically identify whether a research paper includes a Data Availability Statement. This tool ensures transparency, improves metadata quality, and supports compliance with Open Science policies.
+    action:
+      caption: Try it now
+      url: /data-availability
