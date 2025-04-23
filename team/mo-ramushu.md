@@ -1,5 +1,5 @@
 ---
-first-name: Mo
+first-name: Mologadi
 last-name: Ramushu
 role: Communications and Dissemination Specialist
 photo: /images/team/mo-ramushu.jpg
