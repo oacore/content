@@ -1,7 +1,7 @@
 ---
 first-name: Suchetha
 last-name: N.Kunnath
-role: Research Associate
+role: ML & Data Integration Engineer
 photo: /images/team/suchetha-nambanoor-kunnath.jpg
 past: false
 order: 0
