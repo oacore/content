@@ -1,7 +1,7 @@
 ---
 first-name: Friedrich
 last-name: Summann
-role: Operations manager
+role: Operations & Data Ingestion Specialist
 photo: /images/team/friedrich_-summann.png
 past: false
 order: 0
