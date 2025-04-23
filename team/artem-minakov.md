@@ -1,7 +1,7 @@
 ---
 first-name: Artem
 last-name: Minakov
-role: Back-end developer
+role: Backend Engineer
 photo: /images/team/artem_minakov.png
 past: false
 order: 0
