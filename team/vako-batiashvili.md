@@ -1,7 +1,7 @@
 ---
 first-name: Vako
 last-name: Batiashvili
-role: Full Stack Developer
+role: Middleware Engineer
 photo: /images/team/vako_batiashvili.png
 past: false
 order: 0
