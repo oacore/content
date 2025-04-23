@@ -1,7 +1,7 @@
 ---
 first-name: Beso
 last-name: Tsiklauri
-role: System Administrator
+role: Infrastructure Specialist
 photo: /images/team/beso_tsiklauri.jpg
 past: false
 order: 0
