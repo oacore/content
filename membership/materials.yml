@@ -85,3 +85,10 @@ materials:
         caption: Watch video
       video:
         src: https://www.youtube.com/embed/cC-S8Vlrkus
+    - image: /images/pdfView.svg
+      title: CORE Newsletter, April 2025
+      action:
+        caption: Open Newsletter
+        url: /images/pdfs/core-newsletter-april-2025-.pdf
+        target: ""
+      key: newsletter
