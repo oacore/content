@@ -1,0 +1,26 @@
+header:
+  id: research
+  title: Research outputs by CORE
+  description: Writing about CORE? Discover our research outputs and cite our work. Below we have listed key articles about CORE by the [Big Scientific Data and Text Analytics group (BSDTAG).](http://bsdtag.kmi.open.ac.uk)
+  image: /images/research-outputs
+
+  links:
+    content:
+      - title: CORE reference articles
+        href: our-vision
+      - title: CORE aggregation approaches and infrastructure
+        href: aggregation-approaches-and-infrastructure
+      - title: Selected AI/ML papers
+        href: ai-ml-papers
+      - title: CORE Recommender
+        href: recommender
+      - title: CORE repositories dashboard
+        href: repositories-dashboard
+      - title: CORE and download statistics
+        href: download-statistics
+      - title: Supporting research assessment and evaluation
+        href: supporting-research-assessment-and-evaluation
+    more: Find more our research outputs at [Big Scientific Data and Text Analytics group website.](http://bsdtag.kmi.open.ac.uk#publications)
+    moreAction:
+      title: find more
+      link: http://bsdtag.kmi.open.ac.uk#publications
