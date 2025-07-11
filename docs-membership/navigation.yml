@@ -27,6 +27,8 @@ navItems:
     href: "#das-identification"
   - item: SDG Insights
     href: "#sdg-insights"
+  - item: ORCID
+    href: "#orcid"
   - item: Monitor RIOXX compliance
     href: "#rioxx-compliance"
   - item: Desirable Characteristics Repository Validator
