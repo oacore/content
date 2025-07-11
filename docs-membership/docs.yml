@@ -636,6 +636,36 @@ items:
       * review statistic data in different formats (% and numbers).
     images:
       - file: /images/docs-membership/sdg-documetation-images.svg
+  - id: orcid
+    title: ORCID
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    descriptionAbout: >-
+      In the Dashboard, you’ll find two sections under the ORCID tab:
+
+
+      * **Papers with at least one ORCID within your repository:** This section shows the number of papers in your repository collection that contain ORCID identifiers, as detected by CORE. You can view the ORCIDs associated with each paper by clicking on the paper itself, or download the full list in CSV format.
+
+
+      * **Discovered ORCIDs enrichments available for papers in your repository:** This section displays ORCIDs for papers in your repository which are currently missing in your metadata, but CORE has discovered them via other data providers.  You can view the details for each paper and their discovered ORCIDs, including where it was deposited, or download the full list in CSV format. **Please note:** the number shown reflects the total count of ORCIDs enrichments we have discovered, while the CSV export includes a list of articles with one or multiple newly-discovered ORCIDs.
+
+
+      The ORCID tab is currently in beta, and we’re actively working to enhance its features and value for repository managers. Our goal is to help improve repository metadata and support better author identification. We’d love to hear your feedback, comments, and questions. Your input is invaluable as we continue to develop this feature.
+    descriptionDashboard: >-
+      In the Dashboard, you’ll find two sections under the ORCID tab:
+
+
+      * **Papers with at least one ORCID within your repository:** This section shows the number of papers in your repository collection that contain ORCID identifiers, as detected by CORE. You can view the ORCIDs associated with each paper by clicking on the paper itself, or download the full list in CSV format.
+
+
+      * **Discovered ORCIDs enrichments available for papers in your repository:** This section displays ORCIDs for papers in your repository which are currently missing in your metadata, but CORE has discovered them via other data providers.  You can view the details for each paper and their discovered ORCIDs, including where it was deposited, or download the full list in CSV format. Please note: the number shown reflects the total count of ORCIDs enrichments we have discovered, while the CSV export includes a list of articles with one or multiple newly-discovered ORCIDs.
+
+
+      The ORCID tab is currently in beta, and we’re actively working to enhance its features and value for repository managers. Our goal is to help improve repository metadata and support better author identification. We’d love to hear your feedback, comments, and questions. Your input is invaluable as we continue to develop this feature.
+    images:
+      - file: /images/docs-membership/orcid-_documentation.svg
   - title: Monitor RIOXX compliance
     id: rioxx-compliance
     images:
@@ -1403,33 +1433,3 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - id: orcid
-    title: ORCID
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
-    descriptionAbout: >-
-      In the Dashboard, you’ll find two sections under the ORCID tab:
-
-
-      * **Papers with at least one ORCID within your repository:** This section shows the number of papers in your repository collection that contain ORCID identifiers, as detected by CORE. You can view the ORCIDs associated with each paper by clicking on the paper itself, or download the full list in CSV format.
-
-
-      * **Discovered ORCIDs enrichments available for papers in your repository:** This section displays ORCIDs for papers in your repository which are currently missing in your metadata, but CORE has discovered them via other data providers.  You can view the details for each paper and their discovered ORCIDs, including where it was deposited, or download the full list in CSV format. **Please note:** the number shown reflects the total count of ORCIDs enrichments we have discovered, while the CSV export includes a list of articles with one or multiple newly-discovered ORCIDs.
-
-
-      The ORCID tab is currently in beta, and we’re actively working to enhance its features and value for repository managers. Our goal is to help improve repository metadata and support better author identification. We’d love to hear your feedback, comments, and questions. Your input is invaluable as we continue to develop this feature.
-    descriptionDashboard: >-
-      In the Dashboard, you’ll find two sections under the ORCID tab:
-
-
-      * **Papers with at least one ORCID within your repository:** This section shows the number of papers in your repository collection that contain ORCID identifiers, as detected by CORE. You can view the ORCIDs associated with each paper by clicking on the paper itself, or download the full list in CSV format.
-
-
-      * **Discovered ORCIDs enrichments available for papers in your repository:** This section displays ORCIDs for papers in your repository which are currently missing in your metadata, but CORE has discovered them via other data providers.  You can view the details for each paper and their discovered ORCIDs, including where it was deposited, or download the full list in CSV format. Please note: the number shown reflects the total count of ORCIDs enrichments we have discovered, while the CSV export includes a list of articles with one or multiple newly-discovered ORCIDs.
-
-
-      The ORCID tab is currently in beta, and we’re actively working to enhance its features and value for repository managers. Our goal is to help improve repository metadata and support better author identification. We’d love to hear your feedback, comments, and questions. Your input is invaluable as we continue to develop this feature.
-    images:
-      - file: /images/docs-membership/orcid-_documentation.svg
