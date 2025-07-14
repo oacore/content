@@ -456,6 +456,19 @@ table:
       plans:
         - Supporting
         - Sustaining
+    - id: "30"
+      title: ORCID
+      descriptionCardCard: Helps repository managers to monitor the usage of ORCIDs
+        within their institution and helps them to enrich metadata with ORCIDs
+        discovered by CORE. Read more in the
+        [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+      descriptionCardTable: Helps repository managers to monitor the usage of ORCIDs
+        within their institution and helps them to enrich metadata with ORCIDs
+        discovered by CORE. Read more in the
+        [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+      plans:
+        - Supporting
+        - Sustaining
   plans:
     title: CORE Membership levels
     cardsDescription:
@@ -757,6 +770,19 @@ table:
               model trained on SDG data. Read more in [SDG Insights
               documentation](https://core.ac.uk/documentation/membership-documentation#sdg-insights)
               or visit [SDG demo webpage](https://core.ac.uk/labs/sdg).
+            plans:
+              - Supporting
+              - Sustaining
+          - id: 30
+            descriptionCardCard: Helps repository managers to monitor the usage of ORCIDs
+              within their institution and helps them to enrich metadata with
+              ORCIDs discovered by CORE. Read more in the
+              [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+            descriptionCardTable: Helps repository managers to monitor the usage of ORCIDs
+              within their institution and helps them to enrich metadata with
+              ORCIDs discovered by CORE. Read more in the
+              [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+            title: ORCID
             plans:
               - Supporting
               - Sustaining
