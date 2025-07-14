@@ -456,6 +456,19 @@ table:
       plans:
         - Supporting
         - Sustaining
+    - id: "30"
+      title: ORCID
+      descriptionCardCard: Helps repository managers to monitor the usage of ORCIDs
+        within their institution and helps them to enrich metadata with ORCIDs
+        discovered by CORE. Read more in the
+        [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+      descriptionCardTable: Helps repository managers to monitor the usage of ORCIDs
+        within their institution and helps them to enrich metadata with ORCIDs
+        discovered by CORE. Read more in the
+        [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+      plans:
+        - Supporting
+        - Sustaining
   plans:
     title: CORE Membership levels
     cardsDescription:
@@ -852,6 +865,19 @@ table:
             descriptionCardTable: >
               Help shape our development roadmap by having a say on our Board of
               Supporters.
+            plans:
+              - Supporting
+              - Sustaining
+          - id: 30
+            descriptionCardCard: Helps repository managers to monitor the usage of ORCIDs
+              within their institution and helps them to enrich metadata with
+              ORCIDs discovered by CORE. Read more in the
+              [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+            descriptionCardTable: Helps repository managers to monitor the usage of ORCIDs
+              within their institution and helps them to enrich metadata with
+              ORCIDs discovered by CORE. Read more in the
+              [documentation](https://core.ac.uk/documentation/membership-documentation#orcid)
+            title: ORCID
             plans:
               - Supporting
               - Sustaining
