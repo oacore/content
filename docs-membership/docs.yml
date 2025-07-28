@@ -639,7 +639,7 @@ items:
   - id: orcid
     title: ORCID
     membership-types:
-      starting: Yes
+      starting: No
       supporting: Yes
       sustaining: Yes
     descriptionAbout: >-
