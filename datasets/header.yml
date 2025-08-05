@@ -9,7 +9,3 @@ header:
     - caption: Register now
       variant: contained
       url: "#form"
-    - caption: Download our flyer
-      variant: text
-      url: /images/pdfs/core-dataset-flyer.pdf
-      target: _blankank
