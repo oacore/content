@@ -8,7 +8,3 @@ header:
     - caption: Contact us for a quote
       variant: contained
       url: https://core.ac.uk/about#contact
-    - caption: Download our flyer
-      variant: text
-      url: /images/pdfs/core-api-flyer.pdf
-      target: _blank
