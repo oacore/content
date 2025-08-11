@@ -21,7 +21,7 @@ In doing so, we:
 
 
 
-**CORE at 15: A Roadmap of Progress, Purpose and Partnership**
+**15 years of CORE**
 
 In 2025, CORE marks 15 years of continuous development, innovation, and community collaboration. From a research project exploring how to connect UK repositories, CORE has grown into the world’s largest index of open access research literature serving over 400 million records and enabling machine access to over 40 million full text documents. Throughout this journey, CORE has remained committed to responsible infrastructure, good metadata practices, and the open access mission.
 
