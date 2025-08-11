@@ -27,4 +27,4 @@ In 2025, CORE marks 15 years of continuous development, innovation, and communit
 
 To commemorate this milestone, we’ve created a visual roadmap highlighting key achievements across five phases of our development. From foundational tools and global coverage to policy impact, AI innovation, and renewed community engagement. But this is more than a celebration of the past. It is a recommitment to co-designing trustworthy, equitable, responsible and intelligent open research infrastructure for the future.
 
-**Explore our 15-Year Milestone Roadmap and join us in shaping what comes next.**
+*Explore our 15-Year Milestone Roadmap and join us in shaping what comes next.*
