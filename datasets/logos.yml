@@ -8,8 +8,8 @@ logos:
       alt: techdico
     - img: /images/services/lean.svg
       alt: lean
-    - img: /images/services/caktus.svg
-      alt: caktus
+    - img: /images/services/microsoft_logo.png
+      alt: microsoft
   action:
     caption: Show all
     url: /about/endorsements
