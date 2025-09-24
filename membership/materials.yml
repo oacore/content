@@ -92,3 +92,9 @@ materials:
         url: /images/pdfs/core-newsletter-april-2025-.pdf
         target: ""
       key: newsletter
+    - key: newsletter2
+      title: CORE Newsletter, October 2025
+      action:
+        caption: Open Newsletter
+        url: /images/pdfs/core-community-newsletter-october-2025-.pdf
+      image: /images/pdfView.svg
