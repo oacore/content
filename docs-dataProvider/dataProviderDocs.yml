@@ -696,4 +696,7 @@ items:
     subTitle: null
     subDescription: null
     divider: true
-tutorialIcon: /images/docs-membership/video.svg
+tutorial:
+  text: Watch Data Provider’s Guide webinar
+  img: /images/docs-membership/video.svg
+  src: https://drive.google.com/file/d/1aQ8LQcRfcgwXiq1nlEuOohFkSmHmj2oU/view?pli=1
