@@ -647,6 +647,27 @@ items:
     images: null
     subTitle: null
     subDescription: null
+  - title: 6. Further reading
+    id: reading
+    descriptionAbout: >
+      The objective of this document was to document the requirements and
+      guidelines for data providers, helping them to understand what they need
+      to do in order to get content indexed.
+
+
+      For further details on the way CORE operates, we refer you to the below publication.
+
+      * Knoth, P., Herrmannova, D., Cancellieri, M. et al. CORE: A Global Aggregation Service for Open Access Papers. Nature Scientific Data 10, 366 (2023). [https://doi.org/10.1038/s41597-023-02208-w](https://www.nature.com/articles/s41597-023-02208-w)
+
+
+      For further information about features offered by the CORE Dashboard, access the [CORE Membership documentation.](/membership-documentation)
+
+
+      For information about any other CORE services, such as the CORE API, Dataset, Discovery, etc. visit the [CORE Services page.](/services)
+    images: null
+    subTitle: null
+    subDescription: null
+    divider: true
   - title: 5. How does CORE process data supplied by Data Providers
     id: process
     descriptionAbout: >
@@ -671,27 +692,6 @@ items:
 
 
       The Data provider-supplied OAI identifiers for metadata records are automatically identified and registered with CORE for resolution in the [CORE OAI Resolver](https://oai.core.ac.uk). We advise that repositories check the configuration of OAI resolution to their repository on the Settings tab in the CORE Dashboard. This provides repositories with a free decentralised identifier (which can be managed as a persistent identifier (PID)) for their metadata records. The registered OAIs resolve to the landing pages in Data Providers systems and the OAI resolver is used throughout the CORE ecosystem, including in CORE Search, to maintain and acknowledge the provenance of the supplied information.
-    images: null
-    subTitle: null
-    subDescription: null
-    divider: true
-  - title: 6. Further reading
-    id: reading
-    descriptionAbout: >
-      The objective of this document was to document the requirements and
-      guidelines for data providers, helping them to understand what they need
-      to do in order to get content indexed.
-
-
-      For further details on the way CORE operates, we refer you to the below publication.
-
-      * Knoth, P., Herrmannova, D., Cancellieri, M. et al. CORE: A Global Aggregation Service for Open Access Papers. Nature Scientific Data 10, 366 (2023). [https://doi.org/10.1038/s41597-023-02208-w](https://www.nature.com/articles/s41597-023-02208-w)
-
-
-      For further information about features offered by the CORE Dashboard, access the [CORE Membership documentation.](/membership-documentation)
-
-
-      For information about any other CORE services, such as the CORE API, Dataset, Discovery, etc. visit the [CORE Services page.](/services)
     images: null
     subTitle: null
     subDescription: null
