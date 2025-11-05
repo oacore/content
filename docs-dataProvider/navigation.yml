@@ -64,6 +64,8 @@ navItems:
     href: "#indexing"
   - item: 4.3 Claiming access to the CORE Dashboard (Recommended)
     href: "#dashboard"
+  - item: 4.4 Migrating, moving or changing your repository
+    href: "#changing-repository"
   - item: |
       **5. How does CORE process data supplied by Data Providers**
     href: "#process"

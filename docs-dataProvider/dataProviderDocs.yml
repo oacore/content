@@ -647,6 +647,49 @@ items:
     images: null
     subTitle: null
     subDescription: null
+  - id: changing-repository
+    title: 4.4 Migrating, moving or changing your repository
+    descriptionAbout: >-
+      CORE enables you to change your OAI-PMH URL directly in the
+      [Dashboard](https://core.ac.uk/documentation/membership-documentation#oai-pmh-url).
+      Here is how the process works:
+       
+      * **Navigation Path**: Dashboard > Settings > Repository > Your Repository > OAI-based URL
+
+      * Once done, activate the manual reindexing button in the Dashboard and wait for a few days before a new indexing has been completed, then check the Dashboard for potential detected issues.
+
+
+      **CORE Recommends to**:
+
+      * Keep track of your OAI identifiers from the previous repository while migrating. CORE recommends that repositories never regenerate OAI IDs for their records during migration to new repository software, previously assigned OAI IDs should remain unchanged ([read why](https://core.ac.uk/documentation/data-providers-guide#oai-identifier)).  We understand that the change in OAI Identifier is heavily dependent on the repository software vendor and we accept that sometimes it is impossible to preserve, however this is something that help us in maintaining a good history on repository records, therefore we would appreciate if you could try to preserve it.
+
+      * Check the configuration of the repository works in accordance with the [Repository configuration](https://core.ac.uk/documentation/data-providers-guide#configuration), [Metadata Configuration](https://core.ac.uk/documentation/data-providers-guide#meta-configuration) and [Fulltext configuration](https://core.ac.uk/documentation/data-providers-guide#text-configuration) as described in the [Guide](https://core.ac.uk/documentation/data-providers-guide).
+
+      If you are a Supporting or a Sustaining member, contact us for help and we will be happy to assist you. Unfortunately, we cannot provide this service to Starting members and non-members due limited resources, but  they can still use our automated tools. Sustaining Members can request a dedicated repository [Healthcheck service](https://core.ac.uk/documentation/membership-documentation#repository-health-check) by contacting us at theteam@core.ac.uk.
+    subDescription: ""
+    images:
+      - file: /images/docs-membership/image004.png
+  - title: 6. Further reading
+    id: reading
+    descriptionAbout: >
+      The objective of this document was to document the requirements and
+      guidelines for data providers, helping them to understand what they need
+      to do in order to get content indexed.
+
+
+      For further details on the way CORE operates, we refer you to the below publication.
+
+      * Knoth, P., Herrmannova, D., Cancellieri, M. et al. CORE: A Global Aggregation Service for Open Access Papers. Nature Scientific Data 10, 366 (2023). [https://doi.org/10.1038/s41597-023-02208-w](https://www.nature.com/articles/s41597-023-02208-w)
+
+
+      For further information about features offered by the CORE Dashboard, access the [CORE Membership documentation.](/membership-documentation)
+
+
+      For information about any other CORE services, such as the CORE API, Dataset, Discovery, etc. visit the [CORE Services page.](/services)
+    images: null
+    subTitle: null
+    subDescription: null
+    divider: true
   - title: 5. How does CORE process data supplied by Data Providers
     id: process
     descriptionAbout: >
@@ -671,27 +714,6 @@ items:
 
 
       The Data provider-supplied OAI identifiers for metadata records are automatically identified and registered with CORE for resolution in the [CORE OAI Resolver](https://oai.core.ac.uk). We advise that repositories check the configuration of OAI resolution to their repository on the Settings tab in the CORE Dashboard. This provides repositories with a free decentralised identifier (which can be managed as a persistent identifier (PID)) for their metadata records. The registered OAIs resolve to the landing pages in Data Providers systems and the OAI resolver is used throughout the CORE ecosystem, including in CORE Search, to maintain and acknowledge the provenance of the supplied information.
-    images: null
-    subTitle: null
-    subDescription: null
-    divider: true
-  - title: 6. Further reading
-    id: reading
-    descriptionAbout: >
-      The objective of this document was to document the requirements and
-      guidelines for data providers, helping them to understand what they need
-      to do in order to get content indexed.
-
-
-      For further details on the way CORE operates, we refer you to the below publication.
-
-      * Knoth, P., Herrmannova, D., Cancellieri, M. et al. CORE: A Global Aggregation Service for Open Access Papers. Nature Scientific Data 10, 366 (2023). [https://doi.org/10.1038/s41597-023-02208-w](https://www.nature.com/articles/s41597-023-02208-w)
-
-
-      For further information about features offered by the CORE Dashboard, access the [CORE Membership documentation.](/membership-documentation)
-
-
-      For information about any other CORE services, such as the CORE API, Dataset, Discovery, etc. visit the [CORE Services page.](/services)
     images: null
     subTitle: null
     subDescription: null
