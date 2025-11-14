@@ -469,6 +469,18 @@ table:
       plans:
         - Supporting
         - Sustaining
+    - id: "31"
+      title: Logo for your organisation
+      descriptionCardCard: Associate the logo of your institution or repository on a
+        dedicated data provider’s page showcasing your research. Your logo can
+        be uploaded from the CORE Repository Dashboard.
+      descriptionCardTable: Associate the logo of your institution or repository on a
+        dedicated data provider’s page showcasing your research. Your logo can
+        be uploaded from the CORE Repository Dashboard.
+      plans:
+        - Starting
+        - Supporting
+        - Sustaining
   plans:
     title: CORE Membership levels
     cardsDescription:
