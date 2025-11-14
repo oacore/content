@@ -268,9 +268,7 @@ items:
       *List of members
 
 
-      To upload your your logo, go to the Settings tab.
-
-      Examples of how your logos will feature are listed below:
+      To upload your your logo, go to the **Settings** tab in the Dashboard. Examples of how your logos will feature are listed below:
     descriptionDashboard: >-
       By uploading your logo to your Dashboard account, you can associate your
       data provider’s page in CORE with your official organisation logo. Your
@@ -284,9 +282,7 @@ items:
       *List of members
 
 
-      To upload your your logo, go to the Settings tab.
-
-      Examples of how your logos will feature are listed below:
+      To upload your your logo, go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab in the Dashboard. Examples of how your logos will feature are listed below:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
