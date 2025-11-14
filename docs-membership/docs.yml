@@ -268,9 +268,7 @@ items:
       *List of members
 
 
-      To upload your your logo, go to the Settings tab.
-
-      Examples of how your logos will feature are listed below:
+      To upload your your logo, go to the **Settings** tab in the Dashboard. Examples of how your logos will feature are listed below:
     descriptionDashboard: >-
       By uploading your logo to your Dashboard account, you can associate your
       data provider’s page in CORE with your official organisation logo. Your
@@ -284,9 +282,7 @@ items:
       *List of members
 
 
-      To upload your your logo, go to the Settings tab.
-
-      Examples of how your logos will feature are listed below:
+      To upload your your logo, go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab in the Dashboard. Examples of how your logos will feature are listed below:
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
@@ -771,17 +767,15 @@ items:
     descriptionAbout: >
       By uploading your logo to your Dashboard account, you can associate your
       research papers in CORE with your official organisational logo. Your logo
-      will then become visible to millions of CORE users and will be displayed
-      in a range of places across the CORE ecosystem including:
+      will from then become visible to millions of CORE users and will be
+      displayed in a range of places across the CORE ecosystem including::
 
 
-      * CORE Search,
+      * CORE Search
 
-      * CORE Recommender,
+      * CORE Recommender
 
-      * CORE Discovery,
-
-      * Your data provider page in CORE.
+      * CORE Discovery
 
 
       To upload your logo, go to the **Settings tab.**
@@ -802,13 +796,11 @@ items:
       displayed in a range of places across the CORE ecosystem including:
 
 
-      * CORE Search,
+      * CORE Search
 
-      * CORE Recommender,
+      * CORE Recommender
 
-      * CORE Discovery,
-
-      * Your data provider page in CORE.
+      * CORE Discovery
 
 
       To upload your logo, go to the [Settings](https://dashboard.core.ac.uk/data-providers/{{id}}/settings) tab.
@@ -817,7 +809,6 @@ items:
       Examples of how your logos will feature are listed below:
     title: Logos for your papers
     images:
-      - file: /images/docs-membership/data-provider-page.png
       - file: /images/docs-membership/core-search.png
       - file: /images/docs-membership/discovery-recommender.png
     id: logos-papers
