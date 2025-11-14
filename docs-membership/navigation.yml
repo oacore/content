@@ -13,6 +13,8 @@ navItems:
     href: "#download-statistics"
   - item: Repository Discovery Boost
     href: "#repository-discovery-boost"
+  - item: Logo for your organisation
+    href: "#logo-organisation"
   - item: Get your OAI identifiers resolved to your repository
     href: "#OAI-identifiers"
   - item: RIOXX metadata validator
