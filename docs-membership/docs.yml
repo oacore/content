@@ -212,6 +212,46 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - title: Logos for your organisation
+    id: logo-organisation
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    images:
+      - file: /images/docs-membership/log-organisation.svg
+    descriptionAbout: >-
+      By uploading your logo to your Dashboard account, you can associate your
+      data provider’s page in CORE with your official organisation logo. Your
+      logo will then become visible to millions of CORE users and will be
+      displayed in a range of places across the CORE ecosystem including:
+
+      *Your data provider’s page in CORE
+
+      *CORE works and outputs pages whenever we are referencing you as a data provider having an available version of the research work
+
+      *List of members
+
+
+      To upload your your logo, go to the Settings tab.
+
+      Examples of how your logos will feature are listed below:
+    descriptionDashboard: >-
+      By uploading your logo to your Dashboard account, you can associate your
+      data provider’s page in CORE with your official organisation logo. Your
+      logo will then become visible to millions of CORE users and will be
+      displayed in a range of places across the CORE ecosystem including:
+
+      *Your data provider’s page in CORE
+
+      *CORE works and outputs pages whenever we are referencing you as a data provider having an available version of the research work
+
+      *List of members
+
+
+      To upload your your logo, go to the Settings tab.
+
+      Examples of how your logos will feature are listed below:
   - title: Repository Discovery Boost
     id: repository-discovery-boost
     images: null
@@ -1433,43 +1473,3 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - title: Logos for your organisation
-    id: logo-organisation
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
-    images:
-      - file: /images/docs-membership/log-organisation.svg
-    descriptionAbout: >-
-      By uploading your logo to your Dashboard account, you can associate your
-      data provider’s page in CORE with your official organisation logo. Your
-      logo will then become visible to millions of CORE users and will be
-      displayed in a range of places across the CORE ecosystem including:
-
-      *Your data provider’s page in CORE
-
-      *CORE works and outputs pages whenever we are referencing you as a data provider having an available version of the research work
-
-      *List of members
-
-
-      To upload your your logo, go to the Settings tab.
-
-      Examples of how your logos will feature are listed below:
-    descriptionDashboard: >-
-      By uploading your logo to your Dashboard account, you can associate your
-      data provider’s page in CORE with your official organisation logo. Your
-      logo will then become visible to millions of CORE users and will be
-      displayed in a range of places across the CORE ecosystem including:
-
-      *Your data provider’s page in CORE
-
-      *CORE works and outputs pages whenever we are referencing you as a data provider having an available version of the research work
-
-      *List of members
-
-
-      To upload your your logo, go to the Settings tab.
-
-      Examples of how your logos will feature are listed below:
