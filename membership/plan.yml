@@ -122,17 +122,16 @@ table:
         - Sustaining
     - id: 9
       title: Logos for your papers
-      descriptionCardCard: >
-        Associate your research papers in CORE with your official organisational
-        logo. This will be visible in CORE Search, CORE Recommender, CORE
-        Discovery and from across the CORE Portal. Your logo can be uploaded
-        from the CORE Repository Dashboard. [read
+      descriptionCardCard: Associate your research papers in CORE with your official
+        organisational logo. This will be visible in CORE Search, CORE
+        Recommender, CORE Discovery and from across the CORE Portal. Your logo
+        can be uploaded from the CORE Repository Dashboard. [Read
         more](~documentation/membership-documentation#logos-papers)
-      descriptionCardTable: >
-        Associate your research papers in CORE with your official organisational
-        logo. This will be visible in CORE Search, CORE Recommender, CORE
-        Discovery and from across the CORE Portal. Your logo can be uploaded
-        from the CORE Repository Dashboard.
+      descriptionCardTable: Associate your research papers in CORE with your official
+        organisational logo. This will be visible in CORE Search, CORE
+        Recommender, CORE Discovery and from across the CORE Portal. Your logo
+        can be uploaded from the CORE Repository Dashboard. [Read
+        more](~documentation/membership-documentation#logos-papers)
       plans:
         - Supporting
         - Sustaining
@@ -685,6 +684,18 @@ table:
               the goal of improving the discoverability of repository content in
               the United States, the principles are widely applicable and can be
               beneficial for repositories outside of the United States.
+            plans:
+              - Starting
+              - Supporting
+              - Sustaining
+          - id: 31
+            title: Logo for your organisation
+            descriptionCardCard: Associate the logo of your institution or repository on a
+              dedicated data provider’s page showcasing your research. Your logo
+              can be uploaded from the CORE Repository Dashboard.
+            descriptionCardTable: Associate the logo of your institution or repository on a
+              dedicated data provider’s page showcasing your research. Your logo
+              can be uploaded from the CORE Repository Dashboard.
             plans:
               - Starting
               - Supporting
