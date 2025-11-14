@@ -212,6 +212,41 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
+  - title: Repository Discovery Boost
+    id: repository-discovery-boost
+    images: null
+    membership:
+      - name: starting
+        status: 1
+      - name: supporting
+        status: 1
+      - name: sustaining
+        status: 1
+    descriptionAbout: >
+      Increases the discoverability of your content via:
+
+
+      * **PMC LinkOut** - open-access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service,
+
+      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
+
+
+      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
+    descriptionDashboard: >
+      Increases the discoverability of your content via:
+
+
+      * **PMC LinkOut** - open-access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service,
+
+      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
+
+
+      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
+    membership-types:
+      starting: Yes
+      supporting: Yes
+      sustaining: Yes
+    redirect: null
   - title: Logos for your organisation
     id: logo-organisation
     membership-types:
@@ -252,41 +287,6 @@ items:
       To upload your your logo, go to the Settings tab.
 
       Examples of how your logos will feature are listed below:
-  - title: Repository Discovery Boost
-    id: repository-discovery-boost
-    images: null
-    membership:
-      - name: starting
-        status: 1
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
-    descriptionAbout: >
-      Increases the discoverability of your content via:
-
-
-      * **PMC LinkOut** - open-access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service,
-
-      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
-
-
-      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
-    descriptionDashboard: >
-      Increases the discoverability of your content via:
-
-
-      * **PMC LinkOut** - open-access full texts from your repository promoted to PubMed Central via their  [LinkOut](https://www.ncbi.nlm.nih.gov/projects/linkout/) service,
-
-      * **Recommended across the repositories network** - your organisation's research becomes discoverable from within hundreds of repositories that use the CORE Recommender plugin, including high-profile repositories such as arxiv.org. 
-
-
-      The Discovery Boost is automatically applied to your organisation’s content when you become a CORE Member.
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
-    redirect: null
   - title: Get your OAI identifiers resolved to your repository
     id: OAI-identifiers
     images:
