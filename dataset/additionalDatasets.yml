@@ -27,7 +27,7 @@ items:
             dataType: in total
           - count: 62 MB
             dataType: compressed
-        footer: ""
+        footer: "md5: "
         license: "**License**: [Open Data Commons Attribution
           (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
         note: "**Note**: Please read the section [Structure of datasets](#dataset2020)
@@ -45,11 +45,10 @@ items:
             dataType: compressed
           - count: 3.5 TB
             dataType: extracted
-        license: "**License**: All rights reserved. See our [Terms &
-          Conditions](https://core.ac.uk/terms)."
+        license: "**License**: See our [Terms & Conditions](https://core.ac.uk/terms)."
         note: Please read the section [Structure of datasets](#dataset2020) below for
           more information.
-        footer: ""
+        footer: "md5: "
         action:
           caption: Register for access
           url: https://core.ac.uk/services/dataset#what-is-included
@@ -60,11 +59,10 @@ items:
             dataType: compressed
           - count: 3.5 TB
             dataType: extracted
-        license: "**License**: All rights reserved. See our [Terms &
-          Conditions](https://core.ac.uk/terms)."
+        license: "**License**: See our [Terms & Conditions](https://core.ac.uk/terms)."
         note: Please read the section [Structure of datasets](#dataset2020) below for
           more information.
-        footer: ""
+        footer: "md5: "
         action:
           caption: Register for access
           url: https://core.ac.uk/services/dataset#what-is-included
@@ -76,63 +74,9 @@ items:
           - count: 2.1 TB
             dataType: extracted
         footer: "md5: e85c68459e04b96cff340f80a98634cf"
-        license: "**License**: All rights reserved. See our [Terms &
-          Conditions](https://core.ac.uk/terms)."
+        license: "**License**: See our [Terms & Conditions](https://core.ac.uk/terms)."
         note: "**Note**: Please read the section [Structure of datasets](#dataset2020)
           below for more information."
         action:
           caption: Register for Access
           url: https://core.ac.uk/services/dataset#what-is-included
-#          TODO temp remove
-#      - title: Dataset 2018-03-01
-#        caption: Full text only
-#        dataSizes:
-#          - count: 330 GB
-#            dataType: in total
-#        footer: "md5: b51bfa05e751aa8d8481c9976b1c7c3a"
-#        license: "**License**: [Open Data Commons Attribution
-#          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
-#        note: "**Note**: Please read the section [Structure of datasets](#dataset2018)
-#          below for more information."
-#        action:
-#          url: https://core.ac.uk/services/dataset#what-is-included
-#          caption: Register for Access
-#      - title: Dataset 2018-03-01
-#        caption: Metadata only text
-#        dataSizes:
-#          - count: 127 GB
-#            dataType: in total
-#        footer: "md5: d5e50eb7d3aba551d208520489d99d43"
-#        license: "**License**: [Open Data Commons Attribution
-#          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
-#        note: "**Note**: Please read the section [Structure of datasets](#dataset2018)
-#          below for more information."
-#        action:
-#          caption: Register for Access
-#          url: https://core.ac.uk/services/dataset#what-is-included
-#      - title: Dataset 2017-11-01
-#        caption: Full text dataset
-#        footer: "md5: f70fa05dbb484bf85444e8bc2d5c4319 "
-#        dataSizes:
-#          - count: 157.38 GB
-#            dataType: in total
-#        action:
-#          url: https://core.ac.uk/services/dataset#what-is-included
-#          caption: Register for Access
-#        note: "**Note**: Please read the section [Structure of datasets](#dataset2017)
-#          below for more information."
-#        license: "**License**: [Open Data Commons Attribution
-#          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
-#      - title: Dataset 2017-11-01
-#        caption: Metadata only dataset
-#        dataSizes:
-#          - count: 22.65 GB
-#            dataType: in total
-#        license: "**License**: [Open Data Commons Attribution
-#          (ODC-By)](https://opendatacommons.org/licenses/by/1-0/) license."
-#        footer: "md5: bbb9e83f80ceeaf44baf167b7928fe47"
-#        note: "**Note**: Please read the section [Structure of datasets](#dataset2017)
-#          below for more information."
-#        action:
-#          caption: Register for Access
-#          url: https://core.ac.uk/services/dataset#what-is-included
