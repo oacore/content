@@ -1,0 +1,18 @@
+name: Trigger Stage Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-dashboard-stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger dashboard::stage container deploy
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GH_PAT }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/oacore/dashboard/dispatches \
+            -d '{"event_type": "trigger-stage-deploy"}'
