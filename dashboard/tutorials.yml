@@ -1,6 +1,13 @@
 materials:
   title: Dashboard features overview
   cards:
+    - key: dashboard
+      title: Webinar "Become a Professional User of the CORE Dashboard"
+      action:
+        caption: Watch webinar
+      video:
+        src: https://youtu.be/g0MCvNWV3xw
+      image: /images/services/videoPreview.svg
     - image: /images/services/videoPreview.svg
       key: access
       title: How to access the CORE dashboard
