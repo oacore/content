@@ -50,3 +50,10 @@ materials:
         caption: Watch video
       video:
         src: https://www.youtube.com/embed/qcQP3ZWMP30
+    - key: dashboard
+      title: Webinar "Become a Professional User of the CORE Dashboard"
+      action:
+        caption: Watch webinar
+      video:
+        src: https://youtu.be/g0MCvNWV3xw
+      image: /images/services/videoPreview.svg
