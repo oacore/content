@@ -2,49 +2,81 @@ fee:
   title: Annual membership fees for <span>{{planName}}</span> members
   caption: 30% Early spring CORE Membership discount (ends March 31st, 2023)
   description:
-    supporting: |
-      Our Supporting members are the pillars of our open scholarly infrastructure service. They enable us to deliver our mission, and provide input on new functionality to help repository managers run their system more cost-effectively.
-    sustaining: |
-      Our Sustaining members are the pillars of our open scholarly infrastructure service. They enable us to deliver our mission, and provide input on new functionality to help repository managers run their system more cost-effectively. In addition, we provide an annual health check to ensure their repository operates with maximum efficiency.
+    supporting: >
+      Our Supporting members are the pillars of our open scholarly
+      infrastructure service. They enable us to deliver our mission, and provide
+      input on new functionality to help repository managers run their system
+      more cost-effectively.
+    sustaining: >
+      Our Sustaining members are the pillars of our open scholarly
+      infrastructure service. They enable us to deliver our mission, and provide
+      input on new functionality to help repository managers run their system
+      more cost-effectively. In addition, we provide an annual health check to
+      ensure their repository operates with maximum efficiency.
   subDescription:
-    supporting: |
-      You can subscribe to CORE membership for three years, or for five years. Membership fees are paid annually. All fees are excluding VAT. Membership prices vary according to the number of content objects (“records”) in your repository, and according to the region of the world where your institution is situated.
-    sustaining: |
-      You can subscribe to CORE membership for three years, or for five years. Membership fees are paid annually. All fees are excluding VAT. Membership prices vary according to the number of content objects (“records”) in your repository, and according to the region of the world where your institution is situated.
+    supporting: >
+      You can subscribe to CORE membership for three years, or for five years.
+      Membership fees are paid annually. All fees are excluding VAT. Membership
+      prices vary according to the number of content objects (“records”) in your
+      repository, and according to the region of the world where your
+      institution is situated.
+    sustaining: >
+      You can subscribe to CORE membership for three years, or for five years.
+      Membership fees are paid annually. All fees are excluding VAT. Membership
+      prices vary according to the number of content objects (“records”) in your
+      repository, and according to the region of the world where your
+      institution is situated.
   note:
-    supporting: |
-      *All fees are excluding VAT.
-      
-      ** This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
-      
-      We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
-      
-      We invite consortia interested in becoming CORE Members to directly approach us at: **membership@core.ac.uk**
-    sustaining: |
-      *All fees are excluding VAT.
-      
-      ** This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
+    supporting: >-
+      \*All fees are excluding VAT. 3-year deal prices provide a 10% discount on
+      the CORE Annual Membership Fee list price. 5-year deal prices provide a
+      15% discount on the CORE Annual Membership Fee list price. Note that CORE
+      currently does not offer a 1-year Membership subscription.
+
+
+      \*\* This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
+
 
       We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
 
+
       We invite consortia interested in becoming CORE Members to directly approach us at: **membership@core.ac.uk**
-  noteSecond: |
-    **This discount is available for those who sign up for 3 or 5 years. Both annual and single upfront payment invoicing is possible on multiyear subscriptions.
+    sustaining: >-
+      \*All fees are excluding VAT. 3-year deal prices provide a 10% discount on
+      the CORE Annual Membership Fee list price. 5-year deal prices provide a
+      15% discount on the CORE Annual Membership Fee list price. Note that CORE
+      currently does not offer a 1-year Membership subscription.
+
+
+      \*\* This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
+
+
+      We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
+
+
+      We invite consortia interested in becoming CORE Members to directly approach us at: **membership@core.ac.uk**
+  noteSecond: >
+    **This discount is available for those who sign up for 3 or 5 years. Both
+    annual and single upfront payment invoicing is possible on multiyear
+    subscriptions.
   action:
     caption: Become member
-    url: '/member'
-    google-form: 'https://docs.google.com/forms/d/e/1FAIpQLSfFJmMIspYfOEM5aOKG4FTZoK4qeqozyds47O75Wm4dJ1ta2w/viewform'
+    url: /member
+    google-form: https://docs.google.com/forms/d/e/1FAIpQLSfFJmMIspYfOEM5aOKG4FTZoK4qeqozyds47O75Wm4dJ1ta2w/viewform
   table:
     headers:
-      - name: Data provider size**
-      - name: |
-          [Low-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      - name: Data provider size***
+      - name: >
+          [Low-income
+          countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
         type: low
-      - name: |
-          [Middle-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      - name: >
+          [Middle-income
+          countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
         type: middle
-      - name: |
-          [High-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      - name: >
+          [High-income
+          countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
         type: high
     supporting:
       rows:
