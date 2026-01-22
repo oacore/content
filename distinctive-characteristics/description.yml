@@ -1,0 +1,168 @@
+title: CORE's Distinctive Characteristics
+description: |
+  The main operational approaches and core rules necessary for CORE to function effectively. 
+  This characterises aligns and complements with [POSI](https://openscholarlyinfrastructure.org/adopters/).
+
+intro: |
+  The foundational characteristics guiding our provision of data services.
+
+sections:
+  - title: Scholarly Data Characteristics
+    description: |
+      Approaches we use to build and support our products
+    characteristics:
+      - title: 1. Comprehensive metadata coverage for all global scholarly resources
+        description: |
+          CORE provides a comprehensive bibliographic database of research outputs globally.
+
+          We work directly with thousands of repositories and the number of repositories in CORE is constantly growing. 
+          This enables inclusive global coverage across institutions, disciplines, and regions, including content 
+          often underrepresented elsewhere.
+
+      - title: 2. The world's largest full text open access corpus
+        description: |
+          CORE constitutes the world's largest collection of open access scholarly documents.
+
+          This corpus underpins discovery, analysis, and facilitates innovation across the global research ecosystem.
+
+          CORE provides machine-readable full text access via our data services (API, Dataset, FastSync), enabling 
+          the text and data mining of research content, AI research, and large-scale analysis.
+
+          While many scholarly infrastructures only provide links to content, making access to this content cumbersome 
+          for machines, CORE is a true text mining enabler, positioning CORE as a foundational open scholarly 
+          infrastructure for responsible AI development as well as advancing and streamlining research processes.
+
+      - title: 3. Unique collection
+        description: |
+          CORE's content is not just a copy of data in well-known scholarly infrastructures, such as those registering DOIs. 
+          A significant proportion of CORE's content does not have registered DOIs, meaning that we serve unique corpora 
+          often not available from scholarly indexing systems, aggregators and bibliographic databases. This includes 
+          documents such as theses, research reports, preprints and papers from many, even high-profile academic venues 
+          that are not embedded in the DOI system.
+
+          By doing so, CORE helps ensure that valuable research outputs are not excluded from discovery due to 
+          infrastructure or publishing constraints.
+
+      - title: 4. Provenance-rich transparent metadata
+        description: |
+          CORE ensures we always provide metadata with clear provenance information to the source data provider.
+
+          This means that while CORE conducts normalisation and metadata enrichment, it is always possible to understand 
+          which data sources have been used. This transparency supports trust, attribution, and responsible reuse of 
+          repository data.
+
+      - title: 5. Trustworthy, faithful and authoritative metadata
+        description: |
+          From our API, it is always possible to access metadata in exactly the way in which it is provided by our 
+          data providers.
+
+          This means that we support authoritative, faithful and transparent exposition of metadata in exactly the way 
+          supplied by our providers.
+
+          Repositories can therefore rely on CORE as a reliable steward of their authoritative metadata rather than an 
+          opaque intermediary they can hardly control. This is a very unique feature of CORE among scholarly infrastructures 
+          and bibliographic databases, which typically exercise strict ownership over scholarly metadata with little ability 
+          for metadata creators to be able to remain in control and correct issues.
+
+  - title: Community, Sustainability and Governance Characteristics
+    description: |
+      Approaches we use to build and support our products
+    characteristics:
+      - title: 6. Scholarly community-first
+        description: |
+          CORE operates under a community funding and governance model.
+
+          We are building CORE from philanthropic and community-aligned support, ensuring decisions are driven by shared 
+          values, community stakeholders are able to influence CORE's direction and development.
+
+          This ensures that CORE evolves in response to real community needs rather than commercial incentives.
+
+          Our governance model is designed to represent and protect the interests of repositories and open scholarly 
+          infrastructures.
+
+          While even commercial stakeholders are able to use CORE and help to subsidise CORE's operation, our Board of 
+          Supporters, our governance body which prioritises CORE's development roadmap, is exclusively reserved for open 
+          repositories participation, ensuring alignment of our work with community values and priorities. This governance 
+          structure safeguards CORE's mission and ensures accountability to the scholarly community it serves.
+
+      - title: 7. Sustainability-driven not-for-profit model
+        description: |
+          CORE distributes no dividends to shareholders. All income graciously received is invested in the operation and 
+          sustainability of CORE, i.e. to fund staff costs, infrastructure costs, etc.
+
+          Every contribution directly supports the maintenance, improvement, and resilience of CORE's services.
+
+          We have been around for more than 15 years and have a strong record in sustaining our infrastructure long-term, 
+          regardless of changing external circumstances. This track record demonstrates CORE's reliability as a global open 
+          scholarly infrastructure.
+
+      - title: 8. Distributed funding model
+        description: |
+          As opposed to some other scholarly infrastructures, we are not dependent on a single large philanthropic donor, 
+          ensuring our actions are controlled by the community we serve and not by a single entity.
+
+          We are committed to a distributed funding model, which we believe is key to long-term stability and resilience. 
+          This approach reduces dependency risk, strengthens community ownership, and supports continuity even in changing 
+          funding environments.
+
+      - title: 9. Scholarly infrastructure built by researchers for researchers
+        description: |
+          CORE has been conceived by researchers and it continues to be led by researchers ensuring alignment with its 
+          original mission and the researchers community.
+
+          Built with a deep understanding of scholarly workflows and needs. This perspective informs CORE's technical 
+          design and service development.
+
+      - title: 10. Co-design approach
+        description: |
+          While others build platforms on top of open research, CORE builds infrastructure with the open research community 
+          in mind and gives back to it. Our services are shaped through ongoing collaboration with repositories, researchers, 
+          and partners.
+
+      - title: 11. Always giving back - actively supporting the global decentralised scholarly repositories ecosystem
+        description: |
+          CORE believes that academic institutions need to be strategically enabled to keep track of all scholarly resources 
+          authored by their academics. Metadata of these resources should be made openly available by these institutions via 
+          their repositories as this is a cornerstone of a FAIR decentralised open repositories ecosystem.
+
+          CORE advocates for the above vision and actively supports its fulfilment by helping data providers to achieve it, 
+          including:
+
+          * Increasing awareness of the importance of this vision for the scholarly ecosystem
+          * Providing tools, guidance, and feedback to help repositories improve metadata quality and compliance in the form 
+            of the CORE Dashboard
+
+          Through this work, CORE acts as an active partner in strengthening repository practice globally.
+
+      - title: 12. Active force for interoperability and FAIRness
+        description: |
+          CORE actively helps repositories remain interoperable across the global ecosystem. This support includes 
+          methodical, technological, and standardisation support.
+
+          We support shared standards and practices so repositories are not locked into closed or proprietary pipelines. 
+          This protects institutional autonomy and supports long-term FAIR alignment.
+
+      - title: 13. Driving innovation in open scholarly infrastructures
+        description: |
+          CORE is a leading voice actively participating in working groups addressing a wide variety of issues concerning 
+          open repositories infrastructure.
+
+          We have been supporting standards creation (e.g. metadata schemas, next generation repositories, etc.) and adoption, 
+          technology support for open access compliance and driving up discoverability in repositories as well as addressing 
+          pressing problems of the open scholarly infrastructures community, such as AI bots. CORE combines infrastructure 
+          delivery with thought leadership across the open research landscape.
+
+posi:
+  title: The Principles of Open Scholarly Infrastructure
+  description:
+    - item: Governance
+
+    - item: Sustainability
+
+    - item: Insurance
+
+
+
+
+
+
