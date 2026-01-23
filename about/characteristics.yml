@@ -1,5 +1,6 @@
 title: CORE’s Distinctive Characteristics
 short-title: Distinctive Characteristics
-action-label: go to the CHARACTERISTICS
 icon-url: images/icons/characteristics.svg
-description: The main operational approaches and core rules necessary for CORE to function effectively.
+description: CORE is an open scholarly infrastructure service aligned with the Principles of Open Scholarly Infrastructure (POSI). Beyond this shared foundation, CORE is defined by a set of distinctive characteristics that shape how it is built, governed, and operated.
+action: go to the CHARACTERISTICS
+href: /distinctive-characteristics

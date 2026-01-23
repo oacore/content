@@ -1,7 +1,6 @@
 title: CORE's Distinctive Characteristics
 description: |
-  The main operational approaches and core rules necessary for CORE to function effectively. 
-  This characterises aligns and complements with [POSI](https://openscholarlyinfrastructure.org/adopters/).
+  CORE is an open scholarly infrastructure service aligned with the Principles of Open Scholarly Infrastructure [(POSI)](https://openscholarlyinfrastructure.org/adopters/). Beyond this shared foundation, CORE is defined by a set of distinctive characteristics that shape how it is built, governed, and operated.
 
 intro: |
   The foundational characteristics guiding our provision of data services.
@@ -9,7 +8,7 @@ intro: |
 sections:
   - title: Scholarly Data Characteristics
     description: |
-      Approaches we use to build and support our products
+      The foundational characteristics guiding our data services.
     characteristics:
       - title: 1. Comprehensive metadata coverage for all global scholarly resources
         description: |
@@ -66,7 +65,7 @@ sections:
 
   - title: Community, Sustainability and Governance Characteristics
     description: |
-      Approaches we use to build and support our products
+      Our practical approach to governance, community and sustainability.
     characteristics:
       - title: 6. Scholarly community-first
         description: |
@@ -154,6 +153,7 @@ sections:
 
 posi:
   title: The Principles of Open Scholarly Infrastructure
+  subTitle: Read our [commitment](https://blog.core.ac.uk/2022/05/23/core-our-commitment-to-the-principles-of-open-scholarly-infrastructure/) to POSI
   description:
     - item: Governance
 
