@@ -1,0 +1,292 @@
+sections:
+  - id: significant-changes
+    title: 1. Significant changes in REF2029 Open Access Policy from 1st January 2026
+    content: |
+      It is important to note that for all in-scope outputs submitted to **REF 2029**
+      published between 1 January 2021 and 31 December 2025, the open
+      access policy requirements for **REF 2021** still apply.
+      
+      The revised policy requirements for **REF2029** came into force for all
+      journal articles and conference contributions on 1st January 2026.
+      
+      The **REF2029 Guidance** makes a clear distinction between 'Published Open Access' (aka Gold, Diamond, Platinum) and 'Outputs shared by Deposit' (Green OA)
+      
+      **Published Open Access**
+      
+      For Published Open Access, where an output is made fully open access on publication (commonly termed 'Gold' open access, also 'Diamond' or 'Platinum'), conditional
+      to it also fully meeting discovery, access and licensing criteria there is no further action required.
+      
+      **Outputs shared by Deposit**
+      
+      From 3.3.2: Deposit: outputs subject to a post-publication embargo which are shared through institutional repositories ("Green" open access) are required to be deposited
+      on publication rather than on acceptance for publication, which was the case in **REF 2021**.
+      
+      However, 7.2.3 then says: "Outputs shared by deposit: Where an output will be compliant via deposit in a suitable repository or other appropriate platform, a copy of such
+      output should be deposited within three months of publication. This includes outputs subject to an allowable embargo requirement"
+      
+      This therefore indicates that **ALL** Green OA outputs must be deposited within 3 months of publication, not acceptance as was the case for **REF2021**.
+      
+      **Changes in allowed embargo periods**
+      
+      There has been a significant reduction in the allowed embargo periods for REF2029:
+    images:
+      - item: /images/services/firstPeriod.svg
+      - item: /images/services/secondPeriod.svg
+    content2: |
+      **Changes in Licensing requirements**
+        
+        Currently, the funding bodies do not mandate any specific licence format or standard and recognise that researchers and institutions may choose from a variety of
+        formats suitable for their output subject to meeting minimum standards identified. The current **REF2029** guidance states;
+        
+        "Outputs should be shared as openly as possible; the funding bodies' strong preference is for licensing as **CC-BY** or other licence formats meeting this standard of openness.
+        However, licensing outputs at **CC-BY-NC** or **CC-BY-ND** (including **CC-BY-NC-ND**) or licences meeting an equivalent standard of openness are also permitted."
+        
+        For the period 1 January 2026 to 31 December 2028 outputs shared by deposit (AAM), where subject to terms of a publication agreement limiting sharing and/or use of
+        downloaded materials (embargo period) will not need to fully meet these licensing standards. They will however need to meet all other conditions for deposit, discovery
+        and access.
+        
+        However, from 1 January 2029 all future in-scope outputs will need to fully meet open licensing standards, subject to any permissible exceptions.
+        
+        Having the correct licences clearly described in the metadata for your outputs is already an important step in making sure your content is as widely distributed and used
+        as possible, from 2029 this will be an additional requirement to ensure compliance with **REF** policy.
+    subContent: |
+      "Journal articles and conference contributions (with an International Standard Serial
+      Number (ISSN) published between 1st January 2026 and 31st December 2028 are
+      in-scope outputs for **REF2029** and will be subject to the revised open access policy
+      requirements for submission for **REF** in effect from 1st January 2026."
+  - id: ref2029-audit-guidance
+    title: 2. REF2029 Audit – Guidance
+    content: |
+      The final guidance for how the Open Access audit will be undertaken has not yet been publicly released. The current official statement is as follows:
+      
+      "The full audit guidance for **REF 2029** is being developed. For open access, audit processes will broadly mirror the risk-based approach for **REF 2021**, subject to further review
+      and potential adjustments."
+      
+      The previous guidance is accessible via the **REF website**, however the relevant sections from it are given below:
+    subContent: |
+      **46.** We will assess each HEIs' overall compliance with the **REF 2021** open access policy by …. : iv. Using
+      **CORE**, comparing the datePublished and depositedDate and identifying where the number of days
+      between the two dates is greater than 92.
+
+      **49.** Where there is insufficient evidence to demonstrate a robust and well-managed process for open
+      access, we will identify a set of outputs from each submission made by the HEI, and request further
+      information to verify whether they are compliant with the policy, or whether an exception applies. Outputs
+      may be selected randomly, or based on information in **unpaywall.org** or **CORE**, or a combination of
+      the two. We will select outputs that have been returned as compliant with the policy, and/or outputs that have
+      been returned with exceptions.
+    content2: |
+      Consequently, at this time we are advising UK HEIs and **CORE** members to follow previous guidelines and the recommendations given below.
+
+      We are currently engaging in dialogue with the **REF Team** and **Research England** so we can continually keep you up to date with any and all changes to the published
+      guidelines and how they may affect your institution.
+  - id: recommendations
+    title: 3. Recommendations for exposing research outputs' metadata to CORE for REF2029
+    content: |
+      The following points are recommendations we make to institutional repositories to ensure their data is well represented in **CORE**. While these recommendations are not
+      mandated by **Research England**, implementing them will both improve the quality of the data held by **CORE** to support **REF2029** as well as increase the discoverability and
+      visibility of the institutions' research outputs.
+      
+      We encourage institutions to expose their metadata using the **Rioxx v3** metadata schema which provides native support for exposing deposit dates. **CORE** provides a
+      metadata validator for **Rioxx v3** in the **CORE Dashboard** and can provide methodological advice to Supporting and Sustaining members
+      for implementing **Rioxx v3**.
+    content2: |
+      Below is an example of a RIOXX record with all recommended fields populated:
+      
+      ```xml
+      <?xml version='1.0' encoding='UTF-8'?>
+      <rioxx xsi:schemaLocation="http://www.rioxx.net/schema/v3.0/rioxx/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:rioxxterms="http://docs.rioxx.net/schema/v3.0/rioxxterms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <dc:description> … </dc:description>
+      <dc:language>en</dc:language>
+      <rioxxterms:publisher>
+      <rioxxterms:name>IEEE</rioxxterms:name>
+      <rioxxterms:id>https://isni.org/isni/0000000121063391</rioxxterms:id>
+      </rioxxterms:publisher>
+      <dc:source>0196-2892</dc:source>
+      <dc:title>Microseismic event classification with time, frequency and wavelet domain convolutional neural networks</dc:title>
+      <dcterms:dateAccepted>2023-03-17</dcterms:dateAccepted>
+      <rioxxterms:creator first-named-author="true">
+      <rioxxterms:name>Jiang, Jiaxin</rioxxterms:name>
+      </rioxxterms:creator>
+      <rioxxterms:creator>
+      <rioxxterms:name>Stankovic, Vladimir</rioxxterms:name>
+      <rioxxterms:id>https://orcid.org/0000-0002-1075-2420</rioxxterms:id>
+      <rioxxterms:id>https://isni.org/isni/0000000124141121</rioxxterms:id>
+      <rioxxterms:id>https://viaf.org/viaf/667151246513444130519</rioxxterms:id>
+      <rioxxterms:id>https://www.wikidata.org/wiki/Q51802269</rioxxterms:id>
+      </rioxxterms:creator>
+      <rioxxterms:publication_date>2023-03-27</rioxxterms:publication_date>
+      <rioxxterms:record_public_release_date>2023-03-28</rioxxterms:record_public_release_date>
+      <dc:type>https://purl.org/coar/resource_type/c_2df8fbb1</dc:type>
+      <rioxxterms:grant funder_name="Engineering and Physical Sciences Research Council"
+      funder_id="https://ror.org/0439y7842">
+      EP/S005560/1
+      </rioxxterms:grant>
+      <rioxxterms:project>https://handle.net/10378.1/1590366</rioxxterms:project>
+      <dc:identifier>https://strathprints.strath.ac.uk/84907/</dc:identifier>
+      <dc:relation rel="item" type="application/pdf"
+      coar_type="https://purl.org/coar/resource_type/c_6501"
+      coar_version="https://purl.org/coar/version/c_ab4af688f83e57aa"
+      deposit_date="2023-03-28"
+      resource_exposed_date="2023-03-28"
+      access_rights="https://purl.org/coar/access_right/c_abf2"
+      license_ref="https://creativecommons.org/licenses/by/4.0/">
+      </dc:relation>
+      <dc:relation rel="cite_as">https://doi.org/10.17868/strath.00084907</dc:relation>
+      <rioxxterms:ext_relation rel="cite-as"
+      coar_type="https://purl.org/coar/resource_type/c_6501"
+      coar_version="https://purl.org/coar/version/c_970fb48d4fbd8a85">
+      https://doi.org/10.1109/TGRS.2023.3262412
+      </rioxxterms:ext_relation>
+      <rioxxterms:ext_relation rel="cite-as"
+      coar_type="https://purl.org/coar/resource_type/c_ddb1">
+      https://doi.org/10.15129/589f7af3-26b3-4a93-b042-fbc8100fc977
+      </rioxxterms:ext_relation>
+      </rioxx>
+      ```
+    items:
+      - title: |
+          **1. Make sure that your institutional repository/ies are registered in CORE:**
+        description: |
+          We are constantly working towards **CORE** indexing all repositories available. However, as repositories sometimes change
+          their web locations, platforms or some institutions introduce multiple repositories, we advise institutions to check that
+          their repositories are registered and listed on the **CORE's** data providers page.
+      - title: |
+          **2. Adopt RIOXX as a data format:**
+        description: |
+          One of the key reasons for the development of the **Rioxx** metadata profile was
+          to help institutions achieve compliance with the original **REF 2021** Open Access Policy. While **CORE** can capture the data
+          from repositories not supporting **RIOXX**, supporting **RIOXX** greatly reduces the complexity of the algorithm through which
+          **CORE** acquires the data. The below recommendations detail which information should be shared in the metadata and
+          how this information should be exposed in **RIOXX**. We further provide an example **RIOXX** metadata record with all
+          information needed for **REF 2029** correctly set.
+      - title: |
+          **3. Add DOIs to records you are planning to submit to REF:**
+        description: |
+          To ensure the **REF** research outputs can be unambiguously matched to the metadata in the repository, we recommend
+          that institutions ensure that **DOIs** (or other persistent identifiers such as PubMed ID, where appropriate) are added to
+          records to be submitted to **REF**. This should be done sufficiently in advance of the audit taking place for all outputs where
+          **DOI** has been assigned. According to **RIOXX**, **DOI** of the resource should be put in the rioxxterms:version_of_record field.
+      - title: |
+          **4. Release deposit dates publicly, so that they are indexable by CORE:**
+        description: |
+          Following the release of **RIOXX V3**, The deposit_date is an attribute within the <dc:relation> property. If included, this
+          attribute's value must be encoded according to the **W3CDTF** (a profile of **ISO 8601**) which typically follows the following
+          format: YYYY-MM-DD.
+      - title: |
+          **5. We encourage repositories to expose the deposit date for each research output:**
+        description: |
+          Even when **RIOXX** is not implemented, and ideally to mark it as "Date Deposited:". For example, EPrints repositories
+          typically display the deposit date on the page of a given record (an example at Open Research Online). This date must be
+          the date of the **first compliant deposit**. We rely on the definition of
+          **first compliant deposit**.
+      - title: |
+          **6. Ensure that all records to be submitted to REF have a full text linked directly from the dc:identifier:**
+        description: |
+          According to the **RIOXX** standard, the dc:identifier field must contain an HTTP URI which is a link directly pointing to the
+          described resource, i.e. to the MS Word, PDF or another version of the manuscript. This field should be populated for all
+          records your institution is planning to submit to the **REF** and should appear exactly once in the record, so that the
+          availability of the output in the repository can be automatically checked.
+      - title: |
+          **7. Ensure that your repository OAI-PMH endpoint is operational:**
+        description: |
+          The **OAI-PMH** endpoint in your repository enables aggregators to collect data from your repository. The Confederation of
+          Open Access Repositories (**COAR**) states that the real benefits of repositories come from interoperability which gives us
+          the ability to exchange data within a network. This is currently realised by the **OAI-PMH** protocol. In the majority of cases,
+          the **OAI-PMH** endpoint will be correctly working in your repository by default. To check its operation there are freely
+          available validators that ensure the correct response of the endpoint. However, the validator does not fully ensure that
+          the data from the repository could be indexed without issues, which could be a potential problem, especially for larger
+          repositories. Any repository can register freely for the **CORE Repository Dashboard**
+          account which enables the repository
+          to check its indexing status.
+  - id: core-aggregation-support
+    title: 4. How CORE aggregation supports HEIs for REF2029
+    items:
+      - title: |
+          **1. Individual HEIs have a local and incomplete view of compliance:**
+        description: |
+          An output deposited late to a repository maintained by one institution can still be compliant due to a timely
+          deposit at another repository. Research collaborations are international, i.e. the **first compliant deposit** can be to
+          an overseas repository and this could also include non-institutional subject repositories, such as **arXiv**. While a few
+          institutions are involved in cross-institutional checking for possible external deposit, this practice requires human
+          labour and is limited only to cooperating institutions. **CORE** has a global and more complete view over the data
+          and can provide technology that will effectively support institutions in better understanding which outputs are
+          compliant and which are not even prior to the **REF** submission.
+      - title: |
+          **2. Open Access uptake monitoring:**
+        description: |
+          A key intention of the original **REF 2021 OA Policy** was to increase the proportion of OA outputs and decrease the
+          time lag between acceptance and deposit. As a significant proportion of web transactions for accessing research
+          papers is to recent papers, if research becomes available earlier in repositories than on publisher platforms and is,
+          in addition, available without a paywall, this will a) significantly increase the importance of the repository
+          infrastructure, b) accelerate research dissemination by making the scholarly communication process more
+          efficient and c) provide better value to citizens. Citing Lord Kelvin's "If you cannot measure it, you can not improve
+          it," it is crucial, for any policy, that its uptake can be monitored and improvements measured at any time. By
+          capturing this information at an aggregation level, we are enabling precisely that. For example, if institutions were
+          to deliver deposit dates to **Research England** as a one-off in csv only at the time of **REF** submission, this would not
+          allow such monitoring, as it would only provide deposit dates for a small subsample of content in repositories and
+          only at one point in time. It is crucial to realise that the importance of the **REF Open Access policy** goes far beyond
+          **REF**. The practice of depositing early should prevail beyond the **REF** as we should be able to monitor our journey to
+          not just open access but also to fast open access. In the future, similar policies (e.g. due to **Plan S**) will require
+          similar monitoring, so it makes sense to get ready now.
+      - title: |
+          **3. Audit transparency:**
+        description: |
+          Exposing deposit dates and other important information in a machine readable format in support of the audit
+          through repositories ensures transparency of the audited data. Everyone can check the data that not only gets
+          submitted but also that is about to get submitted, ensuring good preparation leading to no surprises. Overall,
+          transparency is a key to good research practices and open science. It also often leads to more attention resulting
+          in improvement of processes and better quality data.
+      - title: |
+          **4. Efficiency:**
+        description: |
+          Collecting data through an aggregation is by far the most efficient method of assembling the data. Where systems
+          are already in place, it does not require any manual work or action. Any work likely to be conducted improves the
+          repository infrastructure resulting in a positive change across the sector. As it is expected that similar audits
+          might need to be carried out in the future, it is sensible to automate this process now.
+      - title: |
+          **Verifiability:**
+        description: |
+          Assembling data at an aggregation level offers verifiability of the declared data. While this hasn't been
+          implemented so far, it will be possible to test both the presence and machine availability of the full text, which is
+          key to many use cases, including text and data mining. Exposing data, such as deposit dates, will also be seen as
+          a positive development by publishers. From the perspective of CORE, our intention to test these points is
+          motivated purely by our strive to feedback any issues back to repositories and support them in creating a better
+          and more interoperable repository infrastructure, which we all deserve.
+  - id: how-core-collects
+    title: 5. How CORE collects this information
+    subTitle: Technical methods for data collection
+    caption: Data Collection
+    content: |
+      **CORE** regularly indexes data from repositories in a permanent and ongoing cycle. If all the recommendations described above are followed, then the procedure is
+      straightforward. If any deviations are present, **CORE** will try to collect the data in alternative ways. These include:
+      
+      * if **RIOXX** is not supported: **CORE** will gather metadata, such as information about the identifier and **DOIs**, using standard **DC**.
+      
+      * If **DOIs** are not available: If **DOIs** are not available for some records, **CORE** will use available metadata to match these records against several key databases, including **Crossref** to discover the **DOIs**.
+      
+      **If the date of publication is not supplied:** If the date of publication is not supplied by the repository or it doesn't have the desired granularity (we prefer **ISO 8601** (post–2004 versions) which follows the
+      following format: YYYY-MM-DD), **CORE** will collect the publication date from **Crossref**. Where the publication date is supplied by the repository but the date is not the
+      same as in **Crossref**, the decision as to which one will be used in the audit will be up to the discretion of **Research England**.
+      
+      * As deposit dates are not part of standard **DC** and not yet part of **RIOXX**, **CORE** therefore implements the following two methods for collecting them:
+      
+      1. **Web scraping:** Where deposit dates are visible through the web pages in the repository, **CORE** attempts to collect them by scraping them, i.e. extracting the data from the
+      web page of the record, using custom built scrapers for a variety of repository platforms.
+      
+      2. **Datestamp method:** Where deposit dates cannot be obtained using scraping, **CORE** makes use of the record's Datestamp provided in the record's metadata. This is done in the
+      following way. **CORE** stores the first Datestamp it receives for a given record, i.e. the first time **CORE** indexes the record, as the deposit date. Subsequent
+      changes to the Datestamp, which could be due to the record's updates, will not affect the deposit date. Due to the frequent indexing, this provides a close
+      estimation of the deposit date.
+      
+      This describes the method we use to collect data from repositories that currently do not support **RIOXX**. We might update this method if we identify a way of improving it,
+      such as to make the data we collect more accurate.
+      
+      When on rare occasions the collected data might be incomplete, it will be up to the discretion of **Research England** performing the audit to interpret the data. We believe
+      that if a record present in the repository has not been indexed by **CORE** or it was not possible to capture some metadata, this should not negatively affect the audit result.
+      To this end, our aim is to support institutions to identify and resolve any issues prior to the audit.
+
+  - id: how-can-core-help
+    title: 6. How can CORE help you?
+    content: |
+      Sets the vision for creating the **CORE** service, developing global-wide content aggregation of all open access research literature (on top of **OAI-PMH** protocol for metadata harvesting and other protocols). It sets the mission to develop the three access levels (access at the granularity of papers; analytical access; access to raw data) via **CORE**.
