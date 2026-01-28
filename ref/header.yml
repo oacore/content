@@ -2,19 +2,16 @@ header:
   id: ref
   title: CORE support for UK HEIs for REF 2029
   description: |
-    As UK institutions' focus begins to turn to **REF2029**, we continue
-    our efforts to provide **CORE** members and UK HEIs with the most
-    up to date information possible.
+    As UK institutions’ focus begins to turn to REF2029, we continue our efforts to provide CORE members and UK HEIs with the most up to date information possible. The **purpose of this document** is to **provide advice** and **recommendations** to UK HEIs **with regards to exposing data to CORE** through their repositories to ensure optimum **discoverability** for Open Access scholarly articles.
     
-    The purpose of this document is to provide advice and
-    recommendations to UK HEIs with regards to exposing data to
-    **CORE** through their repositories to ensure optimum
-    discoverability for Open Access scholarly articles.
-    
-    In this document, we use the term repository to refer to a system
-    that the HEI will use for the purposes of **REF2029** as defined in the
-    **Open Access Policy for REF2029**.
+    In this document, we use the term repository to refer to a system that the HEI will use for the purposes as defined in the Open Access Policy for REF2029
   image: /images/ref
+  more: |
+    Research Excellence Framework 2029
+  moreAction:
+    title: Go to the guidance
+    link: https://2029.ref.ac.uk/guidance/ref-2029-open-access-policy/
+
 
   links:
     content:
@@ -31,7 +28,7 @@ header:
       - title: How can CORE help you
         href: how-can-core-help
     more: |
-      Guidance: Research Excellence Framework 2029
+      Is your institution correctly set up for REF2029?
     moreAction:
-      title: Go to the guidance
-      link: https://2029.ref.ac.uk/guidance/ref-2029-open-access-policy/
+      title: Contact us
+      link: https://core.ac.uk/about#contact
