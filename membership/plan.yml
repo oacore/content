@@ -1248,6 +1248,9 @@ table:
           [documentation](https://core.ac.uk/documentation/membership-documentation#das-identification)
           or try [Data Availability Statements identification
           demo](https://core.ac.uk/data-availability).
+        plans:
+          - Supporting
+          - Sustaining
       - id: 27
         title: SDG Insights
         descriptionCardCard: >
