@@ -4,13 +4,15 @@ sections:
     content: |
      The **REF2029 Guidance** makes a clear distinction between **'Published Open Access'** (aka Gold, Diamond, Platinum) and **'Outputs shared by Deposit'** (Green OA)
       
-      For **Published Open Access** where an output is made fully open access on publication (commonly termed **'Gold'** open access, also **'Diamond'** or **'Platinum'**), conditional
+      For **Published Open Access**, where an output is made fully open access on publication (commonly termed **'Gold'** open access, also **'Diamond'** or **'Platinum'**), conditional
       to it also fully meeting discovery, access and licensing criteria there is no further action required.
+      
+      There is however some nuance in the REF guidance regarding **'outputs shared by deposit'**
       
       **Outputs shared by Deposit**
       
-      From 3.3.2: Deposit: outputs subject to a post-publication embargo which are shared through institutional repositories ("Green" open access) are required to be deposited
-      on publication rather than on acceptance for publication, which was the case in **REF 2021**.
+      From 3.3.2: "Deposit: outputs subject to a post-publication embargo which are shared through institutional repositories ("Green" open access) are required to be deposited
+      on publication rather than on acceptance for publication, which was the case in REF 2021."
       
       However, 7.2.3 then says: "**Outputs shared by deposit:** Where an output will be compliant via deposit in a suitable repository or other appropriate platform, a copy of such
       output should be deposited within three months of publication. This includes outputs subject to an allowable embargo requirement"
@@ -24,10 +26,16 @@ sections:
       - item: /images/services/firstPeriod.svg
       - item: /images/services/secondPeriod.svg
     content2: |
+      Another notable change repository managers should be aware of concerns the **'grace period'** previously allowed for REF2021; "Where the output has no or a 'zero'
+      embargo period it must meet the access requirements as soon as possible and no later than one month after deposit."
+      
+      In the current **REF2029** guidance, section 7 removes the explicit one-month grace period. From **1 January 2026**, once deposited, outputs must be made fully accessible at
+      the point of deposit, unless an embargo applies, in which case it must be made available after the embargo period has elapsed.
+      
       **Changes in Licensing requirements**
         
         Currently, the funding bodies do not mandate any specific licence format or standard and recognise that researchers and institutions may choose from a variety of
-        formats suitable for their output subject to meeting minimum standards identified. The current **REF2029** guidance states;
+        formats suitable for their output subject to meeting minimum standards identified. The current **REF2029** guidance states:
         
         "Outputs should be shared as openly as possible; the funding bodies' strong preference is for licensing as **CC-BY** or other licence formats meeting this standard of openness.
         However, licensing outputs at **CC-BY-NC** or **CC-BY-ND** (including **CC-BY-NC-ND**) or licences meeting an equivalent standard of openness are also permitted."
@@ -73,10 +81,9 @@ sections:
         the two. We will select outputs that have been returned as compliant with the policy, and/or outputs that have
         been returned with exceptions.
     content2: |
-      Consequently, at this time we are advising UK HEIs and **CORE** members to follow previous guidelines and the recommendations given below.
+      Consequently, at this time we are advising UK HEIs and CORE Members to follow the previous guidelines and the recommendations given below.
 
-      We are currently engaging in dialogue with the **REF Team** and **Research England** so we can continually keep you up to date with any and all changes to the published
-      guidelines and how they may affect your institution.
+      We are currently engaging in dialogue with the REF Team (Research England), so we can continually keep you up to date with any and all changes to the published guidelines and how they may affect your institution. 
   - id: recommendations
     title: 3. Recommendations for exposing research outputs' metadata to CORE for REF2029
     content: |
@@ -85,118 +92,106 @@ sections:
       visibility of the institutions' research outputs.
       
       We encourage institutions to expose their metadata using the **Rioxx v3** metadata schema which provides native support for exposing deposit dates. **CORE** provides a
-      [metadata validator for Rioxx v3](https://core.ac.uk/documentation/membership-documentation#rioxx-validator) in the [CORE Dashboard](https://core.ac.uk/services/repository-dashboard) and can provide methodological advice to [Supporting and Sustaining members](https://core.ac.uk/membership )
+      [metadata validator for Rioxx v3](https://core.ac.uk/documentation/membership-documentation#rioxx-validator) in the [CORE Dashboard](https://core.ac.uk/services/repository-dashboard) and can provide methodological advice to [Supporting and Sustaining members](https://core.ac.uk/membership)
       for implementing Rioxx v3.
     content2: |
-      Below is an example of a RIOXX record with all recommended fields populated:
+      Below is a minimal example of a Rioxx record with the recommended fields populated:
       
       ```xml
-      <?xml version='1.0' encoding='UTF-8'?>
-      <rioxx xsi:schemaLocation="http://www.rioxx.net/schema/v3.0/rioxx/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
-      xmlns:rioxxterms="http://docs.rioxx.net/schema/v3.0/rioxxterms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <dc:description> … </dc:description>
-      <dc:language>en</dc:language>
-      <rioxxterms:publisher>
-      <rioxxterms:name>IEEE</rioxxterms:name>
-      <rioxxterms:id>https://isni.org/isni/0000000121063391</rioxxterms:id>
-      </rioxxterms:publisher>
-      <dc:source>0196-2892</dc:source>
-      <dc:title>Microseismic event classification with time, frequency and wavelet domain convolutional neural networks</dc:title>
-      <dcterms:dateAccepted>2023-03-17</dcterms:dateAccepted>
-      <rioxxterms:creator first-named-author="true">
-      <rioxxterms:name>Jiang, Jiaxin</rioxxterms:name>
-      </rioxxterms:creator>
-      <rioxxterms:creator>
-      <rioxxterms:name>Stankovic, Vladimir</rioxxterms:name>
-      <rioxxterms:id>https://orcid.org/0000-0002-1075-2420</rioxxterms:id>
-      <rioxxterms:id>https://isni.org/isni/0000000124141121</rioxxterms:id>
-      <rioxxterms:id>https://viaf.org/viaf/667151246513444130519</rioxxterms:id>
-      <rioxxterms:id>https://www.wikidata.org/wiki/Q51802269</rioxxterms:id>
-      </rioxxterms:creator>
-      <rioxxterms:publication_date>2023-03-27</rioxxterms:publication_date>
-      <rioxxterms:record_public_release_date>2023-03-28</rioxxterms:record_public_release_date>
-      <dc:type>https://purl.org/coar/resource_type/c_2df8fbb1</dc:type>
-      <rioxxterms:grant funder_name="Engineering and Physical Sciences Research Council"
-      funder_id="https://ror.org/0439y7842">
-      EP/S005560/1
-      </rioxxterms:grant>
-      <rioxxterms:project>https://handle.net/10378.1/1590366</rioxxterms:project>
-      <dc:identifier>https://strathprints.strath.ac.uk/84907/</dc:identifier>
-      <dc:relation rel="item" type="application/pdf"
-      coar_type="https://purl.org/coar/resource_type/c_6501"
-      coar_version="https://purl.org/coar/version/c_ab4af688f83e57aa"
-      deposit_date="2023-03-28"
-      resource_exposed_date="2023-03-28"
-      access_rights="https://purl.org/coar/access_right/c_abf2"
-      license_ref="https://creativecommons.org/licenses/by/4.0/">
+      <!-- Example minimal Rioxx V3 record excerpt -->
+
+      <rioxx xmlns="http://www.rioxx.net/schema/v3.0"
+      xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+      <!-- Core identifier for the resource -->
+      <dc:identifier>
+      https://repository.example.org/handle/123456789/9876
+      </dc:identifier>
+
+      <!-- Related file(s) with deposit and exposed dates -->
+      <dc:relation
+      rel="item"
+      type="application/pdf"
+      deposit_date="2024-01-15"
+      resource_exposed_date="2024-02-01">
+      https://repository.example.org/bitstream/123456789/9876/1/published_article.pdf
       </dc:relation>
-      <dc:relation rel="cite_as">https://doi.org/10.17868/strath.00084907</dc:relation>
-      <rioxxterms:ext_relation rel="cite-as"
-      coar_type="https://purl.org/coar/resource_type/c_6501"
-      coar_version="https://purl.org/coar/version/c_970fb48d4fbd8a85">
-      https://doi.org/10.1109/TGRS.2023.3262412
-      </rioxxterms:ext_relation>
-      <rioxxterms:ext_relation rel="cite-as"
-      coar_type="https://purl.org/coar/resource_type/c_ddb1">
-      https://doi.org/10.15129/589f7af3-26b3-4a93-b042-fbc8100fc977
-      </rioxxterms:ext_relation>
+
+      <dc:relation
+      rel="item"
+      type="application/xml"
+      deposit_date="2024-01-15"
+      resource_exposed_date="2024-02-01">
+      https://repository.example.org/bitstream/123456789/9876/1/article_metadata.xml
+      </dc:relation>
+
       </rioxx>
       ```
+      
+      **Key points from the example:**
+      
+      **<dc:identifier>**: Identifies the main record (usually a landing page URI for the item).
+      
+      **<dc:relation ... deposit_date="YYYY-MM-DD">**: Each related resource (e.g., full-text file) carries a deposit_date — the date the repository first accepted/deposited that resource.
+      
+      **resource_exposed_date**: When the file was made publicly accessible (often same as deposit date, unless embargoed).
+      
+      For further information please refer to the full [Rioxx V3 schema](https://www.rioxx.net/profiles/v3-0-final/).
     items:
       - title: |
           **1. Make sure that your institutional repository/ies are registered in CORE:**
         description: |
           We are constantly working towards CORE indexing all repositories available. However, as repositories sometimes change
           their web locations, platforms or some institutions introduce multiple repositories, we advise institutions to check that
-          their repositories are registered and listed on the CORE's data [providers page.](https://core.ac.uk/data-providers/?q=&size=10)
+          their repositories are registered and listed on the [CORE's data providers page](https://core.ac.uk/data-providers/?q=&size=10).
       - title: |
-          **2. Adopt RIOXX as a data format:**
+          **2. Adopt Rioxx as a data format:**
         description: |
-          One of the key reasons for the development of the [Rioxx metadata profile](https://www.rioxx.net/profiles/v3-0-final/)was
+          One of the key reasons for the development of the [Rioxx metadata profile](https://www.rioxx.net/profiles/v3-0-final/) was
           to help institutions achieve compliance with the original REF 2021 Open Access Policy. While CORE can capture the data
-          from repositories not supporting RIOXX, supporting RIOXX greatly reduces the complexity of the algorithm through which
+          from repositories not supporting Rioxx, supporting Rioxx greatly reduces the complexity of the algorithm through which
           CORE acquires the data. The below recommendations detail which information should be shared in the metadata and
-          how this information should be exposed in RIOXX. We further provide an example RIOXX metadata record with all
+          how this information should be exposed in Rioxx. We further provide an example Rioxx metadata record with all
           information needed for REF 2029 correctly set.
       - title: |
-          **3. Add DOIs to records you are planning to submit to REF:**
+          **3. Release deposit dates publicly, so that they are indexable by CORE:**
         description: |
-          To ensure the REF research outputs can be unambiguously matched to the metadata in the repository, we recommend
-          that institutions ensure that DOIs (or other persistent identifiers such as PubMed ID, where appropriate) are added to
-          records to be submitted to REF. This should be done sufficiently in advance of the audit taking place for all outputs where
-          **DOI** has been assigned. According to RIOXX, DOI of the resource should be put in the rioxxterms:version_of_record field.
-      - title: |
-          **4. Release deposit dates publicly, so that they are indexable by CORE:**
-        description: |
-          Following the release of **RIOXX V3**, The deposit_date is an attribute within the **<dc:relation>** property. If included, this
+          Following the release of **Rioxx V3**, The deposit_date is an attribute within the **<dc:relation>** property. If included, this
           attribute's value must be encoded according to the [W3CDTF](https://www.w3.org/TR/NOTE-datetime) (a profile of [ISO 8601](https://www.iso.org/standard/40874.html)) which typically follows the following
-          format: **YYYY-MM-DD.**
+          format: **YYYY-MM-DD**.
       - title: |
-          **5. We encourage repositories to expose the deposit date for each research output:**
+          **4. We encourage repositories to expose the deposit date for each research output:**
         description: |
-          Even when **RIOXX** is not implemented, and ideally to mark it as **"Date Deposited:"**. For example, EPrints repositories
+          Even when Rioxx is not implemented, and ideally to mark it as **"Date Deposited:"**. For example, EPrints repositories
           typically display the deposit date on the page of a given record ([an example at Open Research Online](https://oro.open.ac.uk/30891/)). This date must be
-          the date of the [first compliant deposit](https://eprintsug.github.io/hefce_oa/#date-of-first-compliant-deposit-fcd). We rely on the definition of
+          the date of the [first compliant deposit](https://eprintsug.github.io/hefce_oa/#date-of-first-compliant-deposit-fcd). We rely on the following definition of
           **first compliant deposit**.
       - title: |
-          **6. Ensure that all records to be submitted to REF have a full text linked directly from the dc:identifier:**
+          **5. Ensure that all records to be submitted to REF have a full text linked directly from the metadata:**
         description: |
-          According to the RIOXX standard, the **dc:identifier** field must contain an HTTP URI which is a link directly pointing to the
-          described resource, i.e. to the MS Word, PDF or another version of the manuscript. This field should be populated for all
-          records your institution is planning to submit to the **REF** and should appear exactly once in the record, so that the
-          availability of the output in the repository can be automatically checked.
+          There are various ways of describing the link in the metadata and you can follow the guidelines for each one. In
+          particular, we recommend storing the full text link in the **dc:relation** field with all the dedicated attributes if you are using
+          the Rioxx v3 profile. In many other profiles the most appropriate place is the **dc:identifier** field. CORE supports most of the
+          common profiles, so as soon as the data is stored according to the standards, it will be automatically checked.
       - title: |
-          **7. Ensure that your repository OAI-PMH endpoint is operational:**
+          **6. Ensure that your repository OAI-PMH endpoint is operational:**
         description: |
-          The **OAI-PMH** endpoint in your repository enables aggregators to collect data from your repository. The **Confederation of
-          Open Access Repositories** (COAR) states that the real benefits of repositories come from interoperability which gives us
+          The **OAI-PMH** endpoint in your repository enables aggregators to collect data from your repository. The
+          [Confederation of Open Access Repositories](https://www.coar-repositories.org/) (COAR) states that the real benefits of repositories come from interoperability which gives us
           the ability to exchange data within a network. This is currently realised by the **OAI-PMH protocol**. In the majority of cases,
-          the **OAI-PMH** endpoint will be correctly working in your repository by default. To check its operation there are freely
-          available validators that ensure the correct response of the endpoint. However, the validator does not fully ensure that
+          the OAI-PMH endpoint will be correctly working in your repository by default. To check its operation there are freely
+          available [validators](https://www.openarchives.org/Register/ValidateSite) that ensure the correct response of the endpoint. However, the validator does not fully ensure that
           the data from the repository could be indexed without issues, which could be a potential problem, especially for larger
           repositories. Any repository can register freely for the [CORE Repository Dashboard](https://core.ac.uk/services/repository-dashboard)
-          account which enables the repository
-          to check its indexing status.
+          account which enables the repository to check its indexing status.
+      - title: |
+          **7. Ensure outputs have a registered permanent identifier (PID):**
+        description: |
+          To ensure the REF research outputs can be unambiguously matched to the metadata in the repository, we recommend
+          that institutions ensure that outputs have a permanent identifier (PID). An OAI identifier can be linked directly to each
+          research output by the repository. CORE provides a global [OAI Resolver](https://core.ac.uk/documentation/oai-resolver) built on top of the CORE research outputs
+          aggregation system. Other permanent identifiers such as DOIs or PubMed IDs can also be made accessible via the
+          record's metadata whether using Dublin Core or Rioxx V3.
   - id: core-aggregation-support
     title: 4. How CORE aggregation supports HEIs for REF2029
     items:
@@ -228,15 +223,15 @@ sections:
       CORE regularly indexes data from repositories in a permanent and ongoing cycle. If all the recommendations described above are followed, then the procedure is
       straightforward. If any deviations are present, CORE will try to collect the data in alternative ways. These include:
       
-      * if **RIOXX** is not supported: CORE will gather metadata, such as information about the **identifier** and **DOIs**, using standard **DC**.
+      * **if Rioxx is not supported**: CORE will gather metadata, such as information about the identifiers, using standard **DC**.
       
-      * If **DOIs** are not available for some records, **CORE** will use available metadata to match these records against several key databases, including **Crossref** to discover the DOIs.
+      * **If identifiers are not available **for some records, **CORE** will use available metadata to match these records against several key databases, including **Crossref** to discover those identifiers. The best way is to ensure that your repository supports the [CORE OAI resolver](https://core.ac.uk/documentation/oai-resolver).
       
-      * If the date of publication is not supplied: If the date of publication is not supplied by the repository or it doesn't have the desired granularity (we prefer **ISO 8601** (post–2004 versions) which follows the
+      * **If the date of publication is not supplied** by the repository or it doesn't have the desired granularity (we prefer **ISO 8601** (post–2004 versions) which follows the
       following format: **YYYY-MM-DD**), CORE will collect the publication date from **Crossref**. Where the publication date is supplied by the repository but the date is not the
       same as in Crossref, the decision as to which one will be used in the audit will be up to the discretion of **Research England**.
       
-      * As deposit dates **are not part** of standard **DC** and not yet part of **RIOXX**, CORE therefore implements the following two **methods for collecting** them:
+      * **As deposit dates are not part of standard DC**, CORE therefore implements the following two methods for collecting them:
       
       1. Web scraping: Where deposit dates are visible through the web pages in the repository, CORE attempts to collect them by scraping them, i.e. extracting the data from the
       web page of the record, using custom built scrapers for a variety of repository platforms.
@@ -246,7 +241,7 @@ sections:
       changes to the Datestamp, which could be due to the record's updates, will not affect the deposit date. Due to the frequent indexing, this provides a close
       estimation of the deposit date.
       
-      This describes the method we use to collect data from repositories that currently **do not support RIOXX**. We might update this method if we identify a way of improving it,
+      This describes the method we use to collect data from repositories that currently do not support Rioxx. We might update this method if we identify a way of improving it,
       such as to make the data we collect more accurate.
       
       When on rare occasions the collected data might be incomplete, it will be up to the discretion of **Research England** performing the audit to interpret the data. We believe

@@ -19,7 +19,7 @@ header:
         href: significant-changes
       - title: REF2029 Audit – Guidance
         href: ref2029-audit-guidance
-      - title: Recommendations for exposing research outputs' metadata
+      - title: Recommendations for exposing research outputs' metadata to CORE for REF2029
         href: recommendations
       - title: How CORE aggregation supports HEIs
         href: core-aggregation-support
@@ -31,4 +31,4 @@ header:
       Is your institution correctly set up for REF2029?
     moreAction:
       title: Contact us
-      link: https://core.ac.uk/about#contact
+      link: /about#contact
