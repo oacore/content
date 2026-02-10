@@ -1068,7 +1068,9 @@ items:
       Tools for Open Access compliance monitoring. Currently we support the
       monitoring of the time lag between 
 
-      the deposit of a paper into a repository and its publication date. These features are continuously  being  
+      the deposit of a paper into a repository and its publication date. CORE captures data as explained in the [CORE recommendations for REF](https://core.ac.uk/ref-audit). We offer REF review and analysis for CORE Sustaining Members. 
+
+      Open Access compliance features are continuously  being  
 
       developed to accommodate changes in recent OA policies. Particularly, we are working hard to provide tools to support 
 
@@ -1082,11 +1084,13 @@ items:
         status: 0
       - name: sustaining
         status: 1
-    descriptionDashboard: >
+    descriptionDashboard: >-
       Tools for Open Access compliance monitoring. Currently we support the
       monitoring of the time lag between 
 
-      the deposit of a paper into a repository and its publication date. These features are continuously  being  
+      the deposit of a paper into a repository and its publication date. CORE captures data as explained in the [CORE recommendations for REF](https://core.ac.uk/ref-audit). We offer REF review and analysis for CORE Sustaining Members. 
+
+      Open Access compliance features are continuously  being  
 
       developed to accommodate changes in recent OA policies. Particularly, we are working hard to provide tools to support 
 
