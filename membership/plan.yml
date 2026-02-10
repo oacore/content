@@ -227,10 +227,10 @@ table:
         - Sustaining
     - id: 17
       title: CORE OA Compliance dashboard
-      descriptionCardCard: >
-        Tools for Open Access compliance monitoring and metadata enrichments.
-        [read
-        more](/documentation/membership-documentation#compliance-dashboard)
+      descriptionCardCard: Tools for Open Access compliance
+        [monitoring](https://core.ac.uk/documentation/membership-documentation#compliance-dashboard)
+        and metadata enrichments. We offer [REF review and
+        analysis](https://core.ac.uk/ref-audit) for CORE Sustaining Members.
       descriptionCardTable: |
         Tools for Open Access compliance monitoring and metadata enrichments.
       plans:
@@ -1233,18 +1233,16 @@ table:
       - id: 29
         title: Data Availability Statement (DAS) identification
         descriptionCardCard: CORE automatically detects Data Availability Statements
-          (DAS) in research papers within your repository by analyzing the
-          full text. By ensuring DAS is properly identified, repositories
-          can improve data transparency, compliance, and discoverability.
-          Read more in the
+          (DAS) in research papers within your repository by analyzing the full
+          text. By ensuring DAS is properly identified, repositories can improve
+          data transparency, compliance, and discoverability. Read more in the
           [documentation](https://core.ac.uk/documentation/membership-documentation#das-identification)
           or try [Data Availability Statements identification
           demo](https://core.ac.uk/data-availability).
         descriptionCardTable: CORE automatically detects Data Availability Statements
-          (DAS) in research papers within your repository by analyzing the
-          full text. By ensuring DAS is properly identified, repositories
-          can improve data transparency, compliance, and discoverability.
-          Read more in the
+          (DAS) in research papers within your repository by analyzing the full
+          text. By ensuring DAS is properly identified, repositories can improve
+          data transparency, compliance, and discoverability. Read more in the
           [documentation](https://core.ac.uk/documentation/membership-documentation#das-identification)
           or try [Data Availability Statements identification
           demo](https://core.ac.uk/data-availability).
