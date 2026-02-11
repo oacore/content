@@ -918,9 +918,10 @@ table:
           - id: 17
             title: CORE OA Compliance dashboard
             descriptionCardCard: >
-              Tools for Open Access compliance monitoring and metadata
-              enrichments. [read
-              more](/documentation/membership-documentation#compliance-dashboard)
+              Tools for Open Access compliance
+              [monitoring](https://core.ac.uk/documentation/membership-documentation#compliance-dashboard)
+              and metadata enrichments. We offer [REF review and
+              analysis](https://core.ac.uk/ref-audit) for CORE Sustaining Members.
             descriptionCardTable: >
               Tools for Open Access compliance monitoring and metadata
               enrichments.
@@ -1387,9 +1388,10 @@ table:
       - id: 17
         title: CORE OA Compliance dashboard
         descriptionCardCard: >
-          Tools for Open Access compliance monitoring and metadata enrichments.
-          [read
-          more](/documentation/membership-documentation#compliance-dashboard)
+          Tools for Open Access compliance
+          [monitoring](https://core.ac.uk/documentation/membership-documentation#compliance-dashboard)
+          and metadata enrichments. We offer [REF review and
+          analysis](https://core.ac.uk/ref-audit) for CORE Sustaining Members.
         descriptionCardTable: |
           Tools for Open Access compliance monitoring and metadata enrichments.
         plans:
