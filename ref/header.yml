@@ -30,9 +30,9 @@ header:
         title: Go to the guidance
         link: https://2029.ref.ac.uk/guidance/ref-2029-open-access-policy/
 
-      right:
-        text: |
-          Is your institution correctly set up for REF2029?
-        action:
-          title: Contact us
-          link: /about#contact
+    right:
+      text: |
+        Is your institution correctly set up for REF2029?
+      action:
+        title: Contact us
+        link: /about#contact
