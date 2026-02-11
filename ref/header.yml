@@ -7,21 +7,6 @@ header:
     In this document, we use the term repository to refer to a system that the HEI will use for the purposes as defined in the Open Access Policy for REF2029
   image: /images/ref
 
-actions:
-  left:
-    text: |
-      Research Excellence Framework 2029
-    action:
-      title: Go to the guidance
-      link: https://2029.ref.ac.uk/guidance/ref-2029-open-access-policy/
-
-    right:
-      text: |
-        Is your institution correctly set up for REF2029?
-      action:
-        title: Contact us
-        link: /about#contact
-
   links:
     content:
       - title: Significant changes in REF2029 Open Access Policy
@@ -36,3 +21,18 @@ actions:
         href: how-core-collects
       - title: How can CORE help you
         href: how-can-core-help
+
+  actions:
+    left:
+      text: |
+        Research Excellence Framework 2029
+      action:
+        title: Go to the guidance
+        link: https://2029.ref.ac.uk/guidance/ref-2029-open-access-policy/
+
+      right:
+        text: |
+          Is your institution correctly set up for REF2029?
+        action:
+          title: Contact us
+          link: /about#contact
