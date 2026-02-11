@@ -2,14 +2,12 @@ sections:
   - id: significant-changes
     title: 1. Significant changes in REF2029 Open Access Policy from 1st January 2026
     content: |
-     The **REF2029 Guidance** makes a clear distinction between **'Published Open Access'** (aka Gold, Diamond, Platinum) and **'Outputs shared by Deposit'** (Green OA)
+     The **REF2029** Guidance makes a clear distinction between **'Published Open Access'** (aka Gold, Diamond, Platinum) and **'Outputs shared by Deposit'** (Green OA)
       
       For **Published Open Access**, where an output is made fully open access on publication (commonly termed **'Gold'** open access, also **'Diamond'** or **'Platinum'**), conditional
       to it also fully meeting discovery, access and licensing criteria there is no further action required.
       
-      There is however some nuance in the REF guidance regarding **'outputs shared by deposit'**
-      
-      **Outputs shared by Deposit**
+      **There is however some nuance in the REF guidance regarding 'outputs shared by deposit'**
       
       From 3.3.2: "Deposit: outputs subject to a post-publication embargo which are shared through institutional repositories ("Green" open access) are required to be deposited
       on publication rather than on acceptance for publication, which was the case in REF 2021."
@@ -26,19 +24,19 @@ sections:
       - item: /images/services/firstPeriod.svg
       - item: /images/services/secondPeriod.svg
     content2: |
-      Another notable change repository managers should be aware of concerns the **'grace period'** previously allowed for REF2021; "Where the output has no or a 'zero'
-      embargo period it must meet the access requirements as soon as possible and no later than one month after deposit."
+      Another notable change repository managers should be aware of concerns the grace period' previously allowed for REF2021; "Where the output has no or a 'zero'
+      embargo period it must meet the access requirements as soon as possible and **no later than one month after deposit**."
       
-      In the current **REF2029** guidance, section 7 removes the explicit one-month grace period. From **1 January 2026**, once deposited, outputs must be made fully accessible at
+      In the current REF2029 guidance, section 7 removes the explicit one-month grace period. From 1 January 2026, once deposited, outputs must be made fully accessible at
       the point of deposit, unless an embargo applies, in which case it must be made available after the embargo period has elapsed.
       
       **Changes in Licensing requirements**
         
         Currently, the funding bodies do not mandate any specific licence format or standard and recognise that researchers and institutions may choose from a variety of
-        formats suitable for their output subject to meeting minimum standards identified. The current **REF2029** guidance states:
+        formats suitable for their output subject to meeting minimum standards identified. The current REF2029 guidance states:
         
-        "Outputs should be shared as openly as possible; the funding bodies' strong preference is for licensing as **CC-BY** or other licence formats meeting this standard of openness.
-        However, licensing outputs at **CC-BY-NC** or **CC-BY-ND** (including **CC-BY-NC-ND**) or licences meeting an equivalent standard of openness are also permitted."
+        "Outputs should be shared as openly as possible; the funding bodies' strong preference is for licensing as *CC-BY* or other licence formats meeting this standard of openness.
+        However, licensing outputs at *CC-BY-NC* or *CC-BY-ND* (including *CC-BY-NC-ND*) or licences meeting an equivalent standard of openness are also permitted."
         
         For the period 1 January 2026 to 31 December 2028 outputs shared by deposit (AAM), where subject to terms of a publication agreement limiting sharing and/or use of
         downloaded materials (embargo period) will not need to fully meet these licensing standards. They will however need to meet all other conditions for deposit, discovery
@@ -47,26 +45,26 @@ sections:
         However, from 1 January 2029 all future in-scope outputs **will need to fully meet open licensing standards**, subject to any permissible exceptions.
         
         Having the correct licences clearly described in the metadata for your outputs is already an important step in making sure your content is as widely distributed and used
-        as possible, from 2029 this will be an additional requirement to ensure compliance with **REF** policy.
+        as possible, from 2029 this will be an additional requirement to ensure compliance with REF policy.
     subHeader: |
-           It is important to note that for all in-scope outputs submitted to **REF 2029** 
+           It is important to note that for all in-scope outputs submitted to REF 2029 
            published between **1 January 2021** and **31 December 2025**, the open
            access policy requirements for **REF 2021** still apply.
 
-           The revised policy requirements for **REF2029** came into force for all
+           The revised policy requirements for REF2029 came into force for all
            journal articles and conference contributions on **1st January 2026**.
     subContent: |
       "Journal articles and conference contributions (with an **International Standard Serial
       Number (ISSN)** published between **1st January 2026** and **31st December 2028** are
       **in-scope outputs** for **REF2029** and will be subject to the revised open access policy
-      requirements for submission for **REF** in effect from **1st January 2026.**"
+      requirements for submission for REF in effect from **1st January 2026.**"
   - id: ref2029-audit-guidance
     title: 2. REF2029 Audit – Guidance
     content: |
       The final guidance for how the Open Access audit will be undertaken has not yet been publicly released. The current official statement is as follows:
       
-      "The full audit guidance for **REF 2029** is being developed. For open access, audit processes will broadly mirror the risk-based approach for **REF 2021**, subject to further review
-      and potential adjustments."
+      "*The full audit guidance for REF 2029 is being developed. For open access, audit processes will broadly mirror the risk-based approach for REF 2021, subject to further review
+      and potential adjustments.*"
       
       The previous guidance is accessible via the [REF website](https://2021.ref.ac.uk/media/1228/open_access_summary__v1_0.pdf), however the relevant sections from it are given below:
     subContent: |
@@ -91,7 +89,7 @@ sections:
       mandated by Research England, implementing them will both improve the quality of the data held by CORE to support REF2029 as well as increase the discoverability and
       visibility of the institutions' research outputs.
       
-      We encourage institutions to expose their metadata using the **Rioxx v3** metadata schema which provides native support for exposing deposit dates. **CORE** provides a
+      We encourage institutions to expose their metadata using the Rioxx v3 metadata schema which provides native support for exposing deposit dates. CORE provides a
       [metadata validator for Rioxx v3](https://core.ac.uk/documentation/membership-documentation#rioxx-validator) in the [CORE Dashboard](https://core.ac.uk/services/repository-dashboard) and can provide methodological advice to [Supporting and Sustaining members](https://core.ac.uk/membership)
       for implementing Rioxx v3.
     content2: |
@@ -130,7 +128,7 @@ sections:
       
       **Key points from the example:**
       
-      **<dc:identifier>**: Identifies the main record (usually a landing page URI for the item).
+      **&lt;dc:identifier&gt;**: Identifies the main record (usually a landing page URI for the item).
       
       **<dc:relation ... deposit_date="YYYY-MM-DD">**: Each related resource (e.g., full-text file) carries a deposit_date — the date the repository first accepted/deposited that resource.
       
@@ -141,7 +139,7 @@ sections:
       - title: |
           **1. Make sure that your institutional repository/ies are registered in CORE:**
         description: |
-          We are constantly working towards CORE indexing all repositories available. However, as repositories sometimes change
+          We are constantly working towards **CORE indexing all repositories available**. However, as repositories sometimes change
           their web locations, platforms or some institutions introduce multiple repositories, we advise institutions to check that
           their repositories are registered and listed on the [CORE's data providers page](https://core.ac.uk/data-providers/?q=&size=10).
       - title: |
@@ -156,29 +154,29 @@ sections:
       - title: |
           **3. Release deposit dates publicly, so that they are indexable by CORE:**
         description: |
-          Following the release of **Rioxx V3**, The deposit_date is an attribute within the **<dc:relation>** property. If included, this
+          Following the release of Rioxx V3, The **deposit_date** is an attribute within the **&lt;dc:relation&gt;** property. If included, this
           attribute's value must be encoded according to the [W3CDTF](https://www.w3.org/TR/NOTE-datetime) (a profile of [ISO 8601](https://www.iso.org/standard/40874.html)) which typically follows the following
-          format: **YYYY-MM-DD**.
+          format: YYYY-MM-DD.
       - title: |
           **4. We encourage repositories to expose the deposit date for each research output:**
         description: |
-          Even when Rioxx is not implemented, and ideally to mark it as **"Date Deposited:"**. For example, EPrints repositories
+          Even when **Rioxx** is **not implemented**, and ideally to mark it as **"Date Deposited:"**. For example, EPrints repositories
           typically display the deposit date on the page of a given record ([an example at Open Research Online](https://oro.open.ac.uk/30891/)). This date must be
-          the date of the [first compliant deposit](https://eprintsug.github.io/hefce_oa/#date-of-first-compliant-deposit-fcd). We rely on the following definition of
-          **first compliant deposit**.
+          the date of the first compliant deposit. We rely on the following definition of
+          [first compliant deposit](https://eprintsug.github.io/hefce_oa/#date-of-first-compliant-deposit-fcd).
       - title: |
           **5. Ensure that all records to be submitted to REF have a full text linked directly from the metadata:**
         description: |
           There are various ways of describing the link in the metadata and you can follow the guidelines for each one. In
-          particular, we recommend storing the full text link in the **dc:relation** field with all the dedicated attributes if you are using
-          the Rioxx v3 profile. In many other profiles the most appropriate place is the **dc:identifier** field. CORE supports most of the
+          particular, we recommend **storing the full text link in the dc:relation** field with all the dedicated attributes if you are using
+          the Rioxx v3 profile. In many other profiles the most appropriate place is the dc:identifier field. CORE supports most of the
           common profiles, so as soon as the data is stored according to the standards, it will be automatically checked.
       - title: |
           **6. Ensure that your repository OAI-PMH endpoint is operational:**
         description: |
-          The **OAI-PMH** endpoint in your repository enables aggregators to collect data from your repository. The
+          The OAI-PMH endpoint in your repository enables aggregators to collect data from your repository. The
           [Confederation of Open Access Repositories](https://www.coar-repositories.org/) (COAR) states that the real benefits of repositories come from interoperability which gives us
-          the ability to exchange data within a network. This is currently realised by the **OAI-PMH protocol**. In the majority of cases,
+          the ability to exchange data within a network. This is currently realised by the OAI-PMH protocol. In the majority of cases,
           the OAI-PMH endpoint will be correctly working in your repository by default. To check its operation there are freely
           available [validators](https://www.openarchives.org/Register/ValidateSite) that ensure the correct response of the endpoint. However, the validator does not fully ensure that
           the data from the repository could be indexed without issues, which could be a potential problem, especially for larger
@@ -223,13 +221,13 @@ sections:
       CORE regularly indexes data from repositories in a permanent and ongoing cycle. If all the recommendations described above are followed, then the procedure is
       straightforward. If any deviations are present, CORE will try to collect the data in alternative ways. These include:
       
-      * **if Rioxx is not supported**: CORE will gather metadata, such as information about the identifiers, using standard **DC**.
+      * **if Rioxx is not supported**: CORE will gather metadata, such as information about the identifiers, using standard DC.
       
-      * **If identifiers are not available **for some records, **CORE** will use available metadata to match these records against several key databases, including **Crossref** to discover those identifiers. The best way is to ensure that your repository supports the [CORE OAI resolver](https://core.ac.uk/documentation/oai-resolver).
+      * **If identifiers are not available** for some records, CORE will use available metadata to match these records against several key databases, including Crossref to discover those identifiers. The best way is to ensure that your repository supports the [CORE OAI resolver](https://core.ac.uk/documentation/oai-resolver).
       
-      * **If the date of publication is not supplied** by the repository or it doesn't have the desired granularity (we prefer **ISO 8601** (post–2004 versions) which follows the
-      following format: **YYYY-MM-DD**), CORE will collect the publication date from **Crossref**. Where the publication date is supplied by the repository but the date is not the
-      same as in Crossref, the decision as to which one will be used in the audit will be up to the discretion of **Research England**.
+      * **If the date of publication is not supplied** by the repository or it doesn't have the desired granularity (we prefer ISO 8601 (post–2004 versions) which follows the
+      following format: YYYY-MM-DD), CORE will collect the publication date from Crossref. Where the publication date is supplied by the repository but the date is not the
+      same as in Crossref, the decision as to which one will be used in the audit will be up to the discretion of Research England.
       
       * **As deposit dates are not part of standard DC**, CORE therefore implements the following two methods for collecting them:
       
