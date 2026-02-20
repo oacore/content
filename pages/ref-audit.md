@@ -258,7 +258,7 @@ repository is being properly indexed. Additionally, we have released a brand new
 [CORE Discovery](~services/discovery) repository plugin which can help repositories discover Open Access full text versions of articles for metadata records in repositories which do not have a full text manuscript attached.
 
 To answer further questions, we have also established and maintain an [FAQ
-section](~faq#ref-audit) for the purposes of the audit. If you have
+section](~faq#ref) for the purposes of the audit. If you have
 any further questions, please [contact](~contact) the CORE team for support and
 we will be happy to help.
 

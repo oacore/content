@@ -215,7 +215,6 @@ sections:
           Assembling data at an aggregation level offers verifiability of the declared data. While this hasn’t been implemented so far, it will be possible to test both the presence and machine availability of the full text, which is key to many use cases, including text and data mining. Exposing data, such as deposit dates, will also be seen as a positive development by publishers. From the perspective of CORE, our intention to test these points is motivated purely by our strive to feedback any issues back to repositories and support them in creating a better and more interoperable repository infrastructure, which we all deserve.
   - id: how-core-collects
     title: 5. How CORE collects this information
-    subTitle: Technical methods for data collection
     caption: Data Collection
     content: |
       CORE regularly indexes data from repositories in a permanent and ongoing cycle. If all the recommendations described above are followed, then the procedure is
@@ -231,13 +230,9 @@ sections:
       
       * **As deposit dates are not part of standard DC**, CORE therefore implements the following two methods for collecting them:
       
-      1. Web scraping: Where deposit dates are visible through the web pages in the repository, CORE attempts to collect them by scraping them, i.e. extracting the data from the
-      web page of the record, using custom built scrapers for a variety of repository platforms.
+      1. Where deposit dates are visible through the web pages in the repository, CORE attempts to collect them by scraping them, i.e. extracting the data from the web page of the record, using custom built scrapers for a variety of repository platforms.
       
-      2. Datestamp method: Where deposit dates cannot be obtained using scraping, CORE makes use of the record's Datestamp provided in the record's metadata. This is done in the
-      following way. CORE stores the first Datestamp it receives for a given record, i.e. the first time CORE indexes the record, as the deposit date. Subsequent
-      changes to the Datestamp, which could be due to the record's updates, will not affect the deposit date. Due to the frequent indexing, this provides a close
-      estimation of the deposit date.
+      2. Where deposit dates cannot be obtained using scraping, CORE makes use of the record’s Datestamp provided in the record’s metadata. This is done in the following way. CORE stores the first Datestamp it receives for a given record, i.e. the first time CORE indexes the record, as the deposit date. Subsequent changes to the Datestamp, which could be due to the record’s updates, will not affect the deposit date. Due to the frequent indexing, this provides a close estimation of the deposit date.
       
       This describes the method we use to collect data from repositories that currently do not support Rioxx. We might update this method if we identify a way of improving it,
       such as to make the data we collect more accurate.

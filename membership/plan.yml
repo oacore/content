@@ -230,7 +230,7 @@ table:
       descriptionCardCard: Tools for Open Access compliance
         [monitoring](https://core.ac.uk/documentation/membership-documentation#compliance-dashboard)
         and metadata enrichments. We offer [REF review and
-        analysis](https://core.ac.uk/ref-audit) for CORE Sustaining Members.
+        analysis](https://core.ac.uk/ref) for CORE Sustaining Members.
       descriptionCardTable: |
         Tools for Open Access compliance monitoring and metadata enrichments.
       plans:
@@ -921,7 +921,7 @@ table:
               Tools for Open Access compliance
               [monitoring](https://core.ac.uk/documentation/membership-documentation#compliance-dashboard)
               and metadata enrichments. We offer [REF review and
-              analysis](https://core.ac.uk/ref-audit) for CORE Sustaining Members.
+              analysis](https://core.ac.uk/ref) for CORE Sustaining Members.
             descriptionCardTable: >
               Tools for Open Access compliance monitoring and metadata
               enrichments.
@@ -1391,7 +1391,7 @@ table:
           Tools for Open Access compliance
           [monitoring](https://core.ac.uk/documentation/membership-documentation#compliance-dashboard)
           and metadata enrichments. We offer [REF review and
-          analysis](https://core.ac.uk/ref-audit) for CORE Sustaining Members.
+          analysis](https://core.ac.uk/ref) for CORE Sustaining Members.
         descriptionCardTable: |
           Tools for Open Access compliance monitoring and metadata enrichments.
         plans:
