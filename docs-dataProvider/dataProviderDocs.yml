@@ -718,6 +718,58 @@ items:
     subTitle: null
     subDescription: null
     divider: true
+  - id: embargoed-documents
+    title: 3.5 Embargoed documents
+    descriptionAbout: >-
+      **How to handle embargo in the metadata**
+
+
+      There are several ways to handle embargoes in metadata. However, there is currently no widely adopted standard, and different repository platforms have implemented a variety of solutions.
+
+
+      Below are our recommendations for how embargoed documents should be handled.
+
+
+      The preferred approach is for the server to return a dedicated HTTP response status code (e.g. HTTP XXX) when a record is under embargo. This response should unambiguously indicate that the resource is embargoed, allowing machines and automated services to reliably detect and process embargoed records.
+
+
+      Many repository platforms do not currently support this approach. When returning a dedicated embargo status code is not possible, we recommend at minimum the following:
+
+
+      *Provide clear and explicit metadata fields for:
+
+       - date of publication
+       - date of public access (end of embargo) ([see](https://core.ac.uk/documentation/data-providers-guide#licence-information) the sections on dates for further details)
+
+      *Return a clear HTTP status code indicating restricted access (for example, HTTP 401 Unauthorized).
+
+
+      In many repositories, access to embargoed full-text content redirects users to a login page. While this may work for human users, it is problematic for machines: automated clients cannot easily distinguish between a login page and a regular repository page. As a result, it becomes difficult to reliably detect embargoed content and differentiate it from other access-related behaviors.
+    subDescription: >-
+      **How to handle embargo in the metadata**
+
+
+      There are several ways to handle embargoes in metadata. However, there is currently no widely adopted standard, and different repository platforms have implemented a variety of solutions.
+
+
+      Below are our recommendations for how embargoed documents should be handled.
+
+
+      The preferred approach is for the server to return a dedicated HTTP response status code (e.g. HTTP XXX) when a record is under embargo. This response should unambiguously indicate that the resource is embargoed, allowing machines and automated services to reliably detect and process embargoed records.
+
+
+      Many repository platforms do not currently support this approach. When returning a dedicated embargo status code is not possible, we recommend at minimum the following:
+
+
+      *Provide clear and explicit metadata fields for:
+
+       - date of publication
+       - date of public access (end of embargo) ([see](https://core.ac.uk/documentation/data-providers-guide#licence-information) the sections on dates for further details)
+
+      *Return a clear HTTP status code indicating restricted access (for example, HTTP 401 Unauthorized).
+
+
+      In many repositories, access to embargoed full-text content redirects users to a login page. While this may work for human users, it is problematic for machines: automated clients cannot easily distinguish between a login page and a regular repository page. As a result, it becomes difficult to reliably detect embargoed content and differentiate it from other access-related behaviors.
 tutorial:
   text: Watch Data Provider’s Guide webinar
   img: /images/docs-membership/video.svg
