@@ -55,6 +55,8 @@ navItems:
     href: "#fair-signposting"
   - item: 3.4 Full text licence information
     href: "#licence-information"
+  - item: 3.5 Embargoed documents
+    href: "#embargoed-documents"
   - item: |
       **4. Registering a data provider with CORE**
     href: "#data-provider"
