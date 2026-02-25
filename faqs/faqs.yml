@@ -7,6 +7,13 @@ sections:
     title: Joining CORE as data provider
     updateDate: Last updated 22.02.2024
     caption: Joining CORE
+    guideline:
+      title: Data Provider’s Guide
+      picture: /images/data-provider.svg
+      description: This guide explains to repository managers how to configure their systems for successful indexing by CORE.
+      action:
+        title: Go to the guide
+        url: documentation/data-providers-guide
     items:
       - slug: is-my-repository-or-journal-indexed-by-CORE
         question: Is my repository or journal indexed by CORE?
@@ -390,6 +397,13 @@ sections:
     title: Membership
     updateDate: Last updated 22.02.2024
     caption: Membership
+    guideline:
+      title: Membership documentation
+      picture: /images/data-provider.svg
+      description: The membership documentation provides detailed information about CORE Members’ benefits, including the description of Members-only functionalities on the CORE Dashboard and beyond.
+      action:
+        title: Go to the guide
+        url: documentation/membership-documentation
     items:
       - slug: what-is-membership-of-CORE
         question: |
