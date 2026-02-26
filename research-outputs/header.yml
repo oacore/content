@@ -16,8 +16,8 @@ header:
         href: recommender
       - title: CORE repositories dashboard
         href: repositories-dashboard
-      - title: CORE and download statistics
-        href: download-statistics
+#      - title: CORE and download statistics
+#        href: download-statistics
       - title: Supporting research assessment and evaluation
         href: supporting-research-assessment-and-evaluation
     more: Find more our research outputs at [Big Scientific Data and Text Analytics group website.](http://bsdtag.kmi.open.ac.uk#publications)

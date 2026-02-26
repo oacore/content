@@ -73,21 +73,21 @@ table:
         - Starting
         - Supporting
         - Sustaining
-    - id: 6
-      title: Download statistics
-      descriptionCardCard: >
-        Access statistics about how many times papers from your organisation
-        were downloaded (from CORE and directly from your repository - IRUS
-        tracker integration required for the latter). [read
-        more](~documentation/membership-documentation#download-statistics)
-      descriptionCardTable: >
-        Access statistics about how many times papers from your organisation
-        were downloaded (from CORE and directly from your repository - IRUS
-        tracker integration required for the latter).
-      plans:
-        - Starting
-        - Supporting
-        - Sustaining
+#    - id: 6
+#      title: Download statistics
+#      descriptionCardCard: >
+#        Access statistics about how many times papers from your organisation
+#        were downloaded (from CORE and directly from your repository - IRUS
+#        tracker integration required for the latter). [read
+#        more](~documentation/membership-documentation#download-statistics)
+#      descriptionCardTable: >
+#        Access statistics about how many times papers from your organisation
+#        were downloaded (from CORE and directly from your repository - IRUS
+#        tracker integration required for the latter).
+#      plans:
+#        - Starting
+#        - Supporting
+#        - Sustaining
     - id: 7
       title: |-
         Repository Discovery Boost:
@@ -605,22 +605,22 @@ table:
               - Starting
               - Supporting
               - Sustaining
-          - id: 6
-            title: Download statistics
-            descriptionCardCard: >
-              Access statistics about how many times papers from your
-              organisation were downloaded (from CORE and directly from your
-              repository - IRUS tracker integration required for the latter).
-              [read
-              more](~documentation/membership-documentation#download-statistics)
-            descriptionCardTable: >
-              Access statistics about how many times papers from your
-              organisation were downloaded (from CORE and directly from your
-              repository - IRUS tracker integration required for the latter).
-            plans:
-              - Starting
-              - Supporting
-              - Sustaining
+#          - id: 6
+#            title: Download statistics
+#            descriptionCardCard: >
+#              Access statistics about how many times papers from your
+#              organisation were downloaded (from CORE and directly from your
+#              repository - IRUS tracker integration required for the latter).
+#              [read
+#              more](~documentation/membership-documentation#download-statistics)
+#            descriptionCardTable: >
+#              Access statistics about how many times papers from your
+#              organisation were downloaded (from CORE and directly from your
+#              repository - IRUS tracker integration required for the latter).
+#            plans:
+#              - Starting
+#              - Supporting
+#              - Sustaining
           - id: 7
             title: |-
               Repository Discovery Boost:
@@ -1108,21 +1108,21 @@ table:
           - Starting
           - Supporting
           - Sustaining
-      - id: 6
-        title: Download statistics
-        descriptionCardCard: >
-          Access statistics about how many times papers from your organisation
-          were downloaded (from CORE and directly from your repository - IRUS
-          tracker integration required for the latter). [read
-          more](~documentation/membership-documentation#download-statistics)
-        descriptionCardTable: >
-          Access statistics about how many times papers from your organisation
-          were downloaded (from CORE and directly from your repository - IRUS
-          tracker integration required for the latter).
-        plans:
-          - Starting
-          - Supporting
-          - Sustaining
+#      - id: 6
+#        title: Download statistics
+#        descriptionCardCard: >
+#          Access statistics about how many times papers from your organisation
+#          were downloaded (from CORE and directly from your repository - IRUS
+#          tracker integration required for the latter). [read
+#          more](~documentation/membership-documentation#download-statistics)
+#        descriptionCardTable: >
+#          Access statistics about how many times papers from your organisation
+#          were downloaded (from CORE and directly from your repository - IRUS
+#          tracker integration required for the latter).
+#        plans:
+#          - Starting
+#          - Supporting
+#          - Sustaining
       - id: 7
         title: |-
           Repository Discovery Boost:

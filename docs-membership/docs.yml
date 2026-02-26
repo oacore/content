@@ -179,39 +179,39 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - title: Download statistics
-    id: download-statistics
-    images: null
-    membership:
-      - name: starting
-        status: 1
-      - name: supporting
-        status: 1
-      - name: sustaining
-        status: 1
-    descriptionAbout: >
-      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
-      Repository Usage Statistics) tracker in your repository or journal system,
-      you will be able to access your download statistics from within the
-      Dashboard. This includes the downloads statistics for your papers in CORE
-      as well as those directly realised in our system. After installing the
-      IRUS tracker, a graph with statistical information on downloads will
-      appear in the **Overview tab** on the Dashboard.
-    descriptionDashboard: >
-      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
-      Repository Usage Statistics) tracker in your repository or journal system,
-      you will be able to access your download statistics from within the
-      Dashboard. This includes the downloads statistics for your papers in CORE
-      as well as those directly realised in our system. After installing the
-      IRUS tracker, a graph with statistical information on downloads will
-      appear in the
-      [Overview](https://dashboard.core.ac.uk/data-providers/{{id}}/overview)
-      tab on the Dashboard.
-    membership-types:
-      starting: Yes
-      supporting: Yes
-      sustaining: Yes
-    redirect: null
+#  - title: Download statistics
+#    id: download-statistics
+#    images: null
+#    membership:
+#      - name: starting
+#        status: 1
+#      - name: supporting
+#        status: 1
+#      - name: sustaining
+#        status: 1
+#    descriptionAbout: >
+#      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
+#      Repository Usage Statistics) tracker in your repository or journal system,
+#      you will be able to access your download statistics from within the
+#      Dashboard. This includes the downloads statistics for your papers in CORE
+#      as well as those directly realised in our system. After installing the
+#      IRUS tracker, a graph with statistical information on downloads will
+#      appear in the **Overview tab** on the Dashboard.
+#    descriptionDashboard: >
+#      If you install the [IRUS](https://irus.jisc.ac.uk/r5/) (Institutional
+#      Repository Usage Statistics) tracker in your repository or journal system,
+#      you will be able to access your download statistics from within the
+#      Dashboard. This includes the downloads statistics for your papers in CORE
+#      as well as those directly realised in our system. After installing the
+#      IRUS tracker, a graph with statistical information on downloads will
+#      appear in the
+#      [Overview](https://dashboard.core.ac.uk/data-providers/{{id}}/overview)
+#      tab on the Dashboard.
+#    membership-types:
+#      starting: Yes
+#      supporting: Yes
+#      sustaining: Yes
+#    redirect: null
   - title: Repository Discovery Boost
     id: repository-discovery-boost
     images: null
