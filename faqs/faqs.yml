@@ -156,13 +156,13 @@ sections:
               them from its content providers. If the metadata are wrong
               then contact the repository or journal where you had originally
               deposited or published your content.
-          - slug: can-CORE-offer-any-statistics-about-the-content-it-indexes
-            question: |
-              Can CORE offer any statistics about the content it indexes?
-            answer: |
-              CORE can offer repository or journal full text download statistics per month via the
-              [CORE Repository Dashboard](~services/repository-dashboard). If you do not have access to the Dashboard, 
-              you can [claim it](~services/repository-dashboard).
+#          - slug: can-CORE-offer-any-statistics-about-the-content-it-indexes
+#            question: |
+#              Can CORE offer any statistics about the content it indexes?
+#            answer: |
+#              CORE can offer repository or journal full text download statistics per month via the
+#              [CORE Repository Dashboard](~services/repository-dashboard). If you do not have access to the Dashboard,
+#              you can [claim it](~services/repository-dashboard).
           - slug: are-the-research-papers-offered-by-CORE-peer-reviewed
             question: |
               Are the research papers offered by CORE peer-reviewed?
