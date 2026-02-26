@@ -9,7 +9,7 @@ sections:
     caption: Joining CORE
     guideline:
       title: Data Provider’s Guide
-      picture: /images/services/guideFile.svg
+      picture: /images/guideFile.svg
       description: This guide explains to repository managers how to configure their systems for successful indexing by CORE.
       action:
         title: Go to the guide
@@ -399,7 +399,7 @@ sections:
     caption: Membership
     guideline:
       title: Membership documentation
-      picture: /images/services/guideFile.svg
+      picture: /images/guideFile.svg
       description: The membership documentation provides detailed information about CORE Members’ benefits, including the description of Members-only functionalities on the CORE Dashboard and beyond.
       action:
         title: Go to the guide
