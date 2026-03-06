@@ -1,6 +1,7 @@
 fee:
   title: Annual membership fees for <span>{{planName}}</span> members
   caption: 30% Early spring CORE Membership discount (ends March 31st, 2023)
+  warning: CORE Membership is available as **3-year** or **5-year** subscription. CORE **does not offer one-year membership** subscription. These membership fees are applicable if the membership renews for one year after the expiry of the initial **3 or 5-year** membership.
   description:
     supporting: >
       Our Supporting members are the pillars of our open scholarly
@@ -37,7 +38,10 @@ fee:
       \*\* This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
 
 
-      We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
+      **Renewal policy:** Some of our multi-year contracts are conceived as rolling contracts that renew for one year following the expiry of the initial period. The annual membership fee following the expiry of the initial term is listed in the [annual membership fee list](). If you would like to benefit from a multi-year discount following the expiry of the initial 3-year or 5-year period, get in touch and we will be able to offer this to you.
+
+
+      **Consortia pricing:** We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
 
 
       We invite consortia interested in becoming CORE Members to directly approach us at: **membership@core.ac.uk**
@@ -51,10 +55,18 @@ fee:
       \*\* This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
 
 
-      We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
+      **Renewal policy:** Some of our multi-year contracts are conceived as rolling contracts that renew for one year following the expiry of the initial period. The annual membership fee following the expiry of the initial term is listed in the [annual membership fee list](). If you would like to benefit from a multi-year discount following the expiry of the initial 3-year or 5-year period, get in touch and we will be able to offer this to you.
+      
+      
+      **Consortia pricing:**  We offer discounts to consortia of institutions subscribing to CORE Membership. To qualify for the consortia discount, there needs to be an established and active overarching operational structure of the consortium and the consortium must have public presence. The consortia cannot be formed for the sole purpose of just getting the discount. The consortium discount is provided as a proportion of the membership fees for which would otherwise be due should institutions forming the consortium became CORE Members individually. The discount is only provided if all of the institutions in the consortium become CORE Members.
 
 
       We invite consortia interested in becoming CORE Members to directly approach us at: **membership@core.ac.uk**
+  subNote: >-
+    \*All fees are excluding VAT
+    
+    
+    \*\* This is the number of research outputs produced by your organisation rather than just the number of open access papers CORE has access to. We use this as a proxy for the size of an institution.
   noteSecond: >
     **This discount is available for those who sign up for 3 or 5 years. Both
     annual and single upfront payment invoicing is possible on multiyear
@@ -186,6 +198,52 @@ fee:
             - type: high
               original: 8500
               indicator: true
+      subRows:
+        - title: Band 1
+          caption: up to 5K articles
+          prices:
+            - type: low
+              original: 625
+            - type: middle
+              original: 1250
+            - type: high
+              original: 2000
+        - title: Band 2
+          caption: 5K - 10K articles
+          prices:
+            - type: low
+              original: 1250
+            - type: middle
+              original: 2375
+            - type: high
+              original: 4000
+        - title: Band 3
+          caption: 10K - 20K articles
+          prices:
+            - type: low
+              original: 1750
+            - type: middle
+              original: 3625
+            - type: high
+              original: 6000
+        - title: Band 4
+          caption: 20K - 40K articles
+          prices:
+            - type: low
+              original: 2375
+            - type: middle
+              original: 4750
+            - type: high
+              original: 8000
+        - title: Band 5
+          caption: 40K+ articles
+          prices:
+            - type: low
+              original: 3000
+            - type: middle
+              original: 6000
+            - type: high
+              original: 10000
     sustaining:
       rows:
         - prices:
@@ -294,3 +352,49 @@ fee:
             - type: high
               original: 17000
               indicator: true
+      subRows:
+        - title: Band 1
+          caption: up to 5K articles
+          prices:
+            - type: low
+              original: 1250
+            - type: middle
+              original: 2500
+            - type: high
+              original: 4000
+        - title: Band 2
+          caption: 5K - 10K articles
+          prices:
+            - type: low
+              original: 2500
+            - type: middle
+              original: 4750
+            - type: high
+              original: 8000
+        - title: Band 3
+          caption: 10K - 20K articles
+          prices:
+            - type: low
+              original: 3500
+            - type: middle
+              original: 7250
+            - type: high
+              original: 12000
+        - title: Band 4
+          caption: 20K - 40K articles
+          prices:
+            - type: low
+              original: 4750
+            - type: middle
+              original: 9500
+            - type: high
+              original: 16000
+        - title: Band 5
+          caption: 40K+ articles
+          prices:
+            - type: low
+              original: 6000
+            - type: middle
+              original: 12000
+            - type: high
+              original: 20000
