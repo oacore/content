@@ -1,0 +1,13 @@
+certificates:
+  - title: Bronze
+    picture: /images/bronze.svg
+    description: |
+      Guarantees a foundational level of compliance. Repository metadata and content is indexable, records are assigned identifiers and metadata have been populated to at least a minimum level.
+  - title: Silver
+    picture: /images/services/silver.svg
+    description: |
+      Demonstrates strong compliance with FAIR. Metadata are exposed using industry-leading application profiles and vocabularies, contain machine-readable licence information and have been sufficiently populated.
+  - title: Gold
+    picture: /images/services/gold.svg
+    description: |
+      Achieves full machine-actionability. Metadata have been richly populated and support linking of research papers and datasets. Repository supports industry-leading protocols and interoperability standards.

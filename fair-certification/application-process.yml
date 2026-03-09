@@ -1,0 +1,19 @@
+application-process:
+  title: How to get your repository FAIR certified
+  steps:
+    - step: 1
+      title: Apply for FAIR certification
+      description: |
+        Register your interest below or apply for FAIR Certification via your CORE Dashboard account (FAIR certification tab) and arrange payment (free for Sustaining Members).
+    - step: 2
+      title: CORE team assesses the submission
+      description: |
+        We will evaluate your repository and inform you if you qualify for the certificate. In case you don't qualify yet, we will offer technical advice on how to satisfy the requirements. You are free to resubmit your application as many times as needed during a 365 days period.
+    - step: 3
+      title: Submit the form
+      description: |
+        CORE will run automated checks for your repository and produce a report containing results and recommendations against the certification criteria. Review the recommendations, complete the report and submit when ready.
+    - step: 4
+      title: Get your FAIR certificate
+      description: |
+        Once your repository gets FAIR certification you will get your certificate via email and your organisation will appear in the FAIR certificated repositories list. You can now display your certificate in your repository.

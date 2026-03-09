@@ -1,0 +1,27 @@
+what-we-assess:
+  title: What we assess
+  items:
+    - id: findable
+      title: Findable
+      description: Can users locate your research?
+      icon: /images/consultancy/automation.svg
+    - id: accessible
+      title: Accessible
+      description: Is your data available to as many users as possible?
+      icon: /images/consultancy/automation.svg
+    - id: interoperable
+      title: Interoperable
+      description: Are you ready to interact with other services?
+      icon: /images/consultancy/automation.svg
+    - id: reusable
+      title: Reusable
+      description: Is your research available to be used by other researchers?
+      icon: /images/consultancy/automation.svg
+    - id: fit-for-funders
+      title: Fit for funders
+      description: Is your research understandable by the funding bodies?
+      icon: /images/consultancy/automation.svg
+    - id: fit-for-future
+      title: Fit for future
+      description: Are you ready to support the future of open science?
+      icon: /images/consultancy/automation.svg

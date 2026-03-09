@@ -1,0 +1,19 @@
+faqs:
+  title: Frequently asked questions about FAIR Certification
+  items:
+    - slug: benefits-of-fair-certification
+      question: What are benefits of getting CORE FAIR Certification?
+      answer: |
+        CORE FAIR Certification provides external validation of the repository's commitment to modern research integrity, dramatically increasing the trust and reputation of the organization among researchers and funders. Certification also enhances the visibility and machine-actionability of your records, leading to greater data reuse, higher citation rates, and crucial compliance with global funding mandates. Successful repositories receive a trusted certificate, validating their commitment to FAIR principles.
+    - slug: difference-between-bronze-silver-gold
+      question: What is the difference between Bronze, Silver and Gold certificates?
+      answer: |
+        The three tiers represent increasing levels of FAIR capability and technical maturity. Bronze guarantees a foundational level of compliance; all records are assigned Persistent Identifiers (PIDs) and feature basic public metadata to ensure initial Findability (F). Silver demonstrates strong compliance and accessibility; records use rich metadata and clear licensing to ensure easy human and machine Accessibility (A) and basic Reusability (R). Gold achieves full machine-actionability; it uses specialized, interoperable (I) vocabularies and detailed provenance to optimize the content for automated Reuse (R).
+    - slug: why-expiration-date
+      question: Why does each certificate have an expiration date?
+      answer: |
+        The expiration date ensures that the repository's commitment to the FAIR principles remains current and sustainable amidst continuous changes in technology, community standards, and funder requirements. Certification is a guarantee of active stewardship, not just past performance, requiring repositories to undergo periodic re-assessment to demonstrate their ongoing ability to maintain trustworthiness and data quality for the long term.
+    - slug: who-can-apply
+      question: Who can apply for certification?
+      answer: |
+        Any organization that acts as a digital steward for scholarly content, including institutional repositories, national archives, domain-specific data centers, and research project data platforms can apply for CORE FAIR Certification. The application process is designed to accommodate repositories of various sizes, missions, and data types, provided they are committed to transparent, persistent management of digital research objects.

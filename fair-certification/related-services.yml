@@ -1,0 +1,15 @@
+related-services:
+  title: You might be also interested in
+  services:
+    - title: CORE Membership
+      picture: /images/consultancy/automation.svg
+      url: membership
+    - title: CORE Sponsorship
+      picture: /images/services/discoveryLock.svg
+      url: sponsorship
+    - title: CORE Consultancy
+      picture: /images/services/fairIcon.svg
+      url: consultancy
+    - title: CORE Dashboard
+      picture: /images/services/repository-dashboard.svg
+      url: repository-dashboard

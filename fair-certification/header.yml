@@ -1,0 +1,17 @@
+header:
+  id: header
+  title: FAIR Repository Certification
+  icon: /images/fairLogo.svg
+  image: /images/fairCertificate.svg
+  description: |
+    Certify that your repository meets FAIR principles.
+    FAIR Certification offers an opportunity for data providers (publication repositories, journals, data repositories, etc.) to demonstrate and evidence their adherence to the widely recognised FAIR (Findable, Accessible, Interoperable, Reusable) principles.
+    A FAIR-compliant repository becomes a dynamic, machine-actionable component of the global research infrastructure, maximising the impact and reusability of the research it hosts.
+  actions:
+    - caption: Register your interest
+      variant: contained
+      url: "#form"
+    - caption: Download our flyer
+      variant: text
+      url: ""
+      target: _blank
