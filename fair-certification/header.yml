@@ -11,7 +11,3 @@ header:
     - caption: Register your interest
       variant: contained
       url: "#form"
-    - caption: Download our flyer
-      variant: text
-      url: ""
-      target: _blank
