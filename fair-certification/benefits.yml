@@ -1,5 +1,7 @@
 benefits:
   title: What we assess
+  action:
+    title: All requirements
   items:
     - id: findable
       title: Findable
