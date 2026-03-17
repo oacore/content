@@ -98,3 +98,9 @@ materials:
         caption: Open Newsletter
         url: /images/pdfs/core-community-newsletter-october-2025-.pdf
       image: /images/pdfView.svg
+    - image: /images/pdfView.svg
+      key: newsletter3
+      title: CORE Newsletter, March 2026
+      action:
+        caption: Open Newsletter
+        url: /images/pdfs/core-community-newsletter-march-2026.pdf
