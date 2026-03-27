@@ -4,7 +4,7 @@ description: |
 sections:
   - id: joining-core
     title: Joining CORE as data provider
-    updateDate: Last updated 22.02.2024
+    updateDate: Last updated 23/03/26
     caption: Joining CORE
     guideline:
       title: Data Provider’s Guide
@@ -60,7 +60,7 @@ sections:
           journal's OAI base URL and we will create a new entry.
   - id: Indexing
     title: Indexing
-    updateDate: Last updated 22.02.2024
+    updateDate: Last updated 23/03/26
     caption: Indexing
     sections:
       - id: general-indexing
@@ -135,17 +135,14 @@ sections:
             question: |
               My repository contains a much higher number of records than CORE.
               What can I do?
-            answer: >
-              Log in to the [CORE Repository
-              Dashboard](~services/repository-dashboard)
+            answer: >-
+              Log in to the [CORE Dashboard](~services/repository-dashboard)
 
               and look under the issues tab. Examine whether CORE has the correct oai base
 
               url of your repository or if there are any technical issues listed there.
 
-              If there are no technical issues or you do not have an account for the CORE
-
-              Repository Dashboard [contact us](~contact).
+              If there are no technical issues or you do not have an account for the CORE Dashboard [contact us](~contact).
           - slug: can-I-upload-a-new-version
             question: |
               There is a mistake in my article, can I upload a new version?
@@ -526,9 +523,10 @@ sections:
               In order for the metadata to be removed from CORE they need to be
               marked as "deleted/removed" in the repository. If the metadata are
               marked as "restricted" CORE will still display it.
+        updateDate: Last updated 23/03/26
   - id: membership
     title: Membership
-    updateDate: Last updated 22.02.2024
+    updateDate: Last updated 23/03/26
     caption: Membership
     guideline:
       title: Membership documentation
@@ -631,7 +629,7 @@ sections:
           even if it was not deposited in your local repository.
   - id: dashboard
     title: Dashboard
-    updateDate: Last updated 22.02.2024
+    updateDate: Last updated 23/03/26
     caption: Dashboard
     items:
       - slug: what-is-the-CORE-dashboard
@@ -720,7 +718,7 @@ sections:
           As a result, CORE and CRIS systems are complements, not substitutes, for each other.
   - id: services
     title: CORE services
-    updateDate: Last updated 22.02.2024
+    updateDate: Last updated 23/03/26
     caption: Services
     items:
       - slug: how-do-I-register-for-an-API-key
@@ -851,7 +849,7 @@ sections:
             or of another third party organisation linked to this organisation.
   - id: about
     title: General information about CORE
-    updateDate: Last updated 22.02.2024
+    updateDate: Last updated 23/03/26
     caption: General information
     items:
       - slug: high-resolution-logo-CORE
