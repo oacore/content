@@ -1,0 +1,156 @@
+#for dashboard
+
+table:
+  title: FAIR Certification fees
+  headers:
+    - name: Data provider size***
+    - name: >
+        [Low-income
+        countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      type: low
+    - name: >
+        [Middle-income
+        countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      type: middle
+    - name: >
+        [High-income
+        countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      type: high
+  certification:
+    subRows:
+      - title: Band 1
+        caption: up to 5K articles
+        prices:
+          - type: low
+            original: 1000
+          - type: middle
+            original: 2000
+          - type: high
+            original: 3000
+      - title: Band 2
+        caption: 5K - 10K articles
+        prices:
+          - type: low
+            original: 1250
+          - type: middle
+            original: 2250
+          - type: high
+            original: 3250
+      - title: Band 3
+        caption: 10K - 20K articles
+        prices:
+          - type: low
+            original: 1500
+          - type: middle
+            original: 2500
+          - type: high
+            original: 3500
+      - title: Band 4
+        caption: 20K - 40K articles
+        prices:
+          - type: low
+            original: 1750
+          - type: middle
+            original: 2750
+          - type: high
+            original: 3750
+      - title: Band 5
+        caption: 40K+ articles
+        prices:
+          - type: low
+            original: 2000
+          - type: middle
+            original: 3000
+          - type: high
+            original: 4000
+
+tableMembers:
+  title: FAIR Certification fees for Supporting and Sustaining members
+  headers:
+    - name: Data provider size**
+    - name: >
+        Supporting: [Low-income
+        countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      type: low
+    - name: >
+        Supporting: [Middle-income
+        countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      type: middle
+    - name: >
+        Supporting: [High-income
+        countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+      type: high
+    - name: Sustaining
+      type: sustaining
+  certification:
+    subRows:
+      - title: Band 1
+        caption: up to 5K articles
+        prices:
+          - type: low
+            discounted: 500
+            original: 1000
+          - type: middle
+            discounted: 1000
+            original: 2000
+          - type: high
+            discounted: 1500
+            original: 3000
+          - type: sustaining
+            free: true
+      - title: Band 2
+        caption: 5K - 10K articles
+        prices:
+          - type: low
+            discounted: 625
+            original: 1250
+          - type: middle
+            discounted: 1125
+            original: 2250
+          - type: high
+            discounted: 1625
+            original: 3250
+          - type: sustaining
+            free: true
+      - title: Band 3
+        caption: 10K - 20K articles
+        prices:
+          - type: low
+            discounted: 750
+            original: 1500
+          - type: middle
+            discounted: 1250
+            original: 2500
+          - type: high
+            discounted: 1750
+            original: 3500
+          - type: sustaining
+            free: true
+      - title: Band 4
+        caption: 20K - 40K articles
+        prices:
+          - type: low
+            discounted: 875
+            original: 1750
+          - type: middle
+            discounted: 1375
+            original: 2750
+          - type: high
+            discounted: 1875
+            original: 3750
+          - type: sustaining
+            free: true
+      - title: Band 5
+        caption: 40K+ articles
+        prices:
+          - type: low
+            discounted: 1000
+            original: 2000
+          - type: middle
+            discounted: 1500
+            original: 3000
+          - type: high
+            discounted: 2000
+            original: 4000
+          - type: sustaining
+            free: true

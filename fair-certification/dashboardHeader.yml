@@ -1,0 +1,17 @@
+header:
+  id: header
+  title: FAIR Repository Certification
+  icon: /images/fairLogo.svg
+  image: /images/fairCertificate.svg
+  label: Coming soon
+  description: |
+    FAIR Certification offers an opportunity for data providers (publications repositories, journals, data repositories, etc.) to demonstrate and evidence their adherence to the widely recognised FAIR (Findable, Accessible, Interoperable, Reusable) principles. A FAIR-compliant repository becomes a dynamic, machine-actionable component of the global research infrastructure, maximising the impact and reusability of the research it hosts.
+  actions:
+    - caption: Read more about CORE FAIR Certification on our website.
+      variant: contained
+      url: "https://core.ac.uk/services/fair-certification"
+    - caption: Register your interest
+      variant: contained
+      url: "https://docs.google.com/forms/d/e/1FAIpQLScVAzXyEoPNBno9qorv2pQU9QmUalagtcoRn9Tze4V5TQZ1Pw/viewform?usp=dialog"
+message:
+    title: Your request has been submitted. We will contact you as soon as possible to arrange the payment. After this you will get access to the FAIR certification report.
