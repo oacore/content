@@ -41,11 +41,3 @@ table:
       image: /images/harvard.svg
       organisation: Harvard University
       country: USA
-    - name: Tom Cramer
-      image: /images/stanford.svg
-      organisation: Stanford University
-      country: USA
-    - name: Kevin Shakesheff
-      image: /images/openUniversity.svg
-      organisation: The Open University
-      country: UK
