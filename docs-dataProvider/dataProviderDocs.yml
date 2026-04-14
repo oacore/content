@@ -171,6 +171,116 @@ items:
     images: null
     subTitle: null
     subDescription: null
+  - id: supporting-machine-access
+    title: 3.1.5.1 Supporting machine access
+    descriptionAbout: >-
+      We are observing an increasing number of cases where data providers
+      restrict machine access to both metadata (via OAI-PMH) and to full texts
+      in open repositories. In particular, access to OAI-PMH endpoints, which
+      are designed specifically for machine to machine communication rather than
+      human use, is sometimes unintentionally blocked as part of broader anti
+      bot protection measures.
+
+      These restrictions are often introduced in response to increased automated traffic, including malicious or poorly behaved bots, which can place significant load on repository infrastructure.
+
+      At the same time, it is important to ensure that such measures do not restrict legitimate machine access. Open Access relies on repositories making their metadata and full texts available to both human users and machines, enabling discovery and reuse at scale. Machine access is also increasingly important as many users, including researchers, now rely on AI based tools and assistants to support activities such as literature discovery and systematic reviews, which depend on reliable automated access to repository content.
+
+
+      The OAI-PMH protocol is a key component of this infrastructure and should remain accessible. Ensuring open and reliable access to metadata is also aligned with the principles of the Barcelona Declaration on Open Research Information, which emphasises the importance of making research information openly available for transparent and machine-driven use.
+
+
+      During the indexing process, we have identified various mechanisms by which access may be blocked:
+
+
+      * **HTTP error codes** often indicate that a blocking mechanism is in place. Codes 403 (Forbidden) and 404 (Not Found) are particularly common in these situations.
+
+      * **Challenge or CAPTCHA pages** are especially difficult to detect, because to a machine they appear to be a normal HTML page, while in reality they contain a challenge that cannot be processed automatically. This approach is a reasonable way of preventing robots from accessing pages intended solely for human consumption. However, it is sometimes applied to pages that should be machine accessible, making it difficult to distinguish legitimate content from a block.
+
+      * **Server errors (HTTP 5xx) and timeouts** are also frequently encountered and make it unclear to a machine whether a genuine error has occurred or whether a blocking mechanism is in place.
+
+
+      These responses can prevent legitimate access and do not always clearly indicate the reason for the restriction. CORE’s harvesting systems are designed to operate responsibly, including respecting robots.txt, limiting request rates, and applying exponential back-off. Where the nature of a response is unclear, it is difficult to adjust behaviour accordingly, which may reduce the coverage of indexed content.
+
+
+      To mitigate unwanted automated traffic while maintaining accessibility, the following approaches may be considered:
+
+
+      * **Whitelisting** trusted machine services, allowing known providers to access the repository without restriction while maintaining protective measures for other traffic
+
+      * **Blacklisting** known malicious bots, where specific IP addresses or agents are identified as causing excessive load or abusive behaviour
+
+      * **Behaviour-based filtering**, which penalises or blocks excessive or aggressive crawling behaviour while allowing more moderate and responsible access patterns, without unnecessarily differentiating between human and machine users
+
+
+      From the data provider’s perspective, several practical steps can be taken to ensure that protective measures do not interfere with legitimate indexing:
+
+
+      * If a **blocking strategy** is in place at your institution, verify whether it affects the OAI-PMH interface or access to full texts, and arrange for these to be opened where necessary. Particular attention should be given to automated protection layers such as web application firewalls or bot mitigation services.
+
+      * If whitelists or blacklists are used, ensure that trusted services such as CORE are **explicitly permitted access**. This may require adding IP ranges or user agents to an allowlist.
+
+      * Check whether the underlying repository software has the OAI-PMH interface enabled and that no restrictions have been applied at the application or server level. If the interface is disabled or restricted, indexing services will not be able to harvest metadata.
+
+      * As a first step, access the OAI-PMH endpoint via a web browser to confirm that it is reachable. This indicates that the interface is operational, but it does not guarantee full accessibility, as additional restrictions such as IP-based controls, rate limiting, or bot filtering may still apply.
+
+
+      Restricting access to OAI-PMH or full texts may prevent repositories from being indexed by CORE and other discovery services.
+
+      CORE is developing tools to help data providers assess accessibility from the perspective of the CORE Harvester. In the meantime, please contact the CORE team if further assistance is required. 
+    subDescription: >-
+      We are observing an increasing number of cases where data providers
+      restrict machine access to both metadata (via OAI-PMH) and to full texts
+      in open repositories. In particular, access to OAI-PMH endpoints, which
+      are designed specifically for machine to machine communication rather than
+      human use, is sometimes unintentionally blocked as part of broader anti
+      bot protection measures.
+
+      These restrictions are often introduced in response to increased automated traffic, including malicious or poorly behaved bots, which can place significant load on repository infrastructure.
+
+      At the same time, it is important to ensure that such measures do not restrict legitimate machine access. Open Access relies on repositories making their metadata and full texts available to both human users and machines, enabling discovery and reuse at scale. Machine access is also increasingly important as many users, including researchers, now rely on AI based tools and assistants to support activities such as literature discovery and systematic reviews, which depend on reliable automated access to repository content.
+
+
+      The OAI-PMH protocol is a key component of this infrastructure and should remain accessible. Ensuring open and reliable access to metadata is also aligned with the principles of the Barcelona Declaration on Open Research Information, which emphasises the importance of making research information openly available for transparent and machine-driven use.
+
+
+      During the indexing process, we have identified various mechanisms by which access may be blocked:
+
+
+      * **HTTP error codes** often indicate that a blocking mechanism is in place. Codes 403 (Forbidden) and 404 (Not Found) are particularly common in these situations.
+
+      * **Challenge or CAPTCHA pages** are especially difficult to detect, because to a machine they appear to be a normal HTML page, while in reality they contain a challenge that cannot be processed automatically. This approach is a reasonable way of preventing robots from accessing pages intended solely for human consumption. However, it is sometimes applied to pages that should be machine accessible, making it difficult to distinguish legitimate content from a block.
+
+      * **Server errors (HTTP 5xx) and timeouts** are also frequently encountered and make it unclear to a machine whether a genuine error has occurred or whether a blocking mechanism is in place.
+
+
+      These responses can prevent legitimate access and do not always clearly indicate the reason for the restriction. CORE’s harvesting systems are designed to operate responsibly, including respecting robots.txt, limiting request rates, and applying exponential back-off. Where the nature of a response is unclear, it is difficult to adjust behaviour accordingly, which may reduce the coverage of indexed content.
+
+
+      To mitigate unwanted automated traffic while maintaining accessibility, the following approaches may be considered:
+
+
+      * **Whitelisting** trusted machine services, allowing known providers to access the repository without restriction while maintaining protective measures for other traffic
+
+      * **Blacklisting** known malicious bots, where specific IP addresses or agents are identified as causing excessive load or abusive behaviour
+
+      * **Behaviour-based filtering**, which penalises or blocks excessive or aggressive crawling behaviour while allowing more moderate and responsible access patterns, without unnecessarily differentiating between human and machine users
+
+
+      From the data provider’s perspective, several practical steps can be taken to ensure that protective measures do not interfere with legitimate indexing:
+
+
+      * If a **blocking strategy** is in place at your institution, verify whether it affects the OAI-PMH interface or access to full texts, and arrange for these to be opened where necessary. Particular attention should be given to automated protection layers such as web application firewalls or bot mitigation services.
+
+      * If whitelists or blacklists are used, ensure that trusted services such as CORE are **explicitly permitted access**. This may require adding IP ranges or user agents to an allowlist.
+
+      * Check whether the underlying repository software has the OAI-PMH interface enabled and that no restrictions have been applied at the application or server level. If the interface is disabled or restricted, indexing services will not be able to harvest metadata.
+
+      * As a first step, access the OAI-PMH endpoint via a web browser to confirm that it is reachable. This indicates that the interface is operational, but it does not guarantee full accessibility, as additional restrictions such as IP-based controls, rate limiting, or bot filtering may still apply.
+
+
+      Restricting access to OAI-PMH or full texts may prevent repositories from being indexed by CORE and other discovery services.
+
+      CORE is developing tools to help data providers assess accessibility from the perspective of the CORE Harvester. In the meantime, please contact the CORE team if further assistance is required. 
   - title: 3.1.6 Repository registration in open registries (Recommended)
     id: open-registries
     descriptionAbout: >
