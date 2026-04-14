@@ -25,6 +25,8 @@ navItems:
     href: "#oai-identifier"
   - item: 3.1.5 Access for machine agents - (Required)
     href: "#machine-agents"
+  - item: 3.1.5.1 Supporting machine access
+    href: "#supporting-machine-access"
   - item: 3.1.6 Repository registration in open registries (Recommended)
     href: "#open-registries"
   - item: 3.1.7 Meta-tags (Recommended)
