@@ -69,15 +69,15 @@ tableMembers:
   headers:
     - name: Data provider size**
     - name: >
-        Supporting: [Low-income
+        [Low-income
         countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
       type: low
     - name: >
-        Supporting: [Middle-income
+        [Middle-income
         countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
       type: middle
     - name: >
-        Supporting: [High-income
+       [High-income
         countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
       type: high
     - name: Sustaining
