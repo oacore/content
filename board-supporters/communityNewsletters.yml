@@ -21,9 +21,3 @@ materials:
       action:
         caption: Open Newsletter
         url: /images/pdfs/core-community-newsletter-march-2026.pdf
-    - action:
-        caption: Open Newsletter
-        url: /images/pdfs/bos-presentation-april-2026-1-.pdf
-      title: CORE Newsletter, March 2026
-      image: /images/pdfView.svg
-      key: newsletter4
