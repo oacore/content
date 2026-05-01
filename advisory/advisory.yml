@@ -1,43 +1,106 @@
 table:
   title: Advisory Board List
   data:
-    - name: Rachel Bruce & Andy Hepburn
+    - name: Martin Borchert
+      image: /images/UNSW.svg
+      organisation: UNSW Sydney
+      country: Australia
+      role: Research Data & Repository Specialist
+      contribution: >
+        Is a leading figure in the Australia and New Zealand repositories community.
+    - name: Thom Blake
+      image: /images/york.svg
+      organisation: University of York / UKCoRR
+      country: UK
+      role: Open Research Manager; Chair, UKCoRR
+      contribution: >
+        Is Chair of the United Kingdom Council of Open Research and Repositories (UKCoRR).
+    - name: Andy Hepburn
       image: /images/ukri.svg
       organisation: UKRI
       country: UK
+      role: Associate Director, Operational Programmes
+      contribution: >
+        Senior policy leadership in UK research funding and infrastructure, influencing delivery
+        of open research and national programmes.
+    - name: Carly Robinson
+      image: /images/sparc.svg
+      organisation: SPARC
+      country: USA
+      role: Policy & Community Engagement Lead
+      contribution: >
+        Brings expertise in open access policy and community engagement and represents a
+        connection within the US repositories network.
+    - name: Omo Oaiya
+      image: /images/libsense.svg
+      organisation: LIBSENSE
+      country: Nigeria
+      role: Chief Strategist
+      contribution: >
+        Brings critical insight into African open science infrastructure and capacity building.
+    - name: Rachel Bruce
+      image: /images/ukri.svg
+      organisation: UKRI
+      country: UK
+      role: Programme Director (Research Infrastructure)
+      contribution: >
+        Holds a senior leadership role in shaping the UK's research infrastructure strategy.
     - name: George Macgregor
       image: /images/university-glasgow.png
       organisation: University of Glasgow
       country: UK
-    - name: Kathleen Shearer
+      role: Research Services Lead
+      contribution: >
+        Is an established expert in repositories, metadata, and scholarly communications.
+    - name: Kathleen Sheerer
       image: /images/core.svg
       organisation: Confederation of Open Access Repositories (COAR)
       country: Canada
+      role: Executive Director
+      contribution: >
+        Serves as Executive Director of the Confederation of Open Access Repositories (COAR).
     - name: Herbert van de Sompel
       image: /images/dans.svg
       organisation: Data Archiving and Networked Services (DANS)
       country: NL
+      role: Researcher / Digital Library Expert
+      contribution: >
+        Is internationally recognised for his pioneering work in digital libraries and scholarly
+        communication infrastructure.
     - name: Jean-Claude Guedon
       image: /images/montreal.svg
       organisation: University of Montreal
       country: Canada
+      role: Professor Emeritus / Open Access Pioneer
+      contribution: >
+        Foundational thought leadership in open access and open science; early architect of global
+        principles, including being one of the original signatories of the Budapest Open Access
+        Initiative (BOAI 2002).
     - name: Kazu Yamaji
       image: /images/nationalInstitute.svg
       organisation: National Institute of Informatics
       country: Japan
+      role: Professor / Research Infrastructure Specialist
+      contribution: >
+        Plays a key role in advancing open science and research infrastructure in Japan.
     - name: Aaron Tay
       image: /images/singaporesvg.svg
       organisation: Singapore Management University
       country: Singapore
+      role: Senior Librarian / Discovery Specialist
+      contribution: >
+        Is widely recognised for his work in discovery systems and scholarly communication practices.
     - name: Allan Hanbury
       image: /images/tuwien.svg
       organisation: TU Wien
       country: Austria
-    - name: Torsten Reimer
-      image: /images/chicago.svg
-      organisation: The University of Chicago
-      country: USA
+      role: Professor of Data Science
+      contribution: >
+        Is a leading researcher in artificial intelligence and information retrieval.
     - name: Peter Suber
       image: /images/harvard.svg
       organisation: Harvard University
       country: USA
+      role: Senior Advisor on Open Access
+      contribution: >
+        Is one of the foremost advocates and thought leaders in the global open access movement.
