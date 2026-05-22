@@ -186,7 +186,7 @@ items:
       At the same time, it is important to ensure that such measures do not restrict legitimate machine access. Open Access relies on repositories making their metadata and full texts available to both human users and machines, enabling discovery and reuse at scale. Machine access is also increasingly important as many users, including researchers, now rely on AI based tools and assistants to support activities such as literature discovery and systematic reviews, which depend on reliable automated access to repository content.
 
 
-      To validate that your repository is configured correctly for machine access and that CORE is able to index your repository, use the Repository Indexability Diagnostics Tool. This tool will run a series of diagnostic tests and provides immediate feedback and validation of your configuration.
+      To validate that your repository is configured correctly for machine access and that CORE is able to index your repository, use the [Repository Indexability Diagnostics Tool](https://core.ac.uk/blocking-diagnostic). This tool will run a series of diagnostic tests and provides immediate feedback and validation of your configuration.
 
 
       The OAI-PMH protocol is a key component of this infrastructure and should remain accessible. Ensuring open and reliable access to metadata is also aligned with the principles of the Barcelona Declaration on Open Research Information, which emphasises the importance of making research information openly available for transparent and machine-driven use.
