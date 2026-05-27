@@ -29,3 +29,12 @@ features:
     action:
       caption: Try it now
       url: /data-availability
+  - id: diagnostics
+    logo: /images/diagnostics.svg
+    title: Repository Indexability Diagnostics
+    tag: Diagnostic
+    description: |
+      This tool will run basic diagnostic tests against your repository to find out if it is not blocking indexing systems. You just need to enter your repository URL, OAI-PMH base URL, or domain name in the form and you will get a report of all diagnostic tests with details and recommendations.
+    action:
+      caption: Try it now
+      url: /blocking-diagnostic
