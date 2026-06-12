@@ -1,0 +1,12 @@
+institutionBenefit:
+  title: Find out how other institutions [benefited](documentation/membership-documentation) from CORE Dataset
+  item:
+    - title: |
+        Erasmus University Rotterdam: first LLM for Social Sciences and Humanites
+      description: CORE (COnnecting REpositories) is supporting researchers at Erasmus University Rotterdam in the development of SHARE (Social-Humanities AI for Research and Education), the first Large Language Model (LLM) designed specifically for the Social Sciences and Humanities (SSH). Unlike existing AI models, which are mostly trained on general web data dominated by STEM disciplines, SHARE draws on CORE’s open research corpus to create a model that can engage with the depth and nuance of SSH scholarship.
+      user: Erasmus University Rotterdam
+      position: Netherland
+      img: /images/services/erasmus.svg
+      action:
+        title: read more
+        url: https://arxiv.org/abs/2604.11152
