@@ -17,123 +17,157 @@ links:
   content:
     - title: Introduction
       href: introduction
-    - title: Principles
-      href: principles
+    - title: Objectives
+      href: objectives
     - title: Recruitment and Career Development
       href: recruitment
-    - title: Working Environment
+    - title: Inclusive Working Environment
       href: working-environment
     - title: Work-Life Balance
       href: work-life-balance
     - title: Leadership and Decision-Making
       href: leadership
-    - title: Pay and Employment Conditions
+    - title: Fair Pay and Employment Conditions
       href: pay
-    - title: Monitoring and Review
+    - title: Resources and Responsibility
+      href: resources
+    - title: Data Collection and Monitoring
       href: monitoring
-    - title: Responsibility
-      href: responsibility
+    - title: Awareness and Training
+      href: awareness
+    - title: Review
+      href: review
 main:
   - title: 1. Introduction
     id: introduction
     content: >
-      CORE: COnnecting REpositories Ltd ("CORE") is a small UK research
+      CORE: COnnecting REpositories Ltd ("CORE") is a UK not-for-profit research
       infrastructure organisation dedicated to supporting open science through
-      the provision of trusted scholarly data, services and research
-      infrastructure.
+      trusted scholarly data, services and digital infrastructure.
 
 
-      CORE is committed to providing a working environment in which all individuals are treated fairly, with dignity and respect, regardless of sex, gender or other protected characteristics. We believe that equal opportunities support better decision-making, strengthen innovation and enable us to attract and retain talented people.
+      CORE is committed to providing a working environment in which all
+      individuals are treated fairly, with dignity and respect, regardless of
+      sex, gender or any other protected characteristic recognised under
+      applicable law.
 
 
-      As a small organisation, CORE seeks to ensure that its employment practices are fair, transparent and based solely on merit. This Gender Equality Plan sets out the principles and measures through which CORE promotes equality within the organisation.
+      We believe that equality of opportunity strengthens innovation, supports
+      better decision-making and enables us to attract, develop and retain
+      talented people.
 
 
-      CORE is a small organisation and the measures set out in this plan are proportionate to its current size. As the organisation grows, this plan will be reviewed and updated to reflect evolving organisational needs and good practice.
-  - title: 2. Principles
-    id: principles
-    content: |
-      CORE is committed to:
+      As a newly established organisation, CORE's policies and governance
+      arrangements are developing alongside its growth. This Gender Equality Plan
+      establishes the organisation's commitment to equality and sets out
+      proportionate measures appropriate to its current size. The plan will be
+      reviewed regularly and updated as the organisation develops.
 
-      * providing equal opportunities in recruitment, employment and career
-        development;
 
-      * ensuring that employment decisions are based on merit, skills,
-        experience and organisational needs;
+      Given the nature of CORE's activities as a provider of scholarly research
+      infrastructure and digital services, the integration of sex or gender
+      analysis into research content is not generally applicable across the
+      organisation's activities. Where CORE undertakes or participates in
+      research projects for which consideration of sex or gender is scientifically
+      relevant, these aspects will be addressed as appropriate within the design
+      and conduct of those individual projects and in accordance with applicable
+      funder requirements.
+  - title: 2. Objectives
+    id: objectives
+    content: >
+      The objectives of this Gender Equality Plan are to:
 
-      * maintaining a respectful, inclusive and professional working
-        environment;
 
-      * preventing discrimination, harassment and victimisation;
-      * supporting flexible ways of working where operationally appropriate;
-      * complying with all applicable equality legislation.
+      * promote equality of opportunity across all employment practices;
+
+      * support fair and transparent recruitment and career development;
+
+      * foster an inclusive, respectful and professional working environment;
+
+      * prevent discrimination, harassment and victimisation;
+
+      * support work-life balance where operationally feasible;
+
+      * monitor implementation of this plan through proportionate data collection
+        and review;
+
+      * raise awareness of equality and inclusive working practices across the
+        organisation.
   - title: 3. Recruitment and Career Development
     id: recruitment
     content: >
-      CORE aims to recruit the best candidates through fair and transparent
-      recruitment processes.
+      CORE is committed to recruiting and developing staff solely on the basis of
+      merit, skills, experience and organisational requirements.
 
 
-      Where practical, CORE will:
+      Where appropriate, CORE will:
 
 
       * advertise vacancies openly;
 
-      * use objective selection criteria;
+      * apply objective selection criteria;
 
-      * assess candidates consistently against the requirements of each role;
+      * assess candidates consistently against role requirements;
 
       * encourage applications from suitably qualified individuals from diverse
-        backgrounds.
+        backgrounds;
+
+      * provide equal access to professional development opportunities.
 
 
-      Appointments, promotions and professional development opportunities will be based solely on merit, performance and organisational requirements.
-  - title: 4. Working Environment
+      Appointments, promotions and remuneration decisions will be based on
+      objective business considerations and individual merit.
+  - title: 4. Inclusive Working Environment
     id: working-environment
     content: >
-      CORE is committed to maintaining a workplace where everyone is treated
-      with professionalism and respect.
+      CORE is committed to maintaining a workplace in which everyone is treated
+      with professionalism, fairness and respect.
 
 
-      The organisation does not tolerate:
+      The organisation has zero tolerance for discrimination, bullying,
+      harassment, including sexual harassment, victimisation, and any other
+      inappropriate conduct.
 
 
-      * discrimination;
-
-      * bullying;
-
-      * harassment;
-
-      * victimisation.
-
-
-      Employees are encouraged to raise concerns at an early stage, and any complaints will be considered promptly, fairly and confidentially.
+      Employees are encouraged to raise concerns promptly. Any concerns will be
+      handled fairly, confidentially and in accordance with applicable employment
+      policies and legislation. Where appropriate, CORE will take reasonable steps
+      to prevent recurrence and to promote a safe and respectful working
+      environment.
   - title: 5. Work-Life Balance
     id: work-life-balance
     content: >
-      Recognising that flexible working arrangements can support equality of
-      opportunity, CORE will, where operationally feasible:
+      CORE recognises that flexible working arrangements can contribute to
+      equality of opportunity.
+
+
+      Subject to operational requirements, the organisation will:
 
 
       * consider requests for flexible working;
 
       * support reasonable work-life balance;
 
-      * seek practical solutions that meet both organisational and individual
-        needs.
+      * seek practical arrangements that accommodate both organisational and
+        individual needs.
   - title: 6. Leadership and Decision-Making
     id: leadership
     content: >
-      CORE aims to ensure that leadership and management decisions are made
-      fairly and transparently.
+      CORE is committed to ensuring that leadership and management decisions are
+      made fairly, transparently and objectively.
 
 
-      As the organisation develops, CORE will seek to promote diversity of perspectives in leadership, governance and recruitment activities, while continuing to appoint individuals based on merit.
-  - title: 7. Pay and Employment Conditions
+      As the organisation grows, CORE will seek to promote diversity of
+      perspectives within leadership, governance and recruitment activities while
+      continuing to appoint individuals on the basis of merit and organisational
+      needs.
+  - title: 7. Fair Pay and Employment Conditions
     id: pay
     content: >
-      CORE is committed to providing equitable pay and employment conditions for
-      employees undertaking comparable work, taking account of:
+      CORE is committed to providing equitable employment conditions.
+
+
+      Pay decisions will take account of:
 
 
       * responsibilities;
@@ -142,46 +176,106 @@ main:
 
       * experience;
 
-      * performance.
+      * performance;
+
+      * market conditions where relevant.
 
 
-      The organisation will periodically review its employment practices to help ensure fairness and consistency.
-  - title: 8. Monitoring and Review
+      The organisation will periodically review its employment practices to
+      promote fairness and consistency.
+  - title: 8. Resources and Responsibility
+    id: resources
+    content: >
+      Responsibility for implementing this Gender Equality Plan rests with the
+      Chief Executive Officer.
+
+
+      The Board of Directors has adopted this plan and supports its
+      implementation across the organisation.
+
+
+      Given CORE's current size, implementation forms part of normal management
+      responsibilities and does not require a dedicated organisational unit.
+      Appropriate management time and organisational resources will be allocated
+      to implementing, monitoring and periodically reviewing the plan.
+
+
+      Where appropriate, CORE will seek external advice on equality matters to
+      support good practice and compliance with applicable legislation.
+  - title: 9. Data Collection and Monitoring
     id: monitoring
     content: >
-      Given the current size of the organisation, CORE will monitor
-      implementation of this plan through periodic management review rather than
-      formal statistical reporting.
+      CORE will monitor implementation of this plan through proportionate data
+      collection and management review.
 
 
-      As the organisation grows, CORE will consider introducing proportionate monitoring measures, including where appropriate:
+      The organisation will maintain sex-disaggregated information relating to
+      its workforce, including, where applicable:
 
+
+      * recruitment;
 
       * workforce composition;
 
-      * recruitment outcomes;
+      * promotions;
 
-      * promotion and progression;
+      * departures;
 
-      * training participation.
+      * participation in training.
 
 
-      The plan will be reviewed annually and updated as necessary.
-  - title: 9. Responsibility
-    id: responsibility
+      Given the organisation's current size, formal statistical reporting is
+      neither practical nor meaningful. Instead, management will review relevant
+      information periodically and at least every two years to assess whether any
+      actions under this plan require adjustment.
+
+
+      The Gender Equality Plan itself will be reviewed annually and updated where
+      necessary.
+  - title: 10. Awareness and Training
+    id: awareness
     content: >
-      Overall responsibility for implementation of this Gender Equality Plan
-      rests with the Chief Executive Officer.
+      CORE recognises that awareness contributes to maintaining an inclusive
+      working environment.
 
 
-      All employees share responsibility for contributing to an inclusive, respectful and professional working environment.
+      The organisation will ensure that employees, managers and individuals
+      involved in recruitment receive appropriate information or training on
+      equality, diversity and inclusive working practices.
+
+
+      For a small organisation, this may include:
+
+
+      * induction materials;
+
+      * internal briefings;
+
+      * externally provided guidance or training where appropriate.
+
+
+      Training will include awareness of fair recruitment practices and
+      unconscious bias where relevant.
+  - title: 11. Review
+    id: review
+    content: >
+      This Gender Equality Plan will normally be reviewed annually by management
+      and formally reviewed by the Board of Directors at least every two years,
+      or sooner where organisational growth or changes in legislation make this
+      appropriate.
+
+
+      Updated versions of this plan will be published on the CORE website.
   - title: Approval
     id: approval
-    content: |
+    content: >
       Approved by the Board of Directors of CORE: COnnecting REpositories Ltd.
+
 
       Version: **1.0**
 
+
       Approved: **July 2026**
+
 
       Next review: **August 2027**
