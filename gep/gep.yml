@@ -1,5 +1,13 @@
 header:
   title: Gender Equality Plan (GEP)
+  description: |
+    CORE: COnnecting REpositories Ltd
+
+    Version 1.0
+
+    Effective date: 24th July 2026
+
+    Review date: August 2027
   actions:
     - caption: Download pdf
       url: /resources/core-gep.pdf
