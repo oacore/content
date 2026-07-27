@@ -22,6 +22,8 @@ entities:
                 children:
                   - title: Example Authorship record
                     slug: authorships-api-example-authorship-record
+          - title: Authorship–Affiliation relationship
+            slug: authorships-api-authorship-affiliation-relationship
           - title: Supported field operations
             slug: authorships-api-supported-field-operations
           - title: Boolean query syntax
@@ -52,6 +54,8 @@ entities:
                     slug: authorships-api-get-single-example-response-select
               - title: Search Authorships
                 slug: authorships-api-search-authorships
+              - title: Retrieve Affiliations for an Authorship
+                slug: authorships-api-retrieve-affiliations
               - title: Relationship-oriented endpoints
                 slug: authorships-api-relationship-endpoints
               - title: Responses

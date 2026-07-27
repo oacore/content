@@ -103,11 +103,13 @@ pages:
   - id: authorships-api-introduction
     title: Introduction
     content: |
-      The Authorship entity represents the relationship between a Work and an Author. An Authorship record describes how an author appears on a particular scholarly work. It contains work-specific information such as the author's position in the author list, numeric rank, corresponding-author status, source-provided name, and affiliations used on that work.
+      An Authorship record describes how an Author appears on a particular scholarly Work. It contains Work-specific information such as the Author's position in the author list, numeric rank, corresponding-Author status, and source-provided name. Affiliations used by the Author on the Work are connected to the Authorship through the Authorship_Affiliation bridge entity.
 
       Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
 
-      A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author.
+      ![Entity relationships between Works, Authorships and Authors](/docs-graph/img/works-citations-outputs1.png)
+
+      A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author. An Authorship may be linked to zero or more Affiliation records through `authorship_affiliation`.
 
   - id: authorships-api-data-structure
     title: Data structure
@@ -119,7 +121,6 @@ pages:
       | authorshipId | integer | 234 | CORE identifier for the authorship | CORE |
       | workId | integer | 23456 | CORE identifier of the associated work. | CORE |
       | authorId | integer | 12 | CORE identifier of the associated author. | CORE |
-      | affiliationIds | string[] \| null | ["coreaffil____::1", "coreaffil____::2"] | List of affiliation identifiers associated with the author on this work. One authorship may reference multiple affiliations. | CORE |
       | rawName | string \| null | Smith, Alice | Verbatim author name string as supplied in the source metadata for this work. | OAI-PMH / Crossref |
       | sequence* | string \| null | first | Author order classification within the work, such as first or additional. | Crossref / OpenAlex |
       | rank* | integer \| null | 1 | Numeric rank of the author in the author list. | OpenAIRE / OpenAlex |
@@ -134,7 +135,7 @@ pages:
   - id: authorships-api-author-position
     title: Author position
     content: |
-      The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the author's position in the author list for the specific work.
+      The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
 
       For example:
 
@@ -180,6 +181,42 @@ pages:
       }
       ```
 
+  - id: authorships-api-authorship-affiliation-relationship
+    title: Authorship–Affiliation relationship
+    content: |
+      Affiliations used by an Author on a particular Work are represented through the `authorship_affiliation` bridge entity. The bridge contains the identifiers of the connected Authorship and Affiliation records.
+
+      ![Authorship–Affiliation relationship diagram](/docs-graph/img/works-citations-outputs2.png)
+
+      | Property | Type | Example value | Description | Source |
+      | --- | --- | --- | --- | --- |
+      | authorshipId | integer | 987654 | CORE identifier of the Authorship participating in the relationship. | CORE |
+      | affiliationId | integer | 901 | CORE identifier of the Affiliation participating in the relationship. | CORE |
+
+      Example bridge records:
+
+      ```json
+      [
+        {
+          "authorshipId": 987654,
+          "affiliationId": 901
+        },
+        {
+          "authorshipId": 987654,
+          "affiliationId": 902
+        }
+      ]
+      ```
+
+      These records indicate that Authorship 987654 is associated with Affiliations 901 and 902.
+
+      The bridge is used because:
+
+      - one Authorship may be linked to multiple Affiliations;
+      - one Affiliation may be linked to multiple Authorship records representing different Works;
+      - Authorship contains only Work-specific Author information;
+      - Affiliation remains an independently addressable and reusable entity.
+
   - id: authorships-api-supported-field-operations
     title: Supported field operations
     content: |
@@ -190,7 +227,6 @@ pages:
       | authorshipId | No | Yes | No | No |
       | workId | No | Yes | Yes | No |
       | authorId | No | Yes | Yes | No |
-      | affiliationIds | No | Yes | No | No |
       | rawName | Yes | No | No | No |
       | sequence | No | Yes | Yes | Yes |
       | rank | No | Yes | Yes | Yes |
@@ -237,6 +273,8 @@ pages:
 
       - `GET /v4/works/{workId}/authorships`
       - `GET /v4/authors/{authorId}/authorships`
+      - `GET /v4/authorships/{authorshipId}/affiliations`
+      - `GET /v4/affiliations/{affiliationId}/authorships`
 
       The Author relationship endpoint should only be exposed in a version that provides the Author entity.
 
@@ -248,6 +286,7 @@ pages:
       | Get a single Authorship | GET | `/v4/authorships/{authorshipId}` |
       | Search Authorships using URL parameters | GET | `/v4/search/authorships` |
       | Search Authorships using a JSON request body | POST | `/v4/search/authorships` |
+      | Retrieve Affiliations for an Authorship | GET | `/v4/authorships/{authorshipId}/affiliations` |
 
       Authorship records may also be retrieved through relationship-oriented endpoints:
 
@@ -556,46 +595,6 @@ pages:
 
       This returns Authorship records where `sequence` is either `first` or `last`.
 
-      ### Retrieve Authorships by Affiliation
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url 'https://api.core.ac.uk/v4/search/authorships?q=affiliationIds:"45"' \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      **Equivalent POST**
-
-      ```json
-      {
-        "q": "affiliationIds:\"45\""
-      }
-      ```
-
-      The `affiliationIds` property is a collection. An Authorship matches when the collection contains the supplied Affiliation identifier.
-
-      ### Retrieve Authorships with source evidence
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=_exists_:sourceOutputIds" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      **Equivalent POST**
-
-      ```json
-      {
-        "q": "_exists_:sourceOutputIds"
-      }
-      ```
-
-      This returns Authorship records where `sourceOutputIds` is not empty.
-
       ### Combined search, selection, and ordering
 
       The following request:
@@ -878,6 +877,59 @@ pages:
       offset = page size × number of previous pages
       ```
 
+  - id: authorships-api-retrieve-affiliations
+    title: Retrieve Affiliations for an Authorship
+    content: |
+      Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
+
+      ## API endpoint
+
+      ```
+      GET https://api.core.ac.uk/v4/authorships/{authorshipId}/affiliations
+      ```
+
+      ## Path parameters
+
+      | Parameter | Type | Required | Description |
+      | --- | --- | --- | --- |
+      | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
+
+      ## Example request
+
+      ```bash
+      curl --request GET \
+        --url "https://api.core.ac.uk/v4/authorships/987654/affiliations" \
+        --header "Authorization: Bearer YOUR_API_KEY"
+      ```
+
+      ## Example response
+
+      ```json
+      {
+        "totalHits": 2,
+        "results": [
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford"
+          },
+          {
+            "affiliationId": 902,
+            "authorId": 67890,
+            "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
+            "department": "Oxford Internet Institute",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford"
+          }
+        ]
+      }
+      ```
+
+      This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
+
   - id: authorships-api-relationship-endpoints
     title: Relationship-oriented endpoints
     content: |
@@ -939,6 +991,22 @@ pages:
         "q": "authorId:{authorId}"
       }
       ```
+
+      ## Affiliations for an Authorship
+
+      ```
+      GET /v4/authorships/{authorshipId}/affiliations
+      ```
+
+      This relationship is resolved through `authorship_affiliation`.
+
+      ## Authorships for an Affiliation
+
+      ```
+      GET /v4/affiliations/{affiliationId}/authorships
+      ```
+
+      This relationship is also resolved through `authorship_affiliation`.
 
   - id: authorships-api-responses
     title: Responses
