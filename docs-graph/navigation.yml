@@ -3,12 +3,6 @@ entities:
     slug: authorships
     count: 6
     items:
-      - title: Authorships
-        slug: authorships
-      - title: Data Structure
-        slug: authorships-v1-data-structure
-      - title: Data Structure
-        slug: authorships-v2-data-structure
       - title: Authorship Graph API documentation
         slug: authorships-api
         children:
