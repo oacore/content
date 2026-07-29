@@ -67,3 +67,5 @@ navItems:
             href: "#citations-metrics"
           - item: Example JSON structure
             href: "#citations-example-json"
+  - hidden: false
+    item: Authors
