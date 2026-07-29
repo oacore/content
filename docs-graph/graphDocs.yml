@@ -1,18 +1,20 @@
-pages:
+items:
   - id: authorships-api-introduction
     title: Authorship Graph API documentation
-    content: |
+    descriptionAbout: |
       An Authorship record describes how an Author appears on a particular scholarly Work. It contains Work-specific information such as the Author's position in the author list, numeric rank, corresponding-Author status, and source-provided name. Affiliations used by the Author on the Work are connected to the Authorship through the Authorship_Affiliation bridge entity.
 
       Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
 
-      ![Entity relationships between Works, Authorships and Authors](/docs-graph/img/works-citations-outputs1.png)
-
       A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author. An Authorship may be linked to zero or more Affiliation records through `authorship_affiliation`.
+    images:
+      - file: /images/docs-graph/works-citations-outputs1.png
+    subTitle: null
+    subDescription: null
 
   - id: authorships-api-data-structure
     title: Data structure
-    content: |
+    descriptionAbout: |
       The table below describes the top-level fields in the CORE Graph metadata schema for the Authorship entity, including their types, example values, descriptions, and sources.
 
       | Property | Type | Example value | Description | Source |
@@ -33,7 +35,7 @@ pages:
 
   - id: authorships-api-author-position
     title: Author position
-    content: |
+    descriptionAbout: |
       The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
 
       For example:
@@ -60,7 +62,7 @@ pages:
 
   - id: authorships-api-example-authorship-record
     title: Example Authorship record
-    content: |
+    descriptionAbout: |
       ```json
       {
         "authorshipId": 987654,
@@ -82,10 +84,8 @@ pages:
 
   - id: authorships-api-authorship-affiliation-relationship
     title: Authorship–Affiliation relationship
-    content: |
+    descriptionAbout: |
       Affiliations used by an Author on a particular Work are represented through the `authorship_affiliation` bridge entity. The bridge contains the identifiers of the connected Authorship and Affiliation records.
-
-      ![Authorship–Affiliation relationship diagram](/docs-graph/img/works-citations-outputs2.png)
 
       | Property | Type | Example value | Description | Source |
       | --- | --- | --- | --- | --- |
@@ -115,10 +115,14 @@ pages:
       - one Affiliation may be linked to multiple Authorship records representing different Works;
       - Authorship contains only Work-specific Author information;
       - Affiliation remains an independently addressable and reusable entity.
+    images:
+      - file: /images/docs-graph/works-citations-outputs2.png
+    subTitle: null
+    subDescription: null
 
   - id: authorships-api-supported-field-operations
     title: Supported field operations
-    content: |
+    descriptionAbout: |
       The table below describes which Authorship properties can be searched, queried through field lookups, ordered, or used as facets.
 
       | Attribute | Searchable | Filterable | Sortable | Facetable |
@@ -146,7 +150,7 @@ pages:
 
   - id: authorships-api-boolean-query-syntax
     title: Boolean query syntax
-    content: |
+    descriptionAbout: |
       The examples in this document use explicit Boolean operators:
 
       ```
@@ -165,7 +169,7 @@ pages:
 
   - id: authorships-api-available-endpoints
     title: Available endpoints
-    content: |
+    descriptionAbout: |
       | Operation | Method | Endpoint |
       | --- | --- | --- |
       | Get a single Authorship | GET | `/v4/authorships/{authorshipId}` |
@@ -182,14 +186,14 @@ pages:
 
   - id: authorships-api-get-single-authorship
     title: Get a single Authorship
-    content: |
+    descriptionAbout: |
       Retrieves a single Authorship record using its unique CORE Authorship identifier.
 
       The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
 
   - id: authorships-api-get-single-api-endpoint
     title: API endpoint
-    content: |
+    descriptionAbout: |
       ```
       GET https://api.core.ac.uk/v4/authorships/{authorshipId}
       ```
@@ -198,28 +202,28 @@ pages:
 
   - id: authorships-api-get-single-authorization
     title: Authorization
-    content: |
+    descriptionAbout: |
       | Parameter | Location | Type | Required | Description |
       | --- | --- | --- | --- | --- |
       | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
 
   - id: authorships-api-get-single-path-parameters
     title: Path parameters
-    content: |
+    descriptionAbout: |
       | Parameter | Type | Required | Description |
       | --- | --- | --- | --- |
       | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
 
   - id: authorships-api-get-single-query-parameters
     title: Query parameters
-    content: |
+    descriptionAbout: |
       | Parameter | Type | Required | Description |
       | --- | --- | --- | --- |
       | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
 
   - id: authorships-api-get-single-example-request
     title: Example request
-    content: |
+    descriptionAbout: |
       ```bash
       curl --request GET \
         --url "https://api.core.ac.uk/v4/authorships/987654" \
@@ -228,7 +232,7 @@ pages:
 
   - id: authorships-api-get-single-example-response
     title: Example response
-    content: |
+    descriptionAbout: |
       ```json
       {
         "authorshipId": 987654,
@@ -250,7 +254,7 @@ pages:
 
   - id: authorships-api-get-single-example-request-select
     title: Example request using select
-    content: |
+    descriptionAbout: |
       ```bash
       curl --request GET \
         --url "https://api.core.ac.uk/v4/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
@@ -259,7 +263,7 @@ pages:
 
   - id: authorships-api-get-single-example-response-select
     title: Example response using select
-    content: |
+    descriptionAbout: |
       ```json
       {
         "authorshipId": 987654,
@@ -272,7 +276,7 @@ pages:
 
   - id: authorships-api-search-authorships
     title: Search Authorships
-    content: |
+    descriptionAbout: |
       Searches, filters, orders, facets, counts, and paginates Authorship records.
 
       Authorship search is available through GET and POST:
@@ -764,7 +768,7 @@ pages:
 
   - id: authorships-api-retrieve-affiliations
     title: Retrieve Affiliations for an Authorship
-    content: |
+    descriptionAbout: |
       Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
 
       ## API endpoint
@@ -817,7 +821,7 @@ pages:
 
   - id: authorships-api-relationship-endpoints
     title: Relationship-oriented endpoints
-    content: |
+    descriptionAbout: |
       Relationship-oriented endpoints provide convenient access to Authorship records through related graph entities.
 
       They do not introduce a different Authorship representation. Internally, they apply the appropriate relationship condition to the Authorship collection.
@@ -895,7 +899,7 @@ pages:
 
   - id: authorships-api-responses
     title: Responses
-    content: |
+    descriptionAbout: |
       ## Get a single Authorship
 
       | Status | Description |

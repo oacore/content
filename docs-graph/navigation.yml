@@ -1,56 +1,52 @@
-entities:
-  - title: Authorships
-    slug: authorships
-    count: 6
-    items:
-      - title: Authorship Graph API documentation
-        slug: authorships-api
+navItems:
+  - item: Authorships
+    children:
+      - item: Authorship Graph API documentation
         children:
-          - title: Introduction
-            slug: authorships-api-introduction
-          - title: Data structure
-            slug: authorships-api-data-structure
+          - item: Introduction
+            href: "#authorships-api-introduction"
+          - item: Data structure
+            href: "#authorships-api-data-structure"
             children:
-              - title: Author position
-                slug: authorships-api-author-position
+              - item: Author position
+                href: "#authorships-api-author-position"
                 children:
-                  - title: Example Authorship record
-                    slug: authorships-api-example-authorship-record
-          - title: Authorship–Affiliation relationship
-            slug: authorships-api-authorship-affiliation-relationship
-          - title: Supported field operations
-            slug: authorships-api-supported-field-operations
-          - title: Boolean query syntax
-            slug: authorships-api-boolean-query-syntax
-          - title: Authorship endpoints
-            slug: authorships-api-endpoints
+                  - item: Example Authorship record
+                    href: "#authorships-api-example-authorship-record"
+          - item: Authorship–Affiliation relationship
+            href: "#authorships-api-authorship-affiliation-relationship"
+          - item: Supported field operations
+            href: "#authorships-api-supported-field-operations"
+          - item: Boolean query syntax
+            href: "#authorships-api-boolean-query-syntax"
+          - item: Authorship endpoints
             children:
-              - title: Available endpoints
-                slug: authorships-api-available-endpoints
-              - title: Get a single Authorship
-                slug: authorships-api-get-single-authorship
+              - item: Available endpoints
+                href: "#authorships-api-available-endpoints"
+              - item: Get a single Authorship
+                href: "#authorships-api-get-single-authorship"
                 children:
-                  - title: API endpoint
-                    slug: authorships-api-get-single-api-endpoint
-                  - title: Authorization
-                    slug: authorships-api-get-single-authorization
-                  - title: Path parameters
-                    slug: authorships-api-get-single-path-parameters
-                  - title: Query parameters
-                    slug: authorships-api-get-single-query-parameters
-                  - title: Example request
-                    slug: authorships-api-get-single-example-request
-                  - title: Example response
-                    slug: authorships-api-get-single-example-response
-                  - title: Example request using select
-                    slug: authorships-api-get-single-example-request-select
-                  - title: Example response using select
-                    slug: authorships-api-get-single-example-response-select
-              - title: Search Authorships
-                slug: authorships-api-search-authorships
-              - title: Retrieve Affiliations for an Authorship
-                slug: authorships-api-retrieve-affiliations
-              - title: Relationship-oriented endpoints
-                slug: authorships-api-relationship-endpoints
-              - title: Responses
-                slug: authorships-api-responses
+                  - item: API endpoint
+                    href: "#authorships-api-get-single-api-endpoint"
+                  - item: Authorization
+                    href: "#authorships-api-get-single-authorization"
+                  - item: Path parameters
+                    href: "#authorships-api-get-single-path-parameters"
+                  - item: Query parameters
+                    href: "#authorships-api-get-single-query-parameters"
+                  - item: Example request
+                    href: "#authorships-api-get-single-example-request"
+                  - item: Example response
+                    href: "#authorships-api-get-single-example-response"
+                  - item: Example request using select
+                    href: "#authorships-api-get-single-example-request-select"
+                  - item: Example response using select
+                    href: "#authorships-api-get-single-example-response-select"
+              - item: Search Authorships
+                href: "#authorships-api-search-authorships"
+              - item: Retrieve Affiliations for an Authorship
+                href: "#authorships-api-retrieve-affiliations"
+              - item: Relationship-oriented endpoints
+                href: "#authorships-api-relationship-endpoints"
+              - item: Responses
+                href: "#authorships-api-responses"
