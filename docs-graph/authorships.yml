@@ -1,13 +1,6 @@
 pages:
-  - id: authorships-api
-    title: Authorship Graph API documentation
-    content: |
-      This section documents the Authorship Graph API endpoints for retrieving and searching Authorship records in the CORE Graph.
-
-      Use the sidebar to navigate to specific topics including data structure, field operations, query syntax, and individual endpoint reference pages.
-
   - id: authorships-api-introduction
-    title: Introduction
+    title: Authorship Graph API documentation
     content: |
       An Authorship record describes how an Author appears on a particular scholarly Work. It contains Work-specific information such as the Author's position in the author list, numeric rank, corresponding-Author status, and source-provided name. Affiliations used by the Author on the Work are connected to the Authorship through the Authorship_Affiliation bridge entity.
 
@@ -169,20 +162,6 @@ pages:
       ```
 
       Readable examples may show the unencoded form for clarity.
-
-  - id: authorships-api-endpoints
-    title: Authorship endpoints
-    content: |
-      This section documents the Authorship Graph API endpoints.
-
-      Authorship records may also be retrieved through relationship-oriented endpoints:
-
-      - `GET /v4/works/{workId}/authorships`
-      - `GET /v4/authors/{authorId}/authorships`
-      - `GET /v4/authorships/{authorshipId}/affiliations`
-      - `GET /v4/affiliations/{affiliationId}/authorships`
-
-      The Author relationship endpoint should only be exposed in a version that provides the Author entity.
 
   - id: authorships-api-available-endpoints
     title: Available endpoints
