@@ -50,11 +50,3 @@ navItems:
                 href: "#authorships-api-relationship-endpoints"
               - item: Responses
                 href: "#authorships-api-responses"
-  - hidden: false
-    item: Journals
-    children:
-      - hidden: false
-        item: data-str
-        children:
-          - hidden: false
-            item: identity
