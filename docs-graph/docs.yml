@@ -1,4 +1,6 @@
 items:
+- item: Authorships
+  children:
   - id: authorships-api-introduction
     title: Authorship Graph API documentation
     descriptionAbout: |
@@ -8,10 +10,9 @@ items:
 
       A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author. An Authorship may be linked to zero or more Affiliation records through `authorship_affiliation`.
     images:
-      - file: /images/docs-graph/works-citations-outputs1.png
-    subTitle: null
-    subDescription: null
-
+    - file: "/images/docs-graph/works-citations-outputs1.png"
+    subTitle: 
+    subDescription: 
   - id: authorships-api-data-structure
     title: Data structure
     descriptionAbout: |
@@ -32,7 +33,6 @@ items:
       | updatedDate | string \| null | 2023-11-07T05:31:56Z | Date and time when the authorship record was last updated in CORE. | CORE |
 
       \* - See the Author position section below.
-
   - id: authorships-api-author-position
     title: Author position
     descriptionAbout: |
@@ -59,7 +59,6 @@ items:
         "isFirstNamedAuthor": true
       }
       ```
-
   - id: authorships-api-example-authorship-record
     title: Example Authorship record
     descriptionAbout: |
@@ -81,7 +80,6 @@ items:
         "updatedDate": "2026-07-01T14:20:00Z"
       }
       ```
-
   - id: authorships-api-authorship-affiliation-relationship
     title: Authorship–Affiliation relationship
     descriptionAbout: |
@@ -116,10 +114,9 @@ items:
       - Authorship contains only Work-specific Author information;
       - Affiliation remains an independently addressable and reusable entity.
     images:
-      - file: /images/docs-graph/works-citations-outputs2.png
-    subTitle: null
-    subDescription: null
-
+    - file: "/images/docs-graph/works-citations-outputs2.png"
+    subTitle: 
+    subDescription: 
   - id: authorships-api-supported-field-operations
     title: Supported field operations
     descriptionAbout: |
@@ -147,7 +144,6 @@ items:
       - **Facetable** fields can be used with `facets`.
 
       Refer to the common CORE API Query Language documentation for the complete query syntax.
-
   - id: authorships-api-boolean-query-syntax
     title: Boolean query syntax
     descriptionAbout: |
@@ -166,7 +162,6 @@ items:
       ```
 
       Readable examples may show the unencoded form for clarity.
-
   - id: authorships-api-available-endpoints
     title: Available endpoints
     descriptionAbout: |
@@ -183,14 +178,12 @@ items:
       - `GET /v4/authors/{authorId}/authorships`
 
       The Author relationship endpoint should only be exposed in a version that provides the Author entity.
-
   - id: authorships-api-get-single-authorship
     title: Get a single Authorship
     descriptionAbout: |
       Retrieves a single Authorship record using its unique CORE Authorship identifier.
 
       The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
-
   - id: authorships-api-get-single-api-endpoint
     title: API endpoint
     descriptionAbout: |
@@ -199,28 +192,24 @@ items:
       ```
 
       The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
-
   - id: authorships-api-get-single-authorization
     title: Authorization
     descriptionAbout: |
       | Parameter | Location | Type | Required | Description |
       | --- | --- | --- | --- | --- |
       | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
-
   - id: authorships-api-get-single-path-parameters
     title: Path parameters
     descriptionAbout: |
       | Parameter | Type | Required | Description |
       | --- | --- | --- | --- |
       | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
-
   - id: authorships-api-get-single-query-parameters
     title: Query parameters
     descriptionAbout: |
       | Parameter | Type | Required | Description |
       | --- | --- | --- | --- |
       | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
-
   - id: authorships-api-get-single-example-request
     title: Example request
     descriptionAbout: |
@@ -229,7 +218,6 @@ items:
         --url "https://api.core.ac.uk/v4/authorships/987654" \
         --header "Authorization: Bearer YOUR_API_KEY"
       ```
-
   - id: authorships-api-get-single-example-response
     title: Example response
     descriptionAbout: |
@@ -251,7 +239,6 @@ items:
         "updatedDate": "2026-07-01T14:20:00Z"
       }
       ```
-
   - id: authorships-api-get-single-example-request-select
     title: Example request using select
     descriptionAbout: |
@@ -260,7 +247,6 @@ items:
         --url "https://api.core.ac.uk/v4/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
         --header "Authorization: Bearer YOUR_API_KEY"
       ```
-
   - id: authorships-api-get-single-example-response-select
     title: Example response using select
     descriptionAbout: |
@@ -273,7 +259,6 @@ items:
         "isCorresponding": true
       }
       ```
-
   - id: authorships-api-search-authorships
     title: Search Authorships
     descriptionAbout: |
@@ -765,7 +750,6 @@ items:
       ```
       offset = page size × number of previous pages
       ```
-
   - id: authorships-api-retrieve-affiliations
     title: Retrieve Affiliations for an Authorship
     descriptionAbout: |
@@ -818,7 +802,6 @@ items:
       ```
 
       This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
-
   - id: authorships-api-relationship-endpoints
     title: Relationship-oriented endpoints
     descriptionAbout: |
@@ -896,7 +879,6 @@ items:
       ```
 
       This relationship is also resolved through `authorship_affiliation`.
-
   - id: authorships-api-responses
     title: Responses
     descriptionAbout: |
@@ -921,3 +903,139 @@ items:
       | 413 | The POST request body exceeds the permitted size. |
       | 429 | The API request limit has been exceeded. |
       | 500 | An unexpected server error occurred. |
+- item: Citations
+  children:
+  - id: citations-introduction
+    title: Citations
+    descriptionAbout: |
+      A citation entity represents a bibliographic relationship between a citing work and a cited article. It may include identifiers for the citing and cited works, bibliographic reference details for the cited item, and citation-related indicators and usage metrics.
+
+      Information about citations is derived from multiple sources, including OpenCitations, OpenAlex, OpenAIRE Graph and Crossref-style reference metadata.
+    subTitle: 
+    subDescription: 
+  - id: citations-data-structure
+    title: Data structure
+    descriptionAbout: |
+      The table below outlines the top-level fields in the CORE graph metadata schema for the Citation entity, including their types, example values, and descriptions.
+
+  - id: citations-identifiers
+    title: Identifiers
+    descriptionAbout: |
+      Includes multiple identifiers related to the citing and the cited articles.
+
+      | Attribute | Type | Example value | Description | Source |
+      | --- | --- | --- | --- | --- |
+      | citationId | integer | | CORE internal canonical identifier for the citation entity. | CORE |
+      | openCitationId | string \| null | oci:0610200888-0613012615 | Open Citation Identifier for the citation link, if available. | OpenCitations |
+      | citingCoreId | string \| null | | CORE identifier of the citing work. | CORE |
+      | citedCoreId | string \| null | | CORE identifier of the cited work. | CORE |
+      | citingOmid | string \| null | omid:br/0610200888 | OMID of the citing work. | OpenCitations |
+      | citingDoi | string \| null | 10.1000/xyz123 | DOI of the citing work. | OpenCitations/Crossref |
+      | citingPmid | string \| null | 12345678 | PMID of the citing work. | OpenCitations |
+      | citedOmid | string \| null | omid:br/0613012615 | OMID of the cited work. | OpenCitations |
+      | citedDoi | string \| null | 10.1000/abc456 | DOI of the cited work. | OpenCitations / Crossref |
+      | citedPmid | string \| null | 87654321 | PMID of the cited work. | OpenCitations |
+  - id: citations-date
+    title: Date
+    descriptionAbout: |
+      | Attribute | Type | Example value | Description | Source |
+      | --- | --- | --- | --- | --- |
+      | creationDate | string \| null | 2022-06-14 | Date associated with the citation record, if available. | OpenCitations |
+      | timespan | string \| null | P2Y | Citation timespan, where supplied by the source. | OpenCitations |
+  - id: citations-reference
+    title: Reference
+    descriptionAbout: |
+      Structured bibliographic description of the cited item.
+
+      | Property | Type | Example value | Description | Source |
+      | --- | --- | --- | --- | --- |
+      | type | string \| null | journal-article | Type of cited item. | Crossref |
+      | key | string \| null | ref-12 | Source-specific reference key. | Crossref |
+      | author | string[] \| null | ["Smith J", "Lee B"] | Author names as given in the reference. | Crossref / OpenAIRE |
+      | articleTitle | string \| null | Quantum effects in materials | Title of the cited article. | Crossref |
+      | journalTitle | string \| null | Physical Review Letters | Journal title of the cited item. | Crossref |
+      | seriesTitle | string \| null | Lecture Notes in Physics | Series title, if applicable. | Crossref |
+      | volumeTitle | string \| null | Collected Papers on Radiation | Volume title, if applicable. | Crossref |
+      | volume | string \| null | 50 | Volume number. | Crossref / OpenAIRE |
+      | issue | string \| null | 3 | Issue number. | Crossref / OpenAIRE |
+      | edition | string \| null | 2 | Edition statement. | Crossref / OpenAIRE |
+      | startPage | string \| null | 101 | Start page. | OpenAIRE / Crossref |
+      | endPage | string \| null | 118 | End page. | OpenAIRE / Crossref |
+      | pages | string \| null | 101-118 | Page extent as stated in the source. | dcterms / Crossref |
+      | conferenceLocation | string \| null | Glasgow, UK | Conference location, where relevant. | OpenAIRE |
+      | conferenceDate | string \| null | 2023-09-12 | Conference date or year, where relevant. | OpenAIRE / Crossref |
+      | issn | string[] \| null | ["1234-5678"] | ISSN values associated with the cited item. | Crossref |
+      | issnType | string[] \| null | ["print"] | ISSN type values, if supplied. | Crossref |
+      | isbn | string[] \| null | ["9781234567890"] | ISBN values associated with the cited item. | Crossref |
+      | isbnType | string[] \| null | ["electronic"] | ISBN type values, if supplied. | Crossref |
+      | citedDoi | string \| null | 10.1000/abc456 | DOI of the cited item. | Crossref / OpenCitations |
+      | doiAssertedBy | string \| null | publisher | Source asserting the DOI. | Crossref |
+      | component | string \| null | chapter | Cited component, if applicable. | Crossref |
+      | standardDesignator | string \| null | ISO 9001:2015 | Standard designation, if applicable. | Crossref |
+      | standardsBody | string \| null | ISO | Standards body, where relevant. | Crossref |
+      | unstructured | string \| null | Smith J. Quantum effects... | Unstructured citation text as supplied by the source. | Crossref |
+  - id: citations-metrics
+    title: Metrics
+    descriptionAbout: |
+      Citation-based indicators and usage statistics associated with the citation or cited work.
+
+      | Property | Type | Example value | Description | Source |
+      | --- | --- | --- | --- | --- |
+      | citationCount | integer \| null | 256 | Total citation count. | OpenCitations |
+      | normalisedPercentileValue | number \| null | 0.94 | Normalised citation percentile value. | OpenAIRE |
+      | isInTopOnePercent | boolean \| null | false | Indicates whether the citation target is in the top 1 percent. | OpenAIRE |
+      | isInTopTenPercent | boolean \| null | true | Indicates whether the citation target is in the top 10 percent. | OpenAIRE |
+      | influence | number \| null | 0.74 | Influence score. | OpenAIRE |
+      | influenceClass | string \| null | high | Influence classification. | OpenAIRE |
+      | citationClass | string \| null | highly_cited | Citation impact classification. | OpenAIRE |
+      | popularity | number \| null | 0.63 | Popularity score. | OpenAIRE |
+      | popularityClass | string \| null | medium | Popularity classification. | OpenAIRE |
+      | impulse | number \| null | 0.41 | Impulse score. | OpenAIRE |
+      | impulseClass | string \| null | medium | Impulse classification. | OpenAIRE |
+      | downloads | integer \| null | 1250 | Download count. | OpenAIRE |
+      | views | integer \| null | 9810 | View count. | OpenAIRE |
+      | citedByApiUrl | string \| null | https://api.openalex.org/works?... | API URL for cited-by information, where provided. | OpenAlex |
+      | journalSelfCitation | boolean \| null | false | Indicates whether the citation is a journal self-citation, if derivable. | OpenCitations |
+      | authorSelfCitation | boolean \| null | true | Indicates whether the citation is an author self-citation, if derivable. | OpenCitations |
+      | venueCitationCount | integer \| null | 14 | Venue-level citation count, if available. | OpenCitations |
+      | referenceCount | integer \| null | 38 | Number of references associated with the record, if available. | OpenCitations |
+  - id: citations-example-json
+    title: Example JSON structure
+    descriptionAbout: |
+      ```json
+      {
+        "id": "",
+        "oci": "oci:0610200888-0613012615",
+        "sourceWorkId": "345678",
+        "targetWorkId": "23456",
+        "citingDoi": "10.1000/xyz123",
+        "citedDoi": "10.1000/abc456",
+        "creationDate": "2022-06-14",
+        "timespan": "P2Y",
+        "reference": {
+          "type": "journal-article",
+          "author": ["Smith J", "Lee B"],
+          "articleTitle": "Quantum effects in materials",
+          "journalTitle": "Physical Review Letters",
+          "volume": "50",
+          "issue": "3",
+          "startPage": "101",
+          "endPage": "118",
+          "doi": "10.1000/abc456",
+          "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+        },
+        "metrics": {
+          "citationCount": 256,
+          "normalisedPercentileValue": 0.94,
+          "isInTopOnePercent": false,
+          "isInTopTenPercent": true,
+          "influence": 0.74,
+          "influenceClass": "high",
+          "downloads": 1250,
+          "views": 9810,
+          "citedByApiUrl": "https://api.openalex.org/works?...",
+          "journalSelfCitation": false,
+          "authorSelfCitation": true
+        }
+      }
+      ```
