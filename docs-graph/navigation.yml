@@ -50,20 +50,11 @@ navItems:
                 href: "#authorships-api-relationship-endpoints"
               - item: Responses
                 href: "#authorships-api-responses"
-  - item: Citations
+  - hidden: false
+    item: Journals
     children:
-      - item: Citations
-        href: "#citations-introduction"
-      - item: Data structure
-        href: "#citations-data-structure"
+      - hidden: false
+        item: data-str
         children:
-          - item: Identifiers
-            href: "#citations-identifiers"
-          - item: Date
-            href: "#citations-date"
-          - item: Reference
-            href: "#citations-reference"
-          - item: Metrics
-            href: "#citations-metrics"
-          - item: Example JSON structure
-            href: "#citations-example-json"
+          - hidden: false
+            item: identity
