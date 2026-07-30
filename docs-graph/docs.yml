@@ -2,7 +2,7 @@ items:
 - item: Authorships
   children:
   - id: authorships-api-introduction
-    title: Authorship Graph API documentation
+    title: Introduction
     descriptionAbout: |
       An Authorship record describes how an Author appears on a particular scholarly Work. It contains Work-specific information such as the Author's position in the author list, numeric rank, corresponding-Author status, and source-provided name. Affiliations used by the Author on the Work are connected to the Authorship through the Authorship_Affiliation bridge entity.
 
@@ -33,9 +33,9 @@ items:
       | updatedDate | string \| null | 2023-11-07T05:31:56Z | Date and time when the authorship record was last updated in CORE. | CORE |
 
       \* - See the Author position section below.
-  - id: authorships-api-author-position
-    title: Author position
-    descriptionAbout: |
+
+      ## Author position
+
       The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
 
       For example:
@@ -59,9 +59,9 @@ items:
         "isFirstNamedAuthor": true
       }
       ```
-  - id: authorships-api-example-authorship-record
-    title: Example Authorship record
-    descriptionAbout: |
+
+      ## Example Authorship record
+
       ```json
       {
         "authorshipId": 987654,
@@ -144,9 +144,9 @@ items:
       - **Facetable** fields can be used with `facets`.
 
       Refer to the common CORE API Query Language documentation for the complete query syntax.
-  - id: authorships-api-boolean-query-syntax
-    title: Boolean query syntax
-    descriptionAbout: |
+
+      ## Boolean query syntax
+
       The examples in this document use explicit Boolean operators:
 
       ```
@@ -163,7 +163,7 @@ items:
 
       Readable examples may show the unencoded form for clarity.
   - id: authorships-api-available-endpoints
-    title: Available endpoints
+    title: Authorship endpoints
     descriptionAbout: |
       | Operation | Method | Endpoint |
       | --- | --- | --- |
@@ -178,49 +178,47 @@ items:
       - `GET /v4/authors/{authorId}/authorships`
 
       The Author relationship endpoint should only be exposed in a version that provides the Author entity.
-  - id: authorships-api-get-single-authorship
-    title: Get a single Authorship
-    descriptionAbout: |
+
+      ## Get a single Authorship
+
       Retrieves a single Authorship record using its unique CORE Authorship identifier.
 
       The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
-  - id: authorships-api-get-single-api-endpoint
-    title: API endpoint
-    descriptionAbout: |
+
+      ### API endpoint
+
       ```
       GET https://api.core.ac.uk/v4/authorships/{authorshipId}
       ```
 
-      The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
-  - id: authorships-api-get-single-authorization
-    title: Authorization
-    descriptionAbout: |
+      ### Authorization
+
       | Parameter | Location | Type | Required | Description |
       | --- | --- | --- | --- | --- |
       | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
-  - id: authorships-api-get-single-path-parameters
-    title: Path parameters
-    descriptionAbout: |
+
+      ### Path parameters
+
       | Parameter | Type | Required | Description |
       | --- | --- | --- | --- |
       | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
-  - id: authorships-api-get-single-query-parameters
-    title: Query parameters
-    descriptionAbout: |
+
+      ### Query parameters
+
       | Parameter | Type | Required | Description |
       | --- | --- | --- | --- |
       | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
-  - id: authorships-api-get-single-example-request
-    title: Example request
-    descriptionAbout: |
+
+      ### Example request
+
       ```bash
       curl --request GET \
         --url "https://api.core.ac.uk/v4/authorships/987654" \
         --header "Authorization: Bearer YOUR_API_KEY"
       ```
-  - id: authorships-api-get-single-example-response
-    title: Example response
-    descriptionAbout: |
+
+      ### Example response
+
       ```json
       {
         "authorshipId": 987654,
@@ -239,17 +237,17 @@ items:
         "updatedDate": "2026-07-01T14:20:00Z"
       }
       ```
-  - id: authorships-api-get-single-example-request-select
-    title: Example request using select
-    descriptionAbout: |
+
+      ### Example request using select
+
       ```bash
       curl --request GET \
         --url "https://api.core.ac.uk/v4/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
         --header "Authorization: Bearer YOUR_API_KEY"
       ```
-  - id: authorships-api-get-single-example-response-select
-    title: Example response using select
-    descriptionAbout: |
+
+      ### Example response using select
+
       ```json
       {
         "authorshipId": 987654,
@@ -259,6 +257,82 @@ items:
         "isCorresponding": true
       }
       ```
+
+      ## Retrieve Affiliations for an Authorship
+
+      Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
+
+      ### API endpoint
+
+      ```
+      GET https://api.core.ac.uk/v4/authorships/{authorshipId}/affiliations
+      ```
+
+      ### Path parameters
+
+      | Parameter | Type | Required | Description |
+      | --- | --- | --- | --- |
+      | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
+
+      ### Example request
+
+      ```bash
+      curl --request GET \
+        --url "https://api.core.ac.uk/v4/authorships/987654/affiliations" \
+        --header "Authorization: Bearer YOUR_API_KEY"
+      ```
+
+      ### Example response
+
+      ```json
+      {
+        "totalHits": 2,
+        "results": [
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford"
+          },
+          {
+            "affiliationId": 902,
+            "authorId": 67890,
+            "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
+            "department": "Oxford Internet Institute",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford"
+          }
+        ]
+      }
+      ```
+
+      This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
+
+      ## Responses
+
+      ### Get a single Authorship
+
+      | Status | Description |
+      | --- | --- |
+      | 200 | The Authorship record was retrieved successfully. |
+      | 400 | The request contains an invalid parameter or unsupported field name. |
+      | 401 | Authentication credentials are missing or invalid. |
+      | 404 | No Authorship record was found for the supplied identifier. |
+      | 429 | The API request limit has been exceeded. |
+      | 500 | An unexpected server error occurred. |
+
+      ### Search Authorships
+
+      | Status | Description |
+      | --- | --- |
+      | 200 | The Authorship search was completed successfully. |
+      | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
+      | 401 | Authentication credentials are missing or invalid. |
+      | 413 | The POST request body exceeds the permitted size. |
+      | 429 | The API request limit has been exceeded. |
+      | 500 | An unexpected server error occurred. |
   - id: authorships-api-search-authorships
     title: Search Authorships
     descriptionAbout: |
@@ -308,9 +382,9 @@ items:
       | `count=true` | `"count": true` |
       | `limit=10` | `"limit": 10` |
       | `offset=0` | `"offset": 0` |
-
-      ## Search examples
-
+  - id: authorships-api-search-examples
+    title: Search examples
+    descriptionAbout: |
       ### Search by raw Author name
 
       The `rawName` property is the principal searchable field in the Authorship entity.
@@ -548,9 +622,9 @@ items:
         ]
       }
       ```
-
-      ## Ordering Authorship results
-
+  - id: authorships-api-ordering-authorship-results
+    title: Ordering Authorship results
+    descriptionAbout: |
       ### Order by Author rank
 
       ```
@@ -604,9 +678,9 @@ items:
       ```
 
       This returns the most recently updated Authorship records first.
-
-      ## Facets
-
+  - id: authorships-api-facets
+    title: Facets
+    descriptionAbout: |
       The `facets` option returns value buckets and counts for fields configured as facetable.
 
       **GET**
@@ -679,9 +753,9 @@ items:
       ```
       POST /v4/search/authorships/aggregate
       ```
-
-      ## Result count
-
+  - id: authorships-api-result-count
+    title: Result count
+    descriptionAbout: |
       Set `count=true` to include the total number of matching Authorship records.
 
       **GET**
@@ -700,9 +774,9 @@ items:
       ```
 
       When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
-
-      ## Pagination
-
+  - id: authorships-api-pagination
+    title: Pagination
+    descriptionAbout: |
       Use `limit` and `offset` to paginate through Authorship results.
 
       A deterministic `orderby` expression should be used when retrieving multiple pages.
@@ -750,58 +824,6 @@ items:
       ```
       offset = page size × number of previous pages
       ```
-  - id: authorships-api-retrieve-affiliations
-    title: Retrieve Affiliations for an Authorship
-    descriptionAbout: |
-      Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
-
-      ## API endpoint
-
-      ```
-      GET https://api.core.ac.uk/v4/authorships/{authorshipId}/affiliations
-      ```
-
-      ## Path parameters
-
-      | Parameter | Type | Required | Description |
-      | --- | --- | --- | --- |
-      | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
-
-      ## Example request
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/authorships/987654/affiliations" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      ## Example response
-
-      ```json
-      {
-        "totalHits": 2,
-        "results": [
-          {
-            "affiliationId": 901,
-            "authorId": 67890,
-            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
-            "department": "Department of Computer Science",
-            "institutionId": 3201,
-            "institutionName": "University of Oxford"
-          },
-          {
-            "affiliationId": 902,
-            "authorId": 67890,
-            "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
-            "department": "Oxford Internet Institute",
-            "institutionId": 3201,
-            "institutionName": "University of Oxford"
-          }
-        ]
-      }
-      ```
-
-      This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
   - id: authorships-api-relationship-endpoints
     title: Relationship-oriented endpoints
     descriptionAbout: |
@@ -879,30 +901,6 @@ items:
       ```
 
       This relationship is also resolved through `authorship_affiliation`.
-  - id: authorships-api-responses
-    title: Responses
-    descriptionAbout: |
-      ## Get a single Authorship
-
-      | Status | Description |
-      | --- | --- |
-      | 200 | The Authorship record was retrieved successfully. |
-      | 400 | The request contains an invalid parameter or unsupported field name. |
-      | 401 | Authentication credentials are missing or invalid. |
-      | 404 | No Authorship record was found for the supplied identifier. |
-      | 429 | The API request limit has been exceeded. |
-      | 500 | An unexpected server error occurred. |
-
-      ## Search Authorships
-
-      | Status | Description |
-      | --- | --- |
-      | 200 | The Authorship search was completed successfully. |
-      | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
-      | 401 | Authentication credentials are missing or invalid. |
-      | 413 | The POST request body exceeds the permitted size. |
-      | 429 | The API request limit has been exceeded. |
-      | 500 | An unexpected server error occurred. |
 - item: Citations
   children:
   - id: citations-introduction

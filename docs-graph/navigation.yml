@@ -1,62 +1,53 @@
+navTitle: CORE Graph API Documentation
 navItems:
-  - item: Authorships
+  - item: Overview
     children:
-      - item: Authorship Graph API documentation
+      - item: CORE graph data model
+  - item: Entities
+    children:
+      - item: Works
+      - item: Outputs
+      - item: Data Providers
+      - item: Journals
+      - item: Institutions
+      - item: Authorships
         children:
           - item: Introduction
             href: "#authorships-api-introduction"
           - item: Data structure
             href: "#authorships-api-data-structure"
-            children:
-              - item: Author position
-                href: "#authorships-api-author-position"
-                children:
-                  - item: Example Authorship record
-                    href: "#authorships-api-example-authorship-record"
           - item: Authorship–Affiliation relationship
             href: "#authorships-api-authorship-affiliation-relationship"
           - item: Supported field operations
             href: "#authorships-api-supported-field-operations"
-          - item: Boolean query syntax
-            href: "#authorships-api-boolean-query-syntax"
           - item: Authorship endpoints
-            children:
-              - item: Available endpoints
-                href: "#authorships-api-available-endpoints"
-              - item: Get a single Authorship
-                href: "#authorships-api-get-single-authorship"
-                children:
-                  - item: API endpoint
-                    href: "#authorships-api-get-single-api-endpoint"
-                  - item: Authorization
-                    href: "#authorships-api-get-single-authorization"
-                  - item: Path parameters
-                    href: "#authorships-api-get-single-path-parameters"
-                  - item: Query parameters
-                    href: "#authorships-api-get-single-query-parameters"
-                  - item: Example request
-                    href: "#authorships-api-get-single-example-request"
-                  - item: Example response
-                    href: "#authorships-api-get-single-example-response"
-                  - item: Example request using select
-                    href: "#authorships-api-get-single-example-request-select"
-                  - item: Example response using select
-                    href: "#authorships-api-get-single-example-response-select"
-              - item: Search Authorships
-                href: "#authorships-api-search-authorships"
-              - item: Retrieve Affiliations for an Authorship
-                href: "#authorships-api-retrieve-affiliations"
-              - item: Relationship-oriented endpoints
-                href: "#authorships-api-relationship-endpoints"
-              - item: Responses
-                href: "#authorships-api-responses"
-  - item: Citations
-    children:
+            href: "#authorships-api-available-endpoints"
+          - item: Search Authorships
+            href: "#authorships-api-search-authorships"
+          - item: Search examples
+            href: "#authorships-api-search-examples"
+          - item: Ordering Authorship results
+            href: "#authorships-api-ordering-authorship-results"
+          - item: Facets
+            href: "#authorships-api-facets"
+          - item: Result count
+            href: "#authorships-api-result-count"
+          - item: Pagination
+            href: "#authorships-api-pagination"
+          - item: Relationship-oriented endpoints
+            href: "#authorships-api-relationship-endpoints"
+      - item: Affiliation
+      - item: Authors
+      - item: Publishers
+      - item: Grants
+      - item: Funders
+      - item: Topics
       - item: Citations
-        href: "#citations-introduction"
-      - item: Data structure
-        href: "#citations-data-structure"
         children:
+          - item: Citations
+            href: "#citations-introduction"
+          - item: Data structure
+            href: "#citations-data-structure"
           - item: Identifiers
             href: "#citations-identifiers"
           - item: Date
@@ -67,3 +58,8 @@ navItems:
             href: "#citations-metrics"
           - item: Example JSON structure
             href: "#citations-example-json"
+  - item: Search
+    children:
+      - item: CORE API Query Language
+      - item: Keyword Queries and Phrase Search
+      - item: Free text search
