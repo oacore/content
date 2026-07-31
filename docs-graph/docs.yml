@@ -1537,5 +1537,34 @@ items:
         border: false
         id: authors-api-data-structure
         title: Data structure
-        descriptionAbout: The following sections describe the top-level fields in the
-          planned CORE Graph metadata schema for the Author entity.
+        descriptionAbout: >
+          The following sections describe the top-level fields in the planned
+          CORE Graph metadata schema for the Author entity.
+
+
+          **Identifiers**
+
+          The Author entity contains a CORE identifier, an ORCID identifier where available, and other source-specific identifiers.
+
+
+          | Property     | Type    | Example value | Description                               | Source |
+
+          | ------------ | ------- | ------------- | ----------------------------------------- | ------ |
+
+          | authorshipId | integer | 234           | CORE identifier for the authorship        | CORE   |
+
+          | workId       | integer | 23456         | CORE identifier of the associated work.   | CORE   |
+
+          | authorId     | integer | 12            | CORE identifier of the associated author. | CORE   |
+
+
+
+          | Property     | Type    | Example value | Description                               | Source |
+
+          | ------------ | ------- | ------------- | ----------------------------------------- | ------ |
+
+          | authorId    | integer         | 67890                                        | Unique CORE internal canonical identifier for the Author entity.    | CORE                                   |
+
+          | orcidId     | string | null   | `"0000-0002-1825-0097"`                      | ORCID identifier associated with the Author, when available.        | ORCID / Crossref / OpenAIRE / OpenAlex |
+
+          | externalIds | string[] | null | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. | OpenAIRE / RIOXX / Crossref / ORCID    |
