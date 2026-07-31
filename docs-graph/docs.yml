@@ -1542,7 +1542,7 @@ items:
           CORE Graph metadata schema for the Author entity.
 
 
-          **Identifiers**
+          #### **Identifiers**
 
 
           | Property    | Type      | Example value                                | Description                                                         | Source                                 |
@@ -1556,7 +1556,7 @@ items:
           | externalIds | string\[] | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. | OpenAIRE / RIOXX / Crossref / ORCID    |
 
 
-          **Names**
+          #### **Names**
 
 
           | Property    | Type      | Example value                  | Description                                                                                                                  | Source                                                               |
@@ -1578,7 +1578,7 @@ items:
           | rawNames    | string\[] | `["Smith, Alice", "A. Smith"]` | Verbatim Author name strings supplied in source metadata.                                                                    | Dublin Core / Qualified Dublin Core / Crossref / OpenAIRE / OpenAlex |
 
 
-          **Profile and career information**
+          #### **Profile and career information**
 
 
           | Property    | Type      | Example value                                                                | Description                                                                                                                                           | Source          |
@@ -1608,7 +1608,7 @@ items:
           | unknown      | Available evidence is insufficient to classify the Author.                            |
 
 
-          **Links and research interests**
+          #### **Links and research interests**
 
 
           | Property      | Type      | Example value                                       | Description                                                                                  | Source                          |
@@ -1624,9 +1624,7 @@ items:
           | keywords      | string\[] | `["Artificial Intelligence", "Machine Learning"]`   | Words or phrases describing the Author’s research activities and areas of interest.          | ORCID                           |
 
 
-
-
-          **Dates**
+          #### **Dates**
 
 
           | Property    | Type   | Example value            | Description                                                              | Source |
