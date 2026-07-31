@@ -2616,3 +2616,59 @@ items:
 
 
           ```
+
+
+          Second page using GET
+
+
+          ```
+
+          GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=20
+
+          ```
+
+
+          First page using POST
+
+
+          ```
+
+          {
+            "q": "keywords:\"Artificial Intelligence\"",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+
+
+          ```
+
+
+          \
+
+          Second page using POST
+
+
+          ```
+
+          {
+            "q": "keywords:\"Artificial Intelligence\"",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          offset = page size × number of previous pages
