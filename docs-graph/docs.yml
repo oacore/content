@@ -1819,3 +1819,90 @@ items:
           | ------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------- |
 
           | select        | string   | No           | Comma-separated list of top-level Author fields to return. Example: `select=authorId,orcidId,displayName,countries`. |
+
+
+
+
+          E﻿xample request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response:
+
+
+          ```
+
+          {
+            "authorId": 67890,
+            "orcidId": "0000-0002-1825-0097",
+            "displayName": "Alice Smith",
+            "givenNames": [
+              "Alice"
+            ],
+            "familyNames": [
+              "Smith"
+            ],
+            "altNames": [
+              "Smith, Alice",
+              "A. Smith"
+            ],
+            "countries": [
+              "GB",
+              "US"
+            ],
+            "careerStage": "early-career",
+            "keywords": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Information Retrieval"
+            ],
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+
+          ```
+
+
+          E﻿xample request using  select:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890?select=authorId,orcidId,displayName,countries,keywords" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+          ```
+
+
+          E﻿xample response using  select:
+
+
+          ```
+
+          {
+            "authorId": 67890,
+            "orcidId": "0000-0002-1825-0097",
+            "displayName": "Alice Smith",
+            "countries": [
+              "GB",
+              "US"
+            ],
+            "keywords": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Information Retrieval"
+            ]
+          }
+
+          ```
