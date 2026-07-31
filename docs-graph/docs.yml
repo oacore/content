@@ -1906,3 +1906,29 @@ items:
           }
 
           ```
+      - divider: false
+        border: false
+        id: authors-api-search-authors
+        title: Search Authors
+        descriptionAbout: >-
+          Searches, filters, orders, facets, and paginates Author records.
+
+
+          #### API endpoints
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/search/authors 
+
+          POST https://api.core.ac.uk/v4/search/authors
+
+
+
+          ```
+
+
+          Both methods use the same CORE query language and return the same response structure.
+
+
+          Additional parameters such as orderby, select, facets, count, limit, and offset control how results are returned.
