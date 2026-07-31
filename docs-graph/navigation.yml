@@ -42,6 +42,9 @@ navItems:
           - hidden: false
             item: Introduction
             href: "#authors-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#authors-api-data-structure"
       - item: Publishers
       - item: Grants
       - item: Funders
