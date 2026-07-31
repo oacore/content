@@ -1104,14 +1104,15 @@ items:
           POST /v4/search/authorships/aggregate
 
           ```
-      - id: authorships-api-result-count
-        title: Result count
-        descriptionAbout: >
-          Set `count=true` to include the total number of matching Authorship
-          records.
 
 
-          **GET**
+          ### R﻿esult count
+
+
+          Set `count=true` to include the total number of matching Authorship records.
+
+
+          GET
 
 
           ```
@@ -1121,7 +1122,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```json
@@ -1135,16 +1136,20 @@ items:
 
 
           When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
-      - id: authorships-api-pagination
-        title: Pagination
-        descriptionAbout: >
+
+
+
+
+          ### P﻿agination
+
+
           Use `limit` and `offset` to paginate through Authorship results.
 
 
           A deterministic `orderby` expression should be used when retrieving multiple pages.
 
 
-          **First page using GET**
+          First page using GET:
 
 
           ```
@@ -1154,7 +1159,7 @@ items:
           ```
 
 
-          **Second page using GET**
+          Second page using GET:
 
 
           ```
@@ -1164,7 +1169,7 @@ items:
           ```
 
 
-          **First page using POST**
+          First page using POST:
 
 
           ```json
@@ -1181,7 +1186,7 @@ items:
           ```
 
 
-          **Second page using POST**
+          Second page using POST:
 
 
           ```json
