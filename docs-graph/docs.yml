@@ -2001,3 +2001,110 @@ items:
           | `limit=10`                              | `"limit": 10`                                        |
 
           | `offset=0`                              | `"offset": 0`                                        |
+      - divider: false
+        border: false
+        id: authors-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          **GET**
+
+
+          ```
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/authors?q=displayName:"Alice%20Smith"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/authors?q=displayName:"Alice Smith"
+
+
+
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```
+
+          GET /v4/search/authors?q="Alice Smith"
+
+
+
+          ```
+
+
+          ###### POST
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authors" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "displayName:\"Alice Smith\""
+            }'
+
+
+          ```
+
+
+          A broad textual query searches searchable Author fields, including:
+
+
+          * displayName;
+
+          * givenNames;
+
+          * familyNames;
+
+          * altNames;
+
+          * rawNames;
+
+          * biography;
+
+          * keywords.
+
+
+          When a textual query is supplied and orderby is omitted, results are ordered by relevance.
+
+
+          **Retrieve an Author by ORCID**
+
+
+          **G﻿ET**
+
+
+          ```
+
+          GET /v4/search/authors?q=orcidId:"0000-0002-1825-0097"
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "orcidId:\"0000-0002-1825-0097\""
+          }
+
+
+
+          ```
