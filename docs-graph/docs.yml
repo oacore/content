@@ -1581,15 +1581,15 @@ items:
           **Profile and career information**
 
 
-          | Property    | Type      | Example value                                                                | Description                                                                                                                                           | Source                     |
+          | Property    | Type      | Example value                                                                | Description                                                                                                                                           | Source          |
 
-          | ----------- | --------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+          | ----------- | --------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 
-          | biography   | string    | `"Researcher working in information retrieval and scholarly communication."` | Public biographical information about the Author and their research career.                                                                           | ORCID                      |
+          | biography   | string    | `"Researcher working in information retrieval and scholarly communication."` | Public biographical information about the Author and their research career.                                                                           | ORCID           |
 
-          | countries   | string\[] | `["GB", "US"]`                                                               | ISO 3166-1 alpha-2 country codes derived from the Author’s known institutional Affiliations. This property does not represent nationality.            | OpenAlex / Derived by CORE |
+          | countries   | string\[] | `["GB", "US"]`                                                               | ISO 3166-1 alpha-2 country codes derived from the Author’s known institutional Affiliations. This property does not represent nationality.            | OpenAlex / CORE |
 
-          | careerStage | string    | `"early-career"`                                                             | Career-stage classification inferred by CORE from available evidence, such as the time between the Author’s first and most recent known publications. | Derived by CORE            |
+          | careerStage | string    | `"early-career"`                                                             | Career-stage classification inferred by CORE from available evidence, such as the time between the Author’s first and most recent known publications. | CORE            |
 
 
           Recommended controlled values for careerStage may include:
@@ -1611,3 +1611,16 @@ items:
 
 
           **Links and research interests**
+
+
+          | Property      | Type      | Example value                                       | Description                                                                                  | Source                          |
+
+          | ------------- | --------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------- |
+
+          | authorUrl     | string    | `"https://kmi.open.ac.uk/people/member/petr-knoth"` | URL of a public website or profile associated with the Author.                               | ORCID                           |
+
+          | authorUrlDesc | string    | `"Institutional researcher profile"`                | Source-provided description of the resource identified by `authorUrl`.                       | ORCID                           |
+
+          | email         | string    | `"mark@example.edu"`                                | Public email address associated with the Author, when the source permits its redistribution. | ORCID / Other permitted sources |
+
+          | keywords      | string\[] | `["Artificial Intelligence", "Machine Learning"]`   | Words or phrases describing the Author’s research activities and areas of interest.          | ORCID                           |
