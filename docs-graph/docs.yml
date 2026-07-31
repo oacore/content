@@ -1533,3 +1533,9 @@ items:
         subDescription: An Author may have multiple Authorship records, be credited on
           multiple Works, have multiple institutional Affiliations over time and
           have multiple external identifiers and name variants.
+      - divider: false
+        border: false
+        id: authors-api-data-structure
+        title: Data structure
+        descriptionAbout: The following sections describe the top-level fields in the
+          planned CORE Graph metadata schema for the Author entity.
