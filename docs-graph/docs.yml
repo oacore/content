@@ -1704,3 +1704,53 @@ items:
 
           ```
         contentBlocks: []
+      - divider: false
+        border: false
+        id: authors-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes the proposed field operations for the future
+          Author entity.
+
+
+          | **Attribute** | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | ------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | authorId      | No             | Yes            | No           | No            |
+
+          | orcidId       | No             | Yes            | No           | No            |
+
+          | externalIds   | No             | Yes            | No           | No            |
+
+          | displayName   | Yes            | No             | Yes          | No            |
+
+          | givenNames    | Yes            | No             | No           | No            |
+
+          | familyNames   | Yes            | No             | No           | No            |
+
+          | prefixes      | No             | No             | No           | No            |
+
+          | suffixes      | No             | No             | No           | No            |
+
+          | altNames      | Yes            | No             | No           | No            |
+
+          | rawNames      | Yes            | No             | No           | No            |
+
+          | biography     | Yes            | No             | No           | No            |
+
+          | countries     | No             | Yes            | No           | Yes           |
+
+          | careerStage   | No             | Yes            | No           | Yes           |
+
+          | authorUrl     | No             | No             | No           | No            |
+
+          | authorUrlDesc | No             | No             | No           | No            |
+
+          | email         | No             | No             | No           | No            |
+
+          | keywords      | Yes            | Yes            | No           | Yes           |
+
+          | createdDate   | No             | Yes            | Yes          | No            |
+
+          | updatedDate   | No             | Yes            | Yes          | No            |
