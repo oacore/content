@@ -45,6 +45,9 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#authors-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#authors-api-supported-field-operations"
       - item: Publishers
       - item: Grants
       - item: Funders
