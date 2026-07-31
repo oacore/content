@@ -2672,3 +2672,259 @@ items:
 
 
           offset = page size × number of previous pages
+      - divider: false
+        border: false
+        id: authors-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          Relationship-oriented endpoints provide convenient access to records
+          connected to an Author.
+
+
+          They do not embed those records in the Author entity. Internally, each endpoint queries the related entity using authorId.
+
+
+          #### Authorships for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/authorships
+
+
+
+          ```
+
+
+          Retrieves Authorship records associated with the Author.\
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/authorships?q=authorId:{authorId}
+
+
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+          {
+            "q": "authorId:{authorId}"
+          }
+
+
+
+          ```
+
+
+          E﻿xample request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890/authorships?orderby=workId:asc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "authorshipId": 987654,
+                "workId": 12345,
+                "authorId": 67890,
+                "rawName": "Smith, Alice",
+                "sequence": "first",
+                "rank": 1,
+                "isFirstNamedAuthor": true,
+                "isCorresponding": true
+              },
+              {
+                "authorshipId": 987700,
+                "workId": 428765,
+                "authorId": 67890,
+                "rawName": "A. Smith",
+                "sequence": "additional",
+                "rank": 2,
+                "isFirstNamedAuthor": false,
+                "isCorresponding": false
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          #### Works for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/works
+
+
+
+          ```
+
+
+          Retrieves Works connected to the Author through Authorship records.
+
+
+          E﻿xample request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890/works?select=workId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          E﻿xample response
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "workId": 428765,
+                "title": "Machine learning for scholarly information retrieval",
+                "yearPublished": 2025,
+                "doi": "10.1234/example.2025.1"
+              },
+              {
+                "workId": 12345,
+                "title": "Open research infrastructure and discovery",
+                "yearPublished": 2023,
+                "doi": "10.1234/example.2023.7"
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          \
+
+          An existing Author with no connected Works returns 200 with an empty results array.
+
+
+          #### Affiliations for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/affiliations
+
+
+
+          ```
+
+
+          Retrieves Affiliation records whose authorId matches the Author.
+
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:{authorId}&orderby=startDate:asc
+
+
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+          {
+            "q": "authorId:{authorId}",
+            "orderby": [
+              "startDate:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          E﻿xample request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890/affiliations?orderby=startDate:asc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+                "department": "Department of Computer Science",
+                "institutionId": 3201,
+                "institutionName": "University of Oxford",
+                "isCurrent": false,
+                "startDate": "2018-01-01",
+                "endDate": "2021-12-31"
+              },
+              {
+                "affiliationId": 902,
+                "authorId": 67890,
+                "rawAffiliation": "Massachusetts Institute of Technology, Cambridge, MA, USA",
+                "department": null,
+                "institutionId": 4501,
+                "institutionName": "Massachusetts Institute of Technology",
+                "isCurrent": true,
+                "startDate": "2022-01-01",
+                "endDate": null
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          An existing Author with no connected Affiliations returns 200 with an empty results array.
