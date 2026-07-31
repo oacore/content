@@ -48,6 +48,12 @@ navItems:
           - hidden: false
             item: Supported field operations
             href: "#authors-api-supported-field-operations"
+          - hidden: false
+            item: Author endpoints
+            href: "#authors-api-authors-endpoints"
+          - hidden: false
+            item: Search Authors
+            href: "#authors-api-search-authors"
       - item: Publishers
       - item: Grants
       - item: Funders
