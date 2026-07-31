@@ -5,9 +5,9 @@ navItems:
       - item: CORE graph data model
   - item: Entities
     children:
-      - item: Works
-      - item: Outputs
-      - item: Data Providers
+      - item: Work
+      - item: Output
+      - item: Data Provider
       - item: Journals
       - item: Institutions
       - item: Authorships
