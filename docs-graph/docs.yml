@@ -253,32 +253,33 @@ items:
           Readable examples may show the unencoded form for clarity.
       - id: authorships-api-available-endpoints
         title: Authorship endpoints
-        descriptionAbout: >
-          | Operation | Method | Endpoint |
+        descriptionAbout: >-
+          | Operation                                    | Method |
+          Endpoint                                      |
 
-          | --- | --- | --- |
+          | -------------------------------------------- | ------ | --------------------------------------------- |
 
-          | Get a single Authorship | GET | `/v4/authorships/{authorshipId}` |
+          | Get a single Authorship                      | GET    | `/v4/authorships/{authorshipId}`              |
 
-          | Search Authorships using URL parameters | GET | `/v4/search/authorships` |
+          | Search Authorships using URL parameters      | GET    | `/v4/search/authorships`                      |
 
-          | Search Authorships using a JSON request body | POST | `/v4/search/authorships` |
+          | Search Authorships using a JSON request body | POST   | `/v4/search/authorships`                      |
 
-          | Retrieve Affiliations for an Authorship | GET | `/v4/authorships/{authorshipId}/affiliations` |
+          | Retrieve Affiliations for an Authorship      | GET    | `/v4/authorships/{authorshipId}/affiliations` |
 
 
           Authorship records may also be retrieved through relationship-oriented endpoints:
 
 
-          - `GET /v4/works/{workId}/authorships`
+          * `GET /v4/works/{workId}/authorships`
 
-          - `GET /v4/authors/{authorId}/authorships`
+          * `GET /v4/authors/{authorId}/authorships`
 
 
           The Author relationship endpoint should only be exposed in a version that provides the Author entity.
 
 
-          ## Get a single Authorship
+          #### Get a single Authorship
 
 
           Retrieves a single Authorship record using its unique CORE Authorship identifier.
@@ -287,7 +288,7 @@ items:
           The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
 
 
-          ### API endpoint
+          ##### API endpoint
 
 
           ```
@@ -297,37 +298,37 @@ items:
           ```
 
 
-          ### Authorization
+          ##### Authorization
 
 
-          | Parameter | Location | Type | Required | Description |
+          | Parameter     | Location | Type   | Required | Description                                               |
 
-          | --- | --- | --- | --- | --- |
+          | ------------- | -------- | ------ | -------- | --------------------------------------------------------- |
 
-          | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
-
-
-          ### Path parameters
+          | Authorization | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
 
 
-          | Parameter | Type | Required | Description |
-
-          | --- | --- | --- | --- |
-
-          | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
+          ##### Path parameters
 
 
-          ### Query parameters
+          | Parameter    | Type    | Required | Description                                      |
+
+          | ------------ | ------- | -------- | ------------------------------------------------ |
+
+          | authorshipId | integer | Yes      | Unique CORE identifier of the Authorship record. |
 
 
-          | Parameter | Type | Required | Description |
-
-          | --- | --- | --- | --- |
-
-          | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
+          ##### Query parameters
 
 
-          ### Example request
+          | Parameter | Type   | Required | Description                                                                                                    |
+
+          | --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------- |
+
+          | select    | string | No       | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
+
+
+          ##### Example request
 
 
           ```bash
@@ -338,7 +339,7 @@ items:
           ```
 
 
-          ### Example response
+          ##### Example response
 
 
           ```json
@@ -363,7 +364,7 @@ items:
           ```
 
 
-          ### Example request using select
+          ##### Example request using select
 
 
           ```bash
@@ -374,7 +375,7 @@ items:
           ```
 
 
-          ### Example response using select
+          ##### Example response using select
 
 
           ```json
@@ -390,13 +391,13 @@ items:
           ```
 
 
-          ## Retrieve Affiliations for an Authorship
+          #### Retrieve Affiliations for an Authorship
 
 
-          Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
+          Retrieves the Affiliation records connected to an Authorship through the `Athorship_Affiliation` bridge.
 
 
-          ### API endpoint
+          ##### API endpoint
 
 
           ```
@@ -406,17 +407,17 @@ items:
           ```
 
 
-          ### Path parameters
+          ##### Path parameters
 
 
-          | Parameter | Type | Required | Description |
+          | Parameter    | Type    | Required | Description                                                               |
 
-          | --- | --- | --- | --- |
+          | ------------ | ------- | -------- | ------------------------------------------------------------------------- |
 
-          | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
+          | authorshipId | integer | Yes      | CORE identifier of the Authorship whose Affiliations should be retrieved. |
 
 
-          ### Example request
+          ##### Example request
 
 
           ```bash
@@ -427,7 +428,7 @@ items:
           ```
 
 
-          ### Example response
+          ##### Example response
 
 
           ```json
@@ -466,41 +467,41 @@ items:
           ### Get a single Authorship
 
 
-          | Status | Description |
+          | Status | Description                                                          |
 
-          | --- | --- |
+          | ------ | -------------------------------------------------------------------- |
 
-          | 200 | The Authorship record was retrieved successfully. |
+          | 200    | The Authorship record was retrieved successfully.                    |
 
-          | 400 | The request contains an invalid parameter or unsupported field name. |
+          | 400    | The request contains an invalid parameter or unsupported field name. |
 
-          | 401 | Authentication credentials are missing or invalid. |
+          | 401    | Authentication credentials are missing or invalid.                   |
 
-          | 404 | No Authorship record was found for the supplied identifier. |
+          | 404    | No Authorship record was found for the supplied identifier.          |
 
-          | 429 | The API request limit has been exceeded. |
+          | 429    | The API request limit has been exceeded.                             |
 
-          | 500 | An unexpected server error occurred. |
+          | 500    | An unexpected server error occurred.                                 |
 
 
           ### Search Authorships
 
 
-          | Status | Description |
+          | Status | Description                                                                                                   |
 
-          | --- | --- |
+          | ------ | ------------------------------------------------------------------------------------------------------------- |
 
-          | 200 | The Authorship search was completed successfully. |
+          | 200    | The Authorship search was completed successfully.                                                             |
 
-          | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
+          | 400    | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
 
-          | 401 | Authentication credentials are missing or invalid. |
+          | 401    | Authentication credentials are missing or invalid.                                                            |
 
-          | 413 | The POST request body exceeds the permitted size. |
+          | 413    | The POST request body exceeds the permitted size.                                                             |
 
-          | 429 | The API request limit has been exceeded. |
+          | 429    | The API request limit has been exceeded.                                                                      |
 
-          | 500 | An unexpected server error occurred. |
+          | 500    | An unexpected server error occurred.                                                                          |
       - id: authorships-api-search-authorships
         title: Search Authorships
         descriptionAbout: >
@@ -1637,67 +1638,271 @@ items:
 
 
           #### Example Author record
-        contentBlocks:
-          - type: code
-            language: json
-            body: >-
+
+
+          ```
+
+          {
+            "authorId": 67890,
+            "orcidId": "0000-0002-1825-0097",
+            "externalIds": [
+              "openaire____::abc123",
+              "rioxx____::x45"
+            ],
+            "identifiers": [
               {
-                "authorId": 67890,
-                "orcidId": "0000-0002-1825-0097",
-                "externalIds": [
-                  "openaire____::abc123",
-                  "rioxx____::x45"
-                ],
-                "identifiers": [
-                  {
-                    "scheme": "ORCID",
-                    "value": "0000-0002-1825-0097",
-                    "preferred": true
-                  },
-                  {
-                    "scheme": "OPENALEX",
-                    "value": "https://openalex.org/A5048491430",
-                    "preferred": true
-                  },
-                  {
-                    "scheme": "OPENAIRE",
-                    "value": "openaire____::abc123",
-                    "preferred": null
-                  }
-                ],
-                "displayName": "Alice Smith",
-                "givenNames": [
-                  "Alice"
-                ],
-                "familyNames": [
-                  "Smith"
-                ],
-                "prefixes": [
-                  "Dr"
-                ],
-                "suffixes": null,
-                "altNames": [
-                  "Smith, Alice",
-                  "A. Smith"
-                ],
-                "rawNames": [
-                  "SMITH, Alice",
-                  "A Smith"
-                ],
-                "biography": "Researcher working in information retrieval and scholarly communication.",
-                "countries": [
-                  "GB",
-                  "US"
-                ],
-                "careerStage": "early-career",
-                "authorUrl": "https://example.edu/researchers/alice-smith",
-                "authorUrlDesc": "Institutional researcher profile",
-                "email": null,
-                "keywords": [
-                  "Artificial Intelligence",
-                  "Machine Learning",
-                  "Information Retrieval"
-                ],
-                "createdDate": "2026-06-15T10:30:00Z",
-                "updatedDate": "2026-07-01T14:20:00Z"
+                "scheme": "ORCID",
+                "value": "0000-0002-1825-0097",
+                "preferred": true
+              },
+              {
+                "scheme": "OPENALEX",
+                "value": "https://openalex.org/A5048491430",
+                "preferred": true
+              },
+              {
+                "scheme": "OPENAIRE",
+                "value": "openaire____::abc123",
+                "preferred": null
               }
+            ],
+            "displayName": "Alice Smith",
+            "givenNames": [
+              "Alice"
+            ],
+            "familyNames": [
+              "Smith"
+            ],
+            "prefixes": [
+              "Dr"
+            ],
+            "suffixes": null,
+            "altNames": [
+              "Smith, Alice",
+              "A. Smith"
+            ],
+            "rawNames": [
+              "SMITH, Alice",
+              "A Smith"
+            ],
+            "biography": "Researcher working in information retrieval and scholarly communication.",
+            "countries": [
+              "GB",
+              "US"
+            ],
+            "careerStage": "early-career",
+            "authorUrl": "https://example.edu/researchers/alice-smith",
+            "authorUrlDesc": "Institutional researcher profile",
+            "email": null,
+            "keywords": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Information Retrieval"
+            ],
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+          ```
+        contentBlocks: []
+      - divider: false
+        border: false
+        id: authors-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes the proposed field operations for the future
+          Author entity.
+
+
+          | **Attribute** | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | ------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | authorId      | No             | Yes            | No           | No            |
+
+          | orcidId       | No             | Yes            | No           | No            |
+
+          | externalIds   | No             | Yes            | No           | No            |
+
+          | displayName   | Yes            | No             | Yes          | No            |
+
+          | givenNames    | Yes            | No             | No           | No            |
+
+          | familyNames   | Yes            | No             | No           | No            |
+
+          | prefixes      | No             | No             | No           | No            |
+
+          | suffixes      | No             | No             | No           | No            |
+
+          | altNames      | Yes            | No             | No           | No            |
+
+          | rawNames      | Yes            | No             | No           | No            |
+
+          | biography     | Yes            | No             | No           | No            |
+
+          | countries     | No             | Yes            | No           | Yes           |
+
+          | careerStage   | No             | Yes            | No           | Yes           |
+
+          | authorUrl     | No             | No             | No           | No            |
+
+          | authorUrlDesc | No             | No             | No           | No            |
+
+          | email         | No             | No             | No           | No            |
+
+          | keywords      | Yes            | Yes            | No           | Yes           |
+
+          | createdDate   | No             | Yes            | Yes          | No            |
+
+          | updatedDate   | No             | Yes            | Yes          | No            |
+      - divider: false
+        border: false
+        id: authors-api-available-endpoints
+        title: API endpoints
+        descriptionAbout: >-
+          | **Operation**                            | **Method** |
+          **Endpoint**                          |
+
+          | ---------------------------------------- | ---------- | ------------------------------------- |
+
+          | Get a single Author                      | GET        | `/v4/authors/{authorId}`              |
+
+          | Search Authors using URL parameters      | GET        | `/v4/search/authors`                  |
+
+          | Search Authors using a JSON request body | POST       | `/v4/search/authors`                  |
+
+          | Retrieve Authorships for an Author       | GET        | `/v4/authors/{authorId}/authorships`  |
+
+          | Retrieve Works for an Author             | GET        | `/v4/authors/{authorId}/works`        |
+
+          | Retrieve Affiliations for an Author      | GET        | `/v4/authors/{authorId}/affiliations` |
+
+
+          #### Get a single Author
+
+
+          Retrieves a single Author record using its CORE Author identifier.
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/authors/{authorId}
+
+          ```
+
+
+          #### Authorization
+
+
+          | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          #### P﻿ath parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                              |
+
+          | ------------- | -------- | ------------ | -------------------------------------------- |
+
+          | authorId      | integer  | Yes          | Unique CORE identifier of the Author record. |
+
+
+          #### Q﻿uery parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                      |
+
+          | ------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------- |
+
+          | select        | string   | No           | Comma-separated list of top-level Author fields to return. Example: `select=authorId,orcidId,displayName,countries`. |
+
+
+
+
+          E﻿xample request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response:
+
+
+          ```
+
+          {
+            "authorId": 67890,
+            "orcidId": "0000-0002-1825-0097",
+            "displayName": "Alice Smith",
+            "givenNames": [
+              "Alice"
+            ],
+            "familyNames": [
+              "Smith"
+            ],
+            "altNames": [
+              "Smith, Alice",
+              "A. Smith"
+            ],
+            "countries": [
+              "GB",
+              "US"
+            ],
+            "careerStage": "early-career",
+            "keywords": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Information Retrieval"
+            ],
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+
+          ```
+
+
+          E﻿xample request using  select:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890?select=authorId,orcidId,displayName,countries,keywords" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+          ```
+
+
+          E﻿xample response using  select:
+
+
+          ```
+
+          {
+            "authorId": 67890,
+            "orcidId": "0000-0002-1825-0097",
+            "displayName": "Alice Smith",
+            "countries": [
+              "GB",
+              "US"
+            ],
+            "keywords": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Information Retrieval"
+            ]
+          }
+
+          ```
