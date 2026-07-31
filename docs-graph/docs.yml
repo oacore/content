@@ -3,7 +3,7 @@ items:
     children:
       - id: authorships-api-introduction
         title: Introduction
-        descriptionAbout: >
+        descriptionAbout: >-
           An Authorship record describes how an Author appears on a particular
           scholarly Work. It contains Work-specific information such as the
           Author's position in the author list, numeric rank,
@@ -13,13 +13,13 @@ items:
 
 
           Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
-
-
-          A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author. An Authorship may be linked to zero or more Affiliation records through `authorship_affiliation`.
         images:
           - file: /images/docs-graph/works-citations-outputs1.png
         subTitle: null
-        subDescription: null
+        subDescription: A Work may have multiple Authorship records, and an Author may
+          appear in multiple Authorship records. Each Authorship record links
+          exactly one Work to exactly one Author. An Authorship may be linked to
+          zero or more Affiliation records through `Authorship_Affiliation`.
       - id: authorships-api-data-structure
         title: Data structure
         descriptionAbout: >
