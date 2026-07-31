@@ -1760,10 +1760,8 @@ items:
         id: authors-api-available-endpoints
         title: API endpoints
         descriptionAbout: >-
-          #### Available endpoints
-
-
-          | Operation                                | Method | Endpoint                              |
+          | Operation                                | Method |
+          Endpoint                              |
 
           | ---------------------------------------- | ------ | ------------------------------------- |
 
