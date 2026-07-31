@@ -10,7 +10,7 @@ navItems:
       - item: Data Providers
       - item: Journals
       - item: Institutions
-      - item: Authorships
+      - item: Authorship's
         children:
           - item: Introduction
             href: "#authorships-api-introduction"
