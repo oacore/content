@@ -1537,34 +1537,77 @@ items:
         border: false
         id: authors-api-data-structure
         title: Data structure
-        descriptionAbout: >
+        descriptionAbout: >-
           The following sections describe the top-level fields in the planned
           CORE Graph metadata schema for the Author entity.
 
 
           **Identifiers**
 
-          The Author entity contains a CORE identifier, an ORCID identifier where available, and other source-specific identifiers.
+
+          | Property    | Type      | Example value                                | Description                                                         | Source                                 |
+
+          | ----------- | --------- | -------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------- |
+
+          | authorId    | integer   | 67890                                        | Unique CORE internal canonical identifier for the Author entity.    | CORE                                   |
+
+          | orcidId     | string    | `"0000-0002-1825-0097"`                      | ORCID identifier associated with the Author, when available.        | ORCID / Crossref / OpenAIRE / OpenAlex |
+
+          | externalIds | string\[] | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. | OpenAIRE / RIOXX / Crossref / ORCID    |
 
 
-          | Property     | Type    | Example value | Description                               | Source |
-
-          | ------------ | ------- | ------------- | ----------------------------------------- | ------ |
-
-          | authorshipId | integer | 234           | CORE identifier for the authorship        | CORE   |
-
-          | workId       | integer | 23456         | CORE identifier of the associated work.   | CORE   |
-
-          | authorId     | integer | 12            | CORE identifier of the associated author. | CORE   |
+          **Names**
 
 
+          | Property    | Type      | Example value                  | Description                                                                                                                  | Source                                                               |
 
-          | Property     | Type    | Example value | Description                               | Source |
+          | ----------- | --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 
-          | ------------ | ------- | ------------- | ----------------------------------------- | ------ |
+          | displayName | string    | `"Alice Smith"`                | Preferred display name selected by CORE for the Author.                                                                      | CORE / Crossref / OpenAlex / OpenAIRE / ORCID                        |
 
-          | authorId    | integer         | 67890                                        | Unique CORE internal canonical identifier for the Author entity.    | CORE                                   |
+          | givenNames  | string\[] | `["Alice"]`                    | Given names or first names associated with the Author. Multiple values may be retained when sources provide different forms. | Crossref / OpenAIRE / ORCID                                          |
 
-          | orcidId     | string | null   | `"0000-0002-1825-0097"`                      | ORCID identifier associated with the Author, when available.        | ORCID / Crossref / OpenAIRE / OpenAlex |
+          | familyNames | string\[] | `["Smith"]`                    | Family names or last names associated with the Author. Multiple values may be retained when sources provide different forms. | Crossref / OpenAIRE / ORCID                                          |
 
-          | externalIds | string[] | null | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. | OpenAIRE / RIOXX / Crossref / ORCID    |
+          | prefixes    | string\[] | `["Dr"]`                       | Name prefixes or honorifics associated with the Author.                                                                      | Crossref / ORCID                                                     |
+
+          | suffixes    | string\[] | `["Jr"]`                       | Name suffixes associated with the Author.                                                                                    | Crossref / ORCID                                                     |
+
+          | altNames    | string\[] | `["Smith, Alice", "A. Smith"]` | Alternative, abbreviated, transliterated, or normalised name forms associated with the Author.                               | Dublin Core / OpenAlex / RIOXX / OpenAIRE / ORCID                    |
+
+          | rawNames    | string\[] | `["Smith, Alice", "A. Smith"]` | Verbatim Author name strings supplied in source metadata.                                                                    | Dublin Core / Qualified Dublin Core / Crossref / OpenAIRE / OpenAlex |
+
+
+          **Profile and career information**
+
+
+          | Property    | Type      | Example value                                                                | Description                                                                                                                                           | Source                     |
+
+          | ----------- | --------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+
+          | biography   | string    | `"Researcher working in information retrieval and scholarly communication."` | Public biographical information about the Author and their research career.                                                                           | ORCID                      |
+
+          | countries   | string\[] | `["GB", "US"]`                                                               | ISO 3166-1 alpha-2 country codes derived from the Author’s known institutional Affiliations. This property does not represent nationality.            | OpenAlex / Derived by CORE |
+
+          | careerStage | string    | `"early-career"`                                                             | Career-stage classification inferred by CORE from available evidence, such as the time between the Author’s first and most recent known publications. | Derived by CORE            |
+
+
+          Recommended controlled values for careerStage may include:
+
+
+          | Value        | Description                                                                           |
+
+          | ------------ | ------------------------------------------------------------------------------------- |
+
+          | early-career | Author whose known publication history falls within the defined early-career period.  |
+
+          | mid-career   | Author whose known publication history falls within the defined middle-career period. |
+
+          | experienced  | Author with a longer known publication history.                                       |
+
+          | unknown      | Available evidence is insufficient to classify the Author.                            |
+
+
+
+
+          **Links and research interests**
