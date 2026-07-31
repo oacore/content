@@ -1814,8 +1814,8 @@ items:
           #### Q﻿uery parameters
 
 
-          | Parameter | Type   | Required | Description                                                                                                          |
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                      |
 
-          | --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------- |
+          | ------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------- |
 
-          | select    | string | No       | Comma-separated list of top-level Author fields to return. Example: `select=authorId,orcidId,displayName,countries`. |
+          | select        | string   | No           | Comma-separated list of top-level Author fields to return. Example: `select=authorId,orcidId,displayName,countries`. |
