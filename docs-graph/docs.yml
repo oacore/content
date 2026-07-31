@@ -1637,67 +1637,70 @@ items:
 
 
           #### Example Author record
-        contentBlocks:
-          - type: code
-            language: json
-            body: >-
+
+
+          ```
+
+          {
+            "authorId": 67890,
+            "orcidId": "0000-0002-1825-0097",
+            "externalIds": [
+              "openaire____::abc123",
+              "rioxx____::x45"
+            ],
+            "identifiers": [
               {
-                "authorId": 67890,
-                "orcidId": "0000-0002-1825-0097",
-                "externalIds": [
-                  "openaire____::abc123",
-                  "rioxx____::x45"
-                ],
-                "identifiers": [
-                  {
-                    "scheme": "ORCID",
-                    "value": "0000-0002-1825-0097",
-                    "preferred": true
-                  },
-                  {
-                    "scheme": "OPENALEX",
-                    "value": "https://openalex.org/A5048491430",
-                    "preferred": true
-                  },
-                  {
-                    "scheme": "OPENAIRE",
-                    "value": "openaire____::abc123",
-                    "preferred": null
-                  }
-                ],
-                "displayName": "Alice Smith",
-                "givenNames": [
-                  "Alice"
-                ],
-                "familyNames": [
-                  "Smith"
-                ],
-                "prefixes": [
-                  "Dr"
-                ],
-                "suffixes": null,
-                "altNames": [
-                  "Smith, Alice",
-                  "A. Smith"
-                ],
-                "rawNames": [
-                  "SMITH, Alice",
-                  "A Smith"
-                ],
-                "biography": "Researcher working in information retrieval and scholarly communication.",
-                "countries": [
-                  "GB",
-                  "US"
-                ],
-                "careerStage": "early-career",
-                "authorUrl": "https://example.edu/researchers/alice-smith",
-                "authorUrlDesc": "Institutional researcher profile",
-                "email": null,
-                "keywords": [
-                  "Artificial Intelligence",
-                  "Machine Learning",
-                  "Information Retrieval"
-                ],
-                "createdDate": "2026-06-15T10:30:00Z",
-                "updatedDate": "2026-07-01T14:20:00Z"
+                "scheme": "ORCID",
+                "value": "0000-0002-1825-0097",
+                "preferred": true
+              },
+              {
+                "scheme": "OPENALEX",
+                "value": "https://openalex.org/A5048491430",
+                "preferred": true
+              },
+              {
+                "scheme": "OPENAIRE",
+                "value": "openaire____::abc123",
+                "preferred": null
               }
+            ],
+            "displayName": "Alice Smith",
+            "givenNames": [
+              "Alice"
+            ],
+            "familyNames": [
+              "Smith"
+            ],
+            "prefixes": [
+              "Dr"
+            ],
+            "suffixes": null,
+            "altNames": [
+              "Smith, Alice",
+              "A. Smith"
+            ],
+            "rawNames": [
+              "SMITH, Alice",
+              "A Smith"
+            ],
+            "biography": "Researcher working in information retrieval and scholarly communication.",
+            "countries": [
+              "GB",
+              "US"
+            ],
+            "careerStage": "early-career",
+            "authorUrl": "https://example.edu/researchers/alice-smith",
+            "authorUrlDesc": "Institutional researcher profile",
+            "email": null,
+            "keywords": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Information Retrieval"
+            ],
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+          ```
+        contentBlocks: []
