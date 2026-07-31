@@ -1754,3 +1754,26 @@ items:
           | createdDate   | No             | Yes            | Yes          | No            |
 
           | updatedDate   | No             | Yes            | Yes          | No            |
+      - divider: false
+        border: false
+        id: authors-api-available-endpoints
+        title: API endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | Operation                                | Method | Endpoint                              |
+
+          | ---------------------------------------- | ------ | ------------------------------------- |
+
+          | Get a single Author                      | GET    | `/v4/authors/{authorId}`              |
+
+          | Search Authors using URL parameters      | GET    | `/v4/search/authors`                  |
+
+          | Search Authors using a JSON request body | POST   | `/v4/search/authors`                  |
+
+          | Retrieve Authorships for an Author       | GET    | `/v4/authors/{authorId}/authorships`  |
+
+          | Retrieve Works for an Author             | GET    | `/v4/authors/{authorId}/works`        |
+
+          | Retrieve Affiliations for an Author      | GET    | `/v4/authors/{authorId}/affiliations` |
