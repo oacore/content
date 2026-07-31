@@ -1634,6 +1634,9 @@ items:
           | createdDate | string | `"2026-06-15T10:30:00Z"` | Date and time when the canonical Author record was created in CORE.      | CORE   |
 
           | updatedDate | string | `"2026-07-01T14:20:00Z"` | Date and time when the canonical Author record was last updated in CORE. | CORE   |
+
+
+          #### Example Author record
         contentBlocks:
           - type: code
             language: json
