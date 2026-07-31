@@ -1528,3 +1528,5 @@ items:
 
 
           The diagram below represents the relationships between Authors, Authorships, Works, Affiliations, and Institutions.
+        images:
+          - file: /images/docs-graph/authors.png
