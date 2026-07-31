@@ -279,7 +279,7 @@ items:
           The Author relationship endpoint should only be exposed in a version that provides the Author entity.
 
 
-          ## Get a single Authorship
+          #### Get a single Authorship
 
 
           Retrieves a single Authorship record using its unique CORE Authorship identifier.
@@ -288,7 +288,7 @@ items:
           The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
 
 
-          ### API endpoint
+          ##### API endpoint
 
 
           ```
@@ -298,7 +298,7 @@ items:
           ```
 
 
-          ### Authorization
+          ##### Authorization
 
 
           | Parameter     | Location | Type   | Required | Description                                               |
@@ -308,7 +308,7 @@ items:
           | Authorization | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
 
 
-          ### Path parameters
+          ##### Path parameters
 
 
           | Parameter    | Type    | Required | Description                                      |
@@ -318,7 +318,7 @@ items:
           | authorshipId | integer | Yes      | Unique CORE identifier of the Authorship record. |
 
 
-          ### Query parameters
+          ##### Query parameters
 
 
           | Parameter | Type   | Required | Description                                                                                                    |
@@ -328,7 +328,7 @@ items:
           | select    | string | No       | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
 
 
-          ### Example request
+          ##### Example request
 
 
           ```bash
@@ -339,7 +339,7 @@ items:
           ```
 
 
-          ### Example response
+          ##### Example response
 
 
           ```json
@@ -364,7 +364,7 @@ items:
           ```
 
 
-          ### Example request using select
+          ##### Example request using select
 
 
           ```bash
@@ -375,7 +375,7 @@ items:
           ```
 
 
-          ### Example response using select
+          ##### Example response using select
 
 
           ```json
@@ -391,13 +391,13 @@ items:
           ```
 
 
-          ## Retrieve Affiliations for an Authorship
+          #### Retrieve Affiliations for an Authorship
 
 
-          Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
+          Retrieves the Affiliation records connected to an Authorship through the `Athorship_Affiliation` bridge.
 
 
-          ### API endpoint
+          ##### API endpoint
 
 
           ```
@@ -407,7 +407,7 @@ items:
           ```
 
 
-          ### Path parameters
+          ##### Path parameters
 
 
           | Parameter    | Type    | Required | Description                                                               |
@@ -417,7 +417,7 @@ items:
           | authorshipId | integer | Yes      | CORE identifier of the Authorship whose Affiliations should be retrieved. |
 
 
-          ### Example request
+          ##### Example request
 
 
           ```bash
@@ -428,7 +428,7 @@ items:
           ```
 
 
-          ### Example response
+          ##### Example response
 
 
           ```json
