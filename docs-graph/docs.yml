@@ -589,14 +589,14 @@ items:
           | `offset=0` | `"offset": 0` |
       - id: authorships-api-search-examples
         title: Search examples
-        descriptionAbout: >
-          ### Search by raw Author name
+        descriptionAbout: >-
+          #### Search by raw Author name
 
 
           The `rawName` property is the principal searchable field in the Authorship entity.
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -618,7 +618,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -639,10 +639,10 @@ items:
           When a textual query is supplied and `orderby` is omitted, matching results are ordered by relevance.
 
 
-          ### Retrieve Authorships for a Work
+          #### Retrieve Authorships for a Work
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -653,7 +653,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -684,10 +684,10 @@ items:
           ```
 
 
-          ### Retrieve Authorships for an Author
+          #### Retrieve Authorships for an Author
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -698,7 +698,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -726,10 +726,10 @@ items:
           ```
 
 
-          ### Retrieve corresponding Authorships for a Work
+          #### Retrieve corresponding Authorships for a Work
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -750,7 +750,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -771,10 +771,10 @@ items:
           A Work may have more than one corresponding Author, so the response may contain multiple Authorship records.
 
 
-          ### Retrieve first or last Authorships
+          #### Retrieve first or last Authorships
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -795,7 +795,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```json
@@ -810,26 +810,26 @@ items:
           This returns Authorship records where `sequence` is either `first` or `last`.
 
 
-          ### Combined search, selection, and ordering
+          #### Combined search, selection, and ordering
 
 
           The following request:
 
 
-          - searches for Smith in `rawName`;
+          * searches for Smith in `rawName`;
 
-          - restricts results to Work 12345;
+          * restricts results to Work 12345;
 
-          - orders matching records by rank;
+          * orders matching records by rank;
 
-          - returns only selected fields;
+          * returns only selected fields;
 
-          - includes the total result count;
+          * includes the total result count;
 
-          - returns a maximum of ten records.
+          * returns a maximum of ten records.
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -855,7 +855,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -883,7 +883,7 @@ items:
           ```
 
 
-          ### Example search response
+          E﻿xample search response
 
 
           ```json
@@ -909,10 +909,15 @@ items:
           }
 
           ```
-      - id: authorships-api-ordering-authorship-results
-        title: Ordering Authorship results
-        descriptionAbout: >
-          ### Order by Author rank
+
+
+          ### Ordering Authorship results
+
+
+          #### Order by Author rank
+
+
+          G﻿ET
 
 
           ```
@@ -922,22 +927,38 @@ items:
           ```
 
 
-          POST representation:
+          E﻿quivalent POST
 
 
-          ```json
+          ```bash
 
-          {
-            "q": "workId:12345",
-            "orderby": [
-              "rank:asc"
-            ]
-          }
-
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "rawName:\"Smith\" AND workId:12345",
+              "orderby": [
+                "rank:asc"
+              ],
+              "select": [
+                "authorshipId",
+                "authorId",
+                "rawName",
+                "rank",
+                "isCorresponding"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
           ```
 
 
-          ### Order by multiple fields
+          #### Order by multiple fields
+
+
+          G﻿ET
 
 
           ```
@@ -965,7 +986,7 @@ items:
           Results are first ordered by `workId`. Authorship records associated with the same Work are then ordered by rank.
 
 
-          ### Order by update date
+          #### Order by update date
 
 
           ```
@@ -990,14 +1011,15 @@ items:
 
 
           This returns the most recently updated Authorship records first.
-      - id: authorships-api-facets
-        title: Facets
-        descriptionAbout: >
-          The `facets` option returns value buckets and counts for fields
-          configured as facetable.
 
 
-          **GET**
+          ### F﻿acets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET
 
 
           ```bash
@@ -1008,7 +1030,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -1029,7 +1051,7 @@ items:
           ```
 
 
-          ### Example facet response
+          E﻿xample facet response
 
 
           ```json
