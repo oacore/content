@@ -253,26 +253,27 @@ items:
           Readable examples may show the unencoded form for clarity.
       - id: authorships-api-available-endpoints
         title: Authorship endpoints
-        descriptionAbout: >
-          | Operation | Method | Endpoint |
+        descriptionAbout: >-
+          | Operation                                    | Method |
+          Endpoint                                      |
 
-          | --- | --- | --- |
+          | -------------------------------------------- | ------ | --------------------------------------------- |
 
-          | Get a single Authorship | GET | `/v4/authorships/{authorshipId}` |
+          | Get a single Authorship                      | GET    | `/v4/authorships/{authorshipId}`              |
 
-          | Search Authorships using URL parameters | GET | `/v4/search/authorships` |
+          | Search Authorships using URL parameters      | GET    | `/v4/search/authorships`                      |
 
-          | Search Authorships using a JSON request body | POST | `/v4/search/authorships` |
+          | Search Authorships using a JSON request body | POST   | `/v4/search/authorships`                      |
 
-          | Retrieve Affiliations for an Authorship | GET | `/v4/authorships/{authorshipId}/affiliations` |
+          | Retrieve Affiliations for an Authorship      | GET    | `/v4/authorships/{authorshipId}/affiliations` |
 
 
           Authorship records may also be retrieved through relationship-oriented endpoints:
 
 
-          - `GET /v4/works/{workId}/authorships`
+          * `GET /v4/works/{workId}/authorships`
 
-          - `GET /v4/authors/{authorId}/authorships`
+          * `GET /v4/authors/{authorId}/authorships`
 
 
           The Author relationship endpoint should only be exposed in a version that provides the Author entity.
@@ -300,31 +301,31 @@ items:
           ### Authorization
 
 
-          | Parameter | Location | Type | Required | Description |
+          | Parameter     | Location | Type   | Required | Description                                               |
 
-          | --- | --- | --- | --- | --- |
+          | ------------- | -------- | ------ | -------- | --------------------------------------------------------- |
 
-          | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+          | Authorization | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
 
 
           ### Path parameters
 
 
-          | Parameter | Type | Required | Description |
+          | Parameter    | Type    | Required | Description                                      |
 
-          | --- | --- | --- | --- |
+          | ------------ | ------- | -------- | ------------------------------------------------ |
 
-          | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
+          | authorshipId | integer | Yes      | Unique CORE identifier of the Authorship record. |
 
 
           ### Query parameters
 
 
-          | Parameter | Type | Required | Description |
+          | Parameter | Type   | Required | Description                                                                                                    |
 
-          | --- | --- | --- | --- |
+          | --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------- |
 
-          | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
+          | select    | string | No       | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
 
 
           ### Example request
@@ -409,11 +410,11 @@ items:
           ### Path parameters
 
 
-          | Parameter | Type | Required | Description |
+          | Parameter    | Type    | Required | Description                                                               |
 
-          | --- | --- | --- | --- |
+          | ------------ | ------- | -------- | ------------------------------------------------------------------------- |
 
-          | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
+          | authorshipId | integer | Yes      | CORE identifier of the Authorship whose Affiliations should be retrieved. |
 
 
           ### Example request
@@ -466,41 +467,41 @@ items:
           ### Get a single Authorship
 
 
-          | Status | Description |
+          | Status | Description                                                          |
 
-          | --- | --- |
+          | ------ | -------------------------------------------------------------------- |
 
-          | 200 | The Authorship record was retrieved successfully. |
+          | 200    | The Authorship record was retrieved successfully.                    |
 
-          | 400 | The request contains an invalid parameter or unsupported field name. |
+          | 400    | The request contains an invalid parameter or unsupported field name. |
 
-          | 401 | Authentication credentials are missing or invalid. |
+          | 401    | Authentication credentials are missing or invalid.                   |
 
-          | 404 | No Authorship record was found for the supplied identifier. |
+          | 404    | No Authorship record was found for the supplied identifier.          |
 
-          | 429 | The API request limit has been exceeded. |
+          | 429    | The API request limit has been exceeded.                             |
 
-          | 500 | An unexpected server error occurred. |
+          | 500    | An unexpected server error occurred.                                 |
 
 
           ### Search Authorships
 
 
-          | Status | Description |
+          | Status | Description                                                                                                   |
 
-          | --- | --- |
+          | ------ | ------------------------------------------------------------------------------------------------------------- |
 
-          | 200 | The Authorship search was completed successfully. |
+          | 200    | The Authorship search was completed successfully.                                                             |
 
-          | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
+          | 400    | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
 
-          | 401 | Authentication credentials are missing or invalid. |
+          | 401    | Authentication credentials are missing or invalid.                                                            |
 
-          | 413 | The POST request body exceeds the permitted size. |
+          | 413    | The POST request body exceeds the permitted size.                                                             |
 
-          | 429 | The API request limit has been exceeded. |
+          | 429    | The API request limit has been exceeded.                                                                      |
 
-          | 500 | An unexpected server error occurred. |
+          | 500    | An unexpected server error occurred.                                                                          |
       - id: authorships-api-search-authorships
         title: Search Authorships
         descriptionAbout: >
