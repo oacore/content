@@ -1608,8 +1608,6 @@ items:
           | unknown      | Available evidence is insufficient to classify the Author.                            |
 
 
-
-
           **Links and research interests**
 
 
@@ -1624,3 +1622,17 @@ items:
           | email         | string    | `"mark@example.edu"`                                | Public email address associated with the Author, when the source permits its redistribution. | ORCID / Other permitted sources |
 
           | keywords      | string\[] | `["Artificial Intelligence", "Machine Learning"]`   | Words or phrases describing the Author’s research activities and areas of interest.          | ORCID                           |
+
+
+
+
+          **Dates**
+
+
+          | Property    | Type   | Example value            | Description                                                              | Source |
+
+          | ----------- | ------ | ------------------------ | ------------------------------------------------------------------------ | ------ |
+
+          | createdDate | string | `"2026-06-15T10:30:00Z"` | Date and time when the canonical Author record was created in CORE.      | CORE   |
+
+          | updatedDate | string | `"2026-07-01T14:20:00Z"` | Date and time when the canonical Author record was last updated in CORE. | CORE   |
