@@ -1760,19 +1760,62 @@ items:
         id: authors-api-available-endpoints
         title: API endpoints
         descriptionAbout: >-
-          | Operation                                | Method |
-          Endpoint                              |
+          | **Operation**                            | **Method** |
+          **Endpoint**                          |
 
-          | ---------------------------------------- | ------ | ------------------------------------- |
+          | ---------------------------------------- | ---------- | ------------------------------------- |
 
-          | Get a single Author                      | GET    | `/v4/authors/{authorId}`              |
+          | Get a single Author                      | GET        | `/v4/authors/{authorId}`              |
 
-          | Search Authors using URL parameters      | GET    | `/v4/search/authors`                  |
+          | Search Authors using URL parameters      | GET        | `/v4/search/authors`                  |
 
-          | Search Authors using a JSON request body | POST   | `/v4/search/authors`                  |
+          | Search Authors using a JSON request body | POST       | `/v4/search/authors`                  |
 
-          | Retrieve Authorships for an Author       | GET    | `/v4/authors/{authorId}/authorships`  |
+          | Retrieve Authorships for an Author       | GET        | `/v4/authors/{authorId}/authorships`  |
 
-          | Retrieve Works for an Author             | GET    | `/v4/authors/{authorId}/works`        |
+          | Retrieve Works for an Author             | GET        | `/v4/authors/{authorId}/works`        |
 
-          | Retrieve Affiliations for an Author      | GET    | `/v4/authors/{authorId}/affiliations` |
+          | Retrieve Affiliations for an Author      | GET        | `/v4/authors/{authorId}/affiliations` |
+
+
+          #### Get a single Author
+
+
+          Retrieves a single Author record using its CORE Author identifier.
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/authors/{authorId}
+
+          ```
+
+
+          #### Authorization
+
+
+          | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          #### P﻿ath parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                              |
+
+          | ------------- | -------- | ------------ | -------------------------------------------- |
+
+          | authorId      | integer  | Yes          | Unique CORE identifier of the Author record. |
+
+
+          #### Q﻿uery parameters
+
+
+          | Parameter | Type   | Required | Description                                                                                                          |
+
+          | --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------- |
+
+          | select    | string | No       | Comma-separated list of top-level Author fields to return. Example: `select=authorId,orcidId,displayName,countries`. |
