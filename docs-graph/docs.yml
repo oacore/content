@@ -1,1039 +1,1530 @@
 items:
-- item: Authorships
-  children:
-  - id: authorships-api-introduction
-    title: Introduction
-    descriptionAbout: |
-      An Authorship record describes how an Author appears on a particular scholarly Work. It contains Work-specific information such as the Author's position in the author list, numeric rank, corresponding-Author status, and source-provided name. Affiliations used by the Author on the Work are connected to the Authorship through the Authorship_Affiliation bridge entity.
+  - item: Authorships
+    children:
+      - id: authorships-api-introduction
+        title: Introduction
+        descriptionAbout: >
+          An Authorship record describes how an Author appears on a particular
+          scholarly Work. It contains Work-specific information such as the
+          Author's position in the author list, numeric rank,
+          corresponding-Author status, and source-provided name. Affiliations
+          used by the Author on the Work are connected to the Authorship through
+          the Authorship_Affiliation bridge entity.
 
-      Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
 
-      A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author. An Authorship may be linked to zero or more Affiliation records through `authorship_affiliation`.
-    images:
-    - file: "/images/docs-graph/works-citations-outputs1.png"
-    subTitle: 
-    subDescription: 
-  - id: authorships-api-data-structure
-    title: Data structure
-    descriptionAbout: |
-      The table below describes the top-level fields in the CORE Graph metadata schema for the Authorship entity, including their types, example values, descriptions, and sources.
+          Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
 
-      | Property | Type | Example value | Description | Source |
-      | --- | --- | --- | --- | --- |
-      | authorshipId | integer | 234 | CORE identifier for the authorship | CORE |
-      | workId | integer | 23456 | CORE identifier of the associated work. | CORE |
-      | authorId | integer | 12 | CORE identifier of the associated author. | CORE |
-      | rawName | string \| null | Smith, Alice | Verbatim author name string as supplied in the source metadata for this work. | OAI-PMH / Crossref |
-      | sequence* | string \| null | first | Author order classification within the work, such as first or additional. | Crossref / OpenAlex |
-      | rank* | integer \| null | 1 | Numeric rank of the author in the author list. | OpenAIRE / OpenAlex |
-      | isFirstNamedAuthor* | boolean \| null | true | Indicates whether the author is the first-listed author on the work. | Derived by CORE |
-      | isCorresponding | boolean \| null | false | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. | |
-      | sourceOutputIds | integer[] \| null | [216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived. | CORE |
-      | createdDate | string \| null | "2026-06-15T10:30:00Z" | Date and time when the authorship record was created in CORE. | CORE |
-      | updatedDate | string \| null | 2023-11-07T05:31:56Z | Date and time when the authorship record was last updated in CORE. | CORE |
 
-      \* - See the Author position section below.
+          A Work may have multiple Authorship records, and an Author may appear in multiple Authorship records. Each Authorship record links exactly one Work to exactly one Author. An Authorship may be linked to zero or more Affiliation records through `authorship_affiliation`.
+        images:
+          - file: /images/docs-graph/works-citations-outputs1.png
+        subTitle: null
+        subDescription: null
+      - id: authorships-api-data-structure
+        title: Data structure
+        descriptionAbout: >
+          The table below describes the top-level fields in the CORE Graph
+          metadata schema for the Authorship entity, including their types,
+          example values, descriptions, and sources.
 
-      ## Author position
 
-      The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
+          | Property | Type | Example value | Description | Source |
 
-      For example:
+          | --- | --- | --- | --- | --- |
 
-      | Author position | rank | sequence | isFirstNamedAuthor |
-      | --- | --- | --- | --- |
-      | First author | 1 | "first" | true |
-      | Middle author | 2 | "additional" | false |
-      | Final author | 5 | "last" | false |
+          | authorshipId | integer | 234 | CORE identifier for the authorship | CORE |
 
-      The `rank` property provides the exact numeric position of the Author.
+          | workId | integer | 23456 | CORE identifier of the associated work. | CORE |
 
-      The `sequence` property provides a simplified classification of that position.
+          | authorId | integer | 12 | CORE identifier of the associated author. | CORE |
 
-      For a single-author Work, the recommended representation is:
+          | rawName | string \| null | Smith, Alice | Verbatim author name string as supplied in the source metadata for this work. | OAI-PMH / Crossref |
 
-      ```json
-      {
-        "rank": 1,
-        "sequence": "first",
-        "isFirstNamedAuthor": true
-      }
-      ```
+          | sequence* | string \| null | first | Author order classification within the work, such as first or additional. | Crossref / OpenAlex |
 
-      ## Example Authorship record
+          | rank* | integer \| null | 1 | Numeric rank of the author in the author list. | OpenAIRE / OpenAlex |
 
-      ```json
-      {
-        "authorshipId": 987654,
-        "workId": 12345,
-        "authorId": 67890,
-        "rawName": "Smith, Alice",
-        "sequence": "first",
-        "rank": 1,
-        "isFirstNamedAuthor": true,
-        "isCorresponding": true,
-        "sourceOutputIds": [
-          216874849,
-          216874850
-        ],
-        "createdDate": "2026-06-15T10:30:00Z",
-        "updatedDate": "2026-07-01T14:20:00Z"
-      }
-      ```
-  - id: authorships-api-authorship-affiliation-relationship
-    title: Authorship–Affiliation relationship
-    descriptionAbout: |
-      Affiliations used by an Author on a particular Work are represented through the `authorship_affiliation` bridge entity. The bridge contains the identifiers of the connected Authorship and Affiliation records.
+          | isFirstNamedAuthor* | boolean \| null | true | Indicates whether the author is the first-listed author on the work. | Derived by CORE |
 
-      | Property | Type | Example value | Description | Source |
-      | --- | --- | --- | --- | --- |
-      | authorshipId | integer | 987654 | CORE identifier of the Authorship participating in the relationship. | CORE |
-      | affiliationId | integer | 901 | CORE identifier of the Affiliation participating in the relationship. | CORE |
+          | isCorresponding | boolean \| null | false | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. | |
 
-      Example bridge records:
+          | sourceOutputIds | integer[] \| null | [216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived. | CORE |
 
-      ```json
-      [
-        {
-          "authorshipId": 987654,
-          "affiliationId": 901
-        },
-        {
-          "authorshipId": 987654,
-          "affiliationId": 902
-        }
-      ]
-      ```
+          | createdDate | string \| null | "2026-06-15T10:30:00Z" | Date and time when the authorship record was created in CORE. | CORE |
 
-      These records indicate that Authorship 987654 is associated with Affiliations 901 and 902.
+          | updatedDate | string \| null | 2023-11-07T05:31:56Z | Date and time when the authorship record was last updated in CORE. | CORE |
 
-      The bridge is used because:
 
-      - one Authorship may be linked to multiple Affiliations;
-      - one Affiliation may be linked to multiple Authorship records representing different Works;
-      - Authorship contains only Work-specific Author information;
-      - Affiliation remains an independently addressable and reusable entity.
-    images:
-    - file: "/images/docs-graph/works-citations-outputs2.png"
-    subTitle: 
-    subDescription: 
-  - id: authorships-api-supported-field-operations
-    title: Supported field operations
-    descriptionAbout: |
-      The table below describes which Authorship properties can be searched, queried through field lookups, ordered, or used as facets.
+          \* - See the Author position section below.
 
-      | Attribute | Searchable | Filterable | Sortable | Facetable |
-      | --- | --- | --- | --- | --- |
-      | authorshipId | No | Yes | No | No |
-      | workId | No | Yes | Yes | No |
-      | authorId | No | Yes | Yes | No |
-      | rawName | Yes | No | No | No |
-      | sequence | No | Yes | Yes | Yes |
-      | rank | No | Yes | Yes | Yes |
-      | isFirstNamedAuthor | No | Yes | No | Yes |
-      | isCorresponding | No | Yes | No | Yes |
-      | sourceOutputIds | No | Yes | No | No |
-      | createdDate | No | Yes | Yes | No |
-      | updatedDate | No | Yes | Yes | No |
 
-      The field-operation settings have the following meanings:
+          ## Author position
 
-      - **Searchable** fields can participate in textual queries through `q`.
-      - **Filterable** fields can be used in field lookups, Boolean conditions, range expressions, and existence queries through `q`.
-      - **Sortable** fields can be used with `orderby`.
-      - **Facetable** fields can be used with `facets`.
 
-      Refer to the common CORE API Query Language documentation for the complete query syntax.
+          The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
 
-      ## Boolean query syntax
 
-      The examples in this document use explicit Boolean operators:
+          For example:
 
-      ```
-      workId:12345 AND isCorresponding:true
-      ```
 
-      Commas are not used as an alternative to `AND` inside `q`.
+          | Author position | rank | sequence | isFirstNamedAuthor |
 
-      In executable URLs, spaces should be URL-encoded:
+          | --- | --- | --- | --- |
 
-      ```
-      workId:12345%20AND%20isCorresponding:true
-      ```
+          | First author | 1 | "first" | true |
 
-      Readable examples may show the unencoded form for clarity.
-  - id: authorships-api-available-endpoints
-    title: Authorship endpoints
-    descriptionAbout: |
-      | Operation | Method | Endpoint |
-      | --- | --- | --- |
-      | Get a single Authorship | GET | `/v4/authorships/{authorshipId}` |
-      | Search Authorships using URL parameters | GET | `/v4/search/authorships` |
-      | Search Authorships using a JSON request body | POST | `/v4/search/authorships` |
-      | Retrieve Affiliations for an Authorship | GET | `/v4/authorships/{authorshipId}/affiliations` |
+          | Middle author | 2 | "additional" | false |
 
-      Authorship records may also be retrieved through relationship-oriented endpoints:
+          | Final author | 5 | "last" | false |
 
-      - `GET /v4/works/{workId}/authorships`
-      - `GET /v4/authors/{authorId}/authorships`
 
-      The Author relationship endpoint should only be exposed in a version that provides the Author entity.
+          The `rank` property provides the exact numeric position of the Author.
 
-      ## Get a single Authorship
 
-      Retrieves a single Authorship record using its unique CORE Authorship identifier.
+          The `sequence` property provides a simplified classification of that position.
 
-      The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
 
-      ### API endpoint
+          For a single-author Work, the recommended representation is:
 
-      ```
-      GET https://api.core.ac.uk/v4/authorships/{authorshipId}
-      ```
 
-      ### Authorization
+          ```json
 
-      | Parameter | Location | Type | Required | Description |
-      | --- | --- | --- | --- | --- |
-      | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
-
-      ### Path parameters
-
-      | Parameter | Type | Required | Description |
-      | --- | --- | --- | --- |
-      | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
-
-      ### Query parameters
-
-      | Parameter | Type | Required | Description |
-      | --- | --- | --- | --- |
-      | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
-
-      ### Example request
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/authorships/987654" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      ### Example response
-
-      ```json
-      {
-        "authorshipId": 987654,
-        "workId": 12345,
-        "authorId": 67890,
-        "rawName": "Smith, Alice",
-        "sequence": "first",
-        "rank": 1,
-        "isFirstNamedAuthor": true,
-        "isCorresponding": true,
-        "sourceOutputIds": [
-          216874849,
-          216874850
-        ],
-        "createdDate": "2026-06-15T10:30:00Z",
-        "updatedDate": "2026-07-01T14:20:00Z"
-      }
-      ```
-
-      ### Example request using select
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      ### Example response using select
-
-      ```json
-      {
-        "authorshipId": 987654,
-        "workId": 12345,
-        "authorId": 67890,
-        "rank": 1,
-        "isCorresponding": true
-      }
-      ```
-
-      ## Retrieve Affiliations for an Authorship
-
-      Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
-
-      ### API endpoint
-
-      ```
-      GET https://api.core.ac.uk/v4/authorships/{authorshipId}/affiliations
-      ```
-
-      ### Path parameters
-
-      | Parameter | Type | Required | Description |
-      | --- | --- | --- | --- |
-      | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
-
-      ### Example request
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/authorships/987654/affiliations" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      ### Example response
-
-      ```json
-      {
-        "totalHits": 2,
-        "results": [
           {
-            "affiliationId": 901,
-            "authorId": 67890,
-            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
-            "department": "Department of Computer Science",
-            "institutionId": 3201,
-            "institutionName": "University of Oxford"
-          },
-          {
-            "affiliationId": 902,
-            "authorId": 67890,
-            "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
-            "department": "Oxford Internet Institute",
-            "institutionId": 3201,
-            "institutionName": "University of Oxford"
+            "rank": 1,
+            "sequence": "first",
+            "isFirstNamedAuthor": true
           }
-        ]
-      }
-      ```
 
-      This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
+          ```
 
-      ## Responses
 
-      ### Get a single Authorship
+          ## Example Authorship record
 
-      | Status | Description |
-      | --- | --- |
-      | 200 | The Authorship record was retrieved successfully. |
-      | 400 | The request contains an invalid parameter or unsupported field name. |
-      | 401 | Authentication credentials are missing or invalid. |
-      | 404 | No Authorship record was found for the supplied identifier. |
-      | 429 | The API request limit has been exceeded. |
-      | 500 | An unexpected server error occurred. |
 
-      ### Search Authorships
+          ```json
 
-      | Status | Description |
-      | --- | --- |
-      | 200 | The Authorship search was completed successfully. |
-      | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
-      | 401 | Authentication credentials are missing or invalid. |
-      | 413 | The POST request body exceeds the permitted size. |
-      | 429 | The API request limit has been exceeded. |
-      | 500 | An unexpected server error occurred. |
-  - id: authorships-api-search-authorships
-    title: Search Authorships
-    descriptionAbout: |
-      Searches, filters, orders, facets, counts, and paginates Authorship records.
-
-      Authorship search is available through GET and POST:
-
-      - `GET https://api.core.ac.uk/v4/search/authorships`
-      - `POST https://api.core.ac.uk/v4/search/authorships`
-
-      Both methods use the same CORE query language and return the same response structure.
-
-      ## GET and POST search parameters
-
-      ### GET query parameters
-
-      | Parameter | Type | Required | Default | Description |
-      | --- | --- | --- | --- | --- |
-      | q | string | No | * | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
-      | orderby | string | No | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format. |
-      | select | string | No | All retrievable fields | Comma-separated list of fields to include in each result. |
-      | facets | string | No | — | Comma-separated list of facetable fields for which value buckets and counts should be returned. |
-      | count | boolean | No | false | Indicates whether the total number of matching Authorship records should be included. |
-      | limit | integer | No | 10 | Maximum number of Authorship records to return. |
-      | offset | integer | No | 0 | Number of matching Authorship records to skip. |
-
-      ### POST request body
-
-      | Property | Type | Required | Default | Description |
-      | --- | --- | --- | --- | --- |
-      | q | string | No | * | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
-      | orderby | string[] | No | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format. |
-      | select | string[] | No | All retrievable fields | List of fields to include in each result. |
-      | facets | string[] | No | — | List of facetable fields for which value buckets and counts should be returned. |
-      | count | boolean | No | false | Indicates whether the total number of matching Authorship records should be included. |
-      | limit | integer | No | 10 | Maximum number of Authorship records to return. |
-      | offset | integer | No | 0 | Number of matching Authorship records to skip. |
-
-      ### GET and POST parameter mapping
-
-      | GET query parameter | POST body property |
-      | --- | --- |
-      | `q=workId:12345` | `"q": "workId:12345"` |
-      | `orderby=rank:asc` | `"orderby": ["rank:asc"]` |
-      | `select=authorshipId,authorId,rank` | `"select": ["authorshipId", "authorId", "rank"]` |
-      | `facets=sequence,isCorresponding` | `"facets": ["sequence", "isCorresponding"]` |
-      | `count=true` | `"count": true` |
-      | `limit=10` | `"limit": 10` |
-      | `offset=0` | `"offset": 0` |
-  - id: authorships-api-search-examples
-    title: Search examples
-    descriptionAbout: |
-      ### Search by raw Author name
-
-      The `rawName` property is the principal searchable field in the Authorship entity.
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"' \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      A broader free-text query may also be used:
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=Smith" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      **Equivalent POST**
-
-      ```bash
-      curl --request POST \
-        --url "https://api.core.ac.uk/v4/search/authorships" \
-        --header "Authorization: Bearer YOUR_API_KEY" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "q": "rawName:\"Smith\""
-        }'
-      ```
-
-      Because `rawName` is the principal searchable Authorship field, a broad textual query will primarily search source-provided Author names.
-
-      When a textual query is supplied and `orderby` is omitted, matching results are ordered by relevance.
-
-      ### Retrieve Authorships for a Work
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&orderby=rank:asc" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      **Equivalent POST**
-
-      ```bash
-      curl --request POST \
-        --url "https://api.core.ac.uk/v4/search/authorships" \
-        --header "Authorization: Bearer YOUR_API_KEY" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "q": "workId:12345",
-          "orderby": [
-            "rank:asc"
-          ]
-        }'
-      ```
-
-      This retrieves Authorship records associated with Work 12345, ordered by Author rank.
-
-      It is also functionally equivalent to:
-
-      ```
-      GET /v4/works/12345/authorships
-      ```
-
-      ### Retrieve Authorships for an Author
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=authorId:67890" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      **Equivalent POST**
-
-      ```bash
-      curl --request POST \
-        --url "https://api.core.ac.uk/v4/search/authorships" \
-        --header "Authorization: Bearer YOUR_API_KEY" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "q": "authorId:67890"
-        }'
-      ```
-
-      This retrieves Authorship records associated with Author 67890.
-
-      When the Author entity and relationship endpoint are available, it is also functionally equivalent to:
-
-      ```
-      GET /v4/authors/67890/authorships
-      ```
-
-      ### Retrieve corresponding Authorships for a Work
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345%20AND%20isCorresponding:true" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      Readable form:
-
-      ```
-      GET /v4/search/authorships?q=workId:12345 AND isCorresponding:true
-      ```
-
-      **Equivalent POST**
-
-      ```bash
-      curl --request POST \
-        --url "https://api.core.ac.uk/v4/search/authorships" \
-        --header "Authorization: Bearer YOUR_API_KEY" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "q": "workId:12345 AND isCorresponding:true",
-          "orderby": [
-            "rank:asc"
-          ]
-        }'
-      ```
-
-      A Work may have more than one corresponding Author, so the response may contain multiple Authorship records.
-
-      ### Retrieve first or last Authorships
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=(sequence:first%20OR%20sequence:last)" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      Readable form:
-
-      ```
-      GET /v4/search/authorships?q=(sequence:first OR sequence:last)
-      ```
-
-      **Equivalent POST**
-
-      ```json
-      {
-        "q": "(sequence:first OR sequence:last)"
-      }
-      ```
-
-      This returns Authorship records where `sequence` is either `first` or `last`.
-
-      ### Combined search, selection, and ordering
-
-      The following request:
-
-      - searches for Smith in `rawName`;
-      - restricts results to Work 12345;
-      - orders matching records by rank;
-      - returns only selected fields;
-      - includes the total result count;
-      - returns a maximum of ten records.
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"%20AND%20workId:12345&orderby=rank:asc&select=authorshipId,authorId,rawName,rank,isCorresponding&count=true&limit=10&offset=0' \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      Readable form:
-
-      ```
-      GET /v4/search/authorships
-          ?q=rawName:"Smith" AND workId:12345
-          &orderby=rank:asc
-          &select=authorshipId,authorId,rawName,rank,isCorresponding
-          &count=true
-          &limit=10
-          &offset=0
-      ```
-
-      **Equivalent POST**
-
-      ```bash
-      curl --request POST \
-        --url "https://api.core.ac.uk/v4/search/authorships" \
-        --header "Authorization: Bearer YOUR_API_KEY" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "q": "rawName:\"Smith\" AND workId:12345",
-          "orderby": [
-            "rank:asc"
-          ],
-          "select": [
-            "authorshipId",
-            "authorId",
-            "rawName",
-            "rank",
-            "isCorresponding"
-          ],
-          "count": true,
-          "limit": 10,
-          "offset": 0
-        }'
-      ```
-
-      ### Example search response
-
-      ```json
-      {
-        "totalHits": 2,
-        "results": [
           {
             "authorshipId": 987654,
+            "workId": 12345,
             "authorId": 67890,
             "rawName": "Smith, Alice",
+            "sequence": "first",
             "rank": 1,
-            "isCorresponding": true
-          },
-          {
-            "authorshipId": 987655,
-            "authorId": 67891,
-            "rawName": "Smith, Robert",
-            "rank": 2,
-            "isCorresponding": false
+            "isFirstNamedAuthor": true,
+            "isCorresponding": true,
+            "sourceOutputIds": [
+              216874849,
+              216874850
+            ],
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
           }
-        ]
-      }
-      ```
-  - id: authorships-api-ordering-authorship-results
-    title: Ordering Authorship results
-    descriptionAbout: |
-      ### Order by Author rank
 
-      ```
-      GET /v4/search/authorships?q=workId:12345&orderby=rank:asc
-      ```
+          ```
+      - id: authorships-api-authorship-affiliation-relationship
+        title: Authorship–Affiliation relationship
+        descriptionAbout: >
+          Affiliations used by an Author on a particular Work are represented
+          through the `authorship_affiliation` bridge entity. The bridge
+          contains the identifiers of the connected Authorship and Affiliation
+          records.
 
-      POST representation:
 
-      ```json
-      {
-        "q": "workId:12345",
-        "orderby": [
-          "rank:asc"
-        ]
-      }
-      ```
+          | Property | Type | Example value | Description | Source |
 
-      ### Order by multiple fields
+          | --- | --- | --- | --- | --- |
 
-      ```
-      GET /v4/search/authorships?orderby=workId:asc,rank:asc
-      ```
+          | authorshipId | integer | 987654 | CORE identifier of the Authorship participating in the relationship. | CORE |
 
-      POST representation:
+          | affiliationId | integer | 901 | CORE identifier of the Affiliation participating in the relationship. | CORE |
 
-      ```json
-      {
-        "orderby": [
-          "workId:asc",
-          "rank:asc"
-        ]
-      }
-      ```
 
-      Results are first ordered by `workId`. Authorship records associated with the same Work are then ordered by rank.
+          Example bridge records:
 
-      ### Order by update date
 
-      ```
-      GET /v4/search/authorships?orderby=updatedDate:desc
-      ```
+          ```json
 
-      POST representation:
-
-      ```json
-      {
-        "orderby": [
-          "updatedDate:desc"
-        ]
-      }
-      ```
-
-      This returns the most recently updated Authorship records first.
-  - id: authorships-api-facets
-    title: Facets
-    descriptionAbout: |
-      The `facets` option returns value buckets and counts for fields configured as facetable.
-
-      **GET**
-
-      ```bash
-      curl --request GET \
-        --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&facets=sequence,isCorresponding&count=true&limit=0" \
-        --header "Authorization: Bearer YOUR_API_KEY"
-      ```
-
-      **Equivalent POST**
-
-      ```bash
-      curl --request POST \
-        --url "https://api.core.ac.uk/v4/search/authorships" \
-        --header "Authorization: Bearer YOUR_API_KEY" \
-        --header "Content-Type: application/json" \
-        --data '{
-          "q": "workId:12345",
-          "facets": [
-            "sequence",
-            "isCorresponding"
-          ],
-          "count": true,
-          "limit": 0
-        }'
-      ```
-
-      ### Example facet response
-
-      ```json
-      {
-        "totalHits": 4,
-        "facets": {
-          "sequence": [
+          [
             {
-              "value": "first",
-              "count": 1
+              "authorshipId": 987654,
+              "affiliationId": 901
             },
             {
-              "value": "additional",
-              "count": 2
-            },
-            {
-              "value": "last",
-              "count": 1
-            }
-          ],
-          "isCorresponding": [
-            {
-              "value": true,
-              "count": 1
-            },
-            {
-              "value": false,
-              "count": 3
+              "authorshipId": 987654,
+              "affiliationId": 902
             }
           ]
-        },
-        "results": []
-      }
-      ```
 
-      Facet counts describe the complete matching result set, not only the records returned in the current page.
+          ```
 
-      Setting the `limit` to `0` returns facet buckets and counts without returning Authorship records.
 
-      A separate endpoint such as the following is not required:
+          These records indicate that Authorship 987654 is associated with Affiliations 901 and 902.
 
-      ```
-      POST /v4/search/authorships/aggregate
-      ```
-  - id: authorships-api-result-count
-    title: Result count
-    descriptionAbout: |
-      Set `count=true` to include the total number of matching Authorship records.
 
-      **GET**
+          The bridge is used because:
 
-      ```
-      GET /v4/search/authorships?q=authorId:67890&count=true
-      ```
 
-      **Equivalent POST**
+          - one Authorship may be linked to multiple Affiliations;
 
-      ```json
-      {
-        "q": "authorId:67890",
-        "count": true
-      }
-      ```
+          - one Affiliation may be linked to multiple Authorship records representing different Works;
 
-      When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
-  - id: authorships-api-pagination
-    title: Pagination
-    descriptionAbout: |
-      Use `limit` and `offset` to paginate through Authorship results.
+          - Authorship contains only Work-specific Author information;
 
-      A deterministic `orderby` expression should be used when retrieving multiple pages.
+          - Affiliation remains an independently addressable and reusable entity.
+        images:
+          - file: /images/docs-graph/works-citations-outputs2.png
+        subTitle: null
+        subDescription: null
+      - id: authorships-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >
+          The table below describes which Authorship properties can be searched,
+          queried through field lookups, ordered, or used as facets.
 
-      **First page using GET**
 
-      ```
-      GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=0
-      ```
+          | Attribute | Searchable | Filterable | Sortable | Facetable |
 
-      **Second page using GET**
+          | --- | --- | --- | --- | --- |
 
-      ```
-      GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=20
-      ```
+          | authorshipId | No | Yes | No | No |
 
-      **First page using POST**
+          | workId | No | Yes | Yes | No |
 
-      ```json
-      {
-        "q": "authorId:67890",
-        "orderby": [
-          "workId:asc"
-        ],
-        "limit": 20,
-        "offset": 0
-      }
-      ```
+          | authorId | No | Yes | Yes | No |
 
-      **Second page using POST**
+          | rawName | Yes | No | No | No |
 
-      ```json
-      {
-        "q": "authorId:67890",
-        "orderby": [
-          "workId:asc"
-        ],
-        "limit": 20,
-        "offset": 20
-      }
-      ```
+          | sequence | No | Yes | Yes | Yes |
 
-      The offset is calculated as:
+          | rank | No | Yes | Yes | Yes |
 
-      ```
-      offset = page size × number of previous pages
-      ```
-  - id: authorships-api-relationship-endpoints
-    title: Relationship-oriented endpoints
-    descriptionAbout: |
-      Relationship-oriented endpoints provide convenient access to Authorship records through related graph entities.
+          | isFirstNamedAuthor | No | Yes | No | Yes |
 
-      They do not introduce a different Authorship representation. Internally, they apply the appropriate relationship condition to the Authorship collection.
+          | isCorresponding | No | Yes | No | Yes |
 
-      ## Authorships for a Work
+          | sourceOutputIds | No | Yes | No | No |
 
-      ```
-      GET /v4/works/{workId}/authorships
-      ```
+          | createdDate | No | Yes | Yes | No |
 
-      Retrieves the Authorship records associated with a Work.
+          | updatedDate | No | Yes | Yes | No |
 
-      By default, records should be ordered by:
 
-      ```
-      rank:asc
-      ```
+          The field-operation settings have the following meanings:
 
-      Equivalent GET search:
 
-      ```
-      GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
-      ```
+          - **Searchable** fields can participate in textual queries through `q`.
 
-      Equivalent POST search:
+          - **Filterable** fields can be used in field lookups, Boolean conditions, range expressions, and existence queries through `q`.
 
-      ```json
-      {
-        "q": "workId:{workId}",
-        "orderby": [
-          "rank:asc"
-        ]
-      }
-      ```
+          - **Sortable** fields can be used with `orderby`.
 
-      This relationship endpoint is documented under the Works entity.
+          - **Facetable** fields can be used with `facets`.
 
-      ## Authorships for an Author
 
-      ```
-      GET /v4/authors/{authorId}/authorships
-      ```
+          Refer to the common CORE API Query Language documentation for the complete query syntax.
 
-      Retrieves all Authorship records associated with an Author.
 
-      Equivalent GET search:
+          ## Boolean query syntax
 
-      ```
-      GET /v4/search/authorships?q=authorId:{authorId}
-      ```
 
-      Equivalent POST search:
+          The examples in this document use explicit Boolean operators:
 
-      ```json
-      {
-        "q": "authorId:{authorId}"
-      }
-      ```
 
-      ## Affiliations for an Authorship
+          ```
 
-      ```
-      GET /v4/authorships/{authorshipId}/affiliations
-      ```
+          workId:12345 AND isCorresponding:true
 
-      This relationship is resolved through `authorship_affiliation`.
+          ```
 
-      ## Authorships for an Affiliation
 
-      ```
-      GET /v4/affiliations/{affiliationId}/authorships
-      ```
+          Commas are not used as an alternative to `AND` inside `q`.
 
-      This relationship is also resolved through `authorship_affiliation`.
-- item: Citations
-  children:
-  - id: citations-introduction
-    title: Citations
-    descriptionAbout: |
-      A citation entity represents a bibliographic relationship between a citing work and a cited article. It may include identifiers for the citing and cited works, bibliographic reference details for the cited item, and citation-related indicators and usage metrics.
 
-      Information about citations is derived from multiple sources, including OpenCitations, OpenAlex, OpenAIRE Graph and Crossref-style reference metadata.
-    subTitle: 
-    subDescription: 
-  - id: citations-data-structure
-    title: Data structure
-    descriptionAbout: |
-      The table below outlines the top-level fields in the CORE graph metadata schema for the Citation entity, including their types, example values, and descriptions.
+          In executable URLs, spaces should be URL-encoded:
 
-  - id: citations-identifiers
-    title: Identifiers
-    descriptionAbout: |
-      Includes multiple identifiers related to the citing and the cited articles.
 
-      | Attribute | Type | Example value | Description | Source |
-      | --- | --- | --- | --- | --- |
-      | citationId | integer | | CORE internal canonical identifier for the citation entity. | CORE |
-      | openCitationId | string \| null | oci:0610200888-0613012615 | Open Citation Identifier for the citation link, if available. | OpenCitations |
-      | citingCoreId | string \| null | | CORE identifier of the citing work. | CORE |
-      | citedCoreId | string \| null | | CORE identifier of the cited work. | CORE |
-      | citingOmid | string \| null | omid:br/0610200888 | OMID of the citing work. | OpenCitations |
-      | citingDoi | string \| null | 10.1000/xyz123 | DOI of the citing work. | OpenCitations/Crossref |
-      | citingPmid | string \| null | 12345678 | PMID of the citing work. | OpenCitations |
-      | citedOmid | string \| null | omid:br/0613012615 | OMID of the cited work. | OpenCitations |
-      | citedDoi | string \| null | 10.1000/abc456 | DOI of the cited work. | OpenCitations / Crossref |
-      | citedPmid | string \| null | 87654321 | PMID of the cited work. | OpenCitations |
-  - id: citations-date
-    title: Date
-    descriptionAbout: |
-      | Attribute | Type | Example value | Description | Source |
-      | --- | --- | --- | --- | --- |
-      | creationDate | string \| null | 2022-06-14 | Date associated with the citation record, if available. | OpenCitations |
-      | timespan | string \| null | P2Y | Citation timespan, where supplied by the source. | OpenCitations |
-  - id: citations-reference
-    title: Reference
-    descriptionAbout: |
-      Structured bibliographic description of the cited item.
+          ```
 
-      | Property | Type | Example value | Description | Source |
-      | --- | --- | --- | --- | --- |
-      | type | string \| null | journal-article | Type of cited item. | Crossref |
-      | key | string \| null | ref-12 | Source-specific reference key. | Crossref |
-      | author | string[] \| null | ["Smith J", "Lee B"] | Author names as given in the reference. | Crossref / OpenAIRE |
-      | articleTitle | string \| null | Quantum effects in materials | Title of the cited article. | Crossref |
-      | journalTitle | string \| null | Physical Review Letters | Journal title of the cited item. | Crossref |
-      | seriesTitle | string \| null | Lecture Notes in Physics | Series title, if applicable. | Crossref |
-      | volumeTitle | string \| null | Collected Papers on Radiation | Volume title, if applicable. | Crossref |
-      | volume | string \| null | 50 | Volume number. | Crossref / OpenAIRE |
-      | issue | string \| null | 3 | Issue number. | Crossref / OpenAIRE |
-      | edition | string \| null | 2 | Edition statement. | Crossref / OpenAIRE |
-      | startPage | string \| null | 101 | Start page. | OpenAIRE / Crossref |
-      | endPage | string \| null | 118 | End page. | OpenAIRE / Crossref |
-      | pages | string \| null | 101-118 | Page extent as stated in the source. | dcterms / Crossref |
-      | conferenceLocation | string \| null | Glasgow, UK | Conference location, where relevant. | OpenAIRE |
-      | conferenceDate | string \| null | 2023-09-12 | Conference date or year, where relevant. | OpenAIRE / Crossref |
-      | issn | string[] \| null | ["1234-5678"] | ISSN values associated with the cited item. | Crossref |
-      | issnType | string[] \| null | ["print"] | ISSN type values, if supplied. | Crossref |
-      | isbn | string[] \| null | ["9781234567890"] | ISBN values associated with the cited item. | Crossref |
-      | isbnType | string[] \| null | ["electronic"] | ISBN type values, if supplied. | Crossref |
-      | citedDoi | string \| null | 10.1000/abc456 | DOI of the cited item. | Crossref / OpenCitations |
-      | doiAssertedBy | string \| null | publisher | Source asserting the DOI. | Crossref |
-      | component | string \| null | chapter | Cited component, if applicable. | Crossref |
-      | standardDesignator | string \| null | ISO 9001:2015 | Standard designation, if applicable. | Crossref |
-      | standardsBody | string \| null | ISO | Standards body, where relevant. | Crossref |
-      | unstructured | string \| null | Smith J. Quantum effects... | Unstructured citation text as supplied by the source. | Crossref |
-  - id: citations-metrics
-    title: Metrics
-    descriptionAbout: |
-      Citation-based indicators and usage statistics associated with the citation or cited work.
+          workId:12345%20AND%20isCorresponding:true
 
-      | Property | Type | Example value | Description | Source |
-      | --- | --- | --- | --- | --- |
-      | citationCount | integer \| null | 256 | Total citation count. | OpenCitations |
-      | normalisedPercentileValue | number \| null | 0.94 | Normalised citation percentile value. | OpenAIRE |
-      | isInTopOnePercent | boolean \| null | false | Indicates whether the citation target is in the top 1 percent. | OpenAIRE |
-      | isInTopTenPercent | boolean \| null | true | Indicates whether the citation target is in the top 10 percent. | OpenAIRE |
-      | influence | number \| null | 0.74 | Influence score. | OpenAIRE |
-      | influenceClass | string \| null | high | Influence classification. | OpenAIRE |
-      | citationClass | string \| null | highly_cited | Citation impact classification. | OpenAIRE |
-      | popularity | number \| null | 0.63 | Popularity score. | OpenAIRE |
-      | popularityClass | string \| null | medium | Popularity classification. | OpenAIRE |
-      | impulse | number \| null | 0.41 | Impulse score. | OpenAIRE |
-      | impulseClass | string \| null | medium | Impulse classification. | OpenAIRE |
-      | downloads | integer \| null | 1250 | Download count. | OpenAIRE |
-      | views | integer \| null | 9810 | View count. | OpenAIRE |
-      | citedByApiUrl | string \| null | https://api.openalex.org/works?... | API URL for cited-by information, where provided. | OpenAlex |
-      | journalSelfCitation | boolean \| null | false | Indicates whether the citation is a journal self-citation, if derivable. | OpenCitations |
-      | authorSelfCitation | boolean \| null | true | Indicates whether the citation is an author self-citation, if derivable. | OpenCitations |
-      | venueCitationCount | integer \| null | 14 | Venue-level citation count, if available. | OpenCitations |
-      | referenceCount | integer \| null | 38 | Number of references associated with the record, if available. | OpenCitations |
-  - id: citations-example-json
-    title: Example JSON structure
-    descriptionAbout: |
-      ```json
-      {
-        "id": "",
-        "oci": "oci:0610200888-0613012615",
-        "sourceWorkId": "345678",
-        "targetWorkId": "23456",
-        "citingDoi": "10.1000/xyz123",
-        "citedDoi": "10.1000/abc456",
-        "creationDate": "2022-06-14",
-        "timespan": "P2Y",
-        "reference": {
-          "type": "journal-article",
-          "author": ["Smith J", "Lee B"],
-          "articleTitle": "Quantum effects in materials",
-          "journalTitle": "Physical Review Letters",
-          "volume": "50",
-          "issue": "3",
-          "startPage": "101",
-          "endPage": "118",
-          "doi": "10.1000/abc456",
-          "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
-        },
-        "metrics": {
-          "citationCount": 256,
-          "normalisedPercentileValue": 0.94,
-          "isInTopOnePercent": false,
-          "isInTopTenPercent": true,
-          "influence": 0.74,
-          "influenceClass": "high",
-          "downloads": 1250,
-          "views": 9810,
-          "citedByApiUrl": "https://api.openalex.org/works?...",
-          "journalSelfCitation": false,
-          "authorSelfCitation": true
-        }
-      }
-      ```
+          ```
+
+
+          Readable examples may show the unencoded form for clarity.
+      - id: authorships-api-available-endpoints
+        title: Authorship endpoints
+        descriptionAbout: >
+          | Operation | Method | Endpoint |
+
+          | --- | --- | --- |
+
+          | Get a single Authorship | GET | `/v4/authorships/{authorshipId}` |
+
+          | Search Authorships using URL parameters | GET | `/v4/search/authorships` |
+
+          | Search Authorships using a JSON request body | POST | `/v4/search/authorships` |
+
+          | Retrieve Affiliations for an Authorship | GET | `/v4/authorships/{authorshipId}/affiliations` |
+
+
+          Authorship records may also be retrieved through relationship-oriented endpoints:
+
+
+          - `GET /v4/works/{workId}/authorships`
+
+          - `GET /v4/authors/{authorId}/authorships`
+
+
+          The Author relationship endpoint should only be exposed in a version that provides the Author entity.
+
+
+          ## Get a single Authorship
+
+
+          Retrieves a single Authorship record using its unique CORE Authorship identifier.
+
+
+          The POST search method is not an alternative single-record retrieval endpoint. It searches the Authorship collection using a JSON request body.
+
+
+          ### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/authorships/{authorshipId}
+
+          ```
+
+
+          ### Authorization
+
+
+          | Parameter | Location | Type | Required | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | Authorization | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+
+
+          ### Path parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | authorshipId | integer | Yes | Unique CORE identifier of the Authorship record. |
+
+
+          ### Query parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | select | string | No | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
+
+
+          ### Example request
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authorships/987654" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          ### Example response
+
+
+          ```json
+
+          {
+            "authorshipId": 987654,
+            "workId": 12345,
+            "authorId": 67890,
+            "rawName": "Smith, Alice",
+            "sequence": "first",
+            "rank": 1,
+            "isFirstNamedAuthor": true,
+            "isCorresponding": true,
+            "sourceOutputIds": [
+              216874849,
+              216874850
+            ],
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+          ```
+
+
+          ### Example request using select
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          ### Example response using select
+
+
+          ```json
+
+          {
+            "authorshipId": 987654,
+            "workId": 12345,
+            "authorId": 67890,
+            "rank": 1,
+            "isCorresponding": true
+          }
+
+          ```
+
+
+          ## Retrieve Affiliations for an Authorship
+
+
+          Retrieves the Affiliation records connected to an Authorship through the `authorship_affiliation` bridge.
+
+
+          ### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/authorships/{authorshipId}/affiliations
+
+          ```
+
+
+          ### Path parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | authorshipId | integer | Yes | CORE identifier of the Authorship whose Affiliations should be retrieved. |
+
+
+          ### Example request
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authorships/987654/affiliations" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          ### Example response
+
+
+          ```json
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+                "department": "Department of Computer Science",
+                "institutionId": 3201,
+                "institutionName": "University of Oxford"
+              },
+              {
+                "affiliationId": 902,
+                "authorId": 67890,
+                "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
+                "department": "Oxford Internet Institute",
+                "institutionId": 3201,
+                "institutionName": "University of Oxford"
+              }
+            ]
+          }
+
+          ```
+
+
+          This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
+
+
+          ## Responses
+
+
+          ### Get a single Authorship
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | 200 | The Authorship record was retrieved successfully. |
+
+          | 400 | The request contains an invalid parameter or unsupported field name. |
+
+          | 401 | Authentication credentials are missing or invalid. |
+
+          | 404 | No Authorship record was found for the supplied identifier. |
+
+          | 429 | The API request limit has been exceeded. |
+
+          | 500 | An unexpected server error occurred. |
+
+
+          ### Search Authorships
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | 200 | The Authorship search was completed successfully. |
+
+          | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
+
+          | 401 | Authentication credentials are missing or invalid. |
+
+          | 413 | The POST request body exceeds the permitted size. |
+
+          | 429 | The API request limit has been exceeded. |
+
+          | 500 | An unexpected server error occurred. |
+      - id: authorships-api-search-authorships
+        title: Search Authorships
+        descriptionAbout: >
+          Searches, filters, orders, facets, counts, and paginates Authorship
+          records.
+
+
+          Authorship search is available through GET and POST:
+
+
+          - `GET https://api.core.ac.uk/v4/search/authorships`
+
+          - `POST https://api.core.ac.uk/v4/search/authorships`
+
+
+          Both methods use the same CORE query language and return the same response structure.
+
+
+          ## GET and POST search parameters
+
+
+          ### GET query parameters
+
+
+          | Parameter | Type | Required | Default | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | q | string | No | * | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby | string | No | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format. |
+
+          | select | string | No | All retrievable fields | Comma-separated list of fields to include in each result. |
+
+          | facets | string | No | — | Comma-separated list of facetable fields for which value buckets and counts should be returned. |
+
+          | count | boolean | No | false | Indicates whether the total number of matching Authorship records should be included. |
+
+          | limit | integer | No | 10 | Maximum number of Authorship records to return. |
+
+          | offset | integer | No | 0 | Number of matching Authorship records to skip. |
+
+
+          ### POST request body
+
+
+          | Property | Type | Required | Default | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | q | string | No | * | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby | string[] | No | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format. |
+
+          | select | string[] | No | All retrievable fields | List of fields to include in each result. |
+
+          | facets | string[] | No | — | List of facetable fields for which value buckets and counts should be returned. |
+
+          | count | boolean | No | false | Indicates whether the total number of matching Authorship records should be included. |
+
+          | limit | integer | No | 10 | Maximum number of Authorship records to return. |
+
+          | offset | integer | No | 0 | Number of matching Authorship records to skip. |
+
+
+          ### GET and POST parameter mapping
+
+
+          | GET query parameter | POST body property |
+
+          | --- | --- |
+
+          | `q=workId:12345` | `"q": "workId:12345"` |
+
+          | `orderby=rank:asc` | `"orderby": ["rank:asc"]` |
+
+          | `select=authorshipId,authorId,rank` | `"select": ["authorshipId", "authorId", "rank"]` |
+
+          | `facets=sequence,isCorresponding` | `"facets": ["sequence", "isCorresponding"]` |
+
+          | `count=true` | `"count": true` |
+
+          | `limit=10` | `"limit": 10` |
+
+          | `offset=0` | `"offset": 0` |
+      - id: authorships-api-search-examples
+        title: Search examples
+        descriptionAbout: >
+          ### Search by raw Author name
+
+
+          The `rawName` property is the principal searchable field in the Authorship entity.
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authorships?q=Smith" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "rawName:\"Smith\""
+            }'
+          ```
+
+
+          Because `rawName` is the principal searchable Authorship field, a broad textual query will primarily search source-provided Author names.
+
+
+          When a textual query is supplied and `orderby` is omitted, matching results are ordered by relevance.
+
+
+          ### Retrieve Authorships for a Work
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&orderby=rank:asc" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "workId:12345",
+              "orderby": [
+                "rank:asc"
+              ]
+            }'
+          ```
+
+
+          This retrieves Authorship records associated with Work 12345, ordered by Author rank.
+
+
+          It is also functionally equivalent to:
+
+
+          ```
+
+          GET /v4/works/12345/authorships
+
+          ```
+
+
+          ### Retrieve Authorships for an Author
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authorships?q=authorId:67890" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "authorId:67890"
+            }'
+          ```
+
+
+          This retrieves Authorship records associated with Author 67890.
+
+
+          When the Author entity and relationship endpoint are available, it is also functionally equivalent to:
+
+
+          ```
+
+          GET /v4/authors/67890/authorships
+
+          ```
+
+
+          ### Retrieve corresponding Authorships for a Work
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345%20AND%20isCorresponding:true" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/authorships?q=workId:12345 AND isCorresponding:true
+
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "workId:12345 AND isCorresponding:true",
+              "orderby": [
+                "rank:asc"
+              ]
+            }'
+          ```
+
+
+          A Work may have more than one corresponding Author, so the response may contain multiple Authorship records.
+
+
+          ### Retrieve first or last Authorships
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authorships?q=(sequence:first%20OR%20sequence:last)" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/authorships?q=(sequence:first OR sequence:last)
+
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```json
+
+          {
+            "q": "(sequence:first OR sequence:last)"
+          }
+
+          ```
+
+
+          This returns Authorship records where `sequence` is either `first` or `last`.
+
+
+          ### Combined search, selection, and ordering
+
+
+          The following request:
+
+
+          - searches for Smith in `rawName`;
+
+          - restricts results to Work 12345;
+
+          - orders matching records by rank;
+
+          - returns only selected fields;
+
+          - includes the total result count;
+
+          - returns a maximum of ten records.
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"%20AND%20workId:12345&orderby=rank:asc&select=authorshipId,authorId,rawName,rank,isCorresponding&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/authorships
+              ?q=rawName:"Smith" AND workId:12345
+              &orderby=rank:asc
+              &select=authorshipId,authorId,rawName,rank,isCorresponding
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "rawName:\"Smith\" AND workId:12345",
+              "orderby": [
+                "rank:asc"
+              ],
+              "select": [
+                "authorshipId",
+                "authorId",
+                "rawName",
+                "rank",
+                "isCorresponding"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          ### Example search response
+
+
+          ```json
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "authorshipId": 987654,
+                "authorId": 67890,
+                "rawName": "Smith, Alice",
+                "rank": 1,
+                "isCorresponding": true
+              },
+              {
+                "authorshipId": 987655,
+                "authorId": 67891,
+                "rawName": "Smith, Robert",
+                "rank": 2,
+                "isCorresponding": false
+              }
+            ]
+          }
+
+          ```
+      - id: authorships-api-ordering-authorship-results
+        title: Ordering Authorship results
+        descriptionAbout: >
+          ### Order by Author rank
+
+
+          ```
+
+          GET /v4/search/authorships?q=workId:12345&orderby=rank:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "q": "workId:12345",
+            "orderby": [
+              "rank:asc"
+            ]
+          }
+
+          ```
+
+
+          ### Order by multiple fields
+
+
+          ```
+
+          GET /v4/search/authorships?orderby=workId:asc,rank:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "workId:asc",
+              "rank:asc"
+            ]
+          }
+
+          ```
+
+
+          Results are first ordered by `workId`. Authorship records associated with the same Work are then ordered by rank.
+
+
+          ### Order by update date
+
+
+          ```
+
+          GET /v4/search/authorships?orderby=updatedDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "updatedDate:desc"
+            ]
+          }
+
+          ```
+
+
+          This returns the most recently updated Authorship records first.
+      - id: authorships-api-facets
+        title: Facets
+        descriptionAbout: >
+          The `facets` option returns value buckets and counts for fields
+          configured as facetable.
+
+
+          **GET**
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&facets=sequence,isCorresponding&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "workId:12345",
+              "facets": [
+                "sequence",
+                "isCorresponding"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          ### Example facet response
+
+
+          ```json
+
+          {
+            "totalHits": 4,
+            "facets": {
+              "sequence": [
+                {
+                  "value": "first",
+                  "count": 1
+                },
+                {
+                  "value": "additional",
+                  "count": 2
+                },
+                {
+                  "value": "last",
+                  "count": 1
+                }
+              ],
+              "isCorresponding": [
+                {
+                  "value": true,
+                  "count": 1
+                },
+                {
+                  "value": false,
+                  "count": 3
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set, not only the records returned in the current page.
+
+
+          Setting the `limit` to `0` returns facet buckets and counts without returning Authorship records.
+
+
+          A separate endpoint such as the following is not required:
+
+
+          ```
+
+          POST /v4/search/authorships/aggregate
+
+          ```
+      - id: authorships-api-result-count
+        title: Result count
+        descriptionAbout: >
+          Set `count=true` to include the total number of matching Authorship
+          records.
+
+
+          **GET**
+
+
+          ```
+
+          GET /v4/search/authorships?q=authorId:67890&count=true
+
+          ```
+
+
+          **Equivalent POST**
+
+
+          ```json
+
+          {
+            "q": "authorId:67890",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+      - id: authorships-api-pagination
+        title: Pagination
+        descriptionAbout: >
+          Use `limit` and `offset` to paginate through Authorship results.
+
+
+          A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          **First page using GET**
+
+
+          ```
+
+          GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=0
+
+          ```
+
+
+          **Second page using GET**
+
+
+          ```
+
+          GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=20
+
+          ```
+
+
+          **First page using POST**
+
+
+          ```json
+
+          {
+            "q": "authorId:67890",
+            "orderby": [
+              "workId:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          **Second page using POST**
+
+
+          ```json
+
+          {
+            "q": "authorId:67890",
+            "orderby": [
+              "workId:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```
+
+          offset = page size × number of previous pages
+
+          ```
+      - id: authorships-api-relationship-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >
+          Relationship-oriented endpoints provide convenient access to
+          Authorship records through related graph entities.
+
+
+          They do not introduce a different Authorship representation. Internally, they apply the appropriate relationship condition to the Authorship collection.
+
+
+          ## Authorships for a Work
+
+
+          ```
+
+          GET /v4/works/{workId}/authorships
+
+          ```
+
+
+          Retrieves the Authorship records associated with a Work.
+
+
+          By default, records should be ordered by:
+
+
+          ```
+
+          rank:asc
+
+          ```
+
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "workId:{workId}",
+            "orderby": [
+              "rank:asc"
+            ]
+          }
+
+          ```
+
+
+          This relationship endpoint is documented under the Works entity.
+
+
+          ## Authorships for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/authorships
+
+          ```
+
+
+          Retrieves all Authorship records associated with an Author.
+
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/authorships?q=authorId:{authorId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "authorId:{authorId}"
+          }
+
+          ```
+
+
+          ## Affiliations for an Authorship
+
+
+          ```
+
+          GET /v4/authorships/{authorshipId}/affiliations
+
+          ```
+
+
+          This relationship is resolved through `authorship_affiliation`.
+
+
+          ## Authorships for an Affiliation
+
+
+          ```
+
+          GET /v4/affiliations/{affiliationId}/authorships
+
+          ```
+
+
+          This relationship is also resolved through `authorship_affiliation`.
+  - item: Citations
+    children:
+      - id: citations-introduction
+        title: Citations
+        descriptionAbout: >
+          A citation entity represents a bibliographic relationship between a
+          citing work and a cited article. It may include identifiers for the
+          citing and cited works, bibliographic reference details for the cited
+          item, and citation-related indicators and usage metrics.
+
+
+          Information about citations is derived from multiple sources, including OpenCitations, OpenAlex, OpenAIRE Graph and Crossref-style reference metadata.
+        subTitle: null
+        subDescription: null
+      - id: citations-data-structure
+        title: Data structure
+        descriptionAbout: >
+          The table below outlines the top-level fields in the CORE graph
+          metadata schema for the Citation entity, including their types,
+          example values, and descriptions.
+      - id: citations-identifiers
+        title: Identifiers
+        descriptionAbout: >
+          Includes multiple identifiers related to the citing and the cited
+          articles.
+
+
+          | Attribute | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | citationId | integer | | CORE internal canonical identifier for the citation entity. | CORE |
+
+          | openCitationId | string \| null | oci:0610200888-0613012615 | Open Citation Identifier for the citation link, if available. | OpenCitations |
+
+          | citingCoreId | string \| null | | CORE identifier of the citing work. | CORE |
+
+          | citedCoreId | string \| null | | CORE identifier of the cited work. | CORE |
+
+          | citingOmid | string \| null | omid:br/0610200888 | OMID of the citing work. | OpenCitations |
+
+          | citingDoi | string \| null | 10.1000/xyz123 | DOI of the citing work. | OpenCitations/Crossref |
+
+          | citingPmid | string \| null | 12345678 | PMID of the citing work. | OpenCitations |
+
+          | citedOmid | string \| null | omid:br/0613012615 | OMID of the cited work. | OpenCitations |
+
+          | citedDoi | string \| null | 10.1000/abc456 | DOI of the cited work. | OpenCitations / Crossref |
+
+          | citedPmid | string \| null | 87654321 | PMID of the cited work. | OpenCitations |
+      - id: citations-date
+        title: Date
+        descriptionAbout: >
+          | Attribute | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | creationDate | string \| null | 2022-06-14 | Date associated with the citation record, if available. | OpenCitations |
+
+          | timespan | string \| null | P2Y | Citation timespan, where supplied by the source. | OpenCitations |
+      - id: citations-reference
+        title: Reference
+        descriptionAbout: >
+          Structured bibliographic description of the cited item.
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | type | string \| null | journal-article | Type of cited item. | Crossref |
+
+          | key | string \| null | ref-12 | Source-specific reference key. | Crossref |
+
+          | author | string[] \| null | ["Smith J", "Lee B"] | Author names as given in the reference. | Crossref / OpenAIRE |
+
+          | articleTitle | string \| null | Quantum effects in materials | Title of the cited article. | Crossref |
+
+          | journalTitle | string \| null | Physical Review Letters | Journal title of the cited item. | Crossref |
+
+          | seriesTitle | string \| null | Lecture Notes in Physics | Series title, if applicable. | Crossref |
+
+          | volumeTitle | string \| null | Collected Papers on Radiation | Volume title, if applicable. | Crossref |
+
+          | volume | string \| null | 50 | Volume number. | Crossref / OpenAIRE |
+
+          | issue | string \| null | 3 | Issue number. | Crossref / OpenAIRE |
+
+          | edition | string \| null | 2 | Edition statement. | Crossref / OpenAIRE |
+
+          | startPage | string \| null | 101 | Start page. | OpenAIRE / Crossref |
+
+          | endPage | string \| null | 118 | End page. | OpenAIRE / Crossref |
+
+          | pages | string \| null | 101-118 | Page extent as stated in the source. | dcterms / Crossref |
+
+          | conferenceLocation | string \| null | Glasgow, UK | Conference location, where relevant. | OpenAIRE |
+
+          | conferenceDate | string \| null | 2023-09-12 | Conference date or year, where relevant. | OpenAIRE / Crossref |
+
+          | issn | string[] \| null | ["1234-5678"] | ISSN values associated with the cited item. | Crossref |
+
+          | issnType | string[] \| null | ["print"] | ISSN type values, if supplied. | Crossref |
+
+          | isbn | string[] \| null | ["9781234567890"] | ISBN values associated with the cited item. | Crossref |
+
+          | isbnType | string[] \| null | ["electronic"] | ISBN type values, if supplied. | Crossref |
+
+          | citedDoi | string \| null | 10.1000/abc456 | DOI of the cited item. | Crossref / OpenCitations |
+
+          | doiAssertedBy | string \| null | publisher | Source asserting the DOI. | Crossref |
+
+          | component | string \| null | chapter | Cited component, if applicable. | Crossref |
+
+          | standardDesignator | string \| null | ISO 9001:2015 | Standard designation, if applicable. | Crossref |
+
+          | standardsBody | string \| null | ISO | Standards body, where relevant. | Crossref |
+
+          | unstructured | string \| null | Smith J. Quantum effects... | Unstructured citation text as supplied by the source. | Crossref |
+      - id: citations-metrics
+        title: Metrics
+        descriptionAbout: >
+          Citation-based indicators and usage statistics associated with the
+          citation or cited work.
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | citationCount | integer \| null | 256 | Total citation count. | OpenCitations |
+
+          | normalisedPercentileValue | number \| null | 0.94 | Normalised citation percentile value. | OpenAIRE |
+
+          | isInTopOnePercent | boolean \| null | false | Indicates whether the citation target is in the top 1 percent. | OpenAIRE |
+
+          | isInTopTenPercent | boolean \| null | true | Indicates whether the citation target is in the top 10 percent. | OpenAIRE |
+
+          | influence | number \| null | 0.74 | Influence score. | OpenAIRE |
+
+          | influenceClass | string \| null | high | Influence classification. | OpenAIRE |
+
+          | citationClass | string \| null | highly_cited | Citation impact classification. | OpenAIRE |
+
+          | popularity | number \| null | 0.63 | Popularity score. | OpenAIRE |
+
+          | popularityClass | string \| null | medium | Popularity classification. | OpenAIRE |
+
+          | impulse | number \| null | 0.41 | Impulse score. | OpenAIRE |
+
+          | impulseClass | string \| null | medium | Impulse classification. | OpenAIRE |
+
+          | downloads | integer \| null | 1250 | Download count. | OpenAIRE |
+
+          | views | integer \| null | 9810 | View count. | OpenAIRE |
+
+          | citedByApiUrl | string \| null | https://api.openalex.org/works?... | API URL for cited-by information, where provided. | OpenAlex |
+
+          | journalSelfCitation | boolean \| null | false | Indicates whether the citation is a journal self-citation, if derivable. | OpenCitations |
+
+          | authorSelfCitation | boolean \| null | true | Indicates whether the citation is an author self-citation, if derivable. | OpenCitations |
+
+          | venueCitationCount | integer \| null | 14 | Venue-level citation count, if available. | OpenCitations |
+
+          | referenceCount | integer \| null | 38 | Number of references associated with the record, if available. | OpenCitations |
+      - id: citations-example-json
+        title: Example JSON structure
+        descriptionAbout: >
+          ```json
+
+          {
+            "id": "",
+            "oci": "oci:0610200888-0613012615",
+            "sourceWorkId": "345678",
+            "targetWorkId": "23456",
+            "citingDoi": "10.1000/xyz123",
+            "citedDoi": "10.1000/abc456",
+            "creationDate": "2022-06-14",
+            "timespan": "P2Y",
+            "reference": {
+              "type": "journal-article",
+              "author": ["Smith J", "Lee B"],
+              "articleTitle": "Quantum effects in materials",
+              "journalTitle": "Physical Review Letters",
+              "volume": "50",
+              "issue": "3",
+              "startPage": "101",
+              "endPage": "118",
+              "doi": "10.1000/abc456",
+              "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+            },
+            "metrics": {
+              "citationCount": 256,
+              "normalisedPercentileValue": 0.94,
+              "isInTopOnePercent": false,
+              "isInTopTenPercent": true,
+              "influence": 0.74,
+              "influenceClass": "high",
+              "downloads": 1250,
+              "views": 9810,
+              "citedByApiUrl": "https://api.openalex.org/works?...",
+              "journalSelfCitation": false,
+              "authorSelfCitation": true
+            }
+          }
+
+          ```
+  - item: Authors
+    children:
+      - divider: false
+        border: false
+        id: authors-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Author entity represents a persistent person identity across
+          scholarly Works.
+
+
+          An Author record contains normalised name information, external identifiers, alternative and source-provided names, profile information, research interests, and other attributes associated with the person.
+
+
+          Unlike Authorship, which represents how an Author appears on one particular Work, the Author entity represents the person across all known Works.
+
+
+          The diagram below represents the relationships between Authors, Authorships, Works, Affiliations, and Institutions.
