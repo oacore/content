@@ -15,7 +15,7 @@ jobs:
             -H "Authorization: token ${{ secrets.GH_PAT }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/oacore/dashboard/dispatches \
-            -d '{"event_type": "trigger-stage-deploy"}'
+            -d '{"event_type": "CONTENT-repo:cross-repo trigger deployment stage"}'
 
       - name: Trigger about::stage AKS deploy
         run: |
