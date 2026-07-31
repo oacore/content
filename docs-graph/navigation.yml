@@ -54,6 +54,12 @@ navItems:
           - hidden: false
             item: Search Authors
             href: "#authors-api-search-authors"
+          - hidden: false
+            item: Search examples
+            href: "#authors-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#authors-api-relationship-oriented-endpoints"
       - item: Publishers
       - item: Grants
       - item: Funders
