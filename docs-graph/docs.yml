@@ -22,43 +22,43 @@ items:
           zero or more Affiliation records through `Authorship_Affiliation`.
       - id: authorships-api-data-structure
         title: Data structure
-        descriptionAbout: >
+        descriptionAbout: >-
           The table below describes the top-level fields in the CORE Graph
           metadata schema for the Authorship entity, including their types,
           example values, descriptions, and sources.
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property            | Type              | Example value           | Description                                                                                                                                                                                                                                                                                                                                | Source              |
 
-          | --- | --- | --- | --- | --- |
+          | ------------------- | ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
 
-          | authorshipId | integer | 234 | CORE identifier for the authorship | CORE |
+          | authorshipId        | integer           | 234                     | CORE identifier for the authorship                                                                                                                                                                                                                                                                                                         | CORE                |
 
-          | workId | integer | 23456 | CORE identifier of the associated work. | CORE |
+          | workId              | integer           | 23456                   | CORE identifier of the associated work.                                                                                                                                                                                                                                                                                                    | CORE                |
 
-          | authorId | integer | 12 | CORE identifier of the associated author. | CORE |
+          | authorId            | integer           | 12                      | CORE identifier of the associated author.                                                                                                                                                                                                                                                                                                  | CORE                |
 
-          | rawName | string \| null | Smith, Alice | Verbatim author name string as supplied in the source metadata for this work. | OAI-PMH / Crossref |
+          | rawName             | string | null     | Smith, Alice            | Verbatim author name string as supplied in the source metadata for this work.                                                                                                                                                                                                                                                              | OAI-PMH / Crossref  |
 
-          | sequence* | string \| null | first | Author order classification within the work, such as first or additional. | Crossref / OpenAlex |
+          | sequence*           | string | null     | first                   | Author order classification within the work, such as first or additional.                                                                                                                                                                                                                                                                  | Crossref / OpenAlex |
 
-          | rank* | integer \| null | 1 | Numeric rank of the author in the author list. | OpenAIRE / OpenAlex |
+          | rank*               | integer | null    | 1                       | Numeric rank of the author in the author list.                                                                                                                                                                                                                                                                                             | OpenAIRE / OpenAlex |
 
-          | isFirstNamedAuthor* | boolean \| null | true | Indicates whether the author is the first-listed author on the work. | Derived by CORE |
+          | isFirstNamedAuthor* | boolean | null    | true                    | Indicates whether the author is the first-listed author on the work.                                                                                                                                                                                                                                                                       | Derived by CORE     |
 
-          | isCorresponding | boolean \| null | false | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. | |
+          | isCorresponding     | boolean | null    | false                   | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. |                     |
 
-          | sourceOutputIds | integer[] \| null | [216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived. | CORE |
+          | sourceOutputIds     | integer\[] | null | \[216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived.                                                                                                                                                                                                                                                               | CORE                |
 
-          | createdDate | string \| null | "2026-06-15T10:30:00Z" | Date and time when the authorship record was created in CORE. | CORE |
+          | createdDate         | string | null     | "2026-06-15T10:30:00Z"  | Date and time when the authorship record was created in CORE.                                                                                                                                                                                                                                                                              | CORE                |
 
-          | updatedDate | string \| null | 2023-11-07T05:31:56Z | Date and time when the authorship record was last updated in CORE. | CORE |
+          | updatedDate         | string | null     | 2023-11-07T05:31:56Z    | Date and time when the authorship record was last updated in CORE.                                                                                                                                                                                                                                                                         | CORE                |
 
 
           \* - See the Author position section below.
 
 
-          ## Author position
+          #### Author position
 
 
           The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
@@ -67,15 +67,15 @@ items:
           For example:
 
 
-          | Author position | rank | sequence | isFirstNamedAuthor |
+          | Author position | rank | sequence     | isFirstNamedAuthor |
 
-          | --- | --- | --- | --- |
+          | --------------- | ---- | ------------ | ------------------ |
 
-          | First author | 1 | "first" | true |
+          | First author    | 1    | "first"      | true               |
 
-          | Middle author | 2 | "additional" | false |
+          | Middle author   | 2    | "additional" | false              |
 
-          | Final author | 5 | "last" | false |
+          | Final author    | 5    | "last"       | false              |
 
 
           The `rank` property provides the exact numeric position of the Author.
@@ -98,7 +98,7 @@ items:
           ```
 
 
-          ## Example Authorship record
+          #### Example Authorship record
 
 
           ```json
@@ -1542,7 +1542,7 @@ items:
           CORE Graph metadata schema for the Author entity.
 
 
-          **Identifiers**
+          #### **Identifiers**
 
 
           | Property    | Type      | Example value                                | Description                                                         | Source                                 |
@@ -1556,7 +1556,7 @@ items:
           | externalIds | string\[] | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. | OpenAIRE / RIOXX / Crossref / ORCID    |
 
 
-          **Names**
+          #### **Names**
 
 
           | Property    | Type      | Example value                  | Description                                                                                                                  | Source                                                               |
@@ -1578,7 +1578,7 @@ items:
           | rawNames    | string\[] | `["Smith, Alice", "A. Smith"]` | Verbatim Author name strings supplied in source metadata.                                                                    | Dublin Core / Qualified Dublin Core / Crossref / OpenAIRE / OpenAlex |
 
 
-          **Profile and career information**
+          #### **Profile and career information**
 
 
           | Property    | Type      | Example value                                                                | Description                                                                                                                                           | Source          |
@@ -1608,7 +1608,7 @@ items:
           | unknown      | Available evidence is insufficient to classify the Author.                            |
 
 
-          **Links and research interests**
+          #### **Links and research interests**
 
 
           | Property      | Type      | Example value                                       | Description                                                                                  | Source                          |
@@ -1624,9 +1624,7 @@ items:
           | keywords      | string\[] | `["Artificial Intelligence", "Machine Learning"]`   | Words or phrases describing the Author’s research activities and areas of interest.          | ORCID                           |
 
 
-
-
-          **Dates**
+          #### **Dates**
 
 
           | Property    | Type   | Example value            | Description                                                              | Source |
@@ -1636,3 +1634,70 @@ items:
           | createdDate | string | `"2026-06-15T10:30:00Z"` | Date and time when the canonical Author record was created in CORE.      | CORE   |
 
           | updatedDate | string | `"2026-07-01T14:20:00Z"` | Date and time when the canonical Author record was last updated in CORE. | CORE   |
+
+
+          #### Example Author record
+        contentBlocks:
+          - type: code
+            language: json
+            body: >-
+              {
+                "authorId": 67890,
+                "orcidId": "0000-0002-1825-0097",
+                "externalIds": [
+                  "openaire____::abc123",
+                  "rioxx____::x45"
+                ],
+                "identifiers": [
+                  {
+                    "scheme": "ORCID",
+                    "value": "0000-0002-1825-0097",
+                    "preferred": true
+                  },
+                  {
+                    "scheme": "OPENALEX",
+                    "value": "https://openalex.org/A5048491430",
+                    "preferred": true
+                  },
+                  {
+                    "scheme": "OPENAIRE",
+                    "value": "openaire____::abc123",
+                    "preferred": null
+                  }
+                ],
+                "displayName": "Alice Smith",
+                "givenNames": [
+                  "Alice"
+                ],
+                "familyNames": [
+                  "Smith"
+                ],
+                "prefixes": [
+                  "Dr"
+                ],
+                "suffixes": null,
+                "altNames": [
+                  "Smith, Alice",
+                  "A. Smith"
+                ],
+                "rawNames": [
+                  "SMITH, Alice",
+                  "A Smith"
+                ],
+                "biography": "Researcher working in information retrieval and scholarly communication.",
+                "countries": [
+                  "GB",
+                  "US"
+                ],
+                "careerStage": "early-career",
+                "authorUrl": "https://example.edu/researchers/alice-smith",
+                "authorUrlDesc": "Institutional researcher profile",
+                "email": null,
+                "keywords": [
+                  "Artificial Intelligence",
+                  "Machine Learning",
+                  "Information Retrieval"
+                ],
+                "createdDate": "2026-06-15T10:30:00Z",
+                "updatedDate": "2026-07-01T14:20:00Z"
+              }
