@@ -26,14 +26,6 @@ navItems:
             href: "#authorships-api-search-authorships"
           - item: Search examples
             href: "#authorships-api-search-examples"
-          - item: Ordering Authorship results
-            href: "#authorships-api-ordering-authorship-results"
-          - item: Facets
-            href: "#authorships-api-facets"
-          - item: Result count
-            href: "#authorships-api-result-count"
-          - item: Pagination
-            href: "#authorships-api-pagination"
           - item: Relationship-oriented endpoints
             href: "#authorships-api-relationship-endpoints"
       - item: Affiliation
