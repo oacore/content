@@ -38,6 +38,10 @@ navItems:
             href: "#authorships-api-relationship-endpoints"
       - item: Affiliation
       - item: Authors
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#authors-api-introduction"
       - item: Publishers
       - item: Grants
       - item: Funders
