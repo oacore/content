@@ -2006,7 +2006,7 @@ items:
         id: authors-api-search-examples
         title: Search examples
         descriptionAbout: >-
-          **GET**
+          GET
 
 
           ```
@@ -2014,8 +2014,6 @@ items:
           curl --request GET \
             --url 'https://api.core.ac.uk/v4/search/authors?q=displayName:"Alice%20Smith"' \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -2025,8 +2023,6 @@ items:
           ```
 
           GET /v4/search/authors?q=displayName:"Alice Smith"
-
-
 
           ```
 
@@ -2038,12 +2034,10 @@ items:
 
           GET /v4/search/authors?q="Alice Smith"
 
-
-
           ```
 
 
-          ###### POST
+          P﻿OST
 
 
           ```
@@ -2055,8 +2049,6 @@ items:
             --data '{
               "q": "displayName:\"Alice Smith\""
             }'
-
-
           ```
 
 
@@ -2081,17 +2073,15 @@ items:
           When a textual query is supplied and orderby is omitted, results are ordered by relevance.
 
 
-          **Retrieve an Author by ORCID**
+          #### **Retrieve an Author by ORCID**
 
 
-          **G﻿ET**
+          G﻿ET
 
 
           ```
 
           GET /v4/search/authors?q=orcidId:"0000-0002-1825-0097"
-
-
 
           ```
 
@@ -2105,6 +2095,201 @@ items:
             "q": "orcidId:\"0000-0002-1825-0097\""
           }
 
+          ```
+
+
+          #### Search by research keyword
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=keywords:"Machine Learning"
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "keywords:\"Machine Learning\""
+          }
+
+
+
+          ```
+
+
+          #### Retrieve Authors associated with a country
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=countries:GB
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "countries:GB"
+          }
+
+          ```
+
+
+          This query uses countries derived from known Affiliations and does not imply nationality.
+
+
+          #### **Retrieve Authors by career stage**
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=careerStage:early-career
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          { 
+            "q": "careerStage:early-career" 
+          }
+
+
+
+          ```
+
+
+          #### **Retrieve Authors with ORCID identifiers**
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=_exists_:orcidId
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "_exists_:orcidId"
+          }
+
+
+
+          ```
+
+
+          #### Combined search, selection, and ordering
+
+
+
+
+          The following request:
+
+
+          * searches for Authors with the keyword Machine Learning;
+
+          * restricts results to Authors associated with an Affiliation in the United Kingdom;
+
+          * orders results by preferred display name;
+
+          * returns selected fields;
+
+          * includes the total result count;
+
+          * returns a maximum of ten records.
+
+
+          G﻿ET
+
+
+          ```
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/authors?q=keywords:"Machine%20Learning"%20AND%20countries:GB&orderby=displayName:asc&select=authorId,orcidId,displayName,countries,careerStage,keywords&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          R﻿eadable form:
+
+
+          ```
+
+          GET /v4/search/authors
+              ?q=keywords:"Machine Learning" AND countries:GB
+              &orderby=displayName:asc
+              &select=authorId,orcidId,displayName,countries,careerStage,keywords
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authors" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "keywords:\"Machine Learning\" AND countries:GB",
+              "orderby": [
+                "displayName:asc"
+              ],
+              "select": [
+                "authorId",
+                "orcidId",
+                "displayName",
+                "countries",
+                "careerStage",
+                "keywords"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
 
 
           ```
