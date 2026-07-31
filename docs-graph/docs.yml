@@ -2001,3 +2001,674 @@ items:
           | `limit=10`                              | `"limit": 10`                                        |
 
           | `offset=0`                              | `"offset": 0`                                        |
+      - divider: false
+        border: false
+        id: authors-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/authors?q=displayName:"Alice%20Smith"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/authors?q=displayName:"Alice Smith"
+
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```
+
+          GET /v4/search/authors?q="Alice Smith"
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authors" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "displayName:\"Alice Smith\""
+            }'
+          ```
+
+
+          A broad textual query searches searchable Author fields, including:
+
+
+          * displayName;
+
+          * givenNames;
+
+          * familyNames;
+
+          * altNames;
+
+          * rawNames;
+
+          * biography;
+
+          * keywords.
+
+
+          When a textual query is supplied and orderby is omitted, results are ordered by relevance.
+
+
+          #### **Retrieve an Author by ORCID**
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=orcidId:"0000-0002-1825-0097"
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "orcidId:\"0000-0002-1825-0097\""
+          }
+
+          ```
+
+
+          #### Search by research keyword
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=keywords:"Machine Learning"
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "keywords:\"Machine Learning\""
+          }
+
+
+
+          ```
+
+
+          #### Retrieve Authors associated with a country
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=countries:GB
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "countries:GB"
+          }
+
+          ```
+
+
+          This query uses countries derived from known Affiliations and does not imply nationality.
+
+
+          #### **Retrieve Authors by career stage**
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=careerStage:early-career
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          { 
+            "q": "careerStage:early-career" 
+          }
+
+
+
+          ```
+
+
+          #### **Retrieve Authors with ORCID identifiers**
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=_exists_:orcidId
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "_exists_:orcidId"
+          }
+
+
+
+          ```
+
+
+          #### Combined search, selection, and ordering
+
+
+
+
+          The following request:
+
+
+          * searches for Authors with the keyword Machine Learning;
+
+          * restricts results to Authors associated with an Affiliation in the United Kingdom;
+
+          * orders results by preferred display name;
+
+          * returns selected fields;
+
+          * includes the total result count;
+
+          * returns a maximum of ten records.
+
+
+          G﻿ET
+
+
+          ```
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/authors?q=keywords:"Machine%20Learning"%20AND%20countries:GB&orderby=displayName:asc&select=authorId,orcidId,displayName,countries,careerStage,keywords&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          R﻿eadable form:
+
+
+          ```
+
+          GET /v4/search/authors
+              ?q=keywords:"Machine Learning" AND countries:GB
+              &orderby=displayName:asc
+              &select=authorId,orcidId,displayName,countries,careerStage,keywords
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authors" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "keywords:\"Machine Learning\" AND countries:GB",
+              "orderby": [
+                "displayName:asc"
+              ],
+              "select": [
+                "authorId",
+                "orcidId",
+                "displayName",
+                "countries",
+                "careerStage",
+                "keywords"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+
+
+          ```
+
+
+          Example search response:
+
+
+          ```
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "authorId": 67890,
+                "orcidId": "0000-0002-1825-0097",
+                "displayName": "Alice Smith",
+                "countries": [
+                  "GB",
+                  "US"
+                ],
+                "careerStage": "early-career",
+                "keywords": [
+                  "Artificial Intelligence",
+                  "Machine Learning",
+                  "Information Retrieval"
+                ]
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          #### Ordering Author results
+
+
+          ##### Order by display name
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?orderby=displayName:asc
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "orderby": [
+              "displayName:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          ##### Order by creation date
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?orderby=createdDate:asc
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "orderby": [
+              "createdDate:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          ##### Order by update date
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?orderby=updatedDate:desc
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "orderby": [
+              "updatedDate:desc"
+            ]
+          }
+
+
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?orderby=displayName:asc,updatedDate:desc
+
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "orderby": [
+              "displayName:asc",
+              "updatedDate:desc"
+            ]
+          }
+
+
+
+          ```
+
+
+          Results are first ordered by displayName. Records with the same display name are then ordered by updatedDate.
+
+
+
+
+          #### **Facets**
+
+
+          The facets option returns value buckets and counts for fields configured as facetable.
+
+
+          G﻿ET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/authors?q=*&facets=countries,careerStage,keywords&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          P﻿OST
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authors" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "*",
+              "facets": [
+                "countries",
+                "careerStage",
+                "keywords"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+
+
+          E﻿xample facet response:
+
+
+          ```
+
+          {
+            "totalHits": 2500000,
+            "facets": {
+              "countries": [
+                {
+                  "value": "US",
+                  "count": 710000
+                },
+                {
+                  "value": "GB",
+                  "count": 245000
+                }
+              ],
+              "careerStage": [
+                {
+                  "value": "early-career",
+                  "count": 540000
+                },
+                {
+                  "value": "mid-career",
+                  "count": 430000
+                },
+                {
+                  "value": "experienced",
+                  "count": 390000
+                }
+              ],
+              "keywords": [
+                {
+                  "value": "Machine Learning",
+                  "count": 165000
+                },
+                {
+                  "value": "Artificial Intelligence",
+                  "count": 153000
+                }
+              ]
+            },
+            "results": []
+          }
+
+
+
+          ```
+
+
+          Facet counts describe the complete matching result set.
+
+
+          Setting limit to 0 returns facet buckets and counts without returning Author records.
+
+
+          #### R﻿esult count
+
+
+          Set count=true to include the total number of matching Author records.
+
+
+          G﻿ET
+
+
+          ```
+
+          GET /v4/search/authors?q=countries:GB&count=true
+
+
+
+          ```
+
+
+          \
+
+          P﻿OST
+
+
+          ```
+
+          {
+            "q": "countries:GB",
+            "count": true
+          }
+
+
+
+          ```
+
+
+          When count is omitted or set to false, totalHits may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use limit and offset to paginate Author results.
+
+
+          A deterministic orderby expression should be used when retrieving multiple pages.
+
+
+          F﻿irst page using GET
+
+
+          ```
+
+          GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=0
+
+
+
+          ```
+
+
+          Second page using GET
+
+
+          ```
+
+          GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=20
+
+          ```
+
+
+          First page using POST
+
+
+          ```
+
+          {
+            "q": "keywords:\"Artificial Intelligence\"",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+
+
+          ```
+
+
+          \
+
+          Second page using POST
+
+
+          ```
+
+          {
+            "q": "keywords:\"Artificial Intelligence\"",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          offset = page size × number of previous pages
