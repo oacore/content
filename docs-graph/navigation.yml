@@ -48,6 +48,9 @@ navItems:
           - hidden: false
             item: Search examples
             href: "#affiliations-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#affiliations-api-relationship-oriented-endpoints"
       - item: Authors
         children:
           - hidden: false
