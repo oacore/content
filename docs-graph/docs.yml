@@ -3465,6 +3465,26 @@ items:
           }
 
           ```
+
+
+          #### R﻿esponses
+
+
+          | **Status** | **Description**                                                      |
+
+          | ---------- | -------------------------------------------------------------------- |
+
+          | 200        | The Affiliation record was retrieved successfully.                   |
+
+          | 400        | The request contains an invalid parameter or unsupported field name. |
+
+          | 401        | Authentication credentials are missing or invalid.                   |
+
+          | 404        | No Affiliation record was found for the supplied identifier.         |
+
+          | 429        | The API request limit has been exceeded.                             |
+
+          | 500        | An unexpected server error occurred.                                 |
       - divider: false
         border: false
         id: affiliations-api-search-affiliations
