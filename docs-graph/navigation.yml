@@ -42,6 +42,9 @@ navItems:
           - hidden: false
             item: Affiliation endpoints
             href: "#affiliations-api-affiliation-endpoints"
+          - hidden: false
+            item: Search Affiliations
+            href: "#affiliations-api-search-affiliations"
       - item: Authors
         children:
           - hidden: false
