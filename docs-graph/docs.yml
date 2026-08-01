@@ -3391,8 +3391,6 @@ items:
           | select    | string | No       | Comma-separated list of top-level Affiliation fields to return. This can be used to reduce the response size. Example: `select=affiliationId,authorId,institutionId,isCurrent`. |
 
 
-
-
           E﻿xample request:
 
 
@@ -3401,8 +3399,6 @@ items:
           curl --request GET \
             --url "https://api.core.ac.uk/v4/affiliations/901" \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -3441,8 +3437,6 @@ items:
             "updatedDate": "2026-07-01T14:20:00Z"
           }
 
-
-
           ```
 
 
@@ -3454,8 +3448,6 @@ items:
           curl --request GET \
             --url "https://api.core.ac.uk/v4/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -3471,8 +3463,6 @@ items:
             "institutionName": "University of Oxford",
             "isCurrent": false
           }
-
-
 
           ```
       - divider: false
@@ -3571,3 +3561,698 @@ items:
 
           | `offset=0`                                     | `"offset": 0`                                               |
 
+
+      - divider: false
+        border: false
+        id: affiliations-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          #### Search by raw Affiliation
+
+
+          GET
+
+
+          The rawAffiliation property is searchable using a field lookup:
+
+
+          ```
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/affiliations?q=rawAffiliation:"Department%20of%20Computer%20Science%20Oxford"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=rawAffiliation:"Department of Computer Science Oxford"
+
+
+
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=University%20of%20Oxford" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          This searches across all searchable Affiliation fields, including `rawAffiliation`, `department`, and `institutionName`.
+
+
+          Equivalent POST
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/affiliations" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "rawAffiliation:\"Department of Computer Science Oxford\""
+            }'
+          ```
+
+
+          A broad textual query searches all searchable Affiliation fields, including:
+
+
+          * `rawAffiliation`;
+
+          * `department`;
+
+          * `institutionName`.
+
+
+          When a textual query is supplied and orderby is omitted, results are ordered by relevance.
+
+
+          #### Search by Institution name
+
+
+          **GET**
+
+
+          ```
+
+          curl --request GET \ --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"University%20of%20Oxford"' \ --header "Authorization: Bearer YOUR_API_KEY"
+
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=institutionName:"University of Oxford"
+
+
+
+          ```
+
+
+          \
+
+          This performs keyword search against the source-provided or resolved Institution name.
+
+
+          Equivalent POST
+
+
+          ```
+
+          {
+            "q": "institutionName:\"University of Oxford\""
+          }
+
+
+
+          ```
+
+
+          When a canonical Institution identifier is already known, an exact institutionId lookup is preferred.
+
+
+          #### Retrieve Affiliations for an Author
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          This retrieves the known Affiliation history for Author 67890, ordered by start date.
+
+
+          Equivalent POST
+
+
+          ```
+
+          {
+            "q": "authorId:67890",
+            "orderby": [
+              "startDate:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          This retrieves the known Affiliation history associated with Author 67890.
+
+
+          This request is also functionally equivalent to:
+
+
+          ```
+
+          GET /v4/authors/67890/affiliations
+
+
+
+          ```
+
+
+          #### Retrieve current Affiliations for an Author
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:true" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          \
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:true
+
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "authorId:67890 AND isCurrent:true"
+          }
+
+          ```
+
+
+          An Author may have more than one current Affiliation.
+
+
+
+
+          #### Retrieve previous Affiliations for an Author
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \ --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc" \ --header "Authorization: Bearer YOUR_API_KEY"
+
+
+
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:false&orderby=endDate:desc
+
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "authorId:67890 AND isCurrent:false",
+            "orderby": [
+              "endDate:desc"
+            ]
+          }
+
+
+
+          ```
+
+
+          This returns Affiliation records explicitly identified as no longer current, ordered by the most recent end date.
+
+
+          Records where `isCurrent` is null are not included because their current status is unknown.
+
+
+          #### \
+
+          Retrieve Affiliations for an Institution
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST
+
+
+          ```
+
+          {
+            "q": "institutionId:3201"
+          }
+
+
+
+          ```
+
+
+          This is functionally equivalent to:
+
+
+          ```
+
+          GET /v4/institutions/3201/affiliations
+
+
+
+          ```
+
+
+          Depending on the Institution, this query may return a large result set and should be paginated.
+
+
+          #### Retrieve current Affiliations for an Institution
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201%20AND%20isCurrent:true" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=institutionId:3201 AND isCurrent:true
+
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "institutionId:3201 AND isCurrent:true"
+          }
+
+
+
+          ```
+
+
+          This returns current Author–Institution relationships associated with Institution 3201.
+
+
+          #### Retrieve Affiliations supported by a Work
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=evidenceWorkIds:1234" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "evidenceWorkIds:1234"
+          }
+
+          ```
+
+
+          This query identifies Author–Institution relationships supported by Work 1234.
+
+
+          #### Retrieve Affiliations with evidence Works
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:evidenceWorkIds" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "_exists_:evidenceWorkIds"
+          }
+
+
+
+          ```
+
+
+          This returns Affiliation records where `evidenceWorkIds` is not empty.
+
+
+          #### Retrieve resolved Affiliations
+
+
+          GET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:institutionId" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "_exists_:institutionId"
+          }
+
+
+
+          ```
+
+
+          This returns Affiliation records linked to a canonical CORE Institution.
+
+
+          #### Filter Affiliations by date
+
+
+          Affiliations that started on or after January 1, 2021:
+
+
+          GET
+
+
+          ```
+
+          GET /v4/search/affiliations?q=startDate>="2021-01-01"
+
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "startDate>=\"2021-01-01\""
+          }
+
+
+
+          ```
+
+
+          Affiliations that ended before January 1, 2024:
+
+
+          GET
+
+
+          ```
+
+          GET /v4/search/affiliations?q=endDate<"2024-01-01"
+
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "endDate<\"2024-01-01\""
+          }
+
+
+
+          ```
+
+
+          Previous Affiliations for an Author whose known date range overlaps 2018 through 2021:
+
+
+          GET
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:67890 AND startDate<="2021-12-31" AND endDate>="2018-01-01"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "authorId:67890 AND startDate<=\"2021-12-31\" AND endDate>=\"2018-01-01\""
+          }
+
+
+
+          ```
+
+
+          #### \
+
+          Search using multiple conditions
+
+
+          ```
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"Oxford"%20AND%20authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc&select=affiliationId,institutionId,institutionName,department,startDate,endDate&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Readable form:
+
+
+          ```
+
+          GET /v4/search/affiliations
+              ?q=institutionName:"Oxford" AND authorId:67890 AND isCurrent:false
+              &orderby=endDate:desc
+              &select=affiliationId,institutionId,institutionName,department,startDate,endDate
+              &limit=10
+              &offset=0
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/affiliations" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "institutionName:\"Oxford\" AND authorId:67890 AND isCurrent:false",
+              "orderby": [
+                "endDate:desc"
+              ],
+              "select": [
+                "affiliationId",
+                "institutionId",
+                "institutionName",
+                "department",
+                "startDate",
+                "endDate"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+
+
+          ```
+
+
+          This request:
+
+
+          * searches for Oxford in institutionName;
+
+          * restricts results to Author 67890;
+
+          * returns only previous Affiliations;
+
+          * orders matching records by most recent end date;
+
+          * returns only the selected fields;
+
+          * returns a maximum of ten records.
+
+
+          Example search response:
+
+
+          ```
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "affiliationId": 901,
+                "institutionId": 3201,
+                "institutionName": "University of Oxford",
+                "department": "Department of Computer Science",
+                "startDate": "2018-01-01",
+                "endDate": "2021-12-31"
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          #### Ordering Affiliation results
+
+
+          The shared Search documentation defines the complete orderby syntax.
+
+
+          ##### Order Affiliations chronologically
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:67890&orderby=startDate:asc
+
+
+
+          ```
+
+
+          \
+
+          P﻿OST representation:
+
+
+          ```
+
+          {
+            "q": "authorId:67890",
+            "orderby": [
+              "startDate:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          This returns the known Affiliation history for the Author in chronological order.
+
+
+          #### Order by multiple fields
+
+
+          ```
+
+          GET /v4/search/affiliations?orderby=authorId:asc,startDate:asc
+
+
+
+          ```
