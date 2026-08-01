@@ -28,14 +28,14 @@ navItems:
             href: "#authorships-api-search-examples"
           - item: Relationship-oriented endpoints
             href: "#authorships-api-relationship-endpoints"
-      - item: Affiliation
+      - item: Affiliations
         children:
           - hidden: false
             item: Introduction
             href: "#affiliations-api-introduction"
           - hidden: false
             item: Data structure
-            href: "#affiliations-api-introduction"
+            href: "#affiliations-api-data-structure"
       - item: Authors
         children:
           - hidden: false
