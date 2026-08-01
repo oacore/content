@@ -3339,8 +3339,6 @@ items:
 
           GET /v4/institutions/{institutionId}/affiliations
 
-
-
           ```
 
 
@@ -3359,8 +3357,6 @@ items:
           ```
 
           GET https://api.core.ac.uk/v4/affiliations/{affiliationId}
-
-
 
           ```
 
@@ -3393,3 +3389,89 @@ items:
           | --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
           | select    | string | No       | Comma-separated list of top-level Affiliation fields to return. This can be used to reduce the response size. Example: `select=affiliationId,authorId,institutionId,isCurrent`. |
+
+
+
+
+          E﻿xample request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/affiliations/901" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "isCurrent": false,
+            "startDate": "2018-01-01",
+            "endDate": "2021-12-31",
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ],
+            "externalIds": [
+              {
+                "type": "orcid-put-code",
+                "value": "123456"
+              }
+            ],
+            "address": {
+              "city": "Oxford",
+              "region": "Oxfordshire",
+              "countryCode": "GB"
+            },
+            "url": "https://www.cs.ox.ac.uk/",
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+
+
+          ```
+
+
+          Example request using `select`:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "isCurrent": false
+          }
+
+
+
+          ```
