@@ -3263,3 +3263,47 @@ items:
           * Authorship contains only Work-specific Author information;
 
           * Affiliation remains an independently addressable and reusable entity.
+      - divider: false
+        border: false
+        id: affiliations-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Affiliation properties can be
+          searched, filtered, ordered, or used as facets.
+
+
+
+
+          | Attribute       | Searchable | Filterable | Sortable | Facetable |
+
+          | --------------- | ---------- | ---------- | -------- | --------- |
+
+          | affiliationId   | No         | Yes        | No       | No        |
+
+          | authorId        | No         | Yes        | Yes      | No        |
+
+          | rawAffiliation  | Yes        | No         | No       | No        |
+
+          | department      | Yes        | Yes        | No       | Yes       |
+
+          | institutionId   | No         | Yes        | Yes      | Yes       |
+
+          | institutionName | Yes        | No         | No       | No        |
+
+          | isCurrent       | No         | Yes        | No       | Yes       |
+
+          | startDate       | No         | Yes        | Yes      | No        |
+
+          | endDate         | No         | Yes        | Yes      | No        |
+
+          | evidenceWorkIds | No         | Yes        | No       | No        |
+
+          | externalIds     | No         | No         | No       | No        |
+
+          | address         | No         | No         | No       | No        |
+
+          | url             | No         | No         | No       | No        |
+
+          | createdDate     | No         | Yes        | Yes      | No        |
+
+          | updatedDate     | No         | Yes        | Yes      | No        |
