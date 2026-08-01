@@ -28,7 +28,26 @@ navItems:
             href: "#authorships-api-search-examples"
           - item: Relationship-oriented endpoints
             href: "#authorships-api-relationship-endpoints"
-      - item: Affiliation
+      - item: Affiliations
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#affiliations-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#affiliations-api-data-structure"
+          - hidden: false
+            href: "#affiliations-api-supported-field-operations"
+            item: Supported field operations
+          - hidden: false
+            item: Affiliation endpoints
+            href: "#affiliations-api-affiliation-endpoints"
+          - hidden: false
+            item: Search Affiliations
+            href: "#affiliations-api-search-affiliations"
+          - hidden: false
+            item: Search examples
+            href: "#affiliations-api-search-examples"
       - item: Authors
         children:
           - hidden: false
