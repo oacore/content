@@ -29,6 +29,13 @@ navItems:
           - item: Relationship-oriented endpoints
             href: "#authorships-api-relationship-endpoints"
       - item: Affiliation
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#affiliations-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#affiliations-api-introduction"
       - item: Authors
         children:
           - hidden: false
