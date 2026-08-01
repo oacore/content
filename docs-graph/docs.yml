@@ -4577,3 +4577,153 @@ items:
 
 
           ```
+      - divider: false
+        border: false
+        id: affiliations-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          #### Affiliations for an Institution
+
+
+          ```
+
+          GET /v4/institutions/{institutionId}/affiliations
+
+
+
+          ```
+
+
+          Retrieves Affiliation records linked to an Institution.
+
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=institutionId:{institutionId}
+
+
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+          {
+            "q": "institutionId:{institutionId}"
+          }
+
+
+
+          ```
+
+
+          This endpoint may return a large result set and should support:
+
+
+          #### Authorships for an Affiliation
+
+
+          ```
+
+          GET /v4/affiliations/{affiliationId}/authorships
+
+
+
+          ```
+
+
+          Retrieves the Authorship records connected to an Affiliation through `Authorship_Affiliation`. 
+
+
+          Example request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/affiliations/901/authorships?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "authorshipId": 987654,
+                "workId": 1234,
+                "authorId": 67890,
+                "rawName": "Smith, Alice",
+                "sequence": "first",
+                "rank": 1,
+                "isFirstNamedAuthor": true,
+                "isCorresponding": true
+              },
+              {
+                "authorshipId": 987700,
+                "workId": 428765,
+                "authorId": 67890,
+                "rawName": "Smith, Alice",
+                "sequence": "additional",
+                "rank": 2,
+                "isFirstNamedAuthor": false,
+                "isCorresponding": false
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          This endpoint returns Authorship records, not raw `Authorship_Affiliation` bridge records.
+
+
+          An existing Affiliation with no linked Authorships returns 200 with an empty results array.
+
+
+          #### Affiliations for an Authorship
+
+
+          ```
+
+          GET /v4/authorships/{authorshipId}/affiliations
+
+
+
+          ```
+
+
+          Retrieves Affiliation records connected to an Authorship through `Authorship_Affiliation`.
+
+
+          This endpoint is documented primarily under the Authorship entity.
+
+
+          #### Affiliations for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/affiliations
+
+
+
+          ```
+
+
+          Retrieves Affiliation records associated with an Author.
