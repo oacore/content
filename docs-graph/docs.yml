@@ -589,14 +589,14 @@ items:
           | `offset=0` | `"offset": 0` |
       - id: authorships-api-search-examples
         title: Search examples
-        descriptionAbout: >
-          ### Search by raw Author name
+        descriptionAbout: >-
+          #### Search by raw Author name
 
 
           The `rawName` property is the principal searchable field in the Authorship entity.
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -618,7 +618,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -639,10 +639,10 @@ items:
           When a textual query is supplied and `orderby` is omitted, matching results are ordered by relevance.
 
 
-          ### Retrieve Authorships for a Work
+          #### Retrieve Authorships for a Work
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -653,7 +653,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -684,10 +684,10 @@ items:
           ```
 
 
-          ### Retrieve Authorships for an Author
+          #### Retrieve Authorships for an Author
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -698,7 +698,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -726,10 +726,10 @@ items:
           ```
 
 
-          ### Retrieve corresponding Authorships for a Work
+          #### Retrieve corresponding Authorships for a Work
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -750,7 +750,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -771,10 +771,10 @@ items:
           A Work may have more than one corresponding Author, so the response may contain multiple Authorship records.
 
 
-          ### Retrieve first or last Authorships
+          #### Retrieve first or last Authorships
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -795,7 +795,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```json
@@ -810,26 +810,26 @@ items:
           This returns Authorship records where `sequence` is either `first` or `last`.
 
 
-          ### Combined search, selection, and ordering
+          #### Combined search, selection, and ordering
 
 
           The following request:
 
 
-          - searches for Smith in `rawName`;
+          * searches for Smith in `rawName`;
 
-          - restricts results to Work 12345;
+          * restricts results to Work 12345;
 
-          - orders matching records by rank;
+          * orders matching records by rank;
 
-          - returns only selected fields;
+          * returns only selected fields;
 
-          - includes the total result count;
+          * includes the total result count;
 
-          - returns a maximum of ten records.
+          * returns a maximum of ten records.
 
 
-          **GET**
+          GET
 
 
           ```bash
@@ -855,7 +855,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -883,7 +883,7 @@ items:
           ```
 
 
-          ### Example search response
+          E﻿xample search response
 
 
           ```json
@@ -909,10 +909,15 @@ items:
           }
 
           ```
-      - id: authorships-api-ordering-authorship-results
-        title: Ordering Authorship results
-        descriptionAbout: >
-          ### Order by Author rank
+
+
+          ### Ordering Authorship results
+
+
+          #### Order by Author rank
+
+
+          G﻿ET
 
 
           ```
@@ -922,22 +927,38 @@ items:
           ```
 
 
-          POST representation:
+          E﻿quivalent POST
 
 
-          ```json
+          ```bash
 
-          {
-            "q": "workId:12345",
-            "orderby": [
-              "rank:asc"
-            ]
-          }
-
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/authorships" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "rawName:\"Smith\" AND workId:12345",
+              "orderby": [
+                "rank:asc"
+              ],
+              "select": [
+                "authorshipId",
+                "authorId",
+                "rawName",
+                "rank",
+                "isCorresponding"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
           ```
 
 
-          ### Order by multiple fields
+          #### Order by multiple fields
+
+
+          G﻿ET
 
 
           ```
@@ -965,7 +986,7 @@ items:
           Results are first ordered by `workId`. Authorship records associated with the same Work are then ordered by rank.
 
 
-          ### Order by update date
+          #### Order by update date
 
 
           ```
@@ -990,14 +1011,15 @@ items:
 
 
           This returns the most recently updated Authorship records first.
-      - id: authorships-api-facets
-        title: Facets
-        descriptionAbout: >
-          The `facets` option returns value buckets and counts for fields
-          configured as facetable.
 
 
-          **GET**
+          ### F﻿acets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET
 
 
           ```bash
@@ -1008,7 +1030,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```bash
@@ -1029,7 +1051,7 @@ items:
           ```
 
 
-          ### Example facet response
+          E﻿xample facet response
 
 
           ```json
@@ -1082,14 +1104,15 @@ items:
           POST /v4/search/authorships/aggregate
 
           ```
-      - id: authorships-api-result-count
-        title: Result count
-        descriptionAbout: >
-          Set `count=true` to include the total number of matching Authorship
-          records.
 
 
-          **GET**
+          ### R﻿esult count
+
+
+          Set `count=true` to include the total number of matching Authorship records.
+
+
+          GET
 
 
           ```
@@ -1099,7 +1122,7 @@ items:
           ```
 
 
-          **Equivalent POST**
+          Equivalent POST
 
 
           ```json
@@ -1113,16 +1136,20 @@ items:
 
 
           When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
-      - id: authorships-api-pagination
-        title: Pagination
-        descriptionAbout: >
+
+
+
+
+          ### P﻿agination
+
+
           Use `limit` and `offset` to paginate through Authorship results.
 
 
           A deterministic `orderby` expression should be used when retrieving multiple pages.
 
 
-          **First page using GET**
+          First page using GET:
 
 
           ```
@@ -1132,7 +1159,7 @@ items:
           ```
 
 
-          **Second page using GET**
+          Second page using GET:
 
 
           ```
@@ -1142,7 +1169,7 @@ items:
           ```
 
 
-          **First page using POST**
+          First page using POST:
 
 
           ```json
@@ -1159,7 +1186,7 @@ items:
           ```
 
 
-          **Second page using POST**
+          Second page using POST:
 
 
           ```json
@@ -2672,3 +2699,875 @@ items:
 
 
           offset = page size × number of previous pages
+      - divider: false
+        border: false
+        id: authors-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          Relationship-oriented endpoints provide convenient access to records
+          connected to an Author.
+
+
+          They do not embed those records in the Author entity. Internally, each endpoint queries the related entity using authorId.
+
+
+          #### Authorships for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/authorships
+
+
+
+          ```
+
+
+          Retrieves Authorship records associated with the Author.\
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/authorships?q=authorId:{authorId}
+
+
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+          {
+            "q": "authorId:{authorId}"
+          }
+
+
+
+          ```
+
+
+          E﻿xample request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890/authorships?orderby=workId:asc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "authorshipId": 987654,
+                "workId": 12345,
+                "authorId": 67890,
+                "rawName": "Smith, Alice",
+                "sequence": "first",
+                "rank": 1,
+                "isFirstNamedAuthor": true,
+                "isCorresponding": true
+              },
+              {
+                "authorshipId": 987700,
+                "workId": 428765,
+                "authorId": 67890,
+                "rawName": "A. Smith",
+                "sequence": "additional",
+                "rank": 2,
+                "isFirstNamedAuthor": false,
+                "isCorresponding": false
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          #### Works for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/works
+
+
+
+          ```
+
+
+          Retrieves Works connected to the Author through Authorship records.
+
+
+          E﻿xample request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890/works?select=workId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          E﻿xample response
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "workId": 428765,
+                "title": "Machine learning for scholarly information retrieval",
+                "yearPublished": 2025,
+                "doi": "10.1234/example.2025.1"
+              },
+              {
+                "workId": 12345,
+                "title": "Open research infrastructure and discovery",
+                "yearPublished": 2023,
+                "doi": "10.1234/example.2023.7"
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          \
+
+          An existing Author with no connected Works returns 200 with an empty results array.
+
+
+          #### Affiliations for an Author
+
+
+          ```
+
+          GET /v4/authors/{authorId}/affiliations
+
+
+
+          ```
+
+
+          Retrieves Affiliation records whose authorId matches the Author.
+
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:{authorId}&orderby=startDate:asc
+
+
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+          {
+            "q": "authorId:{authorId}",
+            "orderby": [
+              "startDate:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          E﻿xample request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/authors/67890/affiliations?orderby=startDate:asc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+                "department": "Department of Computer Science",
+                "institutionId": 3201,
+                "institutionName": "University of Oxford",
+                "isCurrent": false,
+                "startDate": "2018-01-01",
+                "endDate": "2021-12-31"
+              },
+              {
+                "affiliationId": 902,
+                "authorId": 67890,
+                "rawAffiliation": "Massachusetts Institute of Technology, Cambridge, MA, USA",
+                "department": null,
+                "institutionId": 4501,
+                "institutionName": "Massachusetts Institute of Technology",
+                "isCurrent": true,
+                "startDate": "2022-01-01",
+                "endDate": null
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          An existing Author with no connected Affiliations returns 200 with an empty results array.
+  - item: Affiliations
+    children:
+      - divider: false
+        border: false
+        id: "#affiliations-api-introduction"
+        title: Introduction
+        descriptionAbout: >-
+          The Affiliation entity represents the relationship between an Author
+          and an Institution over time. Each Affiliation record connects one
+          Author to one Institution and may include temporal information such as
+          the start date, end date, and whether the affiliation is current.
+
+
+          An Affiliation may be obtained directly from an authoritative source such as ORCID or derived by CORE from affiliation metadata associated with scholarly Works.
+
+
+          Unlike Authorship, which describes how an Author appears on one specific Work, Affiliation represents a potentially longer-term relationship between an Author and an Institution.
+
+
+          Affiliations used on individual Works are connected to Authorship records through the Authorship_Affiliation bridge entity.
+
+
+          The diagram below represents the relationships between Authors, Affiliations, and Institutions.
+
+
+          ![](/images/docs-graph/affiliations.png)
+
+
+
+
+          An Author may have multiple Affiliation records over time. An Institution may be associated with multiple Authors.
+
+
+          Each Affiliation record:
+
+
+          * links exactly one Author;
+
+          * may link to zero or one resolved Institution;
+
+          * may be connected to multiple Authorship records through `Authorship_Affiliation`;
+
+          * may contain one or more Works that provide evidence for the relationship.
+      - divider: false
+        border: false
+        id: "#affiliations-api-data-structure"
+        title: Data structure
+        descriptionAbout: >-
+          The table below describes the top-level fields in the CORE Graph
+          metadata schema for the Affiliation entity, including their types,
+          example values, descriptions, and sources.
+
+
+          | **Property**     | **Type**   | **Example value**                                                  | **Description**                                                                                                                                                                                                                                                                                      | **Source**                                    |
+
+          | ---------------- | ---------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+
+          | affiliationId    | integer    | `901`                                                              | Unique CORE identifier for the Affiliation record.                                                                                                                                                                                                                                                   | CORE                                          |
+
+          | authorId         | integer    | `67890`                                                            | CORE identifier of the Author associated with the Affiliation.                                                                                                                                                                                                                                       | CORE                                          |
+
+          | rawAffiliation   | string     | `"Department of Computer Science, University of Oxford, UK"`       | Verbatim affiliation string supplied in the source metadata.                                                                                                                                                                                                                                         | OAI-PMH / Crossref / OpenAlex / OpenAIRE      |
+
+          | department       | string     | `"Department of Computer Science"`                                 | Department, faculty, school, laboratory, or other organisational subunit associated with the Affiliation.                                                                                                                                                                                            | ORCID / Crossref / OpenAIRE / Derived by CORE |
+
+          | institutionId    | integer    | `3201`                                                             | CORE identifier of the associated Institution, when the Institution has been resolved.                                                                                                                                                                                                               | CORE                                          |
+
+          | institutionName  | string     | `"University of Oxford"`                                           | Name of the affiliated Institution as supplied by the source or derived during institution resolution.                                                                                                                                                                                               | ORCID / Crossref / OpenAlex / OpenAIRE / CORE |
+
+          | isCurrent        | boolean    | `true`                                                             | Indicates whether the Affiliation is identified as current. `true`: explicitly identified or confidently derived as current. `false`: explicitly identified or confidently derived as no longer current. `null`: available metadata is insufficient to determine whether the Affiliation is current. | ORCID / Derived by CORE                       |
+
+          | startDate        | string     | `"2021-01-01"`                                                     | Start date of the Affiliation, when available. Follows ISO 8601 standards.                                                                                                                                                                                                                           | ORCID                                         |
+
+          | endDate          | string     | `"2023-12-31"`                                                     | End date of the Affiliation, when available. A current Affiliation may have a null end date. Follows ISO 8601 standards.                                                                                                                                                                             | ORCID                                         |
+
+          | evidenceWorkIds* | integer\[] | `[1234, 428765]`                                                   | CORE Work identifiers that provide evidence for the relationship between the Author and Institution.                                                                                                                                                                                                 | CORE                                          |
+
+          | externalIds      | object\[]  | `[{"type": "orcid-put-code", "value": "123456"}]`                  | External identifiers associated with the Affiliation record or its source representation. Each entry identifies the identifier type and value.                                                                                                                                                       | ORCID / Other source systems                  |
+
+          | address          | object     | `{"city": "Oxford", "region": "Oxfordshire", "countryCode": "GB"}` | Source-provided location information for the organisation associated with the Affiliation. Contains the city or locality; region, state, province, or other country subdivision; and the ISO 3166-1 alpha-2 country code associated with the Affiliation.                                            | ORCID                                         |
+
+          | url              | string     | `"https://www.cs.ox.ac.uk/"`                                       | URL supplied by the source for the Affiliation, department, or associated organisation.                                                                                                                                                                                                              | ORCID                                         |
+
+          | createdDate      | string     | `"2026-06-15T10:30:00Z"`                                           | Date and time when the Affiliation record was created in CORE.                                                                                                                                                                                                                                       | CORE                                          |
+
+          | updatedDate      | string     | `"2026-07-01T14:20:00Z"`                                           | Date and time when the Affiliation record was last updated in CORE.                                                                                                                                                                                                                                  | CORE                                          |
+
+
+          \*More information is available in the following sections.
+
+
+          #### Evidence Works
+
+
+          The evidenceWorkIds property identifies Works whose metadata supports the Author–Institution relationship.
+
+
+          ```
+
+          {
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ]
+          }
+
+          ```
+
+
+          \
+
+          This implies that those Works contain evidence associating the Author with the Institution.
+
+
+          Evidence Works may be used to:
+
+
+          * trace the source of a derived Affiliation;
+
+          * validate institution resolution;
+
+          * identify when an Affiliation appeared in publication metadata;
+
+          * support temporal inference.
+
+          *
+
+
+          #### Evidence Works and the Authorship bridge
+
+
+          The `evidenceWorkIds` property and the `Authorship_Affiliation` bridge serve related but different purposes.
+
+
+          | Mechanism              | Purpose                                                                        |
+
+          | ---------------------- | ------------------------------------------------------------------------------ |
+
+          | evidenceWorkIds        | Provides an aggregated list of Works whose metadata supports the Affiliation.  |
+
+          | authorship_affiliation | Connects the Affiliation to the exact Authorship records on which it was used. |
+
+
+          For example:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ]
+          }
+
+          ```
+
+
+          \
+
+          The corresponding bridge records may be:
+
+
+          ```
+
+          [
+            {
+              "authorshipId": 987654,
+              "affiliationId": 901
+            },
+            {
+              "authorshipId": 987700,
+              "affiliationId": 901
+            }
+          ]
+
+          ```
+
+
+          The bridge records provide the exact Work-specific Author relationships. The `evidenceWorkIds` field provides convenient Work-level provenance.
+
+
+          #### Raw Affiliation and structured fields
+
+
+          The rawAffiliation property preserves the original source text:
+
+
+          ```
+
+          {
+            "rawAffiliation": "Dept of CS, Univ Oxford, Oxford, UK"
+          }
+
+          ```
+
+
+          Structured fields may be extracted or resolved from that value:
+
+
+          ```
+
+          {
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "address": {
+              "city": "Oxford",
+              "countryCode": "GB"
+            }
+          }
+
+          ```
+
+
+          The raw value is retained even when structured extraction succeeds, because it preserves provenance and allows future reprocessing.
+
+
+          E﻿xample Affiliations record:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "isCurrent": false,
+            "startDate": "2018-01-01",
+            "endDate": "2021-12-31",
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ],
+            "externalIds": [
+              {
+                "type": "orcid-put-code",
+                "value": "123456"
+              }
+            ],
+            "address": {
+              "city": "Oxford",
+              "region": "Oxfordshire",
+              "countryCode": "GB"
+            },
+            "url": "https://www.cs.ox.ac.uk/",
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+          ```
+
+
+          #### Authorship–Affiliation relationship
+
+
+          Affiliations used by an Author on a particular Work are connected to Authorship records through the Authorship_Affiliation bridge entity.
+
+
+          | Property      | Type    | Example value | Description                                                           | Source |
+
+          | ------------- | ------- | ------------- | --------------------------------------------------------------------- | ------ |
+
+          | authorshipId  | integer | `987654`      | CORE identifier of the Authorship participating in the relationship.  | CORE   |
+
+          | affiliationId | integer | `901`         | CORE identifier of the Affiliation participating in the relationship. | CORE   |
+
+
+
+
+          Example bridge records:
+
+
+          ```
+
+          [
+            {
+              "authorshipId": 987654,
+              "affiliationId": 901
+            },
+            {
+              "authorshipId": 987654,
+              "affiliationId": 902
+            }
+          ]
+
+          ```
+
+
+
+
+          These records indicate that Authorship 987654 is linked to Affiliations 901 and 902.
+
+
+          The bridge is used because:
+
+
+          * one Authorship may be linked to multiple Affiliations;
+
+          * one Affiliation may be linked to multiple Authorship records representing different Works;
+
+          * Authorship contains only Work-specific Author information;
+
+          * Affiliation remains an independently addressable and reusable entity.
+      - divider: false
+        border: false
+        id: affiliations-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Affiliation properties can be
+          searched, filtered, ordered, or used as facets.
+
+
+
+
+          | **Attribute**   | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | --------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | affiliationId   | No             | Yes            | No           | No            |
+
+          | authorId        | No             | Yes            | Yes          | No            |
+
+          | rawAffiliation  | Yes            | No             | No           | No            |
+
+          | department      | Yes            | Yes            | No           | Yes           |
+
+          | institutionId   | No             | Yes            | Yes          | Yes           |
+
+          | institutionName | Yes            | No             | No           | No            |
+
+          | isCurrent       | No             | Yes            | No           | Yes           |
+
+          | startDate       | No             | Yes            | Yes          | No            |
+
+          | endDate         | No             | Yes            | Yes          | No            |
+
+          | evidenceWorkIds | No             | Yes            | No           | No            |
+
+          | externalIds     | No             | No             | No           | No            |
+
+          | address         | No             | No             | No           | No            |
+
+          | url             | No             | No             | No           | No            |
+
+          | createdDate     | No             | Yes            | Yes          | No            |
+
+          | updatedDate     | No             | Yes            | Yes          | No            |
+      - divider: false
+        border: false
+        id: affiliations-api-affiliation-endpoints
+        title: Affiliation endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | Operation                                     | Method | Endpoint                                       |
+
+          | --------------------------------------------- | ------ | ---------------------------------------------- |
+
+          | Get a single Affiliation                      | GET    | `/v4/affiliations/{affiliationId}`             |
+
+          | Search Affiliations using URL parameters      | GET    | `/v4/search/affiliations`                      |
+
+          | Search Affiliations using a JSON request body | POST   | `/v4/search/affiliations`                      |
+
+          | Retrieve Authorships for an Affiliation       | GET    | `/v4/affiliations/{affiliationId}/authorships` |
+
+
+          Affiliation records may also be retrieved through relationship-oriented endpoints:
+
+
+          ```
+
+          GET /v4/authorships/{authorshipId}/affiliations
+
+          GET /v4/authors/{authorId}/affiliations
+
+          GET /v4/institutions/{institutionId}/affiliations
+
+          ```
+
+
+          More details about these endpoints are documented under the Authorships, Authors and Institutions entities.
+
+
+          #### Get a single Affiliation
+
+
+          Retrieves a single Affiliation record using its unique CORE Affiliation identifier.
+
+
+          ##### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/affiliations/{affiliationId}
+
+          ```
+
+
+          ##### **Authorization**
+
+
+          | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                   |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------- |
+
+          | affiliationId | integer  | Yes          | Unique CORE identifier of the Affiliation record. |
+
+
+          ##### Query parameters
+
+
+          | Parameter | Type   | Required | Description                                                                                                                                                                     |
+
+          | --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | select    | string | No       | Comma-separated list of top-level Affiliation fields to return. This can be used to reduce the response size. Example: `select=affiliationId,authorId,institutionId,isCurrent`. |
+
+
+
+
+          E﻿xample request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/affiliations/901" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          E﻿xample response:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "isCurrent": false,
+            "startDate": "2018-01-01",
+            "endDate": "2021-12-31",
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ],
+            "externalIds": [
+              {
+                "type": "orcid-put-code",
+                "value": "123456"
+              }
+            ],
+            "address": {
+              "city": "Oxford",
+              "region": "Oxfordshire",
+              "countryCode": "GB"
+            },
+            "url": "https://www.cs.ox.ac.uk/",
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+
+
+          ```
+
+
+          Example request using `select`:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+
+
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "isCurrent": false
+          }
+
+
+
+          ```
+      - divider: false
+        border: false
+        id: affiliations-api-search-affiliations
+        title: Search Affiliations
+        descriptionAbout: >+
+          Searches, filters, orders, facets, counts, and paginates Affiliation
+          records.
+
+
+          Affiliation search is available through GET and POST:
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/search/affiliations
+
+          POST https://api.core.ac.uk/v4/search/affiliations
+
+          ```
+
+
+          Both methods use the same CORE query language and return the same response structure.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                     |
+
+          | ------------- | -------- | ------------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+
+          | q             | string   | No           | `*`                           | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                    |
+
+          | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                           |
+
+          | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                     |
+
+          | count         | boolean  | No           | `false`                       | Indicates whether the total number of matching Affiliation records should be included.                                              |
+
+          | limit         | integer  | No           | `10`                          | Maximum number of Affiliation records to return.                                                                                    |
+
+          | offset        | integer  | No           | `0`                           | Number of matching Affiliation records to skip.                                                                                     |
+
+
+          POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                     |
+
+          | ------------ | --------- | ------------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+
+          | q            | string    | No           | `*`                           | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                     |
+
+          | select       | string\[] | No           | All retrievable fields        | List of fields to include in each result.                                                                                           |
+
+          | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                     |
+
+          | count        | boolean   | No           | `false`                       | Indicates whether the total number of matching Affiliation records should be included.                                              |
+
+          | limit        | integer   | No           | `10`                          | Maximum number of Affiliation records to return.                                                                                    |
+
+          | offset       | integer   | No           | `0`                           | Number of matching Affiliation records to skip.                                                                                     |
+
+
+
+
+          ##### GET and POST parameter mapping
+
+
+
+
+          | **GET query parameter**                        | **POST body property**                                      |
+
+          | ---------------------------------------------- | ----------------------------------------------------------- |
+
+          | `q=authorId:67890`                             | `"q": "authorId:67890"`                                     |
+
+          | `orderby=startDate:asc`                        | `"orderby": ["startDate:asc"]`                              |
+
+          | `select=affiliationId,institutionId,isCurrent` | `"select": ["affiliationId", "institutionId", "isCurrent"]` |
+
+          | `facets=isCurrent,institutionId`               | `"facets": ["isCurrent", "institutionId"]`                  |
+
+          | `count=true`                                   | `"count": true`                                             |
+
+          | `limit=10`                                     | `"limit": 10`                                               |
+
+          | `offset=0`                                     | `"offset": 0`                                               |
+
