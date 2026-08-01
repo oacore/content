@@ -3046,8 +3046,6 @@ items:
           \*More information is available in the following sections.
 
 
-
-
           #### Evidence Works
 
 
@@ -3062,8 +3060,6 @@ items:
               428765
             ]
           }
-
-
 
           ```
 
@@ -3093,8 +3089,6 @@ items:
           The `evidenceWorkIds` property and the `Authorship_Affiliation` bridge serve related but different purposes.
 
 
-
-
           | Mechanism              | Purpose                                                                        |
 
           | ---------------------- | ------------------------------------------------------------------------------ |
@@ -3102,8 +3096,6 @@ items:
           | evidenceWorkIds        | Provides an aggregated list of Works whose metadata supports the Affiliation.  |
 
           | authorship_affiliation | Connects the Affiliation to the exact Authorship records on which it was used. |
-
-
 
 
           For example:
@@ -3118,8 +3110,6 @@ items:
               428765
             ]
           }
-
-
 
           ```
 
@@ -3146,8 +3136,6 @@ items:
 
 
           The bridge records provide the exact Work-specific Author relationships. The `evidenceWorkIds` field provides convenient Work-level provenance.
-
-
 
 
           #### Raw Affiliation and structured fields
@@ -3179,8 +3167,6 @@ items:
               "countryCode": "GB"
             }
           }
-
-
 
           ```
 
@@ -3223,8 +3209,57 @@ items:
             "updatedDate": "2026-07-01T14:20:00Z"
           }
 
+          ```
 
 
+          #### Authorship–Affiliation relationship
+
+
+          Affiliations used by an Author on a particular Work are connected to Authorship records through the Authorship_Affiliation bridge entity.
+
+
+          | Property      | Type    | Example value | Description                                                           | Source |
+
+          | ------------- | ------- | ------------- | --------------------------------------------------------------------- | ------ |
+
+          | authorshipId  | integer | `987654`      | CORE identifier of the Authorship participating in the relationship.  | CORE   |
+
+          | affiliationId | integer | `901`         | CORE identifier of the Affiliation participating in the relationship. | CORE   |
+
+
+
+
+          Example bridge records:
 
 
           ```
+
+          [
+            {
+              "authorshipId": 987654,
+              "affiliationId": 901
+            },
+            {
+              "authorshipId": 987654,
+              "affiliationId": 902
+            }
+          ]
+
+          ```
+
+
+
+
+          These records indicate that Authorship 987654 is linked to Affiliations 901 and 902.
+
+
+          The bridge is used because:
+
+
+          * one Authorship may be linked to multiple Affiliations;
+
+          * one Affiliation may be linked to multiple Authorship records representing different Works;
+
+          * Authorship contains only Work-specific Author information;
+
+          * Affiliation remains an independently addressable and reusable entity.
