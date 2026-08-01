@@ -2961,3 +2961,40 @@ items:
         border: false
         id: "#affiliations-api-introduction"
         title: Introduction
+        descriptionAbout: >-
+          The Affiliation entity represents the relationship between an Author
+          and an Institution over time. Each Affiliation record connects one
+          Author to one Institution and may include temporal information such as
+          the start date, end date, and whether the affiliation is current.
+
+
+          An Affiliation may be obtained directly from an authoritative source such as ORCID or derived by CORE from affiliation metadata associated with scholarly Works.
+
+
+          Unlike Authorship, which describes how an Author appears on one specific Work, Affiliation represents a potentially longer-term relationship between an Author and an Institution.
+
+
+          Affiliations used on individual Works are connected to Authorship records through the Authorship_Affiliation bridge entity.
+
+
+          The diagram below represents the relationships between Authors, Affiliations, and Institutions.
+
+
+          ![](/images/docs-graph/affiliations.png)
+
+
+
+
+          An Author may have multiple Affiliation records over time. An Institution may be associated with multiple Authors.
+
+
+          Each Affiliation record:
+
+
+          * links exactly one Author;
+
+          * may link to zero or one resolved Institution;
+
+          * may be connected to multiple Authorship records through `Authorship_Affiliation`;
+
+          * may contain one or more Works that provide evidence for the relationship.
