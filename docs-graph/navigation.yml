@@ -36,6 +36,9 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#affiliations-api-data-structure"
+          - hidden: false
+            href: "#affiliations-api-supported-field-operations"
+            item: Supported field operations
       - item: Authors
         children:
           - hidden: false
