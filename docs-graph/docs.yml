@@ -3274,36 +3274,36 @@ items:
 
 
 
-          | Attribute       | Searchable | Filterable | Sortable | Facetable |
+          | **Attribute**   | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
 
-          | --------------- | ---------- | ---------- | -------- | --------- |
+          | --------------- | -------------- | -------------- | ------------ | ------------- |
 
-          | affiliationId   | No         | Yes        | No       | No        |
+          | affiliationId   | No             | Yes            | No           | No            |
 
-          | authorId        | No         | Yes        | Yes      | No        |
+          | authorId        | No             | Yes            | Yes          | No            |
 
-          | rawAffiliation  | Yes        | No         | No       | No        |
+          | rawAffiliation  | Yes            | No             | No           | No            |
 
-          | department      | Yes        | Yes        | No       | Yes       |
+          | department      | Yes            | Yes            | No           | Yes           |
 
-          | institutionId   | No         | Yes        | Yes      | Yes       |
+          | institutionId   | No             | Yes            | Yes          | Yes           |
 
-          | institutionName | Yes        | No         | No       | No        |
+          | institutionName | Yes            | No             | No           | No            |
 
-          | isCurrent       | No         | Yes        | No       | Yes       |
+          | isCurrent       | No             | Yes            | No           | Yes           |
 
-          | startDate       | No         | Yes        | Yes      | No        |
+          | startDate       | No             | Yes            | Yes          | No            |
 
-          | endDate         | No         | Yes        | Yes      | No        |
+          | endDate         | No             | Yes            | Yes          | No            |
 
-          | evidenceWorkIds | No         | Yes        | No       | No        |
+          | evidenceWorkIds | No             | Yes            | No           | No            |
 
-          | externalIds     | No         | No         | No       | No        |
+          | externalIds     | No             | No             | No           | No            |
 
-          | address         | No         | No         | No       | No        |
+          | address         | No             | No             | No           | No            |
 
-          | url             | No         | No         | No       | No        |
+          | url             | No             | No             | No           | No            |
 
-          | createdDate     | No         | Yes        | Yes      | No        |
+          | createdDate     | No             | Yes            | Yes          | No            |
 
-          | updatedDate     | No         | Yes        | Yes      | No        |
+          | updatedDate     | No             | Yes            | Yes          | No            |
