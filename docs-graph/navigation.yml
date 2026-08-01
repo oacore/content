@@ -39,6 +39,9 @@ navItems:
           - hidden: false
             href: "#affiliations-api-supported-field-operations"
             item: Supported field operations
+          - hidden: false
+            item: Affiliation endpoints
+            href: "#affiliations-api-affiliation-endpoints"
       - item: Authors
         children:
           - hidden: false
