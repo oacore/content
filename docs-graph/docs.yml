@@ -2955,3 +2955,9 @@ items:
 
 
           An existing Author with no connected Affiliations returns 200 with an empty results array.
+  - item: Affiliations
+    children:
+      - divider: false
+        border: false
+        id: "#affiliations-api-introduction"
+        title: Introduction
