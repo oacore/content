@@ -3591,8 +3591,6 @@ items:
 
           GET /v4/search/affiliations?q=rawAffiliation:"Department of Computer Science Oxford"
 
-
-
           ```
 
 
@@ -3658,8 +3656,6 @@ items:
 
           GET /v4/search/affiliations?q=institutionName:"University of Oxford"
 
-
-
           ```
 
 
@@ -3676,8 +3672,6 @@ items:
           {
             "q": "institutionName:\"University of Oxford\""
           }
-
-
 
           ```
 
@@ -3696,8 +3690,6 @@ items:
           curl --request GET \
             --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc" \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -3716,8 +3708,6 @@ items:
             ]
           }
 
-
-
           ```
 
 
@@ -3730,8 +3720,6 @@ items:
           ```
 
           GET /v4/authors/67890/affiliations
-
-
 
           ```
 
@@ -3747,8 +3735,6 @@ items:
           curl --request GET \
             --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:true" \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -3760,8 +3746,6 @@ items:
           ```
 
           GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:true
-
-
 
           ```
 
@@ -3781,8 +3765,6 @@ items:
           An Author may have more than one current Affiliation.
 
 
-
-
           #### Retrieve previous Affiliations for an Author
 
 
@@ -3793,8 +3775,6 @@ items:
 
           curl --request GET \ --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc" \ --header "Authorization: Bearer YOUR_API_KEY"
 
-
-
           ```
 
 
@@ -3804,8 +3784,6 @@ items:
           ```
 
           GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:false&orderby=endDate:desc
-
-
 
           ```
 
@@ -3822,8 +3800,6 @@ items:
             ]
           }
 
-
-
           ```
 
 
@@ -3834,6 +3810,7 @@ items:
 
 
           #### \
+
 
           Retrieve Affiliations for an Institution
 
@@ -3858,8 +3835,6 @@ items:
             "q": "institutionId:3201"
           }
 
-
-
           ```
 
 
@@ -3869,8 +3844,6 @@ items:
           ```
 
           GET /v4/institutions/3201/affiliations
-
-
 
           ```
 
@@ -3889,8 +3862,6 @@ items:
           curl --request GET \
             --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201%20AND%20isCurrent:true" \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -3900,8 +3871,6 @@ items:
           ```
 
           GET /v4/search/affiliations?q=institutionId:3201 AND isCurrent:true
-
-
 
           ```
 
@@ -3914,8 +3883,6 @@ items:
           {
             "q": "institutionId:3201 AND isCurrent:true"
           }
-
-
 
           ```
 
@@ -3963,8 +3930,6 @@ items:
           curl --request GET \
             --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:evidenceWorkIds" \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -3976,8 +3941,6 @@ items:
           {
             "q": "_exists_:evidenceWorkIds"
           }
-
-
 
           ```
 
@@ -4008,8 +3971,6 @@ items:
             "q": "_exists_:institutionId"
           }
 
-
-
           ```
 
 
@@ -4029,8 +3990,6 @@ items:
 
           GET /v4/search/affiliations?q=startDate>="2021-01-01"
 
-
-
           ```
 
 
@@ -4042,8 +4001,6 @@ items:
           {
             "q": "startDate>=\"2021-01-01\""
           }
-
-
 
           ```
 
@@ -4058,8 +4015,6 @@ items:
 
           GET /v4/search/affiliations?q=endDate<"2024-01-01"
 
-
-
           ```
 
 
@@ -4071,8 +4026,6 @@ items:
           {
             "q": "endDate<\"2024-01-01\""
           }
-
-
 
           ```
 
@@ -4099,12 +4052,11 @@ items:
             "q": "authorId:67890 AND startDate<=\"2021-12-31\" AND endDate>=\"2018-01-01\""
           }
 
-
-
           ```
 
 
           #### \
+
 
           Search using multiple conditions
 
@@ -4114,8 +4066,6 @@ items:
           curl --request GET \
             --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"Oxford"%20AND%20authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc&select=affiliationId,institutionId,institutionName,department,startDate,endDate&limit=10&offset=0' \
             --header "Authorization: Bearer YOUR_API_KEY"
-
-
           ```
 
 
@@ -4130,8 +4080,6 @@ items:
               &select=affiliationId,institutionId,institutionName,department,startDate,endDate
               &limit=10
               &offset=0
-
-
           ```
 
 
@@ -4161,8 +4109,6 @@ items:
               "limit": 10,
               "offset": 0
             }'
-
-
           ```
 
 
@@ -4201,8 +4147,6 @@ items:
             ]
           }
 
-
-
           ```
 
 
@@ -4218,8 +4162,6 @@ items:
           ```
 
           GET /v4/search/affiliations?q=authorId:67890&orderby=startDate:asc
-
-
 
           ```
 
@@ -4238,8 +4180,6 @@ items:
             ]
           }
 
-
-
           ```
 
 
@@ -4252,6 +4192,387 @@ items:
           ```
 
           GET /v4/search/affiliations?orderby=authorId:asc,startDate:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "orderby": [
+              "authorId:asc",
+              "startDate:asc"
+            ]
+          }
+
+
+
+          ```
+
+
+          \
+
+          Results are first ordered by `authorId`. Affiliation records belonging to the same Author are then ordered by `startDate`.
+
+
+          #### Order by most recently updated
+
+
+          ```
+
+          GET /v4/search/affiliations?orderby=updatedDate:desc
+
+
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "orderby": [
+              "updatedDate:desc"
+            ]
+          }
+
+
+
+          ```
+
+
+          This returns the most recently updated Affiliation records first.
+
+
+          #### Return selected fields
+
+
+          G﻿ET
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc&select=affiliationId,institutionId,institutionName,startDate,endDate,isCurrent" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "results": [
+              {
+                "affiliationId": 901,
+                "institutionId": 3201,
+                "institutionName": "University of Oxford",
+                "startDate": "2018-01-01",
+                "endDate": "2021-12-31",
+                "isCurrent": false
+              },
+              {
+                "affiliationId": 902,
+                "institutionId": 4501,
+                "institutionName": "Massachusetts Institute of Technology",
+                "startDate": "2022-01-01",
+                "endDate": null,
+                "isCurrent": true
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          #### \
+
+          Affiliation facets
+
+
+          The facets parameter returns value buckets and counts for fields configured as facetable.
+
+
+          G﻿ET:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&facets=isCurrent,institutionId&count=true" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/affiliations" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "authorId:67890",
+              "facets": [
+                "isCurrent",
+                "institutionId"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+
+
+          ```
+
+
+          \
+
+          Example response:
+
+
+          ```
+
+          {
+            "totalHits": 3,
+            "facets": {
+              "isCurrent": [
+                {
+                  "value": false,
+                  "count": 2
+                },
+                {
+                  "value": true,
+                  "count": 1
+                }
+              ],
+              "institutionId": [
+                {
+                  "value": 3201,
+                  "count": 1
+                },
+                {
+                  "value": 4501,
+                  "count": 1
+                }
+              ]
+            },
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "institutionId": 3201,
+                "institutionName": "University of Oxford",
+                "isCurrent": false
+              }
+            ]
+          }
+
+
+
+          ```
+
+
+          \
+
+          Faceting by `institutionId` is technically possible, but it may produce a large number of buckets across the full Affiliation index. It is most useful when combined with a narrower filter.
+
+
+          To return only facet counts without Affiliation records:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:67890&facets=isCurrent&count=true&limit=0
+
+
+
+          ```
+
+
+          #### Result count
+
+
+          Set count=true to include the total number of matching Affiliation records.
+
+
+          GET:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=authorId:67890&count=true
+
+
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```
+
+          {
+            "q": "authorId:67890",
+            "count": true
+          }
+
+
+
+          ```
+
+
+          When count is omitted or set to false, totalHits may be omitted from the response.
+
+
+          #### Paginate Affiliation results
+
+
+          Use `limit` and `offset` to paginate through Affiliation results.
+
+
+          A deterministic orderby expression should be used when retrieving multiple pages.
+
+
+          \
+
+          First page using GET:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=0
+
+
+
+          ```
+
+
+          S﻿econd page using GET:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=20
+
+
+
+          ```
+
+
+          First page using POST:
+
+
+          ```
+
+          {
+            "q": "institutionId:3201",
+            "orderby": [
+              "authorId:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+
+
+          ```
+
+
+          Second page using POST:
+
+
+          ```
+
+          {
+            "q": "institutionId:3201",
+            "orderby": [
+              "authorId:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+
+
+          ```
+
+
+          A deterministic orderby expression should be used when retrieving multiple pages.
+
+
+          Example Affiliation history response:
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "rawAffiliation": "Dept of CS, University of Oxford",
+                "department": "Department of Computer Science",
+                "institutionId": 3201,
+                "institutionName": "University of Oxford",
+                "isCurrent": false,
+                "startDate": "2018-01-01",
+                "endDate": "2021-12-31",
+                "evidenceWorkIds": [
+                  1234,
+                  428765
+                ],
+                "externalIds": [
+                  {
+                    "type": "orcid-put-code",
+                    "value": "123456"
+                  }
+                ],
+                "address": {
+                  "city": "Oxford",
+                  "countryCode": "GB"
+                },
+                "url": "https://www.cs.ox.ac.uk/",
+                "createdDate": "2026-06-15T10:30:00Z",
+                "updatedDate": "2026-07-01T14:20:00Z"
+              },
+              {
+                "affiliationId": 902,
+                "authorId": 67890,
+                "rawAffiliation": "Massachusetts Institute of Technology, Cambridge, MA, USA",
+                "department": null,
+                "institutionId": 4501,
+                "institutionName": "Massachusetts Institute of Technology",
+                "isCurrent": true,
+                "startDate": "2022-01-01",
+                "endDate": null,
+                "evidenceWorkIds": [
+                  521340
+                ],
+                "externalIds": null,
+                "address": {
+                  "city": "Cambridge",
+                  "region": "Massachusetts",
+                  "countryCode": "US"
+                },
+                "url": null,
+                "createdDate": "2026-06-15T10:30:00Z",
+                "updatedDate": "2026-07-01T14:20:00Z"
+              }
+            ]
+          }
 
 
 
