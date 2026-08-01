@@ -3307,3 +3307,89 @@ items:
           | createdDate     | No             | Yes            | Yes          | No            |
 
           | updatedDate     | No             | Yes            | Yes          | No            |
+      - divider: false
+        border: false
+        id: affiliations-api-affiliation-endpoints
+        title: Affiliation endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | Operation                                     | Method | Endpoint                                       |
+
+          | --------------------------------------------- | ------ | ---------------------------------------------- |
+
+          | Get a single Affiliation                      | GET    | `/v4/affiliations/{affiliationId}`             |
+
+          | Search Affiliations using URL parameters      | GET    | `/v4/search/affiliations`                      |
+
+          | Search Affiliations using a JSON request body | POST   | `/v4/search/affiliations`                      |
+
+          | Retrieve Authorships for an Affiliation       | GET    | `/v4/affiliations/{affiliationId}/authorships` |
+
+
+          Affiliation records may also be retrieved through relationship-oriented endpoints:
+
+
+          ```
+
+          GET /v4/authorships/{authorshipId}/affiliations
+
+          GET /v4/authors/{authorId}/affiliations
+
+          GET /v4/institutions/{institutionId}/affiliations
+
+
+
+          ```
+
+
+          More details about these endpoints are documented under the Authorships, Authors and Institutions entities.
+
+
+          #### Get a single Affiliation
+
+
+          Retrieves a single Affiliation record using its unique CORE Affiliation identifier.
+
+
+          ##### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/affiliations/{affiliationId}
+
+
+
+          ```
+
+
+          ##### **Authorization**
+
+
+          | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                   |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------- |
+
+          | affiliationId | integer  | Yes          | Unique CORE identifier of the Affiliation record. |
+
+
+          ##### Query parameters
+
+
+          | Parameter | Type   | Required | Description                                                                                                                                                                     |
+
+          | --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | select    | string | No       | Comma-separated list of top-level Affiliation fields to return. This can be used to reduce the response size. Example: `select=affiliationId,authorId,institutionId,isCurrent`. |
