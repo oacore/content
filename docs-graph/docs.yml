@@ -2998,3 +2998,233 @@ items:
           * may be connected to multiple Authorship records through `Authorship_Affiliation`;
 
           * may contain one or more Works that provide evidence for the relationship.
+      - divider: false
+        border: false
+        id: "#affiliations-api-data-structure"
+        title: Data structure
+        descriptionAbout: >-
+          The table below describes the top-level fields in the CORE Graph
+          metadata schema for the Affiliation entity, including their types,
+          example values, descriptions, and sources.
+
+
+          | **Property**     | **Type**   | **Example value**                                                  | **Description**                                                                                                                                                                                                                                                                                      | **Source**                                    |
+
+          | ---------------- | ---------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+
+          | affiliationId    | integer    | `901`                                                              | Unique CORE identifier for the Affiliation record.                                                                                                                                                                                                                                                   | CORE                                          |
+
+          | authorId         | integer    | `67890`                                                            | CORE identifier of the Author associated with the Affiliation.                                                                                                                                                                                                                                       | CORE                                          |
+
+          | rawAffiliation   | string     | `"Department of Computer Science, University of Oxford, UK"`       | Verbatim affiliation string supplied in the source metadata.                                                                                                                                                                                                                                         | OAI-PMH / Crossref / OpenAlex / OpenAIRE      |
+
+          | department       | string     | `"Department of Computer Science"`                                 | Department, faculty, school, laboratory, or other organisational subunit associated with the Affiliation.                                                                                                                                                                                            | ORCID / Crossref / OpenAIRE / Derived by CORE |
+
+          | institutionId    | integer    | `3201`                                                             | CORE identifier of the associated Institution, when the Institution has been resolved.                                                                                                                                                                                                               | CORE                                          |
+
+          | institutionName  | string     | `"University of Oxford"`                                           | Name of the affiliated Institution as supplied by the source or derived during institution resolution.                                                                                                                                                                                               | ORCID / Crossref / OpenAlex / OpenAIRE / CORE |
+
+          | isCurrent        | boolean    | `true`                                                             | Indicates whether the Affiliation is identified as current. `true`: explicitly identified or confidently derived as current. `false`: explicitly identified or confidently derived as no longer current. `null`: available metadata is insufficient to determine whether the Affiliation is current. | ORCID / Derived by CORE                       |
+
+          | startDate        | string     | `"2021-01-01"`                                                     | Start date of the Affiliation, when available. Follows ISO 8601 standards.                                                                                                                                                                                                                           | ORCID                                         |
+
+          | endDate          | string     | `"2023-12-31"`                                                     | End date of the Affiliation, when available. A current Affiliation may have a null end date. Follows ISO 8601 standards.                                                                                                                                                                             | ORCID                                         |
+
+          | evidenceWorkIds* | integer\[] | `[1234, 428765]`                                                   | CORE Work identifiers that provide evidence for the relationship between the Author and Institution.                                                                                                                                                                                                 | CORE                                          |
+
+          | externalIds      | object\[]  | `[{"type": "orcid-put-code", "value": "123456"}]`                  | External identifiers associated with the Affiliation record or its source representation. Each entry identifies the identifier type and value.                                                                                                                                                       | ORCID / Other source systems                  |
+
+          | address          | object     | `{"city": "Oxford", "region": "Oxfordshire", "countryCode": "GB"}` | Source-provided location information for the organisation associated with the Affiliation. Contains the city or locality; region, state, province, or other country subdivision; and the ISO 3166-1 alpha-2 country code associated with the Affiliation.                                            | ORCID                                         |
+
+          | url              | string     | `"https://www.cs.ox.ac.uk/"`                                       | URL supplied by the source for the Affiliation, department, or associated organisation.                                                                                                                                                                                                              | ORCID                                         |
+
+          | createdDate      | string     | `"2026-06-15T10:30:00Z"`                                           | Date and time when the Affiliation record was created in CORE.                                                                                                                                                                                                                                       | CORE                                          |
+
+          | updatedDate      | string     | `"2026-07-01T14:20:00Z"`                                           | Date and time when the Affiliation record was last updated in CORE.                                                                                                                                                                                                                                  | CORE                                          |
+
+
+          \*More information is available in the following sections.
+
+
+
+
+          #### Evidence Works
+
+
+          The evidenceWorkIds property identifies Works whose metadata supports the Author–Institution relationship.
+
+
+          ```
+
+          {
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ]
+          }
+
+
+
+          ```
+
+
+          \
+
+          This implies that those Works contain evidence associating the Author with the Institution.
+
+
+          Evidence Works may be used to:
+
+
+          * trace the source of a derived Affiliation;
+
+          * validate institution resolution;
+
+          * identify when an Affiliation appeared in publication metadata;
+
+          * support temporal inference.
+
+          *
+
+
+          #### Evidence Works and the Authorship bridge
+
+
+          The `evidenceWorkIds` property and the `Authorship_Affiliation` bridge serve related but different purposes.
+
+
+
+
+          | Mechanism              | Purpose                                                                        |
+
+          | ---------------------- | ------------------------------------------------------------------------------ |
+
+          | evidenceWorkIds        | Provides an aggregated list of Works whose metadata supports the Affiliation.  |
+
+          | authorship_affiliation | Connects the Affiliation to the exact Authorship records on which it was used. |
+
+
+
+
+          For example:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ]
+          }
+
+
+
+          ```
+
+
+          \
+
+          The corresponding bridge records may be:
+
+
+          ```
+
+          [
+            {
+              "authorshipId": 987654,
+              "affiliationId": 901
+            },
+            {
+              "authorshipId": 987700,
+              "affiliationId": 901
+            }
+          ]
+
+          ```
+
+
+          The bridge records provide the exact Work-specific Author relationships. The `evidenceWorkIds` field provides convenient Work-level provenance.
+
+
+
+
+          #### Raw Affiliation and structured fields
+
+
+          The rawAffiliation property preserves the original source text:
+
+
+          ```
+
+          {
+            "rawAffiliation": "Dept of CS, Univ Oxford, Oxford, UK"
+          }
+
+          ```
+
+
+          Structured fields may be extracted or resolved from that value:
+
+
+          ```
+
+          {
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "address": {
+              "city": "Oxford",
+              "countryCode": "GB"
+            }
+          }
+
+
+
+          ```
+
+
+          The raw value is retained even when structured extraction succeeds, because it preserves provenance and allows future reprocessing.
+
+
+          E﻿xample Affiliations record:
+
+
+          ```
+
+          {
+            "affiliationId": 901,
+            "authorId": 67890,
+            "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
+            "department": "Department of Computer Science",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "isCurrent": false,
+            "startDate": "2018-01-01",
+            "endDate": "2021-12-31",
+            "evidenceWorkIds": [
+              1234,
+              428765
+            ],
+            "externalIds": [
+              {
+                "type": "orcid-put-code",
+                "value": "123456"
+              }
+            ],
+            "address": {
+              "city": "Oxford",
+              "region": "Oxfordshire",
+              "countryCode": "GB"
+            },
+            "url": "https://www.cs.ox.ac.uk/",
+            "createdDate": "2026-06-15T10:30:00Z",
+            "updatedDate": "2026-07-01T14:20:00Z"
+          }
+
+
+
+
+
+          ```
