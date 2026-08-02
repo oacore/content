@@ -16,6 +16,12 @@ navItems:
           - hidden: false
             item: Supported field operations
             href: "#works-api-supported-field-operations"
+          - hidden: false
+            item: Work endpoints
+            href: "#works-api-work-endpoints"
+          - hidden: false
+            item: Search Works
+            href: "#works-api-search-works"
       - item: Outputs
       - item: Data Providers
         children:
