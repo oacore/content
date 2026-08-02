@@ -10077,3 +10077,514 @@ items:
           GET /v4/works/{workId}/authorships
 
           ```
+      - divider: false
+        border: false
+        id: "#works-api-data-structure"
+        title: Data structure
+        descriptionAbout: >-
+          The table below describes the top-level properties in the CORE Graph
+          Work schema.
+
+
+          | **Property**          | **Type**   | **Example value**                                                               | **Description**                                                                                         | **Source**                                                       |
+
+          | --------------------- | ---------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+
+          | `workId`              | integer    | `323030168`                                                                     | Unique CORE canonical identifier for the Work.                                                          | CORE                                                             |
+
+          | `externalIdentifiers` | object\[]  | `[{"type":"DOI","identifier":"10.1109/jiot.2020.2984887"}]`                     | Structured list of CORE and external identifiers associated with the Work.                              | CORE / Crossref / OAI-PMH / OpenAlex / OpenAIRE / PubMed / arXiv |
+
+          | `title`               | string     | `"Intelligent edge computing for scholarly infrastructures"`                    | Preferred title selected for the canonical Work.                                                        | OAI-PMH / Crossref / OpenAlex / OpenAIRE                         |
+
+          | `abstract`            | string     | `"This paper explores..."`                                                      | Preferred abstract or summary of the Work.                                                              | OAI-PMH / Crossref / OpenAlex / OpenAIRE                         |
+
+          | `invertedAbstract`    | object     | `{"This":[0],"paper":[1],"explores":[2]}`                                       | Abstract represented as an inverted index, where each token maps to its positions in the original text. | Derived by CORE                                                  |
+
+          | `fullText`            | string     | `"The rapid growth of scholarly content..."`                                    | Full-text content associated with the Work.                                                             | Extracted from source full text                                  |
+
+          | `doi`                 | string     | `"10.1109/jiot.2020.2984887"`                                                   | Preferred DOI associated with the Work.                                                                 | Crossref / OAI-PMH                                               |
+
+          | `yearPublished`       | integer    | `2022`                                                                          | Preferred publication year selected from available source metadata.                                     | OAI-PMH / Crossref / OpenAlex / OpenAIRE                         |
+
+          | `documentType`        | string\[]  | `["research article"]`                                                          | Normalised types assigned to the Work.                                                                  | OAI-PMH / Crossref / OpenAlex / OpenAIRE / CORE classification   |
+
+          | `downloadUrl`         | string     | `"https://core.ac.uk/download/216874849.pdf"`                                   | Preferred CORE URL from which the Work full text can be downloaded.                                     | CORE                                                             |
+
+          | `coreIds`             | integer\[] | `[216874849,216874850]`                                                         | CORE Output identifiers represented by the canonical Work.                                              | CORE deduplication                                               |
+
+          | `journalIds`          | integer\[] | `[12345]`                                                                       | CORE Journal identifiers associated with the Work.                                                      | CORE / ISSN resolution                                           |
+
+          | `dataProviderIds`     | integer\[] | `[86,144]`                                                                      | CORE Data Provider identifiers associated with the Work’s source Outputs.                               | CORE                                                             |
+
+          | `dates`               | object\[]  | `[{"type":"published","value":"2022-04-27"}]`                                   | Structured list of publication, deposit, availability, and CORE record-management dates.                | CORE / Crossref / DataCite / OpenAlex / OpenAIRE / OAI-PMH       |
+
+          | `references`          | object\[]  | `[{"citedDoi":"10.1000/abc456","articleTitle":"Quantum effects in materials"}]` | Bibliographic references cited by the Work.                                                             | Crossref / OpenAIRE / Full-text parsing / OpenCitations          |
+
+          | `contributors`        | object\[]  | `[{"name":"Alice Smith","type":"Personal","role":"editor"}]`                    | People or organisations that contributed to the Work in roles other than Authorship.                    | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE                 |
+
+          | `links`               | object\[]  | `[{"type":"reader","url":"https://core.ac.uk/works/323030168"}]`                | CORE and source links associated with the Work.                                                         | CORE / Source metadata                                           |
+
+          | `sourceFulltextUrls`  | string\[]  | `["https://repository.example.edu/paper.pdf"]`                                  | Source URLs from which full text is available.                                                          | OAI-PMH / Repository metadata                                    |
+
+
+          #### External identifiers
+
+
+          The `externalIdentifiers` collection retains all known identifiers associated with the Work.
+
+
+          ```json
+
+          {
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": 323030168
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1109/jiot.2020.2984887"
+              },
+              {
+                "type": "ARXIV_ID",
+                "identifier": "1909.00560"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:arxiv.org:1909.00560"
+              },
+              {
+                "type": "OPENALEX_ID",
+                "identifier": "https://openalex.org/W3030303030"
+              },
+              {
+                "type": "MAG_ID",
+                "identifier": "2139460650"
+              },
+              {
+                "type": "PMID",
+                "identifier": "2844484"
+              },
+              {
+                "type": "PMCID",
+                "identifier": "PMC1234567"
+              },
+              {
+                "type": "OPENAIRE_ID",
+                "identifier": "openaire____::123456789"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type**         | **Example value**             | **Description**                        |
+
+          | ------------ | ---------------- | ----------------------------- | -------------------------------------- |
+
+          | `type`       | string           | `"DOI"`                       | Identifier scheme or classification.   |
+
+          | `identifier` | string | integer | `"10.1109/jiot.2020.2984887"` | Identifier value assigned to the Work. |
+
+
+          Supported identifier types may include:
+
+
+          | **Value**     | **Description**                      |
+
+          | ------------- | ------------------------------------ |
+
+          | `CORE_ID`     | CORE canonical Work identifier.      |
+
+          | `DOI`         | Digital Object Identifier.           |
+
+          | `OAI_ID`      | OAI-PMH identifier.                  |
+
+          | `ARXIV_ID`    | arXiv identifier.                    |
+
+          | `OPENALEX_ID` | OpenAlex Work identifier.            |
+
+          | `OPENAIRE_ID` | OpenAIRE identifier.                 |
+
+          | `MAG_ID`      | Microsoft Academic Graph identifier. |
+
+          | `PMID`        | PubMed identifier.                   |
+
+          | `PMCID`       | PubMed Central identifier.           |
+
+
+          The top-level `doi` property provides convenient access to the preferred DOI.
+
+
+          #### Inverted abstract
+
+
+          The `invertedAbstract` property contains an inverted representation of the abstract.
+
+
+          ```json
+
+          {
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            }
+          }
+
+          ```
+
+
+          Each property name represents a token, and the corresponding array contains the positions at which the token appears.
+
+
+          The standard `abstract` property should be used when clients require readable text.
+
+
+          #### Dates
+
+
+          The diagram represents dates as a structured collection. The recommended format is:
+
+
+          ```json
+
+          {
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "published_online",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "accepted",
+                "value": "2022-03-15"
+              },
+              {
+                "type": "deposited",
+                "value": "2022-04-28T11:42:34Z"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                   |
+
+          | ------------ | -------- | ----------------- | --------------------------------- |
+
+          | `type`       | string   | `"published"`     | Classification of the date.       |
+
+          | `value`      | string   | `"2022-04-27"`    | ISO 8601 date or date-time value. |
+
+
+          Supported date types may include:
+
+
+          | **Value**          | **Description**                                                     | **Source**                                          |
+
+          | ------------------ | ------------------------------------------------------------------- | --------------------------------------------------- |
+
+          | `published`        | Preferred publication date selected from the best available source. | OAI-PMH / Crossref / DataCite / OpenAlex / OpenAIRE |
+
+          | `published_online` | Online publication date.                                            | Crossref                                            |
+
+          | `published_print`  | Print publication date.                                             | Crossref                                            |
+
+          | `issued`           | Date on which the Work was formally issued.                         | Dublin Core Terms / Crossref                        |
+
+          | `accepted`         | Date on which the Work was accepted.                                | Dublin Core Terms / Crossref                        |
+
+          | `deposited`        | Date on which metadata was deposited with the source.               | Crossref                                            |
+
+          | `created`          | Date on which the source or CORE record was created.                | CORE / Crossref / OpenAlex                          |
+
+          | `updated`          | Date on which the record was last updated.                          | CORE / Crossref / OpenAlex / OpenAIRE               |
+
+          | `indexed`          | Date on which the record was indexed.                               | CORE                                                |
+
+          | `available`        | Date on which the Work became available.                            | DataCite / OAI-PMH                                  |
+
+          | `public_release`   | Date on which the Work was publicly released.                       | RIOXX                                               |
+
+          | `collected`        | Date on which the source record was collected by CORE.              | CORE / OpenAIRE                                     |
+
+
+          Because `dates` is a collection, ordering Works directly by `dates.value` is ambiguous.
+
+
+          If ordering by creation or update time is required frequently, top-level fields such as `createdDate` and `updatedDate` should be added.
+
+
+          #### References
+
+
+          The `references` collection contains structured descriptions of items cited by the Work.
+
+
+          ```json
+
+          {
+            "references": [
+              {
+                "citationId": 7865,
+                "citedCoreId": 999,
+                "citedDoi": "10.1000/abc456",
+                "articleTitle": "Quantum effects in materials",
+                "author": [
+                  "Smith J",
+                  "Lee B"
+                ],
+                "journalTitle": "Physical Review Letters",
+                "volume": "50",
+                "issue": "3",
+                "startPage": "101",
+                "endPage": "118",
+                "unstructured": "Smith J. Quantum effects in materials..."
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property**   | **Type**  | **Example value**                | **Description**                                            | **Source**                   |
+
+          | -------------- | --------- | -------------------------------- | ---------------------------------------------------------- | ---------------------------- |
+
+          | `citationId`   | integer   | `7865`                           | CORE Citation identifier for the reference, when resolved. | CORE                         |
+
+          | `citedCoreId`  | integer   | `999`                            | CORE Work identifier of the cited item, when matched.      | CORE                         |
+
+          | `citedDoi`     | string    | `"10.1000/abc456"`               | DOI of the cited item.                                     | Crossref / OpenCitations     |
+
+          | `articleTitle` | string    | `"Quantum effects in materials"` | Title of the cited item.                                   | Crossref / Full-text parsing |
+
+          | `author`       | string\[] | `["Smith J","Lee B"]`            | Authors as provided in the bibliographic reference.        | Crossref / OpenAIRE          |
+
+          | `journalTitle` | string    | `"Physical Review Letters"`      | Journal title of the cited item.                           | Crossref                     |
+
+          | `volume`       | string    | `"50"`                           | Volume of the cited item.                                  | Crossref / OpenAIRE          |
+
+          | `issue`        | string    | `"3"`                            | Issue of the cited item.                                   | Crossref / OpenAIRE          |
+
+          | `startPage`    | string    | `"101"`                          | First page of the cited item.                              | Crossref / OpenAIRE          |
+
+          | `endPage`      | string    | `"118"`                          | Last page of the cited item.                               | Crossref / OpenAIRE          |
+
+          | `unstructured` | string    | `"Smith J. Quantum effects..."`  | Complete unstructured reference string.                    | Crossref / Full-text parsing |
+
+
+          #### Contributors
+
+
+          Contributors include people or organisations that contributed to the Work in roles other than canonical Authorship.
+
+
+          ```json
+
+          {
+            "contributors": [
+              {
+                "name": "CiteSeerX",
+                "type": "Organisational",
+                "role": null
+              },
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              },
+              {
+                "name": "國立中興大學應用數學系",
+                "type": "Organisational",
+                "role": "hosting_institution"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                   | **Source**                                       |
+
+          | ------------ | -------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------ |
+
+          | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.                  | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+
+          | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or an organisation. | DataCite / OpenAIRE                              |
+
+          | `role`       | string   | `"editor"`        | Role performed by the contributor.                                | Crossref / DataCite / OpenAIRE                   |
+
+
+          Possible roles include `editor`, `translator`, `reviewer`, and `hosting_institution`.
+
+
+          #### Links
+
+
+          The `links` property contains links associated with the Work.
+
+
+          ```json
+
+          {
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/works/323030168",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ]
+          }
+
+          ```
+
+
+          | Property      | Type   | Example value                                 | Description                                   |
+
+          | ------------- | ------ | --------------------------------------------- | --------------------------------------------- |
+
+          | `type`        | string | `"download"`                                  | Classification of the linked resource.        |
+
+          | `url`         | string | `"https://core.ac.uk/download/216874849.pdf"` | URL of the linked resource.                   |
+
+          | `contentType` | string | `"application/pdf"`                           | MIME type of the linked resource, when known. |
+
+
+          Example Work record:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": 323030168
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1109/jiot.2020.2984887"
+              },
+              {
+                "type": "OPENALEX_ID",
+                "identifier": "https://openalex.org/W3030303030"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:example.org:paper/123"
+              }
+            ],
+            "title": "Intelligent edge computing for scholarly infrastructures",
+            "abstract": "This paper explores intelligent edge computing methods for scholarly infrastructure.",
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            },
+            "fullText": "The rapid growth of scholarly content has created...",
+            "doi": "10.1109/jiot.2020.2984887",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "downloadUrl": "https://core.ac.uk/download/216874849.pdf",
+            "coreIds": [
+              216874849,
+              216874850
+            ],
+            "journalIds": [
+              12345
+            ],
+            "dataProviderIds": [
+              86,
+              144
+            ],
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "accepted",
+                "value": "2022-03-15"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ],
+            "references": [
+              {
+                "citationId": 7865,
+                "citedCoreId": 999,
+                "citedDoi": "10.1000/abc456",
+                "articleTitle": "Quantum effects in materials",
+                "author": [
+                  "Smith J",
+                  "Lee B"
+                ],
+                "journalTitle": "Physical Review Letters",
+                "volume": "50",
+                "issue": "3",
+                "startPage": "101",
+                "endPage": "118",
+                "unstructured": "Smith J. Quantum effects in materials..."
+              }
+            ],
+            "contributors": [
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              }
+            ],
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/works/323030168",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ],
+            "sourceFulltextUrls": [
+              "https://repository.example.edu/paper.pdf"
+            ]
+          }
+
+          ```
+
+
+          Authorships, Outputs, Journals, and Data Providers are not embedded as complete records in this response.
