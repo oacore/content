@@ -6199,11 +6199,12 @@ items:
           They do not introduce a different Institution representation. Internally, they traverse the corresponding CORE Graph relationships.
 
 
-          ### Affiliations for an Institution
+          #### Affiliations for an Institution
 
 
           ```
 
+          GET /v4/institutions/{institutionId}/affiliations
 
           ```
 
@@ -6216,6 +6217,7 @@ items:
 
           ```
 
+          GET /v4/search/affiliations?q=institutionId:{institutionId}
 
           ```
 
@@ -6225,6 +6227,9 @@ items:
 
           ```
 
+          {
+            "q": "institutionId:{institutionId}"
+          }
 
           ```
 
@@ -6234,7 +6239,9 @@ items:
 
           ```
 
-
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/affiliations?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
           ```
 
 
@@ -6243,6 +6250,33 @@ items:
 
           ```
 
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "rawAffiliation": "School of Computing and Communications, The Open University",
+                "department": "School of Computing and Communications",
+                "institutionId": 1256,
+                "institutionName": "The Open University",
+                "isCurrent": true,
+                "startDate": "2022-01-01",
+                "endDate": null
+              },
+              {
+                "affiliationId": 902,
+                "authorId": 67891,
+                "rawAffiliation": "Knowledge Media Institute, The Open University",
+                "department": "Knowledge Media Institute",
+                "institutionId": 1256,
+                "institutionName": "The Open University",
+                "isCurrent": true,
+                "startDate": null,
+                "endDate": null
+              }
+            ]
+          }
 
           ```
 
@@ -6250,11 +6284,12 @@ items:
           An existing Institution with no linked Affiliations returns `200` with an empty `results` array.
 
 
-          ### Data Providers for an Institution
+          #### Data Providers for an Institution
 
 
           ```
 
+          GET /v4/institutions/{institutionId}/dataProviders
 
           ```
 
@@ -6270,7 +6305,9 @@ items:
 
           ```
 
-
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/dataProviders?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
           ```
 
 
@@ -6279,6 +6316,19 @@ items:
 
           ```
 
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "dataProviderId": 86,
+                "name": "Open Research Online",
+                "type": "institutional repository",
+                "homepageUrl": "https://oro.open.ac.uk/",
+                "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+                "institutionId": 1256
+              }
+            ]
+          }
 
           ```
 
@@ -6286,11 +6336,12 @@ items:
           An existing Institution with no associated Data Providers returns `200` with an empty `results` array.
 
 
-          ### Topics for an Institution
+          #### Topics for an Institution
 
 
           ```
 
+          GET /v4/institutions/{institutionId}/topics
 
           ```
 
@@ -6306,7 +6357,9 @@ items:
 
           ```
 
-
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/topics?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
           ```
 
 
@@ -6315,6 +6368,23 @@ items:
 
           ```
 
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "topicId": "23",
+                "displayName": "Particle physics theoretical and experimental studies",
+                "count": 6107,
+                "score": 1,
+                "subfieldId": "67",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "fieldId": "96",
+                "fieldName": "Physics and Astronomy",
+                "domainId": "56",
+                "domainName": "Physical Sciences"
+              }
+            ]
+          }
 
           ```
 
