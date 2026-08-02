@@ -6470,3 +6470,303 @@ items:
           - file: /images/docs-graph/dataproviders.png
         subTitle: A Data Provider may supply multiple Outputs. An Institution may
           operate or host multiple Data Providers.
+      - divider: false
+        border: false
+        id: dataproviders-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The following sections describe the fields in the CORE Graph metadata
+          schema for the Data Provider entity.
+
+
+          ## Identifiers
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `dataProviderId` | integer | `100` | Unique CORE internal identifier for the Data Provider. | CORE |
+
+          | `openDoarId` | string \| null | `"1275"` | OpenDOAR identifier for the repository, when available. | OpenDOAR |
+
+          | `rorId` | string \| null | `"https://ror.org/04ea70f07"` | ROR identifier of the Institution associated with the Data Provider, when available. | ROR / CORE |
+
+          | `otherIdentifiers`* | object \| null | See below | Other external identifiers associated with the Institution responsible for the Data Provider. | ROR |
+
+
+          \* More information is provided below.
+
+
+          ### Other identifiers
+
+
+          The `otherIdentifiers` property contains identifiers associated with the Institution responsible for the Data Provider.
+
+
+          ```
+
+          {
+            "otherIdentifiers": {
+              "GRID": {
+                "preferred": "grid.5335.0",
+                "all": [
+                  "grid.5335.0"
+                ]
+              },
+              "ISNI": {
+                "preferred": "000000012166240X",
+                "all": [
+                  "000000012166240X"
+                ]
+              },
+              "WIKIDATA": {
+                "preferred": "Q35794",
+                "all": [
+                  "Q35794"
+                ]
+              }
+            }
+          }
+
+          ```
+
+
+          Each identifier scheme contains:
+
+
+          | Property | Type | Example value | Description |
+
+          | --- | --- | --- | --- |
+
+          | `preferred` | string \| null | `"grid.5335.0"` | Preferred identifier for the specified scheme. |
+
+          | `all` | string[] \| null | `["grid.5335.0"]` | Complete set of known identifier values for the specified scheme. |
+
+
+          Examples of supported schemes include:
+
+
+          - `GRID`
+
+          - `ISNI`
+
+          - `WIKIDATA`
+
+
+          These identifiers describe the associated Institution rather than the Data Provider itself.
+
+
+          The canonical Institution record should be used for complete organisational identifier information.
+
+
+          ## Names and labels
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `name` | string | `"Apollo - University of Cambridge Repository"` | Preferred name of the Data Provider or repository. | CORE / Manually curated / Automatically detected |
+
+          | `aliases` | string[] \| null | `["Apollo", "Cambridge Repository"]` | Alternative names, acronyms, or aliases associated with the Data Provider. | ROR / CORE |
+
+          | `institutionName` | string \| null | `"University of Cambridge"` | Name of the Institution responsible for operating or hosting the Data Provider. | ROR / CORE |
+
+
+          The Data Provider name and Institution name represent different concepts.
+
+
+          ```
+
+          {
+            "name": "Apollo - University of Cambridge Repository",
+            "institutionName": "University of Cambridge"
+          }
+
+          ```
+
+
+          ## Provider type and system information
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `type` | string \| null | `"REPOSITORY"` | Classification of the Data Provider, such as a repository or journal. | CORE |
+
+          | `software` | string \| null | `"DSpace"` | Repository or publishing software used by the Data Provider. | CORE / Automatically detected |
+
+          | `metadataFormat` | string \| null | `"rioxx"` | Principal metadata format exposed by the Data Provider and used by CORE. | CORE / OAI-PMH |
+
+
+          Example Data Provider types may include:
+
+
+          - `REPOSITORY`
+
+          - `JOURNAL`
+
+          - `PREPRINT_SERVER`
+
+          - `PUBLISHER`
+
+          - `AGGREGATOR`
+
+          - `OTHER`
+
+
+          The complete controlled vocabulary should be documented once the supported values are finalised.
+
+
+          A Data Provider may expose more than one OAI-PMH metadata format. If CORE retains multiple formats in a future version, `metadataFormat` should be changed to a collection or structured object.
+
+
+          ## Access and harvesting
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `oaiPmhUrl` | string \| null | `"https://repository.cam.ac.uk/oai/request"` | OAI-PMH endpoint used by CORE for metadata harvesting. | CORE / Manually curated / Automatically detected |
+
+          | `homepageUrl` | string \| null | `"https://repository.cam.ac.uk"` | Public homepage URL of the Data Provider. | CORE / Manually curated / Automatically detected |
+
+
+          The `oaiPmhUrl` property identifies the machine-readable harvesting endpoint:
+
+
+          ```
+
+          {
+            "oaiPmhUrl": "https://repository.cam.ac.uk/oai/request"
+          }
+
+          ```
+
+
+          The `homepageUrl` property identifies the public-facing website:
+
+
+          ```
+
+          {
+            "homepageUrl": "https://repository.cam.ac.uk"
+          }
+
+          ```
+
+
+          A Data Provider may have a homepage without exposing an OAI-PMH endpoint.
+
+
+          ## Contact and branding
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `email` | string \| null | `"repository@cam.ac.uk"` | Contact email address associated with the Data Provider. | CORE / OAI-PMH |
+
+          | `logo` | string \| null | `"https://api.core.ac.uk/v4/data-providers/100/logo"` | CORE API URL from which the Data Provider logo may be retrieved. | CORE |
+
+
+          Contact information is exposed only where CORE is permitted to redistribute it.
+
+
+          ## Location
+
+
+          The `location` property contains geographic information associated with the Data Provider or the Institution responsible for it.
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `countryCode` | string \| null | `"GB"` | ISO 3166-1 alpha-2 country code associated with the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+
+          | `latitude` | number \| null | `52.2053` | Latitude of the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+
+          | `longitude` | number \| null | `0.1218` | Longitude of the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+
+
+          The location may represent the associated Institution rather than the physical infrastructure hosting the repository.
+
+
+          Canonical Institution location information should be retrieved from the Institution entity.
+
+
+          ## Dates
+
+
+          | Property | Type | Example value | Description | Source |
+
+          | --- | --- | --- | --- | --- |
+
+          | `createdDate` | string \| null | `"2025-05-21T06:18:18Z"` | Date and time when the Data Provider record was created in CORE. | CORE |
+
+          | `updatedDate` | string \| null | `"2026-05-21T06:18:18Z"` | Date and time when the Data Provider record was last updated in CORE. | CORE |
+
+
+          ## Example Data Provider record
+
+
+          ```
+
+          {
+            "dataProviderId": 100,
+            "openDoarId": "1275",
+            "rorId": "https://ror.org/04ea70f07",
+            "otherIdentifiers": {
+              "GRID": {
+                "preferred": "grid.5335.0",
+                "all": [
+                  "grid.5335.0"
+                ]
+              },
+              "ISNI": {
+                "preferred": "000000012166240X",
+                "all": [
+                  "000000012166240X"
+                ]
+              },
+              "WIKIDATA": {
+                "preferred": "Q35794",
+                "all": [
+                  "Q35794"
+                ]
+              }
+            },
+            "name": "Apollo - University of Cambridge Repository",
+            "aliases": [
+              "Apollo",
+              "Cambridge Repository"
+            ],
+            "institutionName": "University of Cambridge",
+            "type": "REPOSITORY",
+            "software": "DSpace",
+            "metadataFormat": "rioxx",
+            "oaiPmhUrl": "https://repository.cam.ac.uk/oai/request",
+            "homepageUrl": "https://repository.cam.ac.uk",
+            "email": "repository@cam.ac.uk",
+            "logo": "https://api.core.ac.uk/v4/data-providers/100/logo",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.2053,
+              "longitude": 0.1218
+            },
+            "createdDate": "2025-05-21T06:18:18Z",
+            "updatedDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+
+
+          Outputs supplied by the Data Provider and the associated Institution record are not embedded in the standard response.
+
+
+          Related records are retrieved through relationship-oriented endpoints.
