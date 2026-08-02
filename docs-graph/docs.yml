@@ -7093,3 +7093,639 @@ items:
 
 
           The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: dataproviders-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          
+          #### Search by Data Provider name
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/data-providers?q=name:"Apollo"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q="Cambridge Repository"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/data-providers" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "name:\"Apollo\""
+            }'
+          ```
+
+
+          A broad textual query searches searchable fields including:
+
+
+          - `name`
+
+          - `aliases`
+
+          - `institutionName`
+
+
+          When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+          #### Retrieve a Data Provider by OpenDOAR identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=openDoarId:"1275"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "openDoarId:\"1275\""
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers associated with a ROR identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=rorId:"https://ror.org/04ea70f07"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "rorId:\"https://ror.org/04ea70f07\""
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by type
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by software
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=software:DSpace
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "software:DSpace"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by metadata format
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=metadataFormat:rioxx
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "metadataFormat:rioxx"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by country
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=location.countryCode:GB
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "location.countryCode:GB"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers with OAI-PMH endpoints
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=_exists_:oaiPmhUrl
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "_exists_:oaiPmhUrl"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers with OpenDOAR identifiers
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=_exists_:openDoarId
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "_exists_:openDoarId"
+          }
+
+          ```
+
+
+          #### Combined search, selection, and ordering
+
+
+          The following request:
+
+
+          - Searches for Data Providers associated with Cambridge.
+
+          - Restricts results to repositories.
+
+          - Restricts results to Data Providers in the United Kingdom.
+
+          - Orders results by name.
+
+          - Returns selected fields.
+
+          - Includes the total result count.
+
+          - Returns a maximum of ten records.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/data-providers?q=institutionName:"Cambridge"%20AND%20type:REPOSITORY%20AND%20location.countryCode:GB&orderby=name:asc&select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/data-providers
+              ?q=institutionName:"Cambridge" AND type:REPOSITORY AND location.countryCode:GB
+              &orderby=name:asc
+              &select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/data-providers" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "institutionName:\"Cambridge\" AND type:REPOSITORY AND location.countryCode:GB",
+              "orderby": [
+                "name:asc"
+              ],
+              "select": [
+                "dataProviderId",
+                "name",
+                "institutionName",
+                "type",
+                "software",
+                "metadataFormat",
+                "homepageUrl"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          Example search response:
+
+
+          ```json
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "dataProviderId": 100,
+                "name": "Apollo - University of Cambridge Repository",
+                "institutionName": "University of Cambridge",
+                "type": "REPOSITORY",
+                "software": "DSpace",
+                "metadataFormat": "rioxx",
+                "homepageUrl": "https://repository.cam.ac.uk"
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Ordering Data Provider results
+
+
+          ##### Order alphabetically
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?orderby=name:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "name:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by creation date
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?orderby=createdDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "createdDate:desc"
+            ]
+          }
+
+          ```
+
+
+          #### Facets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/data-providers?q=*&facets=type,software,metadataFormat,location.countryCode&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/data-providers" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "*",
+              "facets": [
+                "type",
+                "software",
+                "metadataFormat",
+                "location.countryCode"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          Example facet response:
+
+
+          ```json
+
+          {
+            "totalHits": 15000,
+            "facets": {
+              "type": [
+                {
+                  "value": "REPOSITORY",
+                  "count": 11500
+                },
+                {
+                  "value": "JOURNAL",
+                  "count": 2100
+                }
+              ],
+              "software": [
+                {
+                  "value": "DSpace",
+                  "count": 4200
+                },
+                {
+                  "value": "EPrints",
+                  "count": 2600
+                }
+              ],
+              "metadataFormat": [
+                {
+                  "value": "oai_dc",
+                  "count": 8700
+                },
+                {
+                  "value": "rioxx",
+                  "count": 1450
+                }
+              ],
+              "location.countryCode": [
+                {
+                  "value": "US",
+                  "count": 2300
+                },
+                {
+                  "value": "GB",
+                  "count": 1100
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Data Provider records.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY&count=true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate through Data Provider results.
+
+
+          A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          ##### First page using GET
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=0
+
+          ```
+
+
+          ##### Second page using GET
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### First page using POST
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY",
+            "orderby": [
+              "name:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          ##### Second page using POST
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY",
+            "orderby": [
+              "name:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```text
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Data Provider search was completed successfully. |
+
+          | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `413` | The POST request body exceeds the permitted size. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
