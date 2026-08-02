@@ -4773,3 +4773,271 @@ items:
         subTitle: An Institution may employ or host multiple Authors through Affiliation
           records. An Institution may also operate multiple Data Providers, such
           as institutional repositories or journal platforms.
+      - divider: false
+        border: false
+        id: institutions-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          
+
+          The tables below describe the top-level fields in the CORE Graph metadata schema for the Institution entity.
+
+
+          #### Identifiers
+
+
+          The identifiers properties contain the internal CORE identifier for the Institution entity and identifiers from external organisation identifier systems.
+
+
+          | **Attribute** | **Type**  | **Example value**                   | **Description**                                                                                                   | **Source**     |
+
+          | ------------- | --------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------- |
+
+          | institutionId | integer   | `1256`                              | CORE internal identifier for the Institution entity.                                                              | CORE           |
+
+          | rorId         | string    | `"https://ror.org/05mzfcs16"`       | ROR identifier for the Institution, when available.                                                               | ROR            |
+
+          | openalexId    | string    | `"https://openalex.org/I123456789"` | OpenAlex identifier for the Institution, when available.                                                          | OpenAlex       |
+
+          | gridId        | string\[] | `["grid.10837.3d"]`                 | GRID identifiers associated with the Institution, when available.                                                 | ROR            |
+
+          | isniId        | string\[] | `["0000 0000 9606 9301"]`           | ISNI identifiers associated with the Institution, when available.                                                 | ROR            |
+
+          | wikidataId    | string\[] | `["Q2413375"]`                      | Wikidata identifiers associated with the Institution, when available.                                             | ROR            |
+
+          | ofrId         | string\[] | `["100008509"]`                     | Crossref Open Funder Registry identifiers associated with the Institution. Formerly known as FundRef identifiers. | ROR / Crossref |
+
+
+          #### Names
+
+
+          Names for the organisation include acronyms, alternative names, former names, and the preferred display name. Name variants may include a two-letter ISO 639 language code when the language is known.
+
+
+          | **Attribute**   | **Type**  | **Example value**                           | **Description**                                                                                                               | **Source**     |
+
+          | --------------- | --------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------- |
+
+          | displayName     | string    | `"The Open University"`                     | Preferred display name for the Institution.                                                                                   | ROR / OpenAlex |
+
+          | displayNameLang | string    | `"en"`                                      | ISO 639 language code for the preferred display name, when known.                                                             | ROR            |
+
+          | acronym         | string    | `"OU"`                                      | Preferred acronym or short name for the Institution, when available.                                                          | ROR            |
+
+          | altNames        | string\[] | `["Y Brifysgol Agored", "Open University"]` | Alternative names, multilingual labels, aliases, former names, and other non-preferred names associated with the Institution. | ROR            |
+
+
+          #### Location
+
+
+          Location information may include continent, country, country subdivision, coordinates, and city. ROR location information is derived from GeoNames.
+
+
+          | **Attribute** | **Type** | **Example value**  | **Description**                                                                            | **Source** |
+
+          | ------------- | -------- | ------------------ | ------------------------------------------------------------------------------------------ | ---------- |
+
+          | countryCode   | string   | `"GB"`             | ISO 3166-1 alpha-2 country code for the Institution.                                       | ROR        |
+
+          | countryName   | string   | `"United Kingdom"` | Human-readable country name corresponding to `countryCode`.                                | ROR        |
+
+          | continentCode | string   | `"EU"`             | Code representing the continent in which the Institution is located.                       | ROR        |
+
+          | continentName | string   | `"Europe"`         | Human-readable name of the continent in which the Institution is located.                  | ROR        |
+
+          | city          | string   | `"Milton Keynes"`  | City associated with the Institution, when known.                                          | OpenAlex   |
+
+          | regionCode    | string   | `"ENG"`            | Code associated with the first-level country subdivision.                                  | ROR        |
+
+          | region        | string   | `"England"`        | Region, state, province, or other first-level subdivision associated with the Institution. | OpenAlex   |
+
+          | latitude      | number   | `52.04172`         | Latitude of the Institution’s location, when available.                                    | ROR        |
+
+          | longitude     | number   | `-0.75583`         | Longitude of the Institution’s location, when available.                                   | ROR        |
+
+
+          #### Links
+
+
+          The Institution record may include its primary website, recognised domains, and additional external links.
+
+
+          | **Attribute**   | **Type**  | **Example value**                                                                       | **Description**                                                               | **Source** |
+
+          | --------------- | --------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------- |
+
+          | websiteUrl      | string    | `"https://www.open.ac.uk/"`                                                             | Official website URL of the Institution.                                      | ROR        |
+
+          | domains         | string\[] | `["open.ac.uk"]`                                                                        | Internet domains known to belong to the Institution.                          | ROR        |
+
+          | additionalLinks | object\[] | `[{"type": "wikipedia", "value": "https://en.wikipedia.org/wiki/The_Open_University"}]` | Additional links associated with the Institution, such as its Wikipedia page. | ROR        |
+
+
+          #### Repositories
+
+
+          Repositories hosted by the Institution are represented using information from the CORE Data Provider entity.
+
+
+          | **Property**            | **Type**  | **Example value**           | **Description**                                                                        | **Source** |
+
+          | ----------------------- | --------- | --------------------------- | -------------------------------------------------------------------------------------- | ---------- |
+
+          | dataProviderId          | integer   | `86`                        | Unique CORE identifier for the Data Provider.                                          | CORE       |
+
+          | dataProviderName        | string    | `"Open Research Online"`    | Name of the repository or Data Provider.                                               | CORE       |
+
+          | hostOrganisationId      | string    | `"1256"`                    | CORE identifier of the hosting Institution.                                            | CORE       |
+
+          | hostOrganisationName    | string    | `"The Open University, UK"` | Name of the hosting Institution.                                                       | CORE       |
+
+          | hostOrganisationLineage | string\[] | `["1256"]`                  | Ordered identifiers representing the hierarchical lineage of the hosting organisation. | CORE       |
+
+
+          #### Institution type and status
+
+
+          These properties describe the Institution’s classifications and operational state.
+
+
+          | **Property** | **Type**  | **Example value**         | **Description**                                                                               | **Source** |
+
+          | ------------ | --------- | ------------------------- | --------------------------------------------------------------------------------------------- | ---------- |
+
+          | types        | string\[] | `["education", "funder"]` | One or more normalised Institution types obtained from ROR or predicted by the CORE ML model. | ROR / CORE |
+
+          | status       | string    | `"active"`                | Current status of the Institution: `active`, `inactive`, or `withdrawn`.                      | ROR        |
+
+
+          Supported Institution types may include:
+
+
+          | **Value**  | **Description**                                         |
+
+          | ---------- | ------------------------------------------------------- |
+
+          | education  | University, college, or other educational organisation. |
+
+          | funder     | Organisation that funds research.                       |
+
+          | healthcare | Hospital, healthcare provider, or medical organisation. |
+
+          | company    | Commercial organisation.                                |
+
+          | archive    | Archive, library, museum, or similar organisation.      |
+
+          | nonprofit  | Nonprofit organisation.                                 |
+
+          | government | Government organisation or agency.                      |
+
+          | facility   | Research facility or research infrastructure.           |
+
+          | other      | Organisation not represented by another category.       |
+
+
+          #### Relationships
+
+
+          An Institution may have one or more relationships with other organisations. Supported relationships include parent, child, related, predecessor, and successor.
+
+
+          | **Property**     | **Type**  | **Example value**                | **Description**                                                    | **Source**     |
+
+          | ---------------- | --------- | -------------------------------- | ------------------------------------------------------------------ | -------------- |
+
+          | institutionId    | integer   | `1256`                           | CORE identifier of the related Institution, when resolved.         | CORE           |
+
+          | rorId            | string    | `"https://ror.org/01c3xc117"`    | ROR identifier of the related Institution.                         | OpenAlex / ROR |
+
+          | displayName      | string    | `"University of Michigan–Flint"` | Display name of the related Institution.                           | OpenAlex / ROR |
+
+          | countryCode      | string    | `"US"`                           | ISO 3166-1 alpha-2 country code of the related Institution.        | OpenAlex       |
+
+          | types            | string\[] | `["education", "funder"]`        | Types assigned to the related Institution.                         | OpenAlex       |
+
+          | relationshipType | string    | `"related"`                      | Type of relationship between the current and related Institutions. | OpenAlex / ROR |
+
+
+          Supported relationship types are:
+
+
+          | **Value**   | **Description**                                                                           | **Source** |
+
+          | ----------- | ----------------------------------------------------------------------------------------- | ---------- |
+
+          | parent      | The related Institution is a parent organisation of the current Institution.              | ROR        |
+
+          | child       | The related Institution is a child or subsidiary organisation of the current Institution. | ROR        |
+
+          | related     | The Institutions have a non-hierarchical relationship.                                    | ROR        |
+
+          | predecessor | The related Institution historically preceded the current Institution.                    | ROR        |
+
+          | successor   | The related Institution succeeded or replaced the current Institution.                    | ROR        |
+
+
+          #### Dates
+
+
+          These properties describe when the record was created or modified and when the Institution was established.
+
+
+          | **Property**    | **Type** | **Example value** | **Description**                                             | **Source** |
+
+          | --------------- | -------- | ----------------- | ----------------------------------------------------------- | ---------- |
+
+          | createdAt       | string   | `"2018-11-14"`    | Date when the Institution record was originally created.    | CORE       |
+
+          | updatedAt       | string   | `"2024-12-11"`    | Date when the Institution record was most recently updated. | CORE       |
+
+          | establishedYear | integer  | `1966`            | Year in which the Institution was established.              | ROR        |
+
+
+          ### Topics
+
+
+          Topics describe the research areas associated with the Institution. Each topic may include its position within a topic classification hierarchy.
+
+
+          | **Property** | **Type** | **Example value**                                         | **Description**                                                                | **Source**      |
+
+          | ------------ | -------- | --------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------- |
+
+          | topicId      | string   | `"23"`                                                    | CORE identifier for the topic.                                                 | CORE            |
+
+          | displayName  | string   | `"Particle physics theoretical and experimental studies"` | Display name of the topic.                                                     | CORE            |
+
+          | count        | integer  | `6107`                                                    | Number of works or associations contributing to the topic for the Institution. | CORE            |
+
+          | score        | number   | `1`                                                       | Relevance score for the topic’s association with the Institution.              | CORE            |
+
+          | subfieldId   | string   | `"67"`                                                    | Identifier of the subfield to which the topic belongs.                         | CORE            |
+
+          | subfieldName | string   | `"Nuclear and High Energy Physics"`                       | Name of the subfield associated with the topic.                                | CORE / OpenAlex |
+
+          | fieldId      | string   | `"96"`                                                    | CORE identifier for the broader field.                                         | CORE            |
+
+          | fieldName    | string   | `"Physics and Astronomy"`                                 | Name of the broader field associated with the topic.                           | CORE / OpenAlex |
+
+          | domainId     | string   | `"56"`                                                    | CORE identifier for the highest-level domain.                                  | CORE            |
+
+          | domainName   | string   | `"Physical Sciences"`                                     | Name of the highest-level domain associated with the topic.                    | CORE / OpenAlex |
+
+
+          #### Citation metrics
+
+
+          Citation metrics provide yearly publication and citation statistics for the Institution.
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                                       | **Source** |
+
+          | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------- | ---------- |
+
+          | year         | integer  | `2024`            | Year for which the metrics are reported.                                              | OpenAlex   |
+
+          | worksCount   | integer  | `24125`           | Total number of Works associated with the Institution in that year.                   | OpenAlex   |
+
+          | oaWorksCount | integer  | `16994`           | Number of open-access Works associated with the Institution in that year.             | OpenAlex   |
+
+          | citedByCount | integer  | `123548`          | Total number of citations received by the Institution’s Works published in that year. | OpenAlex   |
