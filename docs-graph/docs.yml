@@ -5136,3 +5136,140 @@ items:
 
 
           ```
+      - divider: false
+        border: false
+        id: institutions-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Institution properties can be
+          searched, queried through field lookups or ranges, ordered, or used as
+          facets.
+
+
+
+
+          | **Attribute**                  | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | ------------------------------ | -------------- | -------------- | ------------ | ------------- |
+
+          | institutionId                  | No             | Yes            | No           | No            |
+
+          | rorId                          | No             | Yes            | No           | No            |
+
+          | openalexId                     | No             | Yes            | No           | No            |
+
+          | gridId                         | No             | Yes            | No           | No            |
+
+          | isniId                         | No             | Yes            | No           | No            |
+
+          | wikiDataId                     | No             | Yes            | No           | No            |
+
+          | ofrId                          | No             | Yes            | No           | No            |
+
+          | externalIdentifiers.scheme     | No             | Yes            | No           | Yes           |
+
+          | externalIdentifiers.value      | No             | Yes            | No           | No            |
+
+          | externalIdentifiers.preferred  | No             | Yes            | No           | No            |
+
+          | displayName                    | Yes            | No             | Yes          | No            |
+
+          | displayNameLang                | No             | Yes            | No           | Yes           |
+
+          | acronym                        | Yes            | No             | No           | No            |
+
+          | altNames                       | Yes            | No             | No           | No            |
+
+          | formerNames                    | Yes            | No             | No           | No            |
+
+          | names.lang                     | No             | Yes            | No           | Yes           |
+
+          | names.types                    | No             | Yes            | No           | Yes           |
+
+          | names.value                    | Yes            | No             | No           | No            |
+
+          | countryCode                    | No             | Yes            | No           | Yes           |
+
+          | countryName                    | Yes            | Yes            | No           | Yes           |
+
+          | continentCode                  | No             | Yes            | No           | Yes           |
+
+          | continentName                  | Yes            | Yes            | No           | Yes           |
+
+          | city                           | Yes            | Yes            | No           | Yes           |
+
+          | regionCode                     | No             | Yes            | No           | Yes           |
+
+          | region                         | Yes            | Yes            | No           | Yes           |
+
+          | latitude                       | No             | Yes            | No           | No            |
+
+          | longitude                      | No             | Yes            | No           | No            |
+
+          | websiteUrl                     | No             | No             | No           | No            |
+
+          | domains                        | No             | Yes            | No           | No            |
+
+          | additionalLinks.type           | No             | No             | No           | No            |
+
+          | additionalLinks.value          | No             | No             | No           | No            |
+
+          | dataProviderIds                | No             | Yes            | No           | No            |
+
+          | dataProviderNames              | Yes            | No             | No           | No            |
+
+          | hostOrganisationId             | No             | Yes            | No           | No            |
+
+          | hostOrganisationName           | Yes            | No             | No           | No            |
+
+          | hostOrganisationLineage        | No             | Yes            | No           | No            |
+
+          | types                          | No             | Yes            | No           | Yes           |
+
+          | status                         | No             | Yes            | No           | Yes           |
+
+          | relationships.institutionId    | No             | Yes            | No           | No            |
+
+          | relationships.rorId            | No             | Yes            | No           | No            |
+
+          | relationships.displayName      | Yes            | No             | No           | No            |
+
+          | relationships.countryCode      | No             | Yes            | No           | Yes           |
+
+          | relationships.types            | No             | Yes            | No           | Yes           |
+
+          | relationships.relationshipType | No             | Yes            | No           | Yes           |
+
+          | createdAt                      | No             | Yes            | Yes          | No            |
+
+          | updatedAt                      | No             | Yes            | Yes          | No            |
+
+          | establishedYear                | No             | Yes            | Yes          | Yes           |
+
+          | topics.topicId                 | No             | Yes            | No           | Yes           |
+
+          | topics.displayName             | Yes            | No             | No           | No            |
+
+          | topics.count                   | No             | Yes            | No           | No            |
+
+          | topics.score                   | No             | Yes            | No           | No            |
+
+          | topics.subfieldId              | No             | Yes            | No           | Yes           |
+
+          | topics.subfieldName            | Yes            | Yes            | No           | Yes           |
+
+          | topics.fieldId                 | No             | Yes            | No           | Yes           |
+
+          | topics.fieldName               | Yes            | Yes            | No           | Yes           |
+
+          | topics.domainId                | No             | Yes            | No           | Yes           |
+
+          | topics.domainName              | Yes            | Yes            | No           | Yes           |
+
+          | yearlyMetrics.year             | No             | Yes            | No           | Yes           |
+
+          | yearlyMetrics.worksCount       | No             | Yes            | No           | No            |
+
+          | yearlyMetrics.oaWorksCount     | No             | Yes            | No           | No            |
+
+          | yearlyMetrics.citedByCount     | No             | Yes            | No           | No            |
