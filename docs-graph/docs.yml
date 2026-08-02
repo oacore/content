@@ -6187,3 +6187,136 @@ items:
           offset = page size × number of previous pages
 
           ```
+      - divider: false
+        border: false
+        id: institutions-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          Relationship-oriented endpoints provide convenient access to records
+          connected to an Institution.
+
+
+          They do not introduce a different Institution representation. Internally, they traverse the corresponding CORE Graph relationships.
+
+
+          ### Affiliations for an Institution
+
+
+          ```
+
+
+          ```
+
+
+          Retrieves Affiliation records linked to the Institution.
+
+
+          Equivalent GET search:
+
+
+          ```
+
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+
+          ```
+
+
+          Example request:
+
+
+          ```
+
+
+          ```
+
+
+          Example response:
+
+
+          ```
+
+
+          ```
+
+
+          An existing Institution with no linked Affiliations returns `200` with an empty `results` array.
+
+
+          ### Data Providers for an Institution
+
+
+          ```
+
+
+          ```
+
+
+          Retrieves complete CORE Data Provider records associated with the Institution.
+
+
+          The endpoint returns complete Data Provider objects rather than only the convenience fields `dataProviderIds` and `dataProviderNames`.
+
+
+          Example request:
+
+
+          ```
+
+
+          ```
+
+
+          Example response:
+
+
+          ```
+
+
+          ```
+
+
+          An existing Institution with no associated Data Providers returns `200` with an empty `results` array.
+
+
+          ### Topics for an Institution
+
+
+          ```
+
+
+          ```
+
+
+          Retrieves research Topics associated with the Institution.
+
+
+          The endpoint returns the Topic objects represented in the Institution’s `topics` collection.
+
+
+          Example request:
+
+
+          ```
+
+
+          ```
+
+
+          Example response:
+
+
+          ```
+
+
+          ```
+
+
+          An existing Institution with no associated Topics returns `200` with an empty `results` array.
