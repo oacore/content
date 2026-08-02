@@ -50,6 +50,9 @@ navItems:
           - hidden: false
             href: "#journals-api-search-examples"
             item: Search examples
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#journals-api-relationship-oriented-endpoints"
       - item: Institutions
         href: ""
         children:
