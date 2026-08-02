@@ -6430,3 +6430,43 @@ items:
 
 
           An existing Institution with no associated Topics returns `200` with an empty `results` array.
+  - item: Data providers
+    children:
+      - divider: false
+        border: false
+        id: dataproviders-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Data Provider entity represents a source that supplies scholarly
+          content to CORE.
+
+
+          Data Providers may include:
+
+
+          * institutional repositories;
+
+          * disciplinary repositories;
+
+          * preprint servers;
+
+          * journals;
+
+          * publishers;
+
+          * aggregators;
+
+          * other metadata-harvesting sources.
+
+
+          A Data Provider record contains source-level information such as its name, type, OAI-PMH endpoint, metadata format, repository software, associated Institution identifiers, contact information, and geographic location.
+
+
+          Unlike an Institution, which represents a persistent organisational identity, a Data Provider represents a specific source from which CORE collects records.
+
+
+          For example, a university may operate one or more institutional repositories. The university is represented as an Institution, while each repository is represented as a separate Data Provider.
+        images:
+          - file: /images/docs-graph/dataproviders.png
+        subTitle: A Data Provider may supply multiple Outputs. An Institution may
+          operate or host multiple Data Providers.
