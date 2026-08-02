@@ -10588,3 +10588,148 @@ items:
 
 
           Authorships, Outputs, Journals, and Data Providers are not embedded as complete records in this response.
+      - divider: false
+        border: false
+        id: works-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Work properties can be searched,
+          queried through field lookups or ranges, ordered, or used as facets.
+
+
+          | **Attribute**                    | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | -------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `workId`                         | No             | Yes            | No           | No            |
+
+          | `externalIdentifiers.type`       | No             | Yes            | No           | Yes           |
+
+          | `externalIdentifiers.identifier` | No             | Yes            | No           | No            |
+
+          | `title`                          | Yes            | No             | Yes          | No            |
+
+          | `abstract`                       | Yes            | No             | No           | No            |
+
+          | `invertedAbstract`               | No             | No             | No           | No            |
+
+          | `fullText`                       | Yes            | No             | No           | No            |
+
+          | `doi`                            | No             | Yes            | No           | No            |
+
+          | `yearPublished`                  | No             | Yes            | Yes          | Yes           |
+
+          | `documentType`                   | No             | Yes            | No           | Yes           |
+
+          | `downloadUrl`                    | No             | No             | No           | No            |
+
+          | `coreIds`                        | No             | Yes            | No           | No            |
+
+          | `journalIds`                     | No             | Yes            | No           | No            |
+
+          | `dataProviderIds`                | No             | Yes            | No           | Yes           |
+
+          | `dates.type`                     | No             | Yes            | No           | Yes           |
+
+          | `dates.value`                    | No             | Yes            | No           | No            |
+
+          | `references.citationId`          | No             | Yes            | No           | No            |
+
+          | `references.citedCoreId`         | No             | Yes            | No           | No            |
+
+          | `references.citedDoi`            | No             | Yes            | No           | No            |
+
+          | `references.articleTitle`        | Yes            | No             | No           | No            |
+
+          | `references.author`              | Yes            | No             | No           | No            |
+
+          | `references.journalTitle`        | Yes            | No             | No           | No            |
+
+          | `references.volume`              | No             | No             | No           | No            |
+
+          | `references.issue`               | No             | No             | No           | No            |
+
+          | `references.startPage`           | No             | No             | No           | No            |
+
+          | `references.endPage`             | No             | No             | No           | No            |
+
+          | `references.unstructured`        | Yes            | No             | No           | No            |
+
+          | `contributors.name`              | Yes            | No             | No           | No            |
+
+          | `contributors.type`              | No             | Yes            | No           | Yes           |
+
+          | `contributors.role`              | No             | Yes            | No           | Yes           |
+
+          | `links.type`                     | No             | No             | No           | No            |
+
+          | `links.url`                      | No             | No             | No           | No            |
+
+          | `links.contentType`              | No             | No             | No           | No            |
+
+          | `sourceFulltextUrls`             | No             | No             | No           | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+
+
+          Refer to the common CORE API Query Language documentation for the complete syntax.
+
+
+          #### Complex collection queries
+
+
+          The following fields are collections of structured objects:
+
+
+          * `externalIdentifiers`
+
+          * `dates`
+
+          * `references`
+
+          * `contributors`
+
+          * `links`
+
+
+          When several conditions refer to the same collection, they must apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          externalIdentifiers.type:OPENALEX_ID
+
+          AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
+
+          ```
+
+
+          Both conditions must match a single identifier object containing both values.
+
+
+          Similarly:
+
+
+          ```text
+
+          dates.type:published
+
+          AND dates.value>="2022-01-01"
+
+          ```
+
+
+          Both conditions must match a single date object where the `type` is `published` and the `value` is on or after `2022-01-01`.
