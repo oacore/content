@@ -15,6 +15,9 @@ navItems:
           - hidden: false
             href: "#dataproviders-api-data-structure"
             item: Data structure
+          - hidden: false
+            href: "#dataproviders-api-supported-field-operations"
+            item: Supported field operations
       - item: Journals
       - item: Institutions
         href: ""
