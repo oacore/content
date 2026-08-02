@@ -18,6 +18,9 @@ navItems:
           - hidden: false
             href: "#dataproviders-api-supported-field-operations"
             item: Supported field operations
+          - hidden: false
+            item: Data Provider endpoints
+            href: "#dataproviders-api-data-provider-endpoints"
       - item: Journals
       - item: Institutions
         href: ""
