@@ -27,6 +27,9 @@ navItems:
           - hidden: false
             item: Search Institutions
             href: "#institutions-api-search-institutions"
+          - hidden: false
+            href: "#institutions-api-search-examples"
+            item: Search examples
       - item: Authorships
         children:
           - item: Introduction
