@@ -7729,3 +7729,119 @@ items:
           | `429` | The API request limit has been exceeded. |
 
           | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: dataproviders-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to records connected to a Data Provider.
+
+
+          #### Outputs supplied by a Data Provider
+
+
+          ```http
+
+          GET /v4/data-providers/{dataProviderId}/outputs
+
+          ```
+
+
+          Retrieves Outputs harvested from the Data Provider.
+
+
+          Equivalent GET search:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:{dataProviderId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/data-providers/100/outputs?select=coreId,title,yearPublished,documentType&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 125000,
+            "results": [
+              {
+                "coreId": 216874849,
+                "title": "An example research article",
+                "yearPublished": 2025,
+                "documentType": [
+                  "research article"
+                ]
+              },
+              {
+                "coreId": 216874850,
+                "title": "An example doctoral thesis",
+                "yearPublished": 2024,
+                "documentType": [
+                  "thesis"
+                ]
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Data Provider with no supplied Outputs returns a `200` response with an empty `results` array.
+
+
+          #### Data Providers for an Institution
+
+
+          ```http
+
+          GET /v4/institutions/{institutionId}/data-providers
+
+          ```
+
+
+          Retrieves complete Data Provider records associated with an Institution.
+
+
+          The relationship may be resolved using the Institution’s `dataProviderIds` collection or another internal relationship mapping.
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/data-providers?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          This endpoint is documented primarily under the Institution entity.
