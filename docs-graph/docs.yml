@@ -6833,3 +6833,169 @@ items:
           * **Sortable** fields can be used with `orderby`.
 
           * **Facetable** fields can be used with `facets`.
+      - divider: false
+        border: false
+        id: dataproviders-api-data-provider-endpoints
+        title: Data provider endpoints
+        descriptionAbout: >-
+          
+          #### Available endpoints
+
+
+          | Operation | Method | Endpoint |
+
+          | --- | --- | --- |
+
+          | Get a single Data Provider | `GET` | `/v4/data-providers/{dataProviderId}` |
+
+          | Search Data Providers using URL parameters | `GET` | `/v4/search/data-providers` |
+
+          | Search Data Providers using a JSON request body | `POST` | `/v4/search/data-providers` |
+
+          | Retrieve Outputs supplied by a Data Provider | `GET` | `/v4/data-providers/{dataProviderId}/outputs` |
+
+          | Retrieve Data Providers for an Institution | `GET` | `/v4/institutions/{institutionId}/data-providers` |
+
+
+          A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
+
+
+          ### Get a single Data Provider
+
+
+          Retrieves a single Data Provider record using its unique CORE identifier.
+
+
+          ##### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/data-providers/{dataProviderId}
+
+          ```
+
+
+          The POST search endpoint is not an alternative single-record retrieval endpoint. It searches the Data Provider collection using a JSON request body.
+
+
+          ##### Authorization
+
+
+          | Parameter | Location | Type | Required | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | `Authorization` | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | `dataProviderId` | integer | Yes | Unique CORE identifier of the Data Provider record. |
+
+
+          ##### Query parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | `select` | string | No | Comma-separated list of top-level Data Provider fields to return. Example: `select=dataProviderId,name,type,homepageUrl`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/data-providers/100" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "dataProviderId": 100,
+            "openDoarId": "1275",
+            "rorId": "https://ror.org/04ea70f07",
+            "name": "Apollo - University of Cambridge Repository",
+            "aliases": [
+              "Apollo",
+              "Cambridge Repository"
+            ],
+            "institutionName": "University of Cambridge",
+            "type": "REPOSITORY",
+            "software": "DSpace",
+            "metadataFormat": "rioxx",
+            "oaiPmhUrl": "https://repository.cam.ac.uk/oai/request",
+            "homepageUrl": "https://repository.cam.ac.uk",
+            "email": "repository@cam.ac.uk",
+            "logo": "https://api.core.ac.uk/v4/data-providers/100/logo",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.2053,
+              "longitude": 0.1218
+            },
+            "createdDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/data-providers/100?select=dataProviderId,name,type,software,metadataFormat,homepageUrl" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "dataProviderId": 100,
+            "name": "Apollo - University of Cambridge Repository",
+            "type": "REPOSITORY",
+            "software": "DSpace",
+            "metadataFormat": "rioxx",
+            "homepageUrl": "https://repository.cam.ac.uk"
+          }
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Data Provider record was retrieved successfully. |
+
+          | `400` | The request contains an invalid parameter or unsupported field name. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `404` | No Data Provider record was found for the supplied identifier. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
