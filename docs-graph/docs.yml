@@ -5521,3 +5521,669 @@ items:
 
 
           The GET method represents `orderby`, `select`, and `facets` as comma-separated strings. The POST method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: institutions-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          #### Search by Institution name
+
+
+          Search a specific Institution name using the `displayName` field:
+
+
+          ```
+
+          GET /v4/search/institutions?q=displayName:"The Open University"
+
+          ```
+
+
+          A free-text query searches all searchable Institution fields:
+
+
+          ```
+
+          GET /v4/search/institutions?q="Open University"
+
+          ```
+
+
+          This query may match `displayName`, `acronym`, or `altNames`.
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "displayName:\"The Open University\""
+          }
+
+          ```
+
+
+          A broad textual query searches searchable Institution fields, including:
+
+
+          * `displayName`
+
+          * `acronym`
+
+          * `altNames`
+
+          * `formerNames`
+
+          * `names.value`
+
+          * Location names
+
+          * Related Institution names
+
+          * Topic names
+
+          * Data Provider names
+
+
+          When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+          #### Retrieve an Institution by ROR identifier
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=rorId:"https://ror.org/05mzfcs16"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "rorId:\"https://ror.org/05mzfcs16\""
+          }
+
+          ```
+
+
+          #### Search by domain
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=domains:"open.ac.uk"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "domains:\"open.ac.uk\""
+          }
+
+          ```
+
+
+          #### Retrieve Institutions by type and country
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education AND countryCode:GB
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "types:education AND countryCode:GB"
+          }
+
+          ```
+
+
+          #### Retrieve active Institutions
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=status:active
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "status:active"
+          }
+
+          ```
+
+
+          #### Retrieve Institutions established after 2000
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=establishedYear>2000
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "establishedYear>2000"
+          }
+
+          ```
+
+
+          #### Retrieve Institutions with Data Providers
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=_exists_:dataProviderIds
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "_exists_:dataProviderIds"
+          }
+
+          ```
+
+
+          #### Search by Topic
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=topics.topicId:"23"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "topics.topicId:\"23\""
+          }
+
+          ```
+
+
+          A textual Topic search may use:
+
+
+          ```
+
+          GET /v4/search/institutions?q=topics.displayName:"Particle physics"
+
+          ```
+
+
+          #### Retrieve Institutions by yearly metrics
+
+
+          The following query retrieves Institutions with more than 10,000 Works in 2024.
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `yearlyMetrics` entry.
+
+
+          #### Search using multiple conditions
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions
+              ?q=displayName:"Open" AND types:education AND countryCode:GB
+              &orderby=displayName:asc
+              &select=institutionId,rorId,displayName,countryCode,types,status
+              &limit=10
+              &offset=0
+          ```
+
+
+          This request:
+
+
+          * Searches for `Open` in `displayName`.
+
+          * Restricts results to educational Institutions.
+
+          * Restricts results to Institutions in the United Kingdom.
+
+          * Orders results alphabetically.
+
+          * Returns only the selected fields.
+
+          * Returns a maximum of ten records.
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/institutions" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "displayName:\"Open\" AND types:education AND countryCode:GB",
+              "orderby": [
+                "displayName:asc"
+              ],
+              "select": [
+                "institutionId",
+                "rorId",
+                "displayName",
+                "countryCode",
+                "types",
+                "status"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          Example search response:
+
+
+          ```
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "institutionId": 1256,
+                "rorId": "https://ror.org/05mzfcs16",
+                "displayName": "The Open University",
+                "countryCode": "GB",
+                "types": [
+                  "education",
+                  "funder"
+                ],
+                "status": "active"
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Ordering Institution results
+
+
+          ##### Order alphabetically
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&orderby=displayName:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "orderby": [
+              "displayName:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by established year
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?orderby=establishedYear:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "orderby": [
+              "establishedYear:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          The following request would require `countryCode` to be sortable:
+
+
+          ```
+
+          GET /v4/search/institutions?orderby=countryCode:asc,displayName:asc
+
+          ```
+
+
+          Under the current supported field operations, `countryCode` is not sortable. Filter by `countryCode` and order by `displayName` instead:
+
+
+          ```
+
+          GET /v4/search/institutions?q=countryCode:GB&orderby=displayName:asc
+
+          ```
+
+
+          ##### Order by most recently updated
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?orderby=updatedAt:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "orderby": [
+              "updatedAt:desc"
+            ]
+          }
+
+          ```
+
+
+          #### Facets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/institutions?q=status:active&facets=types,status,countryCode&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/institutions" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "status:active",
+              "facets": [
+                "types",
+                "status",
+                "countryCode"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          Example facet response:
+
+
+          ```
+
+          {
+            "totalHits": 12034,
+            "facets": {
+              "types": [
+                {
+                  "value": "education",
+                  "count": 8102
+                },
+                {
+                  "value": "funder",
+                  "count": 1730
+                },
+                {
+                  "value": "healthcare",
+                  "count": 1204
+                }
+              ],
+              "status": [
+                {
+                  "value": "active",
+                  "count": 12034
+                }
+              ],
+              "countryCode": [
+                {
+                  "value": "US",
+                  "count": 2415
+                },
+                {
+                  "value": "GB",
+                  "count": 1183
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set. Setting `limit` to `0` returns facet buckets and counts without returning Institution records.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Institution records.
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&count=true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate Institution results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          ##### First page using GET
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=0
+
+          ```
+
+
+          ##### Second page using GET
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### First page using POST
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          ##### Second page using POST
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```
+
+          offset = page size × number of previous pages
+
+          ```
