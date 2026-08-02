@@ -7896,3 +7896,49 @@ items:
 
 
           A Data Provider may supply metadata for multiple Journals. A Publisher may publish multiple Journals, and an Institution may host or operate multiple Journals.
+
+
+
+
+          #### Entity scope
+
+
+          The Journal entity contains journal-level metadata only.
+
+
+          Article-level information such as:
+
+
+          * article title;
+
+          * abstract;
+
+          * publication year;
+
+          * article authors;
+
+          * volume and issue;
+
+          * page range;
+
+          * article DOI;
+
+          * article full-text links;
+
+
+          is not stored as part of the Journal entity.
+
+
+          This information belongs to the Output and Work entities.
+
+
+          Articles associated with a Journal can be retrieved through:
+
+
+          ```
+
+          GET /v4/journals/{journalId}/outputs
+
+
+
+          ```
