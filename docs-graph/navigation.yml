@@ -22,7 +22,7 @@ navItems:
             item: Data Provider endpoints
             href: "#dataproviders-api-data-provider-endpoints"
           - hidden: false
-            href: "#dataproviders-api-search-data-provider"
+            href: "#dataproviders-api-search-data-providers"
             item: Search Data providers
       - item: Journals
       - item: Institutions
