@@ -35,6 +35,9 @@ navItems:
           - hidden: false
             item: Introduction
             href: "#journals-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#journals-api-data-structure"
       - item: Institutions
         href: ""
         children:
