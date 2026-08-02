@@ -4739,3 +4739,37 @@ items:
 
 
           Retrieves Affiliation records associated with an Author.
+  - item: Institutions
+    children:
+      - divider: false
+        border: false
+        id: institutions-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Institution entity represents universities, research
+          organisations, healthcare organisations, companies, government bodies,
+          funders, archives, and other organisations participating in the
+          scholarly communication graph.
+
+
+          Institutions may be associated with:
+
+
+          * Authors through Affiliation records;
+
+          * Data Providers that they operate or host;
+
+          * other Institutions through hierarchical, historical, or related-organisation relationships;
+
+          * Works, Projects, Grants, and other graph entities through their respective relationship entities.
+
+
+          Institution metadata is primarily sourced from the Research Organization Registry (ROR). It may be enriched with identifiers, names, hierarchy information, publication metrics, and other information from other data sources.
+
+
+          The diagram below illustrates the principal Institution relationships.
+        images:
+          - file: /images/docs-graph/institutions.png
+        subTitle: An Institution may employ or host multiple Authors through Affiliation
+          records. An Institution may also operate multiple Data Providers, such
+          as institutional repositories or journal platforms.
