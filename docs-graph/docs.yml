@@ -9799,3 +9799,164 @@ items:
           | `429` | The API request limit has been exceeded. |
 
           | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: journals-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to graph entities connected to a Journal.
+
+
+          Related entity records are not embedded in the standard Journal response.
+
+
+          #### Outputs for a Journal
+
+
+          ```http
+
+          GET /v4/journals/{journalId}/outputs
+
+          ```
+
+
+          Retrieves Output records published in or associated with the Journal.
+
+
+          Equivalent Output search:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=journalId:{journalId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "journalId:{journalId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/journals/12345/outputs?select=coreId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "coreId": 216874849,
+                "title": "Advances in Open Science Infrastructure",
+                "yearPublished": 2025,
+                "doi": "10.1234/example.5678"
+              },
+              {
+                "coreId": 216874850,
+                "title": "Repositories and scholarly communication",
+                "yearPublished": 2024,
+                "doi": "10.1234/example.9123"
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Journal with no associated Outputs returns a `200` response with an empty `results` array.
+
+
+          #### Journals for a Data Provider
+
+
+          ```http
+
+          GET /v4/data-providers/{dataProviderId}/journals
+
+          ```
+
+
+          Retrieves Journals supplied by or associated with a Data Provider.
+
+
+          Equivalent Journal search:
+
+
+          ```http
+
+          GET /v4/search/journals?q=dataProviderId:{dataProviderId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:{dataProviderId}"
+          }
+
+          ```
+
+
+          This endpoint should be documented primarily under the Data Provider entity.
+
+
+          #### Journals for an Institution
+
+
+          ```http
+
+          GET /v4/institutions/{institutionId}/journals
+
+          ```
+
+
+          Retrieves Journals associated with or hosted by an Institution.
+
+
+          Equivalent Journal search:
+
+
+          ```http
+
+          GET /v4/search/journals?q=institutionId:{institutionId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "institutionId:{institutionId}"
+          }
+
+          ```
+
+
+          This endpoint should be documented primarily under the Institution entity.
