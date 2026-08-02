@@ -24,6 +24,9 @@ navItems:
           - hidden: false
             href: "#dataproviders-api-search-data-providers"
             item: Search Data providers
+          - hidden: false
+            href: "#dataproviders-api-search-examples"
+            item: Search examples
       - item: Journals
       - item: Institutions
         href: ""
