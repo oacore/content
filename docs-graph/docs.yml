@@ -6482,17 +6482,17 @@ items:
           ## Identifiers
 
 
-          | Property | Type | Example value | Description | Source |
+          | **Property**        | **Type**      | **Example value**             | **Description**                                                                               | **Source** |
 
-          | --- | --- | --- | --- | --- |
+          | ------------------- | ------------- | ----------------------------- | --------------------------------------------------------------------------------------------- | ---------- |
 
-          | `dataProviderId` | integer | `100` | Unique CORE internal identifier for the Data Provider. | CORE |
+          | `dataProviderId`    | integer       | `100`                         | Unique CORE internal identifier for the Data Provider.                                        | CORE       |
 
-          | `openDoarId` | string \| null | `"1275"` | OpenDOAR identifier for the repository, when available. | OpenDOAR |
+          | `openDoarId`        | string | null | `"1275"`                      | OpenDOAR identifier for the repository, when available.                                       | OpenDOAR   |
 
-          | `rorId` | string \| null | `"https://ror.org/04ea70f07"` | ROR identifier of the Institution associated with the Data Provider, when available. | ROR / CORE |
+          | `rorId`             | string | null | `"https://ror.org/04ea70f07"` | ROR identifier of the Institution associated with the Data Provider, when available.          | ROR / CORE |
 
-          | `otherIdentifiers`* | object \| null | See below | Other external identifiers associated with the Institution responsible for the Data Provider. | ROR |
+          | `otherIdentifiers`* | object | null | See below                     | Other external identifiers associated with the Institution responsible for the Data Provider. | ROR        |
 
 
           \* More information is provided below.
@@ -6535,23 +6535,23 @@ items:
           Each identifier scheme contains:
 
 
-          | Property | Type | Example value | Description |
+          | Property    | Type             | Example value     | Description                                                       |
 
-          | --- | --- | --- | --- |
+          | ----------- | ---------------- | ----------------- | ----------------------------------------------------------------- |
 
-          | `preferred` | string \| null | `"grid.5335.0"` | Preferred identifier for the specified scheme. |
+          | `preferred` | string | null    | `"grid.5335.0"`   | Preferred identifier for the specified scheme.                    |
 
-          | `all` | string[] \| null | `["grid.5335.0"]` | Complete set of known identifier values for the specified scheme. |
+          | `all`       | string\[] | null | `["grid.5335.0"]` | Complete set of known identifier values for the specified scheme. |
 
 
           Examples of supported schemes include:
 
 
-          - `GRID`
+          * `GRID`
 
-          - `ISNI`
+          * `ISNI`
 
-          - `WIKIDATA`
+          * `WIKIDATA`
 
 
           These identifiers describe the associated Institution rather than the Data Provider itself.
@@ -6563,15 +6563,15 @@ items:
           ## Names and labels
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property          | Type             | Example value                                   | Description                                                                     | Source                                           |
 
-          | --- | --- | --- | --- | --- |
+          | ----------------- | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ |
 
-          | `name` | string | `"Apollo - University of Cambridge Repository"` | Preferred name of the Data Provider or repository. | CORE / Manually curated / Automatically detected |
+          | `name`            | string           | `"Apollo - University of Cambridge Repository"` | Preferred name of the Data Provider or repository.                              | CORE / Manually curated / Automatically detected |
 
-          | `aliases` | string[] \| null | `["Apollo", "Cambridge Repository"]` | Alternative names, acronyms, or aliases associated with the Data Provider. | ROR / CORE |
+          | `aliases`         | string\[] | null | `["Apollo", "Cambridge Repository"]`            | Alternative names, acronyms, or aliases associated with the Data Provider.      | ROR / CORE                                       |
 
-          | `institutionName` | string \| null | `"University of Cambridge"` | Name of the Institution responsible for operating or hosting the Data Provider. | ROR / CORE |
+          | `institutionName` | string | null    | `"University of Cambridge"`                     | Name of the Institution responsible for operating or hosting the Data Provider. | ROR / CORE                                       |
 
 
           The Data Provider name and Institution name represent different concepts.
@@ -6590,31 +6590,31 @@ items:
           ## Provider type and system information
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property         | Type          | Example value  | Description                                                              | Source                        |
 
-          | --- | --- | --- | --- | --- |
+          | ---------------- | ------------- | -------------- | ------------------------------------------------------------------------ | ----------------------------- |
 
-          | `type` | string \| null | `"REPOSITORY"` | Classification of the Data Provider, such as a repository or journal. | CORE |
+          | `type`           | string | null | `"REPOSITORY"` | Classification of the Data Provider, such as a repository or journal.    | CORE                          |
 
-          | `software` | string \| null | `"DSpace"` | Repository or publishing software used by the Data Provider. | CORE / Automatically detected |
+          | `software`       | string | null | `"DSpace"`     | Repository or publishing software used by the Data Provider.             | CORE / Automatically detected |
 
-          | `metadataFormat` | string \| null | `"rioxx"` | Principal metadata format exposed by the Data Provider and used by CORE. | CORE / OAI-PMH |
+          | `metadataFormat` | string | null | `"rioxx"`      | Principal metadata format exposed by the Data Provider and used by CORE. | CORE / OAI-PMH                |
 
 
           Example Data Provider types may include:
 
 
-          - `REPOSITORY`
+          * `REPOSITORY`
 
-          - `JOURNAL`
+          * `JOURNAL`
 
-          - `PREPRINT_SERVER`
+          * `PREPRINT_SERVER`
 
-          - `PUBLISHER`
+          * `PUBLISHER`
 
-          - `AGGREGATOR`
+          * `AGGREGATOR`
 
-          - `OTHER`
+          * `OTHER`
 
 
           The complete controlled vocabulary should be documented once the supported values are finalised.
@@ -6626,13 +6626,13 @@ items:
           ## Access and harvesting
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property      | Type          | Example value                                | Description                                            | Source                                           |
 
-          | --- | --- | --- | --- | --- |
+          | ------------- | ------------- | -------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------ |
 
-          | `oaiPmhUrl` | string \| null | `"https://repository.cam.ac.uk/oai/request"` | OAI-PMH endpoint used by CORE for metadata harvesting. | CORE / Manually curated / Automatically detected |
+          | `oaiPmhUrl`   | string | null | `"https://repository.cam.ac.uk/oai/request"` | OAI-PMH endpoint used by CORE for metadata harvesting. | CORE / Manually curated / Automatically detected |
 
-          | `homepageUrl` | string \| null | `"https://repository.cam.ac.uk"` | Public homepage URL of the Data Provider. | CORE / Manually curated / Automatically detected |
+          | `homepageUrl` | string | null | `"https://repository.cam.ac.uk"`             | Public homepage URL of the Data Provider.              | CORE / Manually curated / Automatically detected |
 
 
           The `oaiPmhUrl` property identifies the machine-readable harvesting endpoint:
@@ -6665,13 +6665,13 @@ items:
           ## Contact and branding
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property | Type          | Example value                                         | Description                                                      | Source         |
 
-          | --- | --- | --- | --- | --- |
+          | -------- | ------------- | ----------------------------------------------------- | ---------------------------------------------------------------- | -------------- |
 
-          | `email` | string \| null | `"repository@cam.ac.uk"` | Contact email address associated with the Data Provider. | CORE / OAI-PMH |
+          | `email`  | string | null | `"repository@cam.ac.uk"`                              | Contact email address associated with the Data Provider.         | CORE / OAI-PMH |
 
-          | `logo` | string \| null | `"https://api.core.ac.uk/v4/data-providers/100/logo"` | CORE API URL from which the Data Provider logo may be retrieved. | CORE |
+          | `logo`   | string | null | `"https://api.core.ac.uk/v4/data-providers/100/logo"` | CORE API URL from which the Data Provider logo may be retrieved. | CORE           |
 
 
           Contact information is exposed only where CORE is permitted to redistribute it.
@@ -6683,15 +6683,15 @@ items:
           The `location` property contains geographic information associated with the Data Provider or the Institution responsible for it.
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property      | Type          | Example value | Description                                                                                   | Source                                        |
 
-          | --- | --- | --- | --- | --- |
+          | ------------- | ------------- | ------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------- |
 
-          | `countryCode` | string \| null | `"GB"` | ISO 3166-1 alpha-2 country code associated with the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+          | `countryCode` | string | null | `"GB"`        | ISO 3166-1 alpha-2 country code associated with the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
 
-          | `latitude` | number \| null | `52.2053` | Latitude of the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+          | `latitude`    | number | null | `52.2053`     | Latitude of the Data Provider or responsible Institution.                                     | CORE / Repository metadata / Manually curated |
 
-          | `longitude` | number \| null | `0.1218` | Longitude of the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+          | `longitude`   | number | null | `0.1218`      | Longitude of the Data Provider or responsible Institution.                                    | CORE / Repository metadata / Manually curated |
 
 
           The location may represent the associated Institution rather than the physical infrastructure hosting the repository.
@@ -6703,13 +6703,13 @@ items:
           ## Dates
 
 
-          | Property | Type | Example value | Description | Source |
+          | Property      | Type          | Example value            | Description                                                           | Source |
 
-          | --- | --- | --- | --- | --- |
+          | ------------- | ------------- | ------------------------ | --------------------------------------------------------------------- | ------ |
 
-          | `createdDate` | string \| null | `"2025-05-21T06:18:18Z"` | Date and time when the Data Provider record was created in CORE. | CORE |
+          | `createdDate` | string | null | `"2025-05-21T06:18:18Z"` | Date and time when the Data Provider record was created in CORE.      | CORE   |
 
-          | `updatedDate` | string \| null | `"2026-05-21T06:18:18Z"` | Date and time when the Data Provider record was last updated in CORE. | CORE |
+          | `updatedDate` | string | null | `"2026-05-21T06:18:18Z"` | Date and time when the Data Provider record was last updated in CORE. | CORE   |
 
 
           ## Example Data Provider record
@@ -6770,3 +6770,66 @@ items:
 
 
           Related records are retrieved through relationship-oriented endpoints.
+      - divider: false
+        border: false
+        id: dataproviders-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Data Provider properties can be
+          searched, queried through field lookups or ranges, ordered, or used as
+          facets.
+
+
+          | **Attribute**          | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | ---------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `dataProviderId`       | No             | Yes            | No           | No            |
+
+          | `openDoarId`           | No             | Yes            | No           | No            |
+
+          | `rorId`                | No             | Yes            | No           | No            |
+
+          | `otherIdentifiers`     | No             | No             | No           | No            |
+
+          | `name`                 | Yes            | No             | Yes          | No            |
+
+          | `aliases`              | Yes            | No             | No           | No            |
+
+          | `institutionName`      | Yes            | No             | No           | No            |
+
+          | `type`                 | No             | Yes            | No           | Yes           |
+
+          | `software`             | No             | Yes            | No           | Yes           |
+
+          | `metadataFormat`       | No             | Yes            | No           | Yes           |
+
+          | `oaiPmhUrl`            | No             | Yes            | No           | No            |
+
+          | `homepageUrl`          | No             | Yes            | No           | No            |
+
+          | `email`                | No             | Yes            | No           | No            |
+
+          | `logo`                 | No             | No             | No           | No            |
+
+          | `location.countryCode` | No             | Yes            | No           | Yes           |
+
+          | `location.latitude`    | No             | Yes            | No           | No            |
+
+          | `location.longitude`   | No             | Yes            | No           | No            |
+
+          | `createdDate`          | No             | Yes            | Yes          | No            |
+
+          | `updatedDate`          | No             | Yes            | Yes          | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
