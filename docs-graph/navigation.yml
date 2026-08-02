@@ -5,8 +5,15 @@ navItems:
       - item: CORE graph data model
   - item: Entities
     children:
-      - item: Work
-      - item: Output
+      - item: Works
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#works-api-introduction"
+          - hidden: false
+            href: "#works-api-data-structure"
+            item: Data structure
+      - item: Outputs
       - item: Data Providers
         children:
           - hidden: false
