@@ -5273,3 +5273,140 @@ items:
           | yearlyMetrics.oaWorksCount     | No             | Yes            | No           | No            |
 
           | yearlyMetrics.citedByCount     | No             | Yes            | No           | No            |
+      - divider: false
+        border: false
+        id: "#institutions-api-institutions-endpoints"
+        title: Institutions endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | **Operation**                                 | **Method** | **Endpoint**                       |
+
+          | --------------------------------------------- | ---------- | ---------------------------------- |
+
+          | Get a single Institution                      | GET        | `/v4/institutions/{institutionId}` |
+
+          | Search Institutions                           | GET        | `/v4/search/institutions`          |
+
+          | Search Institutions using a JSON request body | POST       | `/v4/search/institutions`          |
+
+
+          Related records may also be retrieved through relationship-oriented endpoints:
+
+
+          | **Operation**                              | **Method** | **Endpoint**                                     |
+
+          | ------------------------------------------ | ---------- | ------------------------------------------------ |
+
+          | Retrieve Affiliations for an Institution   | GET        | `/v4/institutions/{institutionId}/affiliations`  |
+
+          | Retrieve Data Providers for an Institution | GET        | `/v4/institutions/{institutionId}/dataProviders` |
+
+          | Retrieve Topics for an Institution         | GET        | `/v4/institutions/{institutionId}/topics`        |
+
+
+          #### Get a single Institution
+
+
+          Retrieves a single Institution record using its unique CORE Institution identifier.
+
+
+          ##### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/institutions/{institutionId}
+
+          ```
+
+
+          ##### Authorization
+
+
+          | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                   |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------- |
+
+          | institutionId | integer  | Yes          | Unique CORE identifier of the Institution record. |
+
+
+          ##### Query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                                 |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+
+          | select        | string   | No           | Comma-separated list of top-level Institution fields to return. Example: `select=institutionId,rorId,displayName,types,status`. |
+
+
+
+
+          ### Example request
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          E﻿xample response:
+
+
+          ```
+
+          {
+            "institutionId": 1256,
+            "rorId": "https://ror.org/05mzfcs16",
+            "openalexId": "https://openalex.org/I123456789",
+            "displayName": "The Open University",
+            "acronym": "OU",
+            "countryCode": "GB",
+            "countryName": "United Kingdom",
+            "city": "Milton Keynes",
+            "websiteUrl": "https://www.open.ac.uk/",
+            "domains": [
+              "open.ac.uk"
+            ],
+            "types": [
+              "education",
+              "funder"
+            ],
+            "status": "active",
+            "establishedYear": 1966
+          }
+
+          ```
+
+
+          ### Example request using `select`
+
+
+          ```
+
+
+          ```
+
+
+          ### Example response using `select`
+
+
+          ```
+
+
+          ```
