@@ -44,6 +44,9 @@ navItems:
           - hidden: false
             href: "#journals-api-journal-endpoints"
             item: Journal endpoints
+          - hidden: false
+            href: "#journals-api-search-journals"
+            item: Search Journals
       - item: Institutions
         href: ""
         children:
