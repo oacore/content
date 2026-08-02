@@ -21,6 +21,9 @@ navItems:
           - hidden: false
             href: "#institutions-api-supported-field-operations"
             item: Supported field operations
+          - hidden: false
+            item: Institutions endpoints
+            href: "#institutions-api-institutions-endpoints"
       - item: Authorships
         children:
           - item: Introduction
