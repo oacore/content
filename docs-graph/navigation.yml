@@ -10,6 +10,17 @@ navItems:
       - item: Data Provider
       - item: Journals
       - item: Institutions
+        href: ""
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#institutions-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#institutions-api-data-structure"
+          - hidden: false
+            href: "#institutions-api-supported-field-operations"
+            item: Supported field operations
       - item: Authorships
         children:
           - item: Introduction
