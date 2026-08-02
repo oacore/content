@@ -8738,3 +8738,97 @@ items:
           | `429` | The API request limit has been exceeded. |
 
           | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: journals-api-search-journals
+        title: Search Journals
+        descriptionAbout: >-
+          Searches, filters, orders, facets, counts, and paginates Journal
+          records.
+
+
+          Journal search is available through `GET` and `POST`:
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/search/journals
+
+          POST https://api.core.ac.uk/v4/search/journals
+
+          ```
+
+
+          Both methods use the same CORE query language and return the same response structure.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                            |
+
+          | ------------- | -------- | ------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+
+          | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                           |
+
+          | `select`      | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                  |
+
+          | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
+
+          | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Journal records should be included.                                         |
+
+          | `limit`       | integer  | No           | `10`                          | Maximum number of Journal records to return.                                                                               |
+
+          | `offset`      | integer  | No           | `0`                           | Number of matching Journal records to skip.                                                                                |
+
+
+          ##### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                            |
+
+          | ------------ | --------- | ------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+
+          | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                            |
+
+          | `select`     | string\[] | No           | All retrievable fields        | List of Journal fields to include in each result.                                                                          |
+
+          | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                            |
+
+          | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Journal records should be included.                                         |
+
+          | `limit`      | integer   | No           | `10`                          | Maximum number of Journal records to return.                                                                               |
+
+          | `offset`     | integer   | No           | `0`                           | Number of matching Journal records to skip.                                                                                |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**                | **POST body property**                              |
+
+          | -------------------------------------- | --------------------------------------------------- |
+
+          | `q=language:en`                        | `"q": "language:en"`                                |
+
+          | `orderby=title:asc`                    | `"orderby": ["title:asc"]`                          |
+
+          | `select=journalId,title,issns`         | `"select": ["journalId", "title", "issns"]`         |
+
+          | `facets=language,hasApc,licenses.type` | `"facets": ["language", "hasApc", "licenses.type"]` |
+
+          | `count=true`                           | `"count": true`                                     |
+
+          | `limit=10`                             | `"limit": 10`                                       |
+
+          | `offset=0`                             | `"offset": 0`                                       |
+
+
+          The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
