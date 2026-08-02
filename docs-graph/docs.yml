@@ -5423,3 +5423,101 @@ items:
           }
 
           ```
+      - divider: false
+        border: false
+        id: institutions-api-search-institutions
+        title: Search institutions
+        descriptionAbout: >-
+          Searches, filters, orders, facets, and paginates Institution records.
+
+
+          #### API endpoints
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/search/institutions
+
+          ```
+
+
+          ```
+
+          POST https://api.core.ac.uk/v4/search/institutions
+
+          ```
+
+
+          The endpoint uses the CORE API query language through the `q` parameter. Additional parameters such as `orderby`, `select`, `facets`, `count`, `limit`, and `offset` control how the results are returned.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+          | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+          | q             | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+          | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
+
+          | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+          | count         | boolean  | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
+
+          | limit         | integer  | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
+
+          | offset        | integer  | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
+
+
+          ##### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+          | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+          | q            | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+          | select       | string\[] | No           | All retrievable fields        | List of Institution fields to include in each result.                                                                             |
+
+          | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+          | count        | boolean   | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
+
+          | limit        | integer   | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
+
+          | offset       | integer   | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**                   | **POST body property**                                 |
+
+          | ----------------------------------------- | ------------------------------------------------------ |
+
+          | `q=types:education`                       | `"q": "types:education"`                               |
+
+          | `orderby=displayName:asc`                 | `"orderby": ["displayName:asc"]`                       |
+
+          | `select=institutionId,displayName,status` | `"select": ["institutionId", "displayName", "status"]` |
+
+          | `facets=types,status,countryCode`         | `"facets": ["types", "status", "countryCode"]`         |
+
+          | `count=true`                              | `"count": true`                                        |
+
+          | `limit=10`                                | `"limit": 10`                                          |
+
+          | `offset=0`                                | `"offset": 0`                                          |
+
+
+          The GET method represents `orderby`, `select`, and `facets` as comma-separated strings. The POST method represents them as JSON arrays.
