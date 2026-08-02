@@ -8831,3 +8831,971 @@ items:
 
 
           The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: journals-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          
+          #### Search by Journal title
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/journals?q=title:"Journal%20of%20Open%20Science"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/journals?q=title:"Journal of Open Science"
+
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```http
+
+          GET /v4/search/journals?q="Open Science"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/journals" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "title:\"Journal of Open Science\""
+            }'
+          ```
+
+
+          A broad textual query searches searchable Journal fields, including:
+
+
+          - `title`
+
+          - `alternativeTitle`
+
+          - `subjects.term`
+
+          - `keywords`
+
+          - `publisher`
+
+          - `institutionName`
+
+          - `reviewProcesses`
+
+          - `nationalLibraries`
+
+
+          When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+          #### Retrieve a Journal by ISSN
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=issns:"1744-9081"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "issns:\"1744-9081\""
+          }
+
+          ```
+
+
+          #### Retrieve a Journal by electronic ISSN
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=eissn:"1744-909X"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "eissn:\"1744-909X\""
+          }
+
+          ```
+
+
+          #### Retrieve a Journal by DOAJ identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=doajId:"1234567890"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "doajId:\"1234567890\""
+          }
+
+          ```
+
+
+          #### Search by Publisher
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=publisher:"Springer Nature"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "publisher:\"Springer Nature\""
+          }
+
+          ```
+
+
+          #### Retrieve Journals by language and subject
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=language:en AND subjects.term:"Computer Science"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "language:en AND subjects.term:\"Computer Science\""
+          }
+
+          ```
+
+
+          #### Retrieve Journals without APCs
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasApc:false
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasApc:false"
+          }
+
+          ```
+
+
+          Records where `hasApc` is `null` are not included because their APC status is unknown.
+
+
+          #### Retrieve Journals with APC waivers
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasApc:true AND hasWaiver:true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasApc:true AND hasWaiver:true"
+          }
+
+          ```
+
+
+          #### Retrieve Journals by APC amount
+
+
+          The following query retrieves Journals whose maximum reported GBP APC is no more than 1,500:
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=apcMax.currency:GBP AND apcMax.price<=1500
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "apcMax.currency:GBP AND apcMax.price<=1500"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `apcMax` entry.
+
+
+          #### Retrieve Journals by licence
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=licenses.type:"CC BY 4.0"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "licenses.type:\"CC BY 4.0\""
+          }
+
+          ```
+
+
+          #### Retrieve Journals with preservation arrangements
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasPreservation:true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasPreservation:true"
+          }
+
+          ```
+
+
+          A specific preservation service may be queried using:
+
+
+          ```http
+
+          GET /v4/search/journals?q=preservationServices:CLOCKSS
+
+          ```
+
+
+          #### Retrieve Journals using DOI identifiers
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=pidSchemes:DOI
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "pidSchemes:DOI"
+          }
+
+          ```
+
+
+          #### Retrieve Journals associated with a Data Provider
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=dataProviderId:86
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:86"
+          }
+
+          ```
+
+
+          This query is functionally equivalent to:
+
+
+          ```http
+
+          GET /v4/data-providers/86/journals
+
+          ```
+
+
+          #### Retrieve Journals associated with an Institution
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=institutionId:3201
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "institutionId:3201"
+          }
+
+          ```
+
+
+          This query is functionally equivalent to:
+
+
+          ```http
+
+          GET /v4/institutions/3201/journals
+
+          ```
+
+
+          #### Retrieve active Journal records
+
+
+          A Journal can be treated as not discontinued when `discontinuedDate` is absent.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=!_exists_:discontinuedDate
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "!_exists_:discontinuedDate"
+          }
+
+          ```
+
+
+          This represents the absence of a known discontinuation date. It does not independently confirm that the Journal is actively publishing.
+
+
+          #### Combined search, selection, and ordering
+
+
+          The following request:
+
+
+          - Searches for Journals related to open science.
+
+          - Restricts results to English-language Journals.
+
+          - Restricts results to Journals that do not charge APCs.
+
+          - Orders results alphabetically.
+
+          - Returns selected fields.
+
+          - Includes the total result count.
+
+          - Returns a maximum of ten records.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/journals?q=keywords:"Open%20Science"%20AND%20language:en%20AND%20hasApc:false&orderby=title:asc&select=journalId,title,issns,publisher,language,hasApc,licenses&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/journals
+              ?q=keywords:"Open Science" AND language:en AND hasApc:false
+              &orderby=title:asc
+              &select=journalId,title,issns,publisher,language,hasApc,licenses
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/journals" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "keywords:\"Open Science\" AND language:en AND hasApc:false",
+              "orderby": [
+                "title:asc"
+              ],
+              "select": [
+                "journalId",
+                "title",
+                "issns",
+                "publisher",
+                "language",
+                "hasApc",
+                "licenses"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          Example search response:
+
+
+          ```json
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "journalId": 12345,
+                "title": "Journal of Open Science",
+                "issns": [
+                  "1744-9081",
+                  "1744-909X"
+                ],
+                "publisher": "Springer Nature",
+                "language": "en",
+                "hasApc": false,
+                "licenses": [
+                  {
+                    "type": "CC BY 4.0",
+                    "url": "https://creativecommons.org/licenses/by/4.0/"
+                  }
+                ]
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Ordering Journal results
+
+
+          ##### Order alphabetically
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=title:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by open-access start year
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=oaStartYear:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "oaStartYear:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by publication time
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=publicationTimeWeeks:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "publicationTimeWeeks:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by most recently updated
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=updatedDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "updatedDate:desc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=title:asc,updatedDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "title:asc",
+              "updatedDate:desc"
+            ]
+          }
+
+          ```
+
+
+          #### Facets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/journals?q=*&facets=language,hasApc,hasWaiver,licenses.type,publisherCountry&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/journals" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "*",
+              "facets": [
+                "language",
+                "hasApc",
+                "hasWaiver",
+                "licenses.type",
+                "publisherCountry"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          Example facet response:
+
+
+          ```json
+
+          {
+            "totalHits": 20000,
+            "facets": {
+              "language": [
+                {
+                  "value": "en",
+                  "count": 12400
+                },
+                {
+                  "value": "es",
+                  "count": 2100
+                }
+              ],
+              "hasApc": [
+                {
+                  "value": false,
+                  "count": 11800
+                },
+                {
+                  "value": true,
+                  "count": 6200
+                }
+              ],
+              "hasWaiver": [
+                {
+                  "value": true,
+                  "count": 5100
+                },
+                {
+                  "value": false,
+                  "count": 1600
+                }
+              ],
+              "licenses.type": [
+                {
+                  "value": "CC BY 4.0",
+                  "count": 7800
+                },
+                {
+                  "value": "CC BY-NC 4.0",
+                  "count": 2900
+                }
+              ],
+              "publisherCountry": [
+                {
+                  "value": "GB",
+                  "count": 3100
+                },
+                {
+                  "value": "US",
+                  "count": 2800
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set.
+
+
+          Setting `limit` to `0` returns facet buckets and counts without returning Journal records.
+
+
+          A separate aggregation endpoint is not required:
+
+
+          ```http
+
+          POST /v4/search/journals/aggregate
+
+          ```
+
+
+          Faceting is part of the standard Journal search operation.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Journal records.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasApc:false&count=true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasApc:false",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate Journal results.
+
+
+          A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          ##### First page using GET
+
+
+          ```http
+
+          GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=0
+
+          ```
+
+
+          ##### Second page using GET
+
+
+          ```http
+
+          GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### First page using POST
+
+
+          ```json
+
+          {
+            "q": "language:en",
+            "orderby": [
+              "title:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          ##### Second page using POST
+
+
+          ```json
+
+          {
+            "q": "language:en",
+            "orderby": [
+              "title:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```text
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Journal search was completed successfully. |
+
+          | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `413` | The POST request body exceeds the permitted size. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
