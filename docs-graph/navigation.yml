@@ -13,6 +13,9 @@ navItems:
           - hidden: false
             href: "#works-api-data-structure"
             item: Data structure
+          - hidden: false
+            item: Supported field operations
+            href: "#works-api-supported-field-operations"
       - item: Outputs
       - item: Data Providers
         children:
