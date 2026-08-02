@@ -22,6 +22,9 @@ navItems:
           - hidden: false
             item: Search Works
             href: "#works-api-search-works"
+          - hidden: false
+            item: Search examples
+            href: "#works-api-search-examples"
       - item: Outputs
       - item: Data Providers
         children:
