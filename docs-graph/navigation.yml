@@ -8,6 +8,13 @@ navItems:
       - item: Work
       - item: Output
       - item: Data Provider
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#dataproviders-api-introduction"
+          - hidden: false
+            href: "#dataproviders-api-data-structure"
+            item: Data structure
       - item: Journals
       - item: Institutions
         href: ""
