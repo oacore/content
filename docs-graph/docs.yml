@@ -5354,7 +5354,7 @@ items:
 
 
 
-          ### Example request
+          Example request:
 
 
           ```
@@ -5394,19 +5394,32 @@ items:
           ```
 
 
-          ### Example request using `select`
+          E﻿xample req using request `select:`
 
 
           ```
 
-
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256?select=institutionId,rorId,displayName,countryCode,types,status" \
+            --header "Authorization: Bearer YOUR_API_KEY"
           ```
 
 
-          ### Example response using `select`
+          E﻿xample response using `select:`
 
 
           ```
 
+          {
+            "institutionId": 1256,
+            "rorId": "https://ror.org/05mzfcs16",
+            "displayName": "The Open University",
+            "countryCode": "GB",
+            "types": [
+              "education",
+              "funder"
+            ],
+            "status": "active"
+          }
 
           ```
