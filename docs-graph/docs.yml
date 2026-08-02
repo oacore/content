@@ -6999,3 +6999,7 @@ items:
           | `429` | The API request limit has been exceeded. |
 
           | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: dataproviders-api-search-data-provider
+        title: Search Data providers
