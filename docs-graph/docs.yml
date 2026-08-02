@@ -7942,3 +7942,409 @@ items:
 
 
           ```
+      - divider: false
+        border: false
+        id: journals-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The following sections describe the fields in the CORE Graph metadata
+          schema for the Journal entity.
+
+
+          #### Identifiers
+
+
+          | **Property**     | **Type**  | **Example value**                         | **Description**                                                                       | **Source**                        |
+
+          | ---------------- | --------- | ----------------------------------------- | ------------------------------------------------------------------------------------- | --------------------------------- |
+
+          | `journalId`      | integer   | `12345`                                   | Unique CORE canonical identifier for the Journal.                                     | CORE                              |
+
+          | `doajId`         | string    | `"1234567890"`                            | Identifier of the Journal record in the Directory of Open Access Journals.            | DOAJ                              |
+
+          | `dataProviderId` | integer   | `86`                                      | CORE identifier of the Data Provider that supplied or is associated with the Journal. | CORE                              |
+
+          | `issns`          | string\[] | `["1744-9081", "1744-909X"]`              | ISSN values associated with the Journal.                                              | CORE / Repository metadata / DOAJ |
+
+          | `eissn`          | string    | `"1744-909X"`                             | Electronic ISSN associated with the Journal.                                          | DOAJ / Repository metadata        |
+
+          | `pissn`          | string    | `"1744-9081"`                             | Print ISSN associated with the Journal.                                               | DOAJ / Repository metadata        |
+
+          | `oaiIds`         | string\[] | `["oai:example.org:journal/123"]`         | OAI identifiers associated with the Journal.                                          | OAI-PMH / Repository metadata     |
+
+          | `urls`           | string\[] | `["https://example.org/journal"]`         | URLs associated with the Journal.                                                     | CORE / Repository metadata / DOAJ |
+
+          | `identifiers`*   | object\[] | `[{"scheme":"ISSN","value":"1744-9081"}]` | Structured list containing all known identifiers associated with the Journal.         | CORE                              |
+
+
+          \* More information is provided below.
+
+
+          ##### Structured identifiers
+
+
+          ```json
+
+          {
+            "identifiers": [
+              { "scheme": "ISSN", "value": "1744-9081" },
+              { "scheme": "EISSN", "value": "1744-909X" },
+              { "scheme": "DOAJ", "value": "1234567890" },
+              { "scheme": "OAI", "value": "oai:example.org:journal/123" },
+              { "scheme": "URL", "value": "https://example.org/journal" }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                                                       | **Source**           |
+
+          | ------------ | -------- | ----------------- | ----------------------------------------------------------------------------------------------------- | -------------------- |
+
+          | `scheme`     | string   | `"ISSN"`          | Identifier scheme associated with the value. Examples include ISSN, EISSN, PISSN, DOAJ, OAI, and URL. | CORE                 |
+
+          | `value`      | string   | `"1744-9081"`     | Identifier value associated with the specified scheme.                                                | CORE / Source system |
+
+
+          The top-level identifier properties provide convenient access to commonly used identifiers. The complete identifier set is retained in `identifiers`.
+
+
+          #### Journal metadata
+
+
+          | **Property**           | **Type**  | **Example value**                                | **Description**                                                                                  | **Source**                        |
+
+          | ---------------------- | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------ | --------------------------------- |
+
+          | `title`                | string    | `"Journal of Open Science"`                      | Preferred title of the Journal.                                                                  | CORE / Repository metadata / DOAJ |
+
+          | `alternativeTitle`     | string    | `"J Open Sci"`                                   | Alternative or abbreviated title associated with the Journal.                                    | DOAJ                              |
+
+          | `language`             | string    | `"en"`                                           | Primary language used by the Journal, represented using an ISO 639 language code where possible. | CORE / Repository metadata / DOAJ |
+
+          | `subjects`*            | object\[] | `[{"scheme":"LCC","code":"Q","term":"Science"}]` | Subject classifications associated with the Journal.                                             | CORE / Repository metadata / DOAJ |
+
+          | `keywords`             | string\[] | `["Open Science", "Repositories"]`               | Keywords describing the scope or subject coverage of the Journal.                                | DOAJ                              |
+
+          | `labels`               | string\[] | `["Peer Reviewed", "Open Access"]`               | Descriptive labels assigned to the Journal.                                                      | DOAJ                              |
+
+          | `oaStartYear`          | integer   | `2012`                                           | Year from which the Journal is recorded as providing open-access content.                        | DOAJ                              |
+
+          | `discontinuedDate`     | string    | `"2024-01-01"`                                   | Date on which the Journal was discontinued, when known.                                          | DOAJ                              |
+
+          | `isReplacedBy`         | string\[] | `["replacement-journal-id"]`                     | Identifiers of Journals that replace this Journal.                                               | DOAJ                              |
+
+          | `replaces`             | string\[] | `["previous-journal-id"]`                        | Identifiers of Journals replaced by this Journal.                                                | DOAJ                              |
+
+          | `boai`                 | boolean   | `true`                                           | Indicates whether the Journal complies with the Budapest Open Access Initiative principles.      | DOAJ                              |
+
+          | `publicationTimeWeeks` | integer   | `8`                                              | Reported average time from submission to publication, in weeks.                                  | DOAJ                              |
+
+
+          #### Subject classifications
+
+
+          ```json
+
+          {
+            "subjects": [
+              { "scheme": "LCC", "code": "Q", "term": "Science" },
+              { "scheme": "LCC", "code": "QA", "term": "Computer Science" }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value**    | **Description**                                | **Source**             |
+
+          | ------------ | -------- | -------------------- | ---------------------------------------------- | ---------------------- |
+
+          | `scheme`     | string   | `"LCC"`              | Classification scheme used for the subject.    | DOAJ / Source metadata |
+
+          | `code`       | string   | `"QA"`               | Subject code within the classification scheme. | DOAJ / Source metadata |
+
+          | `term`       | string   | `"Computer Science"` | Human-readable subject term or label.          | DOAJ / Source metadata |
+
+
+          The property is named `subjects`. Article-level Topics or subject classifications should not be embedded in the Journal entity.
+
+
+          #### Publisher and Institution
+
+
+          | **Property**         | **Type** | **Example value**        | **Description**                                                                           | **Source**                        |
+
+          | -------------------- | -------- | ------------------------ | ----------------------------------------------------------------------------------------- | --------------------------------- |
+
+          | `publisher`          | string   | `"Springer Nature"`      | Name of the organisation that publishes the Journal.                                      | CORE / Repository metadata / DOAJ |
+
+          | `publisherCountry`   | string   | `"GB"`                   | ISO 3166-1 alpha-2 country code associated with the Publisher.                            | DOAJ                              |
+
+          | `institutionId`      | integer  | `3201`                   | CORE identifier of the Institution associated with or hosting the Journal, when resolved. | CORE                              |
+
+          | `institutionName`    | string   | `"University of Oxford"` | Name of the Institution associated with or hosting the Journal.                           | DOAJ / CORE                       |
+
+          | `institutionCountry` | string   | `"GB"`                   | ISO 3166-1 alpha-2 country code associated with the Institution.                          | DOAJ                              |
+
+
+          The `institutionId` property connects the Journal to a canonical CORE Institution where an institutional relationship has been resolved.
+
+
+          The `publisher` property currently contains a Publisher name. If Journals are to be connected to the Publisher entity through a graph relationship, a canonical `publisherId` should also be introduced.
+
+
+          #### Open access, APCs, and publication charges
+
+
+          | **Property**      | **Type**  | **Example value**                   | **Description**                                                        | **Source** |
+
+          | ----------------- | --------- | ----------------------------------- | ---------------------------------------------------------------------- | ---------- |
+
+          | `hasApc`          | boolean   | `true`                              | Indicates whether the Journal charges article processing charges.      | DOAJ       |
+
+          | `apcMax`*         | object\[] | `[{"currency":"GBP","price":1200}]` | Maximum reported article processing charges, grouped by currency.      | DOAJ       |
+
+          | `apcUrl`          | string    | `"https://example.org/apc"`         | URL describing the Journal’s article processing charges.               | DOAJ       |
+
+          | `hasOtherCharges` | boolean   | `false`                             | Indicates whether the Journal has publication charges other than APCs. | DOAJ       |
+
+          | `otherChargesUrl` | string    | `"https://example.org/charges"`     | URL describing other publication charges.                              | DOAJ       |
+
+          | `hasWaiver`       | boolean   | `true`                              | Indicates whether APC or publication-charge waivers are available.     | DOAJ       |
+
+          | `waiverUrl`       | string    | `"https://example.org/waiver"`      | URL describing the Journal’s waiver policy.                            | DOAJ       |
+
+
+          ##### APC values
+
+
+          ```json
+
+          {
+            "apcMax": [
+              { "currency": "GBP", "price": 1200 },
+              { "currency": "USD", "price": 1500 }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                        | **Source** |
+
+          | ------------ | -------- | ----------------- | ------------------------------------------------------ | ---------- |
+
+          | `currency`   | string   | `"GBP"`           | Currency in which the APC is reported.                 | DOAJ       |
+
+          | `price`      | number   | `1200`            | Maximum reported APC amount in the specified currency. | DOAJ       |
+
+
+          A Journal may contain multiple APC entries when charges are provided in more than one currency.
+
+
+          A null `hasApc` value means that the available metadata is insufficient to determine whether the Journal charges an APC.
+
+
+          #### Licensing and copyright
+
+
+          | **Property**               | **Type**  | **Example value**                                                             | **Description**                                                         | **Source** |
+
+          | -------------------------- | --------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------- |
+
+          | `licenses`*                | object\[] | `[{"type":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/"}]` | Licence information associated with Journal articles.                   | DOAJ       |
+
+          | `licenseDisplay`           | string\[] | `["CC BY"]`                                                                   | Licence labels displayed on Journal articles.                           | DOAJ       |
+
+          | `licenseDisplayExampleUrl` | string    | `"https://example.org/article/123"`                                           | Example article URL demonstrating how licence information is displayed. | DOAJ       |
+
+          | `authorRetainsCopyright`   | boolean   | `true`                                                                        | Indicates whether Authors retain copyright without restrictions.        | DOAJ       |
+
+          | `copyrightUrl`             | string    | `"https://example.org/copyright"`                                             | URL describing the Journal’s copyright policy.                          | DOAJ       |
+
+
+          ##### Licences
+
+
+          ```json
+
+          {
+            "licenses": [
+              {
+                "type": "CC BY 4.0",
+                "url": "https://creativecommons.org/licenses/by/4.0/"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value**                                | **Description**                   | **Source** |
+
+          | ------------ | -------- | ------------------------------------------------ | --------------------------------- | ---------- |
+
+          | `type`       | string   | `"CC BY 4.0"`                                    | Licence type or label.            | DOAJ       |
+
+          | `url`        | string   | `"https://creativecommons.org/licenses/by/4.0/"` | URL containing the licence terms. | DOAJ       |
+
+
+          #### Editorial and policy information
+
+
+          | **Property**            | **Type**  | **Example value**                       | **Description**                                     | **Source** |
+
+          | ----------------------- | --------- | --------------------------------------- | --------------------------------------------------- | ---------- |
+
+          | `editorialBoardUrl`     | string    | `"https://example.org/editorial-board"` | URL listing the Journal’s editorial board.          | DOAJ       |
+
+          | `reviewProcesses`       | string\[] | `["Double anonymous peer review"]`      | Peer-review processes used by the Journal.          | DOAJ       |
+
+          | `reviewUrl`             | string    | `"https://example.org/review"`          | URL describing the Journal’s review process.        | DOAJ       |
+
+          | `aimsScopeUrl`          | string    | `"https://example.org/aims"`            | URL describing the Journal’s aims and scope.        | DOAJ       |
+
+          | `authorInstructionsUrl` | string    | `"https://example.org/authors"`         | URL containing instructions for Authors.            | DOAJ       |
+
+          | `licenseTermsUrl`       | string    | `"https://example.org/license"`         | URL containing licence terms.                       | DOAJ       |
+
+          | `oaStatementUrl`        | string    | `"https://example.org/open-access"`     | URL containing the Journal’s open-access statement. | DOAJ       |
+
+
+          #### Preservation, deposit, and research integrity
+
+
+          | **Property**              | **Type**  | **Example value**                      | **Description**                                                                        | **Source** |
+
+          | ------------------------- | --------- | -------------------------------------- | -------------------------------------------------------------------------------------- | ---------- |
+
+          | `hasDepositPolicy`        | boolean   | `true`                                 | Indicates whether the Journal has a registered or documented deposit policy.           | DOAJ       |
+
+          | `depositPolicyRegistered` | boolean   | `true`                                 | Indicates whether the Journal’s deposit policy is registered with an external service. | DOAJ       |
+
+          | `depositPolicyServices`   | string\[] | `["Sherpa/Romeo"]`                     | Services through which the deposit policy is registered or described.                  | DOAJ       |
+
+          | `depositPolicyUrl`        | string    | `"https://example.org/deposit-policy"` | URL describing the Journal’s deposit policy.                                           | DOAJ       |
+
+          | `hasPreservation`         | boolean   | `true`                                 | Indicates whether preservation arrangements exist for the Journal.                     | DOAJ       |
+
+          | `preservationServices`    | string\[] | `["LOCKSS", "CLOCKSS"]`                | Digital preservation services used by the Journal.                                     | DOAJ       |
+
+          | `nationalLibraries`       | string\[] | `["British Library"]`                  | National libraries involved in preserving Journal content.                             | DOAJ       |
+
+          | `preservationUrl`         | string    | `"https://example.org/preservation"`   | URL describing the Journal’s preservation arrangements.                                | DOAJ       |
+
+          | `hasPidScheme`            | boolean   | `true`                                 | Indicates whether the Journal uses persistent identifier schemes.                      | DOAJ       |
+
+          | `pidSchemes`              | string\[] | `["DOI"]`                              | Persistent identifier schemes used by the Journal.                                     | DOAJ       |
+
+          | `plagiarismDetection`     | boolean   | `true`                                 | Indicates whether plagiarism-detection procedures are used.                            | DOAJ       |
+
+          | `plagiarismUrl`           | string    | `"https://example.org/plagiarism"`     | URL describing the Journal’s plagiarism-detection policy.                              | DOAJ       |
+
+
+          #### Dates
+
+
+          | **Property**  | **Type** | **Example value**        | **Description**                                                           | **Source** |
+
+          | ------------- | -------- | ------------------------ | ------------------------------------------------------------------------- | ---------- |
+
+          | `createdDate` | string   | `"2025-05-21T06:18:18Z"` | Date and time when the canonical Journal record was created in CORE.      | CORE       |
+
+          | `updatedDate` | string   | `"2026-05-21T06:18:18Z"` | Date and time when the canonical Journal record was last updated in CORE. | CORE       |
+
+
+          These fields represent CORE record-management dates.
+
+
+          Example Journal record:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "doajId": "1234567890",
+            "dataProviderId": 86,
+            "issns": ["1744-9081", "1744-909X"],
+            "eissn": "1744-909X",
+            "pissn": "1744-9081",
+            "oaiIds": ["oai:example.org:journal/123"],
+            "urls": [
+              "https://example.org/journal",
+              "https://doaj.org/toc/17449081"
+            ],
+            "identifiers": [
+              { "scheme": "ISSN", "value": "1744-9081" },
+              { "scheme": "EISSN", "value": "1744-909X" },
+              { "scheme": "DOAJ", "value": "1234567890" },
+              { "scheme": "OAI", "value": "oai:example.org:journal/123" },
+              { "scheme": "URL", "value": "https://example.org/journal" }
+            ],
+            "title": "Journal of Open Science",
+            "alternativeTitle": "J Open Sci",
+            "language": "en",
+            "subjects": [
+              { "scheme": "LCC", "code": "Q", "term": "Science" },
+              { "scheme": "LCC", "code": "QA", "term": "Computer Science" }
+            ],
+            "keywords": ["Open Science", "Repositories", "Scholarly Communication"],
+            "labels": ["Peer Reviewed", "Open Access"],
+            "oaStartYear": 2012,
+            "discontinuedDate": null,
+            "isReplacedBy": [],
+            "replaces": [],
+            "boai": true,
+            "publicationTimeWeeks": 8,
+            "publisher": "Springer Nature",
+            "publisherCountry": "GB",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "institutionCountry": "GB",
+            "hasApc": true,
+            "apcMax": [
+              { "currency": "GBP", "price": 1200 },
+              { "currency": "USD", "price": 1500 }
+            ],
+            "apcUrl": "https://example.org/apc",
+            "hasOtherCharges": false,
+            "otherChargesUrl": null,
+            "hasWaiver": true,
+            "waiverUrl": "https://example.org/waiver",
+            "licenses": [
+              {
+                "type": "CC BY 4.0",
+                "url": "https://creativecommons.org/licenses/by/4.0/"
+              }
+            ],
+            "licenseDisplay": ["CC BY"],
+            "licenseDisplayExampleUrl": "https://example.org/article/123",
+            "authorRetainsCopyright": true,
+            "copyrightUrl": "https://example.org/copyright",
+            "editorialBoardUrl": "https://example.org/editorial-board",
+            "reviewProcesses": ["Double anonymous peer review"],
+            "reviewUrl": "https://example.org/review",
+            "aimsScopeUrl": "https://example.org/aims",
+            "authorInstructionsUrl": "https://example.org/authors",
+            "licenseTermsUrl": "https://example.org/license",
+            "oaStatementUrl": "https://example.org/open-access",
+            "hasDepositPolicy": true,
+            "depositPolicyRegistered": true,
+            "depositPolicyServices": ["Sherpa/Romeo"],
+            "depositPolicyUrl": "https://example.org/deposit-policy",
+            "hasPreservation": true,
+            "preservationServices": ["LOCKSS", "CLOCKSS"],
+            "nationalLibraries": ["British Library"],
+            "preservationUrl": "https://example.org/preservation",
+            "hasPidScheme": true,
+            "pidSchemes": ["DOI"],
+            "plagiarismDetection": true,
+            "plagiarismUrl": "https://example.org/plagiarism",
+            "createdDate": "2025-05-21T06:18:18Z",
+            "updatedDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
