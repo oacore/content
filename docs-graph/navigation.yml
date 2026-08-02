@@ -31,6 +31,10 @@ navItems:
             href: "#dataproviders-api-relationship-oriented-endpoints"
             item: Relationship-oriented endpoints
       - item: Journals
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#journals-api-introduction"
       - item: Institutions
         href: ""
         children:
