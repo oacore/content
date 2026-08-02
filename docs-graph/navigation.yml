@@ -38,6 +38,9 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#journals-api-data-structure"
+          - hidden: false
+            href: "#journals-api-supported-field-operations"
+            item: Supported field operations
       - item: Institutions
         href: ""
         children:
