@@ -11969,3 +11969,144 @@ items:
           | `429` | The API request limit has been exceeded. |
 
           | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: "#works-api-relationship-oriented-endpoints"
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to records connected to a Work.
+
+
+          #### Outputs for a Work
+
+
+          Retrieves the Output records represented by the canonical Work.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/outputs
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/works/323030168/outputs?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "coreId": 216874849,
+                "dataProviderId": 86,
+                "title": "Intelligent edge computing for scholarly infrastructures",
+                "doi": "10.1109/jiot.2020.2984887",
+                "yearPublished": 2022
+              },
+              {
+                "coreId": 216874850,
+                "dataProviderId": 144,
+                "title": "Intelligent edge computing for scholarly infrastructures",
+                "doi": "10.1109/jiot.2020.2984887",
+                "yearPublished": 2022
+              }
+            ]
+          }
+
+          ```
+
+
+          Because Outputs do not contain a `workId`, this relationship endpoint is not equivalent to a simple `q=workId:{workId}` Output search.
+
+
+          #### Authorships for a Work
+
+
+          Retrieves the canonical Authorship records associated with the Work.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/authorships
+
+          ```
+
+
+          By default, Authorship records should be ordered by `rank:asc`.
+
+
+          Equivalent GET search:
+
+
+          ```http
+
+          GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "workId:{workId}",
+            "orderby": [
+              "rank:asc"
+            ]
+          }
+
+          ```
+
+
+          #### Journals for a Work
+
+
+          Retrieves the complete Journal records referenced by the Work's `journalIds`.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/journals
+
+          ```
+
+
+          #### Data Providers for a Work
+
+
+          Retrieves the complete Data Provider records referenced by the Work's `dataProviderIds`.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/data-providers
+
+          ```
