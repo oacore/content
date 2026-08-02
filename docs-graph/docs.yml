@@ -4778,9 +4778,8 @@ items:
         id: institutions-api-data-structure
         title: Data structure
         descriptionAbout: >-
-          
-
-          The tables below describe the top-level fields in the CORE Graph metadata schema for the Institution entity.
+          The tables below describe the top-level fields in the CORE Graph
+          metadata schema for the Institution entity.
 
 
           #### Identifiers
@@ -5041,3 +5040,99 @@ items:
           | oaWorksCount | integer  | `16994`           | Number of open-access Works associated with the Institution in that year.             | OpenAlex   |
 
           | citedByCount | integer  | `123548`          | Total number of citations received by the Institution’s Works published in that year. | OpenAlex   |
+
+
+
+
+          Example Institution record:
+
+
+          ```
+
+          {
+            "institutionId": 1256,
+            "rorId": "https://ror.org/05mzfcs16",
+            "openalexId": "https://openalex.org/I123456789",
+            "gridId": [
+              "grid.10837.3d"
+            ],
+            "isniId": [
+              "0000 0000 9606 9301"
+            ],
+            "wikiDataId": [
+              "Q2413375"
+            ],
+            "ofrId": [
+              "100008509",
+              "501100006627"
+            ],
+           
+            "displayName": "The Open University",
+            "displayNameLang": "en",
+            "acronym": "OU",
+            "altNames": [
+              "Y Brifysgol Agored",
+              "Open University"
+            ],
+            "formerNames": [],
+            "countryCode": "GB",
+            "countryName": "United Kingdom",
+            "continentCode": "EU",
+            "continentName": "Europe",
+            "city": "Milton Keynes",
+            "regionCode": "ENG",
+            "region": "England",
+            "latitude": 52.04172,
+            "longitude": -0.75583,
+            "websiteUrl": "https://www.open.ac.uk/",
+            "domains": [
+              "open.ac.uk"
+            ],
+            "additionalLinks": [
+              {
+                "type": "wikipedia",
+                "value": "https://en.wikipedia.org/wiki/The_Open_University"
+              }
+            ],
+            "dataProviderIds": [
+              86
+            ],
+            "dataProviderNames": [
+              "Open Research Online"
+            ],
+            "types": [
+              "education",
+              "funder"
+            ],
+            "status": "active",
+            "relationships": [],
+            "createdAt": "2018-11-14",
+            "updatedAt": "2024-12-11",
+            "establishedYear": 1966,
+            "topics": [
+              {
+                "topicId": "23",
+                "displayName": "Particle physics theoretical and experimental studies",
+                "count": 6107,
+                "score": 1,
+                "subfieldId": "67",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "fieldId": "96",
+                "fieldName": "Physics and Astronomy",
+                "domainId": "56",
+                "domainName": "Physical Sciences"
+              }
+            ],
+            "yearlyMetrics": [
+              {
+                "year": 2026,
+                "worksCount": 5524,
+                "oaWorksCount": 3792,
+                "citedByCount": 332
+              }
+            ]
+          }
+
+
+
+          ```
