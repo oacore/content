@@ -7845,3 +7845,54 @@ items:
 
 
           This endpoint is documented primarily under the Institution entity.
+  - item: Journals
+    children:
+      - divider: false
+        border: false
+        id: journal-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Journal entity represents an academic or scholarly journal
+          associated with content in the CORE collection.
+
+
+          Journal records may be created from:
+
+
+          * metadata supplied by CORE Data Providers;
+
+          * journal information contained in harvested Output metadata;
+
+          * metadata enrichment from external sources such as the Directory of Open Access Journals;
+
+          * journal identifier matching and normalisation performed by CORE.
+
+
+          A Journal record may contain:
+
+
+          * canonical and source-specific identifiers;
+
+          * journal titles and alternative titles;
+
+          * language and subject classifications;
+
+          * publisher and hosting-Institution information;
+
+          * open-access and article-processing-charge information;
+
+          * licensing and copyright policies;
+
+          * editorial and peer-review information;
+
+          * preservation, deposit, and research-integrity policies.
+
+
+          The Journal entity represents the publication venue. Individual articles published in a Journal are represented as Outputs and, after deduplication, Works.
+        images:
+          - file: /images/docs-graph/journals.png
+        subTitle: >-
+          A Journal may be associated with multiple Outputs.
+
+
+          A Data Provider may supply metadata for multiple Journals. A Publisher may publish multiple Journals, and an Institution may host or operate multiple Journals.
