@@ -8562,3 +8562,179 @@ items:
           subjects.scheme:LCC AND subjects.code:QA
 
           ```
+      - divider: false
+        border: false
+        id: journals-api-journal-endpoints
+        title: Journal endpoints
+        descriptionAbout: >-
+          
+          #### Available endpoints
+
+
+          | Operation | Method | Endpoint |
+
+          | --- | --- | --- |
+
+          | Get a single Journal | `GET` | `/v4/journals/{journalId}` |
+
+          | Search Journals using URL parameters | `GET` | `/v4/search/journals` |
+
+          | Search Journals using a JSON request body | `POST` | `/v4/search/journals` |
+
+          | Retrieve Outputs for a Journal | `GET` | `/v4/journals/{journalId}/outputs` |
+
+
+          Related Journals may also be retrieved through reverse relationship endpoints:
+
+
+          | Operation | Method | Endpoint |
+
+          | --- | --- | --- |
+
+          | Retrieve Journals supplied by a Data Provider | `GET` | `/v4/data-providers/{dataProviderId}/journals` |
+
+          | Retrieve Journals associated with an Institution | `GET` | `/v4/institutions/{institutionId}/journals` |
+
+
+          A Publisher relationship endpoint should be introduced only after the Journal model contains a canonical `publisherId`.
+
+
+          #### Get a single Journal
+
+
+          Retrieves a single Journal record using its CORE Journal identifier.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/journals/{journalId}
+
+          ```
+
+
+          The POST search method is not an alternative single-record retrieval endpoint. It searches the Journal collection using a JSON request body.
+
+
+          ##### Authorization
+
+
+          | Parameter | Location | Type | Required | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | `Authorization` | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | `journalId` | integer | Yes | Unique CORE identifier of the Journal record. |
+
+
+          ##### Query parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | `select` | string | No | Comma-separated list of top-level Journal fields to return. Example: `select=journalId,title,issns,publisher,language`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/journals/12345" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "doajId": "1234567890",
+            "issns": [
+              "1744-9081",
+              "1744-909X"
+            ],
+            "eissn": "1744-909X",
+            "pissn": "1744-9081",
+            "title": "Journal of Open Science",
+            "alternativeTitle": "J Open Sci",
+            "language": "en",
+            "publisher": "Springer Nature",
+            "publisherCountry": "GB",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "hasApc": true,
+            "hasWaiver": true,
+            "createdDate": "2025-05-21T06:18:18Z",
+            "updatedDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/journals/12345?select=journalId,title,issns,publisher,language,hasApc" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "title": "Journal of Open Science",
+            "issns": [
+              "1744-9081",
+              "1744-909X"
+            ],
+            "publisher": "Springer Nature",
+            "language": "en",
+            "hasApc": true
+          }
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Journal record was retrieved successfully. |
+
+          | `400` | The request contains an invalid parameter or unsupported field name. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `404` | No Journal record was found for the supplied identifier. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
