@@ -41,6 +41,9 @@ navItems:
           - hidden: false
             href: "#journals-api-supported-field-operations"
             item: Supported field operations
+          - hidden: false
+            href: "#journals-api-journal-endpoints"
+            item: Journal endpoints
       - item: Institutions
         href: ""
         children:
