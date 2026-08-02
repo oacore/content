@@ -27,6 +27,9 @@ navItems:
           - hidden: false
             href: "#dataproviders-api-search-examples"
             item: Search examples
+          - hidden: false
+            href: "#dataproviders-api-relationship-oriented-endpoints"
+            item: Relationship-oriented endpoints
       - item: Journals
       - item: Institutions
         href: ""
