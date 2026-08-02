@@ -8348,3 +8348,217 @@ items:
           }
 
           ```
+      - divider: false
+        border: false
+        id: journals-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Journal properties can be searched,
+          queried through field lookups or ranges, ordered, or used as facets.
+
+
+          | **Attribute**              | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | -------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `journalId`                | No             | Yes            | No           | No            |
+
+          | `doajId`                   | No             | Yes            | No           | No            |
+
+          | `dataProviderId`           | No             | Yes            | No           | No            |
+
+          | `issns`                    | No             | Yes            | No           | No            |
+
+          | `eissn`                    | No             | Yes            | No           | No            |
+
+          | `pissn`                    | No             | Yes            | No           | No            |
+
+          | `oaiIds`                   | No             | Yes            | No           | No            |
+
+          | `urls`                     | No             | No             | No           | No            |
+
+          | `identifiers.scheme`       | No             | Yes            | No           | Yes           |
+
+          | `identifiers.value`        | No             | Yes            | No           | No            |
+
+          | `title`                    | Yes            | No             | Yes          | No            |
+
+          | `alternativeTitle`         | Yes            | No             | No           | No            |
+
+          | `language`                 | No             | Yes            | No           | Yes           |
+
+          | `subjects.scheme`          | No             | Yes            | No           | Yes           |
+
+          | `subjects.code`            | No             | Yes            | No           | Yes           |
+
+          | `subjects.term`            | Yes            | Yes            | No           | Yes           |
+
+          | `keywords`                 | Yes            | Yes            | No           | Yes           |
+
+          | `labels`                   | No             | Yes            | No           | Yes           |
+
+          | `oaStartYear`              | No             | Yes            | Yes          | Yes           |
+
+          | `discontinuedDate`         | No             | Yes            | Yes          | No            |
+
+          | `isReplacedBy`             | No             | Yes            | No           | No            |
+
+          | `replaces`                 | No             | Yes            | No           | No            |
+
+          | `boai`                     | No             | Yes            | No           | Yes           |
+
+          | `publicationTimeWeeks`     | No             | Yes            | Yes          | No            |
+
+          | `publisher`                | Yes            | Yes            | No           | Yes           |
+
+          | `publisherCountry`         | No             | Yes            | No           | Yes           |
+
+          | `institutionId`            | No             | Yes            | No           | Yes           |
+
+          | `institutionName`          | Yes            | No             | No           | No            |
+
+          | `institutionCountry`       | No             | Yes            | No           | Yes           |
+
+          | `hasApc`                   | No             | Yes            | No           | Yes           |
+
+          | `apcMax.currency`          | No             | Yes            | No           | Yes           |
+
+          | `apcMax.price`             | No             | Yes            | No           | No            |
+
+          | `apcUrl`                   | No             | No             | No           | No            |
+
+          | `hasOtherCharges`          | No             | Yes            | No           | Yes           |
+
+          | `otherChargesUrl`          | No             | No             | No           | No            |
+
+          | `hasWaiver`                | No             | Yes            | No           | Yes           |
+
+          | `waiverUrl`                | No             | No             | No           | No            |
+
+          | `licenses.type`            | No             | Yes            | No           | Yes           |
+
+          | `licenses.url`             | No             | No             | No           | No            |
+
+          | `licenseDisplay`           | No             | Yes            | No           | Yes           |
+
+          | `licenseDisplayExampleUrl` | No             | No             | No           | No            |
+
+          | `authorRetainsCopyright`   | No             | Yes            | No           | Yes           |
+
+          | `copyrightUrl`             | No             | No             | No           | No            |
+
+          | `editorialBoardUrl`        | No             | No             | No           | No            |
+
+          | `reviewProcesses`          | Yes            | Yes            | No           | Yes           |
+
+          | `reviewUrl`                | No             | No             | No           | No            |
+
+          | `aimsScopeUrl`             | No             | No             | No           | No            |
+
+          | `authorInstructionsUrl`    | No             | No             | No           | No            |
+
+          | `licenseTermsUrl`          | No             | No             | No           | No            |
+
+          | `oaStatementUrl`           | No             | No             | No           | No            |
+
+          | `hasDepositPolicy`         | No             | Yes            | No           | Yes           |
+
+          | `depositPolicyRegistered`  | No             | Yes            | No           | Yes           |
+
+          | `depositPolicyServices`    | No             | Yes            | No           | Yes           |
+
+          | `depositPolicyUrl`         | No             | No             | No           | No            |
+
+          | `hasPreservation`          | No             | Yes            | No           | Yes           |
+
+          | `preservationServices`     | No             | Yes            | No           | Yes           |
+
+          | `nationalLibraries`        | Yes            | Yes            | No           | Yes           |
+
+          | `preservationUrl`          | No             | No             | No           | No            |
+
+          | `hasPidScheme`             | No             | Yes            | No           | Yes           |
+
+          | `pidSchemes`               | No             | Yes            | No           | Yes           |
+
+          | `plagiarismDetection`      | No             | Yes            | No           | Yes           |
+
+          | `plagiarismUrl`            | No             | No             | No           | No            |
+
+          | `createdDate`              | No             | Yes            | Yes          | No            |
+
+          | `updatedDate`              | No             | Yes            | Yes          | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+
+
+          Refer to the common CORE API Query Language documentation for the complete query syntax.
+
+
+          #### Complex collection queries
+
+
+          The following properties are collections of structured objects:
+
+
+          * `identifiers`
+
+          * `subjects`
+
+          * `apcMax`
+
+          * `licenses`
+
+
+          When multiple query conditions refer to the same collection, the implementation must ensure that the conditions apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          apcMax.currency:GBP AND apcMax.price<=1500
+
+          ```
+
+
+          This query must match a single APC entry where:
+
+
+          * `currency = GBP`
+
+          * `price <= 1500`
+
+
+          It must not combine the currency from one APC entry with the price from another.
+
+
+          The same rule applies to:
+
+
+          ```text
+
+          identifiers.scheme:ISSN AND identifiers.value:"1744-9081"
+
+          ```
+
+
+          and:
+
+
+          ```text
+
+          subjects.scheme:LCC AND subjects.code:QA
+
+          ```
