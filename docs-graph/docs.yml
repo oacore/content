@@ -9960,3 +9960,120 @@ items:
 
 
           This endpoint should be documented primarily under the Institution entity.
+  - item: Works
+    children:
+      - divider: false
+        border: false
+        id: works-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Work entity represents a canonical, deduplicated piece of
+          scholarly research.
+
+
+          Works may include:
+
+
+          * research articles;
+
+          * conference papers;
+
+          * theses and dissertations;
+
+          * preprints;
+
+          * books and book chapters;
+
+          * reports;
+
+          * datasets;
+
+          * other scholarly research outputs.
+
+
+          A Work combines and enriches metadata from one or more underlying CORE Outputs harvested from repositories, journals, and other Data Providers.
+
+
+          Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
+        images:
+          - file: /images/docs-graph/works.png
+        subTitle: >-
+          
+
+          A Work may:
+
+
+          * be represented by multiple Outputs;
+
+          * have multiple Authorship records;
+
+          * be associated with one or more Journals;
+
+          * be supplied by multiple Data Providers;
+
+          * contain multiple identifiers, dates, references, contributors, and links.
+
+
+          #### Work and Output separation
+
+
+          A Work does not embed complete Output records.
+
+
+          Instead, the `coreIds` property contains the CORE Output identifiers represented by the Work:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "coreIds": [
+              216874849,
+              216874850
+            ]
+          }
+
+          ```
+
+
+          Complete Output records are retrieved through the relationship endpoint:
+
+
+          ```http
+
+          GET /v4/works/{workId}/outputs
+
+          ```
+
+
+          Outputs do not need to contain a `workId` foreign key. The relationship is resolved through the Work’s `coreIds` collection.
+
+
+          #### Work and Authorship separation
+
+
+          Author and Authorship data is not embedded directly in the Work record.
+
+
+          Work-specific Author information is represented through Authorship records, including:
+
+
+          - Author rank
+
+          - Author sequence
+
+          - Corresponding-Author status
+
+          - Source-provided Author name
+
+          - Affiliations used on the Work
+
+
+          Authorship records associated with a Work are retrieved through:
+
+
+          ```http
+
+          GET /v4/works/{workId}/authorships
+
+          ```
