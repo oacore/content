@@ -4739,3 +4739,5224 @@ items:
 
 
           Retrieves Affiliation records associated with an Author.
+  - item: Institutions
+    children:
+      - divider: false
+        border: false
+        id: institutions-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Institution entity represents universities, research
+          organisations, healthcare organisations, companies, government bodies,
+          funders, archives, and other organisations participating in the
+          scholarly communication graph.
+
+
+          Institutions may be associated with:
+
+
+          * Authors through Affiliation records;
+
+          * Data Providers that they operate or host;
+
+          * other Institutions through hierarchical, historical, or related-organisation relationships;
+
+          * Works, Projects, Grants, and other graph entities through their respective relationship entities.
+
+
+          Institution metadata is primarily sourced from the Research Organization Registry (ROR). It may be enriched with identifiers, names, hierarchy information, publication metrics, and other information from other data sources.
+
+
+          The diagram below illustrates the principal Institution relationships.
+        images:
+          - file: /images/docs-graph/institutions.png
+        subTitle: An Institution may employ or host multiple Authors through Affiliation
+          records. An Institution may also operate multiple Data Providers, such
+          as institutional repositories or journal platforms.
+      - divider: false
+        border: false
+        id: institutions-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The tables below describe the top-level fields in the CORE Graph
+          metadata schema for the Institution entity.
+
+
+          #### Identifiers
+
+
+          The identifiers properties contain the internal CORE identifier for the Institution entity and identifiers from external organisation identifier systems.
+
+
+          | **Attribute** | **Type**  | **Example value**                   | **Description**                                                                                                   | **Source**     |
+
+          | ------------- | --------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------- |
+
+          | institutionId | integer   | `1256`                              | CORE internal identifier for the Institution entity.                                                              | CORE           |
+
+          | rorId         | string    | `"https://ror.org/05mzfcs16"`       | ROR identifier for the Institution, when available.                                                               | ROR            |
+
+          | openalexId    | string    | `"https://openalex.org/I123456789"` | OpenAlex identifier for the Institution, when available.                                                          | OpenAlex       |
+
+          | gridId        | string\[] | `["grid.10837.3d"]`                 | GRID identifiers associated with the Institution, when available.                                                 | ROR            |
+
+          | isniId        | string\[] | `["0000 0000 9606 9301"]`           | ISNI identifiers associated with the Institution, when available.                                                 | ROR            |
+
+          | wikidataId    | string\[] | `["Q2413375"]`                      | Wikidata identifiers associated with the Institution, when available.                                             | ROR            |
+
+          | ofrId         | string\[] | `["100008509"]`                     | Crossref Open Funder Registry identifiers associated with the Institution. Formerly known as FundRef identifiers. | ROR / Crossref |
+
+
+          #### Names
+
+
+          Names for the organisation include acronyms, alternative names, former names, and the preferred display name. Name variants may include a two-letter ISO 639 language code when the language is known.
+
+
+          | **Attribute**   | **Type**  | **Example value**                           | **Description**                                                                                                               | **Source**     |
+
+          | --------------- | --------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------- |
+
+          | displayName     | string    | `"The Open University"`                     | Preferred display name for the Institution.                                                                                   | ROR / OpenAlex |
+
+          | displayNameLang | string    | `"en"`                                      | ISO 639 language code for the preferred display name, when known.                                                             | ROR            |
+
+          | acronym         | string    | `"OU"`                                      | Preferred acronym or short name for the Institution, when available.                                                          | ROR            |
+
+          | altNames        | string\[] | `["Y Brifysgol Agored", "Open University"]` | Alternative names, multilingual labels, aliases, former names, and other non-preferred names associated with the Institution. | ROR            |
+
+
+          #### Location
+
+
+          Location information may include continent, country, country subdivision, coordinates, and city. ROR location information is derived from GeoNames.
+
+
+          | **Attribute** | **Type** | **Example value**  | **Description**                                                                            | **Source** |
+
+          | ------------- | -------- | ------------------ | ------------------------------------------------------------------------------------------ | ---------- |
+
+          | countryCode   | string   | `"GB"`             | ISO 3166-1 alpha-2 country code for the Institution.                                       | ROR        |
+
+          | countryName   | string   | `"United Kingdom"` | Human-readable country name corresponding to `countryCode`.                                | ROR        |
+
+          | continentCode | string   | `"EU"`             | Code representing the continent in which the Institution is located.                       | ROR        |
+
+          | continentName | string   | `"Europe"`         | Human-readable name of the continent in which the Institution is located.                  | ROR        |
+
+          | city          | string   | `"Milton Keynes"`  | City associated with the Institution, when known.                                          | OpenAlex   |
+
+          | regionCode    | string   | `"ENG"`            | Code associated with the first-level country subdivision.                                  | ROR        |
+
+          | region        | string   | `"England"`        | Region, state, province, or other first-level subdivision associated with the Institution. | OpenAlex   |
+
+          | latitude      | number   | `52.04172`         | Latitude of the Institution’s location, when available.                                    | ROR        |
+
+          | longitude     | number   | `-0.75583`         | Longitude of the Institution’s location, when available.                                   | ROR        |
+
+
+          #### Links
+
+
+          The Institution record may include its primary website, recognised domains, and additional external links.
+
+
+          | **Attribute**   | **Type**  | **Example value**                                                                       | **Description**                                                               | **Source** |
+
+          | --------------- | --------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------- |
+
+          | websiteUrl      | string    | `"https://www.open.ac.uk/"`                                                             | Official website URL of the Institution.                                      | ROR        |
+
+          | domains         | string\[] | `["open.ac.uk"]`                                                                        | Internet domains known to belong to the Institution.                          | ROR        |
+
+          | additionalLinks | object\[] | `[{"type": "wikipedia", "value": "https://en.wikipedia.org/wiki/The_Open_University"}]` | Additional links associated with the Institution, such as its Wikipedia page. | ROR        |
+
+
+          #### Repositories
+
+
+          Repositories hosted by the Institution are represented using information from the CORE Data Provider entity.
+
+
+          | **Property**            | **Type**  | **Example value**           | **Description**                                                                        | **Source** |
+
+          | ----------------------- | --------- | --------------------------- | -------------------------------------------------------------------------------------- | ---------- |
+
+          | dataProviderId          | integer   | `86`                        | Unique CORE identifier for the Data Provider.                                          | CORE       |
+
+          | dataProviderName        | string    | `"Open Research Online"`    | Name of the repository or Data Provider.                                               | CORE       |
+
+          | hostOrganisationId      | string    | `"1256"`                    | CORE identifier of the hosting Institution.                                            | CORE       |
+
+          | hostOrganisationName    | string    | `"The Open University, UK"` | Name of the hosting Institution.                                                       | CORE       |
+
+          | hostOrganisationLineage | string\[] | `["1256"]`                  | Ordered identifiers representing the hierarchical lineage of the hosting organisation. | CORE       |
+
+
+          #### Institution type and status
+
+
+          These properties describe the Institution’s classifications and operational state.
+
+
+          | **Property** | **Type**  | **Example value**         | **Description**                                                                               | **Source** |
+
+          | ------------ | --------- | ------------------------- | --------------------------------------------------------------------------------------------- | ---------- |
+
+          | types        | string\[] | `["education", "funder"]` | One or more normalised Institution types obtained from ROR or predicted by the CORE ML model. | ROR / CORE |
+
+          | status       | string    | `"active"`                | Current status of the Institution: `active`, `inactive`, or `withdrawn`.                      | ROR        |
+
+
+          Supported Institution types may include:
+
+
+          | **Value**  | **Description**                                         |
+
+          | ---------- | ------------------------------------------------------- |
+
+          | education  | University, college, or other educational organisation. |
+
+          | funder     | Organisation that funds research.                       |
+
+          | healthcare | Hospital, healthcare provider, or medical organisation. |
+
+          | company    | Commercial organisation.                                |
+
+          | archive    | Archive, library, museum, or similar organisation.      |
+
+          | nonprofit  | Nonprofit organisation.                                 |
+
+          | government | Government organisation or agency.                      |
+
+          | facility   | Research facility or research infrastructure.           |
+
+          | other      | Organisation not represented by another category.       |
+
+
+          #### Relationships
+
+
+          An Institution may have one or more relationships with other organisations. Supported relationships include parent, child, related, predecessor, and successor.
+
+
+          | **Property**     | **Type**  | **Example value**                | **Description**                                                    | **Source**     |
+
+          | ---------------- | --------- | -------------------------------- | ------------------------------------------------------------------ | -------------- |
+
+          | institutionId    | integer   | `1256`                           | CORE identifier of the related Institution, when resolved.         | CORE           |
+
+          | rorId            | string    | `"https://ror.org/01c3xc117"`    | ROR identifier of the related Institution.                         | OpenAlex / ROR |
+
+          | displayName      | string    | `"University of Michigan–Flint"` | Display name of the related Institution.                           | OpenAlex / ROR |
+
+          | countryCode      | string    | `"US"`                           | ISO 3166-1 alpha-2 country code of the related Institution.        | OpenAlex       |
+
+          | types            | string\[] | `["education", "funder"]`        | Types assigned to the related Institution.                         | OpenAlex       |
+
+          | relationshipType | string    | `"related"`                      | Type of relationship between the current and related Institutions. | OpenAlex / ROR |
+
+
+          Supported relationship types are:
+
+
+          | **Value**   | **Description**                                                                           | **Source** |
+
+          | ----------- | ----------------------------------------------------------------------------------------- | ---------- |
+
+          | parent      | The related Institution is a parent organisation of the current Institution.              | ROR        |
+
+          | child       | The related Institution is a child or subsidiary organisation of the current Institution. | ROR        |
+
+          | related     | The Institutions have a non-hierarchical relationship.                                    | ROR        |
+
+          | predecessor | The related Institution historically preceded the current Institution.                    | ROR        |
+
+          | successor   | The related Institution succeeded or replaced the current Institution.                    | ROR        |
+
+
+          #### Dates
+
+
+          These properties describe when the record was created or modified and when the Institution was established.
+
+
+          | **Property**    | **Type** | **Example value** | **Description**                                             | **Source** |
+
+          | --------------- | -------- | ----------------- | ----------------------------------------------------------- | ---------- |
+
+          | createdAt       | string   | `"2018-11-14"`    | Date when the Institution record was originally created.    | CORE       |
+
+          | updatedAt       | string   | `"2024-12-11"`    | Date when the Institution record was most recently updated. | CORE       |
+
+          | establishedYear | integer  | `1966`            | Year in which the Institution was established.              | ROR        |
+
+
+          ### Topics
+
+
+          Topics describe the research areas associated with the Institution. Each topic may include its position within a topic classification hierarchy.
+
+
+          | **Property** | **Type** | **Example value**                                         | **Description**                                                                | **Source**      |
+
+          | ------------ | -------- | --------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------- |
+
+          | topicId      | string   | `"23"`                                                    | CORE identifier for the topic.                                                 | CORE            |
+
+          | displayName  | string   | `"Particle physics theoretical and experimental studies"` | Display name of the topic.                                                     | CORE            |
+
+          | count        | integer  | `6107`                                                    | Number of works or associations contributing to the topic for the Institution. | CORE            |
+
+          | score        | number   | `1`                                                       | Relevance score for the topic’s association with the Institution.              | CORE            |
+
+          | subfieldId   | string   | `"67"`                                                    | Identifier of the subfield to which the topic belongs.                         | CORE            |
+
+          | subfieldName | string   | `"Nuclear and High Energy Physics"`                       | Name of the subfield associated with the topic.                                | CORE / OpenAlex |
+
+          | fieldId      | string   | `"96"`                                                    | CORE identifier for the broader field.                                         | CORE            |
+
+          | fieldName    | string   | `"Physics and Astronomy"`                                 | Name of the broader field associated with the topic.                           | CORE / OpenAlex |
+
+          | domainId     | string   | `"56"`                                                    | CORE identifier for the highest-level domain.                                  | CORE            |
+
+          | domainName   | string   | `"Physical Sciences"`                                     | Name of the highest-level domain associated with the topic.                    | CORE / OpenAlex |
+
+
+          #### Citation metrics
+
+
+          Citation metrics provide yearly publication and citation statistics for the Institution.
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                                       | **Source** |
+
+          | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------- | ---------- |
+
+          | year         | integer  | `2024`            | Year for which the metrics are reported.                                              | OpenAlex   |
+
+          | worksCount   | integer  | `24125`           | Total number of Works associated with the Institution in that year.                   | OpenAlex   |
+
+          | oaWorksCount | integer  | `16994`           | Number of open-access Works associated with the Institution in that year.             | OpenAlex   |
+
+          | citedByCount | integer  | `123548`          | Total number of citations received by the Institution’s Works published in that year. | OpenAlex   |
+
+
+
+
+          Example Institution record:
+
+
+          ```
+
+          {
+            "institutionId": 1256,
+            "rorId": "https://ror.org/05mzfcs16",
+            "openalexId": "https://openalex.org/I123456789",
+            "gridId": [
+              "grid.10837.3d"
+            ],
+            "isniId": [
+              "0000 0000 9606 9301"
+            ],
+            "wikiDataId": [
+              "Q2413375"
+            ],
+            "ofrId": [
+              "100008509",
+              "501100006627"
+            ],
+           
+            "displayName": "The Open University",
+            "displayNameLang": "en",
+            "acronym": "OU",
+            "altNames": [
+              "Y Brifysgol Agored",
+              "Open University"
+            ],
+            "formerNames": [],
+            "countryCode": "GB",
+            "countryName": "United Kingdom",
+            "continentCode": "EU",
+            "continentName": "Europe",
+            "city": "Milton Keynes",
+            "regionCode": "ENG",
+            "region": "England",
+            "latitude": 52.04172,
+            "longitude": -0.75583,
+            "websiteUrl": "https://www.open.ac.uk/",
+            "domains": [
+              "open.ac.uk"
+            ],
+            "additionalLinks": [
+              {
+                "type": "wikipedia",
+                "value": "https://en.wikipedia.org/wiki/The_Open_University"
+              }
+            ],
+            "dataProviderIds": [
+              86
+            ],
+            "dataProviderNames": [
+              "Open Research Online"
+            ],
+            "types": [
+              "education",
+              "funder"
+            ],
+            "status": "active",
+            "relationships": [],
+            "createdAt": "2018-11-14",
+            "updatedAt": "2024-12-11",
+            "establishedYear": 1966,
+            "topics": [
+              {
+                "topicId": "23",
+                "displayName": "Particle physics theoretical and experimental studies",
+                "count": 6107,
+                "score": 1,
+                "subfieldId": "67",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "fieldId": "96",
+                "fieldName": "Physics and Astronomy",
+                "domainId": "56",
+                "domainName": "Physical Sciences"
+              }
+            ],
+            "yearlyMetrics": [
+              {
+                "year": 2026,
+                "worksCount": 5524,
+                "oaWorksCount": 3792,
+                "citedByCount": 332
+              }
+            ]
+          }
+
+
+
+          ```
+      - divider: false
+        border: false
+        id: institutions-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Institution properties can be
+          searched, queried through field lookups or ranges, ordered, or used as
+          facets.
+
+
+
+
+          | **Attribute**                  | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | ------------------------------ | -------------- | -------------- | ------------ | ------------- |
+
+          | institutionId                  | No             | Yes            | No           | No            |
+
+          | rorId                          | No             | Yes            | No           | No            |
+
+          | openalexId                     | No             | Yes            | No           | No            |
+
+          | gridId                         | No             | Yes            | No           | No            |
+
+          | isniId                         | No             | Yes            | No           | No            |
+
+          | wikiDataId                     | No             | Yes            | No           | No            |
+
+          | ofrId                          | No             | Yes            | No           | No            |
+
+          | externalIdentifiers.scheme     | No             | Yes            | No           | Yes           |
+
+          | externalIdentifiers.value      | No             | Yes            | No           | No            |
+
+          | externalIdentifiers.preferred  | No             | Yes            | No           | No            |
+
+          | displayName                    | Yes            | No             | Yes          | No            |
+
+          | displayNameLang                | No             | Yes            | No           | Yes           |
+
+          | acronym                        | Yes            | No             | No           | No            |
+
+          | altNames                       | Yes            | No             | No           | No            |
+
+          | formerNames                    | Yes            | No             | No           | No            |
+
+          | names.lang                     | No             | Yes            | No           | Yes           |
+
+          | names.types                    | No             | Yes            | No           | Yes           |
+
+          | names.value                    | Yes            | No             | No           | No            |
+
+          | countryCode                    | No             | Yes            | No           | Yes           |
+
+          | countryName                    | Yes            | Yes            | No           | Yes           |
+
+          | continentCode                  | No             | Yes            | No           | Yes           |
+
+          | continentName                  | Yes            | Yes            | No           | Yes           |
+
+          | city                           | Yes            | Yes            | No           | Yes           |
+
+          | regionCode                     | No             | Yes            | No           | Yes           |
+
+          | region                         | Yes            | Yes            | No           | Yes           |
+
+          | latitude                       | No             | Yes            | No           | No            |
+
+          | longitude                      | No             | Yes            | No           | No            |
+
+          | websiteUrl                     | No             | No             | No           | No            |
+
+          | domains                        | No             | Yes            | No           | No            |
+
+          | additionalLinks.type           | No             | No             | No           | No            |
+
+          | additionalLinks.value          | No             | No             | No           | No            |
+
+          | dataProviderIds                | No             | Yes            | No           | No            |
+
+          | dataProviderNames              | Yes            | No             | No           | No            |
+
+          | hostOrganisationId             | No             | Yes            | No           | No            |
+
+          | hostOrganisationName           | Yes            | No             | No           | No            |
+
+          | hostOrganisationLineage        | No             | Yes            | No           | No            |
+
+          | types                          | No             | Yes            | No           | Yes           |
+
+          | status                         | No             | Yes            | No           | Yes           |
+
+          | relationships.institutionId    | No             | Yes            | No           | No            |
+
+          | relationships.rorId            | No             | Yes            | No           | No            |
+
+          | relationships.displayName      | Yes            | No             | No           | No            |
+
+          | relationships.countryCode      | No             | Yes            | No           | Yes           |
+
+          | relationships.types            | No             | Yes            | No           | Yes           |
+
+          | relationships.relationshipType | No             | Yes            | No           | Yes           |
+
+          | createdAt                      | No             | Yes            | Yes          | No            |
+
+          | updatedAt                      | No             | Yes            | Yes          | No            |
+
+          | establishedYear                | No             | Yes            | Yes          | Yes           |
+
+          | topics.topicId                 | No             | Yes            | No           | Yes           |
+
+          | topics.displayName             | Yes            | No             | No           | No            |
+
+          | topics.count                   | No             | Yes            | No           | No            |
+
+          | topics.score                   | No             | Yes            | No           | No            |
+
+          | topics.subfieldId              | No             | Yes            | No           | Yes           |
+
+          | topics.subfieldName            | Yes            | Yes            | No           | Yes           |
+
+          | topics.fieldId                 | No             | Yes            | No           | Yes           |
+
+          | topics.fieldName               | Yes            | Yes            | No           | Yes           |
+
+          | topics.domainId                | No             | Yes            | No           | Yes           |
+
+          | topics.domainName              | Yes            | Yes            | No           | Yes           |
+
+          | yearlyMetrics.year             | No             | Yes            | No           | Yes           |
+
+          | yearlyMetrics.worksCount       | No             | Yes            | No           | No            |
+
+          | yearlyMetrics.oaWorksCount     | No             | Yes            | No           | No            |
+
+          | yearlyMetrics.citedByCount     | No             | Yes            | No           | No            |
+      - divider: false
+        border: false
+        id: "#institutions-api-institutions-endpoints"
+        title: Institutions endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | **Operation**                                 | **Method** | **Endpoint**                       |
+
+          | --------------------------------------------- | ---------- | ---------------------------------- |
+
+          | Get a single Institution                      | GET        | `/v4/institutions/{institutionId}` |
+
+          | Search Institutions                           | GET        | `/v4/search/institutions`          |
+
+          | Search Institutions using a JSON request body | POST       | `/v4/search/institutions`          |
+
+
+          Related records may also be retrieved through relationship-oriented endpoints:
+
+
+          | **Operation**                              | **Method** | **Endpoint**                                     |
+
+          | ------------------------------------------ | ---------- | ------------------------------------------------ |
+
+          | Retrieve Affiliations for an Institution   | GET        | `/v4/institutions/{institutionId}/affiliations`  |
+
+          | Retrieve Data Providers for an Institution | GET        | `/v4/institutions/{institutionId}/dataProviders` |
+
+          | Retrieve Topics for an Institution         | GET        | `/v4/institutions/{institutionId}/topics`        |
+
+
+          #### Get a single Institution
+
+
+          Retrieves a single Institution record using its unique CORE Institution identifier.
+
+
+          ##### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/institutions/{institutionId}
+
+          ```
+
+
+          ##### Authorization
+
+
+          | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                   |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------- |
+
+          | institutionId | integer  | Yes          | Unique CORE identifier of the Institution record. |
+
+
+          ##### Query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                                 |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+
+          | select        | string   | No           | Comma-separated list of top-level Institution fields to return. Example: `select=institutionId,rorId,displayName,types,status`. |
+
+
+          Example request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          E﻿xample response:
+
+
+          ```
+
+          {
+            "institutionId": 1256,
+            "rorId": "https://ror.org/05mzfcs16",
+            "openalexId": "https://openalex.org/I123456789",
+            "displayName": "The Open University",
+            "acronym": "OU",
+            "countryCode": "GB",
+            "countryName": "United Kingdom",
+            "city": "Milton Keynes",
+            "websiteUrl": "https://www.open.ac.uk/",
+            "domains": [
+              "open.ac.uk"
+            ],
+            "types": [
+              "education",
+              "funder"
+            ],
+            "status": "active",
+            "establishedYear": 1966
+          }
+
+          ```
+
+
+          E﻿xample req using request `select:`
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256?select=institutionId,rorId,displayName,countryCode,types,status" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          E﻿xample response using `select:`
+
+
+          ```
+
+          {
+            "institutionId": 1256,
+            "rorId": "https://ror.org/05mzfcs16",
+            "displayName": "The Open University",
+            "countryCode": "GB",
+            "types": [
+              "education",
+              "funder"
+            ],
+            "status": "active"
+          }
+
+          ```
+
+
+          #### R﻿esponses
+
+
+          | **Status** | **Description**                                                      |
+
+          | ---------- | -------------------------------------------------------------------- |
+
+          | `200`      | The Institution record was retrieved successfully.                   |
+
+          | `400`      | The request contains an invalid parameter or unsupported field name. |
+
+          | `401`      | Authentication credentials are missing or invalid.                   |
+
+          | `404`      | No Institution record was found for the supplied identifier.         |
+
+          | `429`      | The API request limit has been exceeded.                             |
+
+          | `500`      | An unexpected server error occurred.                                 |
+      - divider: false
+        border: false
+        id: institutions-api-search-institutions
+        title: Search institutions
+        descriptionAbout: >-
+          Searches, filters, orders, facets, and paginates Institution records.
+
+
+          #### API endpoints
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/search/institutions
+
+          ```
+
+
+          ```
+
+          POST https://api.core.ac.uk/v4/search/institutions
+
+          ```
+
+
+          The endpoint uses the CORE API query language through the `q` parameter. Additional parameters such as `orderby`, `select`, `facets`, `count`, `limit`, and `offset` control how the results are returned.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+          | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+          | q             | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+          | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
+
+          | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+          | count         | boolean  | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
+
+          | limit         | integer  | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
+
+          | offset        | integer  | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
+
+
+          ##### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+          | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+          | q            | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+          | select       | string\[] | No           | All retrievable fields        | List of Institution fields to include in each result.                                                                             |
+
+          | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+          | count        | boolean   | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
+
+          | limit        | integer   | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
+
+          | offset       | integer   | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**                   | **POST body property**                                 |
+
+          | ----------------------------------------- | ------------------------------------------------------ |
+
+          | `q=types:education`                       | `"q": "types:education"`                               |
+
+          | `orderby=displayName:asc`                 | `"orderby": ["displayName:asc"]`                       |
+
+          | `select=institutionId,displayName,status` | `"select": ["institutionId", "displayName", "status"]` |
+
+          | `facets=types,status,countryCode`         | `"facets": ["types", "status", "countryCode"]`         |
+
+          | `count=true`                              | `"count": true`                                        |
+
+          | `limit=10`                                | `"limit": 10`                                          |
+
+          | `offset=0`                                | `"offset": 0`                                          |
+
+
+          The GET method represents `orderby`, `select`, and `facets` as comma-separated strings. The POST method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: institutions-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          #### Search by Institution name
+
+
+          Search a specific Institution name using the `displayName` field:
+
+
+          ```
+
+          GET /v4/search/institutions?q=displayName:"The Open University"
+
+          ```
+
+
+          A free-text query searches all searchable Institution fields:
+
+
+          ```
+
+          GET /v4/search/institutions?q="Open University"
+
+          ```
+
+
+          This query may match `displayName`, `acronym`, or `altNames`.
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "displayName:\"The Open University\""
+          }
+
+          ```
+
+
+          A broad textual query searches searchable Institution fields, including:
+
+
+          * `displayName`
+
+          * `acronym`
+
+          * `altNames`
+
+          * `formerNames`
+
+          * `names.value`
+
+          * Location names
+
+          * Related Institution names
+
+          * Topic names
+
+          * Data Provider names
+
+
+          When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+          #### Retrieve an Institution by ROR identifier
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=rorId:"https://ror.org/05mzfcs16"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "rorId:\"https://ror.org/05mzfcs16\""
+          }
+
+          ```
+
+
+          #### Search by domain
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=domains:"open.ac.uk"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "domains:\"open.ac.uk\""
+          }
+
+          ```
+
+
+          #### Retrieve Institutions by type and country
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education AND countryCode:GB
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "types:education AND countryCode:GB"
+          }
+
+          ```
+
+
+          #### Retrieve active Institutions
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=status:active
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "status:active"
+          }
+
+          ```
+
+
+          #### Retrieve Institutions established after 2000
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=establishedYear>2000
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "establishedYear>2000"
+          }
+
+          ```
+
+
+          #### Retrieve Institutions with Data Providers
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=_exists_:dataProviderIds
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "_exists_:dataProviderIds"
+          }
+
+          ```
+
+
+          #### Search by Topic
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=topics.topicId:"23"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "topics.topicId:\"23\""
+          }
+
+          ```
+
+
+          A textual Topic search may use:
+
+
+          ```
+
+          GET /v4/search/institutions?q=topics.displayName:"Particle physics"
+
+          ```
+
+
+          #### Retrieve Institutions by yearly metrics
+
+
+          The following query retrieves Institutions with more than 10,000 Works in 2024.
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `yearlyMetrics` entry.
+
+
+          #### Search using multiple conditions
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions
+              ?q=displayName:"Open" AND types:education AND countryCode:GB
+              &orderby=displayName:asc
+              &select=institutionId,rorId,displayName,countryCode,types,status
+              &limit=10
+              &offset=0
+          ```
+
+
+          This request:
+
+
+          * Searches for `Open` in `displayName`.
+
+          * Restricts results to educational Institutions.
+
+          * Restricts results to Institutions in the United Kingdom.
+
+          * Orders results alphabetically.
+
+          * Returns only the selected fields.
+
+          * Returns a maximum of ten records.
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/institutions" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "displayName:\"Open\" AND types:education AND countryCode:GB",
+              "orderby": [
+                "displayName:asc"
+              ],
+              "select": [
+                "institutionId",
+                "rorId",
+                "displayName",
+                "countryCode",
+                "types",
+                "status"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          Example search response:
+
+
+          ```
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "institutionId": 1256,
+                "rorId": "https://ror.org/05mzfcs16",
+                "displayName": "The Open University",
+                "countryCode": "GB",
+                "types": [
+                  "education",
+                  "funder"
+                ],
+                "status": "active"
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Ordering Institution results
+
+
+          ##### Order alphabetically
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&orderby=displayName:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "orderby": [
+              "displayName:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by established year
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?orderby=establishedYear:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "orderby": [
+              "establishedYear:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          The following request would require `countryCode` to be sortable:
+
+
+          ```
+
+          GET /v4/search/institutions?orderby=countryCode:asc,displayName:asc
+
+          ```
+
+
+          Under the current supported field operations, `countryCode` is not sortable. Filter by `countryCode` and order by `displayName` instead:
+
+
+          ```
+
+          GET /v4/search/institutions?q=countryCode:GB&orderby=displayName:asc
+
+          ```
+
+
+          ##### Order by most recently updated
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?orderby=updatedAt:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```
+
+          {
+            "orderby": [
+              "updatedAt:desc"
+            ]
+          }
+
+          ```
+
+
+          #### Facets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/institutions?q=status:active&facets=types,status,countryCode&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/institutions" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "status:active",
+              "facets": [
+                "types",
+                "status",
+                "countryCode"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          Example facet response:
+
+
+          ```
+
+          {
+            "totalHits": 12034,
+            "facets": {
+              "types": [
+                {
+                  "value": "education",
+                  "count": 8102
+                },
+                {
+                  "value": "funder",
+                  "count": 1730
+                },
+                {
+                  "value": "healthcare",
+                  "count": 1204
+                }
+              ],
+              "status": [
+                {
+                  "value": "active",
+                  "count": 12034
+                }
+              ],
+              "countryCode": [
+                {
+                  "value": "US",
+                  "count": 2415
+                },
+                {
+                  "value": "GB",
+                  "count": 1183
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set. Setting `limit` to `0` returns facet buckets and counts without returning Institution records.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Institution records.
+
+
+          GET request:
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&count=true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate Institution results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          ##### First page using GET
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=0
+
+          ```
+
+
+          ##### Second page using GET
+
+
+          ```
+
+          GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### First page using POST
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          ##### Second page using POST
+
+
+          ```
+
+          {
+            "q": "types:education",
+            "orderby": [
+              "displayName:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+
+
+          #### R﻿esponses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Institution search was completed successfully. |
+
+          | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `413` | The POST request body exceeds the permitted size. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: institutions-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          Relationship-oriented endpoints provide convenient access to records
+          connected to an Institution.
+
+
+          They do not introduce a different Institution representation. Internally, they traverse the corresponding CORE Graph relationships.
+
+
+          #### Affiliations for an Institution
+
+
+          ```
+
+          GET /v4/institutions/{institutionId}/affiliations
+
+          ```
+
+
+          Retrieves Affiliation records linked to the Institution.
+
+
+          Equivalent GET search:
+
+
+          ```
+
+          GET /v4/search/affiliations?q=institutionId:{institutionId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```
+
+          {
+            "q": "institutionId:{institutionId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/affiliations?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "affiliationId": 901,
+                "authorId": 67890,
+                "rawAffiliation": "School of Computing and Communications, The Open University",
+                "department": "School of Computing and Communications",
+                "institutionId": 1256,
+                "institutionName": "The Open University",
+                "isCurrent": true,
+                "startDate": "2022-01-01",
+                "endDate": null
+              },
+              {
+                "affiliationId": 902,
+                "authorId": 67891,
+                "rawAffiliation": "Knowledge Media Institute, The Open University",
+                "department": "Knowledge Media Institute",
+                "institutionId": 1256,
+                "institutionName": "The Open University",
+                "isCurrent": true,
+                "startDate": null,
+                "endDate": null
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Institution with no linked Affiliations returns `200` with an empty `results` array.
+
+
+          #### Data Providers for an Institution
+
+
+          ```
+
+          GET /v4/institutions/{institutionId}/dataProviders
+
+          ```
+
+
+          Retrieves complete CORE Data Provider records associated with the Institution.
+
+
+          The endpoint returns complete Data Provider objects rather than only the convenience fields `dataProviderIds` and `dataProviderNames`.
+
+
+          Example request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/dataProviders?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "dataProviderId": 86,
+                "name": "Open Research Online",
+                "type": "institutional repository",
+                "homepageUrl": "https://oro.open.ac.uk/",
+                "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2",
+                "institutionId": 1256
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Institution with no associated Data Providers returns `200` with an empty `results` array.
+
+
+          #### Topics for an Institution
+
+
+          ```
+
+          GET /v4/institutions/{institutionId}/topics
+
+          ```
+
+
+          Retrieves research Topics associated with the Institution.
+
+
+          The endpoint returns the Topic objects represented in the Institution’s `topics` collection.
+
+
+          Example request:
+
+
+          ```
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/topics?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "topicId": "23",
+                "displayName": "Particle physics theoretical and experimental studies",
+                "count": 6107,
+                "score": 1,
+                "subfieldId": "67",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "fieldId": "96",
+                "fieldName": "Physics and Astronomy",
+                "domainId": "56",
+                "domainName": "Physical Sciences"
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Institution with no associated Topics returns `200` with an empty `results` array.
+  - item: Data providers
+    children:
+      - divider: false
+        border: false
+        id: dataproviders-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Data Provider entity represents a source that supplies scholarly
+          content to CORE.
+
+
+          Data Providers may include:
+
+
+          * institutional repositories;
+
+          * disciplinary repositories;
+
+          * preprint servers;
+
+          * journals;
+
+          * publishers;
+
+          * aggregators;
+
+          * other metadata-harvesting sources.
+
+
+          A Data Provider record contains source-level information such as its name, type, OAI-PMH endpoint, metadata format, repository software, associated Institution identifiers, contact information, and geographic location.
+
+
+          Unlike an Institution, which represents a persistent organisational identity, a Data Provider represents a specific source from which CORE collects records.
+
+
+          For example, a university may operate one or more institutional repositories. The university is represented as an Institution, while each repository is represented as a separate Data Provider.
+        images:
+          - file: /images/docs-graph/dataproviders.png
+        subTitle: A Data Provider may supply multiple Outputs. An Institution may
+          operate or host multiple Data Providers.
+      - divider: false
+        border: false
+        id: dataproviders-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The following sections describe the fields in the CORE Graph metadata
+          schema for the Data Provider entity.
+
+
+          #### Identifiers
+
+
+          | **Property**        | **Type**      | **Example value**             | **Description**                                                                               | **Source** |
+
+          | ------------------- | ------------- | ----------------------------- | --------------------------------------------------------------------------------------------- | ---------- |
+
+          | `dataProviderId`    | integer       | `100`                         | Unique CORE internal identifier for the Data Provider.                                        | CORE       |
+
+          | `openDoarId`        | string  | `"1275"`                      | OpenDOAR identifier for the repository, when available.                                       | OpenDOAR   |
+
+          | `rorId`             | string  | `"https://ror.org/04ea70f07"` | ROR identifier of the Institution associated with the Data Provider, when available.          | ROR / CORE |
+
+          | `otherIdentifiers`* | object  | See below                     | Other external identifiers associated with the Institution responsible for the Data Provider. | ROR        |
+
+
+          \* More information is provided below.
+
+
+          ##### Other identifiers
+
+
+          The `otherIdentifiers` property contains identifiers associated with the Institution responsible for the Data Provider.
+
+
+          ```
+
+          {
+            "otherIdentifiers": {
+              "GRID": {
+                "preferred": "grid.5335.0",
+                "all": [
+                  "grid.5335.0"
+                ]
+              },
+              "ISNI": {
+                "preferred": "000000012166240X",
+                "all": [
+                  "000000012166240X"
+                ]
+              },
+              "WIKIDATA": {
+                "preferred": "Q35794",
+                "all": [
+                  "Q35794"
+                ]
+              }
+            }
+          }
+
+          ```
+
+
+          Each identifier scheme contains:
+
+
+          | **Property** | **Type**         | **Example value** | **Description**                                                   |
+
+          | ------------ | ---------------- | ----------------- | ----------------------------------------------------------------- |
+
+          | `preferred`  | string     | `"grid.5335.0"`   | Preferred identifier for the specified scheme.                    |
+
+          | `all`        | string\[]  | `["grid.5335.0"]` | Complete set of known identifier values for the specified scheme. |
+
+
+          Examples of supported schemes include:
+
+
+          * `GRID`
+
+          * `ISNI`
+
+          * `WIKIDATA`
+
+
+          These identifiers describe the associated Institution rather than the Data Provider itself.
+
+
+          The canonical Institution record should be used for complete organisational identifier information.
+
+
+          #### Names and labels
+
+
+          | **Property**      | **Type**         | **Example value**                               | **Description**                                                                 | **Source**                                       |
+
+          | ----------------- | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ |
+
+          | `name`            | string           | `"Apollo - University of Cambridge Repository"` | Preferred name of the Data Provider or repository.                              | CORE / Manually curated / Automatically detected |
+
+          | `aliases`         | string\[]  | `["Apollo", "Cambridge Repository"]`            | Alternative names, acronyms, or aliases associated with the Data Provider.      | ROR / CORE                                       |
+
+          | `institutionName` | string     | `"University of Cambridge"`                     | Name of the Institution responsible for operating or hosting the Data Provider. | ROR / CORE                                       |
+
+
+          The Data Provider name and Institution name represent different concepts.
+
+
+          ```
+
+          {
+            "name": "Apollo - University of Cambridge Repository",
+            "institutionName": "University of Cambridge"
+          }
+
+          ```
+
+
+          #### Provider type and system information
+
+
+          | **Property**     | **Type**      | **Example value** | **Description**                                                          | **Source**                    |
+
+          | ---------------- | ------------- | ----------------- | ------------------------------------------------------------------------ | ----------------------------- |
+
+          | `type`           | string  | `"REPOSITORY"`    | Classification of the Data Provider, such as a repository or journal.    | CORE                          |
+
+          | `software`       | string  | `"DSpace"`        | Repository or publishing software used by the Data Provider.             | CORE / Automatically detected |
+
+          | `metadataFormat` | string  | `"rioxx"`         | Principal metadata format exposed by the Data Provider and used by CORE. | CORE / OAI-PMH                |
+
+
+          Example Data Provider types may include:
+
+
+          * `REPOSITORY`
+
+          * `JOURNAL`
+
+          * `PREPRINT_SERVER`
+
+          * `PUBLISHER`
+
+          * `AGGREGATOR`
+
+          * `OTHER`
+
+
+          The complete controlled vocabulary should be documented once the supported values are finalised.
+
+
+          A Data Provider may expose more than one OAI-PMH metadata format. If CORE retains multiple formats in a future version, `metadataFormat` should be changed to a collection or structured object.
+
+
+          #### Access and harvesting
+
+
+          | **Property**  | **Type**      | **Example value**                            | **Description**                                        | **Source**                                       |
+
+          | ------------- | ------------- | -------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------ |
+
+          | `oaiPmhUrl`   | string  | `"https://repository.cam.ac.uk/oai/request"` | OAI-PMH endpoint used by CORE for metadata harvesting. | CORE / Manually curated / Automatically detected |
+
+          | `homepageUrl` | string  | `"https://repository.cam.ac.uk"`             | Public homepage URL of the Data Provider.              | CORE / Manually curated / Automatically detected |
+
+
+          The `oaiPmhUrl` property identifies the machine-readable harvesting endpoint:
+
+
+          ```
+
+          {
+            "oaiPmhUrl": "https://repository.cam.ac.uk/oai/request"
+          }
+
+          ```
+
+
+          The `homepageUrl` property identifies the public-facing website:
+
+
+          ```
+
+          {
+            "homepageUrl": "https://repository.cam.ac.uk"
+          }
+
+          ```
+
+
+          A Data Provider may have a homepage without exposing an OAI-PMH endpoint.
+
+
+          #### Contact and branding
+
+
+          | **Property** | **Type**      | **Example value**                                     | **Description**                                                  | **Source**     |
+
+          | ------------ | ------------- | ----------------------------------------------------- | ---------------------------------------------------------------- | -------------- |
+
+          | `email`      | string  | `"repository@cam.ac.uk"`                              | Contact email address associated with the Data Provider.         | CORE / OAI-PMH |
+
+          | `logo`       | string  | `"https://api.core.ac.uk/v4/data-providers/100/logo"` | CORE API URL from which the Data Provider logo may be retrieved. | CORE           |
+
+
+          Contact information is exposed only where CORE is permitted to redistribute it.
+
+
+          #### Location
+
+
+          The `location` property contains geographic information associated with the Data Provider or the Institution responsible for it.
+
+
+          | **Property**  | **Type**      | **Example value** | **Description**                                                                               | **Source**                                    |
+
+          | ------------- | ------------- | ----------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------- |
+
+          | `countryCode` | string  | `"GB"`            | ISO 3166-1 alpha-2 country code associated with the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+
+          | `latitude`    | number  | `52.2053`         | Latitude of the Data Provider or responsible Institution.                                     | CORE / Repository metadata / Manually curated |
+
+          | `longitude`   | number  | `0.1218`          | Longitude of the Data Provider or responsible Institution.                                    | CORE / Repository metadata / Manually curated |
+
+
+          The location may represent the associated Institution rather than the physical infrastructure hosting the repository.
+
+
+          Canonical Institution location information should be retrieved from the Institution entity.
+
+
+          #### Dates
+
+
+          | **Property**  | **Type**      | **Example value**        | **Description**                                                       | **Source** |
+
+          | ------------- | ------------- | ------------------------ | --------------------------------------------------------------------- | ---------- |
+
+          | `createdDate` | string  | `"2025-05-21T06:18:18Z"` | Date and time when the Data Provider record was created in CORE.      | CORE       |
+
+          | `updatedDate` | string  | `"2026-05-21T06:18:18Z"` | Date and time when the Data Provider record was last updated in CORE. | CORE       |
+
+
+          Example Data Provider record:
+
+
+          ```
+
+          {
+            "dataProviderId": 100,
+            "openDoarId": "1275",
+            "rorId": "https://ror.org/04ea70f07",
+            "otherIdentifiers": {
+              "GRID": {
+                "preferred": "grid.5335.0",
+                "all": [
+                  "grid.5335.0"
+                ]
+              },
+              "ISNI": {
+                "preferred": "000000012166240X",
+                "all": [
+                  "000000012166240X"
+                ]
+              },
+              "WIKIDATA": {
+                "preferred": "Q35794",
+                "all": [
+                  "Q35794"
+                ]
+              }
+            },
+            "name": "Apollo - University of Cambridge Repository",
+            "aliases": [
+              "Apollo",
+              "Cambridge Repository"
+            ],
+            "institutionName": "University of Cambridge",
+            "type": "REPOSITORY",
+            "software": "DSpace",
+            "metadataFormat": "rioxx",
+            "oaiPmhUrl": "https://repository.cam.ac.uk/oai/request",
+            "homepageUrl": "https://repository.cam.ac.uk",
+            "email": "repository@cam.ac.uk",
+            "logo": "https://api.core.ac.uk/v4/data-providers/100/logo",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.2053,
+              "longitude": 0.1218
+            },
+            "createdDate": "2025-05-21T06:18:18Z",
+            "updatedDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+
+
+          Outputs supplied by the Data Provider and the associated Institution record are not embedded in the standard response.
+
+
+          Related records are retrieved through relationship-oriented endpoints.
+      - divider: false
+        border: false
+        id: dataproviders-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Data Provider properties can be
+          searched, queried through field lookups or ranges, ordered, or used as
+          facets.
+
+
+          | **Attribute**          | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | ---------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `dataProviderId`       | No             | Yes            | No           | No            |
+
+          | `openDoarId`           | No             | Yes            | No           | No            |
+
+          | `rorId`                | No             | Yes            | No           | No            |
+
+          | `otherIdentifiers`     | No             | No             | No           | No            |
+
+          | `name`                 | Yes            | No             | Yes          | No            |
+
+          | `aliases`              | Yes            | No             | No           | No            |
+
+          | `institutionName`      | Yes            | No             | No           | No            |
+
+          | `type`                 | No             | Yes            | No           | Yes           |
+
+          | `software`             | No             | Yes            | No           | Yes           |
+
+          | `metadataFormat`       | No             | Yes            | No           | Yes           |
+
+          | `oaiPmhUrl`            | No             | Yes            | No           | No            |
+
+          | `homepageUrl`          | No             | Yes            | No           | No            |
+
+          | `email`                | No             | Yes            | No           | No            |
+
+          | `logo`                 | No             | No             | No           | No            |
+
+          | `location.countryCode` | No             | Yes            | No           | Yes           |
+
+          | `location.latitude`    | No             | Yes            | No           | No            |
+
+          | `location.longitude`   | No             | Yes            | No           | No            |
+
+          | `createdDate`          | No             | Yes            | Yes          | No            |
+
+          | `updatedDate`          | No             | Yes            | Yes          | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+      - divider: false
+        border: false
+        id: dataproviders-api-data-provider-endpoints
+        title: Data provider endpoints
+        descriptionAbout: >-
+          
+          #### Available endpoints
+
+
+          | Operation | Method | Endpoint |
+
+          | --- | --- | --- |
+
+          | Get a single Data Provider | `GET` | `/v4/data-providers/{dataProviderId}` |
+
+          | Search Data Providers using URL parameters | `GET` | `/v4/search/data-providers` |
+
+          | Search Data Providers using a JSON request body | `POST` | `/v4/search/data-providers` |
+
+          | Retrieve Outputs supplied by a Data Provider | `GET` | `/v4/data-providers/{dataProviderId}/outputs` |
+
+          | Retrieve Data Providers for an Institution | `GET` | `/v4/institutions/{institutionId}/data-providers` |
+
+
+          A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
+
+
+          ### Get a single Data Provider
+
+
+          Retrieves a single Data Provider record using its unique CORE identifier.
+
+
+          ##### API endpoint
+
+
+          ```
+
+          GET https://api.core.ac.uk/v4/data-providers/{dataProviderId}
+
+          ```
+
+
+          The POST search endpoint is not an alternative single-record retrieval endpoint. It searches the Data Provider collection using a JSON request body.
+
+
+          ##### Authorization
+
+
+          | Parameter | Location | Type | Required | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | `Authorization` | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | `dataProviderId` | integer | Yes | Unique CORE identifier of the Data Provider record. |
+
+
+          ##### Query parameters
+
+
+          | Parameter | Type | Required | Description |
+
+          | --- | --- | --- | --- |
+
+          | `select` | string | No | Comma-separated list of top-level Data Provider fields to return. Example: `select=dataProviderId,name,type,homepageUrl`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/data-providers/100" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "dataProviderId": 100,
+            "openDoarId": "1275",
+            "rorId": "https://ror.org/04ea70f07",
+            "name": "Apollo - University of Cambridge Repository",
+            "aliases": [
+              "Apollo",
+              "Cambridge Repository"
+            ],
+            "institutionName": "University of Cambridge",
+            "type": "REPOSITORY",
+            "software": "DSpace",
+            "metadataFormat": "rioxx",
+            "oaiPmhUrl": "https://repository.cam.ac.uk/oai/request",
+            "homepageUrl": "https://repository.cam.ac.uk",
+            "email": "repository@cam.ac.uk",
+            "logo": "https://api.core.ac.uk/v4/data-providers/100/logo",
+            "location": {
+              "countryCode": "GB",
+              "latitude": 52.2053,
+              "longitude": 0.1218
+            },
+            "createdDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/data-providers/100?select=dataProviderId,name,type,software,metadataFormat,homepageUrl" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "dataProviderId": 100,
+            "name": "Apollo - University of Cambridge Repository",
+            "type": "REPOSITORY",
+            "software": "DSpace",
+            "metadataFormat": "rioxx",
+            "homepageUrl": "https://repository.cam.ac.uk"
+          }
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Data Provider record was retrieved successfully. |
+
+          | `400` | The request contains an invalid parameter or unsupported field name. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `404` | No Data Provider record was found for the supplied identifier. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: dataproviders-api-search-data-providers
+        title: Search Data providers
+        descriptionAbout: >-
+          Searches, filters, orders, facets, counts, and paginates Data Provider
+          records.
+
+
+          Data Provider search is available through `GET` and `POST`:
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/search/data-providers
+
+          POST https://api.core.ac.uk/v4/search/data-providers
+
+          ```
+
+
+          Both methods use the same CORE query language and return the same response structure.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+          | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+          | `select`      | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
+
+          | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+          | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Data Provider records should be included.                                          |
+
+          | `limit`       | integer  | No           | `10`                          | Maximum number of Data Provider records to return.                                                                                |
+
+          | `offset`      | integer  | No           | `0`                           | Number of matching Data Provider records to skip.                                                                                 |
+
+
+          ##### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+          | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+          | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+          | `select`     | string\[] | No           | All retrievable fields        | List of Data Provider fields to include in each result.                                                                           |
+
+          | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+          | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Data Provider records should be included.                                          |
+
+          | `limit`      | integer   | No           | `10`                          | Maximum number of Data Provider records to return.                                                                                |
+
+          | `offset`     | integer   | No           | `0`                           | Number of matching Data Provider records to skip.                                                                                 |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**               | **POST body property**                             |
+
+          | ------------------------------------- | -------------------------------------------------- |
+
+          | `q=type:REPOSITORY`                   | `"q": "type:REPOSITORY"`                           |
+
+          | `orderby=name:asc`                    | `"orderby": ["name:asc"]`                          |
+
+          | `select=dataProviderId,name,type`     | `"select": ["dataProviderId", "name", "type"]`     |
+
+          | `facets=type,software,metadataFormat` | `"facets": ["type", "software", "metadataFormat"]` |
+
+          | `count=true`                          | `"count": true`                                    |
+
+          | `limit=10`                            | `"limit": 10`                                      |
+
+          | `offset=0`                            | `"offset": 0`                                      |
+
+
+          The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: dataproviders-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          
+          #### Search by Data Provider name
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/data-providers?q=name:"Apollo"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q="Cambridge Repository"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/data-providers" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "name:\"Apollo\""
+            }'
+          ```
+
+
+          A broad textual query searches searchable fields including:
+
+
+          - `name`
+
+          - `aliases`
+
+          - `institutionName`
+
+
+          When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+          #### Retrieve a Data Provider by OpenDOAR identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=openDoarId:"1275"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "openDoarId:\"1275\""
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers associated with a ROR identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=rorId:"https://ror.org/04ea70f07"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "rorId:\"https://ror.org/04ea70f07\""
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by type
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by software
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=software:DSpace
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "software:DSpace"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by metadata format
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=metadataFormat:rioxx
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "metadataFormat:rioxx"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers by country
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=location.countryCode:GB
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "location.countryCode:GB"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers with OAI-PMH endpoints
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=_exists_:oaiPmhUrl
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "_exists_:oaiPmhUrl"
+          }
+
+          ```
+
+
+          #### Retrieve Data Providers with OpenDOAR identifiers
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=_exists_:openDoarId
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "_exists_:openDoarId"
+          }
+
+          ```
+
+
+          #### Combined search, selection, and ordering
+
+
+          The following request:
+
+
+          - Searches for Data Providers associated with Cambridge.
+
+          - Restricts results to repositories.
+
+          - Restricts results to Data Providers in the United Kingdom.
+
+          - Orders results by name.
+
+          - Returns selected fields.
+
+          - Includes the total result count.
+
+          - Returns a maximum of ten records.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/data-providers?q=institutionName:"Cambridge"%20AND%20type:REPOSITORY%20AND%20location.countryCode:GB&orderby=name:asc&select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/data-providers
+              ?q=institutionName:"Cambridge" AND type:REPOSITORY AND location.countryCode:GB
+              &orderby=name:asc
+              &select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/data-providers" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "institutionName:\"Cambridge\" AND type:REPOSITORY AND location.countryCode:GB",
+              "orderby": [
+                "name:asc"
+              ],
+              "select": [
+                "dataProviderId",
+                "name",
+                "institutionName",
+                "type",
+                "software",
+                "metadataFormat",
+                "homepageUrl"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          Example search response:
+
+
+          ```json
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "dataProviderId": 100,
+                "name": "Apollo - University of Cambridge Repository",
+                "institutionName": "University of Cambridge",
+                "type": "REPOSITORY",
+                "software": "DSpace",
+                "metadataFormat": "rioxx",
+                "homepageUrl": "https://repository.cam.ac.uk"
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Ordering Data Provider results
+
+
+          ##### Order alphabetically
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?orderby=name:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "name:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by creation date
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?orderby=createdDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "createdDate:desc"
+            ]
+          }
+
+          ```
+
+
+          #### Facets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/data-providers?q=*&facets=type,software,metadataFormat,location.countryCode&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/data-providers" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "*",
+              "facets": [
+                "type",
+                "software",
+                "metadataFormat",
+                "location.countryCode"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          Example facet response:
+
+
+          ```json
+
+          {
+            "totalHits": 15000,
+            "facets": {
+              "type": [
+                {
+                  "value": "REPOSITORY",
+                  "count": 11500
+                },
+                {
+                  "value": "JOURNAL",
+                  "count": 2100
+                }
+              ],
+              "software": [
+                {
+                  "value": "DSpace",
+                  "count": 4200
+                },
+                {
+                  "value": "EPrints",
+                  "count": 2600
+                }
+              ],
+              "metadataFormat": [
+                {
+                  "value": "oai_dc",
+                  "count": 8700
+                },
+                {
+                  "value": "rioxx",
+                  "count": 1450
+                }
+              ],
+              "location.countryCode": [
+                {
+                  "value": "US",
+                  "count": 2300
+                },
+                {
+                  "value": "GB",
+                  "count": 1100
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Data Provider records.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY&count=true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate through Data Provider results.
+
+
+          A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          ##### First page using GET
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=0
+
+          ```
+
+
+          ##### Second page using GET
+
+
+          ```http
+
+          GET /v4/search/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### First page using POST
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY",
+            "orderby": [
+              "name:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          ##### Second page using POST
+
+
+          ```json
+
+          {
+            "q": "type:REPOSITORY",
+            "orderby": [
+              "name:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```text
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Data Provider search was completed successfully. |
+
+          | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `413` | The POST request body exceeds the permitted size. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: dataproviders-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to records connected to a Data Provider.
+
+
+          #### Outputs supplied by a Data Provider
+
+
+          ```http
+
+          GET /v4/data-providers/{dataProviderId}/outputs
+
+          ```
+
+
+          Retrieves Outputs harvested from the Data Provider.
+
+
+          Equivalent GET search:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:{dataProviderId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/data-providers/100/outputs?select=coreId,title,yearPublished,documentType&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 125000,
+            "results": [
+              {
+                "coreId": 216874849,
+                "title": "An example research article",
+                "yearPublished": 2025,
+                "documentType": [
+                  "research article"
+                ]
+              },
+              {
+                "coreId": 216874850,
+                "title": "An example doctoral thesis",
+                "yearPublished": 2024,
+                "documentType": [
+                  "thesis"
+                ]
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Data Provider with no supplied Outputs returns a `200` response with an empty `results` array.
+
+
+          #### Data Providers for an Institution
+
+
+          ```http
+
+          GET /v4/institutions/{institutionId}/data-providers
+
+          ```
+
+
+          Retrieves complete Data Provider records associated with an Institution.
+
+
+          The relationship may be resolved using the Institution’s `dataProviderIds` collection or another internal relationship mapping.
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/institutions/1256/data-providers?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          This endpoint is documented primarily under the Institution entity.
+  - item: Journals
+    children:
+      - divider: false
+        border: false
+        id: journal-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Journal entity represents an academic or scholarly journal
+          associated with content in the CORE collection.
+
+
+          Journal records may be created from:
+
+
+          * metadata supplied by CORE Data Providers;
+
+          * journal information contained in harvested Output metadata;
+
+          * metadata enrichment from external sources such as the Directory of Open Access Journals;
+
+          * journal identifier matching and normalisation performed by CORE.
+
+
+          A Journal record may contain:
+
+
+          * canonical and source-specific identifiers;
+
+          * journal titles and alternative titles;
+
+          * language and subject classifications;
+
+          * publisher and hosting-Institution information;
+
+          * open-access and article-processing-charge information;
+
+          * licensing and copyright policies;
+
+          * editorial and peer-review information;
+
+          * preservation, deposit, and research-integrity policies.
+
+
+          The Journal entity represents the publication venue. Individual articles published in a Journal are represented as Outputs and, after deduplication, Works.
+        images:
+          - file: /images/docs-graph/journals.png
+        subTitle: >-
+          A Journal may be associated with multiple Outputs.
+
+
+          A Data Provider may supply metadata for multiple Journals. A Publisher may publish multiple Journals, and an Institution may host or operate multiple Journals.
+
+
+
+
+          #### Entity scope
+
+
+          The Journal entity contains journal-level metadata only.
+
+
+          Article-level information such as:
+
+
+          * article title;
+
+          * abstract;
+
+          * publication year;
+
+          * article authors;
+
+          * volume and issue;
+
+          * page range;
+
+          * article DOI;
+
+          * article full-text links;
+
+
+          is not stored as part of the Journal entity.
+
+
+          This information belongs to the Output and Work entities.
+
+
+          Articles associated with a Journal can be retrieved through:
+
+
+          ```
+
+          GET /v4/journals/{journalId}/outputs
+
+
+
+          ```
+      - divider: false
+        border: false
+        id: journals-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The following sections describe the fields in the CORE Graph metadata
+          schema for the Journal entity.
+
+
+          #### Identifiers
+
+
+          | **Property**     | **Type**  | **Example value**                         | **Description**                                                                       | **Source**                        |
+
+          | ---------------- | --------- | ----------------------------------------- | ------------------------------------------------------------------------------------- | --------------------------------- |
+
+          | `journalId`      | integer   | `12345`                                   | Unique CORE canonical identifier for the Journal.                                     | CORE                              |
+
+          | `doajId`         | string    | `"1234567890"`                            | Identifier of the Journal record in the Directory of Open Access Journals.            | DOAJ                              |
+
+          | `dataProviderId` | integer   | `86`                                      | CORE identifier of the Data Provider that supplied or is associated with the Journal. | CORE                              |
+
+          | `issns`          | string\[] | `["1744-9081", "1744-909X"]`              | ISSN values associated with the Journal.                                              | CORE / Repository metadata / DOAJ |
+
+          | `eissn`          | string    | `"1744-909X"`                             | Electronic ISSN associated with the Journal.                                          | DOAJ / Repository metadata        |
+
+          | `pissn`          | string    | `"1744-9081"`                             | Print ISSN associated with the Journal.                                               | DOAJ / Repository metadata        |
+
+          | `oaiIds`         | string\[] | `["oai:example.org:journal/123"]`         | OAI identifiers associated with the Journal.                                          | OAI-PMH / Repository metadata     |
+
+          | `urls`           | string\[] | `["https://example.org/journal"]`         | URLs associated with the Journal.                                                     | CORE / Repository metadata / DOAJ |
+
+          | `identifiers`*   | object\[] | `[{"scheme":"ISSN","value":"1744-9081"}]` | Structured list containing all known identifiers associated with the Journal.         | CORE                              |
+
+
+          \* More information is provided below.
+
+
+          ##### Structured identifiers
+
+
+          ```json
+
+          {
+            "identifiers": [
+              { "scheme": "ISSN", "value": "1744-9081" },
+              { "scheme": "EISSN", "value": "1744-909X" },
+              { "scheme": "DOAJ", "value": "1234567890" },
+              { "scheme": "OAI", "value": "oai:example.org:journal/123" },
+              { "scheme": "URL", "value": "https://example.org/journal" }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                                                       | **Source**           |
+
+          | ------------ | -------- | ----------------- | ----------------------------------------------------------------------------------------------------- | -------------------- |
+
+          | `scheme`     | string   | `"ISSN"`          | Identifier scheme associated with the value. Examples include ISSN, EISSN, PISSN, DOAJ, OAI, and URL. | CORE                 |
+
+          | `value`      | string   | `"1744-9081"`     | Identifier value associated with the specified scheme.                                                | CORE / Source system |
+
+
+          The top-level identifier properties provide convenient access to commonly used identifiers. The complete identifier set is retained in `identifiers`.
+
+
+          #### Journal metadata
+
+
+          | **Property**           | **Type**  | **Example value**                                | **Description**                                                                                  | **Source**                        |
+
+          | ---------------------- | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------ | --------------------------------- |
+
+          | `title`                | string    | `"Journal of Open Science"`                      | Preferred title of the Journal.                                                                  | CORE / Repository metadata / DOAJ |
+
+          | `alternativeTitle`     | string    | `"J Open Sci"`                                   | Alternative or abbreviated title associated with the Journal.                                    | DOAJ                              |
+
+          | `language`             | string    | `"en"`                                           | Primary language used by the Journal, represented using an ISO 639 language code where possible. | CORE / Repository metadata / DOAJ |
+
+          | `subjects`*            | object\[] | `[{"scheme":"LCC","code":"Q","term":"Science"}]` | Subject classifications associated with the Journal.                                             | CORE / Repository metadata / DOAJ |
+
+          | `keywords`             | string\[] | `["Open Science", "Repositories"]`               | Keywords describing the scope or subject coverage of the Journal.                                | DOAJ                              |
+
+          | `labels`               | string\[] | `["Peer Reviewed", "Open Access"]`               | Descriptive labels assigned to the Journal.                                                      | DOAJ                              |
+
+          | `oaStartYear`          | integer   | `2012`                                           | Year from which the Journal is recorded as providing open-access content.                        | DOAJ                              |
+
+          | `discontinuedDate`     | string    | `"2024-01-01"`                                   | Date on which the Journal was discontinued, when known.                                          | DOAJ                              |
+
+          | `isReplacedBy`         | string\[] | `["replacement-journal-id"]`                     | Identifiers of Journals that replace this Journal.                                               | DOAJ                              |
+
+          | `replaces`             | string\[] | `["previous-journal-id"]`                        | Identifiers of Journals replaced by this Journal.                                                | DOAJ                              |
+
+          | `boai`                 | boolean   | `true`                                           | Indicates whether the Journal complies with the Budapest Open Access Initiative principles.      | DOAJ                              |
+
+          | `publicationTimeWeeks` | integer   | `8`                                              | Reported average time from submission to publication, in weeks.                                  | DOAJ                              |
+
+
+          #### Subject classifications
+
+
+          ```json
+
+          {
+            "subjects": [
+              { "scheme": "LCC", "code": "Q", "term": "Science" },
+              { "scheme": "LCC", "code": "QA", "term": "Computer Science" }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value**    | **Description**                                | **Source**             |
+
+          | ------------ | -------- | -------------------- | ---------------------------------------------- | ---------------------- |
+
+          | `scheme`     | string   | `"LCC"`              | Classification scheme used for the subject.    | DOAJ / Source metadata |
+
+          | `code`       | string   | `"QA"`               | Subject code within the classification scheme. | DOAJ / Source metadata |
+
+          | `term`       | string   | `"Computer Science"` | Human-readable subject term or label.          | DOAJ / Source metadata |
+
+
+          The property is named `subjects`. Article-level Topics or subject classifications should not be embedded in the Journal entity.
+
+
+          #### Publisher and Institution
+
+
+          | **Property**         | **Type** | **Example value**        | **Description**                                                                           | **Source**                        |
+
+          | -------------------- | -------- | ------------------------ | ----------------------------------------------------------------------------------------- | --------------------------------- |
+
+          | `publisher`          | string   | `"Springer Nature"`      | Name of the organisation that publishes the Journal.                                      | CORE / Repository metadata / DOAJ |
+
+          | `publisherCountry`   | string   | `"GB"`                   | ISO 3166-1 alpha-2 country code associated with the Publisher.                            | DOAJ                              |
+
+          | `institutionId`      | integer  | `3201`                   | CORE identifier of the Institution associated with or hosting the Journal, when resolved. | CORE                              |
+
+          | `institutionName`    | string   | `"University of Oxford"` | Name of the Institution associated with or hosting the Journal.                           | DOAJ / CORE                       |
+
+          | `institutionCountry` | string   | `"GB"`                   | ISO 3166-1 alpha-2 country code associated with the Institution.                          | DOAJ                              |
+
+
+          The `institutionId` property connects the Journal to a canonical CORE Institution where an institutional relationship has been resolved.
+
+
+          The `publisher` property currently contains a Publisher name. If Journals are to be connected to the Publisher entity through a graph relationship, a canonical `publisherId` should also be introduced.
+
+
+          #### Open access, APCs, and publication charges
+
+
+          | **Property**      | **Type**  | **Example value**                   | **Description**                                                        | **Source** |
+
+          | ----------------- | --------- | ----------------------------------- | ---------------------------------------------------------------------- | ---------- |
+
+          | `hasApc`          | boolean   | `true`                              | Indicates whether the Journal charges article processing charges.      | DOAJ       |
+
+          | `apcMax`*         | object\[] | `[{"currency":"GBP","price":1200}]` | Maximum reported article processing charges, grouped by currency.      | DOAJ       |
+
+          | `apcUrl`          | string    | `"https://example.org/apc"`         | URL describing the Journal’s article processing charges.               | DOAJ       |
+
+          | `hasOtherCharges` | boolean   | `false`                             | Indicates whether the Journal has publication charges other than APCs. | DOAJ       |
+
+          | `otherChargesUrl` | string    | `"https://example.org/charges"`     | URL describing other publication charges.                              | DOAJ       |
+
+          | `hasWaiver`       | boolean   | `true`                              | Indicates whether APC or publication-charge waivers are available.     | DOAJ       |
+
+          | `waiverUrl`       | string    | `"https://example.org/waiver"`      | URL describing the Journal’s waiver policy.                            | DOAJ       |
+
+
+          ##### APC values
+
+
+          ```json
+
+          {
+            "apcMax": [
+              { "currency": "GBP", "price": 1200 },
+              { "currency": "USD", "price": 1500 }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                        | **Source** |
+
+          | ------------ | -------- | ----------------- | ------------------------------------------------------ | ---------- |
+
+          | `currency`   | string   | `"GBP"`           | Currency in which the APC is reported.                 | DOAJ       |
+
+          | `price`      | number   | `1200`            | Maximum reported APC amount in the specified currency. | DOAJ       |
+
+
+          A Journal may contain multiple APC entries when charges are provided in more than one currency.
+
+
+          A null `hasApc` value means that the available metadata is insufficient to determine whether the Journal charges an APC.
+
+
+          #### Licensing and copyright
+
+
+          | **Property**               | **Type**  | **Example value**                                                             | **Description**                                                         | **Source** |
+
+          | -------------------------- | --------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------- |
+
+          | `licenses`*                | object\[] | `[{"type":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/"}]` | Licence information associated with Journal articles.                   | DOAJ       |
+
+          | `licenseDisplay`           | string\[] | `["CC BY"]`                                                                   | Licence labels displayed on Journal articles.                           | DOAJ       |
+
+          | `licenseDisplayExampleUrl` | string    | `"https://example.org/article/123"`                                           | Example article URL demonstrating how licence information is displayed. | DOAJ       |
+
+          | `authorRetainsCopyright`   | boolean   | `true`                                                                        | Indicates whether Authors retain copyright without restrictions.        | DOAJ       |
+
+          | `copyrightUrl`             | string    | `"https://example.org/copyright"`                                             | URL describing the Journal’s copyright policy.                          | DOAJ       |
+
+
+          ##### Licences
+
+
+          ```json
+
+          {
+            "licenses": [
+              {
+                "type": "CC BY 4.0",
+                "url": "https://creativecommons.org/licenses/by/4.0/"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value**                                | **Description**                   | **Source** |
+
+          | ------------ | -------- | ------------------------------------------------ | --------------------------------- | ---------- |
+
+          | `type`       | string   | `"CC BY 4.0"`                                    | Licence type or label.            | DOAJ       |
+
+          | `url`        | string   | `"https://creativecommons.org/licenses/by/4.0/"` | URL containing the licence terms. | DOAJ       |
+
+
+          #### Editorial and policy information
+
+
+          | **Property**            | **Type**  | **Example value**                       | **Description**                                     | **Source** |
+
+          | ----------------------- | --------- | --------------------------------------- | --------------------------------------------------- | ---------- |
+
+          | `editorialBoardUrl`     | string    | `"https://example.org/editorial-board"` | URL listing the Journal’s editorial board.          | DOAJ       |
+
+          | `reviewProcesses`       | string\[] | `["Double anonymous peer review"]`      | Peer-review processes used by the Journal.          | DOAJ       |
+
+          | `reviewUrl`             | string    | `"https://example.org/review"`          | URL describing the Journal’s review process.        | DOAJ       |
+
+          | `aimsScopeUrl`          | string    | `"https://example.org/aims"`            | URL describing the Journal’s aims and scope.        | DOAJ       |
+
+          | `authorInstructionsUrl` | string    | `"https://example.org/authors"`         | URL containing instructions for Authors.            | DOAJ       |
+
+          | `licenseTermsUrl`       | string    | `"https://example.org/license"`         | URL containing licence terms.                       | DOAJ       |
+
+          | `oaStatementUrl`        | string    | `"https://example.org/open-access"`     | URL containing the Journal’s open-access statement. | DOAJ       |
+
+
+          #### Preservation, deposit, and research integrity
+
+
+          | **Property**              | **Type**  | **Example value**                      | **Description**                                                                        | **Source** |
+
+          | ------------------------- | --------- | -------------------------------------- | -------------------------------------------------------------------------------------- | ---------- |
+
+          | `hasDepositPolicy`        | boolean   | `true`                                 | Indicates whether the Journal has a registered or documented deposit policy.           | DOAJ       |
+
+          | `depositPolicyRegistered` | boolean   | `true`                                 | Indicates whether the Journal’s deposit policy is registered with an external service. | DOAJ       |
+
+          | `depositPolicyServices`   | string\[] | `["Sherpa/Romeo"]`                     | Services through which the deposit policy is registered or described.                  | DOAJ       |
+
+          | `depositPolicyUrl`        | string    | `"https://example.org/deposit-policy"` | URL describing the Journal’s deposit policy.                                           | DOAJ       |
+
+          | `hasPreservation`         | boolean   | `true`                                 | Indicates whether preservation arrangements exist for the Journal.                     | DOAJ       |
+
+          | `preservationServices`    | string\[] | `["LOCKSS", "CLOCKSS"]`                | Digital preservation services used by the Journal.                                     | DOAJ       |
+
+          | `nationalLibraries`       | string\[] | `["British Library"]`                  | National libraries involved in preserving Journal content.                             | DOAJ       |
+
+          | `preservationUrl`         | string    | `"https://example.org/preservation"`   | URL describing the Journal’s preservation arrangements.                                | DOAJ       |
+
+          | `hasPidScheme`            | boolean   | `true`                                 | Indicates whether the Journal uses persistent identifier schemes.                      | DOAJ       |
+
+          | `pidSchemes`              | string\[] | `["DOI"]`                              | Persistent identifier schemes used by the Journal.                                     | DOAJ       |
+
+          | `plagiarismDetection`     | boolean   | `true`                                 | Indicates whether plagiarism-detection procedures are used.                            | DOAJ       |
+
+          | `plagiarismUrl`           | string    | `"https://example.org/plagiarism"`     | URL describing the Journal’s plagiarism-detection policy.                              | DOAJ       |
+
+
+          #### Dates
+
+
+          | **Property**  | **Type** | **Example value**        | **Description**                                                           | **Source** |
+
+          | ------------- | -------- | ------------------------ | ------------------------------------------------------------------------- | ---------- |
+
+          | `createdDate` | string   | `"2025-05-21T06:18:18Z"` | Date and time when the canonical Journal record was created in CORE.      | CORE       |
+
+          | `updatedDate` | string   | `"2026-05-21T06:18:18Z"` | Date and time when the canonical Journal record was last updated in CORE. | CORE       |
+
+
+          These fields represent CORE record-management dates.
+
+
+          Example Journal record:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "doajId": "1234567890",
+            "dataProviderId": 86,
+            "issns": ["1744-9081", "1744-909X"],
+            "eissn": "1744-909X",
+            "pissn": "1744-9081",
+            "oaiIds": ["oai:example.org:journal/123"],
+            "urls": [
+              "https://example.org/journal",
+              "https://doaj.org/toc/17449081"
+            ],
+            "identifiers": [
+              { "scheme": "ISSN", "value": "1744-9081" },
+              { "scheme": "EISSN", "value": "1744-909X" },
+              { "scheme": "DOAJ", "value": "1234567890" },
+              { "scheme": "OAI", "value": "oai:example.org:journal/123" },
+              { "scheme": "URL", "value": "https://example.org/journal" }
+            ],
+            "title": "Journal of Open Science",
+            "alternativeTitle": "J Open Sci",
+            "language": "en",
+            "subjects": [
+              { "scheme": "LCC", "code": "Q", "term": "Science" },
+              { "scheme": "LCC", "code": "QA", "term": "Computer Science" }
+            ],
+            "keywords": ["Open Science", "Repositories", "Scholarly Communication"],
+            "labels": ["Peer Reviewed", "Open Access"],
+            "oaStartYear": 2012,
+            "discontinuedDate": null,
+            "isReplacedBy": [],
+            "replaces": [],
+            "boai": true,
+            "publicationTimeWeeks": 8,
+            "publisher": "Springer Nature",
+            "publisherCountry": "GB",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "institutionCountry": "GB",
+            "hasApc": true,
+            "apcMax": [
+              { "currency": "GBP", "price": 1200 },
+              { "currency": "USD", "price": 1500 }
+            ],
+            "apcUrl": "https://example.org/apc",
+            "hasOtherCharges": false,
+            "otherChargesUrl": null,
+            "hasWaiver": true,
+            "waiverUrl": "https://example.org/waiver",
+            "licenses": [
+              {
+                "type": "CC BY 4.0",
+                "url": "https://creativecommons.org/licenses/by/4.0/"
+              }
+            ],
+            "licenseDisplay": ["CC BY"],
+            "licenseDisplayExampleUrl": "https://example.org/article/123",
+            "authorRetainsCopyright": true,
+            "copyrightUrl": "https://example.org/copyright",
+            "editorialBoardUrl": "https://example.org/editorial-board",
+            "reviewProcesses": ["Double anonymous peer review"],
+            "reviewUrl": "https://example.org/review",
+            "aimsScopeUrl": "https://example.org/aims",
+            "authorInstructionsUrl": "https://example.org/authors",
+            "licenseTermsUrl": "https://example.org/license",
+            "oaStatementUrl": "https://example.org/open-access",
+            "hasDepositPolicy": true,
+            "depositPolicyRegistered": true,
+            "depositPolicyServices": ["Sherpa/Romeo"],
+            "depositPolicyUrl": "https://example.org/deposit-policy",
+            "hasPreservation": true,
+            "preservationServices": ["LOCKSS", "CLOCKSS"],
+            "nationalLibraries": ["British Library"],
+            "preservationUrl": "https://example.org/preservation",
+            "hasPidScheme": true,
+            "pidSchemes": ["DOI"],
+            "plagiarismDetection": true,
+            "plagiarismUrl": "https://example.org/plagiarism",
+            "createdDate": "2025-05-21T06:18:18Z",
+            "updatedDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+      - divider: false
+        border: false
+        id: journals-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Journal properties can be searched,
+          queried through field lookups or ranges, ordered, or used as facets.
+
+
+          | **Attribute**              | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | -------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `journalId`                | No             | Yes            | No           | No            |
+
+          | `doajId`                   | No             | Yes            | No           | No            |
+
+          | `dataProviderId`           | No             | Yes            | No           | No            |
+
+          | `issns`                    | No             | Yes            | No           | No            |
+
+          | `eissn`                    | No             | Yes            | No           | No            |
+
+          | `pissn`                    | No             | Yes            | No           | No            |
+
+          | `oaiIds`                   | No             | Yes            | No           | No            |
+
+          | `urls`                     | No             | No             | No           | No            |
+
+          | `identifiers.scheme`       | No             | Yes            | No           | Yes           |
+
+          | `identifiers.value`        | No             | Yes            | No           | No            |
+
+          | `title`                    | Yes            | No             | Yes          | No            |
+
+          | `alternativeTitle`         | Yes            | No             | No           | No            |
+
+          | `language`                 | No             | Yes            | No           | Yes           |
+
+          | `subjects.scheme`          | No             | Yes            | No           | Yes           |
+
+          | `subjects.code`            | No             | Yes            | No           | Yes           |
+
+          | `subjects.term`            | Yes            | Yes            | No           | Yes           |
+
+          | `keywords`                 | Yes            | Yes            | No           | Yes           |
+
+          | `labels`                   | No             | Yes            | No           | Yes           |
+
+          | `oaStartYear`              | No             | Yes            | Yes          | Yes           |
+
+          | `discontinuedDate`         | No             | Yes            | Yes          | No            |
+
+          | `isReplacedBy`             | No             | Yes            | No           | No            |
+
+          | `replaces`                 | No             | Yes            | No           | No            |
+
+          | `boai`                     | No             | Yes            | No           | Yes           |
+
+          | `publicationTimeWeeks`     | No             | Yes            | Yes          | No            |
+
+          | `publisher`                | Yes            | Yes            | No           | Yes           |
+
+          | `publisherCountry`         | No             | Yes            | No           | Yes           |
+
+          | `institutionId`            | No             | Yes            | No           | Yes           |
+
+          | `institutionName`          | Yes            | No             | No           | No            |
+
+          | `institutionCountry`       | No             | Yes            | No           | Yes           |
+
+          | `hasApc`                   | No             | Yes            | No           | Yes           |
+
+          | `apcMax.currency`          | No             | Yes            | No           | Yes           |
+
+          | `apcMax.price`             | No             | Yes            | No           | No            |
+
+          | `apcUrl`                   | No             | No             | No           | No            |
+
+          | `hasOtherCharges`          | No             | Yes            | No           | Yes           |
+
+          | `otherChargesUrl`          | No             | No             | No           | No            |
+
+          | `hasWaiver`                | No             | Yes            | No           | Yes           |
+
+          | `waiverUrl`                | No             | No             | No           | No            |
+
+          | `licenses.type`            | No             | Yes            | No           | Yes           |
+
+          | `licenses.url`             | No             | No             | No           | No            |
+
+          | `licenseDisplay`           | No             | Yes            | No           | Yes           |
+
+          | `licenseDisplayExampleUrl` | No             | No             | No           | No            |
+
+          | `authorRetainsCopyright`   | No             | Yes            | No           | Yes           |
+
+          | `copyrightUrl`             | No             | No             | No           | No            |
+
+          | `editorialBoardUrl`        | No             | No             | No           | No            |
+
+          | `reviewProcesses`          | Yes            | Yes            | No           | Yes           |
+
+          | `reviewUrl`                | No             | No             | No           | No            |
+
+          | `aimsScopeUrl`             | No             | No             | No           | No            |
+
+          | `authorInstructionsUrl`    | No             | No             | No           | No            |
+
+          | `licenseTermsUrl`          | No             | No             | No           | No            |
+
+          | `oaStatementUrl`           | No             | No             | No           | No            |
+
+          | `hasDepositPolicy`         | No             | Yes            | No           | Yes           |
+
+          | `depositPolicyRegistered`  | No             | Yes            | No           | Yes           |
+
+          | `depositPolicyServices`    | No             | Yes            | No           | Yes           |
+
+          | `depositPolicyUrl`         | No             | No             | No           | No            |
+
+          | `hasPreservation`          | No             | Yes            | No           | Yes           |
+
+          | `preservationServices`     | No             | Yes            | No           | Yes           |
+
+          | `nationalLibraries`        | Yes            | Yes            | No           | Yes           |
+
+          | `preservationUrl`          | No             | No             | No           | No            |
+
+          | `hasPidScheme`             | No             | Yes            | No           | Yes           |
+
+          | `pidSchemes`               | No             | Yes            | No           | Yes           |
+
+          | `plagiarismDetection`      | No             | Yes            | No           | Yes           |
+
+          | `plagiarismUrl`            | No             | No             | No           | No            |
+
+          | `createdDate`              | No             | Yes            | Yes          | No            |
+
+          | `updatedDate`              | No             | Yes            | Yes          | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+
+
+          Refer to the common CORE API Query Language documentation for the complete query syntax.
+
+
+          #### Complex collection queries
+
+
+          The following properties are collections of structured objects:
+
+
+          * `identifiers`
+
+          * `subjects`
+
+          * `apcMax`
+
+          * `licenses`
+
+
+          When multiple query conditions refer to the same collection, the implementation must ensure that the conditions apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          apcMax.currency:GBP AND apcMax.price<=1500
+
+          ```
+
+
+          This query must match a single APC entry where:
+
+
+          * `currency = GBP`
+
+          * `price <= 1500`
+
+
+          It must not combine the currency from one APC entry with the price from another.
+
+
+          The same rule applies to:
+
+
+          ```text
+
+          identifiers.scheme:ISSN AND identifiers.value:"1744-9081"
+
+          ```
+
+
+          and:
+
+
+          ```text
+
+          subjects.scheme:LCC AND subjects.code:QA
+
+          ```
+      - divider: false
+        border: false
+        id: journals-api-journal-endpoints
+        title: Journal endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | **Operation**                             | **Method** | **Endpoint**                       |
+
+          | ----------------------------------------- | ---------- | ---------------------------------- |
+
+          | Get a single Journal                      | `GET`      | `/v4/journals/{journalId}`         |
+
+          | Search Journals using URL parameters      | `GET`      | `/v4/search/journals`              |
+
+          | Search Journals using a JSON request body | `POST`     | `/v4/search/journals`              |
+
+          | Retrieve Outputs for a Journal            | `GET`      | `/v4/journals/{journalId}/outputs` |
+
+
+          Related Journals may also be retrieved through reverse relationship endpoints:
+
+
+          | **Operation**                                    | **Method** | **Endpoint**                                   |
+
+          | ------------------------------------------------ | ---------- | ---------------------------------------------- |
+
+          | Retrieve Journals supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/journals` |
+
+          | Retrieve Journals associated with an Institution | `GET`      | `/v4/institutions/{institutionId}/journals`    |
+
+
+          A Publisher relationship endpoint should be introduced only after the Journal model contains a canonical `publisherId`.
+
+
+          #### Get a single Journal
+
+
+          Retrieves a single Journal record using its CORE Journal identifier.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/journals/{journalId}
+
+          ```
+
+
+          The POST search method is not an alternative single-record retrieval endpoint. It searches the Journal collection using a JSON request body.
+
+
+          ##### Authorization
+
+
+          | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                               |
+
+          | ------------- | -------- | ------------ | --------------------------------------------- |
+
+          | `journalId`   | integer  | Yes          | Unique CORE identifier of the Journal record. |
+
+
+          ##### Query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                         |
+
+          | ------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+
+          | `select`      | string   | No           | Comma-separated list of top-level Journal fields to return. Example: `select=journalId,title,issns,publisher,language`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/journals/12345" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "doajId": "1234567890",
+            "issns": [
+              "1744-9081",
+              "1744-909X"
+            ],
+            "eissn": "1744-909X",
+            "pissn": "1744-9081",
+            "title": "Journal of Open Science",
+            "alternativeTitle": "J Open Sci",
+            "language": "en",
+            "publisher": "Springer Nature",
+            "publisherCountry": "GB",
+            "institutionId": 3201,
+            "institutionName": "University of Oxford",
+            "hasApc": true,
+            "hasWaiver": true,
+            "createdDate": "2025-05-21T06:18:18Z",
+            "updatedDate": "2026-05-21T06:18:18Z"
+          }
+
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/journals/12345?select=journalId,title,issns,publisher,language,hasApc" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "title": "Journal of Open Science",
+            "issns": [
+              "1744-9081",
+              "1744-909X"
+            ],
+            "publisher": "Springer Nature",
+            "language": "en",
+            "hasApc": true
+          }
+
+          ```
+
+
+          #### Responses
+
+
+          | **Status** | **Description**                                                      |
+
+          | ---------- | -------------------------------------------------------------------- |
+
+          | `200`      | The Journal record was retrieved successfully.                       |
+
+          | `400`      | The request contains an invalid parameter or unsupported field name. |
+
+          | `401`      | Authentication credentials are missing or invalid.                   |
+
+          | `404`      | No Journal record was found for the supplied identifier.             |
+
+          | `429`      | The API request limit has been exceeded.                             |
+
+          | `500`      | An unexpected server error occurred.                                 |
+      - divider: false
+        border: false
+        id: journals-api-search-journals
+        title: Search Journals
+        descriptionAbout: >-
+          Searches, filters, orders, facets, counts, and paginates Journal
+          records.
+
+
+          Journal search is available through `GET` and `POST`:
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/search/journals
+
+          POST https://api.core.ac.uk/v4/search/journals
+
+          ```
+
+
+          Both methods use the same CORE query language and return the same response structure.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                            |
+
+          | ------------- | -------- | ------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+
+          | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                           |
+
+          | `select`      | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                  |
+
+          | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
+
+          | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Journal records should be included.                                         |
+
+          | `limit`       | integer  | No           | `10`                          | Maximum number of Journal records to return.                                                                               |
+
+          | `offset`      | integer  | No           | `0`                           | Number of matching Journal records to skip.                                                                                |
+
+
+          ##### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                            |
+
+          | ------------ | --------- | ------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+
+          | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                            |
+
+          | `select`     | string\[] | No           | All retrievable fields        | List of Journal fields to include in each result.                                                                          |
+
+          | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                            |
+
+          | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Journal records should be included.                                         |
+
+          | `limit`      | integer   | No           | `10`                          | Maximum number of Journal records to return.                                                                               |
+
+          | `offset`     | integer   | No           | `0`                           | Number of matching Journal records to skip.                                                                                |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**                | **POST body property**                              |
+
+          | -------------------------------------- | --------------------------------------------------- |
+
+          | `q=language:en`                        | `"q": "language:en"`                                |
+
+          | `orderby=title:asc`                    | `"orderby": ["title:asc"]`                          |
+
+          | `select=journalId,title,issns`         | `"select": ["journalId", "title", "issns"]`         |
+
+          | `facets=language,hasApc,licenses.type` | `"facets": ["language", "hasApc", "licenses.type"]` |
+
+          | `count=true`                           | `"count": true`                                     |
+
+          | `limit=10`                             | `"limit": 10`                                       |
+
+          | `offset=0`                             | `"offset": 0`                                       |
+
+
+          The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: journals-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          
+          #### Search by Journal title
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/journals?q=title:"Journal%20of%20Open%20Science"' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/journals?q=title:"Journal of Open Science"
+
+          ```
+
+
+          A broader free-text query may also be used:
+
+
+          ```http
+
+          GET /v4/search/journals?q="Open Science"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/journals" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "title:\"Journal of Open Science\""
+            }'
+          ```
+
+
+          A broad textual query searches searchable Journal fields, including:
+
+
+          - `title`
+
+          - `alternativeTitle`
+
+          - `subjects.term`
+
+          - `keywords`
+
+          - `publisher`
+
+          - `institutionName`
+
+          - `reviewProcesses`
+
+          - `nationalLibraries`
+
+
+          When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+          #### Retrieve a Journal by ISSN
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=issns:"1744-9081"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "issns:\"1744-9081\""
+          }
+
+          ```
+
+
+          #### Retrieve a Journal by electronic ISSN
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=eissn:"1744-909X"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "eissn:\"1744-909X\""
+          }
+
+          ```
+
+
+          #### Retrieve a Journal by DOAJ identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=doajId:"1234567890"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "doajId:\"1234567890\""
+          }
+
+          ```
+
+
+          #### Search by Publisher
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=publisher:"Springer Nature"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "publisher:\"Springer Nature\""
+          }
+
+          ```
+
+
+          #### Retrieve Journals by language and subject
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=language:en AND subjects.term:"Computer Science"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "language:en AND subjects.term:\"Computer Science\""
+          }
+
+          ```
+
+
+          #### Retrieve Journals without APCs
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasApc:false
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasApc:false"
+          }
+
+          ```
+
+
+          Records where `hasApc` is `null` are not included because their APC status is unknown.
+
+
+          #### Retrieve Journals with APC waivers
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasApc:true AND hasWaiver:true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasApc:true AND hasWaiver:true"
+          }
+
+          ```
+
+
+          #### Retrieve Journals by APC amount
+
+
+          The following query retrieves Journals whose maximum reported GBP APC is no more than 1,500:
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=apcMax.currency:GBP AND apcMax.price<=1500
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "apcMax.currency:GBP AND apcMax.price<=1500"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `apcMax` entry.
+
+
+          #### Retrieve Journals by licence
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=licenses.type:"CC BY 4.0"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "licenses.type:\"CC BY 4.0\""
+          }
+
+          ```
+
+
+          #### Retrieve Journals with preservation arrangements
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasPreservation:true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasPreservation:true"
+          }
+
+          ```
+
+
+          A specific preservation service may be queried using:
+
+
+          ```http
+
+          GET /v4/search/journals?q=preservationServices:CLOCKSS
+
+          ```
+
+
+          #### Retrieve Journals using DOI identifiers
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=pidSchemes:DOI
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "pidSchemes:DOI"
+          }
+
+          ```
+
+
+          #### Retrieve Journals associated with a Data Provider
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=dataProviderId:86
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:86"
+          }
+
+          ```
+
+
+          This query is functionally equivalent to:
+
+
+          ```http
+
+          GET /v4/data-providers/86/journals
+
+          ```
+
+
+          #### Retrieve Journals associated with an Institution
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=institutionId:3201
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "institutionId:3201"
+          }
+
+          ```
+
+
+          This query is functionally equivalent to:
+
+
+          ```http
+
+          GET /v4/institutions/3201/journals
+
+          ```
+
+
+          #### Retrieve active Journal records
+
+
+          A Journal can be treated as not discontinued when `discontinuedDate` is absent.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=!_exists_:discontinuedDate
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "!_exists_:discontinuedDate"
+          }
+
+          ```
+
+
+          This represents the absence of a known discontinuation date. It does not independently confirm that the Journal is actively publishing.
+
+
+          #### Combined search, selection, and ordering
+
+
+          The following request:
+
+
+          - Searches for Journals related to open science.
+
+          - Restricts results to English-language Journals.
+
+          - Restricts results to Journals that do not charge APCs.
+
+          - Orders results alphabetically.
+
+          - Returns selected fields.
+
+          - Includes the total result count.
+
+          - Returns a maximum of ten records.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/journals?q=keywords:"Open%20Science"%20AND%20language:en%20AND%20hasApc:false&orderby=title:asc&select=journalId,title,issns,publisher,language,hasApc,licenses&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/journals
+              ?q=keywords:"Open Science" AND language:en AND hasApc:false
+              &orderby=title:asc
+              &select=journalId,title,issns,publisher,language,hasApc,licenses
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/journals" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "keywords:\"Open Science\" AND language:en AND hasApc:false",
+              "orderby": [
+                "title:asc"
+              ],
+              "select": [
+                "journalId",
+                "title",
+                "issns",
+                "publisher",
+                "language",
+                "hasApc",
+                "licenses"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          Example search response:
+
+
+          ```json
+
+          {
+            "totalHits": 1,
+            "results": [
+              {
+                "journalId": 12345,
+                "title": "Journal of Open Science",
+                "issns": [
+                  "1744-9081",
+                  "1744-909X"
+                ],
+                "publisher": "Springer Nature",
+                "language": "en",
+                "hasApc": false,
+                "licenses": [
+                  {
+                    "type": "CC BY 4.0",
+                    "url": "https://creativecommons.org/licenses/by/4.0/"
+                  }
+                ]
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Ordering Journal results
+
+
+          ##### Order alphabetically
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=title:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by open-access start year
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=oaStartYear:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "oaStartYear:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by publication time
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=publicationTimeWeeks:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "publicationTimeWeeks:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by most recently updated
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=updatedDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "updatedDate:desc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?orderby=title:asc,updatedDate:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "title:asc",
+              "updatedDate:desc"
+            ]
+          }
+
+          ```
+
+
+          #### Facets
+
+
+          The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+          GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/search/journals?q=*&facets=language,hasApc,hasWaiver,licenses.type,publisherCountry&count=true&limit=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/journals" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "*",
+              "facets": [
+                "language",
+                "hasApc",
+                "hasWaiver",
+                "licenses.type",
+                "publisherCountry"
+              ],
+              "count": true,
+              "limit": 0
+            }'
+          ```
+
+
+          Example facet response:
+
+
+          ```json
+
+          {
+            "totalHits": 20000,
+            "facets": {
+              "language": [
+                {
+                  "value": "en",
+                  "count": 12400
+                },
+                {
+                  "value": "es",
+                  "count": 2100
+                }
+              ],
+              "hasApc": [
+                {
+                  "value": false,
+                  "count": 11800
+                },
+                {
+                  "value": true,
+                  "count": 6200
+                }
+              ],
+              "hasWaiver": [
+                {
+                  "value": true,
+                  "count": 5100
+                },
+                {
+                  "value": false,
+                  "count": 1600
+                }
+              ],
+              "licenses.type": [
+                {
+                  "value": "CC BY 4.0",
+                  "count": 7800
+                },
+                {
+                  "value": "CC BY-NC 4.0",
+                  "count": 2900
+                }
+              ],
+              "publisherCountry": [
+                {
+                  "value": "GB",
+                  "count": 3100
+                },
+                {
+                  "value": "US",
+                  "count": 2800
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Facet counts describe the complete matching result set.
+
+
+          Setting `limit` to `0` returns facet buckets and counts without returning Journal records.
+
+
+          A separate aggregation endpoint is not required:
+
+
+          ```http
+
+          POST /v4/search/journals/aggregate
+
+          ```
+
+
+          Faceting is part of the standard Journal search operation.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Journal records.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/journals?q=hasApc:false&count=true
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "hasApc:false",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate Journal results.
+
+
+          A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+          ##### First page using GET
+
+
+          ```http
+
+          GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=0
+
+          ```
+
+
+          ##### Second page using GET
+
+
+          ```http
+
+          GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### First page using POST
+
+
+          ```json
+
+          {
+            "q": "language:en",
+            "orderby": [
+              "title:asc"
+            ],
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          ##### Second page using POST
+
+
+          ```json
+
+          {
+            "q": "language:en",
+            "orderby": [
+              "title:asc"
+            ],
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```text
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+          #### Responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Journal search was completed successfully. |
+
+          | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `413` | The POST request body exceeds the permitted size. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: journals-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to graph entities connected to a Journal.
+
+
+          Related entity records are not embedded in the standard Journal response.
+
+
+          #### Outputs for a Journal
+
+
+          ```http
+
+          GET /v4/journals/{journalId}/outputs
+
+          ```
+
+
+          Retrieves Output records published in or associated with the Journal.
+
+
+          Equivalent Output search:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=journalId:{journalId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "journalId:{journalId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/journals/12345/outputs?select=coreId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "coreId": 216874849,
+                "title": "Advances in Open Science Infrastructure",
+                "yearPublished": 2025,
+                "doi": "10.1234/example.5678"
+              },
+              {
+                "coreId": 216874850,
+                "title": "Repositories and scholarly communication",
+                "yearPublished": 2024,
+                "doi": "10.1234/example.9123"
+              }
+            ]
+          }
+
+          ```
+
+
+          An existing Journal with no associated Outputs returns a `200` response with an empty `results` array.
+
+
+          #### Journals for a Data Provider
+
+
+          ```http
+
+          GET /v4/data-providers/{dataProviderId}/journals
+
+          ```
+
+
+          Retrieves Journals supplied by or associated with a Data Provider.
+
+
+          Equivalent Journal search:
+
+
+          ```http
+
+          GET /v4/search/journals?q=dataProviderId:{dataProviderId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:{dataProviderId}"
+          }
+
+          ```
+
+
+          This endpoint should be documented primarily under the Data Provider entity.
+
+
+          #### Journals for an Institution
+
+
+          ```http
+
+          GET /v4/institutions/{institutionId}/journals
+
+          ```
+
+
+          Retrieves Journals associated with or hosted by an Institution.
+
+
+          Equivalent Journal search:
+
+
+          ```http
+
+          GET /v4/search/journals?q=institutionId:{institutionId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "institutionId:{institutionId}"
+          }
+
+          ```
+
+
+          This endpoint should be documented primarily under the Institution entity.
