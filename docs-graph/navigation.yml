@@ -7,7 +7,7 @@ navItems:
     children:
       - item: Work
       - item: Output
-      - item: Data Provider
+      - item: Data Providers
         children:
           - hidden: false
             item: Introduction
@@ -21,6 +21,9 @@ navItems:
           - hidden: false
             item: Data Provider endpoints
             href: "#dataproviders-api-data-provider-endpoints"
+          - hidden: false
+            href: "#dataproviders-api-search-data-provider"
+            item: Search Data providers
       - item: Journals
       - item: Institutions
         href: ""
