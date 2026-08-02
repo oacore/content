@@ -30,6 +30,9 @@ navItems:
           - hidden: false
             href: "#institutions-api-search-examples"
             item: Search examples
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#institutions-api-relationship-oriented-endpoints"
       - item: Authorships
         children:
           - item: Introduction
