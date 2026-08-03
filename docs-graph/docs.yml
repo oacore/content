@@ -9960,3 +9960,2153 @@ items:
 
 
           This endpoint should be documented primarily under the Institution entity.
+  - item: Works
+    children:
+      - divider: false
+        border: false
+        id: works-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Work entity represents a canonical, deduplicated piece of
+          scholarly research.
+
+
+          Works may include:
+
+
+          * research articles;
+
+          * conference papers;
+
+          * theses and dissertations;
+
+          * preprints;
+
+          * books and book chapters;
+
+          * reports;
+
+          * datasets;
+
+          * other scholarly research outputs.
+
+
+          A Work combines and enriches metadata from one or more underlying CORE Outputs harvested from repositories, journals, and other Data Providers.
+
+
+          Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
+        images:
+          - file: /images/docs-graph/works.png
+        subTitle: >-
+          
+
+          A Work may:
+
+
+          * be represented by multiple Outputs;
+
+          * have multiple Authorship records;
+
+          * be associated with one or more Journals;
+
+          * be supplied by multiple Data Providers;
+
+          * contain multiple identifiers, dates, references, contributors, and links.
+
+
+          #### Work and Output separation
+
+
+          A Work does not embed complete Output records.
+
+
+          Instead, the `coreIds` property contains the CORE Output identifiers represented by the Work:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "coreIds": [
+              216874849,
+              216874850
+            ]
+          }
+
+          ```
+
+
+          Complete Output records are retrieved through the relationship endpoint:
+
+
+          ```http
+
+          GET /v4/works/{workId}/outputs
+
+          ```
+
+
+          Outputs do not need to contain a `workId` foreign key. The relationship is resolved through the Work’s `coreIds` collection.
+
+
+          #### Work and Authorship separation
+
+
+          Author and Authorship data is not embedded directly in the Work record.
+
+
+          Work-specific Author information is represented through Authorship records, including:
+
+
+          - Author rank
+
+          - Author sequence
+
+          - Corresponding-Author status
+
+          - Source-provided Author name
+
+          - Affiliations used on the Work
+
+
+          Authorship records associated with a Work are retrieved through:
+
+
+          ```http
+
+          GET /v4/works/{workId}/authorships
+
+          ```
+      - divider: false
+        border: false
+        id: "#works-api-data-structure"
+        title: Data structure
+        descriptionAbout: >-
+          The table below describes the top-level properties in the CORE Graph
+          Work schema.
+
+
+          | **Property**          | **Type**   | **Example value**                                                               | **Description**                                                                                         | **Source**                                                       |
+
+          | --------------------- | ---------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+
+          | `workId`              | integer    | `323030168`                                                                     | Unique CORE canonical identifier for the Work.                                                          | CORE                                                             |
+
+          | `externalIdentifiers` | object\[]  | `[{"type":"DOI","identifier":"10.1109/jiot.2020.2984887"}]`                     | Structured list of CORE and external identifiers associated with the Work.                              | CORE / Crossref / OAI-PMH / OpenAlex / OpenAIRE / PubMed / arXiv |
+
+          | `title`               | string     | `"Intelligent edge computing for scholarly infrastructures"`                    | Preferred title selected for the canonical Work.                                                        | OAI-PMH / Crossref / OpenAlex / OpenAIRE                         |
+
+          | `abstract`            | string     | `"This paper explores..."`                                                      | Preferred abstract or summary of the Work.                                                              | OAI-PMH / Crossref / OpenAlex / OpenAIRE                         |
+
+          | `invertedAbstract`    | object     | `{"This":[0],"paper":[1],"explores":[2]}`                                       | Abstract represented as an inverted index, where each token maps to its positions in the original text. | Derived by CORE                                                  |
+
+          | `fullText`            | string     | `"The rapid growth of scholarly content..."`                                    | Full-text content associated with the Work.                                                             | Extracted from source full text                                  |
+
+          | `doi`                 | string     | `"10.1109/jiot.2020.2984887"`                                                   | Preferred DOI associated with the Work.                                                                 | Crossref / OAI-PMH                                               |
+
+          | `yearPublished`       | integer    | `2022`                                                                          | Preferred publication year selected from available source metadata.                                     | OAI-PMH / Crossref / OpenAlex / OpenAIRE                         |
+
+          | `documentType`        | string\[]  | `["research article"]`                                                          | Normalised types assigned to the Work.                                                                  | OAI-PMH / Crossref / OpenAlex / OpenAIRE / CORE classification   |
+
+          | `downloadUrl`         | string     | `"https://core.ac.uk/download/216874849.pdf"`                                   | Preferred CORE URL from which the Work full text can be downloaded.                                     | CORE                                                             |
+
+          | `coreIds`             | integer\[] | `[216874849,216874850]`                                                         | CORE Output identifiers represented by the canonical Work.                                              | CORE deduplication                                               |
+
+          | `journalIds`          | integer\[] | `[12345]`                                                                       | CORE Journal identifiers associated with the Work.                                                      | CORE / ISSN resolution                                           |
+
+          | `dataProviderIds`     | integer\[] | `[86,144]`                                                                      | CORE Data Provider identifiers associated with the Work’s source Outputs.                               | CORE                                                             |
+
+          | `dates`               | object\[]  | `[{"type":"published","value":"2022-04-27"}]`                                   | Structured list of publication, deposit, availability, and CORE record-management dates.                | CORE / Crossref / DataCite / OpenAlex / OpenAIRE / OAI-PMH       |
+
+          | `references`          | object\[]  | `[{"citedDoi":"10.1000/abc456","articleTitle":"Quantum effects in materials"}]` | Bibliographic references cited by the Work.                                                             | Crossref / OpenAIRE / Full-text parsing / OpenCitations          |
+
+          | `contributors`        | object\[]  | `[{"name":"Alice Smith","type":"Personal","role":"editor"}]`                    | People or organisations that contributed to the Work in roles other than Authorship.                    | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE                 |
+
+          | `links`               | object\[]  | `[{"type":"reader","url":"https://core.ac.uk/works/323030168"}]`                | CORE and source links associated with the Work.                                                         | CORE / Source metadata                                           |
+
+          | `sourceFulltextUrls`  | string\[]  | `["https://repository.example.edu/paper.pdf"]`                                  | Source URLs from which full text is available.                                                          | OAI-PMH / Repository metadata                                    |
+
+
+          #### External identifiers
+
+
+          The `externalIdentifiers` collection retains all known identifiers associated with the Work.
+
+
+          ```json
+
+          {
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": 323030168
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1109/jiot.2020.2984887"
+              },
+              {
+                "type": "ARXIV_ID",
+                "identifier": "1909.00560"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:arxiv.org:1909.00560"
+              },
+              {
+                "type": "OPENALEX_ID",
+                "identifier": "https://openalex.org/W3030303030"
+              },
+              {
+                "type": "MAG_ID",
+                "identifier": "2139460650"
+              },
+              {
+                "type": "PMID",
+                "identifier": "2844484"
+              },
+              {
+                "type": "PMCID",
+                "identifier": "PMC1234567"
+              },
+              {
+                "type": "OPENAIRE_ID",
+                "identifier": "openaire____::123456789"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type**         | **Example value**             | **Description**                        |
+
+          | ------------ | ---------------- | ----------------------------- | -------------------------------------- |
+
+          | `type`       | string           | `"DOI"`                       | Identifier scheme or classification.   |
+
+          | `identifier` | string | integer | `"10.1109/jiot.2020.2984887"` | Identifier value assigned to the Work. |
+
+
+          Supported identifier types may include:
+
+
+          | **Value**     | **Description**                      |
+
+          | ------------- | ------------------------------------ |
+
+          | `CORE_ID`     | CORE canonical Work identifier.      |
+
+          | `DOI`         | Digital Object Identifier.           |
+
+          | `OAI_ID`      | OAI-PMH identifier.                  |
+
+          | `ARXIV_ID`    | arXiv identifier.                    |
+
+          | `OPENALEX_ID` | OpenAlex Work identifier.            |
+
+          | `OPENAIRE_ID` | OpenAIRE identifier.                 |
+
+          | `MAG_ID`      | Microsoft Academic Graph identifier. |
+
+          | `PMID`        | PubMed identifier.                   |
+
+          | `PMCID`       | PubMed Central identifier.           |
+
+
+          The top-level `doi` property provides convenient access to the preferred DOI.
+
+
+          #### Inverted abstract
+
+
+          The `invertedAbstract` property contains an inverted representation of the abstract.
+
+
+          ```json
+
+          {
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            }
+          }
+
+          ```
+
+
+          Each property name represents a token, and the corresponding array contains the positions at which the token appears.
+
+
+          The standard `abstract` property should be used when clients require readable text.
+
+
+          #### Dates
+
+
+          The diagram represents dates as a structured collection. The recommended format is:
+
+
+          ```json
+
+          {
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "published_online",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "accepted",
+                "value": "2022-03-15"
+              },
+              {
+                "type": "deposited",
+                "value": "2022-04-28T11:42:34Z"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                   |
+
+          | ------------ | -------- | ----------------- | --------------------------------- |
+
+          | `type`       | string   | `"published"`     | Classification of the date.       |
+
+          | `value`      | string   | `"2022-04-27"`    | ISO 8601 date or date-time value. |
+
+
+          Supported date types may include:
+
+
+          | **Value**          | **Description**                                                     | **Source**                                          |
+
+          | ------------------ | ------------------------------------------------------------------- | --------------------------------------------------- |
+
+          | `published`        | Preferred publication date selected from the best available source. | OAI-PMH / Crossref / DataCite / OpenAlex / OpenAIRE |
+
+          | `published_online` | Online publication date.                                            | Crossref                                            |
+
+          | `published_print`  | Print publication date.                                             | Crossref                                            |
+
+          | `issued`           | Date on which the Work was formally issued.                         | Dublin Core Terms / Crossref                        |
+
+          | `accepted`         | Date on which the Work was accepted.                                | Dublin Core Terms / Crossref                        |
+
+          | `deposited`        | Date on which metadata was deposited with the source.               | Crossref                                            |
+
+          | `created`          | Date on which the source or CORE record was created.                | CORE / Crossref / OpenAlex                          |
+
+          | `updated`          | Date on which the record was last updated.                          | CORE / Crossref / OpenAlex / OpenAIRE               |
+
+          | `indexed`          | Date on which the record was indexed.                               | CORE                                                |
+
+          | `available`        | Date on which the Work became available.                            | DataCite / OAI-PMH                                  |
+
+          | `public_release`   | Date on which the Work was publicly released.                       | RIOXX                                               |
+
+          | `collected`        | Date on which the source record was collected by CORE.              | CORE / OpenAIRE                                     |
+
+
+          Because `dates` is a collection, ordering Works directly by `dates.value` is ambiguous.
+
+
+          If ordering by creation or update time is required frequently, top-level fields such as `createdDate` and `updatedDate` should be added.
+
+
+          #### References
+
+
+          The `references` collection contains structured descriptions of items cited by the Work.
+
+
+          ```json
+
+          {
+            "references": [
+              {
+                "citationId": 7865,
+                "citedCoreId": 999,
+                "citedDoi": "10.1000/abc456",
+                "articleTitle": "Quantum effects in materials",
+                "author": [
+                  "Smith J",
+                  "Lee B"
+                ],
+                "journalTitle": "Physical Review Letters",
+                "volume": "50",
+                "issue": "3",
+                "startPage": "101",
+                "endPage": "118",
+                "unstructured": "Smith J. Quantum effects in materials..."
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property**   | **Type**  | **Example value**                | **Description**                                            | **Source**                   |
+
+          | -------------- | --------- | -------------------------------- | ---------------------------------------------------------- | ---------------------------- |
+
+          | `citationId`   | integer   | `7865`                           | CORE Citation identifier for the reference, when resolved. | CORE                         |
+
+          | `citedCoreId`  | integer   | `999`                            | CORE Work identifier of the cited item, when matched.      | CORE                         |
+
+          | `citedDoi`     | string    | `"10.1000/abc456"`               | DOI of the cited item.                                     | Crossref / OpenCitations     |
+
+          | `articleTitle` | string    | `"Quantum effects in materials"` | Title of the cited item.                                   | Crossref / Full-text parsing |
+
+          | `author`       | string\[] | `["Smith J","Lee B"]`            | Authors as provided in the bibliographic reference.        | Crossref / OpenAIRE          |
+
+          | `journalTitle` | string    | `"Physical Review Letters"`      | Journal title of the cited item.                           | Crossref                     |
+
+          | `volume`       | string    | `"50"`                           | Volume of the cited item.                                  | Crossref / OpenAIRE          |
+
+          | `issue`        | string    | `"3"`                            | Issue of the cited item.                                   | Crossref / OpenAIRE          |
+
+          | `startPage`    | string    | `"101"`                          | First page of the cited item.                              | Crossref / OpenAIRE          |
+
+          | `endPage`      | string    | `"118"`                          | Last page of the cited item.                               | Crossref / OpenAIRE          |
+
+          | `unstructured` | string    | `"Smith J. Quantum effects..."`  | Complete unstructured reference string.                    | Crossref / Full-text parsing |
+
+
+          #### Contributors
+
+
+          Contributors include people or organisations that contributed to the Work in roles other than canonical Authorship.
+
+
+          ```json
+
+          {
+            "contributors": [
+              {
+                "name": "CiteSeerX",
+                "type": "Organisational",
+                "role": null
+              },
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              },
+              {
+                "name": "國立中興大學應用數學系",
+                "type": "Organisational",
+                "role": "hosting_institution"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                   | **Source**                                       |
+
+          | ------------ | -------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------ |
+
+          | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.                  | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+
+          | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or an organisation. | DataCite / OpenAIRE                              |
+
+          | `role`       | string   | `"editor"`        | Role performed by the contributor.                                | Crossref / DataCite / OpenAIRE                   |
+
+
+          Possible roles include `editor`, `translator`, `reviewer`, and `hosting_institution`.
+
+
+          #### Links
+
+
+          The `links` property contains links associated with the Work.
+
+
+          ```json
+
+          {
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/works/323030168",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ]
+          }
+
+          ```
+
+
+          | Property      | Type   | Example value                                 | Description                                   |
+
+          | ------------- | ------ | --------------------------------------------- | --------------------------------------------- |
+
+          | `type`        | string | `"download"`                                  | Classification of the linked resource.        |
+
+          | `url`         | string | `"https://core.ac.uk/download/216874849.pdf"` | URL of the linked resource.                   |
+
+          | `contentType` | string | `"application/pdf"`                           | MIME type of the linked resource, when known. |
+
+
+          Example Work record:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": 323030168
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1109/jiot.2020.2984887"
+              },
+              {
+                "type": "OPENALEX_ID",
+                "identifier": "https://openalex.org/W3030303030"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:example.org:paper/123"
+              }
+            ],
+            "title": "Intelligent edge computing for scholarly infrastructures",
+            "abstract": "This paper explores intelligent edge computing methods for scholarly infrastructure.",
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            },
+            "fullText": "The rapid growth of scholarly content has created...",
+            "doi": "10.1109/jiot.2020.2984887",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "downloadUrl": "https://core.ac.uk/download/216874849.pdf",
+            "coreIds": [
+              216874849,
+              216874850
+            ],
+            "journalIds": [
+              12345
+            ],
+            "dataProviderIds": [
+              86,
+              144
+            ],
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "accepted",
+                "value": "2022-03-15"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ],
+            "references": [
+              {
+                "citationId": 7865,
+                "citedCoreId": 999,
+                "citedDoi": "10.1000/abc456",
+                "articleTitle": "Quantum effects in materials",
+                "author": [
+                  "Smith J",
+                  "Lee B"
+                ],
+                "journalTitle": "Physical Review Letters",
+                "volume": "50",
+                "issue": "3",
+                "startPage": "101",
+                "endPage": "118",
+                "unstructured": "Smith J. Quantum effects in materials..."
+              }
+            ],
+            "contributors": [
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              }
+            ],
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/works/323030168",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ],
+            "sourceFulltextUrls": [
+              "https://repository.example.edu/paper.pdf"
+            ]
+          }
+
+          ```
+
+
+          Authorships, Outputs, Journals, and Data Providers are not embedded as complete records in this response.
+      - divider: false
+        border: false
+        id: works-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Work properties can be searched,
+          queried through field lookups or ranges, ordered, or used as facets.
+
+
+          | **Attribute**                    | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | -------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `workId`                         | No             | Yes            | No           | No            |
+
+          | `externalIdentifiers.type`       | No             | Yes            | No           | Yes           |
+
+          | `externalIdentifiers.identifier` | No             | Yes            | No           | No            |
+
+          | `title`                          | Yes            | No             | Yes          | No            |
+
+          | `abstract`                       | Yes            | No             | No           | No            |
+
+          | `invertedAbstract`               | No             | No             | No           | No            |
+
+          | `fullText`                       | Yes            | No             | No           | No            |
+
+          | `doi`                            | No             | Yes            | No           | No            |
+
+          | `yearPublished`                  | No             | Yes            | Yes          | Yes           |
+
+          | `documentType`                   | No             | Yes            | No           | Yes           |
+
+          | `downloadUrl`                    | No             | No             | No           | No            |
+
+          | `coreIds`                        | No             | Yes            | No           | No            |
+
+          | `journalIds`                     | No             | Yes            | No           | No            |
+
+          | `dataProviderIds`                | No             | Yes            | No           | Yes           |
+
+          | `dates.type`                     | No             | Yes            | No           | Yes           |
+
+          | `dates.value`                    | No             | Yes            | No           | No            |
+
+          | `references.citationId`          | No             | Yes            | No           | No            |
+
+          | `references.citedCoreId`         | No             | Yes            | No           | No            |
+
+          | `references.citedDoi`            | No             | Yes            | No           | No            |
+
+          | `references.articleTitle`        | Yes            | No             | No           | No            |
+
+          | `references.author`              | Yes            | No             | No           | No            |
+
+          | `references.journalTitle`        | Yes            | No             | No           | No            |
+
+          | `references.volume`              | No             | No             | No           | No            |
+
+          | `references.issue`               | No             | No             | No           | No            |
+
+          | `references.startPage`           | No             | No             | No           | No            |
+
+          | `references.endPage`             | No             | No             | No           | No            |
+
+          | `references.unstructured`        | Yes            | No             | No           | No            |
+
+          | `contributors.name`              | Yes            | No             | No           | No            |
+
+          | `contributors.type`              | No             | Yes            | No           | Yes           |
+
+          | `contributors.role`              | No             | Yes            | No           | Yes           |
+
+          | `links.type`                     | No             | No             | No           | No            |
+
+          | `links.url`                      | No             | No             | No           | No            |
+
+          | `links.contentType`              | No             | No             | No           | No            |
+
+          | `sourceFulltextUrls`             | No             | No             | No           | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+
+
+          Refer to the common CORE API Query Language documentation for the complete syntax.
+
+
+          #### Complex collection queries
+
+
+          The following fields are collections of structured objects:
+
+
+          * `externalIdentifiers`
+
+          * `dates`
+
+          * `references`
+
+          * `contributors`
+
+          * `links`
+
+
+          When several conditions refer to the same collection, they must apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          externalIdentifiers.type:OPENALEX_ID
+
+          AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
+
+          ```
+
+
+          Both conditions must match a single identifier object containing both values.
+
+
+          Similarly:
+
+
+          ```text
+
+          dates.type:published
+
+          AND dates.value>="2022-01-01"
+
+          ```
+
+
+          Both conditions must match a single date object where the `type` is `published` and the `value` is on or after `2022-01-01`.
+      - divider: false
+        border: false
+        id: works-api-work-endpoints
+        title: Work endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | **Operation**                          | **Method** | **Endpoint**                        |
+
+          | -------------------------------------- | ---------- | ----------------------------------- |
+
+          | Get a single Work                      | `GET`      | `/v4/works/{workId}`                |
+
+          | Search Works using URL parameters      | `GET`      | `/v4/search/works`                  |
+
+          | Search Works using a JSON request body | `POST`     | `/v4/search/works`                  |
+
+          | Retrieve Outputs for a Work            | `GET`      | `/v4/works/{workId}/outputs`        |
+
+          | Retrieve Authorships for a Work        | `GET`      | `/v4/works/{workId}/authorships`    |
+
+          | Retrieve Journals for a Work           | `GET`      | `/v4/works/{workId}/journals`       |
+
+          | Retrieve Data Providers for a Work     | `GET`      | `/v4/works/{workId}/data-providers` |
+
+
+          The `POST` search method is read-only. It does not create or modify Work records.
+
+
+          #### Get a single Work
+
+
+          Retrieves a single canonical Work record using its CORE Work identifier.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/works/{workId}
+
+          ```
+
+
+          ##### Authorization
+
+
+          | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                     |
+
+          | ------------- | -------- | ------------ | ----------------------------------- |
+
+          | `workId`      | integer  | Yes          | Unique CORE identifier of the Work. |
+
+
+          ##### Query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                         |
+
+          | ------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+
+          | `select`      | string   | No           | Comma-separated list of top-level Work fields to return. Example: `select=workId,title,doi,yearPublished,documentType`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/works/323030168" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/works/323030168?select=workId,title,doi,yearPublished,documentType,coreIds" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Intelligent edge computing for scholarly infrastructures",
+            "doi": "10.1109/jiot.2020.2984887",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "coreIds": [
+              216874849,
+              216874850
+            ]
+          }
+
+          ```
+      - divider: false
+        border: false
+        id: works-api-search-works
+        title: Search Works
+        descriptionAbout: >-
+          Searches, filters, orders, facets, counts, and paginates canonical
+          Work records.
+
+
+          Work search supports:
+
+
+          * Keyword search
+
+          * Vector-based semantic search
+
+          * Hybrid search combining keyword and vector relevance
+
+          * Structured field conditions
+
+          * Explicit client-generated vectors
+
+          * Field selection, ordering, faceting, counting, and pagination
+
+
+          Work search is available through `GET` and `POST`:
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/search/works
+
+          POST https://api.core.ac.uk/v4/search/works
+
+          ```
+
+
+          Both methods return the same Work search-response structure.
+
+
+          `GET` is suitable for keyword searches, text-based vector searches, and hybrid searches that can be represented conveniently in a URL.
+
+
+          `POST` is recommended for:
+
+
+          * Explicit client-generated vectors
+
+          * Long or complex query expressions
+
+          * Requests containing many selected fields or facets
+
+          * Searches that may exceed practical URL-length limits
+
+
+          The `POST` method is read-only. It does not create or modify Work records.
+
+
+          #### Search modes
+
+
+          The `searchMode` parameter controls how textual query content is evaluated.
+
+
+          | **Value** | **Description**                                                                        |
+
+          | --------- | -------------------------------------------------------------------------------------- |
+
+          | `keyword` | Uses textual relevance and structured field conditions. No vector search is performed. |
+
+          | `vector`  | Converts the textual query into an embedding and retrieves semantically similar Works. |
+
+          | `hybrid`  | Combines keyword relevance with vector similarity.                                     |
+
+
+          The default mode is `keyword`.
+
+
+          When `searchMode` is omitted, the request uses standard keyword and structured search.
+
+
+          #### Structured conditions
+
+
+          Structured conditions inside `q` continue to restrict results in all search modes.
+
+
+          For example:
+
+
+          ```text
+
+          "text and data mining" AND yearPublished>=2020
+
+          ```
+
+
+          This expression contains:
+
+
+          * A textual query: `"text and data mining"`
+
+          * A structured publication-year condition: `yearPublished>=2020`
+
+
+          In vector mode, the textual query is converted into an embedding, while the publication-year condition is applied as a structured restriction.
+
+
+          #### Vector source content
+
+
+          CORE generates Work embeddings from the fields configured in the Work vector index.
+
+
+          The API documentation should state the final indexed fields explicitly. Recommended fields are:
+
+
+          * `title`
+
+          * `abstract`
+
+          * `fullText`
+
+
+          The `invertedAbstract` object should not be embedded directly. Where an inverted abstract is used, CORE should first reconstruct the readable abstract text.
+
+
+          Vector embeddings are search-index data and are not returned as properties of the Work entity.
+
+
+          #### GET search parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                                       | **Description**                                                                                                            |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`           | string   | No           | `*`                                               | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+
+          | `searchMode`  | string   | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                                   |
+
+          | `vectorTopK`  | integer  | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                                          |
+
+          | `orderby`     | string   | No           | Relevance for textual, vector, and hybrid queries | Comma-separated ordering directives in `field:direction` format.                                                           |
+
+          | `select`      | string   | No           | All retrievable fields                            | Comma-separated list of Work fields to return.                                                                             |
+
+          | `facets`      | string   | No           | —                                                 | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
+
+          | `count`       | boolean  | No           | `false`                                           | Indicates whether the total number of matching Work records should be included.                                            |
+
+          | `limit`       | integer  | No           | `10`                                              | Maximum number of Work records to return.                                                                                  |
+
+          | `offset`      | integer  | No           | `0`                                               | Number of matching Work records to skip.                                                                                   |
+
+
+          The `GET` method supports text-based vector search. Explicit embedding vectors are accepted only through `POST`.
+
+
+          #### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                                       | **Description**                                                                   |
+
+          | ------------ | --------- | ------------ | ------------------------------------------------- | --------------------------------------------------------------------------------- |
+
+          | `q`          | string    | No           | `*`                                               | CORE query expression containing textual content, structured conditions, or both. |
+
+          | `searchMode` | string    | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.          |
+
+          | `vector`     | number\[] | No           | —                                                 | Client-generated embedding used for vector or hybrid search.                      |
+
+          | `vectorTopK` | integer   | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval. |
+
+          | `orderby`    | string\[] | No           | Relevance for textual, vector, and hybrid queries | Ordered list of sorting directives in `field:direction` format.                   |
+
+          | `select`     | string\[] | No           | All retrievable fields                            | List of Work fields to return.                                                    |
+
+          | `facets`     | string\[] | No           | —                                                 | List of facetable fields for which value buckets and counts should be returned.   |
+
+          | `count`      | boolean   | No           | `false`                                           | Indicates whether the total number of matching Work records should be included.   |
+
+          | `limit`      | integer   | No           | `10`                                              | Maximum number of Work records to return.                                         |
+
+          | `offset`     | integer   | No           | `0`                                               | Number of matching Work records to skip.                                          |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**             | **POST body property**                        |
+
+          | ----------------------------------- | --------------------------------------------- |
+
+          | `q=yearPublished:2022`              | `"q": "yearPublished:2022"`                   |
+
+          | `searchMode=vector`                 | `"searchMode": "vector"`                      |
+
+          | `searchMode=hybrid`                 | `"searchMode": "hybrid"`                      |
+
+          | `vectorTopK=100`                    | `"vectorTopK": 100`                           |
+
+          | Not supported through `GET`         | `"vector": [0.012, -0.084, 0.031, ...]`       |
+
+          | `orderby=yearPublished:desc`        | `"orderby": ["yearPublished:desc"]`           |
+
+          | `select=workId,title,doi`           | `"select": ["workId", "title", "doi"]`        |
+
+          | `facets=documentType,yearPublished` | `"facets": ["documentType", "yearPublished"]` |
+
+          | `count=true`                        | `"count": true`                               |
+
+          | `limit=10`                          | `"limit": 10`                                 |
+
+          | `offset=0`                          | `"offset": 0`                                 |
+
+
+          #### Keyword search
+
+
+          Keyword search uses textual relevance without vector similarity.
+
+
+          ##### Search by title
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=title:"edge computing"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "title:\"edge computing\"",
+            "searchMode": "keyword"
+          }
+
+          ```
+
+
+          ##### Search across all searchable Work fields
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"
+
+          ```
+
+
+          A broad textual query may search fields including:
+
+
+          * `title`
+
+          * `abstract`
+
+          * `fullText`
+
+          * Searchable reference fields
+
+          * Searchable contributor fields
+
+
+          When `orderby` is omitted, keyword results are ordered by textual relevance.
+
+
+          ##### Search full text
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=fullText:"text and data mining"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "fullText:\"text and data mining\"",
+            "searchMode": "keyword"
+          }
+
+          ```
+
+
+          #### Text-based vector search
+
+
+          Text-based vector search allows clients to submit natural-language text without generating an embedding themselves.
+
+
+          CORE extracts the textual query, generates an embedding, and retrieves semantically similar Works.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=vector
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "vector",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          Unlike keyword search, vector search may retrieve conceptually related Works that do not contain the exact query terms.
+
+
+          For example, the query:
+
+
+          ```text
+
+          institution name matching
+
+          ```
+
+
+          may retrieve Works discussing:
+
+
+          * Affiliation disambiguation
+
+          * Organisation-name normalisation
+
+          * Institutional entity resolution
+
+          * Research-organisation matching
+
+
+          #### Vector search with structured conditions
+
+
+          Vector retrieval can be combined with structured Work conditions.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"&searchMode=vector
+
+          ```
+
+
+          Executable request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/works?q="text%20and%20data%20mining"%20AND%20yearPublished>=2020%20AND%20documentType:"research%20article"&searchMode=vector&select=workId,title,abstract,yearPublished,documentType&limit=10' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/works" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "\"text and data mining\" AND yearPublished>=2020 AND documentType:\"research article\"",
+              "searchMode": "vector",
+              "select": [
+                "workId",
+                "title",
+                "abstract",
+                "yearPublished",
+                "documentType"
+              ],
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          This request:
+
+
+          * Converts `text and data mining` into an embedding
+
+          * Retrieves semantically similar Works
+
+          * Restricts results to Works published from 2020 onwards
+
+          * Restricts results to research articles
+
+          * Returns selected Work fields
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "hybrid",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          In hybrid mode, the same textual query is used for:
+
+
+          * Keyword retrieval
+
+          * Vector generation
+
+          * Combined relevance ranking
+
+
+          The implementation should document how keyword and vector scores are combined.
+
+
+          #### Hybrid search with structured conditions
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\" AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished",
+              "documentType"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          The textual query contributes to both keyword and vector relevance. The publication-year condition restricts the returned Works.
+
+
+          #### User-generated vector search
+
+
+          Users may supply an embedding directly through `POST`.
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "yearPublished>=2020",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "vectorTopK": 100,
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          The vector in this example is shortened for readability. A real request must contain the complete embedding required by the configured Work vector index.
+
+
+          When an explicit vector is supplied:
+
+
+          * CORE uses the supplied vector instead of generating one from query text
+
+          * `q` may contain structured conditions
+
+          * The vector must be compatible with the Work vector index
+
+
+          The public API documentation must specify:
+
+
+          * The embedding model or compatible vector-generation method
+
+          * The required number of vector dimensions
+
+          * The accepted numeric format
+
+          * Whether vectors must be normalised
+
+          * The maximum request-body size
+
+
+          #### Hybrid search using a client-generated vector
+
+
+          A user-generated vector may be combined with keyword relevance.
+
+
+          ```json
+
+          {
+            "q": "title:\"data mining\" AND yearPublished>=2020",
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "hybrid",
+            "vectorTopK": 100,
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This request combines:
+
+
+          * Keyword relevance for `data mining`
+
+          * Semantic similarity using the supplied vector
+
+          * A publication-year restriction
+
+
+          #### Explicit vector validation
+
+
+          A request containing `vector` should be rejected when:
+
+
+          * `searchMode` is `keyword`
+
+          * The vector has the wrong number of dimensions
+
+          * The vector contains invalid numeric values
+
+          * The vector is empty
+
+          * The vector is incompatible with the configured Work vector index
+
+
+          Example invalid request:
+
+
+          ```json
+
+          {
+            "searchMode": "keyword",
+            "vector": [
+              0.12,
+              0.34
+            ]
+          }
+
+          ```
+
+
+          Recommended response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
+
+
+          #### Vector candidate count
+
+
+          The optional `vectorTopK` property controls the number of nearest vector candidates considered before final result processing.
+
+
+          Example:
+
+
+          ```json
+
+          {
+            "q": "\"scholarly document classification\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          `vectorTopK` is not the number of records returned.
+
+
+          In this example:
+
+
+          * Up to 100 nearest vector candidates are considered
+
+          * At most 10 records are returned
+
+
+          CORE should define:
+
+
+          * The default value
+
+          * The minimum permitted value
+
+          * The maximum permitted value
+
+          * Whether the value can be overridden by all API plans
+
+
+          #### Vector and hybrid result ordering
+
+
+          When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
+
+
+          When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
+
+
+          Applying an explicit `orderby` expression may replace relevance-based ordering.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/works?q="machine learning"&searchMode=vector&orderby=yearPublished:desc
+
+          ```
+
+
+          This request orders the matching Works by publication year rather than vector similarity.
+
+
+          API users should omit `orderby` when semantic or hybrid relevance should determine the result order.
+
+
+          #### Search-result scores
+
+
+          Vector and hybrid relevance scores are search-result metadata. They are not persistent Work properties and should not be included in the Work data-structure table.
+
+
+          When exposed, a search result may include:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Text and data mining for scholarly repositories",
+            "yearPublished": 2025,
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          The API should document whether `relevanceScore` represents:
+
+
+          * Keyword relevance
+
+          * Vector similarity
+
+          * Combined hybrid relevance
+
+
+          Scores generated by different search modes should not be assumed to be directly comparable.
+      - divider: false
+        border: false
+        id: works-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          
+          #### Retrieve a Work by DOI
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=doi:"10.1109/jiot.2020.2984887"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "doi:\"10.1109/jiot.2020.2984887\""
+          }
+
+          ```
+
+
+          #### Retrieve a Work by external identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:\"https://openalex.org/W3030303030\""
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `externalIdentifiers` object.
+
+
+          #### Retrieve Works by publication year and document type
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=yearPublished>=2020 AND documentType:"research article"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "yearPublished>=2020 AND documentType:\"research article\""
+          }
+
+          ```
+
+
+          #### Retrieve the Work represented by an Output
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=coreIds:216874849
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "coreIds:216874849"
+          }
+
+          ```
+
+
+          #### Retrieve Works associated with a Journal
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=journalIds:12345
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "journalIds:12345"
+          }
+
+          ```
+
+
+          #### Retrieve Works associated with a Data Provider
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=dataProviderIds:86
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "dataProviderIds:86"
+          }
+
+          ```
+
+
+          #### Retrieve Works citing a DOI
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=references.citedDoi:"10.1000/abc456"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "references.citedDoi:\"10.1000/abc456\""
+          }
+
+          ```
+
+
+          #### Retrieve Works with full text
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=_exists_:fullText
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "_exists_:fullText"
+          }
+
+          ```
+
+
+          #### Facets with vector search
+
+
+          Facets may be requested with keyword, vector, and hybrid searches.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="climate change"&searchMode=hybrid&facets=documentType,yearPublished&count=true&limit=0
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"climate change\"",
+            "searchMode": "hybrid",
+            "facets": [
+              "documentType",
+              "yearPublished"
+            ],
+            "count": true,
+            "limit": 0
+          }
+
+          ```
+
+
+          The API implementation should define whether vector and hybrid facet counts are calculated over:
+
+
+          - The complete filtered index
+
+          - The vector candidate set
+
+          - The final ranked result set
+
+
+          This behaviour should be stated explicitly because it affects how clients interpret facet counts.
+
+
+          #### Pagination with vector search
+
+
+          Vector and hybrid results may be paginated using `limit` and `offset`.
+
+
+          First page:
+
+
+          ```json
+
+          {
+            "q": "\"artificial intelligence in education\"",
+            "searchMode": "hybrid",
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          Second page:
+
+
+          ```json
+
+          {
+            "q": "\"artificial intelligence in education\"",
+            "searchMode": "hybrid",
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          For stable pagination, the same query, search mode, vector, candidate settings, and index version should be used across requests.
+
+
+          Because vector indexes may be updated between requests, results may change when pagination requests are made at different times.
+
+
+          Example vector-search response:
+
+
+          ```json
+
+          {
+            "totalHits": 245,
+            "searchMode": "vector",
+            "results": [
+              {
+                "workId": 323030168,
+                "title": "Text and data mining for scholarly repositories",
+                "abstract": "This study examines semantic discovery across scholarly repositories.",
+                "yearPublished": 2025,
+                "documentType": [
+                  "research article"
+                ],
+                "relevanceScore": 0.873
+              },
+              {
+                "workId": 323030169,
+                "title": "Semantic retrieval for open research infrastructures",
+                "abstract": "A vector-based method for discovering related scholarly resources.",
+                "yearPublished": 2024,
+                "documentType": [
+                  "research article"
+                ],
+                "relevanceScore": 0.846
+              }
+            ]
+          }
+
+          ```
+
+
+          Include `searchMode` and `relevanceScore` only if the implementation returns them.
+
+
+          #### Search responses
+
+
+          | Status | Description |
+
+          | --- | --- |
+
+          | `200` | The Work search was completed successfully. |
+
+          | `400` | The request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401` | Authentication credentials are missing or invalid. |
+
+          | `413` | The POST request body exceeds the permitted size. |
+
+          | `429` | The API request limit has been exceeded. |
+
+          | `500` | An unexpected server error occurred. |
+      - divider: false
+        border: false
+        id: "#works-api-relationship-oriented-endpoints"
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to records connected to a Work.
+
+
+          #### Outputs for a Work
+
+
+          Retrieves the Output records represented by the canonical Work.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/outputs
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/works/323030168/outputs?count=true&limit=10&offset=0" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 2,
+            "results": [
+              {
+                "coreId": 216874849,
+                "dataProviderId": 86,
+                "title": "Intelligent edge computing for scholarly infrastructures",
+                "doi": "10.1109/jiot.2020.2984887",
+                "yearPublished": 2022
+              },
+              {
+                "coreId": 216874850,
+                "dataProviderId": 144,
+                "title": "Intelligent edge computing for scholarly infrastructures",
+                "doi": "10.1109/jiot.2020.2984887",
+                "yearPublished": 2022
+              }
+            ]
+          }
+
+          ```
+
+
+          Because Outputs do not contain a `workId`, this relationship endpoint is not equivalent to a simple `q=workId:{workId}` Output search.
+
+
+          #### Authorships for a Work
+
+
+          Retrieves the canonical Authorship records associated with the Work.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/authorships
+
+          ```
+
+
+          By default, Authorship records should be ordered by `rank:asc`.
+
+
+          Equivalent GET search:
+
+
+          ```http
+
+          GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "workId:{workId}",
+            "orderby": [
+              "rank:asc"
+            ]
+          }
+
+          ```
+
+
+          #### Journals for a Work
+
+
+          Retrieves the complete Journal records referenced by the Work's `journalIds`.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/journals
+
+          ```
+
+
+          #### Data Providers for a Work
+
+
+          Retrieves the complete Data Provider records referenced by the Work's `dataProviderIds`.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET /v4/works/{workId}/data-providers
+
+          ```
