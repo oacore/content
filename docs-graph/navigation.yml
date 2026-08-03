@@ -5,7 +5,7 @@ navItems:
       - item: CORE graph data model
   - item: Entities
     children:
-      - item: Works
+      - item: Work
         children:
           - hidden: false
             item: Introduction
@@ -28,7 +28,7 @@ navItems:
           - hidden: false
             item: Relationship-oriented endpoints
             href: "#works-api-relationship-oriented-endpoints"
-      - item: Outputs
+      - item: Output
       - item: Data Providers
         children:
           - hidden: false
