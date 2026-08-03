@@ -5,11 +5,100 @@ navItems:
       - item: CORE graph data model
   - item: Entities
     children:
-      - item: Work
-      - item: Output
-      - item: Data Provider
+      - item: Works
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#works-api-introduction"
+          - hidden: false
+            href: "#works-api-data-structure"
+            item: Data structure
+          - hidden: false
+            item: Supported field operations
+            href: "#works-api-supported-field-operations"
+          - hidden: false
+            item: Work endpoints
+            href: "#works-api-work-endpoints"
+          - hidden: false
+            item: Search Works
+            href: "#works-api-search-works"
+          - hidden: false
+            item: Search examples
+            href: "#works-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#works-api-relationship-oriented-endpoints"
+      - item: Outputs
+      - item: Data Providers
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#dataproviders-api-introduction"
+          - hidden: false
+            href: "#dataproviders-api-data-structure"
+            item: Data structure
+          - hidden: false
+            href: "#dataproviders-api-supported-field-operations"
+            item: Supported field operations
+          - hidden: false
+            item: Data Provider endpoints
+            href: "#dataproviders-api-data-provider-endpoints"
+          - hidden: false
+            href: "#dataproviders-api-search-data-providers"
+            item: Search Data providers
+          - hidden: false
+            href: "#dataproviders-api-search-examples"
+            item: Search examples
+          - hidden: false
+            href: "#dataproviders-api-relationship-oriented-endpoints"
+            item: Relationship-oriented endpoints
       - item: Journals
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#journals-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#journals-api-data-structure"
+          - hidden: false
+            href: "#journals-api-supported-field-operations"
+            item: Supported field operations
+          - hidden: false
+            href: "#journals-api-journal-endpoints"
+            item: Journal endpoints
+          - hidden: false
+            href: "#journals-api-search-journals"
+            item: Search Journals
+          - hidden: false
+            href: "#journals-api-search-examples"
+            item: Search examples
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#journals-api-relationship-oriented-endpoints"
       - item: Institutions
+        href: ""
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#institutions-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#institutions-api-data-structure"
+          - hidden: false
+            href: "#institutions-api-supported-field-operations"
+            item: Supported field operations
+          - hidden: false
+            item: Institutions endpoints
+            href: "#institutions-api-institutions-endpoints"
+          - hidden: false
+            item: Search Institutions
+            href: "#institutions-api-search-institutions"
+          - hidden: false
+            href: "#institutions-api-search-examples"
+            item: Search examples
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#institutions-api-relationship-oriented-endpoints"
       - item: Authorships
         children:
           - item: Introduction
@@ -48,6 +137,9 @@ navItems:
           - hidden: false
             item: Search examples
             href: "#affiliations-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#affiliations-api-relationship-oriented-endpoints"
       - item: Authors
         children:
           - hidden: false
