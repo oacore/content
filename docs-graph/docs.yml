@@ -12372,3 +12372,9 @@ items:
           GET /v4/works/{workId}/data-providers
 
           ```
+  - item: Outputs
+    children:
+      - divider: false
+        border: false
+        id: outputs-api-introduction
+        title: Introduction
