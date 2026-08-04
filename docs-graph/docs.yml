@@ -12378,3 +12378,51 @@ items:
         border: false
         id: outputs-api-introduction
         title: Introduction
+        descriptionAbout: >-
+          The Output entity represents a source-specific manifestation of a
+          scholarly research item harvested by CORE.
+
+
+          An Output corresponds to one record supplied by a Data Provider, such as:
+
+
+          * an institutional repository;
+
+          * a subject repository;
+
+          * a preprint server;
+
+          * a Journal;
+
+          * a Publisher platform;
+
+          * another scholarly metadata source.
+
+
+          Unlike a Work, which is a canonical deduplicated representation of a research item, an Output preserves the metadata and full-text information associated with one particular source record.
+
+
+          An Output may also contain CORE-generated processing information, including:
+
+
+          * extracted full text;
+
+          * normalised document types;
+
+          * language detection;
+
+          * open-access classification;
+
+          * Sustainable Development Goal classification;
+
+          * full-text availability status.
+        images:
+          - file: /images/docs-graph/outputs.png
+        subTitle: |-
+          Each Output:
+
+          * has exactly one CORE Output identifier;
+          * is associated with one Data Provider;
+          * may be associated with one Journal;
+          * may be associated with one Publisher;
+          * may be represented by one canonical Work.
