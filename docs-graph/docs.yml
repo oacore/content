@@ -11329,7 +11329,94 @@ items:
         id: works-api-search-examples
         title: Search examples
         descriptionAbout: >-
-          
+          #### Keyword search
+
+
+          Keyword search uses textual relevance without vector similarity.
+
+
+          ##### Search by title
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=title:"edge computing"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "title:\"edge computing\"",
+            "searchMode": "keyword"
+          }
+
+          ```
+
+
+          ##### Search across all searchable Work fields
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"
+
+          ```
+
+
+          A broad textual query may search fields including:
+
+
+          * `title`
+
+          * `abstract`
+
+          * `fullText`
+
+          * Searchable reference fields
+
+          * Searchable contributor fields
+
+
+          When `orderby` is omitted, keyword results are ordered by textual relevance.
+
+
+          ##### Search full text
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=fullText:"text and data mining"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "fullText:\"text and data mining\"",
+            "searchMode": "keyword"
+          }
+
+          ```
+
+
+          ####Other structured search examples
+
+
           #### Retrieve a Work by DOI
 
 
@@ -11531,6 +11618,9 @@ items:
           }
 
           ```
+
+
+
 
 
           #### Facets with vector search
