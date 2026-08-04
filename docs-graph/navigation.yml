@@ -39,6 +39,9 @@ navItems:
           - hidden: false
             item: Supported field operations
             href: "#outputs-api-supported-field-operations"
+          - hidden: false
+            item: "#outputs-api-output-endpoints"
+            href: Output endpoints
       - item: Data Providers
         children:
           - hidden: false
