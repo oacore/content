@@ -13186,3 +13186,194 @@ items:
           }
 
           ```
+      - divider: false
+        border: false
+        id: outputs-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Output properties can be searched,
+          queried through field lookups or ranges, ordered, or used as facets.
+
+
+          | **Attribute**                           | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | --------------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `coreId`                                | No             | Yes            | No           | No            |
+
+          | `dataProviderId`                        | No             | Yes            | No           | Yes           |
+
+          | `publisherId`                           | No             | Yes            | No           | Yes           |
+
+          | `journalId`                             | No             | Yes            | No           | Yes           |
+
+          | `externalIdentifiers.type`              | No             | Yes            | No           | Yes           |
+
+          | `externalIdentifiers.identifier`        | No             | Yes            | No           | No            |
+
+          | `title`                                 | Yes            | No             | Yes          | No            |
+
+          | `invertedAbstract`                      | No             | No             | No           | No            |
+
+          | `fullText`                              | Yes            | No             | No           | No            |
+
+          | `fullTextStatus`                        | No             | Yes            | No           | Yes           |
+
+          | `yearPublished`                         | No             | Yes            | Yes          | Yes           |
+
+          | `documentType`                          | No             | Yes            | No           | Yes           |
+
+          | `subjects`                              | Yes            | Yes            | No           | Yes           |
+
+          | `issn`                                  | No             | Yes            | No           | No            |
+
+          | `downloadUrl`                           | No             | No             | No           | No            |
+
+          | `disabled`                              | No             | Yes            | No           | Yes           |
+
+          | `deleted`                               | No             | Yes            | No           | Yes           |
+
+          | `dates.type`                            | No             | Yes            | No           | Yes           |
+
+          | `dates.value`                           | No             | Yes            | No           | No            |
+
+          | `ids.type`                              | No             | No             | No           | No            |
+
+          | `ids.identifier`                        | No             | No             | No           | No            |
+
+          | `accessRights.accessRight`              | No             | Yes            | No           | Yes           |
+
+          | `accessRights.accessRightUri`           | No             | Yes            | No           | No            |
+
+          | `accessRights.scheme`                   | No             | Yes            | No           | Yes           |
+
+          | `accessRights.isOpenAccess`             | No             | Yes            | No           | Yes           |
+
+          | `accessRights.oaStatus`                 | No             | Yes            | No           | Yes           |
+
+          | `accessRights.openAccessRoute`          | No             | Yes            | No           | Yes           |
+
+          | `accessRights.freeToRead`               | No             | Yes            | No           | Yes           |
+
+          | `accessRights.accessStartDate`          | No             | Yes            | No           | No            |
+
+          | `accessRights.accessEndDate`            | No             | Yes            | No           | No            |
+
+          | `accessRights.embargoEndDate`           | No             | Yes            | No           | No            |
+
+          | `accessRights.version`                  | No             | Yes            | No           | Yes           |
+
+          | `accessRights.oaUrl`                    | No             | No             | No           | No            |
+
+          | `accessRights.pdfUrl`                   | No             | No             | No           | No            |
+
+          | `accessRights.anyRepositoryHasFulltext` | No             | Yes            | No           | Yes           |
+
+          | `accessRights.raw`                      | No             | No             | No           | No            |
+
+          | `contributors.name`                     | Yes            | No             | No           | No            |
+
+          | `contributors.type`                     | No             | Yes            | No           | Yes           |
+
+          | `contributors.role`                     | No             | Yes            | No           | Yes           |
+
+          | `language.id`                           | No             | No             | No           | No            |
+
+          | `language.code`                         | No             | Yes            | No           | Yes           |
+
+          | `language.name`                         | Yes            | Yes            | No           | Yes           |
+
+          | `sourceFulltextUrls`                    | No             | No             | No           | No            |
+
+          | `links.type`                            | No             | No             | No           | No            |
+
+          | `links.url`                             | No             | No             | No           | No            |
+
+          | `links.contentType`                     | No             | No             | No           | No            |
+
+          | `urls`                                  | No             | No             | No           | No            |
+
+          | `license.name`                          | No             | Yes            | No           | Yes           |
+
+          | `license.uri`                           | No             | Yes            | No           | No            |
+
+          | `license.startDate`                     | No             | Yes            | No           | No            |
+
+          | `license.delayDays`                     | No             | Yes            | No           | No            |
+
+          | `license.contentVersion`                | No             | Yes            | No           | Yes           |
+
+          | `license.raw`                           | No             | No             | No           | No            |
+
+          | `sdg.type`                              | No             | Yes            | No           | Yes           |
+
+          | `sdg.score`                             | No             | Yes            | No           | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+
+
+          Refer to the common CORE API Query Language documentation for the complete query syntax.
+
+
+          #### Complex collection queries
+
+
+          The following fields are structured collections:
+
+
+          * `externalIdentifiers`
+
+          * `dates`
+
+          * `accessRights`
+
+          * `contributors`
+
+          * `language`
+
+          * `links`
+
+          * `sdg`
+
+
+          When multiple conditions refer to one collection, the conditions must apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          externalIdentifiers.type:DOI
+
+          AND externalIdentifiers.identifier:"10.1000/xyz"
+
+          ```
+
+
+          Both conditions must match a single `externalIdentifiers` object containing both values.
+
+
+          Similarly:
+
+
+          ```text
+
+          accessRights.oaStatus:gold
+
+          AND accessRights.isOpenAccess:true
+
+          ```
+
+
+          Both conditions must match a single `accessRights` object for which both conditions are satisfied.
