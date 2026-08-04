@@ -13380,4 +13380,118 @@ items:
       - divider: false
         border: false
         title: Output endpoints
-        id: "#outputs-api-output-endpoints"
+        id: outputs-api-output-endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | **Operation**                              | **Method** | **Endpoint**                         |
+
+          | ------------------------------------------ | ---------- | ------------------------------------ |
+
+          | Get a single Output                        | `GET`      | `/v4/outputs/{coreId}`               |
+
+          | Search Outputs using URL parameters        | `GET`      | `/v4/search/outputs`                 |
+
+          | Search Outputs using a JSON request body   | `POST`     | `/v4/search/outputs`                 |
+
+          | Retrieve the Work represented by an Output | `GET`      | `/v4/outputs/{coreId}/work`          |
+
+          | Retrieve the Data Provider of an Output    | `GET`      | `/v4/outputs/{coreId}/data-provider` |
+
+          | Retrieve the Journal of an Output          | `GET`      | `/v4/outputs/{coreId}/journal`       |
+
+          | Retrieve the Publisher of an Output        | `GET`      | `/v4/outputs/{coreId}/publisher`     |
+
+
+          The `POST` search method is read-only. It does not create or modify Output records.
+
+
+          #### Get a single Output
+
+
+          Retrieves one Output record using its CORE Output identifier.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/outputs/{coreId}
+
+          ```
+
+
+          The `POST` search endpoint is not an alternative single-record retrieval endpoint.
+
+
+          ##### Authorization
+
+
+          | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                              |
+
+          | ------------- | -------- | ------------ | -------------------------------------------- |
+
+          | `coreId`      | integer  | Yes          | Unique CORE identifier of the Output record. |
+
+
+          ##### Query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                       |
+
+          | ------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
+
+          | `select`      | string   | No           | Comma-separated list of top-level Output fields to return. Example: `select=coreId,title,yearPublished,documentType`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/outputs/216874849" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/outputs/216874849?select=coreId,title,yearPublished,documentType,dataProviderId,journalId" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "coreId": 216874849,
+            "title": "Sustainable Development Goals and Research",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "dataProviderId": 86,
+            "journalId": 12345
+          }
+
+          ```
