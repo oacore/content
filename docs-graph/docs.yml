@@ -11217,7 +11217,7 @@ items:
           * The maximum request-body size
 
 
-          #### Hybrid search using a client-generated vector
+          #### Hybrid search using a user-generated vector
 
 
           A user-generated vector may be combined with keyword relevance.
