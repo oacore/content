@@ -29,6 +29,10 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#works-api-relationship-oriented-endpoints"
       - item: Outputs
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#outputs-api-introduction"
       - item: Data Providers
         children:
           - hidden: false
