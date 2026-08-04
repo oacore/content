@@ -44,7 +44,7 @@ navItems:
             href: "#outputs-api-output-endpoints"
           - hidden: false
             item: Search Outputs
-            href: "#outputs-api-search-output"
+            href: "#outputs-api-search-outputs"
       - item: Data Providers
         children:
           - hidden: false
