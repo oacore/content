@@ -10648,7 +10648,7 @@ items:
         border: false
         id: works-api-search-works
         title: Search Works
-        descriptionAbout: >+
+        descriptionAbout: >-
           Searches, filters, orders, facets, counts, and paginates canonical
           Work records.
 
@@ -10860,6 +10860,470 @@ items:
 
           | `offset=0`                          | `"offset": 0`                                 |
 
+
+
+
+          #### Text-based vector search
+
+
+          Text-based vector search allows clients to submit natural-language text without generating an embedding themselves.
+
+
+          CORE extracts the textual query, generates an embedding, and retrieves semantically similar Works.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=vector
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "vector",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          Unlike keyword search, vector search may retrieve conceptually related Works that do not contain the exact query terms.
+
+
+          For example, the query:
+
+
+          ```text
+
+          institution name matching
+
+          ```
+
+
+          may retrieve Works discussing:
+
+
+          * Affiliation disambiguation
+
+          * Organisation-name normalisation
+
+          * Institutional entity resolution
+
+          * Research-organisation matching
+
+
+          #### Vector search with structured conditions
+
+
+          Vector retrieval can be combined with structured Work conditions.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"&searchMode=vector
+
+          ```
+
+
+          Executable request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/works?q="text%20and%20data%20mining"%20AND%20yearPublished>=2020%20AND%20documentType:"research%20article"&searchMode=vector&select=workId,title,abstract,yearPublished,documentType&limit=10' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/works" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "\"text and data mining\" AND yearPublished>=2020 AND documentType:\"research article\"",
+              "searchMode": "vector",
+              "select": [
+                "workId",
+                "title",
+                "abstract",
+                "yearPublished",
+                "documentType"
+              ],
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          This request:
+
+
+          * Converts `text and data mining` into an embedding
+
+          * Retrieves semantically similar Works
+
+          * Restricts results to Works published from 2020 onwards
+
+          * Restricts results to research articles
+
+          * Returns selected Work fields
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "hybrid",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          In hybrid mode, the same textual query is used for:
+
+
+          * Keyword retrieval
+
+          * Vector generation
+
+          * Combined relevance ranking
+
+
+          The implementation should document how keyword and vector scores are combined.
+
+
+          #### Hybrid search with structured conditions
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\" AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished",
+              "documentType"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          The textual query contributes to both keyword and vector relevance. The publication-year condition restricts the returned Works.
+
+
+          #### User-generated vector search
+
+
+          Users may supply an embedding directly through `POST`.
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "yearPublished>=2020",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "vectorTopK": 100,
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          The vector in this example is shortened for readability. A real request must contain the complete embedding required by the configured Work vector index.
+
+
+          When an explicit vector is supplied:
+
+
+          * CORE uses the supplied vector instead of generating one from query text
+
+          * `q` may contain structured conditions
+
+          * The vector must be compatible with the Work vector index
+
+
+          The public API documentation must specify:
+
+
+          * The embedding model or compatible vector-generation method
+
+          * The required number of vector dimensions
+
+          * The accepted numeric format
+
+          * Whether vectors must be normalised
+
+          * The maximum request-body size
+
+
+          #### Hybrid search using a user-generated vector
+
+
+          A user-generated vector may be combined with keyword relevance.
+
+
+          ```json
+
+          {
+            "q": "title:\"data mining\" AND yearPublished>=2020",
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "hybrid",
+            "vectorTopK": 100,
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This request combines:
+
+
+          * Keyword relevance for `data mining`
+
+          * Semantic similarity using the supplied vector
+
+          * A publication-year restriction
+
+
+          #### Explicit vector validation
+
+
+          A request containing `vector` should be rejected when:
+
+
+          * `searchMode` is `keyword`
+
+          * The vector has the wrong number of dimensions
+
+          * The vector contains invalid numeric values
+
+          * The vector is empty
+
+          * The vector is incompatible with the configured Work vector index
+
+
+          Example invalid request:
+
+
+          ```json
+
+          {
+            "searchMode": "keyword",
+            "vector": [
+              0.12,
+              0.34
+            ]
+          }
+
+          ```
+
+
+          Recommended response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
+
+
+          #### Vector candidate count
+
+
+          The optional `vectorTopK` property controls the number of nearest vector candidates considered before final result processing.
+
+
+          Example:
+
+
+          ```json
+
+          {
+            "q": "\"scholarly document classification\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          `vectorTopK` is not the number of records returned.
+
+
+          In this example:
+
+
+          * Up to 100 nearest vector candidates are considered
+
+          * At most 10 records are returned
+
+
+          CORE should define:
+
+
+          * The default value
+
+          * The minimum permitted value
+
+          * The maximum permitted value
+
+          * Whether the value can be overridden by all API plans
+
+
+          #### Vector and hybrid result ordering
+
+
+          When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
+
+
+          When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
+
+
+          Applying an explicit `orderby` expression may replace relevance-based ordering.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/works?q="machine learning"&searchMode=vector&orderby=yearPublished:desc
+
+          ```
+
+
+          This request orders the matching Works by publication year rather than vector similarity.
+
+
+          API users should omit `orderby` when semantic or hybrid relevance should determine the result order.
+
+
+          #### Search-result scores
+
+
+          Vector and hybrid relevance scores are search-result metadata. They are not persistent Work properties and should not be included in the Work data-structure table.
+
+
+          When exposed, a search result may include:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Text and data mining for scholarly repositories",
+            "yearPublished": 2025,
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          The API should document whether `relevanceScore` represents:
+
+
+          * Keyword relevance
+
+          * Vector similarity
+
+          * Combined hybrid relevance
+
+
+          Scores generated by different search modes should not be assumed to be directly comparable.
       - divider: false
         border: false
         id: works-api-search-examples
@@ -11155,6 +11619,468 @@ items:
 
           ```
 
+
+          #### Text-based vector search
+
+
+          Text-based vector search allows clients to submit natural-language text without generating an embedding themselves.
+
+
+          CORE extracts the textual query, generates an embedding, and retrieves semantically similar Works.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=vector
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "vector",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          Unlike keyword search, vector search may retrieve conceptually related Works that do not contain the exact query terms.
+
+
+          For example, the query:
+
+
+          ```text
+
+          institution name matching
+
+          ```
+
+
+          may retrieve Works discussing:
+
+
+          * Affiliation disambiguation
+
+          * Organisation-name normalisation
+
+          * Institutional entity resolution
+
+          * Research-organisation matching
+
+
+          #### Vector search with structured conditions
+
+
+          Vector retrieval can be combined with structured Work conditions.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"&searchMode=vector
+
+          ```
+
+
+          Executable request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/works?q="text%20and%20data%20mining"%20AND%20yearPublished>=2020%20AND%20documentType:"research%20article"&searchMode=vector&select=workId,title,abstract,yearPublished,documentType&limit=10' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/works" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "\"text and data mining\" AND yearPublished>=2020 AND documentType:\"research article\"",
+              "searchMode": "vector",
+              "select": [
+                "workId",
+                "title",
+                "abstract",
+                "yearPublished",
+                "documentType"
+              ],
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          This request:
+
+
+          * Converts `text and data mining` into an embedding
+
+          * Retrieves semantically similar Works
+
+          * Restricts results to Works published from 2020 onwards
+
+          * Restricts results to research articles
+
+          * Returns selected Work fields
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "hybrid",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          In hybrid mode, the same textual query is used for:
+
+
+          * Keyword retrieval
+
+          * Vector generation
+
+          * Combined relevance ranking
+
+
+          The implementation should document how keyword and vector scores are combined.
+
+
+          #### Hybrid search with structured conditions
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\" AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished",
+              "documentType"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          The textual query contributes to both keyword and vector relevance. The publication-year condition restricts the returned Works.
+
+
+          #### User-generated vector search
+
+
+          Users may supply an embedding directly through `POST`.
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "yearPublished>=2020",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "vectorTopK": 100,
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          The vector in this example is shortened for readability. A real request must contain the complete embedding required by the configured Work vector index.
+
+
+          When an explicit vector is supplied:
+
+
+          * CORE uses the supplied vector instead of generating one from query text
+
+          * `q` may contain structured conditions
+
+          * The vector must be compatible with the Work vector index
+
+
+          The public API documentation must specify:
+
+
+          * The embedding model or compatible vector-generation method
+
+          * The required number of vector dimensions
+
+          * The accepted numeric format
+
+          * Whether vectors must be normalised
+
+          * The maximum request-body size
+
+
+          #### Hybrid search using a user-generated vector
+
+
+          A user-generated vector may be combined with keyword relevance.
+
+
+          ```json
+
+          {
+            "q": "title:\"data mining\" AND yearPublished>=2020",
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "hybrid",
+            "vectorTopK": 100,
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This request combines:
+
+
+          * Keyword relevance for `data mining`
+
+          * Semantic similarity using the supplied vector
+
+          * A publication-year restriction
+
+
+          #### Explicit vector validation
+
+
+          A request containing `vector` should be rejected when:
+
+
+          * `searchMode` is `keyword`
+
+          * The vector has the wrong number of dimensions
+
+          * The vector contains invalid numeric values
+
+          * The vector is empty
+
+          * The vector is incompatible with the configured Work vector index
+
+
+          Example invalid request:
+
+
+          ```json
+
+          {
+            "searchMode": "keyword",
+            "vector": [
+              0.12,
+              0.34
+            ]
+          }
+
+          ```
+
+
+          Recommended response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
+
+
+          #### Vector candidate count
+
+
+          The optional `vectorTopK` property controls the number of nearest vector candidates considered before final result processing.
+
+
+          Example:
+
+
+          ```json
+
+          {
+            "q": "\"scholarly document classification\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          `vectorTopK` is not the number of records returned.
+
+
+          In this example:
+
+
+          * Up to 100 nearest vector candidates are considered
+
+          * At most 10 records are returned
+
+
+          CORE should define:
+
+
+          * The default value
+
+          * The minimum permitted value
+
+          * The maximum permitted value
+
+          * Whether the value can be overridden by all API plans
+
+
+          #### Vector and hybrid result ordering
+
+
+          When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
+
+
+          When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
+
+
+          Applying an explicit `orderby` expression may replace relevance-based ordering.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/works?q="machine learning"&searchMode=vector&orderby=yearPublished:desc
+
+          ```
+
+
+          This request orders the matching Works by publication year rather than vector similarity.
+
+
+          API users should omit `orderby` when semantic or hybrid relevance should determine the result order.
+
+
+          #### Search-result scores
+
+
+          Vector and hybrid relevance scores are search-result metadata. They are not persistent Work properties and should not be included in the Work data-structure table.
+
+
+          When exposed, a search result may include:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Text and data mining for scholarly repositories",
+            "yearPublished": 2025,
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          The API should document whether `relevanceScore` represents:
+
+
+          * Keyword relevance
+
+          * Vector similarity
+
+          * Combined hybrid relevance
+
+
+          Scores generated by different search modes should not be assumed to be directly comparable.
 
 
 
