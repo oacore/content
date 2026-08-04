@@ -13783,3 +13783,1300 @@ items:
 
 
           The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: outputs-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          #### Search by title
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=title:"Sustainable Development Goals"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "title:\"Sustainable Development Goals\""
+          }
+
+          ```
+
+
+          #### Search full text
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=fullText:"climate change"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "fullText:\"climate change\""
+          }
+
+          ```
+
+
+          #### Retrieve an Output by DOI
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=externalIdentifiers.type:DOI AND externalIdentifiers.identifier:"10.1000/xyz"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "externalIdentifiers.type:DOI AND externalIdentifiers.identifier:\"10.1000/xyz\""
+          }
+
+          ```
+
+
+          Both conditions must apply to the same identifier object.
+
+
+          #### Retrieve Outputs from a Data Provider
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:86"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs associated with a Journal
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=journalId:12345
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "journalId:12345"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs associated with a Publisher
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=publisherId:78
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "publisherId:78"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs by document type and publication year
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=documentType:"research article" AND yearPublished>=2020
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "documentType:\"research article\" AND yearPublished>=2020"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs with full text
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=_exists_:fullText
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "_exists_:fullText"
+          }
+
+          ```
+
+
+          #### Retrieve enabled full-text Outputs
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=fullTextStatus:enabled AND disabled:false
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "fullTextStatus:enabled AND disabled:false"
+          }
+
+          ```
+
+
+          #### Retrieve open-access Outputs
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=accessRights.isOpenAccess:true
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "accessRights.isOpenAccess:true"
+          }
+
+          ```
+
+
+          #### Retrieve gold open-access Outputs
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=accessRights.isOpenAccess:true AND accessRights.oaStatus:gold
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "accessRights.isOpenAccess:true AND accessRights.oaStatus:gold"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same access-right entry.
+
+
+          #### Retrieve Outputs by licence
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=license.name:"CC BY 4.0"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "license.name:\"CC BY 4.0\""
+          }
+
+          ```
+
+
+          #### Retrieve Outputs in a particular language
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=language.code:en
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "language.code:en"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs assigned to an SDG
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=sdg.type:SDG04
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "sdg.type:SDG04"
+          }
+
+          ```
+
+
+          This retrieves Outputs classified under Sustainable Development Goal 4.
+
+
+          #### Retrieve high-confidence SDG classifications
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=sdg.type:SDG04 AND sdg.score>=0.8
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "sdg.type:SDG04 AND sdg.score>=0.8"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `sdg` object.
+
+
+          #### Retrieve Outputs with any SDG classification
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=_exists_:sdg
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "_exists_:sdg"
+          }
+
+          ```
+
+
+          #### Text-based vector search
+
+
+          Text-based vector search allows clients to submit natural-language text without generating an embedding.
+
+
+          CORE converts the textual query into an embedding and retrieves semantically similar Outputs.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=vector
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\"",
+            "searchMode": "vector",
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "downloadUrl"
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          Unlike keyword search, vector search may retrieve conceptually related Outputs that do not contain the exact query terms.
+
+
+          For example, the query:
+
+
+          ```text
+
+          climate adaptation strategies
+
+          ```
+
+
+          may retrieve Outputs discussing:
+
+
+          * Climate resilience
+
+          * Adaptation planning
+
+          * Coastal risk management
+
+          * Responses to climate vulnerability
+
+
+          #### Vector search with structured conditions
+
+
+          Vector retrieval can be combined with structured Output conditions.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies" AND accessRights.isOpenAccess:true AND language.code:en&searchMode=vector
+
+          ```
+
+
+          Executable GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/outputs?q="climate%20adaptation%20strategies"%20AND%20accessRights.isOpenAccess:true%20AND%20language.code:en&searchMode=vector&select=coreId,title,yearPublished,dataProviderId,downloadUrl&limit=10' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/outputs" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "\"climate adaptation strategies\" AND accessRights.isOpenAccess:true AND language.code:en",
+              "searchMode": "vector",
+              "select": [
+                "coreId",
+                "title",
+                "yearPublished",
+                "dataProviderId",
+                "downloadUrl"
+              ],
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          This request:
+
+
+          * Converts `climate adaptation strategies` into an embedding
+
+          * Retrieves semantically similar Outputs
+
+          * Restricts results to open-access Outputs
+
+          * Restricts results to English-language Outputs
+
+          * Returns source-specific metadata and access links
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\"",
+            "searchMode": "hybrid",
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "downloadUrl"
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          In hybrid mode, the same textual query is used for:
+
+
+          * Keyword retrieval
+
+          * Vector generation
+
+          * Combined relevance ranking
+
+
+          The implementation should document how keyword and vector scores are combined.
+
+
+          #### Hybrid search with structured conditions
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies" AND accessRights.isOpenAccess:true AND yearPublished>=2020&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\" AND accessRights.isOpenAccess:true AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "journalId",
+              "downloadUrl"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          The textual query contributes to keyword and vector relevance. The access-right and publication-year conditions restrict the result set.
+
+
+          #### User-generated vector search
+
+
+          Users may supply an embedding directly through `POST`.
+
+
+          ```http
+
+          POST /v4/search/outputs
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "dataProviderId:86 AND accessRights.isOpenAccess:true",
+            "vectorTopK": 100,
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "downloadUrl"
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          The vector is shortened for readability. A real request must contain the complete embedding required by the Output vector index.
+
+
+          When an explicit vector is supplied:
+
+
+          * CORE uses the supplied vector instead of generating one from query text.
+
+          * `q` may contain structured conditions.
+
+          * The vector must be compatible with the Output vector index.
+
+
+          The public API documentation must specify:
+
+
+          * The embedding model or compatible vector-generation method
+
+          * The required number of dimensions
+
+          * The accepted numeric format
+
+          * Whether the vector must be normalised
+
+          * The maximum request-body size
+
+
+          #### Hybrid search using a client-generated vector
+
+
+          A supplied vector may be combined with keyword relevance.
+
+
+          ```json
+
+          {
+            "q": "title:\"climate adaptation\" AND yearPublished>=2020",
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "hybrid",
+            "vectorTopK": 100,
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "downloadUrl"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This request combines:
+
+
+          * Keyword relevance for `climate adaptation`
+
+          * Semantic similarity using the supplied vector
+
+          * A publication-year restriction
+
+
+          #### Vector validation
+
+
+          A request containing `vector` should be rejected when:
+
+
+          * `searchMode` is `keyword`
+
+          * The vector is empty
+
+          * The vector has the wrong number of dimensions
+
+          * The vector contains invalid numeric values
+
+          * The vector is incompatible with the Output vector index
+
+
+          Example invalid request:
+
+
+          ```json
+
+          {
+            "searchMode": "keyword",
+            "vector": [
+              0.12,
+              0.34
+            ]
+          }
+
+          ```
+
+
+          Recommended response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
+
+
+          #### Vector candidate count
+
+
+          The optional `vectorTopK` parameter controls the number of nearest vector candidates considered before final result processing.
+
+
+          ```json
+
+          {
+            "q": "\"open scholarly repositories\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          `vectorTopK` is not the number of records returned.
+
+
+          In this example:
+
+
+          * Up to 100 nearest vector candidates are considered.
+
+          * At most 10 Output records are returned.
+
+
+          CORE should define:
+
+
+          * The default value
+
+          * The minimum permitted value
+
+          * The maximum permitted value
+
+          * Whether clients on all API plans may override it
+
+
+          #### Combined keyword search, selection, and ordering
+
+
+          The following request:
+
+
+          * Searches for `climate change` in full text
+
+          * Restricts results to research articles
+
+          * Restricts results to open-access Outputs
+
+          * Restricts results to Outputs published from 2020 onwards
+
+          * Orders results by publication year
+
+          * Returns selected fields
+
+          * Includes the total result count
+
+
+          GET:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/outputs?q=fullText:"climate%20change"%20AND%20documentType:"research%20article"%20AND%20accessRights.isOpenAccess:true%20AND%20yearPublished>=2020&searchMode=keyword&orderby=yearPublished:desc&select=coreId,title,yearPublished,documentType,dataProviderId,journalId,downloadUrl&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/outputs" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "fullText:\"climate change\" AND documentType:\"research article\" AND accessRights.isOpenAccess:true AND yearPublished>=2020",
+              "searchMode": "keyword",
+              "orderby": [
+                "yearPublished:desc"
+              ],
+              "select": [
+                "coreId",
+                "title",
+                "yearPublished",
+                "documentType",
+                "dataProviderId",
+                "journalId",
+                "downloadUrl"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          #### Ordering Output results
+
+
+          ##### Order by publication year
+
+
+          G﻿ET:
+
+
+          ```http
+
+          GET /v4/search/outputs?orderby=yearPublished:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "yearPublished:desc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by title
+
+
+          G﻿ET:
+
+
+          ```http
+
+          GET /v4/search/outputs?orderby=title:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          G﻿ET:
+
+
+          ```http
+
+          GET /v4/search/outputs?orderby=yearPublished:desc,title:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "yearPublished:desc",
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          Results are first ordered by `yearPublished`. Records with the same publication year are then ordered by `title`.
+
+
+          #### Vector and hybrid result ordering
+
+
+          When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
+
+
+          When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
+
+
+          Applying an explicit `orderby` expression may replace relevance-based ordering.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation"&searchMode=vector&orderby=yearPublished:desc
+
+          ```
+
+
+          This orders the vector matches by publication year rather than semantic similarity.
+
+
+          Clients should omit `orderby` when semantic or hybrid relevance should determine the result order.
+
+
+          #### Search-result scores
+
+
+          Vector and hybrid relevance scores are search-result metadata. They are not persistent Output properties.
+
+
+          When exposed, a search result may include:
+
+
+          ```json
+
+          {
+            "coreId": 216874849,
+            "title": "Climate adaptation strategies for coastal regions",
+            "yearPublished": 2024,
+            "dataProviderId": 86,
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          The API should document whether `relevanceScore` represents:
+
+
+          * Keyword relevance
+
+          * Vector similarity
+
+          * Combined hybrid relevance
+
+
+          Scores generated by different search modes should not be assumed to be directly comparable.
+
+
+          Do not add `relevanceScore` to the Output data-structure or supported-field-operations tables.
+
+
+          Example vector-search response:
+
+
+          ```json
+
+          {
+            "totalHits": 245,
+            "searchMode": "vector",
+            "results": [
+              {
+                "coreId": 216874849,
+                "title": "Climate adaptation strategies for coastal regions",
+                "yearPublished": 2024,
+                "dataProviderId": 86,
+                "journalId": 12345,
+                "downloadUrl": "https://core.ac.uk/download/216874849.pdf",
+                "relevanceScore": 0.873
+              },
+              {
+                "coreId": 216874850,
+                "title": "Building resilience to climate vulnerability",
+                "yearPublished": 2023,
+                "dataProviderId": 144,
+                "journalId": 12345,
+                "downloadUrl": "https://core.ac.uk/download/216874850.pdf",
+                "relevanceScore": 0.846
+              }
+            ]
+          }
+
+          ```
+
+
+          Include `searchMode` and `relevanceScore` only when the implementation returns them.
+
+
+          #### Facets with vector and hybrid search
+
+
+          Facets may be requested with keyword, vector, and hybrid searches.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs
+              ?q="climate change"
+              &searchMode=hybrid
+              &facets=documentType,yearPublished,dataProviderId,fullTextStatus,accessRights.oaStatus,sdg.type
+              &count=true
+              &limit=0
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate change\"",
+            "searchMode": "hybrid",
+            "facets": [
+              "documentType",
+              "yearPublished",
+              "dataProviderId",
+              "fullTextStatus",
+              "accessRights.oaStatus",
+              "sdg.type"
+            ],
+            "count": true,
+            "limit": 0
+          }
+
+          ```
+
+
+          The implementation must document whether vector and hybrid facet counts are calculated over:
+
+
+          * The complete filtered Output index
+
+          * The vector candidate set
+
+          * The final ranked result set
+
+
+          This affects how clients interpret facet counts.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Output records.
+
+
+          ##### Keyword example
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86&count=true
+
+          ```
+
+
+          ##### Vector example
+
+
+          ```http
+
+          GET /v4/search/outputs?q="scholarly repositories"&searchMode=vector&count=true
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"scholarly repositories\"",
+            "searchMode": "vector",
+            "count": true
+          }
+
+          ```
+
+
+          The meaning of `totalHits` in vector and hybrid modes must be documented.
+
+
+          It may represent:
+
+
+          * All records satisfying the structured conditions
+
+          * The vector candidate count
+
+          * The number of records above a similarity threshold
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate Output results.
+
+
+          ##### Keyword pagination
+
+
+          First page:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=0
+
+          ```
+
+
+          Second page:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### Vector pagination
+
+
+          First page:
+
+
+          ```json
+
+          {
+            "q": "\"artificial intelligence in education\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          Second page:
+
+
+          ```json
+
+          {
+            "q": "\"artificial intelligence in education\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          For stable vector pagination, clients must use the same:
+
+
+          * Query
+
+          * Search mode
+
+          * Explicit vector, where supplied
+
+          * `vectorTopK`
+
+          * Structured conditions
+
+          * Index version
+
+
+          Because the vector index may change between requests, result positions may change when pages are retrieved at different times.
+
+
+          #### Responses
+
+
+          | **Status** | **Description**                                                                                                                                                                          |
+
+          | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | `200`      | The Output search was completed successfully.                                                                                                                                            |
+
+          | `400`      | The request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401`      | Authentication credentials are missing or invalid.                                                                                                                                       |
+
+          | `413`      | The `POST` request body exceeds the permitted size.                                                                                                                                      |
+
+          | `429`      | The API request limit has been exceeded.                                                                                                                                                 |
+
+          | `500`      | An unexpected server error occurred.                                                                                                                                                     |
