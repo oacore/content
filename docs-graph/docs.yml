@@ -13495,3 +13495,7 @@ items:
           }
 
           ```
+      - divider: false
+        border: false
+        id: outputs-api-search-outputs
+        title: Search Outputs
