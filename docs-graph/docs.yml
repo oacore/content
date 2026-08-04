@@ -12426,3 +12426,763 @@ items:
           * may be associated with one Journal;
           * may be associated with one Publisher;
           * may be represented by one canonical Work.
+      - divider: false
+        border: false
+        id: outputs-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The following table describes the top-level fields in the CORE Graph
+          metadata schema for the Output entity.
+
+
+          | **Property**           | **Type**  | **Example value**                                                           | **Description**                                                                              | **Source**                                                     |
+
+          | ---------------------- | --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+
+          | `coreId`               | integer   | `216874849`                                                                 | Unique CORE identifier for the Output.                                                       | CORE                                                           |
+
+          | `dataProviderId`       | integer   | `86`                                                                        | CORE identifier of the Data Provider from which the Output was harvested.                    | CORE                                                           |
+
+          | `publisherId`          | integer   | `78`                                                                        | CORE identifier of the Publisher associated with the Output, when resolved.                  | CORE / Crossref                                                |
+
+          | `journalId`            | integer   | `12345`                                                                     | CORE identifier of the Journal associated with the Output, when resolved.                    | CORE / ISSN resolution                                         |
+
+          | `externalIdentifiers`* | object\[] | `[{"type":"DOI","identifier":"10.1000/xyz"}]`                               | Normalised external identifiers associated with the Output.                                  | OAI-PMH / Crossref / OpenAlex / OpenAIRE / CORE                |
+
+          | `title`                | string    | `"Sustainable Development Goals and Research"`                              | Title of the Output as supplied or selected from source metadata.                            | OAI-PMH / Source metadata                                      |
+
+          | `invertedAbstract`*    | object    | `{"This":[0],"paper":[1],"explores":[2]}`                                   | Abstract represented as an inverted index in which each token maps to its positions.         | OAI-PMH / Derived by CORE                                      |
+
+          | `fullText`             | string    | `"Full extracted text..."`                                                  | Full text extracted from the source document.                                                | PDF parsing / Source full text                                 |
+
+          | `fullTextStatus`       | string    | `"enabled"`                                                                 | Status indicating the availability or processing state of the Output full text.              | CORE                                                           |
+
+          | `yearPublished`        | integer   | `2022`                                                                      | Publication year derived from the preferred publication date.                                | Derived by CORE                                                |
+
+          | `documentType`         | string\[] | `["research article"]`                                                      | Normalised document types associated with the Output.                                        | OAI-PMH / Crossref / OpenAlex / OpenAIRE / CORE classification |
+
+          | `subjects`             | string\[] | `["Journal Article","PeerReviewed"]`                                        | Subject or classification labels supplied by the source.                                     | OAI-PMH / Source metadata                                      |
+
+          | `issn`                 | string    | `"1744-9081"`                                                               | ISSN associated with the Journal or publication venue.                                       | OAI-PMH / Crossref / ISSN resolution                           |
+
+          | `downloadUrl`          | string    | `"https://core.ac.uk/download/216874849.pdf"`                               | Preferred URL for downloading the Output full text.                                          | CORE                                                           |
+
+          | `disabled`             | boolean   | `false`                                                                     | Indicates whether the Output has been disabled in CORE.                                      | CORE                                                           |
+
+          | `deleted`              | string    | `"ALLOWED"`                                                                 | Source or CORE status describing whether the Output is accessible or has been removed.       | CORE                                                           |
+
+          | `dates`*               | object\[] | `[{"type":"published","value":"2022-04-27"}]`                               | Structured publication, deposit, collection, and record-management dates.                    | OAI-PMH / Crossref / DataCite / OpenAIRE / CORE                |
+
+          | `ids`*                 | object\[] | `[{"type":"OAI_ID","identifier":"oai:repo.org:123"}]`                       | Raw or source-specific identifier objects retained for provenance.                           | OAI-PMH / Source metadata                                      |
+
+          | `accessRights`*        | object\[] | `[{"accessRight":"open access","isOpenAccess":true}]`                       | Structured access-right and open-access information.                                         | COAR / OpenAIRE / OpenAlex / DataCite / RIOXX                  |
+
+          | `contributors`*        | object\[] | `[{"name":"Alice Smith","type":"Personal","role":"editor"}]`                | People or organisations contributing to the Output in roles other than canonical Authorship. | OAI-PMH / Crossref / DataCite / OpenAIRE                       |
+
+          | `language`*            | object\[] | `[{"code":"en","name":"English"}]`                                          | Structured language information associated with the Output.                                  | OAI-PMH / Language detection                                   |
+
+          | `sourceFulltextUrls`   | string\[] | `["https://repo.org/file.pdf"]`                                             | Source URLs at which full text is available.                                                 | OAI-PMH / Repository metadata                                  |
+
+          | `links`*               | object\[] | `[{"type":"download","url":"https://core.ac.uk/download/216874849.pdf"}]`   | CORE-generated or structured links associated with the Output.                               | CORE                                                           |
+
+          | `urls`                 | string\[] | `["https://repo.org/item/123"]`                                             | Related URLs supplied in source metadata.                                                    | OAI-PMH / Source metadata                                      |
+
+          | `license`*             | object    | `{"name":"CC BY 4.0","uri":"https://creativecommons.org/licenses/by/4.0/"}` | Structured licence information associated with the Output.                                   | OAI-PMH / Crossref / OpenAIRE / OpenAlex / RIOXX               |
+
+          | `sdg`*                 | object\[] | `[{"type":"SDG04","score":0.92}]`                                           | Sustainable Development Goal classifications assigned to the Output.                         | CORE ML model                                                  |
+
+
+          \* More information is provided in the following sections.
+
+
+          #### Identifiers
+
+
+          ##### Normalised external identifiers
+
+
+          The `externalIdentifiers` property contains normalised identifiers associated with the Output.
+
+
+          ```json
+
+          {
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": "216874849"
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1000/xyz"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:repo.org:123"
+              },
+              {
+                "type": "ARXIV_ID",
+                "identifier": "1909.00560"
+              },
+              {
+                "type": "OPENALEX_ID",
+                "identifier": "https://openalex.org/W3030303030"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                              |
+
+          | ------------ | -------- | ----------------- | -------------------------------------------- |
+
+          | `type`       | string   | `"DOI"`           | Identifier scheme or classification.         |
+
+          | `identifier` | string   | `"10.1000/xyz"`   | Identifier value associated with the Output. |
+
+
+          T﻿he property, `type` can have following values:
+
+
+          | **Value**     | **Description**                      |
+
+          | ------------- | ------------------------------------ |
+
+          | `CORE_ID`     | CORE Output identifier.              |
+
+          | `DOI`         | Digital Object Identifier.           |
+
+          | `OAI_ID`      | OAI-PMH identifier.                  |
+
+          | `ARXIV_ID`    | arXiv identifier.                    |
+
+          | `OPENALEX_ID` | OpenAlex Work identifier.            |
+
+          | `OPENAIRE_ID` | OpenAIRE identifier.                 |
+
+          | `MAG_ID`      | Microsoft Academic Graph identifier. |
+
+          | `PMID`        | PubMed identifier.                   |
+
+          | `PMCID`       | PubMed Central identifier.           |
+
+
+          #### Raw identifier objects
+
+
+          The ER model contains both `externalIdentifiers` and `ids`.
+
+
+          The recommended distinction is:
+
+
+          | **Property**          | **Purpose**                                                                                   |
+
+          | --------------------- | --------------------------------------------------------------------------------------------- |
+
+          | `externalIdentifiers` | Normalised identifier values using the CORE identifier model.                                 |
+
+          | `ids`                 | Raw source-specific identifier structures retained for provenance or backwards compatibility. |
+
+
+          If CORE does not require both representations, `ids` should be removed and all identifiers should be consolidated under `externalIdentifiers`.
+
+
+          #### Inverted abstract
+
+
+          The `invertedAbstract` property contains a position-based representation of the abstract.
+
+
+          ```json
+
+          {
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            }
+          }
+
+          ```
+
+
+          Each key represents a token. The corresponding array contains the positions at which the token occurs.
+
+
+          #### Dates
+
+
+          The `dates` property contains structured dates associated with the Output.
+
+
+          ```json
+
+          {
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "accepted",
+                "value": "2022-03-15"
+              },
+              {
+                "type": "deposited",
+                "value": "2022-04-28T11:42:34Z"
+              },
+              {
+                "type": "collected",
+                "value": "2022-05-02T09:00:00Z"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                   |
+
+          | ------------ | -------- | ----------------- | --------------------------------- |
+
+          | `type`       | string   | `"published"`     | Classification of the date.       |
+
+          | `value`      | string   | `"2022-04-27"`    | ISO 8601 date or date-time value. |
+
+
+          Supported date types may include:
+
+
+          | **Value**          | **Description**                                       | **Source**                                          |
+
+          | ------------------ | ----------------------------------------------------- | --------------------------------------------------- |
+
+          | `published`        | Preferred publication date.                           | OAI-PMH / DataCite / Crossref / OpenAlex / OpenAIRE |
+
+          | `published_online` | Online publication date.                              | Crossref                                            |
+
+          | `published_print`  | Print publication date.                               | Crossref                                            |
+
+          | `issued`           | Date on which the resource was formally issued.       | Dublin Core Terms / Crossref                        |
+
+          | `accepted`         | Date on which the resource was accepted.              | Dublin Core Terms / Crossref                        |
+
+          | `deposited`        | Date on which metadata was deposited with the source. | Crossref                                            |
+
+          | `created`          | Date on which the source or CORE record was created.  | CORE / Crossref / OpenAlex                          |
+
+          | `updated`          | Date on which the Output record was last updated.     | CORE / Crossref / OpenAIRE / OpenAlex               |
+
+          | `indexed`          | Date on which the Output was indexed by CORE.         | CORE                                                |
+
+          | `available`        | Date on which the resource became available.          | DataCite / OAI-PMH                                  |
+
+          | `public_release`   | Date on which the resource was publicly released.     | RIOXX                                               |
+
+          | `collected`        | Date on which CORE collected the source record.       | CORE / OpenAIRE                                     |
+
+
+          Because `dates` is a collection, the Output cannot be unambiguously ordered by `dates.value`.
+
+
+          Frequently used dates should be exposed as top-level fields if direct ordering is required.
+
+
+          #### Contributors
+
+
+          The `contributors` property contains people or organisations that contributed to the Output in roles other than canonical Authorship.
+
+
+          ```json
+
+          {
+            "contributors": [
+              {
+                "name": "CiteSeerX",
+                "type": "Organisational",
+                "role": null
+              },
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              },
+              {
+                "name": "國立中興大學應用數學系",
+                "type": "Organisational",
+                "role": "hosting_institution"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                | **Source**                                       |
+
+          | ------------ | -------- | ----------------- | -------------------------------------------------------------- | ------------------------------------------------ |
+
+          | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.               | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+
+          | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or organisation. | DataCite / OpenAIRE                              |
+
+          | `role`       | string   | `"editor"`        | Role performed by the contributor.                             | Crossref / DataCite / OpenAIRE                   |
+
+
+          Possible roles may include:
+
+
+          * `editor`
+
+          * `translator`
+
+          * `reviewer`
+
+          * `hosting_institution`
+
+
+          Canonical Authors are not represented through this collection.
+
+
+          #### Language
+
+
+          The `language` property contains structured language information.
+
+
+          ```json
+
+          {
+            "language": [
+              {
+                "id": 1,
+                "code": "en",
+                "name": "English"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                      | **Source**                   |
+
+          | ------------ | -------- | ----------------- | -------------------------------------------------------------------- | ---------------------------- |
+
+          | `id`         | integer  | `1`               | Internal identifier for the language classification, when available. | CORE                         |
+
+          | `code`       | string   | `"en"`            | ISO 639 language code.                                               | OAI-PMH / Language detection |
+
+          | `name`       | string   | `"English"`       | Human-readable language name.                                        | OAI-PMH / CORE               |
+
+
+          An Output may contain multiple language records when more than one language is identified.
+
+
+          #### Access rights
+
+
+          The `accessRights` property contains structured access and open-access information.
+
+
+          ```json
+
+          {
+            "accessRights": [
+              {
+                "accessRight": "open access",
+                "accessRightUri": "http://purl.org/coar/access_right/c_abf2",
+                "scheme": "COAR",
+                "isOpenAccess": true,
+                "oaStatus": "gold",
+                "openAccessRoute": "gold",
+                "freeToRead": true,
+                "accessStartDate": "2022-05-01",
+                "accessEndDate": null,
+                "embargoEndDate": null,
+                "version": "publishedVersion",
+                "oaUrl": "https://example.org/article",
+                "pdfUrl": "https://example.org/article.pdf",
+                "anyRepositoryHasFulltext": true,
+                "raw": [
+                  "open access",
+                  "http://purl.org/coar/access_right/c_abf2"
+                ]
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property**               | **Type**  | **Example value**                            | **Description**                                                               | **Source**                               |
+
+          | -------------------------- | --------- | -------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- |
+
+          | `accessRight`              | string    | `"open access"`                              | Human-readable access-right status.                                           | COAR / OpenAIRE / OAI-PMH / DataCite     |
+
+          | `accessRightUri`           | string    | `"http://purl.org/coar/access_right/c_abf2"` | URI identifying the access-right status.                                      | COAR / DataCite / OpenAIRE               |
+
+          | `scheme`                   | string    | `"COAR"`                                     | Vocabulary or scheme used for the access-right value.                         | OpenAIRE                                 |
+
+          | `isOpenAccess`             | boolean   | `true`                                       | Indicates whether the Output is considered open access.                       | OpenAlex / OpenAIRE / Derived by CORE    |
+
+          | `oaStatus`                 | string    | `"gold"`                                     | Open-access status, such as `gold`, `green`, `bronze`, `hybrid`, or `closed`. | OpenAlex / OpenAIRE                      |
+
+          | `openAccessRoute`          | string    | `"gold"`                                     | Open-access route, when supplied separately from the status.                  | OpenAIRE                                 |
+
+          | `freeToRead`               | boolean   | `true`                                       | Indicates whether the Output is free to read.                                 | RIOXX / ALI                              |
+
+          | `accessStartDate`          | string    | `"2022-05-01"`                               | Date from which access begins.                                                | RIOXX / Crossref / Qualified Dublin Core |
+
+          | `accessEndDate`            | string    | `"2024-05-01"`                               | Date on which access ends, when supplied.                                     | RIOXX                                    |
+
+          | `embargoEndDate`           | string    | `"2023-05-01"`                               | Date on which an embargo ends.                                                | OpenAIRE                                 |
+
+          | `version`                  | string    | `"publishedVersion"`                         | Version associated with the accessible copy.                                  | Crossref / RIOXX / OpenAlex / OpenAIRE   |
+
+          | `oaUrl`                    | string    | `"https://example.org/article"`              | Landing-page URL of an open-access copy.                                      | OpenAlex                                 |
+
+          | `pdfUrl`                   | string    | `"https://example.org/article.pdf"`          | Direct PDF URL of an open-access copy.                                        | OpenAlex                                 |
+
+          | `anyRepositoryHasFulltext` | boolean   | `true`                                       | Indicates whether any known repository provides full text.                    | OpenAlex                                 |
+
+          | `raw`                      | string\[] | `["open access"]`                            | Raw access-right strings supplied by source metadata.                         | OAI-PMH / OpenAIRE                       |
+
+
+          #### Licence
+
+
+          The `license` property contains structured licence information associated with the Output.
+
+
+          ```json
+
+          {
+            "license": {
+              "name": "CC BY 4.0",
+              "uri": "https://creativecommons.org/licenses/by/4.0/",
+              "startDate": "2022-05-01",
+              "delayDays": 0,
+              "contentVersion": "published",
+              "raw": [
+                "CC-BY",
+                "http://creativecommons.org/licenses/by/4.0/"
+              ]
+            }
+          }
+
+          ```
+
+
+          | **Property**     | **Type**  | **Example value**                                | **Description**                                  | **Source**                             |
+
+          | ---------------- | --------- | ------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
+
+          | `name`           | string    | `"CC BY 4.0"`                                    | Normalised licence name.                         | OAI-PMH / OpenAIRE / OpenAlex          |
+
+          | `uri`            | string    | `"https://creativecommons.org/licenses/by/4.0/"` | URI containing or identifying the licence terms. | Crossref / OpenAIRE / OpenAlex / RIOXX |
+
+          | `startDate`      | string    | `"2022-05-01"`                                   | Date from which the licence applies.             | Crossref / RIOXX / OpenAIRE            |
+
+          | `delayDays`      | integer   | `365`                                            | Embargo or licence delay in days.                | Crossref                               |
+
+          | `contentVersion` | string    | `"published"`                                    | Content version covered by the licence.          | Crossref                               |
+
+          | `raw`            | string\[] | `["CC-BY"]`                                      | Raw licence strings supplied by source metadata. | OAI-PMH / OpenAIRE / Crossref          |
+
+
+          #### Links
+
+
+          The `links` property contains structured links generated or normalised by CORE.
+
+
+          ```json
+
+          {
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/outputs/216874849",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property**  | **Type** | **Example value**                             | **Description**                        |
+
+          | ------------- | -------- | --------------------------------------------- | -------------------------------------- |
+
+          | `type`        | string   | `"download"`                                  | Classification of the linked resource. |
+
+          | `url`         | string   | `"https://core.ac.uk/download/216874849.pdf"` | URL of the linked resource.            |
+
+          | `contentType` | string   | `"application/pdf"`                           | MIME type of the linked resource.      |
+
+
+          The `urls` property separately retains related URLs supplied by source metadata.
+
+
+          #### Output status
+
+
+          ##### Full-text status
+
+
+          The `fullTextStatus` property describes the availability or processing state of the full text.
+
+
+          ```json
+
+          {
+            "fullTextStatus": "enabled"
+          }
+
+          ```
+
+
+          The supported vocabulary must be documented by CORE. Possible values should not be inferred solely from whether `fullText` is `null`.
+
+
+          ##### Disabled status
+
+
+          ```json
+
+          {
+            "disabled": false
+          }
+
+          ```
+
+
+          A value of `true` indicates that CORE has disabled the Output.
+
+
+          ##### Deleted status
+
+
+          ```json
+
+          {
+            "deleted": "ALLOWED"
+          }
+
+          ```
+
+
+          The `deleted` field is represented as a string in the ER model. Its controlled vocabulary and meaning should be defined before public release.
+
+
+          If this field is intended to represent a simple deleted/not-deleted state, it should instead be modelled as:
+
+
+          ```text
+
+          boolean | null
+
+          ```
+
+
+          #### Sustainable Development Goals
+
+
+          The `sdg` property contains Sustainable Development Goal classifications assigned to the Output by a CORE machine-learning model.
+
+
+          ```json
+
+          {
+            "sdg": [
+              {
+                "type": "SDG04",
+                "score": 0.92
+              },
+              {
+                "type": "SDG09",
+                "score": 0.76
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                                                                          | **Source**    |
+
+          | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------- |
+
+          | `type`       | string   | `"SDG04"`         | Identifier of the United Nations Sustainable Development Goal assigned to the Output.                                    | CORE ML model |
+
+          | `score`      | number   | `0.92`            | Confidence or relevance score for the SDG classification. Higher values indicate stronger model confidence or relevance. | CORE ML model |
+
+
+          Example Output record:
+
+
+          ```json
+
+          {
+            "coreId": 216874849,
+            "dataProviderId": 86,
+            "publisherId": 78,
+            "journalId": 12345,
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": "216874849"
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1000/xyz"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:repo.org:123"
+              }
+            ],
+            "title": "Sustainable Development Goals and Research",
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            },
+            "fullText": "Full extracted text...",
+            "fullTextStatus": "enabled",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "subjects": [
+              "Journal Article",
+              "PeerReviewed"
+            ],
+            "issn": "1744-9081",
+            "downloadUrl": "https://core.ac.uk/download/216874849.pdf",
+            "disabled": false,
+            "deleted": "ALLOWED",
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "deposited",
+                "value": "2022-04-28T11:42:34Z"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ],
+            "ids": [
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:repo.org:123"
+              }
+            ],
+            "accessRights": [
+              {
+                "accessRight": "open access",
+                "accessRightUri": "http://purl.org/coar/access_right/c_abf2",
+                "scheme": "COAR",
+                "isOpenAccess": true,
+                "oaStatus": "gold",
+                "openAccessRoute": "gold",
+                "freeToRead": true,
+                "accessStartDate": "2022-05-01",
+                "accessEndDate": null,
+                "embargoEndDate": null,
+                "version": "publishedVersion",
+                "oaUrl": "https://example.org/article",
+                "pdfUrl": "https://example.org/article.pdf",
+                "anyRepositoryHasFulltext": true,
+                "raw": [
+                  "open access"
+                ]
+              }
+            ],
+            "contributors": [
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              }
+            ],
+            "language": [
+              {
+                "id": 1,
+                "code": "en",
+                "name": "English"
+              }
+            ],
+            "sourceFulltextUrls": [
+              "https://repo.org/file.pdf"
+            ],
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/outputs/216874849",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ],
+            "urls": [
+              "https://repo.org/item/123"
+            ],
+            "license": {
+              "name": "CC BY 4.0",
+              "uri": "https://creativecommons.org/licenses/by/4.0/",
+              "startDate": "2022-05-01",
+              "delayDays": 0,
+              "contentVersion": "published",
+              "raw": [
+                "CC-BY"
+              ]
+            },
+            "sdg": [
+              {
+                "type": "SDG04",
+                "score": 0.92
+              },
+              {
+                "type": "SDG09",
+                "score": 0.76
+              }
+            ]
+          }
+
+          ```
