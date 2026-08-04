@@ -33,6 +33,9 @@ navItems:
           - hidden: false
             item: Introduction
             href: "#outputs-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#outputs-api-data-structure"
       - item: Data Providers
         children:
           - hidden: false
