@@ -36,6 +36,9 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#outputs-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#outputs-api-supported-field-operations"
       - item: Data Providers
         children:
           - hidden: false
