@@ -15080,3 +15080,195 @@ items:
           | `429`      | The API request limit has been exceeded.                                                                                                                                                 |
 
           | `500`      | An unexpected server error occurred.                                                                                                                                                     |
+      - divider: false
+        border: false
+        id: outputs-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to graph entities connected to an Output.
+
+
+          #### Work represented by an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/work
+
+          ```
+
+
+          Retrieves the canonical Work whose `coreIds` collection contains the Output identifier.
+
+
+          Equivalent Work search:
+
+
+          ```http
+
+          GET /v4/search/works?q=coreIds:{coreId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "coreIds:{coreId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/outputs/216874849/work" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Sustainable Development Goals and Research",
+            "doi": "10.1000/xyz",
+            "yearPublished": 2022,
+            "coreIds": [
+              216874849,
+              216874850
+            ]
+          }
+
+          ```
+
+
+          If the Output has not yet been assigned to a canonical Work, the endpoint may return `404` or `200` with a `null` relationship. The API should choose and document one behaviour consistently.
+
+
+          #### Data Provider of an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/data-provider
+
+          ```
+
+
+          Retrieves the Data Provider identified by the Output's `dataProviderId`.
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "dataProviderId": 86,
+            "name": "Open Research Online",
+            "type": "institutional repository",
+            "homepageUrl": "https://oro.open.ac.uk/",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2"
+          }
+
+          ```
+
+
+          Every Output should have one Data Provider.
+
+
+          #### Journal of an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/journal
+
+          ```
+
+
+          Retrieves the Journal identified by the Output's `journalId`.
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "title": "Journal of Open Science",
+            "issns": [
+              "1744-9081"
+            ],
+            "publisher": "Springer Nature"
+          }
+
+          ```
+
+
+          If the Output has no resolved Journal relationship, the endpoint may return `200` with a `null` result or `404`. The chosen convention should be applied consistently.
+
+
+          #### Publisher of an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/publisher
+
+          ```
+
+
+          Retrieves the Publisher identified by the Output's `publisherId`.
+
+
+          This endpoint requires Publisher records to use a canonical CORE `publisherId`.
+
+
+          #### Reverse relationship endpoints
+
+
+          Outputs may also be retrieved through related entities:
+
+
+          ```http
+
+          GET /v4/works/{workId}/outputs
+
+          GET /v4/data-providers/{dataProviderId}/outputs
+
+          GET /v4/journals/{journalId}/outputs
+
+          GET /v4/publishers/{publisherId}/outputs
+
+          ```
+
+
+          The Work relationship is resolved through `Work.coreIds`.
+
+
+          The other relationships are equivalent to the following Output searches:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+
+          GET /v4/search/outputs?q=journalId:{journalId}
+
+          GET /v4/search/outputs?q=publisherId:{publisherId}
+
+          ```
