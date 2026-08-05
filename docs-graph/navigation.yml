@@ -231,3 +231,6 @@ navItems:
       - hidden: false
         item: Search request
         href: "#search-search-request"
+      - hidden: false
+        item: Vector and Hybrid search
+        href: "#search-vector-and-hybrid-search"
