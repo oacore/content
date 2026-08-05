@@ -3310,7 +3310,8 @@ items:
           * full-text availability status.
         images:
           - file: /images/docs-graph/outputs.png
-        subTitle: |-
+        subTitle: ""
+        subDescription: |-
           Each Output:
 
           * has exactly one CORE Output identifier;
@@ -6201,7 +6202,8 @@ items:
           For example, a university may operate one or more institutional repositories. The university is represented as an Institution, while each repository is represented as a separate Data Provider.
         images:
           - file: /images/docs-graph/dataproviders.png
-        subTitle: A Data Provider may supply multiple Outputs. An Institution may
+        subTitle: ""
+        subDescription: A Data Provider may supply multiple Outputs. An Institution may
           operate or host multiple Data Providers.
       - divider: false
         border: false
