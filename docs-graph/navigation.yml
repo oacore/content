@@ -226,5 +226,5 @@ navItems:
         item: Overview
         href: "#search-overview"
       - hidden: false
-        item: Supported entities
-        href: "#search-supported-entities"
+        item: CORE API Query Language
+        href: "#search-core-api-query-language"
