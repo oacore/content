@@ -10,6 +10,9 @@ navItems:
       - hidden: false
         item: CORE data model
         href: "#core-graph-core-data-model"
+      - hidden: false
+        item: Principal relationships
+        href: "#core-graph-principal-relationships"
   - item: Entities
     children:
       - item: Works
