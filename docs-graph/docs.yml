@@ -16006,11 +16006,11 @@ items:
 
 
           The POST operation is read-only. It does not create or modify entity records.
-      - divider: false
-        border: false
-        id: "#search-supported-entities"
-        title: Supported entities
-        descriptionAbout: >-
+
+
+          #### Supported entities
+
+
           The `entityType` path value identifies the entity to search.
 
 
@@ -16067,3 +16067,8 @@ items:
 
 
           > Vector and hybrid search are described only for entities whose search indexes contain vector fields.
+      - divider: false
+        border: false
+        id: "#search-supported-entities"
+        title: Supported entities
+        descriptionAbout: ""
