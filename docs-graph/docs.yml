@@ -15910,41 +15910,6 @@ items:
 
 
           An existing Author with no connected Affiliations returns 200 with an empty results array.
-      - id: citations-introduction
-        title: Citations
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: citations-data-structure
-        title: Data structure
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: citations-identifiers
-        title: Identifiers
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: citations-date
-        title: Date
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: citations-reference
-        title: Reference
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: citations-metrics
-        title: Metrics
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: citations-example-json
-        title: Example JSON structure
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
   - item: Search
     children:
       - divider: false
