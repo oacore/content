@@ -111,6 +111,147 @@ items:
           This model allows users to retrieve a canonical Work while still navigating to the source records and relationships that support it.
         subTitle: null
         subDescription: null
+      - divider: false
+        border: false
+        id: "#core-graph-design-principles"
+        title: Design principles
+        descriptionAbout: >-
+          #### Canonical entities and source records are separated
+
+
+          Works and Outputs are modelled independently.
+
+
+          A Work represents the canonical, deduplicated scholarly research object. An Output represents one source-specific record or manifestation harvested from a Data Provider.
+
+
+          This separation allows CORE to provide deduplicated discovery through Works while preserving the original metadata, access information, and provenance of each Output.
+
+
+          #### Provenance is preserved
+
+
+          Canonical records remain connected to the Outputs and Data Providers from which their information was derived.
+
+
+          Source-specific values such as the following remain available through Output and Data Provider relationships:
+
+
+          * Raw identifiers
+
+          * Source-provided URLs
+
+          * Access rights
+
+          * Licence information
+
+          * Deposit dates
+
+          * Full-text locations
+
+
+          #### Relationships can contain their own metadata
+
+
+          Some relationships are represented as first-class entities because the relationship itself contains important information.
+
+
+          For example, Authorship is not represented as a simple list of Author identifiers. It may include:
+
+
+          * The Author’s position in the Author list
+
+          * The raw name supplied by the source
+
+          * Whether the Author is corresponding
+
+          * Whether the Author is first named
+
+          * The source Outputs supporting the relationship
+
+
+          Similarly, an Affiliation may include:
+
+
+          * The original affiliation string
+
+          * A resolved Institution
+
+          * Department information
+
+          * Start and end dates
+
+          * Whether the Affiliation is current
+
+          * The Works providing evidence for the association
+
+
+          #### Resolved and unresolved information can coexist
+
+
+          The Graph API retains source-provided values even when they cannot be resolved to canonical entities.
+
+
+          For example, an Affiliation may contain a `rawAffiliation` value without an `institutionId`. This preserves the original evidence and allows the record to be resolved later as CORE’s matching systems improve.
+
+
+          #### External identifiers are reconciled
+
+
+          CORE entities may be connected to identifiers from established scholarly systems.
+
+
+          | **Entity**             | **Example identifiers**                                              |
+
+          | ---------------------- | -------------------------------------------------------------------- |
+
+          | Works and Outputs      | DOI, OAI identifier, arXiv ID, PMID, PMCID, OpenAlex ID, OpenAIRE ID |
+
+          | Authors                | ORCID, OpenAlex Author ID, OpenAIRE Author ID                        |
+
+          | Institutions           | ROR ID, OpenAlex Institution ID, GRID ID, ISNI, Wikidata ID          |
+
+          | Journals               | ISSN, electronic ISSN, print ISSN, DOAJ ID                           |
+
+          | Publishers and Funders | Crossref and DataCite identifiers                                    |
+
+
+          Frequently used identifiers may be exposed as top-level convenience fields, while the complete identifier set is retained in structured identifier collections.
+
+
+          #### Metadata and full text are connected
+
+
+          CORE combines structured scholarly metadata with its collection of openly available research full text.
+
+
+          Where available, Works and Outputs may provide:
+
+
+          * Titles
+
+          * Inverted abstracts
+
+          * Full text
+
+          * Identifiers
+
+          * Dates
+
+          * Publication types
+
+          * Access information
+
+          * Language
+
+          * Subject classifications
+
+          * Sustainable Development Goal classifications
+
+          * Links to source and CORE resources
+
+
+          This supports metadata-based discovery, full-text search, semantic retrieval, and machine-learning applications.
   - item: Entities
     children:
       - divider: false
