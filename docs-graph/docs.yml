@@ -1,4 +1,28 @@
 items:
+  - item: Overview
+    children:
+      - id: core-graph-data-model
+        title: CORE graph data model
+        descriptionAbout: null
+        subTitle: null
+        subDescription: null
+  - item: Search
+    children:
+      - id: core-api-query-language
+        title: CORE API Query Language
+        descriptionAbout: null
+        subTitle: null
+        subDescription: null
+      - id: keyword-queries-and-phrase-search
+        title: Keyword Queries and Phrase Search
+        descriptionAbout: null
+        subTitle: null
+        subDescription: null
+      - id: free-text-search
+        title: Free text search
+        descriptionAbout: null
+        subTitle: null
+        subDescription: null
   - item: Authorships
     children:
       - id: authorships-api-introduction

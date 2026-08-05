@@ -3,6 +3,7 @@ navItems:
   - item: Overview
     children:
       - item: CORE graph data model
+        href: "#core-graph-data-model"
   - item: Entities
     children:
       - item: Works
@@ -208,5 +209,8 @@ navItems:
   - item: Search
     children:
       - item: CORE API Query Language
+        href: "#core-api-query-language"
       - item: Keyword Queries and Phrase Search
+        href: "#keyword-queries-and-phrase-search"
       - item: Free text search
+        href: "#free-text-search"
