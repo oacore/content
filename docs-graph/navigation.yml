@@ -13,6 +13,9 @@ navItems:
       - hidden: false
         item: Principal relationships
         href: "#core-graph-principal-relationships"
+      - hidden: false
+        item: Resource and endpoint patterns
+        href: "#core-graph-resource-and-endpoint-patterns"
   - item: Entities
     children:
       - item: Works
