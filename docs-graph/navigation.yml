@@ -240,3 +240,6 @@ navItems:
       - hidden: false
         item: Facets and aggregation
         href: "#search-facets-and-aggregation"
+      - hidden: false
+        item: Responses
+        href: "#search-responses"
