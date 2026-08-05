@@ -279,6 +279,46 @@ items:
 
 
           This supports metadata-based discovery, full-text search, semantic retrieval, and machine-learning applications.
+      - divider: false
+        border: false
+        id: "#core-graph-core-data-model"
+        title: CORE data model
+        descriptionAbout: >-
+          The CORE Graph API data model contains the following principal
+          entities.
+
+
+          | **Entity**     | **Description**                                                                                                                                          |
+
+          | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | Works          | Canonical, deduplicated, and harmonised representations of scholarly research, independent of individual source manifestations.                          |
+
+          | Outputs        | Source-specific records or manifestations of Works collected from repositories, Journals, Publisher platforms, and other Data Providers.                 |
+
+          | Authors        | Canonical representations of people associated with scholarly Works.                                                                                     |
+
+          | Authorships    | Relationships connecting Authors to Works, including Author order, corresponding-Author status, raw names, and source evidence.                          |
+
+          | Affiliations   | Associations between Authors and Institutions, retaining resolved Institution information and the original source-provided affiliation text.             |
+
+          | Institutions   | Research organisations normalised using sources such as ROR and OpenAlex.                                                                                |
+
+          | Citations      | Directed relationships connecting a citing Work to a cited Work, enriched using sources such as OpenCitations where available.                           |
+
+          | Topics         | Research subjects or concepts assigned to Works, Outputs, Institutions, or other entities.                                                               |
+
+          | Projects       | Research projects associated with Works, Grants, Funders, Authors, or Institutions.                                                                      |
+
+          | Grants         | Funding awards associated with Works, Projects, Funders, Authors, or Institutions.                                                                       |
+
+          | Funders        | Organisations that provide research funding, normalised using sources including Crossref and other funding registries.                                   |
+
+          | Publishers     | Organisations responsible for publishing or hosting Journals and scholarly Outputs.                                                                      |
+
+          | Journals       | Scholarly publication venues in which Outputs are published.                                                                                             |
+
+          | Data Providers | Sources from which CORE collects Outputs, including institutional repositories, subject repositories, preprint servers, Journals, and other collections. |
   - item: Entities
     children:
       - divider: false
