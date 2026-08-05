@@ -16,6 +16,9 @@ navItems:
       - hidden: false
         item: Resource and endpoint patterns
         href: "#core-graph-resource-and-endpoint-patterns"
+      - hidden: false
+        item: Naming conventions
+        href: "#graph-api-naming-conventions"
   - item: Entities
     children:
       - item: Works
