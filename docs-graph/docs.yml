@@ -16069,6 +16069,452 @@ items:
           > Vector and hybrid search are described only for entities whose search indexes contain vector fields.
       - divider: false
         border: false
-        id: "#search-supported-entities"
-        title: Supported entities
-        descriptionAbout: ""
+        id: search-core-api-query-language
+        title: CORE API query language
+        descriptionAbout: >-
+          
+          The `q` parameter contains a CORE query expression.
+
+
+          The query language supports:
+
+
+          - Free-text queries
+
+          - Field lookup
+
+          - Boolean operators
+
+          - Ranges
+
+          - Grouping
+
+          - Existence checks
+
+
+          #### Operators
+
+
+          | Operation | Canonical syntax | Description |
+
+          | --- | --- | --- |
+
+          | AND | `condition AND condition` | Returns records matching all conditions. |
+
+          | OR | `condition OR condition` | Returns records matching at least one condition. |
+
+          | NOT | `NOT condition` | Excludes records matching the condition. |
+
+          | Negation shorthand | `!condition` | Short form of a negative condition, where supported. |
+
+          | Grouping | `( ... )` | Groups query expressions and controls evaluation order. |
+
+          | Field lookup | `field:value` | Applies a query to a specific field. |
+
+          | Greater than | `field>value` | Matches values greater than the supplied value. |
+
+          | Greater than or equal | `field>=value` | Matches values greater than or equal to the supplied value. |
+
+          | Less than | `field<value` | Matches values less than the supplied value. |
+
+          | Less than or equal | `field<=value` | Matches values less than or equal to the supplied value. |
+
+          | Exists | `_exists_:field` | Matches records in which the field has a value. |
+
+
+          The documentation uses explicit `AND`, `OR`, and `NOT` operators in all examples.
+
+
+          Aliases such as `+` or whitespace-as-`AND` may be retained for backwards compatibility. However, they are not the recommended v4 syntax because whitespace can make complex queries ambiguous.
+
+
+          #### Free-text search
+
+
+          When no field is specified, the query searches all fields marked as searchable for the selected entity.
+
+
+          ```http
+
+          GET /v4/search/works?q=scientometrics
+
+          ```
+
+
+          For Works, this may search fields such as:
+
+
+          - `title`
+
+          - `abstract`
+
+          - `fullText`
+
+          - Searchable reference fields
+
+          - Searchable contributor fields
+
+
+          The exact fields searched depend on the entity’s supported-field-operations table.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/institutions?q="Open University"
+
+          ```
+
+
+          This may search fields such as:
+
+
+          - `displayName`
+
+          - `acronym`
+
+          - `altNames`
+
+          - `formerNames`
+
+          - `names.value`
+
+
+          #### Field lookup
+
+
+          Use `field:value` to search or filter a specific field.
+
+
+          ```http
+
+          GET /v4/search/works?q=title:"Machine Learning"
+
+          GET /v4/search/institutions?q=countryCode:GB
+
+          GET /v4/search/outputs?q=sdg.type:SDG04
+
+          ```
+
+
+          A field lookup can be used only when the field supports the relevant operation:
+
+
+          - Searchable fields support textual field lookup.
+
+          - Filterable fields support exact values, ranges, and existence checks.
+
+          - Facetable fields support facet requests.
+
+          - Sortable fields support `orderby`.
+
+
+          #### Keyword and phrase matching
+
+
+          ##### Keyword search
+
+
+          Unquoted text is analysed by the search engine.
+
+
+          ```http
+
+          GET /v4/search/works?q=title:attention is all you need
+
+          ```
+
+
+          The terms may be tokenised and matched independently. Word order is not necessarily preserved.
+
+
+          The exact handling of punctuation, hyphens, stemming, case, and stop words depends on the analyser configured for the field.
+
+
+          The documentation should avoid statements such as “any or all words will match” unless the implementation defines the default term operator precisely.
+
+
+          ##### Phrase search
+
+
+          Use double quotation marks to request phrase matching.
+
+
+          ```http
+
+          GET /v4/search/works?q=title:"Attention is all you need"
+
+          ```
+
+
+          This searches for the words as a phrase and preserves their order.
+
+
+          A phrase query is not necessarily the same as an exact complete-field match. It may still match a longer title containing the phrase.
+
+
+          For example, the following title may match the phrase query:
+
+
+          ```text
+
+          An analysis of “Attention is all you need”
+
+          ```
+
+
+          Phrase query:
+
+
+          ```text
+
+          "Attention is all you need"
+
+          ```
+
+
+          If exact complete-field equality is required, the API would need a separate keyword or normalised exact-match field.
+
+
+          #### Boolean queries
+
+
+          ##### AND
+
+
+          Retrieve Works that satisfy all conditions:
+
+
+          ```http
+
+          GET /v4/search/works?q=documentType:"research article" AND yearPublished>=2020
+
+          ```
+
+
+          ##### OR
+
+
+          Retrieve Works whose titles contain either phrase:
+
+
+          ```http
+
+          GET /v4/search/works?q=title:"Artificial Intelligence" OR title:"Machine Learning"
+
+          ```
+
+
+          ##### NOT
+
+
+          Retrieve open-access Outputs that are not disabled:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=accessRights.isOpenAccess:true AND NOT disabled:true
+
+          ```
+
+
+          #### Grouping
+
+
+          Use parentheses when combining operators:
+
+
+          ```http
+
+          GET /v4/search/works?q=(title:"Artificial Intelligence" OR title:"Machine Learning") AND yearPublished>2020
+
+          ```
+
+
+          Without parentheses, operator precedence may produce a different result.
+
+
+          The API should document its precedence order. The recommended order is:
+
+
+          1. Parentheses
+
+          2. `NOT`
+
+          3. `AND`
+
+          4. `OR`
+
+
+          #### Range queries
+
+
+          Range queries can be applied to numeric and date fields marked as filterable.
+
+
+          ##### Numeric ranges
+
+
+          ```http
+
+          GET /v4/search/works?q=yearPublished>2018
+
+          GET /v4/search/outputs?q=sdg.score>=0.8
+
+          ```
+
+
+          ##### Date ranges
+
+
+          ```http
+
+          GET /v4/search/affiliations?q=startDate>="2020-01-01"
+
+          GET /v4/search/journals?q=createdDate>="2025-01-01"
+
+          ```
+
+
+          Dates and date-times should use ISO 8601 notation.
+
+
+          #### Exists queries
+
+
+          Use `_exists_` to find records in which a field has a value.
+
+
+          ```http
+
+          GET /v4/search/works?q=_exists_:fullText
+
+          GET /v4/search/authors?q=_exists_:orcidId
+
+          GET /v4/search/outputs?q=_exists_:sdg
+
+          ```
+
+
+          Negate an existence query to find records without a value:
+
+
+          ```http
+
+          GET /v4/search/journals?q=NOT _exists_:discontinuedDate
+
+          ```
+
+
+          If shorthand negation is supported, the equivalent query is:
+
+
+          ```http
+
+          GET /v4/search/journals?q=!_exists_:discontinuedDate
+
+          ```
+
+
+          The canonical documentation should use one form consistently. The recommended canonical form is `NOT _exists_:field`.
+
+
+          #### Array fields
+
+
+          A field lookup against an array matches when at least one array value satisfies the condition.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/authors?q=countries:GB
+
+          ```
+
+
+          This matches Authors whose `countries` collection contains `GB`.
+
+
+          ```http
+
+          GET /v4/search/works?q=documentType:"research article"
+
+          ```
+
+
+          This matches Works whose `documentType` collection contains `research article`.
+
+
+          #### Structured collections
+
+
+          Some fields contain arrays of objects, including:
+
+
+          - `externalIdentifiers`
+
+          - `dates`
+
+          - `accessRights`
+
+          - `identifiers`
+
+          - `relationships`
+
+          - `topics`
+
+          - `yearlyMetrics`
+
+          - `sdg`
+
+          - `apcMax`
+
+
+          When multiple conditions target the same structured collection, they must apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          externalIdentifiers.type:DOI AND externalIdentifiers.identifier:"10.1000/xyz"
+
+          ```
+
+
+          This must match one identifier object containing both:
+
+
+          - `type = DOI`
+
+          - `identifier = 10.1000/xyz`
+
+
+          Similarly:
+
+
+          ```text
+
+          sdg.type:SDG04 AND sdg.score>=0.8
+
+          ```
+
+
+          This must match one SDG object where:
+
+
+          - `type = SDG04`
+
+          - `score >= 0.8`
+
+
+          The query must not combine the `type` from one SDG object with the `score` from another.
+
+
+          This rule should be documented once in the common Search section rather than repeated on every entity page.
