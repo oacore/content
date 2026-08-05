@@ -228,3 +228,6 @@ navItems:
       - hidden: false
         item: CORE API Query Language
         href: "#search-core-api-query-language"
+      - hidden: false
+        item: Search request
+        href: "#search-search-request"
