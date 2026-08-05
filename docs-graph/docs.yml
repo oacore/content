@@ -17465,3 +17465,98 @@ items:
 
 
           This behaviour must be defined explicitly because each interpretation produces different facet counts.
+      - divider: false
+        border: false
+        id: search-responses
+        title: Responses
+        descriptionAbout: >-
+          A standard search response may contain:
+
+
+          ```json
+
+          {
+            "totalHits": 245,
+            "limit": 10,
+            "offset": 0,
+            "searchMode": "hybrid",
+            "facets": {
+              "documentType": [
+                {
+                  "value": "research article",
+                  "count": 180
+                }
+              ]
+            },
+            "results": [
+              {
+                "workId": 323030168,
+                "title": "Semantic retrieval for scholarly repositories",
+                "yearPublished": 2025,
+                "relevanceScore": 0.873
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Response properties
+
+
+          | **Property**     | **Type**  | **Description**                                        |
+
+          | ---------------- | --------- | ------------------------------------------------------ |
+
+          | `totalHits`      | integer   | Total number of matching records when `count=true`.    |
+
+          | `limit`          | integer   | Maximum number of results requested.                   |
+
+          | `offset`         | integer   | Number of matching records skipped.                    |
+
+          | `searchMode`     | string    | Search mode used, when returned by the implementation. |
+
+          | `facets`         | object    | Requested facet buckets and their counts.              |
+
+          | `results`        | object\[] | Matching entity records.                               |
+
+          | `relevanceScore` | number    | Search-result relevance metadata, when exposed.        |
+
+
+          Field names should follow the v4 `camelCase` convention rather than v3 names such as `total_hits`.
+
+
+          Timing and diagnostic fields, such as `tookMs` or `searchId`, may be included. These fields should be optional and consistently defined.
+
+
+          #### Error responses
+
+
+          | **Status** | **Description**                                                                                   |
+
+          | ---------- | ------------------------------------------------------------------------------------------------- |
+
+          | `200`      | Search completed successfully.                                                                    |
+
+          | `400`      | Invalid query, field, sort expression, facet, search mode, vector, or response-control parameter. |
+
+          | `401`      | Authentication credentials are missing or invalid.                                                |
+
+          | `413`      | The `POST` request body exceeds the permitted size.                                               |
+
+          | `429`      | The API request limit has been exceeded.                                                          |
+
+          | `500`      | An unexpected server error occurred.                                                              |
+
+
+          Example validation response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
