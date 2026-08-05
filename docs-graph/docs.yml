@@ -11410,31 +11410,31 @@ items:
           example values, descriptions, and sources.
 
 
-          | Property            | Type              | Example value           | Description                                                                                                                                                                                                                                                                                                                                | Source              |
+          | **Property**        | **Type**   | **Example value**       | **Description**                                                                                                                                                                                                                                                                                                                            | **Source**          |
 
-          | ------------------- | ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
+          | ------------------- | ---------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
 
-          | authorshipId        | integer           | 234                     | CORE identifier for the authorship                                                                                                                                                                                                                                                                                                         | CORE                |
+          | authorshipId        | integer    | 234                     | CORE identifier for the authorship                                                                                                                                                                                                                                                                                                         | CORE                |
 
-          | workId              | integer           | 23456                   | CORE identifier of the associated work.                                                                                                                                                                                                                                                                                                    | CORE                |
+          | workId              | integer    | 23456                   | CORE identifier of the associated work.                                                                                                                                                                                                                                                                                                    | CORE                |
 
-          | authorId            | integer           | 12                      | CORE identifier of the associated author.                                                                                                                                                                                                                                                                                                  | CORE                |
+          | authorId            | integer    | 12                      | CORE identifier of the associated author.                                                                                                                                                                                                                                                                                                  | CORE                |
 
-          | rawName             | string      | Smith, Alice            | Verbatim author name string as supplied in the source metadata for this work.                                                                                                                                                                                                                                                              | OAI-PMH / Crossref  |
+          | rawName             | string     | Smith, Alice            | Verbatim author name string as supplied in the source metadata for this work.                                                                                                                                                                                                                                                              | OAI-PMH / Crossref  |
 
-          | sequence*           | string      | first                   | Author order classification within the work, such as first or additional.                                                                                                                                                                                                                                                                  | Crossref / OpenAlex |
+          | sequence*           | string     | first                   | Author order classification within the work, such as first or additional.                                                                                                                                                                                                                                                                  | Crossref / OpenAlex |
 
-          | rank*               | integer     | 1                       | Numeric rank of the author in the author list.                                                                                                                                                                                                                                                                                             | OpenAIRE / OpenAlex |
+          | rank*               | integer    | 1                       | Numeric rank of the author in the author list.                                                                                                                                                                                                                                                                                             | OpenAIRE / OpenAlex |
 
-          | isFirstNamedAuthor* | boolean     | true                    | Indicates whether the author is the first-listed author on the work.                                                                                                                                                                                                                                                                       | Derived by CORE     |
+          | isFirstNamedAuthor* | boolean    | true                    | Indicates whether the author is the first-listed author on the work.                                                                                                                                                                                                                                                                       | Derived by CORE     |
 
-          | isCorresponding     | boolean     | false                   | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. |                     |
+          | isCorresponding     | boolean    | false                   | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. |                     |
 
-          | sourceOutputIds     | integer\[]  | \[216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived.                                                                                                                                                                                                                                                               | CORE                |
+          | sourceOutputIds     | integer\[] | \[216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived.                                                                                                                                                                                                                                                               | CORE                |
 
-          | createdDate         | string      | "2026-06-15T10:30:00Z"  | Date and time when the authorship record was created in CORE.                                                                                                                                                                                                                                                                              | CORE                |
+          | createdDate         | string     | "2026-06-15T10:30:00Z"  | Date and time when the authorship record was created in CORE.                                                                                                                                                                                                                                                                              | CORE                |
 
-          | updatedDate         | string      | 2023-11-07T05:31:56Z    | Date and time when the authorship record was last updated in CORE.                                                                                                                                                                                                                                                                         | CORE                |
+          | updatedDate         | string     | 2023-11-07T05:31:56Z    | Date and time when the authorship record was last updated in CORE.                                                                                                                                                                                                                                                                         | CORE                |
 
 
           \* - See the Author position section below.
@@ -11449,15 +11449,15 @@ items:
           For example:
 
 
-          | Author position | rank | sequence     | isFirstNamedAuthor |
+          | **Author position** | **rank** | **sequence** | **isFirstNamedAuthor** |
 
-          | --------------- | ---- | ------------ | ------------------ |
+          | ------------------- | -------- | ------------ | ---------------------- |
 
-          | First author    | 1    | "first"      | true               |
+          | First author        | 1        | "first"      | true                   |
 
-          | Middle author   | 2    | "additional" | false              |
+          | Middle author       | 2        | "additional" | false                  |
 
-          | Final author    | 5    | "last"       | false              |
+          | Final author        | 5        | "last"       | false                  |
 
 
           The `rank` property provides the exact numeric position of the Author.
@@ -11480,7 +11480,7 @@ items:
           ```
 
 
-          #### Example Authorship record
+          Example Authorship record:
 
 
           ```json
