@@ -1,11 +1,653 @@
 items:
   - item: Overview
     children:
-      - id: core-graph-data-model
-        title: CORE graph data model
-        descriptionAbout: null
+      - id: core-graph-api
+        title: CORE Graph API
+        descriptionAbout: >-
+          The CORE Graph API provides structured access to CORE’s global
+          scholarly knowledge graph. It connects research works with their
+          manifestations, creators, organisations, publication venues, funding,
+          projects, topics, and citation relationships.
+
+
+          CORE aggregates metadata and full text from a global network of repositories, journals, and other scholarly sources. Records collected from these sources are normalised, enriched, and linked to create consistent entities and relationships.
+
+
+          Rather than exposing scholarly metadata only as isolated search records, the Graph API makes these connections directly accessible.
+
+
+          The Graph API exposes this information through three complementary forms of access:
+
+
+          | **Access pattern**      | **Description**                                                                                                                 |
+
+          | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+
+          | Entity retrieval        | Retrieves a specific entity using its canonical CORE identifier.                                                                |
+
+          | Relationship navigation | Retrieves entities connected to a specific resource.                                                                            |
+
+          | Search and discovery    | Discovers entities using keyword search, structured conditions, facets, vector search, hybrid search, ordering, and pagination. |
+
+
+          ### Example endpoints
+
+
+          ```http
+
+          GET /v4/works/{workId}
+
+          GET /v4/works/{workId}/outputs
+
+          GET /v4/works/{workId}/authorships
+
+          GET /v4/authors/{authorId}/affiliations
+
+          GET /v4/institutions/{institutionId}/data-providers
+
+          GET /v4/search/works
+
+          POST /v4/search/works
+
+          ```
+
+
+          The API is graph-oriented, but it is exposed through REST operations rather than requiring clients to submit GraphQL queries.
+
+
+          #### Why a Graph API?
+
+
+          Scholarly information is inherently interconnected.
+
+
+          A research Work may:
+
+
+          * have several source-specific manifestations collected from different Data Providers;
+
+          * be attributed to several Authors;
+
+          * associate those Authors with Institutions through Affiliations;
+
+          * be published in a Journal by a Publisher;
+
+          * result from a Project or Grant;
+
+          * acknowledge one or more Funders;
+
+          * be associated with several research Topics;
+
+          * cite, or be cited by, other Works.
+
+
+          Representing this information as one flattened record creates duplication and makes it difficult to distinguish canonical information from source-specific evidence.
+
+
+          For example, the same research article may be available from an institutional repository, a subject repository, and a Journal platform. Each source may supply different titles, Author-name forms, dates, URLs, licences, or access information. Combining all of these values into one record can obscure their provenance and create repeated or conflicting metadata.
+
+
+          The CORE Graph API instead separates the major concepts:
+
+
+          Canonical Work
+
+
+          * represented by one or more Outputs
+
+          *  connected to Authors through Authorships
+
+          *  connected to Institutions through Affiliations
+
+          *  published through Journals and Publishers
+
+          *  associated with Topics, Projects and Grants
+
+          *  connected to other Works through Citations
+
+
+          This model allows users to retrieve a canonical Work while still navigating to the source records and relationships that support it.
+
+
+
+
+          #### What makes the CORE Graph API distinctive?
+
+
+          The Graph API combines CORE’s global repository network and full-text collection with metadata and identifiers from trusted scholarly sources such as ROR, Crossref, OpenCitations, DOAJ etc.
+
+
+          Its distinctive features include:
+
+
+          * Works and Outputs are modelled separately. A Work represents the deduplicated scholarly work, while Outputs represent the individual manifestations collected from repositories, journals and other data providers.
+
+          * Provenance is preserved. Canonical entities remain connected to the source Outputs and Data Providers from which their information was derived.
+
+          * Authorship is a first-class entity. The relationship between an Author and a Work can carry its own information, including author order, corresponding-author status, raw names and supporting source Outputs.
+
+          * Affiliations are modelled independently. Authors can be connected to Institutions through resolved or unresolved affiliation records, while retaining the affiliation text supplied by the source. It also provides the employment history of authors over a period of time.
+
+          * External scholarly identifiers are reconciled. CORE entities can be linked to established identifiers such as DOI, ORCID, ROR, ISSN and identifiers supplied by Crossref, DataCite and other sources.
+
+          * Search and graph navigation are both supported. Users can discover entities through search endpoints and follow explicit relationships through entity and relationship endpoints.
+
+          * Metadata and full text are brought together. CORE’s aggregated metadata is connected with its large collection of openly available research full text.
+
+
+          The API is designed for applications including scholarly search, discovery, bibliometric analysis, research intelligence, institutional analytics, citation analysis, metadata enrichment and machine-learning research.
         subTitle: null
         subDescription: null
+      - divider: false
+        border: false
+        id: "#core-graph-design-principles"
+        title: Design principles
+        descriptionAbout: >-
+          #### Canonical entities and source records are separated
+
+
+          Works and Outputs are modelled independently.
+
+
+          A Work represents the canonical, deduplicated scholarly research object. An Output represents one source-specific record or manifestation harvested from a Data Provider.
+
+
+          This separation allows CORE to provide deduplicated discovery through Works while preserving the original metadata, access information, and provenance of each Output.
+
+
+          #### Provenance is preserved
+
+
+          Canonical records remain connected to the Outputs and Data Providers from which their information was derived.
+
+
+          Source-specific values such as the following remain available through Output and Data Provider relationships:
+
+
+          * Raw identifiers
+
+          * Source-provided URLs
+
+          * Access rights
+
+          * Licence information
+
+          * Deposit dates
+
+          * Full-text locations
+
+
+          #### Relationships can contain their own metadata
+
+
+          Some relationships are represented as first-class entities because the relationship itself contains important information.
+
+
+          For example, Authorship is not represented as a simple list of Author identifiers. It may include:
+
+
+          * The Author’s position in the Author list
+
+          * The raw name supplied by the source
+
+          * Whether the Author is corresponding
+
+          * Whether the Author is first named
+
+          * The source Outputs supporting the relationship
+
+
+          Similarly, an Affiliation may include:
+
+
+          * The original affiliation string
+
+          * A resolved Institution
+
+          * Department information
+
+          * Start and end dates
+
+          * Whether the Affiliation is current
+
+          * The Works providing evidence for the association
+
+
+          #### Resolved and unresolved information can coexist
+
+
+          The Graph API retains source-provided values even when they cannot be resolved to canonical entities.
+
+
+          For example, an Affiliation may contain a `rawAffiliation` value without an `institutionId`. This preserves the original evidence and allows the record to be resolved later as CORE’s matching systems improve.
+
+
+          #### External identifiers are reconciled
+
+
+          CORE entities may be connected to identifiers from established scholarly systems.
+
+
+          | **Entity**             | **Example identifiers**                                              |
+
+          | ---------------------- | -------------------------------------------------------------------- |
+
+          | Works and Outputs      | DOI, OAI identifier, arXiv ID, PMID, PMCID, OpenAlex ID, OpenAIRE ID |
+
+          | Authors                | ORCID, OpenAlex Author ID, OpenAIRE Author ID                        |
+
+          | Institutions           | ROR ID, OpenAlex Institution ID, GRID ID, ISNI, Wikidata ID          |
+
+          | Journals               | ISSN, electronic ISSN, print ISSN, DOAJ ID                           |
+
+          | Publishers and Funders | Crossref and DataCite identifiers                                    |
+
+
+          Frequently used identifiers may be exposed as top-level convenience fields, while the complete identifier set is retained in structured identifier collections.
+
+
+          #### Metadata and full text are connected
+
+
+          CORE combines structured scholarly metadata with its collection of openly available research full text.
+
+
+          Where available, Works and Outputs may provide:
+
+
+          * Titles
+
+          * Inverted abstracts
+
+          * Full text
+
+          * Identifiers
+
+          * Dates
+
+          * Publication types
+
+          * Access information
+
+          * Language
+
+          * Subject classifications
+
+          * Sustainable Development Goal classifications
+
+          * Links to source and CORE resources
+
+
+          This supports metadata-based discovery, full-text search, semantic retrieval, and machine-learning applications.
+      - divider: false
+        border: false
+        id: "#core-graph-core-data-model"
+        title: CORE data model
+        descriptionAbout: >-
+          The CORE Graph API data model contains the following principal
+          entities.
+
+
+          | **Entity**     | **Description**                                                                                                                                          |
+
+          | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | Works          | Canonical, deduplicated, and harmonised representations of scholarly research, independent of individual source manifestations.                          |
+
+          | Outputs        | Source-specific records or manifestations of Works collected from repositories, Journals, Publisher platforms, and other Data Providers.                 |
+
+          | Authors        | Canonical representations of people associated with scholarly Works.                                                                                     |
+
+          | Authorships    | Relationships connecting Authors to Works, including Author order, corresponding-Author status, raw names, and source evidence.                          |
+
+          | Affiliations   | Associations between Authors and Institutions, retaining resolved Institution information and the original source-provided affiliation text.             |
+
+          | Institutions   | Research organisations normalised using sources such as ROR and OpenAlex.                                                                                |
+
+          | Citations      | Directed relationships connecting a citing Work to a cited Work, enriched using sources such as OpenCitations where available.                           |
+
+          | Topics         | Research subjects or concepts assigned to Works, Outputs, Institutions, or other entities.                                                               |
+
+          | Projects       | Research projects associated with Works, Grants, Funders, Authors, or Institutions.                                                                      |
+
+          | Grants         | Funding awards associated with Works, Projects, Funders, Authors, or Institutions.                                                                       |
+
+          | Funders        | Organisations that provide research funding, normalised using sources including Crossref and other funding registries.                                   |
+
+          | Publishers     | Organisations responsible for publishing or hosting Journals and scholarly Outputs.                                                                      |
+
+          | Journals       | Scholarly publication venues in which Outputs are published.                                                                                             |
+
+          | Data Providers | Sources from which CORE collects Outputs, including institutional repositories, subject repositories, preprint servers, Journals, and other collections. |
+      - divider: false
+        border: false
+        id: core-graph-principal-relationships
+        title: Principal relationships
+        descriptionAbout: The following diagram presents a simplified view of the main
+          graph relationships.
+        images:
+          - file: /images/docs-graph/data-model.png
+        contentBlocks: []
+        subTitle: The diagram shows principal relationships only. Complete fields,
+          cardinalities, and relationship endpoints are documented on the
+          relevant entity pages.
+      - divider: false
+        border: false
+        id: core-graph-resource-and-endpoint-patterns
+        title: Resource and endpoint patterns
+        descriptionAbout: >-
+          
+          The Graph API uses consistent resource patterns.
+
+
+          #### Single entity
+
+
+          Retrieves a single entity using its canonical CORE identifier.
+
+
+          ```http
+
+          GET /v4/{entity}/{id}
+
+          ```
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/works/323030168
+
+          GET /v4/outputs/216874849
+
+          GET /v4/institutions/1256
+
+          ```
+
+
+          #### Search
+
+
+          Searches and discovers entities using either `GET` or `POST`.
+
+
+          ```http
+
+          GET /v4/search/{entity}
+
+          POST /v4/search/{entity}
+
+          ```
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/search/works
+
+          POST /v4/search/outputs
+
+          GET /v4/search/institutions
+
+          ```
+
+
+          #### Relationship navigation
+
+
+          Retrieves entities connected to a specific resource.
+
+
+          ```http
+
+          GET /v4/{entity}/{id}/{relatedEntity}
+
+          ```
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/works/323030168/outputs
+
+          GET /v4/works/323030168/authorships
+
+          GET /v4/authors/67890/affiliations
+
+          GET /v4/institutions/1256/data-providers
+
+          ```
+
+
+          Relationship endpoints are convenience operations over graph connections. Where possible, the equivalent search query is documented alongside the endpoint.
+      - divider: false
+        border: false
+        id: graph-api-naming-conventions
+        title: Naming conventions
+        descriptionAbout: >-
+          The following naming conventions are used throughout the Graph API.
+
+
+          | **Convention**                                                                            | **Example**                                     |
+
+          | ----------------------------------------------------------------------------------------- | ----------------------------------------------- |
+
+          | Data-model entities are written using singular or plural title case according to context. | `Work`, `Works`, `Author`, `Authors`            |
+
+          | Collection resource paths use lowercase plural nouns.                                     | `/works`, `/authors`, `/authorships`            |
+
+          | Multiword resource paths use hyphens.                                                     | `/data-providers`                               |
+
+          | Search endpoints follow `/search/{entity}`.                                               | `/search/works`                                 |
+
+          | Canonical identifiers use the singular entity name followed by `Id`.                      | `workId`, `authorId`, `institutionId`           |
+
+          | Relationship endpoints use nested resource paths.                                         | `/works/{workId}/authorships`                   |
+
+          | Field names use camel case.                                                               | `displayName`, `isCorresponding`, `createdDate` |
+
+          | Boolean properties normally begin with `is`, `has`, or `can`.                             | `isCurrent`, `hasApc`, `canDownload`            |
+
+          | Fields containing multiple values are represented as arrays.                              | `countries`, `keywords`, `coreIds`              |
+
+          | Date and date-time values use ISO 8601 notation.                                          | `2026-07-01T14:20:00Z`                          |
+
+          | External identifiers retain recognised source terminology where appropriate.              | `doi`, `orcidId`, `rorId`, `issns`              |
+
+
+          #### Identifier naming
+
+
+          The canonical identifier of each Graph entity uses a dedicated CORE field:
+
+
+          | **Entity**    | **Canonical identifier** |
+
+          | ------------- | ------------------------ |
+
+          | Work          | `workId`                 |
+
+          | Output        | `coreId`                 |
+
+          | Author        | `authorId`               |
+
+          | Authorship    | `authorshipId`           |
+
+          | Affiliation   | `affiliationId`          |
+
+          | Institution   | `institutionId`          |
+
+          | Journal       | `journalId`              |
+
+          | Publisher     | `publisherId`            |
+
+          | Data Provider | `dataProviderId`         |
+
+
+          External identifiers are separate from canonical CORE identifiers.
+
+
+          #### Terminology and definitions
+
+
+          | **Term**              | **Definition**                                                                                                                                  |
+
+          | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | API                   | The complete interface through which clients access CORE Graph data.                                                                            |
+
+          | Graph                 | A data model consisting of entities and typed relationships between them.                                                                       |
+
+          | Entity                | A distinct concept represented in the graph, such as a Work, Author, Output, or Institution.                                                    |
+
+          | Canonical entity      | A normalised CORE representation that reconciles information from one or more sources.                                                          |
+
+          | Source record         | A record supplied by an external Data Provider. Outputs are source records.                                                                     |
+
+          | Relationship          | A typed connection between entities, such as an Authorship connecting an Author and a Work.                                                     |
+
+          | Relationship entity   | A relationship represented as its own entity because it contains metadata, such as Authorship or Affiliation.                                   |
+
+          | Resource              | The API representation of an entity or collection.                                                                                              |
+
+          | Endpoint              | An API path that exposes a resource or operation, such as `/v4/works/{workId}`.                                                                 |
+
+          | Path                  | The URL component that identifies an endpoint.                                                                                                  |
+
+          | HTTP method           | The action applied to an endpoint, such as `GET` or `POST`.                                                                                     |
+
+          | Operation             | The combination of an HTTP method and an endpoint.                                                                                              |
+
+          | Parameter             | A value supplied in a path, query string, header, or request body to control an operation.                                                      |
+
+          | Request               | The HTTP message sent by a client to an API operation.                                                                                          |
+
+          | Response              | The result returned by an operation, including an HTTP status code and optionally a body.                                                       |
+
+          | Search endpoint       | An endpoint used to discover entities through keyword search, structured conditions, vector search, ordering, facets, or pagination.            |
+
+          | Relationship endpoint | An endpoint used to retrieve resources connected to a particular entity.                                                                        |
+
+          | Field                 | A named property contained in an entity or response.                                                                                            |
+
+          | Facet                 | A value bucket and count used to summarise search results by a supported field.                                                                 |
+
+          | Vector search         | Search based on semantic similarity between embedding vectors.                                                                                  |
+
+          | Hybrid search         | Search that combines keyword relevance and vector similarity.                                                                                   |
+
+          | Provenance            | Information describing the source records, Data Providers, and evidence from which data was obtained.                                           |
+
+          | Function              | A client-library or application-level term. This documentation describes API behaviour primarily using operations, endpoints, and HTTP methods. |
+
+
+          #### HTTP methods
+
+
+          The documentation uses HTTP methods to describe the behaviour of an operation.
+
+
+          ##### GET
+
+
+          `GET` retrieves:
+
+
+          * A single entity
+
+          * A collection of related entities
+
+          * Search results
+
+
+          A `GET` operation does not create or modify an entity.
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/works/{workId}
+
+          GET /v4/works/{workId}/outputs
+
+          GET /v4/search/works
+
+          ```
+
+
+          ##### POST
+
+
+          `POST` submits a request body to an operation.
+
+
+          In the Graph API, `POST` may be used for read-only search when a request is too complex or large to represent safely as URL query parameters.
+
+
+          For example:
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\" AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "workId",
+              "title",
+              "yearPublished"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This `POST` operation performs a search. It does not create a Work.
+
+
+          Whether `POST` creates a resource or performs another action depends on the definition of the endpoint.
+
+
+          ## Endpoints and operations
+
+
+          An endpoint is the path alone:
+
+
+          ```http
+
+          /v4/works/{workId}
+
+          ```
+
+
+          An operation combines the HTTP method and endpoint:
+
+
+          ```http
+
+          GET /v4/works/{workId}
+
+          ```
+
+
+          The endpoint identifies the resource. The HTTP method identifies the action performed on that resource.
   - item: Entities
     children:
       - divider: false
@@ -43,9 +685,8 @@ items:
           Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
         images:
           - file: /images/docs-graph/works.png
-        subTitle: >-
-          
-
+        subTitle: "\n\n"
+        subDescription: >-
           A Work may:
 
 
@@ -2669,7 +3310,8 @@ items:
           * full-text availability status.
         images:
           - file: /images/docs-graph/outputs.png
-        subTitle: |-
+        subTitle: ""
+        subDescription: |-
           Each Output:
 
           * has exactly one CORE Output identifier;
@@ -3750,7 +4392,8 @@ items:
         border: false
         id: outputs-api-search-outputs
         title: Search Outputs
-        subTitle: >-
+        subTitle: ""
+        descriptionAbout: >-
           Searches, filters, orders, facets, counts, and paginates
           source-specific Output records.
 
@@ -5559,7 +6202,8 @@ items:
           For example, a university may operate one or more institutional repositories. The university is represented as an Institution, while each repository is represented as a separate Data Provider.
         images:
           - file: /images/docs-graph/dataproviders.png
-        subTitle: A Data Provider may supply multiple Outputs. An Institution may
+        subTitle: ""
+        subDescription: A Data Provider may supply multiple Outputs. An Institution may
           operate or host multiple Data Providers.
       - divider: false
         border: false
