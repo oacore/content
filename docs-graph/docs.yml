@@ -625,7 +625,7 @@ items:
           Whether `POST` creates a resource or performs another action depends on the definition of the endpoint.
 
 
-          ## Endpoints and operations
+          #### Endpoints and operations
 
 
           An endpoint is the path alone:
