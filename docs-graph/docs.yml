@@ -319,6 +319,18 @@ items:
           | Journals       | Scholarly publication venues in which Outputs are published.                                                                                             |
 
           | Data Providers | Sources from which CORE collects Outputs, including institutional repositories, subject repositories, preprint servers, Journals, and other collections. |
+      - divider: false
+        border: false
+        id: core-graph-principal-relationships
+        title: Principal relationships
+        descriptionAbout: The following diagram presents a simplified view of the main
+          graph relationships.
+        images:
+          - file: /images/docs-graph/data-model.png
+        contentBlocks: []
+        subTitle: The diagram shows principal relationships only. Complete fields,
+          cardinalities, and relationship endpoints are documented on the
+          relevant entity pages.
   - item: Entities
     children:
       - divider: false
