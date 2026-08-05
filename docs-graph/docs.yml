@@ -53,6 +53,62 @@ items:
 
 
           The API is graph-oriented, but it is exposed through REST operations rather than requiring clients to submit GraphQL queries.
+
+
+
+
+          #### Why a Graph API?
+
+
+          Scholarly information is inherently interconnected.
+
+
+          A research Work may:
+
+
+          * have several source-specific manifestations collected from different Data Providers;
+
+          * be attributed to several Authors;
+
+          * associate those Authors with Institutions through Affiliations;
+
+          * be published in a Journal by a Publisher;
+
+          * result from a Project or Grant;
+
+          * acknowledge one or more Funders;
+
+          * be associated with several research Topics;
+
+          * cite, or be cited by, other Works.
+
+
+          Representing this information as one flattened record creates duplication and makes it difficult to distinguish canonical information from source-specific evidence.
+
+
+          For example, the same research article may be available from an institutional repository, a subject repository, and a Journal platform. Each source may supply different titles, Author-name forms, dates, URLs, licences, or access information. Combining all of these values into one record can obscure their provenance and create repeated or conflicting metadata.
+
+
+          The CORE Graph API instead separates the major concepts:
+
+
+          Canonical Work
+
+
+          * represented by one or more Outputs
+
+          *  connected to Authors through Authorships
+
+          *  connected to Institutions through Affiliations
+
+          *  published through Journals and Publishers
+
+          *  associated with Topics, Projects and Grants
+
+          *  connected to other Works through Citations
+
+
+          This model allows users to retrieve a canonical Work while still navigating to the source records and relationships that support it.
         subTitle: null
         subDescription: null
   - item: Entities
