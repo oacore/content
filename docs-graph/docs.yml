@@ -686,7 +686,7 @@ items:
           Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
         images:
           - file: /images/docs-graph/works.png
-        subTitle: "\n\n"
+        subTitle: ""
         subDescription: >-
           A Work may:
 
@@ -16006,3 +16006,64 @@ items:
 
 
           The POST operation is read-only. It does not create or modify entity records.
+      - divider: false
+        border: false
+        id: "#search-supported-entities"
+        title: Supported entities
+        descriptionAbout: >-
+          The `entityType` path value identifies the entity to search.
+
+
+          | **Entity**     | **Search endpoint**         |
+
+          | -------------- | --------------------------- |
+
+          | Works          | `/v4/search/works`          |
+
+          | Outputs        | `/v4/search/outputs`        |
+
+          | Authors        | `/v4/search/authors`        |
+
+          | Authorships    | `/v4/search/authorships`    |
+
+          | Affiliations   | `/v4/search/affiliations`   |
+
+          | Institutions   | `/v4/search/institutions`   |
+
+          | Journals       | `/v4/search/journals`       |
+
+          | Data Providers | `/v4/search/data-providers` |
+
+          | Publishers     | `/v4/search/publishers`     |
+
+
+          ##### Search capability matrix
+
+
+          Based on the current Graph API design:
+
+
+          | **Entity**     | **Keyword search** | **Structured conditions** | **Facets** | **Vector search** | **Hybrid search** | **Explicit vector** |
+
+          | -------------- | ------------------ | ------------------------- | ---------- | ----------------- | ----------------- | ------------------- |
+
+          | Works          | Yes                | Yes                       | Yes        | Yes               | Yes               | POST                |
+
+          | Outputs        | Yes                | Yes                       | Yes        | Yes               | Yes               | POST                |
+
+          | Authors        | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+          | Authorships    | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+          | Affiliations   | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+          | Institutions   | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+          | Journals       | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+          | Data Providers | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+          | Publishers     | Yes                | Yes                       | Yes        | No                | No                | No                  |
+
+
+          > Vector and hybrid search are described only for entities whose search indexes contain vector fields.
