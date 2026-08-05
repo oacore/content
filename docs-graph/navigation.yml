@@ -231,3 +231,15 @@ navItems:
       - hidden: false
         item: Search request
         href: "#search-search-request"
+      - hidden: false
+        item: Vector and Hybrid search
+        href: "#search-vector-and-hybrid-search"
+      - hidden: false
+        item: Result control
+        href: "#search-result-control"
+      - hidden: false
+        item: Facets and aggregation
+        href: "#search-facets-and-aggregation"
+      - hidden: false
+        item: Responses
+        href: "#search-responses"
