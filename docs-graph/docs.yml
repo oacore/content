@@ -15947,18 +15947,62 @@ items:
         subDescription: null
   - item: Search
     children:
-      - id: core-api-query-language
-        title: CORE API Query Language
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: keyword-queries-and-phrase-search
-        title: Keyword Queries and Phrase Search
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
-      - id: free-text-search
-        title: Free text search
-        descriptionAbout: null
-        subTitle: null
-        subDescription: null
+      - divider: false
+        border: false
+        id: search-overview
+        title: Overview
+        descriptionAbout: >-
+          The CORE Graph API provides a common search interface across graph
+          entities.
+
+
+          Search operations support:
+
+
+          * free-text search;
+
+          * field-specific search;
+
+          * Boolean conditions;
+
+          * range conditions;
+
+          * existence checks;
+
+          * keyword and phrase matching;
+
+          * field selection;
+
+          * ordering;
+
+          * facets;
+
+          * result counting;
+
+          * pagination.
+
+
+          Works and Outputs additionally support:
+
+
+          * Vector-based semantic search;
+
+          * Hybrid search combining keyword and vector relevance;
+
+          * User-generated embedding vectors through POST.
+
+
+          Search is available through GET and POST:
+
+
+          ```http
+
+          GET /v4/search/{entityType}
+
+
+          POST /v4/search/{entityType}
+
+          ```
+
+
+          The POST operation is read-only. It does not create or modify entity records.
