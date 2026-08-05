@@ -222,9 +222,12 @@ navItems:
             href: "#citations-example-json"
   - item: Search
     children:
-      - item: CORE API Query Language
-        href: "#core-api-query-language"
-      - item: Keyword Queries and Phrase Search
-        href: "#keyword-queries-and-phrase-search"
-      - item: Free text search
-        href: "#free-text-search"
+      - hidden: false
+        item: Overview
+        href: "#search-overview"
+      - hidden: false
+        item: CORE API Query Language
+        href: "#search-core-api-query-language"
+      - hidden: false
+        item: Search request
+        href: "#search-search-request"
