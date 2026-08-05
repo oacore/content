@@ -225,3 +225,6 @@ navItems:
       - hidden: false
         item: Overview
         href: "#search-overview"
+      - hidden: false
+        item: Supported entities
+        href: "#search-supported-entities"
