@@ -4,6 +4,9 @@ navItems:
     children:
       - item: "CORE Graph API "
         href: "#core-graph-api"
+      - hidden: false
+        item: Design Principles
+        href: "#core-graph-design-principles"
   - item: Entities
     children:
       - item: Works
