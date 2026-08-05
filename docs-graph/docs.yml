@@ -17139,3 +17139,202 @@ items:
 
 
           Scores produced by different search modes should not be treated as directly comparable.
+      - divider: false
+        border: false
+        id: search-result-control
+        title: Result control
+        descriptionAbout: >-
+          
+          This page describes the generic controls applied after or alongside retrieval.
+
+
+          #### Field selection
+
+
+          Use `select` to limit the fields returned in each result.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/works
+              ?q=yearPublished:2025
+              &select=workId,title,doi,yearPublished
+          ```
+
+
+          POST:
+
+
+          ```json
+
+          {
+            "q": "yearPublished:2025",
+            "select": [
+              "workId",
+              "title",
+              "doi",
+              "yearPublished"
+            ]
+          }
+
+          ```
+
+
+          #### Ordering
+
+
+          Use `orderby` to order results by fields marked as sortable.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/works?orderby=yearPublished:desc,title:asc
+
+          ```
+
+
+          POST:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "yearPublished:desc",
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          Supported directions are:
+
+
+          - `asc`
+
+          - `desc`
+
+
+          Results are ordered using the directives in the order supplied.
+
+
+          The API should also define:
+
+
+          - How `null` values are ordered
+
+          - Whether string ordering is case-sensitive
+
+          - Whether a stable identifier is automatically added as a final tie-breaker
+
+
+          #### Result counting
+
+
+          Set `count=true` to include `totalHits` in the response.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/institutions?q=countryCode:GB&count=true
+
+          ```
+
+
+          POST:
+
+
+          ```json
+
+          {
+            "q": "countryCode:GB",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted.
+
+
+          For vector search, the meaning of `totalHits` must be defined. It may represent:
+
+
+          - All records satisfying the structured conditions
+
+          - The vector candidate count
+
+          - Records above a minimum similarity threshold
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate results.
+
+
+          First page:
+
+
+          ```http
+
+          GET /v4/search/institutions
+              ?q=types:education
+              &orderby=displayName:asc
+              &limit=20
+              &offset=0
+          ```
+
+          Second page:
+
+
+          ```http
+
+          GET /v4/search/institutions
+              ?q=types:education
+              &orderby=displayName:asc
+              &limit=20
+              &offset=20
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```text
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+          A deterministic `orderby` expression should be used for keyword and structured searches.
+
+
+          For vector and hybrid pagination, clients should keep the following unchanged between pages:
+
+
+          - Query
+
+          - Search mode
+
+          - Explicit vector
+
+          - `vectorTopK`
+
+          - Structured conditions
+
+          - Index version
+
+
+          Vector results may change when the search index is updated between requests.
