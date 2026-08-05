@@ -4392,7 +4392,8 @@ items:
         border: false
         id: outputs-api-search-outputs
         title: Search Outputs
-        subTitle: >-
+        subTitle: ""
+        descriptionAbout: >-
           Searches, filters, orders, facets, counts, and paginates
           source-specific Output records.
 
