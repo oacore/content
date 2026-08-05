@@ -99,7 +99,6 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#journals-api-relationship-oriented-endpoints"
       - item: Institutions
-        href: ""
         children:
           - hidden: false
             item: Introduction

@@ -127,7 +127,7 @@ items:
               ```
           - divider: false
             border: false
-            id: "#works-api-data-structure"
+            id: works-api-data-structure
             title: Data structure
             descriptionAbout: >-
               The table below describes the top-level properties in the CORE Graph
@@ -2488,7 +2488,7 @@ items:
               | `500` | An unexpected server error occurred. |
           - divider: false
             border: false
-            id: "#works-api-relationship-oriented-endpoints"
+            id: works-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
             descriptionAbout: >-
               
@@ -5527,7 +5527,7 @@ items:
               GET /v4/search/outputs?q=publisherId:{publisherId}
 
               ```
-      - item: Data providers
+      - item: Data Providers
         children:
           - divider: false
             border: false
@@ -6946,7 +6946,7 @@ items:
         children:
           - divider: false
             border: false
-            id: journal-api-introduction
+            id: journals-api-introduction
             title: Introduction
             descriptionAbout: >-
               The Journal entity represents an academic or scholarly journal
@@ -9593,7 +9593,7 @@ items:
               | yearlyMetrics.citedByCount     | No             | Yes            | No           | No            |
           - divider: false
             border: false
-            id: "#institutions-api-institutions-endpoints"
+            id: institutions-api-institutions-endpoints
             title: Institutions endpoints
             descriptionAbout: >-
               #### Available endpoints
@@ -12084,7 +12084,7 @@ items:
         children:
           - divider: false
             border: false
-            id: "#affiliations-api-introduction"
+            id: affiliations-api-introduction
             title: Introduction
             descriptionAbout: >-
               The Affiliation entity represents the relationship between an Author
@@ -12125,7 +12125,7 @@ items:
               * may contain one or more Works that provide evidence for the relationship.
           - divider: false
             border: false
-            id: "#affiliations-api-data-structure"
+            id: affiliations-api-data-structure
             title: Data structure
             descriptionAbout: >-
               The table below describes the top-level fields in the CORE Graph
@@ -14110,7 +14110,7 @@ items:
               | updatedDate   | No             | Yes            | Yes          | No            |
           - divider: false
             border: false
-            id: authors-api-available-endpoints
+            id: authors-api-authors-endpoints
             title: API endpoints
             descriptionAbout: >-
               | **Operation**                            | **Method** |
@@ -15281,6 +15281,43 @@ items:
 
 
               An existing Author with no connected Affiliations returns 200 with an empty results array.
+      - item: Citations
+        children:
+          - id: citations-introduction
+            title: Citations
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
+          - id: citations-data-structure
+            title: Data structure
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
+          - id: citations-identifiers
+            title: Identifiers
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
+          - id: citations-date
+            title: Date
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
+          - id: citations-reference
+            title: Reference
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
+          - id: citations-metrics
+            title: Metrics
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
+          - id: citations-example-json
+            title: Example JSON structure
+            descriptionAbout: null
+            subTitle: null
+            subDescription: null
   - item: Search
     children:
       - id: core-api-query-language
