@@ -7,6 +7,9 @@ navItems:
       - hidden: false
         item: Design Principles
         href: "#core-graph-design-principles"
+      - hidden: false
+        item: CORE data model
+        href: "#core-graph-core-data-model"
   - item: Entities
     children:
       - item: Works
