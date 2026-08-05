@@ -16518,3 +16518,193 @@ items:
 
 
           This rule should be documented once in the common Search section rather than repeated on every entity page.
+      - divider: false
+        border: false
+        id: search-search-request
+        title: Search request
+        descriptionAbout: >-
+          
+          Search requests can be submitted using either `GET` or `POST`.
+
+
+          #### Searching using GET
+
+
+          ##### Endpoint
+
+
+          ```http
+
+          GET /v4/search/{entityType}
+
+          ```
+
+
+          ##### Query parameters
+
+
+          | Parameter | Type | Required | Default | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | `q` | string | No | `*` | CORE query expression. |
+
+          | `searchMode` | string | No | `keyword` | Search mode: `keyword`, `vector`, or `hybrid`. Vector modes are supported only for selected entities. |
+
+          | `vectorTopK` | integer | No | Implementation-defined | Number of nearest vector candidates considered for vector or hybrid retrieval. |
+
+          | `orderby` | string | No | Relevance, when applicable | Comma-separated ordering expressions using `field:direction`. |
+
+          | `select` | string | No | All retrievable fields | Comma-separated fields to return. |
+
+          | `facets` | string | No | — | Comma-separated facetable fields. |
+
+          | `count` | boolean | No | `false` | Includes the total number of matches. |
+
+          | `limit` | integer | No | `10` | Maximum number of records to return. |
+
+          | `offset` | integer | No | `0` | Number of records to skip. |
+
+
+          Example:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/works?q=documentType:"research%20article"%20AND%20yearPublished>=2020&orderby=yearPublished:desc&select=workId,title,yearPublished,doi&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Readable form:
+
+
+          ```http
+
+          GET /v4/search/works
+              ?q=documentType:"research article" AND yearPublished>=2020
+              &orderby=yearPublished:desc
+              &select=workId,title,yearPublished,doi
+              &count=true
+              &limit=10
+              &offset=0
+          ```
+
+
+          > Examples in the documentation may be shown in readable form, but clients must URL-encode spaces and reserved characters.
+
+
+          #### Searching using POST
+
+
+          ##### Endpoint
+
+
+          ```http
+
+          POST /v4/search/{entityType}
+
+          ```
+
+
+          `POST` search is functionally equivalent to `GET` search, except that parameters are supplied in a JSON request body.
+
+
+          `POST` is recommended for:
+
+
+          - Long query expressions
+
+          - Complex, dynamically generated searches
+
+          - Many selected fields
+
+          - Many requested facets
+
+          - Explicit embedding vectors
+
+          - Requests that exceed practical URL limits
+
+
+          ##### Request body
+
+
+          | Property | Type | Required | Default | Description |
+
+          | --- | --- | --- | --- | --- |
+
+          | `q` | string | No | `*` | CORE query expression. |
+
+          | `searchMode` | string | No | `keyword` | Search mode: `keyword`, `vector`, or `hybrid`. |
+
+          | `vector` | number[] | No | — | Client-generated embedding. Supported only for vector-enabled entities. |
+
+          | `vectorTopK` | integer | No | Implementation-defined | Number of nearest vector candidates considered. |
+
+          | `orderby` | string[] | No | Relevance, when applicable | Ordered list of sorting expressions. |
+
+          | `select` | string[] | No | All retrievable fields | Fields to include in each result. |
+
+          | `facets` | string[] | No | — | Facetable fields for which buckets and counts should be returned. |
+
+          | `count` | boolean | No | `false` | Includes the total number of matches. |
+
+          | `limit` | integer | No | `10` | Maximum number of records to return. |
+
+          | `offset` | integer | No | `0` | Number of records to skip. |
+
+
+          Example:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/works" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "documentType:\"research article\" AND yearPublished>=2020",
+              "orderby": [
+                "yearPublished:desc"
+              ],
+              "select": [
+                "workId",
+                "title",
+                "yearPublished",
+                "doi"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          #### GET and POST equivalence
+
+
+          | GET query parameter | POST request-body property |
+
+          | --- | --- |
+
+          | `q=countries:GB` | `"q": "countries:GB"` |
+
+          | `searchMode=hybrid` | `"searchMode": "hybrid"` |
+
+          | `vectorTopK=100` | `"vectorTopK": 100` |
+
+          | Not supported through `GET` | `"vector": [0.012, -0.084, ...]` |
+
+          | `orderby=displayName:asc` | `"orderby": ["displayName:asc"]` |
+
+          | `select=authorId,displayName` | `"select": ["authorId", "displayName"]` |
+
+          | `facets=countries,careerStage` | `"facets": ["countries", "careerStage"]` |
+
+          | `count=true` | `"count": true` |
+
+          | `limit=10` | `"limit": 10` |
+
+          | `offset=0` | `"offset": 0` |
