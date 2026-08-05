@@ -29,6 +29,28 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#works-api-relationship-oriented-endpoints"
       - item: Outputs
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#outputs-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#outputs-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#outputs-api-supported-field-operations"
+          - hidden: false
+            item: Outputs endpoints
+            href: "#outputs-api-output-endpoints"
+          - hidden: false
+            item: Search Outputs
+            href: "#outputs-api-search-outputs"
+          - hidden: false
+            item: Search examples
+            href: "#outputs-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#outputs-api-relationship-oriented-endpoints"
       - item: Data Providers
         children:
           - hidden: false
