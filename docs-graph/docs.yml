@@ -331,6 +331,101 @@ items:
         subTitle: The diagram shows principal relationships only. Complete fields,
           cardinalities, and relationship endpoints are documented on the
           relevant entity pages.
+      - divider: false
+        border: false
+        id: core-graph-resource-and-endpoint-patterns
+        title: Resource and endpoint patterns
+        descriptionAbout: >-
+          
+          The Graph API uses consistent resource patterns.
+
+
+          #### Single entity
+
+
+          Retrieves a single entity using its canonical CORE identifier.
+
+
+          ```http
+
+          GET /v4/{entity}/{id}
+
+          ```
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/works/323030168
+
+          GET /v4/outputs/216874849
+
+          GET /v4/institutions/1256
+
+          ```
+
+
+          #### Search
+
+
+          Searches and discovers entities using either `GET` or `POST`.
+
+
+          ```http
+
+          GET /v4/search/{entity}
+
+          POST /v4/search/{entity}
+
+          ```
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/search/works
+
+          POST /v4/search/outputs
+
+          GET /v4/search/institutions
+
+          ```
+
+
+          #### Relationship navigation
+
+
+          Retrieves entities connected to a specific resource.
+
+
+          ```http
+
+          GET /v4/{entity}/{id}/{relatedEntity}
+
+          ```
+
+
+          Examples:
+
+
+          ```http
+
+          GET /v4/works/323030168/outputs
+
+          GET /v4/works/323030168/authorships
+
+          GET /v4/authors/67890/affiliations
+
+          GET /v4/institutions/1256/data-providers
+
+          ```
+
+
+          Relationship endpoints are convenience operations over graph connections. Where possible, the equivalent search query is documented alongside the endpoint.
   - item: Entities
     children:
       - divider: false
