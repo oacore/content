@@ -237,3 +237,6 @@ navItems:
       - hidden: false
         item: Result control
         href: "#search-result-control"
+      - hidden: false
+        item: Facets and aggregation
+        href: "#search-facets-and-aggregation"
