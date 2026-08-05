@@ -1,9 +1,58 @@
 items:
   - item: Overview
     children:
-      - id: core-graph-data-model
-        title: CORE graph data model
-        descriptionAbout: null
+      - id: core-graph-api
+        title: CORE Graph API
+        descriptionAbout: >-
+          The CORE Graph API provides structured access to CORE’s global
+          scholarly knowledge graph. It connects research works with their
+          manifestations, creators, organisations, publication venues, funding,
+          projects, topics, and citation relationships.
+
+
+          CORE aggregates metadata and full text from a global network of repositories, journals, and other scholarly sources. Records collected from these sources are normalised, enriched, and linked to create consistent entities and relationships.
+
+
+          Rather than exposing scholarly metadata only as isolated search records, the Graph API makes these connections directly accessible.
+
+
+          The Graph API exposes this information through three complementary forms of access:
+
+
+          | **Access pattern**      | **Description**                                                                                                                 |
+
+          | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+
+          | Entity retrieval        | Retrieves a specific entity using its canonical CORE identifier.                                                                |
+
+          | Relationship navigation | Retrieves entities connected to a specific resource.                                                                            |
+
+          | Search and discovery    | Discovers entities using keyword search, structured conditions, facets, vector search, hybrid search, ordering, and pagination. |
+
+
+          ### Example endpoints
+
+
+          ```http
+
+          GET /v4/works/{workId}
+
+          GET /v4/works/{workId}/outputs
+
+          GET /v4/works/{workId}/authorships
+
+          GET /v4/authors/{authorId}/affiliations
+
+          GET /v4/institutions/{institutionId}/data-providers
+
+          GET /v4/search/works
+
+          POST /v4/search/works
+
+          ```
+
+
+          The API is graph-oriented, but it is exposed through REST operations rather than requiring clients to submit GraphQL queries.
         subTitle: null
         subDescription: null
   - item: Entities
