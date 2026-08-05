@@ -10861,6 +10861,474 @@ items:
           | `offset=0`                          | `"offset": 0`                                 |
 
 
+
+
+          #### Text-based vector search
+
+
+          Text-based vector search allows clients to submit natural-language text without generating an embedding themselves.
+
+
+          CORE extracts the textual query, generates an embedding, and retrieves semantically similar Works.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=vector
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "vector",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          Unlike keyword search, vector search may retrieve conceptually related Works that do not contain the exact query terms.
+
+
+          For example, the query:
+
+
+          ```text
+
+          institution name matching
+
+          ```
+
+
+          may retrieve Works discussing:
+
+
+          * Affiliation disambiguation
+
+          * Organisation-name normalisation
+
+          * Institutional entity resolution
+
+          * Research-organisation matching
+
+
+          #### Vector search with structured conditions
+
+
+          Vector retrieval can be combined with structured Work conditions.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"&searchMode=vector
+
+          ```
+
+
+          Executable request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/works?q="text%20and%20data%20mining"%20AND%20yearPublished>=2020%20AND%20documentType:"research%20article"&searchMode=vector&select=workId,title,abstract,yearPublished,documentType&limit=10' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/works" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "\"text and data mining\" AND yearPublished>=2020 AND documentType:\"research article\"",
+              "searchMode": "vector",
+              "select": [
+                "workId",
+                "title",
+                "abstract",
+                "yearPublished",
+                "documentType"
+              ],
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          This request:
+
+
+          * Converts `text and data mining` into an embedding
+
+          * Retrieves semantically similar Works
+
+          * Restricts results to Works published from 2020 onwards
+
+          * Restricts results to research articles
+
+          * Returns selected Work fields
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "hybrid",
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          In hybrid mode, the same textual query is used for:
+
+
+          * Keyword retrieval
+
+          * Vector generation
+
+          * Combined relevance ranking
+
+
+          The implementation should document how keyword and vector scores are combined.
+
+
+          #### Hybrid search with structured conditions
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\" AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished",
+              "documentType"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          The textual query contributes to both keyword and vector relevance. The publication-year condition restricts the returned Works.
+
+
+          #### User-generated vector search
+
+
+          Users may supply an embedding directly through `POST`.
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "yearPublished>=2020",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "vectorTopK": 100,
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          The vector in this example is shortened for readability. A real request must contain the complete embedding required by the configured Work vector index.
+
+
+          When an explicit vector is supplied:
+
+
+          * CORE uses the supplied vector instead of generating one from query text
+
+          * `q` may contain structured conditions
+
+          * The vector must be compatible with the Work vector index
+
+
+          The public API documentation must specify:
+
+
+          * The embedding model or compatible vector-generation method
+
+          * The required number of vector dimensions
+
+          * The accepted numeric format
+
+          * Whether vectors must be normalised
+
+          * The maximum request-body size
+
+
+          #### Hybrid search using a user-generated vector
+
+
+          A user-generated vector may be combined with keyword relevance.
+
+
+          ```json
+
+          {
+            "q": "title:\"data mining\" AND yearPublished>=2020",
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "hybrid",
+            "vectorTopK": 100,
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This request combines:
+
+
+          * Keyword relevance for `data mining`
+
+          * Semantic similarity using the supplied vector
+
+          * A publication-year restriction
+
+
+          #### Explicit vector validation
+
+
+          A request containing `vector` should be rejected when:
+
+
+          * `searchMode` is `keyword`
+
+          * The vector has the wrong number of dimensions
+
+          * The vector contains invalid numeric values
+
+          * The vector is empty
+
+          * The vector is incompatible with the configured Work vector index
+
+
+          Example invalid request:
+
+
+          ```json
+
+          {
+            "searchMode": "keyword",
+            "vector": [
+              0.12,
+              0.34
+            ]
+          }
+
+          ```
+
+
+          Recommended response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
+
+
+          #### Vector candidate count
+
+
+          The optional `vectorTopK` property controls the number of nearest vector candidates considered before final result processing.
+
+
+          Example:
+
+
+          ```json
+
+          {
+            "q": "\"scholarly document classification\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          `vectorTopK` is not the number of records returned.
+
+
+          In this example:
+
+
+          * Up to 100 nearest vector candidates are considered
+
+          * At most 10 records are returned
+
+
+          CORE should define:
+
+
+          * The default value
+
+          * The minimum permitted value
+
+          * The maximum permitted value
+
+          * Whether the value can be overridden by all API plans
+
+
+          #### Vector and hybrid result ordering
+
+
+          When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
+
+
+          When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
+
+
+          Applying an explicit `orderby` expression may replace relevance-based ordering.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/works?q="machine learning"&searchMode=vector&orderby=yearPublished:desc
+
+          ```
+
+
+          This request orders the matching Works by publication year rather than vector similarity.
+
+
+          API users should omit `orderby` when semantic or hybrid relevance should determine the result order.
+
+
+          #### Search-result scores
+
+
+          Vector and hybrid relevance scores are search-result metadata. They are not persistent Work properties and should not be included in the Work data-structure table.
+
+
+          When exposed, a search result may include:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Text and data mining for scholarly repositories",
+            "yearPublished": 2025,
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          The API should document whether `relevanceScore` represents:
+
+
+          * Keyword relevance
+
+          * Vector similarity
+
+          * Combined hybrid relevance
+
+
+          Scores generated by different search modes should not be assumed to be directly comparable.
+      - divider: false
+        border: false
+        id: works-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
           #### Keyword search
 
 
@@ -10941,6 +11409,212 @@ items:
           {
             "q": "fullText:\"text and data mining\"",
             "searchMode": "keyword"
+          }
+
+          ```
+
+
+          ####Other structured search examples
+
+
+          #### Retrieve a Work by DOI
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=doi:"10.1109/jiot.2020.2984887"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "doi:\"10.1109/jiot.2020.2984887\""
+          }
+
+          ```
+
+
+          #### Retrieve a Work by external identifier
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:\"https://openalex.org/W3030303030\""
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `externalIdentifiers` object.
+
+
+          #### Retrieve Works by publication year and document type
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=yearPublished>=2020 AND documentType:"research article"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "yearPublished>=2020 AND documentType:\"research article\""
+          }
+
+          ```
+
+
+          #### Retrieve the Work represented by an Output
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=coreIds:216874849
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "coreIds:216874849"
+          }
+
+          ```
+
+
+          #### Retrieve Works associated with a Journal
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=journalIds:12345
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "journalIds:12345"
+          }
+
+          ```
+
+
+          #### Retrieve Works associated with a Data Provider
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=dataProviderIds:86
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "dataProviderIds:86"
+          }
+
+          ```
+
+
+          #### Retrieve Works citing a DOI
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=references.citedDoi:"10.1000/abc456"
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "references.citedDoi:\"10.1000/abc456\""
+          }
+
+          ```
+
+
+          #### Retrieve Works with full text
+
+
+          GET request:
+
+
+          ```http
+
+          GET /v4/search/works?q=_exists_:fullText
+
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```json
+
+          {
+            "q": "_exists_:fullText"
           }
 
           ```
@@ -11217,7 +11891,7 @@ items:
           * The maximum request-body size
 
 
-          #### Hybrid search using a client-generated vector
+          #### Hybrid search using a user-generated vector
 
 
           A user-generated vector may be combined with keyword relevance.
@@ -11407,213 +12081,8 @@ items:
 
 
           Scores generated by different search modes should not be assumed to be directly comparable.
-      - divider: false
-        border: false
-        id: works-api-search-examples
-        title: Search examples
-        descriptionAbout: >-
-          
-          #### Retrieve a Work by DOI
 
 
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=doi:"10.1109/jiot.2020.2984887"
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "doi:\"10.1109/jiot.2020.2984887\""
-          }
-
-          ```
-
-
-          #### Retrieve a Work by external identifier
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:\"https://openalex.org/W3030303030\""
-          }
-
-          ```
-
-
-          Both conditions must apply to the same `externalIdentifiers` object.
-
-
-          #### Retrieve Works by publication year and document type
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=yearPublished>=2020 AND documentType:"research article"
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "yearPublished>=2020 AND documentType:\"research article\""
-          }
-
-          ```
-
-
-          #### Retrieve the Work represented by an Output
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=coreIds:216874849
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "coreIds:216874849"
-          }
-
-          ```
-
-
-          #### Retrieve Works associated with a Journal
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=journalIds:12345
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "journalIds:12345"
-          }
-
-          ```
-
-
-          #### Retrieve Works associated with a Data Provider
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=dataProviderIds:86
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "dataProviderIds:86"
-          }
-
-          ```
-
-
-          #### Retrieve Works citing a DOI
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=references.citedDoi:"10.1000/abc456"
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "references.citedDoi:\"10.1000/abc456\""
-          }
-
-          ```
-
-
-          #### Retrieve Works with full text
-
-
-          GET request:
-
-
-          ```http
-
-          GET /v4/search/works?q=_exists_:fullText
-
-          ```
-
-
-          Equivalent POST request:
-
-
-          ```json
-
-          {
-            "q": "_exists_:fullText"
-          }
-
-          ```
 
 
           #### Facets with vector search
@@ -11901,5 +12370,2905 @@ items:
           ```http
 
           GET /v4/works/{workId}/data-providers
+
+          ```
+  - item: Outputs
+    children:
+      - divider: false
+        border: false
+        id: outputs-api-introduction
+        title: Introduction
+        descriptionAbout: >-
+          The Output entity represents a source-specific manifestation of a
+          scholarly research item harvested by CORE.
+
+
+          An Output corresponds to one record supplied by a Data Provider, such as:
+
+
+          * an institutional repository;
+
+          * a subject repository;
+
+          * a preprint server;
+
+          * a Journal;
+
+          * a Publisher platform;
+
+          * another scholarly metadata source.
+
+
+          Unlike a Work, which is a canonical deduplicated representation of a research item, an Output preserves the metadata and full-text information associated with one particular source record.
+
+
+          An Output may also contain CORE-generated processing information, including:
+
+
+          * extracted full text;
+
+          * normalised document types;
+
+          * language detection;
+
+          * open-access classification;
+
+          * Sustainable Development Goal classification;
+
+          * full-text availability status.
+        images:
+          - file: /images/docs-graph/outputs.png
+        subTitle: |-
+          Each Output:
+
+          * has exactly one CORE Output identifier;
+          * is associated with one Data Provider;
+          * may be associated with one Journal;
+          * may be associated with one Publisher;
+          * may be represented by one canonical Work.
+      - divider: false
+        border: false
+        id: outputs-api-data-structure
+        title: Data structure
+        descriptionAbout: >-
+          The following table describes the top-level fields in the CORE Graph
+          metadata schema for the Output entity.
+
+
+          | **Property**           | **Type**  | **Example value**                                                           | **Description**                                                                              | **Source**                                                     |
+
+          | ---------------------- | --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+
+          | `coreId`               | integer   | `216874849`                                                                 | Unique CORE identifier for the Output.                                                       | CORE                                                           |
+
+          | `dataProviderId`       | integer   | `86`                                                                        | CORE identifier of the Data Provider from which the Output was harvested.                    | CORE                                                           |
+
+          | `publisherId`          | integer   | `78`                                                                        | CORE identifier of the Publisher associated with the Output, when resolved.                  | CORE / Crossref                                                |
+
+          | `journalId`            | integer   | `12345`                                                                     | CORE identifier of the Journal associated with the Output, when resolved.                    | CORE / ISSN resolution                                         |
+
+          | `externalIdentifiers`* | object\[] | `[{"type":"DOI","identifier":"10.1000/xyz"}]`                               | Normalised external identifiers associated with the Output.                                  | OAI-PMH / Crossref / OpenAlex / OpenAIRE / CORE                |
+
+          | `title`                | string    | `"Sustainable Development Goals and Research"`                              | Title of the Output as supplied or selected from source metadata.                            | OAI-PMH / Source metadata                                      |
+
+          | `invertedAbstract`*    | object    | `{"This":[0],"paper":[1],"explores":[2]}`                                   | Abstract represented as an inverted index in which each token maps to its positions.         | OAI-PMH / Derived by CORE                                      |
+
+          | `fullText`             | string    | `"Full extracted text..."`                                                  | Full text extracted from the source document.                                                | PDF parsing / Source full text                                 |
+
+          | `fullTextStatus`       | string    | `"enabled"`                                                                 | Status indicating the availability or processing state of the Output full text.              | CORE                                                           |
+
+          | `yearPublished`        | integer   | `2022`                                                                      | Publication year derived from the preferred publication date.                                | Derived by CORE                                                |
+
+          | `documentType`         | string\[] | `["research article"]`                                                      | Normalised document types associated with the Output.                                        | OAI-PMH / Crossref / OpenAlex / OpenAIRE / CORE classification |
+
+          | `subjects`             | string\[] | `["Journal Article","PeerReviewed"]`                                        | Subject or classification labels supplied by the source.                                     | OAI-PMH / Source metadata                                      |
+
+          | `issn`                 | string    | `"1744-9081"`                                                               | ISSN associated with the Journal or publication venue.                                       | OAI-PMH / Crossref / ISSN resolution                           |
+
+          | `downloadUrl`          | string    | `"https://core.ac.uk/download/216874849.pdf"`                               | Preferred URL for downloading the Output full text.                                          | CORE                                                           |
+
+          | `disabled`             | boolean   | `false`                                                                     | Indicates whether the Output has been disabled in CORE.                                      | CORE                                                           |
+
+          | `deleted`              | string    | `"ALLOWED"`                                                                 | Source or CORE status describing whether the Output is accessible or has been removed.       | CORE                                                           |
+
+          | `dates`*               | object\[] | `[{"type":"published","value":"2022-04-27"}]`                               | Structured publication, deposit, collection, and record-management dates.                    | OAI-PMH / Crossref / DataCite / OpenAIRE / CORE                |
+
+          | `ids`*                 | object\[] | `[{"type":"OAI_ID","identifier":"oai:repo.org:123"}]`                       | Raw or source-specific identifier objects retained for provenance.                           | OAI-PMH / Source metadata                                      |
+
+          | `accessRights`*        | object\[] | `[{"accessRight":"open access","isOpenAccess":true}]`                       | Structured access-right and open-access information.                                         | COAR / OpenAIRE / OpenAlex / DataCite / RIOXX                  |
+
+          | `contributors`*        | object\[] | `[{"name":"Alice Smith","type":"Personal","role":"editor"}]`                | People or organisations contributing to the Output in roles other than canonical Authorship. | OAI-PMH / Crossref / DataCite / OpenAIRE                       |
+
+          | `language`*            | object\[] | `[{"code":"en","name":"English"}]`                                          | Structured language information associated with the Output.                                  | OAI-PMH / Language detection                                   |
+
+          | `sourceFulltextUrls`   | string\[] | `["https://repo.org/file.pdf"]`                                             | Source URLs at which full text is available.                                                 | OAI-PMH / Repository metadata                                  |
+
+          | `links`*               | object\[] | `[{"type":"download","url":"https://core.ac.uk/download/216874849.pdf"}]`   | CORE-generated or structured links associated with the Output.                               | CORE                                                           |
+
+          | `urls`                 | string\[] | `["https://repo.org/item/123"]`                                             | Related URLs supplied in source metadata.                                                    | OAI-PMH / Source metadata                                      |
+
+          | `license`*             | object    | `{"name":"CC BY 4.0","uri":"https://creativecommons.org/licenses/by/4.0/"}` | Structured licence information associated with the Output.                                   | OAI-PMH / Crossref / OpenAIRE / OpenAlex / RIOXX               |
+
+          | `sdg`*                 | object\[] | `[{"type":"SDG04","score":0.92}]`                                           | Sustainable Development Goal classifications assigned to the Output.                         | CORE ML model                                                  |
+
+
+          \* More information is provided in the following sections.
+
+
+          #### Identifiers
+
+
+          ##### Normalised external identifiers
+
+
+          The `externalIdentifiers` property contains normalised identifiers associated with the Output.
+
+
+          ```json
+
+          {
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": "216874849"
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1000/xyz"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:repo.org:123"
+              },
+              {
+                "type": "ARXIV_ID",
+                "identifier": "1909.00560"
+              },
+              {
+                "type": "OPENALEX_ID",
+                "identifier": "https://openalex.org/W3030303030"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                              |
+
+          | ------------ | -------- | ----------------- | -------------------------------------------- |
+
+          | `type`       | string   | `"DOI"`           | Identifier scheme or classification.         |
+
+          | `identifier` | string   | `"10.1000/xyz"`   | Identifier value associated with the Output. |
+
+
+          T﻿he property, `type` can have following values:
+
+
+          | **Value**     | **Description**                      |
+
+          | ------------- | ------------------------------------ |
+
+          | `CORE_ID`     | CORE Output identifier.              |
+
+          | `DOI`         | Digital Object Identifier.           |
+
+          | `OAI_ID`      | OAI-PMH identifier.                  |
+
+          | `ARXIV_ID`    | arXiv identifier.                    |
+
+          | `OPENALEX_ID` | OpenAlex Work identifier.            |
+
+          | `OPENAIRE_ID` | OpenAIRE identifier.                 |
+
+          | `MAG_ID`      | Microsoft Academic Graph identifier. |
+
+          | `PMID`        | PubMed identifier.                   |
+
+          | `PMCID`       | PubMed Central identifier.           |
+
+
+          #### Raw identifier objects
+
+
+          The ER model contains both `externalIdentifiers` and `ids`.
+
+
+          The recommended distinction is:
+
+
+          | **Property**          | **Purpose**                                                                                   |
+
+          | --------------------- | --------------------------------------------------------------------------------------------- |
+
+          | `externalIdentifiers` | Normalised identifier values using the CORE identifier model.                                 |
+
+          | `ids`                 | Raw source-specific identifier structures retained for provenance or backwards compatibility. |
+
+
+          If CORE does not require both representations, `ids` should be removed and all identifiers should be consolidated under `externalIdentifiers`.
+
+
+          #### Inverted abstract
+
+
+          The `invertedAbstract` property contains a position-based representation of the abstract.
+
+
+          ```json
+
+          {
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            }
+          }
+
+          ```
+
+
+          Each key represents a token. The corresponding array contains the positions at which the token occurs.
+
+
+          #### Dates
+
+
+          The `dates` property contains structured dates associated with the Output.
+
+
+          ```json
+
+          {
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "accepted",
+                "value": "2022-03-15"
+              },
+              {
+                "type": "deposited",
+                "value": "2022-04-28T11:42:34Z"
+              },
+              {
+                "type": "collected",
+                "value": "2022-05-02T09:00:00Z"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                   |
+
+          | ------------ | -------- | ----------------- | --------------------------------- |
+
+          | `type`       | string   | `"published"`     | Classification of the date.       |
+
+          | `value`      | string   | `"2022-04-27"`    | ISO 8601 date or date-time value. |
+
+
+          Supported date types may include:
+
+
+          | **Value**          | **Description**                                       | **Source**                                          |
+
+          | ------------------ | ----------------------------------------------------- | --------------------------------------------------- |
+
+          | `published`        | Preferred publication date.                           | OAI-PMH / DataCite / Crossref / OpenAlex / OpenAIRE |
+
+          | `published_online` | Online publication date.                              | Crossref                                            |
+
+          | `published_print`  | Print publication date.                               | Crossref                                            |
+
+          | `issued`           | Date on which the resource was formally issued.       | Dublin Core Terms / Crossref                        |
+
+          | `accepted`         | Date on which the resource was accepted.              | Dublin Core Terms / Crossref                        |
+
+          | `deposited`        | Date on which metadata was deposited with the source. | Crossref                                            |
+
+          | `created`          | Date on which the source or CORE record was created.  | CORE / Crossref / OpenAlex                          |
+
+          | `updated`          | Date on which the Output record was last updated.     | CORE / Crossref / OpenAIRE / OpenAlex               |
+
+          | `indexed`          | Date on which the Output was indexed by CORE.         | CORE                                                |
+
+          | `available`        | Date on which the resource became available.          | DataCite / OAI-PMH                                  |
+
+          | `public_release`   | Date on which the resource was publicly released.     | RIOXX                                               |
+
+          | `collected`        | Date on which CORE collected the source record.       | CORE / OpenAIRE                                     |
+
+
+          Because `dates` is a collection, the Output cannot be unambiguously ordered by `dates.value`.
+
+
+          Frequently used dates should be exposed as top-level fields if direct ordering is required.
+
+
+          #### Contributors
+
+
+          The `contributors` property contains people or organisations that contributed to the Output in roles other than canonical Authorship.
+
+
+          ```json
+
+          {
+            "contributors": [
+              {
+                "name": "CiteSeerX",
+                "type": "Organisational",
+                "role": null
+              },
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              },
+              {
+                "name": "國立中興大學應用數學系",
+                "type": "Organisational",
+                "role": "hosting_institution"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                | **Source**                                       |
+
+          | ------------ | -------- | ----------------- | -------------------------------------------------------------- | ------------------------------------------------ |
+
+          | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.               | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+
+          | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or organisation. | DataCite / OpenAIRE                              |
+
+          | `role`       | string   | `"editor"`        | Role performed by the contributor.                             | Crossref / DataCite / OpenAIRE                   |
+
+
+          Possible roles may include:
+
+
+          * `editor`
+
+          * `translator`
+
+          * `reviewer`
+
+          * `hosting_institution`
+
+
+          Canonical Authors are not represented through this collection.
+
+
+          #### Language
+
+
+          The `language` property contains structured language information.
+
+
+          ```json
+
+          {
+            "language": [
+              {
+                "id": 1,
+                "code": "en",
+                "name": "English"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                      | **Source**                   |
+
+          | ------------ | -------- | ----------------- | -------------------------------------------------------------------- | ---------------------------- |
+
+          | `id`         | integer  | `1`               | Internal identifier for the language classification, when available. | CORE                         |
+
+          | `code`       | string   | `"en"`            | ISO 639 language code.                                               | OAI-PMH / Language detection |
+
+          | `name`       | string   | `"English"`       | Human-readable language name.                                        | OAI-PMH / CORE               |
+
+
+          An Output may contain multiple language records when more than one language is identified.
+
+
+          #### Access rights
+
+
+          The `accessRights` property contains structured access and open-access information.
+
+
+          ```json
+
+          {
+            "accessRights": [
+              {
+                "accessRight": "open access",
+                "accessRightUri": "http://purl.org/coar/access_right/c_abf2",
+                "scheme": "COAR",
+                "isOpenAccess": true,
+                "oaStatus": "gold",
+                "openAccessRoute": "gold",
+                "freeToRead": true,
+                "accessStartDate": "2022-05-01",
+                "accessEndDate": null,
+                "embargoEndDate": null,
+                "version": "publishedVersion",
+                "oaUrl": "https://example.org/article",
+                "pdfUrl": "https://example.org/article.pdf",
+                "anyRepositoryHasFulltext": true,
+                "raw": [
+                  "open access",
+                  "http://purl.org/coar/access_right/c_abf2"
+                ]
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property**               | **Type**  | **Example value**                            | **Description**                                                               | **Source**                               |
+
+          | -------------------------- | --------- | -------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- |
+
+          | `accessRight`              | string    | `"open access"`                              | Human-readable access-right status.                                           | COAR / OpenAIRE / OAI-PMH / DataCite     |
+
+          | `accessRightUri`           | string    | `"http://purl.org/coar/access_right/c_abf2"` | URI identifying the access-right status.                                      | COAR / DataCite / OpenAIRE               |
+
+          | `scheme`                   | string    | `"COAR"`                                     | Vocabulary or scheme used for the access-right value.                         | OpenAIRE                                 |
+
+          | `isOpenAccess`             | boolean   | `true`                                       | Indicates whether the Output is considered open access.                       | OpenAlex / OpenAIRE / Derived by CORE    |
+
+          | `oaStatus`                 | string    | `"gold"`                                     | Open-access status, such as `gold`, `green`, `bronze`, `hybrid`, or `closed`. | OpenAlex / OpenAIRE                      |
+
+          | `openAccessRoute`          | string    | `"gold"`                                     | Open-access route, when supplied separately from the status.                  | OpenAIRE                                 |
+
+          | `freeToRead`               | boolean   | `true`                                       | Indicates whether the Output is free to read.                                 | RIOXX / ALI                              |
+
+          | `accessStartDate`          | string    | `"2022-05-01"`                               | Date from which access begins.                                                | RIOXX / Crossref / Qualified Dublin Core |
+
+          | `accessEndDate`            | string    | `"2024-05-01"`                               | Date on which access ends, when supplied.                                     | RIOXX                                    |
+
+          | `embargoEndDate`           | string    | `"2023-05-01"`                               | Date on which an embargo ends.                                                | OpenAIRE                                 |
+
+          | `version`                  | string    | `"publishedVersion"`                         | Version associated with the accessible copy.                                  | Crossref / RIOXX / OpenAlex / OpenAIRE   |
+
+          | `oaUrl`                    | string    | `"https://example.org/article"`              | Landing-page URL of an open-access copy.                                      | OpenAlex                                 |
+
+          | `pdfUrl`                   | string    | `"https://example.org/article.pdf"`          | Direct PDF URL of an open-access copy.                                        | OpenAlex                                 |
+
+          | `anyRepositoryHasFulltext` | boolean   | `true`                                       | Indicates whether any known repository provides full text.                    | OpenAlex                                 |
+
+          | `raw`                      | string\[] | `["open access"]`                            | Raw access-right strings supplied by source metadata.                         | OAI-PMH / OpenAIRE                       |
+
+
+          #### Licence
+
+
+          The `license` property contains structured licence information associated with the Output.
+
+
+          ```json
+
+          {
+            "license": {
+              "name": "CC BY 4.0",
+              "uri": "https://creativecommons.org/licenses/by/4.0/",
+              "startDate": "2022-05-01",
+              "delayDays": 0,
+              "contentVersion": "published",
+              "raw": [
+                "CC-BY",
+                "http://creativecommons.org/licenses/by/4.0/"
+              ]
+            }
+          }
+
+          ```
+
+
+          | **Property**     | **Type**  | **Example value**                                | **Description**                                  | **Source**                             |
+
+          | ---------------- | --------- | ------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
+
+          | `name`           | string    | `"CC BY 4.0"`                                    | Normalised licence name.                         | OAI-PMH / OpenAIRE / OpenAlex          |
+
+          | `uri`            | string    | `"https://creativecommons.org/licenses/by/4.0/"` | URI containing or identifying the licence terms. | Crossref / OpenAIRE / OpenAlex / RIOXX |
+
+          | `startDate`      | string    | `"2022-05-01"`                                   | Date from which the licence applies.             | Crossref / RIOXX / OpenAIRE            |
+
+          | `delayDays`      | integer   | `365`                                            | Embargo or licence delay in days.                | Crossref                               |
+
+          | `contentVersion` | string    | `"published"`                                    | Content version covered by the licence.          | Crossref                               |
+
+          | `raw`            | string\[] | `["CC-BY"]`                                      | Raw licence strings supplied by source metadata. | OAI-PMH / OpenAIRE / Crossref          |
+
+
+          #### Links
+
+
+          The `links` property contains structured links generated or normalised by CORE.
+
+
+          ```json
+
+          {
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/outputs/216874849",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property**  | **Type** | **Example value**                             | **Description**                        |
+
+          | ------------- | -------- | --------------------------------------------- | -------------------------------------- |
+
+          | `type`        | string   | `"download"`                                  | Classification of the linked resource. |
+
+          | `url`         | string   | `"https://core.ac.uk/download/216874849.pdf"` | URL of the linked resource.            |
+
+          | `contentType` | string   | `"application/pdf"`                           | MIME type of the linked resource.      |
+
+
+          The `urls` property separately retains related URLs supplied by source metadata.
+
+
+          #### Output status
+
+
+          ##### Full-text status
+
+
+          The `fullTextStatus` property describes the availability or processing state of the full text.
+
+
+          ```json
+
+          {
+            "fullTextStatus": "enabled"
+          }
+
+          ```
+
+
+          The supported vocabulary must be documented by CORE. Possible values should not be inferred solely from whether `fullText` is `null`.
+
+
+          ##### Disabled status
+
+
+          ```json
+
+          {
+            "disabled": false
+          }
+
+          ```
+
+
+          A value of `true` indicates that CORE has disabled the Output.
+
+
+          ##### Deleted status
+
+
+          ```json
+
+          {
+            "deleted": "ALLOWED"
+          }
+
+          ```
+
+
+          The `deleted` field is represented as a string in the ER model. Its controlled vocabulary and meaning should be defined before public release.
+
+
+          If this field is intended to represent a simple deleted/not-deleted state, it should instead be modelled as:
+
+
+          ```text
+
+          boolean | null
+
+          ```
+
+
+          #### Sustainable Development Goals
+
+
+          The `sdg` property contains Sustainable Development Goal classifications assigned to the Output by a CORE machine-learning model.
+
+
+          ```json
+
+          {
+            "sdg": [
+              {
+                "type": "SDG04",
+                "score": 0.92
+              },
+              {
+                "type": "SDG09",
+                "score": 0.76
+              }
+            ]
+          }
+
+          ```
+
+
+          | **Property** | **Type** | **Example value** | **Description**                                                                                                          | **Source**    |
+
+          | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------- |
+
+          | `type`       | string   | `"SDG04"`         | Identifier of the United Nations Sustainable Development Goal assigned to the Output.                                    | CORE ML model |
+
+          | `score`      | number   | `0.92`            | Confidence or relevance score for the SDG classification. Higher values indicate stronger model confidence or relevance. | CORE ML model |
+
+
+          Example Output record:
+
+
+          ```json
+
+          {
+            "coreId": 216874849,
+            "dataProviderId": 86,
+            "publisherId": 78,
+            "journalId": 12345,
+            "externalIdentifiers": [
+              {
+                "type": "CORE_ID",
+                "identifier": "216874849"
+              },
+              {
+                "type": "DOI",
+                "identifier": "10.1000/xyz"
+              },
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:repo.org:123"
+              }
+            ],
+            "title": "Sustainable Development Goals and Research",
+            "invertedAbstract": {
+              "This": [
+                0
+              ],
+              "paper": [
+                1
+              ],
+              "explores": [
+                2
+              ]
+            },
+            "fullText": "Full extracted text...",
+            "fullTextStatus": "enabled",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "subjects": [
+              "Journal Article",
+              "PeerReviewed"
+            ],
+            "issn": "1744-9081",
+            "downloadUrl": "https://core.ac.uk/download/216874849.pdf",
+            "disabled": false,
+            "deleted": "ALLOWED",
+            "dates": [
+              {
+                "type": "published",
+                "value": "2022-04-27"
+              },
+              {
+                "type": "deposited",
+                "value": "2022-04-28T11:42:34Z"
+              },
+              {
+                "type": "updated",
+                "value": "2024-08-16T00:03:23Z"
+              }
+            ],
+            "ids": [
+              {
+                "type": "OAI_ID",
+                "identifier": "oai:repo.org:123"
+              }
+            ],
+            "accessRights": [
+              {
+                "accessRight": "open access",
+                "accessRightUri": "http://purl.org/coar/access_right/c_abf2",
+                "scheme": "COAR",
+                "isOpenAccess": true,
+                "oaStatus": "gold",
+                "openAccessRoute": "gold",
+                "freeToRead": true,
+                "accessStartDate": "2022-05-01",
+                "accessEndDate": null,
+                "embargoEndDate": null,
+                "version": "publishedVersion",
+                "oaUrl": "https://example.org/article",
+                "pdfUrl": "https://example.org/article.pdf",
+                "anyRepositoryHasFulltext": true,
+                "raw": [
+                  "open access"
+                ]
+              }
+            ],
+            "contributors": [
+              {
+                "name": "Alice Smith",
+                "type": "Personal",
+                "role": "editor"
+              }
+            ],
+            "language": [
+              {
+                "id": 1,
+                "code": "en",
+                "name": "English"
+              }
+            ],
+            "sourceFulltextUrls": [
+              "https://repo.org/file.pdf"
+            ],
+            "links": [
+              {
+                "type": "reader",
+                "url": "https://core.ac.uk/outputs/216874849",
+                "contentType": "text/html"
+              },
+              {
+                "type": "download",
+                "url": "https://core.ac.uk/download/216874849.pdf",
+                "contentType": "application/pdf"
+              }
+            ],
+            "urls": [
+              "https://repo.org/item/123"
+            ],
+            "license": {
+              "name": "CC BY 4.0",
+              "uri": "https://creativecommons.org/licenses/by/4.0/",
+              "startDate": "2022-05-01",
+              "delayDays": 0,
+              "contentVersion": "published",
+              "raw": [
+                "CC-BY"
+              ]
+            },
+            "sdg": [
+              {
+                "type": "SDG04",
+                "score": 0.92
+              },
+              {
+                "type": "SDG09",
+                "score": 0.76
+              }
+            ]
+          }
+
+          ```
+      - divider: false
+        border: false
+        id: outputs-api-supported-field-operations
+        title: Supported field operations
+        descriptionAbout: >-
+          The table below describes which Output properties can be searched,
+          queried through field lookups or ranges, ordered, or used as facets.
+
+
+          | **Attribute**                           | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+          | --------------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+          | `coreId`                                | No             | Yes            | No           | No            |
+
+          | `dataProviderId`                        | No             | Yes            | No           | Yes           |
+
+          | `publisherId`                           | No             | Yes            | No           | Yes           |
+
+          | `journalId`                             | No             | Yes            | No           | Yes           |
+
+          | `externalIdentifiers.type`              | No             | Yes            | No           | Yes           |
+
+          | `externalIdentifiers.identifier`        | No             | Yes            | No           | No            |
+
+          | `title`                                 | Yes            | No             | Yes          | No            |
+
+          | `invertedAbstract`                      | No             | No             | No           | No            |
+
+          | `fullText`                              | Yes            | No             | No           | No            |
+
+          | `fullTextStatus`                        | No             | Yes            | No           | Yes           |
+
+          | `yearPublished`                         | No             | Yes            | Yes          | Yes           |
+
+          | `documentType`                          | No             | Yes            | No           | Yes           |
+
+          | `subjects`                              | Yes            | Yes            | No           | Yes           |
+
+          | `issn`                                  | No             | Yes            | No           | No            |
+
+          | `downloadUrl`                           | No             | No             | No           | No            |
+
+          | `disabled`                              | No             | Yes            | No           | Yes           |
+
+          | `deleted`                               | No             | Yes            | No           | Yes           |
+
+          | `dates.type`                            | No             | Yes            | No           | Yes           |
+
+          | `dates.value`                           | No             | Yes            | No           | No            |
+
+          | `ids.type`                              | No             | No             | No           | No            |
+
+          | `ids.identifier`                        | No             | No             | No           | No            |
+
+          | `accessRights.accessRight`              | No             | Yes            | No           | Yes           |
+
+          | `accessRights.accessRightUri`           | No             | Yes            | No           | No            |
+
+          | `accessRights.scheme`                   | No             | Yes            | No           | Yes           |
+
+          | `accessRights.isOpenAccess`             | No             | Yes            | No           | Yes           |
+
+          | `accessRights.oaStatus`                 | No             | Yes            | No           | Yes           |
+
+          | `accessRights.openAccessRoute`          | No             | Yes            | No           | Yes           |
+
+          | `accessRights.freeToRead`               | No             | Yes            | No           | Yes           |
+
+          | `accessRights.accessStartDate`          | No             | Yes            | No           | No            |
+
+          | `accessRights.accessEndDate`            | No             | Yes            | No           | No            |
+
+          | `accessRights.embargoEndDate`           | No             | Yes            | No           | No            |
+
+          | `accessRights.version`                  | No             | Yes            | No           | Yes           |
+
+          | `accessRights.oaUrl`                    | No             | No             | No           | No            |
+
+          | `accessRights.pdfUrl`                   | No             | No             | No           | No            |
+
+          | `accessRights.anyRepositoryHasFulltext` | No             | Yes            | No           | Yes           |
+
+          | `accessRights.raw`                      | No             | No             | No           | No            |
+
+          | `contributors.name`                     | Yes            | No             | No           | No            |
+
+          | `contributors.type`                     | No             | Yes            | No           | Yes           |
+
+          | `contributors.role`                     | No             | Yes            | No           | Yes           |
+
+          | `language.id`                           | No             | No             | No           | No            |
+
+          | `language.code`                         | No             | Yes            | No           | Yes           |
+
+          | `language.name`                         | Yes            | Yes            | No           | Yes           |
+
+          | `sourceFulltextUrls`                    | No             | No             | No           | No            |
+
+          | `links.type`                            | No             | No             | No           | No            |
+
+          | `links.url`                             | No             | No             | No           | No            |
+
+          | `links.contentType`                     | No             | No             | No           | No            |
+
+          | `urls`                                  | No             | No             | No           | No            |
+
+          | `license.name`                          | No             | Yes            | No           | Yes           |
+
+          | `license.uri`                           | No             | Yes            | No           | No            |
+
+          | `license.startDate`                     | No             | Yes            | No           | No            |
+
+          | `license.delayDays`                     | No             | Yes            | No           | No            |
+
+          | `license.contentVersion`                | No             | Yes            | No           | Yes           |
+
+          | `license.raw`                           | No             | No             | No           | No            |
+
+          | `sdg.type`                              | No             | Yes            | No           | Yes           |
+
+          | `sdg.score`                             | No             | Yes            | No           | No            |
+
+
+          The field-operation settings have the following meanings:
+
+
+          * **Searchable** fields can participate in textual queries through `q`.
+
+          * **Filterable** fields can be used in field lookups, Boolean conditions, ranges, and existence queries through `q`.
+
+          * **Sortable** fields can be used with `orderby`.
+
+          * **Facetable** fields can be used with `facets`.
+
+
+          Refer to the common CORE API Query Language documentation for the complete query syntax.
+
+
+          #### Complex collection queries
+
+
+          The following fields are structured collections:
+
+
+          * `externalIdentifiers`
+
+          * `dates`
+
+          * `accessRights`
+
+          * `contributors`
+
+          * `language`
+
+          * `links`
+
+          * `sdg`
+
+
+          When multiple conditions refer to one collection, the conditions must apply to the same collection item.
+
+
+          For example:
+
+
+          ```text
+
+          externalIdentifiers.type:DOI
+
+          AND externalIdentifiers.identifier:"10.1000/xyz"
+
+          ```
+
+
+          Both conditions must match a single `externalIdentifiers` object containing both values.
+
+
+          Similarly:
+
+
+          ```text
+
+          accessRights.oaStatus:gold
+
+          AND accessRights.isOpenAccess:true
+
+          ```
+
+
+          Both conditions must match a single `accessRights` object for which both conditions are satisfied.
+      - divider: false
+        border: false
+        title: Output endpoints
+        id: outputs-api-output-endpoints
+        descriptionAbout: >-
+          #### Available endpoints
+
+
+          | **Operation**                              | **Method** | **Endpoint**                         |
+
+          | ------------------------------------------ | ---------- | ------------------------------------ |
+
+          | Get a single Output                        | `GET`      | `/v4/outputs/{coreId}`               |
+
+          | Search Outputs using URL parameters        | `GET`      | `/v4/search/outputs`                 |
+
+          | Search Outputs using a JSON request body   | `POST`     | `/v4/search/outputs`                 |
+
+          | Retrieve the Work represented by an Output | `GET`      | `/v4/outputs/{coreId}/work`          |
+
+          | Retrieve the Data Provider of an Output    | `GET`      | `/v4/outputs/{coreId}/data-provider` |
+
+          | Retrieve the Journal of an Output          | `GET`      | `/v4/outputs/{coreId}/journal`       |
+
+          | Retrieve the Publisher of an Output        | `GET`      | `/v4/outputs/{coreId}/publisher`     |
+
+
+          The `POST` search method is read-only. It does not create or modify Output records.
+
+
+          #### Get a single Output
+
+
+          Retrieves one Output record using its CORE Output identifier.
+
+
+          ##### API endpoint
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/outputs/{coreId}
+
+          ```
+
+
+          The `POST` search endpoint is not an alternative single-record retrieval endpoint.
+
+
+          ##### Authorization
+
+
+          | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+          | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+          | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+          ##### Path parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                              |
+
+          | ------------- | -------- | ------------ | -------------------------------------------- |
+
+          | `coreId`      | integer  | Yes          | Unique CORE identifier of the Output record. |
+
+
+          ##### Query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Description**                                                                                                       |
+
+          | ------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
+
+          | `select`      | string   | No           | Comma-separated list of top-level Output fields to return. Example: `select=coreId,title,yearPublished,documentType`. |
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/outputs/216874849" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example request using `select`:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/outputs/216874849?select=coreId,title,yearPublished,documentType,dataProviderId,journalId" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response using `select`:
+
+
+          ```json
+
+          {
+            "coreId": 216874849,
+            "title": "Sustainable Development Goals and Research",
+            "yearPublished": 2022,
+            "documentType": [
+              "research article"
+            ],
+            "dataProviderId": 86,
+            "journalId": 12345
+          }
+
+          ```
+      - divider: false
+        border: false
+        id: outputs-api-search-outputs
+        title: Search Outputs
+        subTitle: >-
+          Searches, filters, orders, facets, counts, and paginates
+          source-specific Output records.
+
+
+          Output search supports:
+
+
+          * Keyword search
+
+          * Vector-based semantic search
+
+          * Hybrid search combining keyword and vector relevance
+
+          * Structured field conditions
+
+          * Explicit client-generated vectors
+
+          * Field selection, ordering, faceting, counting, and pagination
+
+
+          Output search is available through `GET` and `POST`:
+
+
+          ```http
+
+          GET https://api.core.ac.uk/v4/search/outputs
+
+          POST https://api.core.ac.uk/v4/search/outputs
+
+          ```
+
+
+          Both methods use the CORE query language and return the same Output search-response structure.
+
+
+          `GET` is suitable for:
+
+
+          * Keyword searches
+
+          * Structured searches
+
+          * Text-based vector searches
+
+          * Hybrid searches that can be represented conveniently in a URL
+
+
+          `POST` is recommended for:
+
+
+          * Explicit client-generated vectors
+
+          * Long or complex queries
+
+          * Searches containing many selected fields or facets
+
+          * Requests that may exceed practical URL-length limits
+
+
+          The `POST` method is read-only. It does not create or modify Output records.
+
+
+          #### Output and Work vector search
+
+
+          Outputs are source-specific manifestations. Several Outputs from different Data Providers may represent the same canonical Work.
+
+
+          As a result, vector or hybrid search over Outputs may return near-duplicate records from multiple repositories or publication sources.
+
+
+          For deduplicated semantic discovery, clients should use:
+
+
+          ```http
+
+          GET /v4/search/works
+
+          POST /v4/search/works
+
+          ```
+
+
+          Output vector search is most appropriate when clients require:
+
+
+          * Repository-specific metadata
+
+          * Data Provider provenance
+
+          * Individual full-text copies
+
+          * Source-specific access rights
+
+          * Source-specific licences
+
+          * Source-specific URLs
+
+          * Output processing and availability status
+
+
+          #### Search modes
+
+
+          The `searchMode` parameter controls how the textual part of the query is evaluated.
+
+
+          | **Value** | **Description**                                                                          |
+
+          | --------- | ---------------------------------------------------------------------------------------- |
+
+          | `keyword` | Uses textual relevance and structured field conditions without vector similarity.        |
+
+          | `vector`  | Converts the textual query into an embedding and retrieves semantically similar Outputs. |
+
+          | `hybrid`  | Combines keyword relevance and vector similarity.                                        |
+
+
+          The default search mode is:
+
+
+          ```text
+
+          keyword
+
+          ```
+
+
+          When `searchMode` is omitted, the request uses standard keyword and structured search.
+
+
+          #### Structured conditions
+
+
+          Structured conditions inside `q` continue to restrict results in every search mode.
+
+
+          For example:
+
+
+          ```text
+
+          "climate adaptation strategies"
+
+          AND accessRights.isOpenAccess:true
+
+          AND language.code:en
+
+          ```
+
+
+          This query contains:
+
+
+          * The textual query `"climate adaptation strategies"`
+
+          * An open-access condition
+
+          * A language condition
+
+
+          In vector mode, only the textual clause is converted into an embedding. The other clauses are applied as structured conditions.
+
+
+          #### Vector source content
+
+
+          CORE generates Output embeddings from the fields configured in the Output vector index.
+
+
+          Recommended source fields include:
+
+
+          * `title`
+
+          * Reconstructed abstract text
+
+          * `fullText`
+
+
+          The `invertedAbstract` object should not be embedded directly. Where it contributes to vector generation, CORE should first reconstruct the readable abstract text.
+
+
+          The final API documentation should state exactly which Output fields are used to generate embeddings.
+
+
+          Embedding vectors are search-index data and are not returned as persistent properties of the Output entity.
+
+
+          #### GET and POST search parameters
+
+
+          ##### GET query parameters
+
+
+          | **Parameter** | **Type** | **Required** | **Default**                                       | **Description**                                                                                                            |
+
+          | ------------- | -------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+
+          | `q`           | string   | No           | `*`                                               | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+
+          | `searchMode`  | string   | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                                   |
+
+          | `vectorTopK`  | integer  | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                                          |
+
+          | `orderby`     | string   | No           | Relevance for textual, vector, or hybrid searches | Comma-separated ordering directives in `field:direction` format.                                                           |
+
+          | `select`      | string   | No           | All retrievable fields                            | Comma-separated list of Output fields to return.                                                                           |
+
+          | `facets`      | string   | No           | —                                                 | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
+
+          | `count`       | boolean  | No           | `false`                                           | Indicates whether the total number of matching Outputs should be included.                                                 |
+
+          | `limit`       | integer  | No           | `10`                                              | Maximum number of Output records to return.                                                                                |
+
+          | `offset`      | integer  | No           | `0`                                               | Number of matching Output records to skip.                                                                                 |
+
+
+          The `GET` endpoint supports text-based vector and hybrid searches.
+
+
+          Client-generated embedding vectors are supported only through `POST`.
+
+
+          ##### POST request body
+
+
+          | **Property** | **Type**  | **Required** | **Default**                                       | **Description**                                                                   |
+
+          | ------------ | --------- | ------------ | ------------------------------------------------- | --------------------------------------------------------------------------------- |
+
+          | `q`          | string    | No           | `*`                                               | CORE query expression containing textual content, structured conditions, or both. |
+
+          | `searchMode` | string    | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.          |
+
+          | `vector`     | number\[] | No           | —                                                 | Client-generated embedding used for vector or hybrid search.                      |
+
+          | `vectorTopK` | integer   | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval. |
+
+          | `orderby`    | string\[] | No           | Relevance for textual, vector, or hybrid searches | Ordered list of sorting directives in `field:direction` format.                   |
+
+          | `select`     | string\[] | No           | All retrievable fields                            | List of Output fields to return.                                                  |
+
+          | `facets`     | string\[] | No           | —                                                 | List of facetable fields for which value buckets and counts should be returned.   |
+
+          | `count`      | boolean   | No           | `false`                                           | Indicates whether the total number of matching Outputs should be included.        |
+
+          | `limit`      | integer   | No           | `10`                                              | Maximum number of Output records to return.                                       |
+
+          | `offset`     | integer   | No           | `0`                                               | Number of matching Output records to skip.                                        |
+
+
+          #### GET and POST parameter mapping
+
+
+          | **GET query parameter**             | **POST body property**                           |
+
+          | ----------------------------------- | ------------------------------------------------ |
+
+          | `q=dataProviderId:86`               | `"q": "dataProviderId:86"`                       |
+
+          | `searchMode=vector`                 | `"searchMode": "vector"`                         |
+
+          | `searchMode=hybrid`                 | `"searchMode": "hybrid"`                         |
+
+          | `vectorTopK=100`                    | `"vectorTopK": 100`                              |
+
+          | Not supported through `GET`         | `"vector": [0.012, -0.084, 0.031, ...]`          |
+
+          | `orderby=yearPublished:desc`        | `"orderby": ["yearPublished:desc"]`              |
+
+          | `select=coreId,title,yearPublished` | `"select": ["coreId", "title", "yearPublished"]` |
+
+          | `facets=documentType,yearPublished` | `"facets": ["documentType", "yearPublished"]`    |
+
+          | `count=true`                        | `"count": true`                                  |
+
+          | `limit=10`                          | `"limit": 10`                                    |
+
+          | `offset=0`                          | `"offset": 0`                                    |
+
+
+          The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+      - divider: false
+        border: false
+        id: outputs-api-search-examples
+        title: Search examples
+        descriptionAbout: >-
+          #### Search by title
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=title:"Sustainable Development Goals"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "title:\"Sustainable Development Goals\""
+          }
+
+          ```
+
+
+          #### Search full text
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=fullText:"climate change"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "fullText:\"climate change\""
+          }
+
+          ```
+
+
+          #### Retrieve an Output by DOI
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=externalIdentifiers.type:DOI AND externalIdentifiers.identifier:"10.1000/xyz"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "externalIdentifiers.type:DOI AND externalIdentifiers.identifier:\"10.1000/xyz\""
+          }
+
+          ```
+
+
+          Both conditions must apply to the same identifier object.
+
+
+          #### Retrieve Outputs from a Data Provider
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "dataProviderId:86"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs associated with a Journal
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=journalId:12345
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "journalId:12345"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs associated with a Publisher
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=publisherId:78
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "publisherId:78"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs by document type and publication year
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=documentType:"research article" AND yearPublished>=2020
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "documentType:\"research article\" AND yearPublished>=2020"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs with full text
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=_exists_:fullText
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "_exists_:fullText"
+          }
+
+          ```
+
+
+          #### Retrieve enabled full-text Outputs
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=fullTextStatus:enabled AND disabled:false
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "fullTextStatus:enabled AND disabled:false"
+          }
+
+          ```
+
+
+          #### Retrieve open-access Outputs
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=accessRights.isOpenAccess:true
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "accessRights.isOpenAccess:true"
+          }
+
+          ```
+
+
+          #### Retrieve gold open-access Outputs
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=accessRights.isOpenAccess:true AND accessRights.oaStatus:gold
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "accessRights.isOpenAccess:true AND accessRights.oaStatus:gold"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same access-right entry.
+
+
+          #### Retrieve Outputs by licence
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=license.name:"CC BY 4.0"
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "license.name:\"CC BY 4.0\""
+          }
+
+          ```
+
+
+          #### Retrieve Outputs in a particular language
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=language.code:en
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "language.code:en"
+          }
+
+          ```
+
+
+          #### Retrieve Outputs assigned to an SDG
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=sdg.type:SDG04
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "sdg.type:SDG04"
+          }
+
+          ```
+
+
+          This retrieves Outputs classified under Sustainable Development Goal 4.
+
+
+          #### Retrieve high-confidence SDG classifications
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=sdg.type:SDG04 AND sdg.score>=0.8
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "sdg.type:SDG04 AND sdg.score>=0.8"
+          }
+
+          ```
+
+
+          Both conditions must apply to the same `sdg` object.
+
+
+          #### Retrieve Outputs with any SDG classification
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=_exists_:sdg
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "_exists_:sdg"
+          }
+
+          ```
+
+
+          #### Text-based vector search
+
+
+          Text-based vector search allows clients to submit natural-language text without generating an embedding.
+
+
+          CORE converts the textual query into an embedding and retrieves semantically similar Outputs.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=vector
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\"",
+            "searchMode": "vector",
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "downloadUrl"
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          Unlike keyword search, vector search may retrieve conceptually related Outputs that do not contain the exact query terms.
+
+
+          For example, the query:
+
+
+          ```text
+
+          climate adaptation strategies
+
+          ```
+
+
+          may retrieve Outputs discussing:
+
+
+          * Climate resilience
+
+          * Adaptation planning
+
+          * Coastal risk management
+
+          * Responses to climate vulnerability
+
+
+          #### Vector search with structured conditions
+
+
+          Vector retrieval can be combined with structured Output conditions.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies" AND accessRights.isOpenAccess:true AND language.code:en&searchMode=vector
+
+          ```
+
+
+          Executable GET request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/outputs?q="climate%20adaptation%20strategies"%20AND%20accessRights.isOpenAccess:true%20AND%20language.code:en&searchMode=vector&select=coreId,title,yearPublished,dataProviderId,downloadUrl&limit=10' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST request:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/outputs" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "\"climate adaptation strategies\" AND accessRights.isOpenAccess:true AND language.code:en",
+              "searchMode": "vector",
+              "select": [
+                "coreId",
+                "title",
+                "yearPublished",
+                "dataProviderId",
+                "downloadUrl"
+              ],
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          This request:
+
+
+          * Converts `climate adaptation strategies` into an embedding
+
+          * Retrieves semantically similar Outputs
+
+          * Restricts results to open-access Outputs
+
+          * Restricts results to English-language Outputs
+
+          * Returns source-specific metadata and access links
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\"",
+            "searchMode": "hybrid",
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "downloadUrl"
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          In hybrid mode, the same textual query is used for:
+
+
+          * Keyword retrieval
+
+          * Vector generation
+
+          * Combined relevance ranking
+
+
+          The implementation should document how keyword and vector scores are combined.
+
+
+          #### Hybrid search with structured conditions
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies" AND accessRights.isOpenAccess:true AND yearPublished>=2020&searchMode=hybrid
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\" AND accessRights.isOpenAccess:true AND yearPublished>=2020",
+            "searchMode": "hybrid",
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "journalId",
+              "downloadUrl"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          The textual query contributes to keyword and vector relevance. The access-right and publication-year conditions restrict the result set.
+
+
+          #### User-generated vector search
+
+
+          Users may supply an embedding directly through `POST`.
+
+
+          ```http
+
+          POST /v4/search/outputs
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "dataProviderId:86 AND accessRights.isOpenAccess:true",
+            "vectorTopK": 100,
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "downloadUrl"
+            ],
+            "limit": 10,
+            "offset": 0
+          }
+
+          ```
+
+
+          The vector is shortened for readability. A real request must contain the complete embedding required by the Output vector index.
+
+
+          When an explicit vector is supplied:
+
+
+          * CORE uses the supplied vector instead of generating one from query text.
+
+          * `q` may contain structured conditions.
+
+          * The vector must be compatible with the Output vector index.
+
+
+          The public API documentation must specify:
+
+
+          * The embedding model or compatible vector-generation method
+
+          * The required number of dimensions
+
+          * The accepted numeric format
+
+          * Whether the vector must be normalised
+
+          * The maximum request-body size
+
+
+          #### Hybrid search using a client-generated vector
+
+
+          A supplied vector may be combined with keyword relevance.
+
+
+          ```json
+
+          {
+            "q": "title:\"climate adaptation\" AND yearPublished>=2020",
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "hybrid",
+            "vectorTopK": 100,
+            "select": [
+              "coreId",
+              "title",
+              "yearPublished",
+              "dataProviderId",
+              "downloadUrl"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          This request combines:
+
+
+          * Keyword relevance for `climate adaptation`
+
+          * Semantic similarity using the supplied vector
+
+          * A publication-year restriction
+
+
+          #### Vector validation
+
+
+          A request containing `vector` should be rejected when:
+
+
+          * `searchMode` is `keyword`
+
+          * The vector is empty
+
+          * The vector has the wrong number of dimensions
+
+          * The vector contains invalid numeric values
+
+          * The vector is incompatible with the Output vector index
+
+
+          Example invalid request:
+
+
+          ```json
+
+          {
+            "searchMode": "keyword",
+            "vector": [
+              0.12,
+              0.34
+            ]
+          }
+
+          ```
+
+
+          Recommended response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
+
+
+          #### Vector candidate count
+
+
+          The optional `vectorTopK` parameter controls the number of nearest vector candidates considered before final result processing.
+
+
+          ```json
+
+          {
+            "q": "\"open scholarly repositories\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          `vectorTopK` is not the number of records returned.
+
+
+          In this example:
+
+
+          * Up to 100 nearest vector candidates are considered.
+
+          * At most 10 Output records are returned.
+
+
+          CORE should define:
+
+
+          * The default value
+
+          * The minimum permitted value
+
+          * The maximum permitted value
+
+          * Whether clients on all API plans may override it
+
+
+          #### Combined keyword search, selection, and ordering
+
+
+          The following request:
+
+
+          * Searches for `climate change` in full text
+
+          * Restricts results to research articles
+
+          * Restricts results to open-access Outputs
+
+          * Restricts results to Outputs published from 2020 onwards
+
+          * Orders results by publication year
+
+          * Returns selected fields
+
+          * Includes the total result count
+
+
+          GET:
+
+
+          ```bash
+
+          curl --request GET \
+            --url 'https://api.core.ac.uk/v4/search/outputs?q=fullText:"climate%20change"%20AND%20documentType:"research%20article"%20AND%20accessRights.isOpenAccess:true%20AND%20yearPublished>=2020&searchMode=keyword&orderby=yearPublished:desc&select=coreId,title,yearPublished,documentType,dataProviderId,journalId,downloadUrl&count=true&limit=10&offset=0' \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Equivalent POST:
+
+
+          ```bash
+
+          curl --request POST \
+            --url "https://api.core.ac.uk/v4/search/outputs" \
+            --header "Authorization: Bearer YOUR_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "q": "fullText:\"climate change\" AND documentType:\"research article\" AND accessRights.isOpenAccess:true AND yearPublished>=2020",
+              "searchMode": "keyword",
+              "orderby": [
+                "yearPublished:desc"
+              ],
+              "select": [
+                "coreId",
+                "title",
+                "yearPublished",
+                "documentType",
+                "dataProviderId",
+                "journalId",
+                "downloadUrl"
+              ],
+              "count": true,
+              "limit": 10,
+              "offset": 0
+            }'
+          ```
+
+
+          #### Ordering Output results
+
+
+          ##### Order by publication year
+
+
+          G﻿ET:
+
+
+          ```http
+
+          GET /v4/search/outputs?orderby=yearPublished:desc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "yearPublished:desc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by title
+
+
+          G﻿ET:
+
+
+          ```http
+
+          GET /v4/search/outputs?orderby=title:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          ##### Order by multiple fields
+
+
+          G﻿ET:
+
+
+          ```http
+
+          GET /v4/search/outputs?orderby=yearPublished:desc,title:asc
+
+          ```
+
+
+          POST representation:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "yearPublished:desc",
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          Results are first ordered by `yearPublished`. Records with the same publication year are then ordered by `title`.
+
+
+          #### Vector and hybrid result ordering
+
+
+          When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
+
+
+          When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
+
+
+          Applying an explicit `orderby` expression may replace relevance-based ordering.
+
+
+          For example:
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation"&searchMode=vector&orderby=yearPublished:desc
+
+          ```
+
+
+          This orders the vector matches by publication year rather than semantic similarity.
+
+
+          Clients should omit `orderby` when semantic or hybrid relevance should determine the result order.
+
+
+          #### Search-result scores
+
+
+          Vector and hybrid relevance scores are search-result metadata. They are not persistent Output properties.
+
+
+          When exposed, a search result may include:
+
+
+          ```json
+
+          {
+            "coreId": 216874849,
+            "title": "Climate adaptation strategies for coastal regions",
+            "yearPublished": 2024,
+            "dataProviderId": 86,
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          The API should document whether `relevanceScore` represents:
+
+
+          * Keyword relevance
+
+          * Vector similarity
+
+          * Combined hybrid relevance
+
+
+          Scores generated by different search modes should not be assumed to be directly comparable.
+
+
+          Do not add `relevanceScore` to the Output data-structure or supported-field-operations tables.
+
+
+          Example vector-search response:
+
+
+          ```json
+
+          {
+            "totalHits": 245,
+            "searchMode": "vector",
+            "results": [
+              {
+                "coreId": 216874849,
+                "title": "Climate adaptation strategies for coastal regions",
+                "yearPublished": 2024,
+                "dataProviderId": 86,
+                "journalId": 12345,
+                "downloadUrl": "https://core.ac.uk/download/216874849.pdf",
+                "relevanceScore": 0.873
+              },
+              {
+                "coreId": 216874850,
+                "title": "Building resilience to climate vulnerability",
+                "yearPublished": 2023,
+                "dataProviderId": 144,
+                "journalId": 12345,
+                "downloadUrl": "https://core.ac.uk/download/216874850.pdf",
+                "relevanceScore": 0.846
+              }
+            ]
+          }
+
+          ```
+
+
+          Include `searchMode` and `relevanceScore` only when the implementation returns them.
+
+
+          #### Facets with vector and hybrid search
+
+
+          Facets may be requested with keyword, vector, and hybrid searches.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/outputs
+              ?q="climate change"
+              &searchMode=hybrid
+              &facets=documentType,yearPublished,dataProviderId,fullTextStatus,accessRights.oaStatus,sdg.type
+              &count=true
+              &limit=0
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"climate change\"",
+            "searchMode": "hybrid",
+            "facets": [
+              "documentType",
+              "yearPublished",
+              "dataProviderId",
+              "fullTextStatus",
+              "accessRights.oaStatus",
+              "sdg.type"
+            ],
+            "count": true,
+            "limit": 0
+          }
+
+          ```
+
+
+          The implementation must document whether vector and hybrid facet counts are calculated over:
+
+
+          * The complete filtered Output index
+
+          * The vector candidate set
+
+          * The final ranked result set
+
+
+          This affects how clients interpret facet counts.
+
+
+          #### Result count
+
+
+          Set `count=true` to include the total number of matching Output records.
+
+
+          ##### Keyword example
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86&count=true
+
+          ```
+
+
+          ##### Vector example
+
+
+          ```http
+
+          GET /v4/search/outputs?q="scholarly repositories"&searchMode=vector&count=true
+
+          ```
+
+
+          Equivalent POST:
+
+
+          ```json
+
+          {
+            "q": "\"scholarly repositories\"",
+            "searchMode": "vector",
+            "count": true
+          }
+
+          ```
+
+
+          The meaning of `totalHits` in vector and hybrid modes must be documented.
+
+
+          It may represent:
+
+
+          * All records satisfying the structured conditions
+
+          * The vector candidate count
+
+          * The number of records above a similarity threshold
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted.
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate Output results.
+
+
+          ##### Keyword pagination
+
+
+          First page:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=0
+
+          ```
+
+
+          Second page:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=20
+
+          ```
+
+
+          ##### Vector pagination
+
+
+          First page:
+
+
+          ```json
+
+          {
+            "q": "\"artificial intelligence in education\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 20,
+            "offset": 0
+          }
+
+          ```
+
+
+          Second page:
+
+
+          ```json
+
+          {
+            "q": "\"artificial intelligence in education\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 20,
+            "offset": 20
+          }
+
+          ```
+
+
+          For stable vector pagination, clients must use the same:
+
+
+          * Query
+
+          * Search mode
+
+          * Explicit vector, where supplied
+
+          * `vectorTopK`
+
+          * Structured conditions
+
+          * Index version
+
+
+          Because the vector index may change between requests, result positions may change when pages are retrieved at different times.
+
+
+          #### Responses
+
+
+          | **Status** | **Description**                                                                                                                                                                          |
+
+          | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+          | `200`      | The Output search was completed successfully.                                                                                                                                            |
+
+          | `400`      | The request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
+
+          | `401`      | Authentication credentials are missing or invalid.                                                                                                                                       |
+
+          | `413`      | The `POST` request body exceeds the permitted size.                                                                                                                                      |
+
+          | `429`      | The API request limit has been exceeded.                                                                                                                                                 |
+
+          | `500`      | An unexpected server error occurred.                                                                                                                                                     |
+      - divider: false
+        border: false
+        id: outputs-api-relationship-oriented-endpoints
+        title: Relationship-oriented endpoints
+        descriptionAbout: >-
+          
+          Relationship-oriented endpoints provide convenient access to graph entities connected to an Output.
+
+
+          #### Work represented by an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/work
+
+          ```
+
+
+          Retrieves the canonical Work whose `coreIds` collection contains the Output identifier.
+
+
+          Equivalent Work search:
+
+
+          ```http
+
+          GET /v4/search/works?q=coreIds:{coreId}
+
+          ```
+
+
+          Equivalent POST search:
+
+
+          ```json
+
+          {
+            "q": "coreIds:{coreId}"
+          }
+
+          ```
+
+
+          Example request:
+
+
+          ```bash
+
+          curl --request GET \
+            --url "https://api.core.ac.uk/v4/outputs/216874849/work" \
+            --header "Authorization: Bearer YOUR_API_KEY"
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Sustainable Development Goals and Research",
+            "doi": "10.1000/xyz",
+            "yearPublished": 2022,
+            "coreIds": [
+              216874849,
+              216874850
+            ]
+          }
+
+          ```
+
+
+          If the Output has not yet been assigned to a canonical Work, the endpoint may return `404` or `200` with a `null` relationship. The API should choose and document one behaviour consistently.
+
+
+          #### Data Provider of an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/data-provider
+
+          ```
+
+
+          Retrieves the Data Provider identified by the Output's `dataProviderId`.
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "dataProviderId": 86,
+            "name": "Open Research Online",
+            "type": "institutional repository",
+            "homepageUrl": "https://oro.open.ac.uk/",
+            "oaiPmhUrl": "https://oro.open.ac.uk/cgi/oai2"
+          }
+
+          ```
+
+
+          Every Output should have one Data Provider.
+
+
+          #### Journal of an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/journal
+
+          ```
+
+
+          Retrieves the Journal identified by the Output's `journalId`.
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "journalId": 12345,
+            "title": "Journal of Open Science",
+            "issns": [
+              "1744-9081"
+            ],
+            "publisher": "Springer Nature"
+          }
+
+          ```
+
+
+          If the Output has no resolved Journal relationship, the endpoint may return `200` with a `null` result or `404`. The chosen convention should be applied consistently.
+
+
+          #### Publisher of an Output
+
+
+          ```http
+
+          GET /v4/outputs/{coreId}/publisher
+
+          ```
+
+
+          Retrieves the Publisher identified by the Output's `publisherId`.
+
+
+          This endpoint requires Publisher records to use a canonical CORE `publisherId`.
+
+
+          #### Reverse relationship endpoints
+
+
+          Outputs may also be retrieved through related entities:
+
+
+          ```http
+
+          GET /v4/works/{workId}/outputs
+
+          GET /v4/data-providers/{dataProviderId}/outputs
+
+          GET /v4/journals/{journalId}/outputs
+
+          GET /v4/publishers/{publisherId}/outputs
+
+          ```
+
+
+          The Work relationship is resolved through `Work.coreIds`.
+
+
+          The other relationships are equivalent to the following Output searches:
+
+
+          ```http
+
+          GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+
+          GET /v4/search/outputs?q=journalId:{journalId}
+
+          GET /v4/search/outputs?q=publisherId:{publisherId}
 
           ```
