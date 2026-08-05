@@ -2,8 +2,8 @@ navTitle: CORE Graph API Documentation
 navItems:
   - item: Overview
     children:
-      - item: CORE graph data model
-        href: "#core-graph-data-model"
+      - item: "CORE graph API "
+        href: "#core-graph-api"
   - item: Entities
     children:
       - item: Works
