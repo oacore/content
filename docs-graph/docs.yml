@@ -143,7 +143,7 @@ items:
         id: "#core-graph-design-principles"
         title: Design principles
         descriptionAbout: >-
-          #### Canonical entities and source records are separated
+          ##### Canonical entities and source records are separated
 
 
           Works and Outputs are modelled independently.
@@ -155,7 +155,7 @@ items:
           This separation allows CORE to provide deduplicated discovery through Works while preserving the original metadata, access information, and provenance of each Output.
 
 
-          #### Provenance is preserved
+          ##### Provenance is preserved
 
 
           Canonical records remain connected to the Outputs and Data Providers from which their information was derived.
@@ -177,7 +177,7 @@ items:
           * Full-text locations
 
 
-          #### Relationships can contain their own metadata
+          ##### Relationships can contain their own metadata
 
 
           Some relationships are represented as first-class entities because the relationship itself contains important information.
@@ -222,7 +222,7 @@ items:
           For example, an Affiliation may contain a `rawAffiliation` value without an `institutionId`. This preserves the original evidence and allows the record to be resolved later as CORE’s matching systems improve.
 
 
-          #### External identifiers are reconciled
+          ##### External identifiers are reconciled
 
 
           CORE entities may be connected to identifiers from established scholarly systems.
@@ -246,7 +246,7 @@ items:
           Frequently used identifiers may be exposed as top-level convenience fields, while the complete identifier set is retained in structured identifier collections.
 
 
-          #### Metadata and full text are connected
+          ##### Metadata and full text are connected
 
 
           CORE combines structured scholarly metadata with its collection of openly available research full text.
