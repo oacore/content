@@ -17338,3 +17338,130 @@ items:
 
 
           Vector results may change when the search index is updated between requests.
+      - divider: false
+        border: false
+        id: search-facets-and-agrregation
+        title: Facets and aggregation
+        descriptionAbout: >-
+          #### Facets and aggregation
+
+
+          The Graph API uses facets as part of the standard search endpoint rather than introducing a separate aggregation endpoint.
+
+
+          This replaces the v3 pattern:
+
+
+          ```http
+
+          POST /v3/search/{entityType}/aggregate
+
+          ```
+
+
+          with:
+
+
+          ```http
+
+          GET /v4/search/{entityType}?facets=field1,field2
+
+          POST /v4/search/{entityType}
+
+          ```
+
+
+          GET facet example:
+
+
+          ```http
+
+          GET /v4/search/outputs
+              ?q=accessRights.isOpenAccess:true
+              &facets=documentType,yearPublished,sdg.type
+              &count=true
+              &limit=0
+          ```
+
+
+          POST facet example:
+
+
+          ```http
+
+          POST /v4/search/outputs
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "accessRights.isOpenAccess:true",
+            "facets": [
+              "documentType",
+              "yearPublished",
+              "sdg.type"
+            ],
+            "count": true,
+            "limit": 0
+          }
+
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 180000000,
+            "facets": {
+              "documentType": [
+                {
+                  "value": "research article",
+                  "count": 95000000
+                },
+                {
+                  "value": "thesis",
+                  "count": 13000000
+                }
+              ],
+              "sdg.type": [
+                {
+                  "value": "SDG04",
+                  "count": 485000
+                },
+                {
+                  "value": "SDG13",
+                  "count": 318000
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Only fields marked as facetable in the entity documentation can be requested.
+
+
+          Setting `limit=0` returns facet information without returning entity records.
+
+
+          #### Vector facet semantics
+
+
+          For vector and hybrid searches, the API documentation must define whether facet counts are calculated over:
+
+
+          - The complete filtered index
+
+          - The vector candidate set
+
+          - The final ranked result set
+
+
+          This behaviour must be defined explicitly because each interpretation produces different facet counts.
