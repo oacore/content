@@ -30,7 +30,7 @@ items:
           | Search and discovery    | Discovers entities using keyword search, structured conditions, facets, vector search, hybrid search, ordering, and pagination. |
 
 
-          ### Example endpoints
+          Example endpoints:
 
 
           ```http
