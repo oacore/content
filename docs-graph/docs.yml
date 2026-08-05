@@ -16707,3 +16707,856 @@ items:
           | `limit=10`                     | `"limit": 10`                            |
 
           | `offset=0`                     | `"offset": 0`                            |
+      - divider: false
+        border: false
+        id: search-vector-and-hybrid-search
+        title: Vector and hybrid search
+        descriptionAbout: >-
+          
+          Vector and hybrid search are supported for canonical Works and source-specific Outputs.
+
+
+
+          For general scholarly discovery, use Work vector search:
+
+
+          ```http
+
+          GET /v4/search/works
+
+          POST /v4/search/works
+
+          ```
+
+
+          Works are canonical and deduplicated.
+
+
+          Output vector search is available through:
+
+
+          ```http
+
+          GET /v4/search/outputs
+
+          POST /v4/search/outputs
+
+          ```
+
+
+          Outputs represent source-specific manifestations and may contain near-duplicate records supplied by different Data Providers.
+
+
+          #### Search modes
+
+
+          | Mode | Description |
+
+          | --- | --- |
+
+          | `keyword` | Uses standard keyword relevance and structured conditions. |
+
+          | `vector` | Uses semantic similarity between the query embedding and indexed entity vectors. |
+
+          | `hybrid` | Combines keyword relevance and vector similarity. |
+
+
+          #### Text-based vector search
+
+
+          In text-based vector search, CORE creates an embedding from the textual part of `q`.
+
+
+          ##### Works example
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=vector
+
+          ```
+
+
+          Equivalent `POST` request:
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "vector",
+            "limit": 10
+          }
+
+          ```
+
+
+          ##### Outputs example
+
+
+          ```http
+
+          GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=vector
+
+          ```
+
+
+          Equivalent `POST` request:
+
+
+          ```http
+
+          POST /v4/search/outputs
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "\"climate adaptation strategies\"",
+            "searchMode": "vector",
+            "limit": 10
+          }
+
+          ```
+
+
+          Vector search may retrieve semantically related records that do not contain the exact query terms.
+
+
+          #### Vector search with structured conditions
+
+
+          Textual vector retrieval can be combined with field conditions.
+
+
+          ```http
+
+          GET /v4/search/works
+              ?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"
+              &searchMode=vector
+          ```
+
+
+          Equivalent `POST` request:
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\" AND yearPublished>=2020 AND documentType:\"research article\"",
+            "searchMode": "vector",
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished",
+              "documentType"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          In this example:
+
+
+          - The textual clause is converted into an embedding.
+
+          - Semantic similarity is used to retrieve candidate Works.
+
+          - Publication year and document type are applied as structured conditions.
+
+
+          #### Hybrid search
+
+
+          Hybrid search combines keyword relevance and vector similarity.
+
+
+          ```http
+
+          GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+
+          ```
+
+
+          Equivalent `POST` request:
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "\"text and data mining\"",
+            "searchMode": "hybrid",
+            "limit": 10
+          }
+
+          ```
+
+
+          > The API documentation should explain how keyword and vector scores are combined.
+
+
+          #### User-generated vectors
+
+
+          Users may provide a compatible embedding through `POST`.
+
+
+          ```http
+
+          POST /v4/search/works
+
+          ```
+
+
+          ```json
+
+          {
+            "vector": [
+              0.012,
+              -0.084,
+              0.031,
+              0.107
+            ],
+            "searchMode": "vector",
+            "q": "yearPublished>=2020",
+            "vectorTopK": 100,
+            "select": [
+              "workId",
+              "title",
+              "abstract",
+              "yearPublished"
+            ],
+            "limit": 10
+          }
+
+          ```
+
+
+          > The example vector is shortened for readability.
+
+
+          The complete API documentation must specify:
+
+
+          - The compatible embedding model
+
+          - The required number of vector dimensions
+
+          - The accepted numeric format
+
+          - Whether vectors must be normalised
+
+          - The maximum vector length
+
+          - The maximum request-body size
+
+
+          A vector should be rejected when:
+
+
+          - `searchMode` is `keyword`.
+
+          - The vector is empty.
+
+          - The vector has the wrong number of dimensions.
+
+          - The vector contains non-numeric values.
+
+          - The vector is incompatible with the selected entity index.
+
+
+          #### Embedding-generation endpoint
+
+
+          If CORE exposes an endpoint that converts text into compatible vectors, it should be documented in the common Search section rather than under Works or Outputs.
+
+
+          A possible design is:
+
+
+          ```http
+
+          POST /v4/embeddings
+
+          ```
+
+
+          Request:
+
+
+          ```json
+
+          {
+            "input": "text and data mining"
+          }
+
+          ```
+
+
+          Response:
+
+
+          ```json
+
+          {
+            "model": "CORE_EMBEDDING_MODEL",
+            "dimensions": 1536,
+            "vector": [
+              0.012,
+              -0.084,
+              0.031
+            ]
+          }
+
+          ```
+
+
+
+
+          #### Vector candidate count
+
+
+          `vectorTopK` controls the number of nearest vector candidates considered before final result processing.
+
+
+          ```json
+
+          {
+            "q": "\"scholarly document classification\"",
+            "searchMode": "vector",
+            "vectorTopK": 100,
+            "limit": 10
+          }
+
+          ```
+
+
+          In this example:
+
+
+          - Up to 100 nearest vector candidates are considered.
+
+          - At most 10 records are returned.
+
+
+          Therefore, `vectorTopK` is not equivalent to `limit`.
+
+
+          The API documentation must define the default, minimum, and maximum values for `vectorTopK`.
+
+
+          #### Relevance and ordering
+
+
+          When `orderby` is omitted, the default ordering depends on the type of search.
+
+
+          | Search type | Default order |
+
+          | --- | --- |
+
+          | Keyword query | Keyword relevance |
+
+          | Vector query | Vector similarity |
+
+          | Hybrid query | Combined relevance |
+
+          | Structured query without text | Implementation-defined; clients should supply `orderby` |
+
+
+          An explicit `orderby` expression may replace relevance ordering.
+
+
+          ```http
+
+          GET /v4/search/works
+              ?q="machine learning"
+              &searchMode=vector
+              &orderby=yearPublished:desc
+          ```
+
+
+          This orders the semantically matching Works by publication year rather than vector similarity.
+
+
+          Clients should omit `orderby` when relevance should determine the result order.
+
+
+          #### Relevance scores
+
+
+          Search results may include a relevance score:
+
+
+          ```json
+
+          {
+            "workId": 323030168,
+            "title": "Semantic retrieval for scholarly repositories",
+            "relevanceScore": 0.873
+          }
+
+          ```
+
+
+          `relevanceScore` is search-result metadata. It is not a persistent Work or Output property.
+
+
+          The response documentation should state whether the score represents:
+
+
+          - Keyword relevance
+
+          - Vector similarity
+
+          - Hybrid relevance
+
+
+          Scores produced by different search modes should not be treated as directly comparable.
+      - divider: false
+        border: false
+        id: search-result-control
+        title: Result control
+        descriptionAbout: >-
+          
+          This page describes the generic controls applied after or alongside retrieval.
+
+
+          #### Field selection
+
+
+          Use `select` to limit the fields returned in each result.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/works
+              ?q=yearPublished:2025
+              &select=workId,title,doi,yearPublished
+          ```
+
+
+          POST:
+
+
+          ```json
+
+          {
+            "q": "yearPublished:2025",
+            "select": [
+              "workId",
+              "title",
+              "doi",
+              "yearPublished"
+            ]
+          }
+
+          ```
+
+
+          #### Ordering
+
+
+          Use `orderby` to order results by fields marked as sortable.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/works?orderby=yearPublished:desc,title:asc
+
+          ```
+
+
+          POST:
+
+
+          ```json
+
+          {
+            "orderby": [
+              "yearPublished:desc",
+              "title:asc"
+            ]
+          }
+
+          ```
+
+
+          Supported directions are:
+
+
+          - `asc`
+
+          - `desc`
+
+
+          Results are ordered using the directives in the order supplied.
+
+
+          The API should also define:
+
+
+          - How `null` values are ordered
+
+          - Whether string ordering is case-sensitive
+
+          - Whether a stable identifier is automatically added as a final tie-breaker
+
+
+          #### Result counting
+
+
+          Set `count=true` to include `totalHits` in the response.
+
+
+          GET:
+
+
+          ```http
+
+          GET /v4/search/institutions?q=countryCode:GB&count=true
+
+          ```
+
+
+          POST:
+
+
+          ```json
+
+          {
+            "q": "countryCode:GB",
+            "count": true
+          }
+
+          ```
+
+
+          When `count` is omitted or set to `false`, `totalHits` may be omitted.
+
+
+          For vector search, the meaning of `totalHits` must be defined. It may represent:
+
+
+          - All records satisfying the structured conditions
+
+          - The vector candidate count
+
+          - Records above a minimum similarity threshold
+
+
+          #### Pagination
+
+
+          Use `limit` and `offset` to paginate results.
+
+
+          First page:
+
+
+          ```http
+
+          GET /v4/search/institutions
+              ?q=types:education
+              &orderby=displayName:asc
+              &limit=20
+              &offset=0
+          ```
+
+          Second page:
+
+
+          ```http
+
+          GET /v4/search/institutions
+              ?q=types:education
+              &orderby=displayName:asc
+              &limit=20
+              &offset=20
+          ```
+
+
+          The offset is calculated as:
+
+
+          ```text
+
+          offset = page size × number of previous pages
+
+          ```
+
+
+          A deterministic `orderby` expression should be used for keyword and structured searches.
+
+
+          For vector and hybrid pagination, clients should keep the following unchanged between pages:
+
+
+          - Query
+
+          - Search mode
+
+          - Explicit vector
+
+          - `vectorTopK`
+
+          - Structured conditions
+
+          - Index version
+
+
+          Vector results may change when the search index is updated between requests.
+      - divider: false
+        border: false
+        id: search-facets-and-agrregation
+        title: Facets and aggregation
+        descriptionAbout: >-
+          #### Facets and aggregation
+
+
+          The Graph API uses facets as part of the standard search endpoint rather than introducing a separate aggregation endpoint.
+
+
+          This replaces the v3 pattern:
+
+
+          ```http
+
+          POST /v3/search/{entityType}/aggregate
+
+          ```
+
+
+          with:
+
+
+          ```http
+
+          GET /v4/search/{entityType}?facets=field1,field2
+
+          POST /v4/search/{entityType}
+
+          ```
+
+
+          GET facet example:
+
+
+          ```http
+
+          GET /v4/search/outputs
+              ?q=accessRights.isOpenAccess:true
+              &facets=documentType,yearPublished,sdg.type
+              &count=true
+              &limit=0
+          ```
+
+
+          POST facet example:
+
+
+          ```http
+
+          POST /v4/search/outputs
+
+          ```
+
+
+          ```json
+
+          {
+            "q": "accessRights.isOpenAccess:true",
+            "facets": [
+              "documentType",
+              "yearPublished",
+              "sdg.type"
+            ],
+            "count": true,
+            "limit": 0
+          }
+
+          ```
+
+
+          Example response:
+
+
+          ```json
+
+          {
+            "totalHits": 180000000,
+            "facets": {
+              "documentType": [
+                {
+                  "value": "research article",
+                  "count": 95000000
+                },
+                {
+                  "value": "thesis",
+                  "count": 13000000
+                }
+              ],
+              "sdg.type": [
+                {
+                  "value": "SDG04",
+                  "count": 485000
+                },
+                {
+                  "value": "SDG13",
+                  "count": 318000
+                }
+              ]
+            },
+            "results": []
+          }
+
+          ```
+
+
+          Only fields marked as facetable in the entity documentation can be requested.
+
+
+          Setting `limit=0` returns facet information without returning entity records.
+
+
+          #### Vector facet semantics
+
+
+          For vector and hybrid searches, the API documentation must define whether facet counts are calculated over:
+
+
+          - The complete filtered index
+
+          - The vector candidate set
+
+          - The final ranked result set
+
+
+          This behaviour must be defined explicitly because each interpretation produces different facet counts.
+      - divider: false
+        border: false
+        id: search-responses
+        title: Responses
+        descriptionAbout: >-
+          A standard search response may contain:
+
+
+          ```json
+
+          {
+            "totalHits": 245,
+            "limit": 10,
+            "offset": 0,
+            "searchMode": "hybrid",
+            "facets": {
+              "documentType": [
+                {
+                  "value": "research article",
+                  "count": 180
+                }
+              ]
+            },
+            "results": [
+              {
+                "workId": 323030168,
+                "title": "Semantic retrieval for scholarly repositories",
+                "yearPublished": 2025,
+                "relevanceScore": 0.873
+              }
+            ]
+          }
+
+          ```
+
+
+          #### Response properties
+
+
+          | **Property**     | **Type**  | **Description**                                        |
+
+          | ---------------- | --------- | ------------------------------------------------------ |
+
+          | `totalHits`      | integer   | Total number of matching records when `count=true`.    |
+
+          | `limit`          | integer   | Maximum number of results requested.                   |
+
+          | `offset`         | integer   | Number of matching records skipped.                    |
+
+          | `searchMode`     | string    | Search mode used, when returned by the implementation. |
+
+          | `facets`         | object    | Requested facet buckets and their counts.              |
+
+          | `results`        | object\[] | Matching entity records.                               |
+
+          | `relevanceScore` | number    | Search-result relevance metadata, when exposed.        |
+
+
+          Field names should follow the v4 `camelCase` convention rather than v3 names such as `total_hits`.
+
+
+          Timing and diagnostic fields, such as `tookMs` or `searchId`, may be included. These fields should be optional and consistently defined.
+
+
+          #### Error responses
+
+
+          | **Status** | **Description**                                                                                   |
+
+          | ---------- | ------------------------------------------------------------------------------------------------- |
+
+          | `200`      | Search completed successfully.                                                                    |
+
+          | `400`      | Invalid query, field, sort expression, facet, search mode, vector, or response-control parameter. |
+
+          | `401`      | Authentication credentials are missing or invalid.                                                |
+
+          | `413`      | The `POST` request body exceeds the permitted size.                                               |
+
+          | `429`      | The API request limit has been exceeded.                                                          |
+
+          | `500`      | An unexpected server error occurred.                                                              |
+
+
+          Example validation response:
+
+
+          ```json
+
+          {
+            "status": 400,
+            "message": "The vector property can only be used when searchMode is vector or hybrid."
+          }
+
+          ```
