@@ -2,7 +2,7 @@ items:
   - item: Overview
     children:
       - item: null
-        children:
+        sections:
           - id: core-graph-api
             title: CORE Graph API
             descriptionAbout: >-
@@ -655,7 +655,7 @@ items:
   - item: Entities
     children:
       - item: Works
-        children:
+        sections:
           - divider: false
             border: false
             id: works-api-introduction
@@ -3273,7 +3273,7 @@ items:
 
               ```
       - item: Outputs
-        children:
+        sections:
           - divider: false
             border: false
             id: outputs-api-introduction
@@ -6175,7 +6175,7 @@ items:
 
               ```
       - item: Data Providers
-        children:
+        sections:
           - divider: false
             border: false
             id: dataproviders-api-introduction
@@ -7591,7 +7591,7 @@ items:
 
               This endpoint is documented primarily under the Institution entity.
       - item: Journals
-        children:
+        sections:
           - divider: false
             border: false
             id: journals-api-introduction
@@ -9706,7 +9706,7 @@ items:
 
               This endpoint should be documented primarily under the Institution entity.
       - item: Institutions
-        children:
+        sections:
           - divider: false
             border: false
             id: institutions-api-introduction
@@ -11397,7 +11397,7 @@ items:
 
               An existing Institution with no associated Topics returns `200` with an empty `results` array.
       - item: Authorships
-        children:
+        sections:
           - id: authorships-api-introduction
             title: Introduction
             descriptionAbout: >-
@@ -12729,7 +12729,7 @@ items:
 
               This relationship is also resolved through `authorship_affiliation`.
       - item: Affiliations
-        children:
+        sections:
           - divider: false
             border: false
             id: affiliations-api-introduction
@@ -14513,7 +14513,7 @@ items:
 
               Retrieves Affiliation records associated with an Author.
       - item: Authors
-        children:
+        sections:
           - divider: false
             border: false
             id: authors-api-introduction
@@ -15933,7 +15933,7 @@ items:
   - item: Search
     children:
       - item: null
-        children:
+        sections:
           - divider: false
             border: false
             id: search-overview
