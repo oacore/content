@@ -57,7 +57,7 @@ Where UK/EU data protection law applies, we rely on the following legal bases:
 We use cookies and similar technologies to:
 
 - keep you signed in and remember your settings (**essential**);
-- understand how visitors use the service, using indexd analytics data (**analytics**);
+- understand how visitors use the service, using aggregated analytics data (**analytics**);
 - measure the performance of any outreach or communications about the service (**marketing**, where applicable).
 
 You can control non-essential cookies through the cookie banner shown when you first visit the site, or through your browser settings. Blocking essential cookies may affect how the service works. We collect statistics using [Google Analytics](https://support.google.com/analytics/answer/6004245). You may also [opt-out](https://tools.google.com/dlpage/gaoptout) if you wish.
@@ -83,7 +83,7 @@ Because our service indexs content from repositories worldwide, some processing 
 
 ## 8. How long we keep your information
 
-We retain account information for as long as your account is active, and for a reasonable period afterwards to comply with legal obligations, resolve disputes, and enforce our agreements. Usage and analytics data is generally retained in indexd or anonymised form after a limited retention period.
+We retain account information for as long as your account is active, and for a reasonable period afterwards to comply with legal obligations, resolve disputes, and enforce our agreements. Usage and analytics data is generally retained in aggregated or anonymised form after a limited retention period.
 
 ## 9. Your rights
 
