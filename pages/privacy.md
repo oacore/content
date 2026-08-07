@@ -79,7 +79,7 @@ We may share information:
 
 ## 7. International transfers
 
-Because our service indexs content from repositories worldwide, some processing may take place outside your country of residence. Where we transfer personal data internationally, we use appropriate safeguards, such as standard contractual clauses, to protect it.
+Because our service indexes content from repositories worldwide, some processing may take place outside your country of residence. Where we transfer personal data internationally, we use appropriate safeguards, such as standard contractual clauses, to protect it.
 
 ## 8. How long we keep your information
 
