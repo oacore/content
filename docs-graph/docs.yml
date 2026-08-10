@@ -16090,6 +16090,10 @@ items:
               | `hybrid` | Combines keyword relevance and vector similarity. |
 
 
+              The default mode is `keyword`. When searchMode is omitted, the request uses standard keyword and structured search.
+
+
+
               #### Text-based vector search
 
 
