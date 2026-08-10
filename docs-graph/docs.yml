@@ -3887,32 +3887,6 @@ items:
               Both methods use the CORE query language and return the same Output search-response structure.
 
 
-              `GET` is suitable for:
-
-
-              * Keyword searches
-
-              * Structured searches
-
-              * Text-based vector searches
-
-              * Hybrid searches that can be represented conveniently in a URL
-
-
-              `POST` is recommended for:
-
-
-              * Explicit client-generated vectors
-
-              * Long or complex queries
-
-              * Searches containing many selected fields or facets
-
-              * Requests that may exceed practical URL-length limits
-
-
-              The `POST` method is read-only. It does not create or modify Output records.
-
 
               #### Output and Work vector search
 
@@ -3953,92 +3927,6 @@ items:
               * Output processing and availability status
 
 
-              #### Search modes
-
-
-              The `searchMode` parameter controls how the textual part of the query is evaluated.
-
-
-              | **Value** | **Description**                                                                          |
-
-              | --------- | ---------------------------------------------------------------------------------------- |
-
-              | `keyword` | Uses textual relevance and structured field conditions without vector similarity.        |
-
-              | `vector`  | Converts the textual query into an embedding and retrieves semantically similar Outputs. |
-
-              | `hybrid`  | Combines keyword relevance and vector similarity.                                        |
-
-
-              The default search mode is:
-
-
-              ```text
-
-              keyword
-
-              ```
-
-
-              When `searchMode` is omitted, the request uses standard keyword and structured search.
-
-
-              #### Structured conditions
-
-
-              Structured conditions inside `q` continue to restrict results in every search mode.
-
-
-              For example:
-
-
-              ```text
-
-              "climate adaptation strategies"
-
-              AND accessRights.isOpenAccess:true
-
-              AND language.code:en
-
-              ```
-
-
-              This query contains:
-
-
-              * The textual query `"climate adaptation strategies"`
-
-              * An open-access condition
-
-              * A language condition
-
-
-              In vector mode, only the textual clause is converted into an embedding. The other clauses are applied as structured conditions.
-
-
-              #### Vector source content
-
-
-              CORE generates Output embeddings from the fields configured in the Output vector index.
-
-
-              Recommended source fields include:
-
-
-              * `title`
-
-              * Reconstructed abstract text
-
-              * `fullText`
-
-
-              The `invertedAbstract` object should not be embedded directly. Where it contributes to vector generation, CORE should first reconstruct the readable abstract text.
-
-
-              The final API documentation should state exactly which Output fields are used to generate embeddings.
-
-
-              Embedding vectors are search-index data and are not returned as persistent properties of the Output entity.
 
 
               #### GET and POST search parameters
