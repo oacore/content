@@ -2,7 +2,7 @@ navTitle: CORE Graph API Documentation
 navItems:
   - item: Overview
     children:
-      - item: null
+      - item: CORE Graph Data Model
         children:
           - item: "CORE Graph API "
             href: "#core-graph-api"
@@ -206,28 +206,32 @@ navItems:
       - item: Grants
       - item: Funders
       - item: Topics
-  - item: Search
-    children:
-      - item: null
+      - hidden: false
+        item: Citations
         children:
           - hidden: false
-            item: Overview
-            href: "#search-overview"
-          - hidden: false
-            item: CORE API Query Language
-            href: "#search-core-api-query-language"
-          - hidden: false
-            item: Search request
-            href: "#search-search-request"
-          - hidden: false
-            item: Vector and Hybrid search
-            href: "#search-vector-and-hybrid-search"
-          - hidden: false
-            item: Result control
-            href: "#search-result-control"
-          - hidden: false
-            item: Facets and aggregation
-            href: "#search-facets-and-aggregation"
-          - hidden: false
-            item: Responses
-            href: "#search-responses"
+            item: Introduction
+            href: "#citations-api-introduction"
+  - item: Search
+    children:
+      - item: Overview
+        children: []
+        href: "#search-overview"
+      - hidden: false
+        item: CORE API Query Language
+        href: "#search-core-api-query-language"
+      - hidden: false
+        item: Search request
+        href: "#search-search-request"
+      - hidden: false
+        item: Vector and Hybrid search
+        href: "#search-vector-and-hybrid-search"
+      - hidden: false
+        item: Result control
+        href: "#search-result-control"
+      - hidden: false
+        item: Facets and aggregation
+        href: "#search-facets-and-aggregation"
+      - hidden: false
+        item: Responses
+        href: "#search-responses"
