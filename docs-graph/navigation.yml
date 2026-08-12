@@ -2,25 +2,24 @@ navTitle: CORE Graph API Documentation
 navItems:
   - item: Overview
     children:
-      - item: CORE Graph Data Model
-        children:
-          - item: "CORE Graph API "
-            href: "#core-graph-api"
-          - hidden: false
-            item: Design Principles
-            href: "#core-graph-design-principles"
-          - hidden: false
-            item: CORE data model
-            href: "#core-graph-core-data-model"
-          - hidden: false
-            item: Principal relationships
-            href: "#core-graph-principal-relationships"
-          - hidden: false
-            item: Resource and endpoint patterns
-            href: "#core-graph-resource-and-endpoint-patterns"
-          - hidden: false
-            item: Naming conventions
-            href: "#graph-api-naming-conventions"
+      - hidden: false
+        item: "CORE Graph API "
+        href: "#core-graph-api"
+      - hidden: false
+        item: Design Principles
+        href: "#core-graph-design-principles"
+      - hidden: false
+        item: CORE data model
+        href: "#core-graph-core-data-model"
+      - hidden: false
+        item: Principal relationships
+        href: "#core-graph-principal-relationships"
+      - hidden: false
+        item: Resource and endpoint patterns
+        href: "#core-graph-resource-and-endpoint-patterns"
+      - hidden: false
+        item: Naming conventions
+        href: "#graph-api-naming-conventions"
   - item: Entities
     children:
       - item: Works
