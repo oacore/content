@@ -80,8 +80,8 @@ navItems:
             href: "#dataproviders-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            item: Data Provider endpoints
-            href: "#dataproviders-api-data-provider-endpoints"
+            item: Data Providers endpoints
+            href: "#dataproviders-api-data-providers-endpoints"
           - hidden: false
             href: "#dataproviders-api-search-data-providers"
             item: Search Data providers
