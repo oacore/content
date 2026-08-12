@@ -34,8 +34,8 @@ navItems:
             item: Supported field operations
             href: "#works-api-supported-field-operations"
           - hidden: false
-            item: Work endpoints
-            href: "#works-api-work-endpoints"
+            item: Works endpoints
+            href: "#works-api-works-endpoints"
           - hidden: false
             item: Search Works
             href: "#works-api-search-works"
@@ -58,7 +58,7 @@ navItems:
             href: "#outputs-api-supported-field-operations"
           - hidden: false
             item: Outputs endpoints
-            href: "#outputs-api-output-endpoints"
+            href: "#outputs-api-outputs-endpoints"
           - hidden: false
             item: Search Outputs
             href: "#outputs-api-search-outputs"
