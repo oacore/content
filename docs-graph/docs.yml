@@ -1429,8 +1429,8 @@ items:
               Both conditions must match a single date object where the `type` is `published` and the `value` is on or after `2022-01-01`.
           - divider: false
             border: false
-            id: works-api-work-endpoints
-            title: Work endpoints
+            id: works-api-works-endpoints
+            title: Works endpoints
             descriptionAbout: >-
               #### Available endpoints
 
@@ -3730,8 +3730,8 @@ items:
               Both conditions must match a single `accessRights` object for which both conditions are satisfied.
           - divider: false
             border: false
-            title: Output endpoints
-            id: outputs-api-output-endpoints
+            title: Outputs endpoints
+            id: outputs-api-outputs-endpoints
             descriptionAbout: >-
               #### Available endpoints
 
@@ -5918,8 +5918,8 @@ items:
               * **Facetable** fields can be used with `facets`.
           - divider: false
             border: false
-            id: dataproviders-api-data-provider-endpoints
-            title: Data provider endpoints
+            id: dataproviders-api-data-providers-endpoints
+            title: Data providers endpoints
             descriptionAbout: >-
               
               #### Available endpoints
@@ -7648,8 +7648,8 @@ items:
               ```
           - divider: false
             border: false
-            id: journals-api-journal-endpoints
-            title: Journal endpoints
+            id: journals-api-journals-endpoints
+            title: Journals endpoints
             descriptionAbout: >-
               #### Available endpoints
 
@@ -10990,8 +10990,8 @@ items:
 
 
               Readable examples may show the unencoded form for clarity.
-          - id: authorships-api-available-endpoints
-            title: Authorship endpoints
+          - id: authorships-api-authorships-endpoints
+            title: Authorships endpoints
             descriptionAbout: >-
               | Operation                                    | Method |
               Endpoint                                      |
@@ -12425,8 +12425,8 @@ items:
               | updatedDate     | No             | Yes            | Yes          | No            |
           - divider: false
             border: false
-            id: affiliations-api-affiliation-endpoints
-            title: Affiliation endpoints
+            id: affiliations-api-affiliations-endpoints
+            title: Affiliations endpoints
             descriptionAbout: >-
               #### Available endpoints
 
@@ -14102,7 +14102,7 @@ items:
           - divider: false
             border: false
             id: authors-api-authors-endpoints
-            title: API endpoints
+            title: Authors endpoints
             descriptionAbout: >-
               | **Operation**                            | **Method** |
               **Endpoint**                          |
@@ -15272,6 +15272,1843 @@ items:
 
 
               An existing Author with no connected Affiliations returns 200 with an empty results array.
+      - item: Citations
+        sections:
+          - divider: false
+            border: false
+            id: citations-api-introduction
+            title: Introduction
+            descriptionAbout: >+
+              The Citation entity represents a directed bibliographic
+              relationship between a citing Work and a cited Work or
+              bibliographic reference.
+
+              A citation connects citing and cited works:
+
+            images:
+              - file: /images/docs-graph/citations.png
+            subDescription: >-
+              The Citation entity may contain:
+
+
+              - CORE identifiers for the citing and cited Works
+
+              - External identifiers such as DOI, PMID, OMID, and OCI
+
+              - Bibliographic metadata describing the cited item
+
+              - Information about when the citation relationship was created or established
+
+              - Indicators describing properties of the citation relationship, such as author or journal self-citation
+
+              - Citation-related metrics supplied by external sources
+
+
+              Citation information may be derived from multiple scholarly sources, including OpenCitations, OpenAlex, OpenAIRE Graph, Crossref, and reference metadata available to CORE.
+
+
+              A Citation is directional. A relationship from Work A to Work B is distinct from a relationship from Work B to Work A.
+
+
+              ```text
+
+              A → B ≠ B → A
+
+              ```
+
+
+              #### Entity scope
+
+
+              Citation is a relationship entity because it connects two scholarly Works and may contain information describing that relationship.
+
+
+              ```text
+
+              WORKS
+                ↓ citing
+              CITATIONS
+                ↓ cited
+              WORKS
+
+              ```
+
+
+              A Work may:
+
+
+              - Cite zero or more other Works
+
+              - Be cited by zero or more other Works
+
+
+              The Citation entity enables navigation in both directions:
+
+
+              ```text
+
+              Work
+                → citations
+                → cited Works
+              ```
+
+
+              And:
+
+
+              ```text
+
+              Work
+                → cited-by
+                → citing Works
+              ```
+
+
+              #### Unresolved cited Works
+
+
+              Where a cited bibliographic item cannot be resolved to a canonical CORE Work, the Citation may still retain its external identifiers and structured or unstructured reference metadata.
+
+
+              For example:
+
+
+              ```json
+
+              {
+                "citedWorkId": null,
+                "citedDoi": "10.1000/abc456",
+                "reference": {
+                  "articleTitle": "Quantum effects in materials",
+                  "author": [
+                    "Smith J",
+                    "Lee B"
+                  ]
+                }
+              }
+
+              ```
+
+
+              This allows unresolved references to remain represented without requiring every cited item to have a corresponding CORE Work.
+          - divider: false
+            border: false
+            id: citations-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following table describes the proposed top-level fields of the
+              Citation entity.
+
+
+              | **Property**     | **Type** | **Example value** | **Description**                                                 | **Source**                                                                                       |                                     
+
+              | ---------------- | -------- | ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+
+              | `citationId`     | integer  | `1256789`         | Unique CORE canonical identifier for the Citation relationship. | CORE                                                                                             |                                     
+
+              | `openCitationId` | string                | `"oci:0610200888-0613012615"`                                   | Open Citation Identifier (OCI) identifying the citation relationship, when available.            | OpenCitations                       |
+
+              | `citingWorkId`   | integer                | `345678`                                                        | CORE identifier of the Work containing the citation.                                             | CORE                                |
+
+              | `citedWorkId`    | integer                | `23456`                                                         | CORE identifier of the cited Work, when resolved.                                                | CORE                                |
+
+              | `citingOmid`     | string                 | `"omid:br/0610200888"`                                          | OpenCitations Meta Identifier of the citing bibliographic resource.                              | OpenCitations                       |
+
+              | `citingDoi`      | string                 | `"10.1000/xyz123"`                                              | DOI of the citing Work.                                                                          | OpenCitations / Crossref            |
+
+              | `citingPmid`     | string                 | `"12345678"`                                                    | PMID of the citing Work.                                                                         | OpenCitations                       |
+
+              | `citedOmid`      | string                | `"omid:br/0613012615"`                                          | OpenCitations Meta Identifier of the cited bibliographic resource.                               | OpenCitations                       |
+
+              | `citedDoi`       | string                 | `"10.1000/abc456"`                                              | DOI of the cited Work or unresolved bibliographic item.                                          | OpenCitations / Crossref            |
+
+              | `citedPmid`      | string                 | `"87654321"`                                                    | PMID of the cited Work or bibliographic item.                                                    | OpenCitations                       |
+
+              | `creationDate`   | string                 | `"2022-06-14"`                                                  | Date associated with the creation of the citation relationship, where supplied by the source.    | OpenCitations                       |
+
+              | `timespan`       | string                 | `"P2Y"`                                                         | Time interval associated with the citation, represented as an ISO 8601 duration where available. | OpenCitations                       |
+
+              | `reference`*     | object                 | `{...}`                                                         | Structured bibliographic description of the cited item.                                          | Crossref / OpenAIRE                 |
+
+              | `metrics`*       | object                 | `{...}`                                                         | Citation indicators and metrics supplied by external sources.                                    | OpenCitations / OpenAIRE / OpenAlex |
+
+
+              \* More information is provided in the following sections.
+
+
+              #### Citation identifiers
+
+
+              A Citation contains identifiers for both sides of the directed relationship.
+
+
+              ```json
+
+              {
+                "citationId": 1256789,
+                "openCitationId": "oci:0610200888-0613012615",
+                "citingWorkId": 345678,
+                "citedWorkId": 23456,
+                "citingOmid": "omid:br/0610200888",
+                "citingDoi": "10.1000/xyz123",
+                "citingPmid": "12345678",
+                "citedOmid": "omid:br/0613012615",
+                "citedDoi": "10.1000/abc456",
+                "citedPmid": "87654321"
+              }
+
+              ```
+
+
+              #### CORE identifiers
+
+
+              `citingWorkId` identifies the Work containing the bibliographic reference.
+
+
+              `citedWorkId` identifies the Work to which the citation resolves.
+
+
+              ```text
+
+              citingWorkId
+                    ↓
+                 Citation
+                    ↓
+               citedWorkId
+              ```
+
+
+              `citedWorkId` may be `null` when CORE has not resolved the bibliographic reference to a canonical Work.
+
+
+              The canonical relationship uses CORE `workId` values where resolution is available. External identifiers provide interoperability and allow unresolved references to remain represented.
+
+
+              #### Reference
+
+
+              The `reference` object preserves the bibliographic description of the cited item.
+
+
+              This is particularly useful when a reference cannot be resolved to a canonical CORE Work.
+
+
+              ```json
+
+              {
+                "reference": {
+                  "type": "journal-article",
+                  "key": "ref-12",
+                  "author": [
+                    "Smith J",
+                    "Lee B"
+                  ],
+                  "articleTitle": "Quantum effects in materials",
+                  "journalTitle": "Physical Review Letters",
+                  "volume": "50",
+                  "issue": "3",
+                  "startPage": "101",
+                  "endPage": "118",
+                  "pages": "101-118",
+                  "citedDoi": "10.1000/abc456",
+                  "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+                }
+              }
+
+              ```
+
+
+              ##### Reference fields
+
+
+              | **Property**         | **Type**  | **Example value**                 | **Description**                                                        | **Source**                   |     
+
+              | -------------------- | --------- | --------------------------------- | ---------------------------------------------------------------------- | ---------------------------- | 
+
+              | `type`               | string    | `"journal-article"`               | Type of the cited bibliographic item.                                  | Crossref                     |     
+
+              | `key`                | string    | `"ref-12"`                        | Source-specific identifier for the reference within the citing record. | Crossref                     |     
+
+              | `author`             | string\[] | `["Smith J", "Lee B"]`            | Author names as supplied in the reference.                             | Crossref / OpenAIRE          |     
+
+              | `articleTitle`       | string    | `"Quantum effects in materials"`  | Title of the cited article or resource.                                | Crossref                     |     
+
+              | `journalTitle`       | string    | `"Physical Review Letters"`       | Journal title associated with the cited item.                          | Crossref                     |     
+
+              | `seriesTitle`        | string    | `"Lecture Notes in Physics"`      | Series title, when applicable.                                         | Crossref                     |     
+
+              | `volumeTitle`        | string    | `"Collected Papers on Radiation"` | Title of the containing volume.                                        | Crossref                     |     
+
+              | `volume`             | string    | `"50"`                            | Volume number.                                                         | Crossref / OpenAIRE          |     
+
+              | `issue`              | string    | `"3"`                             | Issue number.                                                          | Crossref / OpenAIRE          |     
+
+              | `edition`            | string    | `"2"`                             | Edition of the cited resource.                                         | Crossref / OpenAIRE          |     
+
+              | `startPage`          | string    | `"101"`                           | Starting page of the cited item.                                       | OpenAIRE / Crossref          |     
+
+              | `endPage`            | string    | `"118"`                           | Ending page of the cited item.                                         | OpenAIRE / Crossref          |     
+
+              | `pages`              | string    | `"101-118"`                       | Page extent as supplied by the source.                                 | Dublin Core Terms / Crossref |     
+
+              | `conferenceLocation` | string    | `"Glasgow, UK"`                   | Conference location, when applicable.                                  | OpenAIRE                     |     
+
+              | `conferenceDate`     | string    | `"2023-09-12"`                    | Conference date or year, when applicable.                              | OpenAIRE / Crossref          |     
+
+              | `issn`               | string\[] | `["1234-5678"]`                   | ISSNs associated with the cited publication venue.                     | Crossref                     |     
+
+              | `issnType`           | string\[] | `["print"]`                       | Types associated with the corresponding ISSNs.                         | Crossref                     |     
+
+              | `isbn`               | string\[] | `["9781234567890"]`               | ISBNs associated with the cited resource.                              | Crossref                     |     
+
+              | `isbnType`           | string\[] | `["electronic"]`                  | Types associated with the corresponding ISBNs.                         | Crossref                     |     
+
+              | `citedDoi`           | string    | `"10.1000/abc456"`                | DOI of the cited bibliographic item.                                   | Crossref / OpenCitations     |     
+
+              | `doiAssertedBy`      | string    | `"publisher"`                     | Source asserting the cited DOI.                                        | Crossref                     |     
+
+              | `component`          | string    | `"chapter"`                       | Component of a larger cited resource.                                  | Crossref                     |     
+
+              | `standardDesignator` | string    | `"ISO 9001:2015"`                 | Formal standard designation, when applicable.                          | Crossref                     |     
+
+              | `standardsBody`      | string    | `"ISO"`                           | Organisation responsible for the cited standard.                       | Crossref                     |     
+
+              | `unstructured`       | string    | `"Smith J. Quantum effects..."`   | Original unstructured citation text supplied by the source.            | Crossref                     |     
+
+
+              #### Structured and unstructured references
+
+
+              The Citation entity may contain both structured fields and the original unstructured reference.
+
+
+              ```json
+
+              {
+                "articleTitle": "Quantum effects in materials",
+                "journalTitle": "Physical Review Letters",
+                "volume": "50",
+                "issue": "3",
+                "pages": "101-118",
+                "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+              }
+
+              ```
+
+
+              The structured properties support:
+
+
+              * Identifier resolution
+
+              * Bibliographic matching
+
+              * Filtering and search
+
+              * Citation reconciliation
+
+
+              The `unstructured` field preserves the citation as it was supplied by the source.
+
+
+              This provenance is particularly important when structured extraction is incomplete or uncertain.
+
+
+              #### Metrics
+
+
+              The proposed `metrics` object contains citation-related indicators and usage statistics supplied by external systems.
+
+
+              ```json
+
+              {
+                "metrics": {
+                  "citationCount": 256,
+                  "normalisedPercentileValue": 0.94,
+                  "isInTopOnePercent": false,
+                  "isInTopTenPercent": true,
+                  "influence": 0.74,
+                  "influenceClass": "high",
+                  "citationClass": "highly_cited",
+                  "popularity": 0.63,
+                  "popularityClass": "medium",
+                  "impulse": 0.41,
+                  "impulseClass": "medium",
+                  "downloads": 1250,
+                  "views": 9810,
+                  "citedByApiUrl": "https://api.openalex.org/works?...",
+                  "journalSelfCitation": false,
+                  "authorSelfCitation": true,
+                  "venueCitationCount": 14,
+                  "referenceCount": 38
+                }
+              }
+
+              ```
+
+
+              ##### Metric fields
+
+
+              | **Property**                | **Type** | **Example value**                      | **Description**                                                                                      | **Source**    |
+
+              | --------------------------- | -------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------- |
+
+              | `citationCount`             | integer  | `256`                                  | Citation count supplied for the associated record.                                                   | OpenCitations |
+
+              | `normalisedPercentileValue` | number   | `0.94`                                 | Normalised citation percentile value.                                                                | OpenAIRE      |
+
+              | `isInTopOnePercent`         | boolean  | `false`                                | Indicates whether the citation target belongs to the top one percent according to the source metric. | OpenAIRE      |
+
+              | `isInTopTenPercent`         | boolean  | `true`                                 | Indicates whether the citation target belongs to the top ten percent according to the source metric. | OpenAIRE      |
+
+              | `influence`                 | number   | `0.74`                                 | Influence score supplied by the source.                                                              | OpenAIRE      |
+
+              | `influenceClass`            | string   | `"high"`                               | Influence classification supplied by the source.                                                     | OpenAIRE      |
+
+              | `citationClass`             | string   | `"highly_cited"`                       | Citation-impact classification supplied by the source.                                               | OpenAIRE      |
+
+              | `popularity`                | number   | `0.63`                                 | Popularity score supplied by the source.                                                             | OpenAIRE      |
+
+              | `popularityClass`           | string   | `"medium"`                             | Popularity classification supplied by the source.                                                    | OpenAIRE      |
+
+              | `impulse`                   | number   | `0.41`                                 | Impulse score supplied by the source.                                                                | OpenAIRE      |
+
+              | `impulseClass`              | string   | `"medium"`                             | Impulse classification supplied by the source.                                                       | OpenAIRE      |
+
+              | `downloads`                 | integer  | `1250`                                 | Download count supplied for the associated resource.                                                 | OpenAIRE      |
+
+              | `views`                     | integer  | `9810`                                 | View count supplied for the associated resource.                                                     | OpenAIRE      |
+
+              | `citedByApiUrl`             | string   | `"https://api.openalex.org/works?..."` | External API URL providing cited-by information, where supplied.                                     | OpenAlex      |
+
+              | `journalSelfCitation`       | boolean  | `false`                                | Indicates whether the relationship is a journal self-citation, where derivable.                      | OpenCitations |
+
+              | `authorSelfCitation`        | boolean  | `true`                                 | Indicates whether the relationship is an author self-citation, where derivable.                      | OpenCitations |
+
+              | `venueCitationCount`        | integer  | `14`                                   | Venue-level citation count supplied by the source.                                                   | OpenCitations |
+
+              | `referenceCount`            | integer  | `38`                                   | Number of references associated with the relevant record, where available.                           | OpenCitations |
+
+
+              > The precise meaning and calculation method for source-derived scores such as `influence`, `popularity`, and `impulse` should be documented before public release.
+
+
+              #### Self-citation indicators
+
+
+              Two of the supplied metric properties describe the citation relationship itself.
+
+
+              ##### Author self-citation
+
+
+              ```json
+
+              {
+                "authorSelfCitation": true
+              }
+
+              ```
+
+
+              Indicates that the citing and cited Works share an Author according to the source or CORE derivation.
+
+
+              ##### Journal self-citation
+
+
+              ```json
+
+              {
+                "journalSelfCitation": false
+              }
+
+              ```
+
+
+              Indicates whether the citing and cited Works are associated with the same Journal or publication venue according to the source definition.
+
+
+              The precise derivation criteria should be documented because different data providers may use different definitions of self-citation.
+
+
+              Example Citation record:
+
+
+              ```json
+
+              {
+                "citationId": 1256789,
+                "openCitationId": "oci:0610200888-0613012615",
+                "citingWorkId": 345678,
+                "citedWorkId": 23456,
+                "citingOmid": "omid:br/0610200888",
+                "citingDoi": "10.1000/xyz123",
+                "citingPmid": "12345678",
+                "citedOmid": "omid:br/0613012615",
+                "citedDoi": "10.1000/abc456",
+                "citedPmid": "87654321",
+                "creationDate": "2022-06-14",
+                "timespan": "P2Y",
+                "reference": {
+                  "type": "journal-article",
+                  "key": "ref-12",
+                  "author": [
+                    "Smith J",
+                    "Lee B"
+                  ],
+                  "articleTitle": "Quantum effects in materials",
+                  "journalTitle": "Physical Review Letters",
+                  "seriesTitle": null,
+                  "volumeTitle": null,
+                  "volume": "50",
+                  "issue": "3",
+                  "edition": null,
+                  "startPage": "101",
+                  "endPage": "118",
+                  "pages": "101-118",
+                  "conferenceLocation": null,
+                  "conferenceDate": null,
+                  "issn": [
+                    "1234-5678"
+                  ],
+                  "issnType": [
+                    "print"
+                  ],
+                  "isbn": null,
+                  "isbnType": null,
+                  "citedDoi": "10.1000/abc456",
+                  "doiAssertedBy": "publisher",
+                  "component": null,
+                  "standardDesignator": null,
+                  "standardsBody": null,
+                  "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+                },
+                "metrics": {
+                  "citationCount": 256,
+                  "normalisedPercentileValue": 0.94,
+                  "isInTopOnePercent": false,
+                  "isInTopTenPercent": true,
+                  "influence": 0.74,
+                  "influenceClass": "high",
+                  "citationClass": "highly_cited",
+                  "popularity": 0.63,
+                  "popularityClass": "medium",
+                  "impulse": 0.41,
+                  "impulseClass": "medium",
+                  "downloads": 1250,
+                  "views": 9810,
+                  "citedByApiUrl": "https://api.openalex.org/works?...",
+                  "journalSelfCitation": false,
+                  "authorSelfCitation": true,
+                  "venueCitationCount": 14,
+                  "referenceCount": 38
+                }
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: citations-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              ## Supported field operations
+
+
+              The following table presents the recommended search configuration based on the proposed Citation fields.
+
+
+              | **Attribute**                       | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | ----------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+              | `citationId`                        | No             | Yes            | Yes          | No            |
+
+              | `openCitationId`                    | No             | Yes            | No           | No            |
+
+              | `citingWorkId`                      | No             | Yes            | Yes          | No            |
+
+              | `citedWorkId`                       | No             | Yes            | Yes          | No            |
+
+              | `citingOmid`                        | No             | Yes            | No           | No            |
+
+              | `citingDoi`                         | No             | Yes            | No           | No            |
+
+              | `citingPmid`                        | No             | Yes            | No           | No            |
+
+              | `citedOmid`                         | No             | Yes            | No           | No            |
+
+              | `citedDoi`                          | No             | Yes            | No           | No            |
+
+              | `citedPmid`                         | No             | Yes            | No           | No            |
+
+              | `creationDate`                      | No             | Yes            | Yes          | Yes           |
+
+              | `timespan`                          | No             | Yes            | No           | No            |
+
+              | `reference.type`                    | No             | Yes            | No           | Yes           |
+
+              | `reference.key`                     | No             | Yes            | No           | No            |
+
+              | `reference.author`                  | Yes            | No             | No           | No            |
+
+              | `reference.articleTitle`            | Yes            | No             | No           | No            |
+
+              | `reference.journalTitle`            | Yes            | Yes            | No           | Yes           |
+
+              | `reference.seriesTitle`             | Yes            | No             | No           | No            |
+
+              | `reference.volumeTitle`             | Yes            | No             | No           | No            |
+
+              | `reference.volume`                  | No             | Yes            | No           | No            |
+
+              | `reference.issue`                   | No             | Yes            | No           | No            |
+
+              | `reference.edition`                 | No             | Yes            | No           | No            |
+
+              | `reference.startPage`               | No             | No             | No           | No            |
+
+              | `reference.endPage`                 | No             | No             | No           | No            |
+
+              | `reference.pages`                   | No             | No             | No           | No            |
+
+              | `reference.conferenceLocation`      | Yes            | Yes            | No           | Yes           |
+
+              | `reference.conferenceDate`          | No             | Yes            | No           | No            |
+
+              | `reference.issn`                    | No             | Yes            | No           | No            |
+
+              | `reference.issnType`                | No             | Yes            | No           | Yes           |
+
+              | `reference.isbn`                    | No             | Yes            | No           | No            |
+
+              | `reference.isbnType`                | No             | Yes            | No           | Yes           |
+
+              | `reference.citedDoi`                | No             | Yes            | No           | No            |
+
+              | `reference.doiAssertedBy`           | No             | Yes            | No           | Yes           |
+
+              | `reference.component`               | No             | Yes            | No           | Yes           |
+
+              | `reference.standardDesignator`      | Yes            | Yes            | No           | No            |
+
+              | `reference.standardsBody`           | Yes            | Yes            | No           | Yes           |
+
+              | `reference.unstructured`            | Yes            | No             | No           | No            |
+
+              | `metrics.citationCount`             | No             | Yes            | Yes          | No            |
+
+              | `metrics.normalisedPercentileValue` | No             | Yes            | Yes          | No            |
+
+              | `metrics.isInTopOnePercent`         | No             | Yes            | No           | Yes           |
+
+              | `metrics.isInTopTenPercent`         | No             | Yes            | No           | Yes           |
+
+              | `metrics.influence`                 | No             | Yes            | Yes          | No            |
+
+              | `metrics.influenceClass`            | No             | Yes            | No           | Yes           |
+
+              | `metrics.citationClass`             | No             | Yes            | No           | Yes           |
+
+              | `metrics.popularity`                | No             | Yes            | Yes          | No            |
+
+              | `metrics.popularityClass`           | No             | Yes            | No           | Yes           |
+
+              | `metrics.impulse`                   | No             | Yes            | Yes          | No            |
+
+              | `metrics.impulseClass`              | No             | Yes            | No           | Yes           |
+
+              | `metrics.downloads`                 | No             | Yes            | Yes          | No            |
+
+              | `metrics.views`                     | No             | Yes            | Yes          | No            |
+
+              | `metrics.citedByApiUrl`             | No             | No             | No           | No            |
+
+              | `metrics.journalSelfCitation`       | No             | Yes            | No           | Yes           |
+
+              | `metrics.authorSelfCitation`        | No             | Yes            | No           | Yes           |
+
+              | `metrics.venueCitationCount`        | No             | Yes            | Yes          | No            |
+
+              | `metrics.referenceCount`            | No             | Yes            | Yes          | No            |
+          - divider: false
+            border: false
+            id: citations-api-citations-endpoints
+            title: Citations endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                         | **Method** | **Endpoint**                             |
+
+              | ------------------------------------- | ---------- | ---------------------------------------- |
+
+              | Get a single Citation                 | `GET`      | `/v4/citations/{citationId}`             |
+
+              | Search Citations using URL parameters | `GET`      | `/v4/search/citations`                   |
+
+              | Search Citations using a JSON body    | `POST`     | `/v4/search/citations`                   |
+
+              | Retrieve citations made by a Work     | `GET`      | `/v4/works/{workId}/citations`           |
+
+              | Retrieve Works citing a Work          | `GET`      | `/v4/works/{workId}/cited-by`            |
+
+              | Retrieve the citing Work              | `GET`      | `/v4/citations/{citationId}/citing-work` |
+
+              | Retrieve the cited Work               | `GET`      | `/v4/citations/{citationId}/cited-work`  |
+
+
+              #### Get a single Citation
+
+
+              Retrieves one Citation relationship using its canonical CORE Citation identifier.
+
+
+              ##### API endpoint
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/citations/{citationId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | Parameter       | Location | Type   | Required | Description                                               |
+
+              | --------------- | -------- | ------ | -------- | --------------------------------------------------------- |
+
+              | `Authorization` | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | Parameter    | Type    | Required | Description                                          |
+
+              | ------------ | ------- | -------- | ---------------------------------------------------- |
+
+              | `citationId` | integer | Yes      | Unique CORE identifier of the Citation relationship. |
+
+
+              ##### Query parameters
+
+
+              | Parameter | Type   | Required | Description                                                  |
+
+              | --------- | ------ | -------- | ------------------------------------------------------------ |
+
+              | `select`  | string | No       | Comma-separated list of top-level Citation fields to return. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/citations/1256789" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/citations/1256789?select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "citationId": 1256789,
+                "openCitationId": "oci:0610200888-0613012615",
+                "citingWorkId": 345678,
+                "citedWorkId": 23456,
+                "citingDoi": "10.1000/xyz123",
+                "citedDoi": "10.1000/abc456"
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: citations-api-search-citations
+            title: Search citations
+            descriptionAbout: >-
+              Searches, filters, orders, facets, counts, and paginates Citation
+              records.
+
+
+              Citation search is available through `GET` and `POST`:
+
+
+              | **Method** | **API endpoint**                             |
+
+              | ---------- | -------------------------------------------- |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/citations> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/citations> |
+
+
+              Both methods use the same CORE query language and return the same response structure.
+
+
+              Citation search supports:
+
+
+              * Field-specific lookup
+
+              * Free-text search of bibliographic reference fields
+
+              * Boolean conditions
+
+              * Numeric and date ranges
+
+              * Existence queries
+
+              * Ordering
+
+              * Field selection
+
+              * Facets
+
+              * Result counting
+
+              * Pagination
+
+
+              Vector and hybrid search are not currently supported for Citations.
+
+
+              For the complete query syntax and search behaviour, see the common [Search](search.md) documentation.
+
+
+              #### GET and POST search parameters
+
+
+              ##### GET query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+              | `select`      | string   | No           | All retrievable fields        | Comma-separated list of Citation fields to include in each result.                                                                |
+
+              | `facets`      | string   | No           | —                             | Comma-separated list of facetable Citation fields for which value buckets and counts should be returned.                          |
+
+              | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Citation records should be included.                                               |
+
+              | `limit`       | integer  | No           | `10`                          | Maximum number of Citation records to return.                                                                                     |
+
+              | `offset`      | integer  | No           | `0`                           | Number of matching Citation records to skip.                                                                                      |
+
+
+              ##### POST request body
+
+
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+              | `select`     | string\[] | No           | All retrievable fields        | List of Citation fields to include in each result.                                                                                |
+
+              | `facets`     | string\[] | No           | —                             | List of facetable Citation fields for which value buckets and counts should be returned.                                          |
+
+              | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Citation records should be included.                                               |
+
+              | `limit`      | integer   | No           | `10`                          | Maximum number of Citation records to return.                                                                                     |
+
+              | `offset`     | integer   | No           | `0`                           | Number of matching Citation records to skip.                                                                                      |
+
+
+              #### GET and POST parameter mapping
+
+
+              | GET query parameter                                             | POST body property                                                        |
+
+              | --------------------------------------------------------------- | ------------------------------------------------------------------------- |
+
+              | `q=citedDoi:"10.1000/abc456"`                                   | `"q": "citedDoi:\"10.1000/abc456\""`                                      |
+
+              | `orderby=creationDate:desc`                                     | `"orderby": ["creationDate:desc"]`                                        |
+
+              | `select=citationId,citingWorkId,citedWorkId`                    | `"select": ["citationId", "citingWorkId", "citedWorkId"]`                 |
+
+              | `facets=metrics.authorSelfCitation,metrics.journalSelfCitation` | `"facets": ["metrics.authorSelfCitation", "metrics.journalSelfCitation"]` |
+
+              | `count=true`                                                    | `"count": true`                                                           |
+
+              | `limit=10`                                                      | `"limit": 10`                                                             |
+
+              | `offset=0`                                                      | `"offset": 0`                                                             |
+
+
+              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: citations-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Retrieve citations made by a Work
+
+
+              Retrieves Citation records in which the specified Work is the citing Work.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:345678
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citingWorkId:345678"
+              }
+
+              ```
+
+
+              #### Retrieve citations to a Work
+
+
+              Retrieves Citation records in which the specified Work is the cited Work.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:23456
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedWorkId:23456"
+              }
+
+              ```
+
+
+              #### Search by Open Citation Identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=openCitationId:"oci:0610200888-0613012615"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "openCitationId:\"oci:0610200888-0613012615\""
+              }
+
+              ```
+
+
+              #### Search by citing DOI
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingDoi:"10.1000/xyz123"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citingDoi:\"10.1000/xyz123\""
+              }
+
+              ```
+
+
+              #### Search by cited DOI
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedDoi:\"10.1000/abc456\""
+              }
+
+              ```
+
+
+              #### Search unresolved citations
+
+
+              Retrieves Citation records that have not been resolved to a canonical cited Work.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=NOT _exists_:citedWorkId
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "NOT _exists_:citedWorkId"
+              }
+
+              ```
+
+
+              This query may be useful for:
+
+
+              * Reference resolution
+
+              * Metadata enrichment
+
+              * Citation-linking research
+
+
+              #### Search bibliographic reference titles
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=reference.articleTitle:"Quantum effects"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "reference.articleTitle:\"Quantum effects\""
+              }
+
+              ```
+
+
+              #### Search unstructured references
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=reference.unstructured:"quantum materials"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "reference.unstructured:\"quantum materials\""
+              }
+
+              ```
+
+
+              A broad textual query may also be used:
+
+
+              ```http
+
+              GET /v4/search/citations?q="quantum materials"
+
+              ```
+
+
+              Broad textual queries search the Citation fields configured as searchable, including:
+
+
+              * `reference.articleTitle`
+
+              * `reference.unstructured`
+
+              * Other searchable bibliographic reference fields
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve author self-citations
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=metrics.authorSelfCitation:true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "metrics.authorSelfCitation:true"
+              }
+
+              ```
+
+
+              #### Retrieve journal self-citations
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=metrics.journalSelfCitation:true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "metrics.journalSelfCitation:true"
+              }
+
+              ```
+
+
+              #### Retrieve Citations created after a particular date
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=creationDate>="2022-01-01"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "creationDate>=\"2022-01-01\""
+              }
+
+              ```
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Retrieves citations made by Work `345678`
+
+              * Restricts the results to citations created on or after 1 January 2022
+
+              * Restricts the results to resolved citations
+
+              * Orders the results by creation date, with the most recent first
+
+              * Returns selected fields
+
+              * Includes the total result count
+
+              * Returns a maximum of ten records
+
+
+              GET:
+
+
+              ```bash
+
+              curl --request GET \
+                --url 'https://api.core.ac.uk/v4/search/citations?q=citingWorkId%3A345678%20AND%20creationDate%3E%3D%222022-01-01%22%20AND%20_exists_%3AcitedWorkId&orderby=creationDate%3Adesc&select=citationId%2CopenCitationId%2CcitingWorkId%2CcitedWorkId%2CcitingDoi%2CcitedDoi%2CcreationDate&count=true&limit=10&offset=0' \
+                --header 'Authorization: Bearer YOUR_API_KEY'
+              ```
+
+
+              Readable form:
+
+
+              ```http
+
+              GET /v4/search/citations
+                  ?q=citingWorkId:345678 AND creationDate>="2022-01-01" AND _exists_:citedWorkId
+                  &orderby=creationDate:desc
+                  &select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi,creationDate
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST:
+
+
+              ```bash
+
+              curl --request POST \
+                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --header 'Authorization: Bearer YOUR_API_KEY' \
+                --header 'Content-Type: application/json' \
+                --data '{
+                  "q": "citingWorkId:345678 AND creationDate>=\"2022-01-01\" AND _exists_:citedWorkId",
+                  "orderby": [
+                    "creationDate:desc"
+                  ],
+                  "select": [
+                    "citationId",
+                    "openCitationId",
+                    "citingWorkId",
+                    "citedWorkId",
+                    "citingDoi",
+                    "citedDoi",
+                    "creationDate"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "results": [
+                  {
+                    "citationId": 7865,
+                    "openCitationId": "oci:0610200888-0613012615",
+                    "citingWorkId": 345678,
+                    "citedWorkId": 23456,
+                    "citingDoi": "10.1000/xyz123",
+                    "citedDoi": "10.1000/abc456",
+                    "creationDate": "2023-06-15"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Citation results
+
+
+              #### Order by creation date
+
+
+              Returns the most recently created Citation records first.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?orderby=creationDate:desc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "creationDate:desc"
+                ]
+              }
+
+              ```
+
+
+              #### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?orderby=citingWorkId:asc,creationDate:desc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "citingWorkId:asc",
+                  "creationDate:desc"
+                ]
+              }
+
+              ```
+
+
+              Only Citation fields configured as sortable may be used with `orderby`.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for Citation fields configured as facetable.
+
+
+              The following example groups Citation records by author and journal self-citation status.
+
+
+              GET:
+
+
+              ```bash
+
+              curl --request GET \
+                --url 'https://api.core.ac.uk/v4/search/citations?q=%2A&facets=metrics.authorSelfCitation%2Cmetrics.journalSelfCitation&count=true&limit=0' \
+                --header 'Authorization: Bearer YOUR_API_KEY'
+              ```
+
+
+              Equivalent POST:
+
+
+              ```bash
+
+              curl --request POST \
+                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --header 'Authorization: Bearer YOUR_API_KEY' \
+                --header 'Content-Type: application/json' \
+                --data '{
+                  "q": "*",
+                  "facets": [
+                    "metrics.authorSelfCitation",
+                    "metrics.journalSelfCitation"
+                  ],
+                  "count": true,
+                  "limit": 0
+                }'
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 25000000,
+                "facets": {
+                  "metrics.authorSelfCitation": [
+                    {
+                      "value": true,
+                      "count": 1750000
+                    },
+                    {
+                      "value": false,
+                      "count": 23250000
+                    }
+                  ],
+                  "metrics.journalSelfCitation": [
+                    {
+                      "value": true,
+                      "count": 3200000
+                    },
+                    {
+                      "value": false,
+                      "count": 21800000
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Citation records.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:23456&count=true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedWorkId:23456",
+                "count": true
+              }
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate through Citation results.
+
+
+              A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              ##### First page using GET
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=0
+
+              ```
+
+
+              ##### Second page using GET
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=20
+
+              ```
+
+
+              ##### First page using POST
+
+
+              ```json
+
+              {
+                "q": "citingWorkId:345678",
+                "orderby": [
+                  "creationDate:desc"
+                ],
+                "limit": 20,
+                "offset": 0
+              }
+
+              ```
+
+
+              ##### Second page using POST
+
+
+              ```json
+
+              {
+                "q": "citingWorkId:345678",
+                "orderby": [
+                  "creationDate:desc"
+                ],
+                "limit": 20,
+                "offset": 20
+              }
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Citation search was completed successfully.                                                                 |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+          - divider: false
+            border: false
+            id: citations-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              #### Citations made by a Work
+
+
+              ```http
+
+              GET /v4/works/{workId}/citations
+
+              ```
+
+
+              Retrieves Citation entities representing references made by the specified Work. The returned Citations satisfy:
+
+
+              ```text
+
+              citation.citingWorkId = workId
+
+              ```
+
+
+              Equivalent Citation search:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:{workId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/works/345678/citations
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "citationId": 1256789,
+                    "citingWorkId": 345678,
+                    "citedWorkId": 23456,
+                    "citedDoi": "10.1000/abc456"
+                  },
+                  {
+                    "citationId": 1256790,
+                    "citingWorkId": 345678,
+                    "citedWorkId": 87654,
+                    "citedDoi": "10.1000/def789"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Works citing a Work
+
+
+              ```http
+
+              GET /v4/works/{workId}/cited-by
+
+              ```
+
+
+              Retrieves Works that cite the specified Work. The underlying Citation relationships satisfy:
+
+
+              ```text
+
+              citation.citedWorkId = workId
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/works/23456/cited-by
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "workId": 345678,
+                    "title": "Applications of quantum effects"
+                  },
+                  {
+                    "workId": 456789,
+                    "title": "Recent developments in quantum materials"
+                  }
+                ]
+              }
+
+              ```
+
+
+              To retrieve the Citation entities rather than the citing Works, use:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:{workId}
+
+              ```
+
+
+              For example:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:23456
+
+              ```
+
+
+              #### Citing Work of a Citation
+
+
+              ```http
+
+              GET /v4/citations/{citationId}/citing-work
+
+              ```
+
+
+              Retrieves the Work identified by the Citation’s `citingWorkId`:
+
+
+              ```text
+
+              Citation.citingWorkId
+                      ↓
+                  Work.workId
+              ```
+
+
+              Every Citation is associated with exactly one citing Work.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/citations/1256789/citing-work
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "workId": 345678,
+                "title": "Applications of quantum effects"
+              }
+
+              ```
+
+
+              #### Cited Work of a Citation
+
+
+              ```http
+
+              GET /v4/citations/{citationId}/cited-work
+
+              ```
+
+
+              Retrieves the canonical Work identified by the Citation’s `citedWorkId`:
+
+
+              ```text
+
+              Citation.citedWorkId
+                      ↓
+                  Work.workId
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/citations/1256789/cited-work
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "workId": 23456,
+                "title": "Quantum effects in materials"
+              }
+
+              ```
+
+
+              A Citation may contain an unresolved bibliographic reference for which `citedWorkId` is `null`. In this case, the endpoint returns:
+
+
+              ```http
+
+              404 Not Found
+
+              ```
+
+
+              The unresolved reference metadata remains available through the Citation entity:
+
+
+              ```http
+
+              GET /v4/citations/{citationId}
+
+              ```
   - item: Search
     children:
       - item: null
