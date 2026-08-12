@@ -15391,6 +15391,425 @@ items:
 
 
               This allows unresolved references to remain represented without requiring every cited item to have a corresponding CORE Work.
+          - divider: false
+            border: false
+            id: citations-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following table describes the proposed top-level fields of the
+              Citation entity.
+
+
+              | **Property**     | **Type** | **Example value** | **Description**                                                 | **Source**                                                                                       |                                     |
+
+              | ---------------- | -------- | ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------- |
+
+              | `citationId`     | integer  | `1256789`         | Unique CORE canonical identifier for the Citation relationship. | CORE                                                                                             |                                     |
+
+              | `openCitationId` | string   | null              | `"oci:0610200888-0613012615"`                                   | Open Citation Identifier (OCI) identifying the citation relationship, when available.            | OpenCitations                       |
+
+              | `citingWorkId`   | integer  | null              | `345678`                                                        | CORE identifier of the Work containing the citation.                                             | CORE                                |
+
+              | `citedWorkId`    | integer  | null              | `23456`                                                         | CORE identifier of the cited Work, when resolved.                                                | CORE                                |
+
+              | `citingOmid`     | string   | null              | `"omid:br/0610200888"`                                          | OpenCitations Meta Identifier of the citing bibliographic resource.                              | OpenCitations                       |
+
+              | `citingDoi`      | string   | null              | `"10.1000/xyz123"`                                              | DOI of the citing Work.                                                                          | OpenCitations / Crossref            |
+
+              | `citingPmid`     | string   | null              | `"12345678"`                                                    | PMID of the citing Work.                                                                         | OpenCitations                       |
+
+              | `citedOmid`      | string   | null              | `"omid:br/0613012615"`                                          | OpenCitations Meta Identifier of the cited bibliographic resource.                               | OpenCitations                       |
+
+              | `citedDoi`       | string   | null              | `"10.1000/abc456"`                                              | DOI of the cited Work or unresolved bibliographic item.                                          | OpenCitations / Crossref            |
+
+              | `citedPmid`      | string   | null              | `"87654321"`                                                    | PMID of the cited Work or bibliographic item.                                                    | OpenCitations                       |
+
+              | `creationDate`   | string   | null              | `"2022-06-14"`                                                  | Date associated with the creation of the citation relationship, where supplied by the source.    | OpenCitations                       |
+
+              | `timespan`       | string   | null              | `"P2Y"`                                                         | Time interval associated with the citation, represented as an ISO 8601 duration where available. | OpenCitations                       |
+
+              | `reference`*     | object   | null              | `{...}`                                                         | Structured bibliographic description of the cited item.                                          | Crossref / OpenAIRE                 |
+
+              | `metrics`*       | object   | null              | `{...}`                                                         | Citation indicators and metrics supplied by external sources.                                    | OpenCitations / OpenAIRE / OpenAlex |
+
+
+              \* More information is provided in the following sections.
+
+
+              #### Citation identifiers
+
+
+              A Citation contains identifiers for both sides of the directed relationship.
+
+
+              ```json
+
+              {
+                "citationId": 1256789,
+                "openCitationId": "oci:0610200888-0613012615",
+                "citingWorkId": 345678,
+                "citedWorkId": 23456,
+                "citingOmid": "omid:br/0610200888",
+                "citingDoi": "10.1000/xyz123",
+                "citingPmid": "12345678",
+                "citedOmid": "omid:br/0613012615",
+                "citedDoi": "10.1000/abc456",
+                "citedPmid": "87654321"
+              }
+
+              ```
+
+
+              #### CORE identifiers
+
+
+              `citingWorkId` identifies the Work containing the bibliographic reference.
+
+
+              `citedWorkId` identifies the Work to which the citation resolves.
+
+
+              ```text
+
+              citingWorkId
+                    ↓
+                 Citation
+                    ↓
+               citedWorkId
+              ```
+
+
+              `citedWorkId` may be `null` when CORE has not resolved the bibliographic reference to a canonical Work.
+
+
+              The canonical relationship uses CORE `workId` values where resolution is available. External identifiers provide interoperability and allow unresolved references to remain represented.
+
+
+              #### Reference
+
+
+              The `reference` object preserves the bibliographic description of the cited item.
+
+
+              This is particularly useful when a reference cannot be resolved to a canonical CORE Work.
+
+
+              ```json
+
+              {
+                "reference": {
+                  "type": "journal-article",
+                  "key": "ref-12",
+                  "author": [
+                    "Smith J",
+                    "Lee B"
+                  ],
+                  "articleTitle": "Quantum effects in materials",
+                  "journalTitle": "Physical Review Letters",
+                  "volume": "50",
+                  "issue": "3",
+                  "startPage": "101",
+                  "endPage": "118",
+                  "pages": "101-118",
+                  "citedDoi": "10.1000/abc456",
+                  "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+                }
+              }
+
+              ```
+
+
+              ##### Reference fields
+
+
+              | Property             | Type      | Example value | Description                       | Source                                                                 |                              |
+
+              | -------------------- | --------- | ------------- | --------------------------------- | ---------------------------------------------------------------------- | ---------------------------- |
+
+              | `type`               | string    | null          | `"journal-article"`               | Type of the cited bibliographic item.                                  | Crossref                     |
+
+              | `key`                | string    | null          | `"ref-12"`                        | Source-specific identifier for the reference within the citing record. | Crossref                     |
+
+              | `author`             | string\[] | null          | `["Smith J", "Lee B"]`            | Author names as supplied in the reference.                             | Crossref / OpenAIRE          |
+
+              | `articleTitle`       | string    | null          | `"Quantum effects in materials"`  | Title of the cited article or resource.                                | Crossref                     |
+
+              | `journalTitle`       | string    | null          | `"Physical Review Letters"`       | Journal title associated with the cited item.                          | Crossref                     |
+
+              | `seriesTitle`        | string    | null          | `"Lecture Notes in Physics"`      | Series title, when applicable.                                         | Crossref                     |
+
+              | `volumeTitle`        | string    | null          | `"Collected Papers on Radiation"` | Title of the containing volume.                                        | Crossref                     |
+
+              | `volume`             | string    | null          | `"50"`                            | Volume number.                                                         | Crossref / OpenAIRE          |
+
+              | `issue`              | string    | null          | `"3"`                             | Issue number.                                                          | Crossref / OpenAIRE          |
+
+              | `edition`            | string    | null          | `"2"`                             | Edition of the cited resource.                                         | Crossref / OpenAIRE          |
+
+              | `startPage`          | string    | null          | `"101"`                           | Starting page of the cited item.                                       | OpenAIRE / Crossref          |
+
+              | `endPage`            | string    | null          | `"118"`                           | Ending page of the cited item.                                         | OpenAIRE / Crossref          |
+
+              | `pages`              | string    | null          | `"101-118"`                       | Page extent as supplied by the source.                                 | Dublin Core Terms / Crossref |
+
+              | `conferenceLocation` | string    | null          | `"Glasgow, UK"`                   | Conference location, when applicable.                                  | OpenAIRE                     |
+
+              | `conferenceDate`     | string    | null          | `"2023-09-12"`                    | Conference date or year, when applicable.                              | OpenAIRE / Crossref          |
+
+              | `issn`               | string\[] | null          | `["1234-5678"]`                   | ISSNs associated with the cited publication venue.                     | Crossref                     |
+
+              | `issnType`           | string\[] | null          | `["print"]`                       | Types associated with the corresponding ISSNs.                         | Crossref                     |
+
+              | `isbn`               | string\[] | null          | `["9781234567890"]`               | ISBNs associated with the cited resource.                              | Crossref                     |
+
+              | `isbnType`           | string\[] | null          | `["electronic"]`                  | Types associated with the corresponding ISBNs.                         | Crossref                     |
+
+              | `citedDoi`           | string    | null          | `"10.1000/abc456"`                | DOI of the cited bibliographic item.                                   | Crossref / OpenCitations     |
+
+              | `doiAssertedBy`      | string    | null          | `"publisher"`                     | Source asserting the cited DOI.                                        | Crossref                     |
+
+              | `component`          | string    | null          | `"chapter"`                       | Component of a larger cited resource.                                  | Crossref                     |
+
+              | `standardDesignator` | string    | null          | `"ISO 9001:2015"`                 | Formal standard designation, when applicable.                          | Crossref                     |
+
+              | `standardsBody`      | string    | null          | `"ISO"`                           | Organisation responsible for the cited standard.                       | Crossref                     |
+
+              | `unstructured`       | string    | null          | `"Smith J. Quantum effects..."`   | Original unstructured citation text supplied by the source.            | Crossref                     |
+
+
+              #### Structured and unstructured references
+
+
+              The Citation entity may contain both structured fields and the original unstructured reference.
+
+
+              ```json
+
+              {
+                "articleTitle": "Quantum effects in materials",
+                "journalTitle": "Physical Review Letters",
+                "volume": "50",
+                "issue": "3",
+                "pages": "101-118",
+                "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+              }
+
+              ```
+
+
+              The structured properties support:
+
+
+              * Identifier resolution
+
+              * Bibliographic matching
+
+              * Filtering and search
+
+              * Citation reconciliation
+
+
+              The `unstructured` field preserves the citation as it was supplied by the source.
+
+
+              This provenance is particularly important when structured extraction is incomplete or uncertain.
+
+
+              #### Metrics
+
+
+              The proposed `metrics` object contains citation-related indicators and usage statistics supplied by external systems.
+
+
+              ```json
+
+              {
+                "metrics": {
+                  "citationCount": 256,
+                  "normalisedPercentileValue": 0.94,
+                  "isInTopOnePercent": false,
+                  "isInTopTenPercent": true,
+                  "influence": 0.74,
+                  "influenceClass": "high",
+                  "citationClass": "highly_cited",
+                  "popularity": 0.63,
+                  "popularityClass": "medium",
+                  "impulse": 0.41,
+                  "impulseClass": "medium",
+                  "downloads": 1250,
+                  "views": 9810,
+                  "citedByApiUrl": "https://api.openalex.org/works?...",
+                  "journalSelfCitation": false,
+                  "authorSelfCitation": true,
+                  "venueCitationCount": 14,
+                  "referenceCount": 38
+                }
+              }
+
+              ```
+
+
+              ##### Metric fields
+
+
+              | **Property**                | **Type** | **Example value** | **Description**                        | **Source**                                                                                           |               |
+
+              | --------------------------- | -------- | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | 
+
+              | `citationCount`             | integer                | `256`                                  | Citation count supplied for the associated record.                                                   | OpenCitations |
+
+              | `normalisedPercentileValue` | number                 | `0.94`                                 | Normalised citation percentile value.                                                                | OpenAIRE      |
+
+              | `isInTopOnePercent`         | boolean               | `false`                                | Indicates whether the citation target belongs to the top one percent according to the source metric. | OpenAIRE      |
+
+              | `isInTopTenPercent`         | boolean                | `true`                                 | Indicates whether the citation target belongs to the top ten percent according to the source metric. | OpenAIRE      |
+
+              | `influence`                 | number                | `0.74`                                 | Influence score supplied by the source.                                                              | OpenAIRE      |
+
+              | `influenceClass`            | string                 | `"high"`                               | Influence classification supplied by the source.                                                     | OpenAIRE      |
+
+              | `citationClass`             | string                 | `"highly_cited"`                       | Citation-impact classification supplied by the source.                                               | OpenAIRE      |
+
+              | `popularity`                | number                 | `0.63`                                 | Popularity score supplied by the source.                                                             | OpenAIRE      |
+
+              | `popularityClass`           | string                | `"medium"`                             | Popularity classification supplied by the source.                                                    | OpenAIRE      |
+
+              | `impulse`                   | number                 | `0.41`                                 | Impulse score supplied by the source.                                                                | OpenAIRE      |
+
+              | `impulseClass`              | string                | `"medium"`                             | Impulse classification supplied by the source.                                                       | OpenAIRE      |
+
+              | `downloads`                 | integer                | `1250`                                 | Download count supplied for the associated resource.                                                 | OpenAIRE      |
+
+              | `views`                     | integer                | `9810`                                 | View count supplied for the associated resource.                                                     | OpenAIRE      |
+
+              | `citedByApiUrl`             | string                 | `"https://api.openalex.org/works?..."` | External API URL providing cited-by information, where supplied.                                     | OpenAlex      |
+
+              | `journalSelfCitation`       | boolean                | `false`                                | Indicates whether the relationship is a journal self-citation, where derivable.                      | OpenCitations |
+
+              | `authorSelfCitation`        | boolean                | `true`                                 | Indicates whether the relationship is an author self-citation, where derivable.                      | OpenCitations |
+
+              | `venueCitationCount`        | integer                | `14`                                   | Venue-level citation count supplied by the source.                                                   | OpenCitations |
+
+              | `referenceCount`            | integer                | `38`                                   | Number of references associated with the relevant record, where available.                           | OpenCitations |
+
+
+              > The precise meaning and calculation method for source-derived scores such as `influence`, `popularity`, and `impulse` should be documented before public release.
+
+
+              #### Self-citation indicators
+
+
+              Two of the supplied metric properties describe the citation relationship itself.
+
+
+              ##### Author self-citation
+
+
+              ```json
+
+              {
+                "authorSelfCitation": true
+              }
+
+              ```
+
+
+              Indicates that the citing and cited Works share an Author according to the source or CORE derivation.
+
+
+              ##### Journal self-citation
+
+
+              ```json
+
+              {
+                "journalSelfCitation": false
+              }
+
+              ```
+
+
+              Indicates whether the citing and cited Works are associated with the same Journal or publication venue according to the source definition.
+
+
+              The precise derivation criteria should be documented because different data providers may use different definitions of self-citation.
+
+
+              Example Citation record:
+
+
+              ```json
+
+              {
+                "citationId": 1256789,
+                "openCitationId": "oci:0610200888-0613012615",
+                "citingWorkId": 345678,
+                "citedWorkId": 23456,
+                "citingOmid": "omid:br/0610200888",
+                "citingDoi": "10.1000/xyz123",
+                "citingPmid": "12345678",
+                "citedOmid": "omid:br/0613012615",
+                "citedDoi": "10.1000/abc456",
+                "citedPmid": "87654321",
+                "creationDate": "2022-06-14",
+                "timespan": "P2Y",
+                "reference": {
+                  "type": "journal-article",
+                  "key": "ref-12",
+                  "author": [
+                    "Smith J",
+                    "Lee B"
+                  ],
+                  "articleTitle": "Quantum effects in materials",
+                  "journalTitle": "Physical Review Letters",
+                  "seriesTitle": null,
+                  "volumeTitle": null,
+                  "volume": "50",
+                  "issue": "3",
+                  "edition": null,
+                  "startPage": "101",
+                  "endPage": "118",
+                  "pages": "101-118",
+                  "conferenceLocation": null,
+                  "conferenceDate": null,
+                  "issn": [
+                    "1234-5678"
+                  ],
+                  "issnType": [
+                    "print"
+                  ],
+                  "isbn": null,
+                  "isbnType": null,
+                  "citedDoi": "10.1000/abc456",
+                  "doiAssertedBy": "publisher",
+                  "component": null,
+                  "standardDesignator": null,
+                  "standardsBody": null,
+                  "unstructured": "Smith J. Quantum effects in materials. Phys Rev Lett. 2022;50(3):101-118."
+                },
+                "metrics": {
+                  "citationCount": 256,
+                  "normalisedPercentileValue": 0.94,
+                  "isInTopOnePercent": false,
+                  "isInTopTenPercent": true,
+                  "influence": 0.74,
+                  "influenceClass": "high",
+                  "citationClass": "highly_cited",
+                  "popularity": 0.63,
+                  "popularityClass": "medium",
+                  "impulse": 0.41,
+                  "impulseClass": "medium",
+                  "downloads": 1250,
+                  "views": 9810,
+                  "citedByApiUrl": "https://api.openalex.org/works?...",
+                  "journalSelfCitation": false,
+                  "authorSelfCitation": true,
+                  "venueCitationCount": 14,
+                  "referenceCount": 38
+                }
+              }
+
+              ```
   - item: Search
     children:
       - item: null
