@@ -211,6 +211,9 @@ navItems:
           - hidden: false
             item: Introduction
             href: "#citations-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#citations-api-data-structure"
   - item: Search
     children:
       - item: Overview
