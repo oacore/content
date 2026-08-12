@@ -16856,6 +16856,259 @@ items:
               | `429`      | The API request limit has been exceeded.                                                                        |
 
               | `500`      | An unexpected server error occurred.                                                                            |
+          - divider: false
+            border: false
+            id: citations-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              #### Citations made by a Work
+
+
+              ```http
+
+              GET /v4/works/{workId}/citations
+
+              ```
+
+
+              Retrieves Citation entities representing references made by the specified Work. The returned Citations satisfy:
+
+
+              ```text
+
+              citation.citingWorkId = workId
+
+              ```
+
+
+              Equivalent Citation search:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:{workId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/works/345678/citations
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "citationId": 1256789,
+                    "citingWorkId": 345678,
+                    "citedWorkId": 23456,
+                    "citedDoi": "10.1000/abc456"
+                  },
+                  {
+                    "citationId": 1256790,
+                    "citingWorkId": 345678,
+                    "citedWorkId": 87654,
+                    "citedDoi": "10.1000/def789"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Works citing a Work
+
+
+              ```http
+
+              GET /v4/works/{workId}/cited-by
+
+              ```
+
+
+              Retrieves Works that cite the specified Work. The underlying Citation relationships satisfy:
+
+
+              ```text
+
+              citation.citedWorkId = workId
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/works/23456/cited-by
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "workId": 345678,
+                    "title": "Applications of quantum effects"
+                  },
+                  {
+                    "workId": 456789,
+                    "title": "Recent developments in quantum materials"
+                  }
+                ]
+              }
+
+              ```
+
+
+              To retrieve the Citation entities rather than the citing Works, use:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:{workId}
+
+              ```
+
+
+              For example:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:23456
+
+              ```
+
+
+              #### Citing Work of a Citation
+
+
+              ```http
+
+              GET /v4/citations/{citationId}/citing-work
+
+              ```
+
+
+              Retrieves the Work identified by the Citation’s `citingWorkId`:
+
+
+              ```text
+
+              Citation.citingWorkId
+                      ↓
+                  Work.workId
+              ```
+
+
+              Every Citation is associated with exactly one citing Work.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/citations/1256789/citing-work
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "workId": 345678,
+                "title": "Applications of quantum effects"
+              }
+
+              ```
+
+
+              #### Cited Work of a Citation
+
+
+              ```http
+
+              GET /v4/citations/{citationId}/cited-work
+
+              ```
+
+
+              Retrieves the canonical Work identified by the Citation’s `citedWorkId`:
+
+
+              ```text
+
+              Citation.citedWorkId
+                      ↓
+                  Work.workId
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/citations/1256789/cited-work
+
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "workId": 23456,
+                "title": "Quantum effects in materials"
+              }
+
+              ```
+
+
+              A Citation may contain an unresolved bibliographic reference for which `citedWorkId` is `null`. In this case, the endpoint returns:
+
+
+              ```http
+
+              404 Not Found
+
+              ```
+
+
+              The unresolved reference metadata remains available through the Citation entity:
+
+
+              ```http
+
+              GET /v4/citations/{citationId}
+
+              ```
   - item: Search
     children:
       - item: null
