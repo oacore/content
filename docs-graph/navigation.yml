@@ -223,6 +223,9 @@ navItems:
           - hidden: false
             item: Search citations
             href: "#citations-api-search-citations"
+          - hidden: false
+            item: Search examples
+            href: "#citations-api-search-examples"
   - item: Search
     children:
       - item: Overview
