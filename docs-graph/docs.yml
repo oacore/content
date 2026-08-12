@@ -1429,8 +1429,8 @@ items:
               Both conditions must match a single date object where the `type` is `published` and the `value` is on or after `2022-01-01`.
           - divider: false
             border: false
-            id: works-api-work-endpoints
-            title: Work endpoints
+            id: works-api-works-endpoints
+            title: Works endpoints
             descriptionAbout: >-
               #### Available endpoints
 
