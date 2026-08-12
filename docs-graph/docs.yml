@@ -15400,37 +15400,37 @@ items:
               Citation entity.
 
 
-              | **Property**     | **Type** | **Example value** | **Description**                                                 | **Source**                                                                                       |                                     |
+              | **Property**     | **Type** | **Example value** | **Description**                                                 | **Source**                                                                                       |                                     
 
-              | ---------------- | -------- | ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------- |
+              | ---------------- | -------- | ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 
-              | `citationId`     | integer  | `1256789`         | Unique CORE canonical identifier for the Citation relationship. | CORE                                                                                             |                                     |
+              | `citationId`     | integer  | `1256789`         | Unique CORE canonical identifier for the Citation relationship. | CORE                                                                                             |                                     
 
-              | `openCitationId` | string   | null              | `"oci:0610200888-0613012615"`                                   | Open Citation Identifier (OCI) identifying the citation relationship, when available.            | OpenCitations                       |
+              | `openCitationId` | string                | `"oci:0610200888-0613012615"`                                   | Open Citation Identifier (OCI) identifying the citation relationship, when available.            | OpenCitations                       |
 
-              | `citingWorkId`   | integer  | null              | `345678`                                                        | CORE identifier of the Work containing the citation.                                             | CORE                                |
+              | `citingWorkId`   | integer                | `345678`                                                        | CORE identifier of the Work containing the citation.                                             | CORE                                |
 
-              | `citedWorkId`    | integer  | null              | `23456`                                                         | CORE identifier of the cited Work, when resolved.                                                | CORE                                |
+              | `citedWorkId`    | integer                | `23456`                                                         | CORE identifier of the cited Work, when resolved.                                                | CORE                                |
 
-              | `citingOmid`     | string   | null              | `"omid:br/0610200888"`                                          | OpenCitations Meta Identifier of the citing bibliographic resource.                              | OpenCitations                       |
+              | `citingOmid`     | string                 | `"omid:br/0610200888"`                                          | OpenCitations Meta Identifier of the citing bibliographic resource.                              | OpenCitations                       |
 
-              | `citingDoi`      | string   | null              | `"10.1000/xyz123"`                                              | DOI of the citing Work.                                                                          | OpenCitations / Crossref            |
+              | `citingDoi`      | string                 | `"10.1000/xyz123"`                                              | DOI of the citing Work.                                                                          | OpenCitations / Crossref            |
 
-              | `citingPmid`     | string   | null              | `"12345678"`                                                    | PMID of the citing Work.                                                                         | OpenCitations                       |
+              | `citingPmid`     | string                 | `"12345678"`                                                    | PMID of the citing Work.                                                                         | OpenCitations                       |
 
-              | `citedOmid`      | string   | null              | `"omid:br/0613012615"`                                          | OpenCitations Meta Identifier of the cited bibliographic resource.                               | OpenCitations                       |
+              | `citedOmid`      | string                | `"omid:br/0613012615"`                                          | OpenCitations Meta Identifier of the cited bibliographic resource.                               | OpenCitations                       |
 
-              | `citedDoi`       | string   | null              | `"10.1000/abc456"`                                              | DOI of the cited Work or unresolved bibliographic item.                                          | OpenCitations / Crossref            |
+              | `citedDoi`       | string                 | `"10.1000/abc456"`                                              | DOI of the cited Work or unresolved bibliographic item.                                          | OpenCitations / Crossref            |
 
-              | `citedPmid`      | string   | null              | `"87654321"`                                                    | PMID of the cited Work or bibliographic item.                                                    | OpenCitations                       |
+              | `citedPmid`      | string                 | `"87654321"`                                                    | PMID of the cited Work or bibliographic item.                                                    | OpenCitations                       |
 
-              | `creationDate`   | string   | null              | `"2022-06-14"`                                                  | Date associated with the creation of the citation relationship, where supplied by the source.    | OpenCitations                       |
+              | `creationDate`   | string                 | `"2022-06-14"`                                                  | Date associated with the creation of the citation relationship, where supplied by the source.    | OpenCitations                       |
 
-              | `timespan`       | string   | null              | `"P2Y"`                                                         | Time interval associated with the citation, represented as an ISO 8601 duration where available. | OpenCitations                       |
+              | `timespan`       | string                 | `"P2Y"`                                                         | Time interval associated with the citation, represented as an ISO 8601 duration where available. | OpenCitations                       |
 
-              | `reference`*     | object   | null              | `{...}`                                                         | Structured bibliographic description of the cited item.                                          | Crossref / OpenAIRE                 |
+              | `reference`*     | object                 | `{...}`                                                         | Structured bibliographic description of the cited item.                                          | Crossref / OpenAIRE                 |
 
-              | `metrics`*       | object   | null              | `{...}`                                                         | Citation indicators and metrics supplied by external sources.                                    | OpenCitations / OpenAIRE / OpenAlex |
+              | `metrics`*       | object                 | `{...}`                                                         | Citation indicators and metrics supplied by external sources.                                    | OpenCitations / OpenAIRE / OpenAlex |
 
 
               \* More information is provided in the following sections.
@@ -15522,59 +15522,59 @@ items:
               ##### Reference fields
 
 
-              | Property             | Type      | Example value | Description                       | Source                                                                 |                              |
+              | **Property**         | **Type**  | **Example value**                 | **Description**                                                        | **Source**                   |     
 
-              | -------------------- | --------- | ------------- | --------------------------------- | ---------------------------------------------------------------------- | ---------------------------- |
+              | -------------------- | --------- | --------------------------------- | ---------------------------------------------------------------------- | ---------------------------- | 
 
-              | `type`               | string    | null          | `"journal-article"`               | Type of the cited bibliographic item.                                  | Crossref                     |
+              | `type`               | string    | `"journal-article"`               | Type of the cited bibliographic item.                                  | Crossref                     |     
 
-              | `key`                | string    | null          | `"ref-12"`                        | Source-specific identifier for the reference within the citing record. | Crossref                     |
+              | `key`                | string    | `"ref-12"`                        | Source-specific identifier for the reference within the citing record. | Crossref                     |     
 
-              | `author`             | string\[] | null          | `["Smith J", "Lee B"]`            | Author names as supplied in the reference.                             | Crossref / OpenAIRE          |
+              | `author`             | string\[] | `["Smith J", "Lee B"]`            | Author names as supplied in the reference.                             | Crossref / OpenAIRE          |     
 
-              | `articleTitle`       | string    | null          | `"Quantum effects in materials"`  | Title of the cited article or resource.                                | Crossref                     |
+              | `articleTitle`       | string    | `"Quantum effects in materials"`  | Title of the cited article or resource.                                | Crossref                     |     
 
-              | `journalTitle`       | string    | null          | `"Physical Review Letters"`       | Journal title associated with the cited item.                          | Crossref                     |
+              | `journalTitle`       | string    | `"Physical Review Letters"`       | Journal title associated with the cited item.                          | Crossref                     |     
 
-              | `seriesTitle`        | string    | null          | `"Lecture Notes in Physics"`      | Series title, when applicable.                                         | Crossref                     |
+              | `seriesTitle`        | string    | `"Lecture Notes in Physics"`      | Series title, when applicable.                                         | Crossref                     |     
 
-              | `volumeTitle`        | string    | null          | `"Collected Papers on Radiation"` | Title of the containing volume.                                        | Crossref                     |
+              | `volumeTitle`        | string    | `"Collected Papers on Radiation"` | Title of the containing volume.                                        | Crossref                     |     
 
-              | `volume`             | string    | null          | `"50"`                            | Volume number.                                                         | Crossref / OpenAIRE          |
+              | `volume`             | string    | `"50"`                            | Volume number.                                                         | Crossref / OpenAIRE          |     
 
-              | `issue`              | string    | null          | `"3"`                             | Issue number.                                                          | Crossref / OpenAIRE          |
+              | `issue`              | string    | `"3"`                             | Issue number.                                                          | Crossref / OpenAIRE          |     
 
-              | `edition`            | string    | null          | `"2"`                             | Edition of the cited resource.                                         | Crossref / OpenAIRE          |
+              | `edition`            | string    | `"2"`                             | Edition of the cited resource.                                         | Crossref / OpenAIRE          |     
 
-              | `startPage`          | string    | null          | `"101"`                           | Starting page of the cited item.                                       | OpenAIRE / Crossref          |
+              | `startPage`          | string    | `"101"`                           | Starting page of the cited item.                                       | OpenAIRE / Crossref          |     
 
-              | `endPage`            | string    | null          | `"118"`                           | Ending page of the cited item.                                         | OpenAIRE / Crossref          |
+              | `endPage`            | string    | `"118"`                           | Ending page of the cited item.                                         | OpenAIRE / Crossref          |     
 
-              | `pages`              | string    | null          | `"101-118"`                       | Page extent as supplied by the source.                                 | Dublin Core Terms / Crossref |
+              | `pages`              | string    | `"101-118"`                       | Page extent as supplied by the source.                                 | Dublin Core Terms / Crossref |     
 
-              | `conferenceLocation` | string    | null          | `"Glasgow, UK"`                   | Conference location, when applicable.                                  | OpenAIRE                     |
+              | `conferenceLocation` | string    | `"Glasgow, UK"`                   | Conference location, when applicable.                                  | OpenAIRE                     |     
 
-              | `conferenceDate`     | string    | null          | `"2023-09-12"`                    | Conference date or year, when applicable.                              | OpenAIRE / Crossref          |
+              | `conferenceDate`     | string    | `"2023-09-12"`                    | Conference date or year, when applicable.                              | OpenAIRE / Crossref          |     
 
-              | `issn`               | string\[] | null          | `["1234-5678"]`                   | ISSNs associated with the cited publication venue.                     | Crossref                     |
+              | `issn`               | string\[] | `["1234-5678"]`                   | ISSNs associated with the cited publication venue.                     | Crossref                     |     
 
-              | `issnType`           | string\[] | null          | `["print"]`                       | Types associated with the corresponding ISSNs.                         | Crossref                     |
+              | `issnType`           | string\[] | `["print"]`                       | Types associated with the corresponding ISSNs.                         | Crossref                     |     
 
-              | `isbn`               | string\[] | null          | `["9781234567890"]`               | ISBNs associated with the cited resource.                              | Crossref                     |
+              | `isbn`               | string\[] | `["9781234567890"]`               | ISBNs associated with the cited resource.                              | Crossref                     |     
 
-              | `isbnType`           | string\[] | null          | `["electronic"]`                  | Types associated with the corresponding ISBNs.                         | Crossref                     |
+              | `isbnType`           | string\[] | `["electronic"]`                  | Types associated with the corresponding ISBNs.                         | Crossref                     |     
 
-              | `citedDoi`           | string    | null          | `"10.1000/abc456"`                | DOI of the cited bibliographic item.                                   | Crossref / OpenCitations     |
+              | `citedDoi`           | string    | `"10.1000/abc456"`                | DOI of the cited bibliographic item.                                   | Crossref / OpenCitations     |     
 
-              | `doiAssertedBy`      | string    | null          | `"publisher"`                     | Source asserting the cited DOI.                                        | Crossref                     |
+              | `doiAssertedBy`      | string    | `"publisher"`                     | Source asserting the cited DOI.                                        | Crossref                     |     
 
-              | `component`          | string    | null          | `"chapter"`                       | Component of a larger cited resource.                                  | Crossref                     |
+              | `component`          | string    | `"chapter"`                       | Component of a larger cited resource.                                  | Crossref                     |     
 
-              | `standardDesignator` | string    | null          | `"ISO 9001:2015"`                 | Formal standard designation, when applicable.                          | Crossref                     |
+              | `standardDesignator` | string    | `"ISO 9001:2015"`                 | Formal standard designation, when applicable.                          | Crossref                     |     
 
-              | `standardsBody`      | string    | null          | `"ISO"`                           | Organisation responsible for the cited standard.                       | Crossref                     |
+              | `standardsBody`      | string    | `"ISO"`                           | Organisation responsible for the cited standard.                       | Crossref                     |     
 
-              | `unstructured`       | string    | null          | `"Smith J. Quantum effects..."`   | Original unstructured citation text supplied by the source.            | Crossref                     |
+              | `unstructured`       | string    | `"Smith J. Quantum effects..."`   | Original unstructured citation text supplied by the source.            | Crossref                     |     
 
 
               #### Structured and unstructured references
@@ -15652,45 +15652,45 @@ items:
               ##### Metric fields
 
 
-              | **Property**                | **Type** | **Example value** | **Description**                        | **Source**                                                                                           |               |
+              | **Property**                | **Type** | **Example value**                      | **Description**                                                                                      | **Source**    |
 
-              | --------------------------- | -------- | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | 
+              | --------------------------- | -------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------- |
 
-              | `citationCount`             | integer                | `256`                                  | Citation count supplied for the associated record.                                                   | OpenCitations |
+              | `citationCount`             | integer  | `256`                                  | Citation count supplied for the associated record.                                                   | OpenCitations |
 
-              | `normalisedPercentileValue` | number                 | `0.94`                                 | Normalised citation percentile value.                                                                | OpenAIRE      |
+              | `normalisedPercentileValue` | number   | `0.94`                                 | Normalised citation percentile value.                                                                | OpenAIRE      |
 
-              | `isInTopOnePercent`         | boolean               | `false`                                | Indicates whether the citation target belongs to the top one percent according to the source metric. | OpenAIRE      |
+              | `isInTopOnePercent`         | boolean  | `false`                                | Indicates whether the citation target belongs to the top one percent according to the source metric. | OpenAIRE      |
 
-              | `isInTopTenPercent`         | boolean                | `true`                                 | Indicates whether the citation target belongs to the top ten percent according to the source metric. | OpenAIRE      |
+              | `isInTopTenPercent`         | boolean  | `true`                                 | Indicates whether the citation target belongs to the top ten percent according to the source metric. | OpenAIRE      |
 
-              | `influence`                 | number                | `0.74`                                 | Influence score supplied by the source.                                                              | OpenAIRE      |
+              | `influence`                 | number   | `0.74`                                 | Influence score supplied by the source.                                                              | OpenAIRE      |
 
-              | `influenceClass`            | string                 | `"high"`                               | Influence classification supplied by the source.                                                     | OpenAIRE      |
+              | `influenceClass`            | string   | `"high"`                               | Influence classification supplied by the source.                                                     | OpenAIRE      |
 
-              | `citationClass`             | string                 | `"highly_cited"`                       | Citation-impact classification supplied by the source.                                               | OpenAIRE      |
+              | `citationClass`             | string   | `"highly_cited"`                       | Citation-impact classification supplied by the source.                                               | OpenAIRE      |
 
-              | `popularity`                | number                 | `0.63`                                 | Popularity score supplied by the source.                                                             | OpenAIRE      |
+              | `popularity`                | number   | `0.63`                                 | Popularity score supplied by the source.                                                             | OpenAIRE      |
 
-              | `popularityClass`           | string                | `"medium"`                             | Popularity classification supplied by the source.                                                    | OpenAIRE      |
+              | `popularityClass`           | string   | `"medium"`                             | Popularity classification supplied by the source.                                                    | OpenAIRE      |
 
-              | `impulse`                   | number                 | `0.41`                                 | Impulse score supplied by the source.                                                                | OpenAIRE      |
+              | `impulse`                   | number   | `0.41`                                 | Impulse score supplied by the source.                                                                | OpenAIRE      |
 
-              | `impulseClass`              | string                | `"medium"`                             | Impulse classification supplied by the source.                                                       | OpenAIRE      |
+              | `impulseClass`              | string   | `"medium"`                             | Impulse classification supplied by the source.                                                       | OpenAIRE      |
 
-              | `downloads`                 | integer                | `1250`                                 | Download count supplied for the associated resource.                                                 | OpenAIRE      |
+              | `downloads`                 | integer  | `1250`                                 | Download count supplied for the associated resource.                                                 | OpenAIRE      |
 
-              | `views`                     | integer                | `9810`                                 | View count supplied for the associated resource.                                                     | OpenAIRE      |
+              | `views`                     | integer  | `9810`                                 | View count supplied for the associated resource.                                                     | OpenAIRE      |
 
-              | `citedByApiUrl`             | string                 | `"https://api.openalex.org/works?..."` | External API URL providing cited-by information, where supplied.                                     | OpenAlex      |
+              | `citedByApiUrl`             | string   | `"https://api.openalex.org/works?..."` | External API URL providing cited-by information, where supplied.                                     | OpenAlex      |
 
-              | `journalSelfCitation`       | boolean                | `false`                                | Indicates whether the relationship is a journal self-citation, where derivable.                      | OpenCitations |
+              | `journalSelfCitation`       | boolean  | `false`                                | Indicates whether the relationship is a journal self-citation, where derivable.                      | OpenCitations |
 
-              | `authorSelfCitation`        | boolean                | `true`                                 | Indicates whether the relationship is an author self-citation, where derivable.                      | OpenCitations |
+              | `authorSelfCitation`        | boolean  | `true`                                 | Indicates whether the relationship is an author self-citation, where derivable.                      | OpenCitations |
 
-              | `venueCitationCount`        | integer                | `14`                                   | Venue-level citation count supplied by the source.                                                   | OpenCitations |
+              | `venueCitationCount`        | integer  | `14`                                   | Venue-level citation count supplied by the source.                                                   | OpenCitations |
 
-              | `referenceCount`            | integer                | `38`                                   | Number of references associated with the relevant record, where available.                           | OpenCitations |
+              | `referenceCount`            | integer  | `38`                                   | Number of references associated with the relevant record, where available.                           | OpenCitations |
 
 
               > The precise meaning and calculation method for source-derived scores such as `influence`, `popularity`, and `impulse` should be documented before public release.
