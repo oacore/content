@@ -147,8 +147,8 @@ navItems:
             href: "#authorships-api-authorship-affiliation-relationship"
           - item: Supported field operations
             href: "#authorships-api-supported-field-operations"
-          - item: Authorship endpoints
-            href: "#authorships-api-available-endpoints"
+          - item: Authorships endpoints
+            href: "#authorships-api-authorships-endpoints"
           - item: Search Authorships
             href: "#authorships-api-search-authorships"
           - item: Search examples
