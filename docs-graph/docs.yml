@@ -7648,8 +7648,8 @@ items:
               ```
           - divider: false
             border: false
-            id: journals-api-journal-endpoints
-            title: Journal endpoints
+            id: journals-api-journals-endpoints
+            title: Journals endpoints
             descriptionAbout: >-
               #### Available endpoints
 
@@ -12425,8 +12425,8 @@ items:
               | updatedDate     | No             | Yes            | Yes          | No            |
           - divider: false
             border: false
-            id: affiliations-api-affiliation-endpoints
-            title: Affiliation endpoints
+            id: affiliations-api-affiliations-endpoints
+            title: Affiliations endpoints
             descriptionAbout: >-
               #### Available endpoints
 
@@ -14102,7 +14102,7 @@ items:
           - divider: false
             border: false
             id: authors-api-authors-endpoints
-            title: API endpoints
+            title: Authors endpoints
             descriptionAbout: >-
               | **Operation**                            | **Method** |
               **Endpoint**                          |
@@ -15934,6 +15934,10 @@ items:
               | `metrics.venueCitationCount`        | No             | Yes            | Yes          | No            |
 
               | `metrics.referenceCount`            | No             | Yes            | Yes          | No            |
+          - divider: false
+            border: false
+            id: citations-api-citations-endpoints
+            title: Citations endpoints
   - item: Search
     children:
       - item: null
