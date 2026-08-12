@@ -57,7 +57,7 @@ navItems:
             item: Supported field operations
             href: "#outputs-api-supported-field-operations"
           - hidden: false
-            item: Output endpoints
+            item: Outputs endpoints
             href: "#outputs-api-output-endpoints"
           - hidden: false
             item: Search Outputs
