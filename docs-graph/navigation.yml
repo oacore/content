@@ -167,8 +167,8 @@ navItems:
             href: "#affiliations-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            item: Affiliation endpoints
-            href: "#affiliations-api-affiliation-endpoints"
+            item: Affiliations endpoints
+            href: "#affiliations-api-affiliations-endpoints"
           - hidden: false
             item: Search Affiliations
             href: "#affiliations-api-search-affiliations"
@@ -190,7 +190,7 @@ navItems:
             item: Supported field operations
             href: "#authors-api-supported-field-operations"
           - hidden: false
-            item: Author endpoints
+            item: Authors endpoints
             href: "#authors-api-authors-endpoints"
           - hidden: false
             item: Search Authors
