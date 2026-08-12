@@ -217,6 +217,9 @@ navItems:
           - hidden: false
             item: Supported field operations
             href: "#citations-api-supported-field-operations"
+          - hidden: false
+            item: Citation endpoints
+            href: "#citations-api-citation-endpoints"
   - item: Search
     children:
       - item: Overview
