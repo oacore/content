@@ -214,6 +214,9 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#citations-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#citations-api-supported-field-operations"
   - item: Search
     children:
       - item: Overview
