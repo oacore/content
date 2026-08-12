@@ -5918,8 +5918,8 @@ items:
               * **Facetable** fields can be used with `facets`.
           - divider: false
             border: false
-            id: dataproviders-api-data-provider-endpoints
-            title: Data provider endpoints
+            id: dataproviders-api-data-providers-endpoints
+            title: Data providers endpoints
             descriptionAbout: >-
               
               #### Available endpoints
