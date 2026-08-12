@@ -3730,8 +3730,8 @@ items:
               Both conditions must match a single `accessRights` object for which both conditions are satisfied.
           - divider: false
             border: false
-            title: Output endpoints
-            id: outputs-api-output-endpoints
+            title: Outputs endpoints
+            id: outputs-api-outputs-endpoints
             descriptionAbout: >-
               #### Available endpoints
 
