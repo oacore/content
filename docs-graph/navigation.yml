@@ -226,6 +226,9 @@ navItems:
           - hidden: false
             item: Search examples
             href: "#citations-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#citations-api-relationship-oriented-endpoints"
   - item: Search
     children:
       - item: Overview
