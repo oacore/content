@@ -103,8 +103,8 @@ navItems:
             href: "#journals-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            href: "#journals-api-journal-endpoints"
-            item: Journal endpoints
+            href: "#journals-api-journals-endpoints"
+            item: Journals endpoints
           - hidden: false
             href: "#journals-api-search-journals"
             item: Search Journals
