@@ -15810,6 +15810,130 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: citations-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              ## Supported field operations
+
+
+              The following table presents the recommended search configuration based on the proposed Citation fields.
+
+
+              | **Attribute**                       | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | ----------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+              | `citationId`                        | No             | Yes            | Yes          | No            |
+
+              | `openCitationId`                    | No             | Yes            | No           | No            |
+
+              | `citingWorkId`                      | No             | Yes            | Yes          | No            |
+
+              | `citedWorkId`                       | No             | Yes            | Yes          | No            |
+
+              | `citingOmid`                        | No             | Yes            | No           | No            |
+
+              | `citingDoi`                         | No             | Yes            | No           | No            |
+
+              | `citingPmid`                        | No             | Yes            | No           | No            |
+
+              | `citedOmid`                         | No             | Yes            | No           | No            |
+
+              | `citedDoi`                          | No             | Yes            | No           | No            |
+
+              | `citedPmid`                         | No             | Yes            | No           | No            |
+
+              | `creationDate`                      | No             | Yes            | Yes          | Yes           |
+
+              | `timespan`                          | No             | Yes            | No           | No            |
+
+              | `reference.type`                    | No             | Yes            | No           | Yes           |
+
+              | `reference.key`                     | No             | Yes            | No           | No            |
+
+              | `reference.author`                  | Yes            | No             | No           | No            |
+
+              | `reference.articleTitle`            | Yes            | No             | No           | No            |
+
+              | `reference.journalTitle`            | Yes            | Yes            | No           | Yes           |
+
+              | `reference.seriesTitle`             | Yes            | No             | No           | No            |
+
+              | `reference.volumeTitle`             | Yes            | No             | No           | No            |
+
+              | `reference.volume`                  | No             | Yes            | No           | No            |
+
+              | `reference.issue`                   | No             | Yes            | No           | No            |
+
+              | `reference.edition`                 | No             | Yes            | No           | No            |
+
+              | `reference.startPage`               | No             | No             | No           | No            |
+
+              | `reference.endPage`                 | No             | No             | No           | No            |
+
+              | `reference.pages`                   | No             | No             | No           | No            |
+
+              | `reference.conferenceLocation`      | Yes            | Yes            | No           | Yes           |
+
+              | `reference.conferenceDate`          | No             | Yes            | No           | No            |
+
+              | `reference.issn`                    | No             | Yes            | No           | No            |
+
+              | `reference.issnType`                | No             | Yes            | No           | Yes           |
+
+              | `reference.isbn`                    | No             | Yes            | No           | No            |
+
+              | `reference.isbnType`                | No             | Yes            | No           | Yes           |
+
+              | `reference.citedDoi`                | No             | Yes            | No           | No            |
+
+              | `reference.doiAssertedBy`           | No             | Yes            | No           | Yes           |
+
+              | `reference.component`               | No             | Yes            | No           | Yes           |
+
+              | `reference.standardDesignator`      | Yes            | Yes            | No           | No            |
+
+              | `reference.standardsBody`           | Yes            | Yes            | No           | Yes           |
+
+              | `reference.unstructured`            | Yes            | No             | No           | No            |
+
+              | `metrics.citationCount`             | No             | Yes            | Yes          | No            |
+
+              | `metrics.normalisedPercentileValue` | No             | Yes            | Yes          | No            |
+
+              | `metrics.isInTopOnePercent`         | No             | Yes            | No           | Yes           |
+
+              | `metrics.isInTopTenPercent`         | No             | Yes            | No           | Yes           |
+
+              | `metrics.influence`                 | No             | Yes            | Yes          | No            |
+
+              | `metrics.influenceClass`            | No             | Yes            | No           | Yes           |
+
+              | `metrics.citationClass`             | No             | Yes            | No           | Yes           |
+
+              | `metrics.popularity`                | No             | Yes            | Yes          | No            |
+
+              | `metrics.popularityClass`           | No             | Yes            | No           | Yes           |
+
+              | `metrics.impulse`                   | No             | Yes            | Yes          | No            |
+
+              | `metrics.impulseClass`              | No             | Yes            | No           | Yes           |
+
+              | `metrics.downloads`                 | No             | Yes            | Yes          | No            |
+
+              | `metrics.views`                     | No             | Yes            | Yes          | No            |
+
+              | `metrics.citedByApiUrl`             | No             | No             | No           | No            |
+
+              | `metrics.journalSelfCitation`       | No             | Yes            | No           | Yes           |
+
+              | `metrics.authorSelfCitation`        | No             | Yes            | No           | Yes           |
+
+              | `metrics.venueCitationCount`        | No             | Yes            | Yes          | No            |
+
+              | `metrics.referenceCount`            | No             | Yes            | Yes          | No            |
   - item: Search
     children:
       - item: null
