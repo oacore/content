@@ -220,6 +220,9 @@ navItems:
           - hidden: false
             item: Citations endpoints
             href: "#citations-api-citations-endpoints"
+          - hidden: false
+            item: Search citations
+            href: "#citations-api-search-citations"
   - item: Search
     children:
       - item: Overview
