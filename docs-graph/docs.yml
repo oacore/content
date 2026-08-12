@@ -15938,6 +15938,112 @@ items:
             border: false
             id: citations-api-citations-endpoints
             title: Citations endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                         | **Method** | **Endpoint**                             |
+
+              | ------------------------------------- | ---------- | ---------------------------------------- |
+
+              | Get a single Citation                 | `GET`      | `/v4/citations/{citationId}`             |
+
+              | Search Citations using URL parameters | `GET`      | `/v4/search/citations`                   |
+
+              | Search Citations using a JSON body    | `POST`     | `/v4/search/citations`                   |
+
+              | Retrieve citations made by a Work     | `GET`      | `/v4/works/{workId}/citations`           |
+
+              | Retrieve Works citing a Work          | `GET`      | `/v4/works/{workId}/cited-by`            |
+
+              | Retrieve the citing Work              | `GET`      | `/v4/citations/{citationId}/citing-work` |
+
+              | Retrieve the cited Work               | `GET`      | `/v4/citations/{citationId}/cited-work`  |
+
+
+              #### Get a single Citation
+
+
+              Retrieves one Citation relationship using its canonical CORE Citation identifier.
+
+
+              ##### API endpoint
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/citations/{citationId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | Parameter       | Location | Type   | Required | Description                                               |
+
+              | --------------- | -------- | ------ | -------- | --------------------------------------------------------- |
+
+              | `Authorization` | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | Parameter    | Type    | Required | Description                                          |
+
+              | ------------ | ------- | -------- | ---------------------------------------------------- |
+
+              | `citationId` | integer | Yes      | Unique CORE identifier of the Citation relationship. |
+
+
+              ##### Query parameters
+
+
+              | Parameter | Type   | Required | Description                                                  |
+
+              | --------- | ------ | -------- | ------------------------------------------------------------ |
+
+              | `select`  | string | No       | Comma-separated list of top-level Citation fields to return. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/citations/1256789" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/citations/1256789?select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "citationId": 1256789,
+                "openCitationId": "oci:0610200888-0613012615",
+                "citingWorkId": 345678,
+                "citedWorkId": 23456,
+                "citingDoi": "10.1000/xyz123",
+                "citedDoi": "10.1000/abc456"
+              }
+
+              ```
   - item: Search
     children:
       - item: null
