@@ -16168,6 +16168,694 @@ items:
 
 
               The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: citations-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Retrieve citations made by a Work
+
+
+              Retrieves Citation records in which the specified Work is the citing Work.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:345678
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citingWorkId:345678"
+              }
+
+              ```
+
+
+              #### Retrieve citations to a Work
+
+
+              Retrieves Citation records in which the specified Work is the cited Work.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:23456
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedWorkId:23456"
+              }
+
+              ```
+
+
+              #### Search by Open Citation Identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=openCitationId:"oci:0610200888-0613012615"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "openCitationId:\"oci:0610200888-0613012615\""
+              }
+
+              ```
+
+
+              #### Search by citing DOI
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingDoi:"10.1000/xyz123"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citingDoi:\"10.1000/xyz123\""
+              }
+
+              ```
+
+
+              #### Search by cited DOI
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedDoi:\"10.1000/abc456\""
+              }
+
+              ```
+
+
+              #### Search unresolved citations
+
+
+              Retrieves Citation records that have not been resolved to a canonical cited Work.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=NOT _exists_:citedWorkId
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "NOT _exists_:citedWorkId"
+              }
+
+              ```
+
+
+              This query may be useful for:
+
+
+              * Reference resolution
+
+              * Metadata enrichment
+
+              * Citation-linking research
+
+
+              #### Search bibliographic reference titles
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=reference.articleTitle:"Quantum effects"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "reference.articleTitle:\"Quantum effects\""
+              }
+
+              ```
+
+
+              #### Search unstructured references
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=reference.unstructured:"quantum materials"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "reference.unstructured:\"quantum materials\""
+              }
+
+              ```
+
+
+              A broad textual query may also be used:
+
+
+              ```http
+
+              GET /v4/search/citations?q="quantum materials"
+
+              ```
+
+
+              Broad textual queries search the Citation fields configured as searchable, including:
+
+
+              * `reference.articleTitle`
+
+              * `reference.unstructured`
+
+              * Other searchable bibliographic reference fields
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve author self-citations
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=metrics.authorSelfCitation:true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "metrics.authorSelfCitation:true"
+              }
+
+              ```
+
+
+              #### Retrieve journal self-citations
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=metrics.journalSelfCitation:true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "metrics.journalSelfCitation:true"
+              }
+
+              ```
+
+
+              #### Retrieve Citations created after a particular date
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=creationDate>="2022-01-01"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "creationDate>=\"2022-01-01\""
+              }
+
+              ```
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Retrieves citations made by Work `345678`
+
+              * Restricts the results to citations created on or after 1 January 2022
+
+              * Restricts the results to resolved citations
+
+              * Orders the results by creation date, with the most recent first
+
+              * Returns selected fields
+
+              * Includes the total result count
+
+              * Returns a maximum of ten records
+
+
+              GET:
+
+
+              ```bash
+
+              curl --request GET \
+                --url 'https://api.core.ac.uk/v4/search/citations?q=citingWorkId%3A345678%20AND%20creationDate%3E%3D%222022-01-01%22%20AND%20_exists_%3AcitedWorkId&orderby=creationDate%3Adesc&select=citationId%2CopenCitationId%2CcitingWorkId%2CcitedWorkId%2CcitingDoi%2CcitedDoi%2CcreationDate&count=true&limit=10&offset=0' \
+                --header 'Authorization: Bearer YOUR_API_KEY'
+              ```
+
+
+              Readable form:
+
+
+              ```http
+
+              GET /v4/search/citations
+                  ?q=citingWorkId:345678 AND creationDate>="2022-01-01" AND _exists_:citedWorkId
+                  &orderby=creationDate:desc
+                  &select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi,creationDate
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST:
+
+
+              ```bash
+
+              curl --request POST \
+                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --header 'Authorization: Bearer YOUR_API_KEY' \
+                --header 'Content-Type: application/json' \
+                --data '{
+                  "q": "citingWorkId:345678 AND creationDate>=\"2022-01-01\" AND _exists_:citedWorkId",
+                  "orderby": [
+                    "creationDate:desc"
+                  ],
+                  "select": [
+                    "citationId",
+                    "openCitationId",
+                    "citingWorkId",
+                    "citedWorkId",
+                    "citingDoi",
+                    "citedDoi",
+                    "creationDate"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "results": [
+                  {
+                    "citationId": 7865,
+                    "openCitationId": "oci:0610200888-0613012615",
+                    "citingWorkId": 345678,
+                    "citedWorkId": 23456,
+                    "citingDoi": "10.1000/xyz123",
+                    "citedDoi": "10.1000/abc456",
+                    "creationDate": "2023-06-15"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Citation results
+
+
+              #### Order by creation date
+
+
+              Returns the most recently created Citation records first.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?orderby=creationDate:desc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "creationDate:desc"
+                ]
+              }
+
+              ```
+
+
+              #### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?orderby=citingWorkId:asc,creationDate:desc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "citingWorkId:asc",
+                  "creationDate:desc"
+                ]
+              }
+
+              ```
+
+
+              Only Citation fields configured as sortable may be used with `orderby`.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for Citation fields configured as facetable.
+
+
+              The following example groups Citation records by author and journal self-citation status.
+
+
+              GET:
+
+
+              ```bash
+
+              curl --request GET \
+                --url 'https://api.core.ac.uk/v4/search/citations?q=%2A&facets=metrics.authorSelfCitation%2Cmetrics.journalSelfCitation&count=true&limit=0' \
+                --header 'Authorization: Bearer YOUR_API_KEY'
+              ```
+
+
+              Equivalent POST:
+
+
+              ```bash
+
+              curl --request POST \
+                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --header 'Authorization: Bearer YOUR_API_KEY' \
+                --header 'Content-Type: application/json' \
+                --data '{
+                  "q": "*",
+                  "facets": [
+                    "metrics.authorSelfCitation",
+                    "metrics.journalSelfCitation"
+                  ],
+                  "count": true,
+                  "limit": 0
+                }'
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 25000000,
+                "facets": {
+                  "metrics.authorSelfCitation": [
+                    {
+                      "value": true,
+                      "count": 1750000
+                    },
+                    {
+                      "value": false,
+                      "count": 23250000
+                    }
+                  ],
+                  "metrics.journalSelfCitation": [
+                    {
+                      "value": true,
+                      "count": 3200000
+                    },
+                    {
+                      "value": false,
+                      "count": 21800000
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Citation records.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedWorkId:23456&count=true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedWorkId:23456",
+                "count": true
+              }
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate through Citation results.
+
+
+              A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              ##### First page using GET
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=0
+
+              ```
+
+
+              ##### Second page using GET
+
+
+              ```http
+
+              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=20
+
+              ```
+
+
+              ##### First page using POST
+
+
+              ```json
+
+              {
+                "q": "citingWorkId:345678",
+                "orderby": [
+                  "creationDate:desc"
+                ],
+                "limit": 20,
+                "offset": 0
+              }
+
+              ```
+
+
+              ##### Second page using POST
+
+
+              ```json
+
+              {
+                "q": "citingWorkId:345678",
+                "orderby": [
+                  "creationDate:desc"
+                ],
+                "limit": 20,
+                "offset": 20
+              }
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Responses
+
+
+              | Status | Description                                                                                                     |
+
+              | ------ | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`  | The Citation search was completed successfully.                                                                 |
+
+              | `400`  | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`  | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`  | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`  | The API request limit has been exceeded.                                                                        |
+
+              | `500`  | An unexpected server error occurred.                                                                            |
   - item: Search
     children:
       - item: null
