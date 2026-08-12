@@ -34,8 +34,8 @@ navItems:
             item: Supported field operations
             href: "#works-api-supported-field-operations"
           - hidden: false
-            item: Work endpoints
-            href: "#works-api-work-endpoints"
+            item: Works endpoints
+            href: "#works-api-works-endpoints"
           - hidden: false
             item: Search Works
             href: "#works-api-search-works"
@@ -58,7 +58,7 @@ navItems:
             href: "#outputs-api-supported-field-operations"
           - hidden: false
             item: Outputs endpoints
-            href: "#outputs-api-output-endpoints"
+            href: "#outputs-api-outputs-endpoints"
           - hidden: false
             item: Search Outputs
             href: "#outputs-api-search-outputs"
@@ -80,8 +80,8 @@ navItems:
             href: "#dataproviders-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            item: Data Provider endpoints
-            href: "#dataproviders-api-data-provider-endpoints"
+            item: Data Providers endpoints
+            href: "#dataproviders-api-data-providers-endpoints"
           - hidden: false
             href: "#dataproviders-api-search-data-providers"
             item: Search Data providers
@@ -103,8 +103,8 @@ navItems:
             href: "#journals-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            href: "#journals-api-journal-endpoints"
-            item: Journal endpoints
+            href: "#journals-api-journals-endpoints"
+            item: Journals endpoints
           - hidden: false
             href: "#journals-api-search-journals"
             item: Search Journals
@@ -147,8 +147,8 @@ navItems:
             href: "#authorships-api-authorship-affiliation-relationship"
           - item: Supported field operations
             href: "#authorships-api-supported-field-operations"
-          - item: Authorship endpoints
-            href: "#authorships-api-available-endpoints"
+          - item: Authorships endpoints
+            href: "#authorships-api-authorships-endpoints"
           - item: Search Authorships
             href: "#authorships-api-search-authorships"
           - item: Search examples
@@ -167,8 +167,8 @@ navItems:
             href: "#affiliations-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            item: Affiliation endpoints
-            href: "#affiliations-api-affiliation-endpoints"
+            item: Affiliations endpoints
+            href: "#affiliations-api-affiliations-endpoints"
           - hidden: false
             item: Search Affiliations
             href: "#affiliations-api-search-affiliations"
@@ -190,7 +190,7 @@ navItems:
             item: Supported field operations
             href: "#authors-api-supported-field-operations"
           - hidden: false
-            item: Author endpoints
+            item: Authors endpoints
             href: "#authors-api-authors-endpoints"
           - hidden: false
             item: Search Authors
@@ -211,6 +211,24 @@ navItems:
           - hidden: false
             item: Introduction
             href: "#citations-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#citations-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#citations-api-supported-field-operations"
+          - hidden: false
+            item: Citations endpoints
+            href: "#citations-api-citations-endpoints"
+          - hidden: false
+            item: Search citations
+            href: "#citations-api-search-citations"
+          - hidden: false
+            item: Search examples
+            href: "#citations-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#citations-api-relationship-oriented-endpoints"
   - item: Search
     children:
       - item: Overview
