@@ -10990,8 +10990,8 @@ items:
 
 
               Readable examples may show the unencoded form for clarity.
-          - id: authorships-api-available-endpoints
-            title: Authorship endpoints
+          - id: authorships-api-authorships-endpoints
+            title: Authorships endpoints
             descriptionAbout: >-
               | Operation                                    | Method |
               Endpoint                                      |
