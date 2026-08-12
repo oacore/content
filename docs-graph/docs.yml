@@ -16044,6 +16044,130 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: citations-api-search-citations
+            title: Search citations
+            descriptionAbout: >-
+              Searches, filters, orders, facets, counts, and paginates Citation
+              records.
+
+
+              Citation search is available through `GET` and `POST`:
+
+
+              | **Method** | **API endpoint**                             |
+
+              | ---------- | -------------------------------------------- |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/citations> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/citations> |
+
+
+              Both methods use the same CORE query language and return the same response structure.
+
+
+              Citation search supports:
+
+
+              * Field-specific lookup
+
+              * Free-text search of bibliographic reference fields
+
+              * Boolean conditions
+
+              * Numeric and date ranges
+
+              * Existence queries
+
+              * Ordering
+
+              * Field selection
+
+              * Facets
+
+              * Result counting
+
+              * Pagination
+
+
+              Vector and hybrid search are not currently supported for Citations.
+
+
+              For the complete query syntax and search behaviour, see the common [Search](search.md) documentation.
+
+
+              #### GET and POST search parameters
+
+
+              ##### GET query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+              | `select`      | string   | No           | All retrievable fields        | Comma-separated list of Citation fields to include in each result.                                                                |
+
+              | `facets`      | string   | No           | —                             | Comma-separated list of facetable Citation fields for which value buckets and counts should be returned.                          |
+
+              | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Citation records should be included.                                               |
+
+              | `limit`       | integer  | No           | `10`                          | Maximum number of Citation records to return.                                                                                     |
+
+              | `offset`      | integer  | No           | `0`                           | Number of matching Citation records to skip.                                                                                      |
+
+
+              ##### POST request body
+
+
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+              | `select`     | string\[] | No           | All retrievable fields        | List of Citation fields to include in each result.                                                                                |
+
+              | `facets`     | string\[] | No           | —                             | List of facetable Citation fields for which value buckets and counts should be returned.                                          |
+
+              | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Citation records should be included.                                               |
+
+              | `limit`      | integer   | No           | `10`                          | Maximum number of Citation records to return.                                                                                     |
+
+              | `offset`     | integer   | No           | `0`                           | Number of matching Citation records to skip.                                                                                      |
+
+
+              #### GET and POST parameter mapping
+
+
+              | GET query parameter                                             | POST body property                                                        |
+
+              | --------------------------------------------------------------- | ------------------------------------------------------------------------- |
+
+              | `q=citedDoi:"10.1000/abc456"`                                   | `"q": "citedDoi:\"10.1000/abc456\""`                                      |
+
+              | `orderby=creationDate:desc`                                     | `"orderby": ["creationDate:desc"]`                                        |
+
+              | `select=citationId,citingWorkId,citedWorkId`                    | `"select": ["citationId", "citingWorkId", "citedWorkId"]`                 |
+
+              | `facets=metrics.authorSelfCitation,metrics.journalSelfCitation` | `"facets": ["metrics.authorSelfCitation", "metrics.journalSelfCitation"]` |
+
+              | `count=true`                                                    | `"count": true`                                                           |
+
+              | `limit=10`                                                      | `"limit": 10`                                                             |
+
+              | `offset=0`                                                      | `"offset": 0`                                                             |
+
+
+              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
   - item: Search
     children:
       - item: null
