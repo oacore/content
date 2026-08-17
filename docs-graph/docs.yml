@@ -872,13 +872,13 @@ items:
               ```
 
 
-              | **Property** | **Type**         | **Example value**             | **Description**                        |
+              | **Property** | **Type** | **Example value** | **Description**                      |                                        |
 
-              | ------------ | ---------------- | ----------------------------- | -------------------------------------- |
+              | ------------ | -------- | ----------------- | ------------------------------------ | -------------------------------------- |
 
-              | `type`       | string           | `"DOI"`                       | Identifier scheme or classification.   |
+              | `type`       | string   | `"DOI"`           | Identifier scheme or classification. |                                        |
 
-              | `identifier` | string | integer | `"10.1109/jiot.2020.2984887"` | Identifier value assigned to the Work. |
+              | `identifier` | string   | integer           | `"10.1109/jiot.2020.2984887"`        | Identifier value assigned to the Work. |
 
 
               Supported identifier types may include:
@@ -905,9 +905,6 @@ items:
               | `PMID`        | PubMed identifier.                   |
 
               | `PMCID`       | PubMed Central identifier.           |
-
-
-              The top-level `doi` property provides convenient access to the preferred DOI.
 
 
               #### Inverted abstract
@@ -938,13 +935,10 @@ items:
               Each property name represents a token, and the corresponding array contains the positions at which the token appears.
 
 
-              The standard `abstract` property should be used when clients require readable text.
-
-
               #### Dates
 
 
-              The diagram represents dates as a structured collection. The recommended format is:
+              Dates are represented as a structured collection as shown below.
 
 
               ```json
