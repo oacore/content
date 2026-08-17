@@ -907,8 +907,6 @@ items:
               | `PMCID`       | PubMed Central identifier.           |
 
 
-
-
               #### Inverted abstract
 
 
@@ -937,12 +935,10 @@ items:
               Each property name represents a token, and the corresponding array contains the positions at which the token appears.
 
 
-
-
               #### Dates
 
 
-              The diagram represents dates as a structured collection. The recommended format is:
+              Dates are represented as a structured collection as shown below.
 
 
               ```json
