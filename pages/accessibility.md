@@ -8,11 +8,11 @@ We want core.ac.uk to be accessible to the widest audience possible, regardless 
 
 ## Guidelines
 
-We follow the [Open University accessibility standards](https://www.open.ac.uk/about/digital-governance/digital-standards-and-guidelines/accessibility), based on [WCAG 2.1](https://www.w3.org/TR/WCAG20/#intro), where each point has been selected and rephrased for clarity and briefly explained. You can read about this in greater detail at the [Open University web standards pages](https://www.open.ac.uk/about/digital-governance/digital-standards-and-guidelines/accessibility).
+We aim to follow the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/), which explain how to make web content more accessible for people with disabilities, and more user-friendly for everyone.
 
 Where possible this site has been built using code compliant with W3C standards for HTML and CSS. The site should display correctly in current browsers on Windows, MacOS, Android and iOS.
 
-If you use a screen reader to access websites, you may find the following instructions useful: [access pdfs with a screen reader](https://www.open.ac.uk/about/main/policies-and-reports/policies-and-statements/how-access-pdfs-screen-reader).
+This site includes a large number of PDF documents, primarily research outputs harvested from third-party repositories. While we work to make our own site content accessible, many of these PDFs originate from external sources and their accessibility is outside our direct control. If you encounter a PDF that is not accessible to you, please [get in touch](~contact) and we will do what we can to help, such as sourcing an alternative format where available.
 
 ## Exceptions and issues
 
