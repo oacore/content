@@ -17165,6 +17165,524 @@ items:
               - Provenance information
 
               - The confidence with which the Topic was assigned
+          - divider: false
+            border: false
+            id: topics-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following table describes the proposed top-level fields of the
+              Topic entity.
+
+
+              | **Property**   | **Type**  | **Example value**                                         | **Description**                                       | **Source**                                                                                           |                                                     |
+
+              | -------------- | --------- | --------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+
+              | `id`           | string    | `"core-topic-12345"`                                      | CORE internal identifier for the Topic entity.        | CORE                                                                                                 |                                                     |
+
+              | `label`        | string    | `"Particle physics theoretical and experimental studies"` | Preferred label describing the Topic.                 | CORE                                                                                                 |                                                     |
+
+              | `altLabels`    | string\[] | null                                                      | `["Particle physics"]`                                | Alternative labels, synonyms, or variants associated with the Topic.                                 | CORE / OpenAlex / OpenAIRE / Dublin Core / Crossref |
+
+              | `type`         | string    | null                                                      | `"topic"`                                             | General classification of the subject entity.                                                        | CORE                                                |
+
+              | `language`     | string    | null                                                      | `"en"`                                                | Language of the Topic label, where available.                                                        | QDC / Dublin Core Terms                             |
+
+              | `source`       | string\[] | `["OpenAlex", "OpenAIRE"]`                                | Source systems contributing information to the Topic. | CORE                                                                                                 |                                                     |
+
+              | `scheme`       | string    | null                                                      | `"DDC"`                                               | Subject or classification scheme associated with the Topic.                                          | DataCite / Dublin Core Terms / OpenAIRE / CORE      |
+
+              | `schemeUri`    | string    | null                                                      | `"http://dewey.info/"`                                | URI identifying the classification scheme.                                                           | DataCite / OpenAIRE                                 |
+
+              | `spatial`      | string    | null                                                      | `"Scotland"`                                          | Spatial subject coverage associated with the Topic.                                                  | QDC                                                 |
+
+              | `temporal`     | string    | null                                                      | `"19th century"`                                      | Temporal subject coverage associated with the Topic.                                                 | QDC                                                 |
+
+              | `topicId`      | integer   | null                                                      | `12345`                                               | CORE Topic identifier, where available.                                                              | CORE                                                |
+
+              | `score`        | number    | null                                                      | `0.91`                                                | Relevance score associated with the Topic.                                                           | CORE                                                |
+
+              | `domainId`     | string    | null                                                      | `"1"`                                                 | Identifier of the broader research domain.                                                           | CORE                                                |
+
+              | `domainName`   | string    | null                                                      | `"Physical Sciences"`                                 | Name of the broader research domain.                                                                 | CORE                                                |
+
+              | `fieldId`      | string    | null                                                      | `"12"`                                                | Identifier of the research field.                                                                    | CORE                                                |
+
+              | `fieldName`    | string    | null                                                      | `"Physics and Astronomy"`                             | Name of the research field.                                                                          | CORE                                                |
+
+              | `subfieldId`   | string    | null                                                      | `"1206"`                                              | Identifier of the research subfield.                                                                 | CORE                                                |
+
+              | `subfieldName` | string    | null                                                      | `"Nuclear and High Energy Physics"`                   | Name of the research subfield.                                                                       | CORE                                                |
+
+              | `provenance`   | string    | null                                                      | `"inferred by CORE"`                                  | Statement describing how the Topic or classification was assigned.                                   | CORE                                                |
+
+              | `trustScore`   | number    | null                                                      | `0.85`                                                | Confidence or trust score associated with the Topic assignment.                                      | CORE                                                |
+
+              | `isControlled` | boolean   | null                                                      | `true`                                                | Indicates whether the Topic originates from a controlled vocabulary or formal classification scheme. | CORE                                                |
+
+
+              #### Topic labels
+
+
+              ##### Preferred label
+
+
+              The `label` property contains the preferred human-readable representation of the Topic.
+
+
+              ```json
+
+              {
+                "label": "Particle physics theoretical and experimental studies"
+              }
+
+              ```
+
+
+              The preferred label may be selected or normalised by CORE from source classifications or machine-learning output.
+
+
+              ##### Alternative labels
+
+
+              The `altLabels` property contains alternative representations of the same Topic.
+
+
+              ```json
+
+              {
+                "altLabels": [
+                  "Particle physics",
+                  "Experimental particle physics"
+                ]
+              }
+
+              ```
+
+
+              Alternative labels may include:
+
+
+              * Synonyms
+
+              * Abbreviated forms
+
+              * Normalised labels
+
+              * Labels contributed by other source systems
+
+
+              #### Topic type
+
+
+              The `type` property identifies the general kind of subject information represented by the record.
+
+
+              ```json
+
+              {
+                "type": "topic"
+              }
+
+              ```
+
+
+              Possible values may include:
+
+
+              | **Value**        | **Description**                                           |
+
+              | ---------------- | --------------------------------------------------------- |
+
+              | `topic`          | General scholarly research topic or concept.              |
+
+              | `keyword`        | Keyword associated with a scholarly resource.             |
+
+              | `classification` | Term belonging to a formal subject-classification scheme. |
+
+              | `spatial`        | Geographic or spatial subject coverage.                   |
+
+              | `temporal`       | Temporal or historical subject coverage.                  |
+
+
+              > The final controlled vocabulary should be defined before implementation.
+
+
+              #### Language
+
+
+              The `language` property identifies the language of the preferred Topic label.
+
+
+              ```json
+
+              {
+                "language": "en"
+              }
+
+              ```
+
+
+              Example values include:
+
+
+              * `en`
+
+              * `fr`
+
+              * `de`
+
+              * `es`
+
+
+              The value should follow a recognised language-code convention. The exact ISO language-code standard should be specified before public release.
+
+
+              ## Classification scheme
+
+
+              A Topic may originate from a formal subject-classification or controlled-vocabulary scheme.
+
+
+              ```json
+
+              {
+                "scheme": "DDC",
+                "schemeUri": "http://dewey.info/"
+              }
+
+              ```
+
+
+              | **Property** | **Type** | **Description** |                                                  |
+
+              | ------------ | -------- | --------------- | ------------------------------------------------ |
+
+              | `scheme`     | string   | null            | Name or identifier of the classification scheme. |
+
+              | `schemeUri`  | string   | null            | URI identifying or describing the scheme.        |
+
+
+              Examples may include schemes supplied through DataCite, OpenAIRE, Dublin Core Terms, or CORE.
+
+
+              The value should not be assumed to be controlled unless `isControlled=true` or CORE otherwise recognises the scheme.
+
+
+              #### Spatial and temporal coverage
+
+
+              Topics may represent non-disciplinary subject information.
+
+
+              ##### Spatial coverage
+
+
+              ```json
+
+              {
+                "type": "spatial",
+                "spatial": "Scotland"
+              }
+
+              ```
+
+
+              The `spatial` property describes geographic subject coverage.
+
+
+              ##### Temporal coverage
+
+
+              ```json
+
+              {
+                "type": "temporal",
+                "temporal": "19th century"
+              }
+
+              ```
+
+
+              The `temporal` property describes a historical or temporal period associated with the subject.
+
+
+              If `spatial` and `temporal` are retained as fields on the same Topic structure, their relationship with `type` should be defined. For example:
+
+
+              ```text
+
+              type = spatial  → spatial may contain a value
+
+              type = temporal → temporal may contain a value
+
+              ```
+
+
+              #### Topic hierarchy
+
+
+              CORE Topics may be organised within a research-classification hierarchy consisting of domain, field, subfield, and Topic levels.
+
+
+              ```text
+
+              Physical Sciences
+                  → Physics and Astronomy
+                      → Nuclear and High Energy Physics
+                          → Particle physics theoretical and experimental studies
+              ```
+
+
+              The corresponding representation is:
+
+
+              ```json
+
+              {
+                "domainId": "1",
+                "domainName": "Physical Sciences",
+                "fieldId": "12",
+                "fieldName": "Physics and Astronomy",
+                "subfieldId": "1206",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "topicId": 12345,
+                "label": "Particle physics theoretical and experimental studies"
+              }
+
+              ```
+
+
+              ##### Hierarchy properties
+
+
+              | **Property**   | **Type** | **Description** |                                                                                       |
+
+              | -------------- | -------- | --------------- | ------------------------------------------------------------------------------------- |
+
+              | `domainId`     | string               | Identifier of the broadest research domain.                                           |
+
+              | `domainName`   | string               | Human-readable name of the domain.                                                    |
+
+              | `fieldId`      | string               | Identifier of the research field.                                                     |
+
+              | `fieldName`    | string               | Human-readable name of the field.                                                     |
+
+              | `subfieldId`   | string               | Identifier of the research subfield.                                                  |
+
+              | `subfieldName` | string               | Human-readable name of the subfield.                                                  |
+
+              | `topicId`      | integer              | Identifier of the Topic at the most specific level represented by the classification. |
+
+
+              #### Provenance and confidence
+
+
+              Topics may originate from several sources or may be inferred by CORE.
+
+
+              ```json
+
+              {
+                "source": [
+                  "CORE",
+                  "OpenAIRE"
+                ],
+                "provenance": "inferred by CORE",
+                "score": 0.91,
+                "trustScore": 0.85,
+                "isControlled": true
+              }
+
+              ```
+
+
+              ##### Source
+
+
+              The `source` collection identifies systems that contributed information to the Topic entity.
+
+
+              ```json
+
+              {
+                "source": [
+                  "CORE",
+                  "OpenAlex",
+                  "OpenAIRE"
+                ]
+              }
+
+              ```
+
+
+              A Topic may contain multiple sources when the same concept is reconciled across systems.
+
+
+              ##### Provenance
+
+
+              The `provenance` property describes how the Topic was obtained or assigned.
+
+
+              Examples may include:
+
+
+              * `inferred by CORE`
+
+              * `supplied by source`
+
+              * `inferred by OpenAIRE`
+
+              * `mapped from controlled vocabulary`
+
+
+              The final vocabulary should be defined before implementation if clients are expected to query this field programmatically.
+
+
+              ##### Controlled vocabulary
+
+
+              The `isControlled` property indicates whether the Topic originates from a recognised classification or controlled vocabulary.
+
+
+              ```json
+
+              {
+                "isControlled": true
+              }
+
+              ```
+
+
+              `true` indicates that the value is associated with a controlled scheme.
+
+
+              `false` may indicate a free-text keyword, automatically inferred concept, or another non-controlled label.
+
+
+              #### Topic relevance and confidence
+
+
+              The proposed model contains both `score` and `trustScore`.
+
+
+              ##### Relevance score
+
+
+              ```json
+
+              {
+                "score": 0.91
+              }
+
+              ```
+
+
+              `score` represents how strongly a Topic relates to a scholarly object.
+
+
+              For example, a Topic classifier may determine that a Work is strongly related to:
+
+
+              ```text
+
+              Particle physics theoretical and experimental studies
+
+              ```
+
+
+              With:
+
+
+              ```text
+
+              score = 0.91
+
+              ```
+
+
+              ##### Trust score
+
+
+              ```json
+
+              {
+                "trustScore": 0.85
+              }
+
+              ```
+
+
+              `trustScore` represents the confidence or trust associated with the Topic assignment.
+
+
+              The semantic distinction between these values should be made explicit before implementation. A recommended interpretation is:
+
+
+              | **Property** | **Meaning**                                                       |
+
+              | ------------ | ----------------------------------------------------------------- |
+
+              | `score`      | How strongly the Topic relates to the scholarly object.           |
+
+              | `trustScore` | How confident CORE is that the assignment or mapping is reliable. |
+
+
+              For example:
+
+
+              ```json
+
+              {
+                "score": 0.91,
+                "trustScore": 0.85
+              }
+
+              ```
+
+
+              This indicates that the Topic is highly relevant and that CORE has high confidence in the classification.
+
+
+              If CORE does not make this distinction internally, the two fields should be consolidated.
+
+
+              Example Topic record:
+
+
+              ```json
+
+              {
+                "id": "core-topic-12345",
+                "label": "Particle physics theoretical and experimental studies",
+                "altLabels": [
+                  "Particle physics"
+                ],
+                "type": "topic",
+                "language": "en",
+                "source": [
+                  "CORE",
+                  "OpenAIRE"
+                ],
+                "scheme": "CORE",
+                "schemeUri": null,
+                "spatial": null,
+                "temporal": null,
+                "topicId": 12345,
+                "score": 0.91,
+                "domainId": "1",
+                "domainName": "Physical Sciences",
+                "fieldId": "12",
+                "fieldName": "Physics and Astronomy",
+                "subfieldId": "1206",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "provenance": "inferred by OpenAIRE",
+                "trustScore": 0.85,
+                "isControlled": true
+              }
+
+              ```
   - item: Search
     children:
       - item: null
