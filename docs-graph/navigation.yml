@@ -218,6 +218,9 @@ navItems:
           - hidden: false
             item: Topics endpoints
             href: "#topics-api-topics-endpoints"
+          - hidden: false
+            item: Search Topics
+            href: "#topics-api-search-topics"
       - hidden: false
         item: Citations
         children:
