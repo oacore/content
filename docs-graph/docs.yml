@@ -17103,6 +17103,68 @@ items:
               GET /v4/citations/{citationId}
 
               ```
+      - item: Topics
+        sections:
+          - divider: false
+            border: false
+            id: topics-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Topic entity represents a subject, keyword, concept, or
+              classification label associated with scholarly research in CORE.
+
+
+              Topics provide a structured way of describing what a Work is about. They may originate from source metadata, controlled vocabularies, external scholarly data sources, or CORE machine-learning models.
+
+
+              A Topic may represent:
+
+
+              - A research topic or concept
+
+              - A keyword
+
+              - A subject classification
+
+              - A controlled-vocabulary term
+
+              - Spatial subject coverage
+
+              - Temporal subject coverage
+
+
+              For example, a Work concerning high-energy particle physics may be associated with the following Topic:
+
+
+              ```text
+
+              Particle physics theoretical and experimental studies
+
+              ```
+
+
+              This Topic may be placed within a broader hierarchy:
+
+
+              ```text
+
+              Physical Sciences
+                  → Physics and Astronomy
+                      → Nuclear and High Energy Physics
+                          → Particle physics theoretical and experimental studies
+              ```
+
+
+              Topics may also retain information about:
+
+
+              - The classification scheme
+
+              - The source of the Topic
+
+              - Provenance information
+
+              - The confidence with which the Topic was assigned
   - item: Search
     children:
       - item: null
