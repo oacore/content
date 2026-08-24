@@ -212,6 +212,9 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#topics-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#topics-api-supported-field-operations"
       - hidden: false
         item: Citations
         children:
