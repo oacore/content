@@ -205,6 +205,10 @@ navItems:
       - item: Grants
       - item: Funders
       - item: Topics
+        children:
+          - hidden: false
+            href: "#topics-api-introduction"
+            item: Introduction
       - hidden: false
         item: Citations
         children:
