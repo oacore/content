@@ -17865,6 +17865,71 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: topics-api-search-topics
+            title: Search Topics
+            descriptionAbout: >-
+              Topics use the common Graph API search interface:
+
+
+              ```http
+
+              GET /v4/search/topics
+
+              POST /v4/search/topics
+
+              ```
+
+
+              Topic search supports:
+
+
+              * Free-text search
+
+              * Field-specific queries
+
+              * Structured conditions
+
+              * Ranges
+
+              * Existence queries
+
+              * Ordering
+
+              * Field selection
+
+              * Facets
+
+              * Result counting
+
+              * Pagination
+
+
+              Vector and hybrid search are not currently proposed for Topics.
+
+
+              Complete request syntax and generic search parameters are documented in the common [Search](search.md) section.
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                                     |
+
+              | ---------- | ------------------------------------------------------------------- |
+
+              | `200`      | Topic search was completed successfully.                            |
+
+              | `400`      | Request contains an invalid query, parameter, or unsupported field. |
+
+              | `401`      | Authentication credentials are missing or invalid.                  |
+
+              | `413`      | `POST` request body exceeds the permitted size.                     |
+
+              | `429`      | API request limit has been exceeded.                                |
+
+              | `500`      | An unexpected server error occurred.                                |
   - item: Search
     children:
       - item: null
