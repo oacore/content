@@ -221,6 +221,9 @@ navItems:
           - hidden: false
             item: Search Topics
             href: "#topics-api-search-topics"
+          - hidden: false
+            item: Search examples
+            href: "#topics-api-search-examples"
       - hidden: false
         item: Citations
         children:
