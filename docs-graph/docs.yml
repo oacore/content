@@ -17683,6 +17683,72 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: topics-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >
+              The following table presents the recommended search configuration
+              based on the semantics of the proposed Topic fields.
+
+
+              | **Attribute**  | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | -------------- | -------------- | -------------- | ------------ | ------------- |
+
+              | `id`           | No             | Yes            | No           | No            |
+
+              | `label`        | Yes            | No             | Yes          | No            |
+
+              | `altLabels`    | Yes            | No             | No           | No            |
+
+              | `type`         | No             | Yes            | No           | Yes           |
+
+              | `language`     | No             | Yes            | No           | Yes           |
+
+              | `source`       | No             | Yes            | No           | Yes           |
+
+              | `scheme`       | No             | Yes            | No           | Yes           |
+
+              | `schemeUri`    | No             | Yes            | No           | No            |
+
+              | `spatial`      | Yes            | Yes            | No           | Yes           |
+
+              | `temporal`     | Yes            | Yes            | No           | Yes           |
+
+              | `topicId`      | No             | Yes            | Yes          | No            |
+
+              | `score`        | No             | Yes            | Yes          | No            |
+
+              | `domainId`     | No             | Yes            | No           | Yes           |
+
+              | `domainName`   | Yes            | Yes            | No           | Yes           |
+
+              | `fieldId`      | No             | Yes            | No           | Yes           |
+
+              | `fieldName`    | Yes            | Yes            | No           | Yes           |
+
+              | `subfieldId`   | No             | Yes            | No           | Yes           |
+
+              | `subfieldName` | Yes            | Yes            | No           | Yes           |
+
+              | `provenance`   | No             | Yes            | No           | Yes           |
+
+              | `trustScore`   | No             | Yes            | Yes          | No            |
+
+              | `isControlled` | No             | Yes            | No           | Yes           |
+
+
+              The field-operation settings have the following meanings:
+
+
+              * Searchable fields participate in text search.
+
+              * Filterable fields can be used in field lookup, Boolean conditions, ranges, and existence queries.
+
+              * Sortable fields can be used with `orderby`.
+
+              * Facetable fields can be requested using `facets`.
   - item: Search
     children:
       - item: null
