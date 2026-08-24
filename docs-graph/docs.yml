@@ -17749,6 +17749,122 @@ items:
               * Sortable fields can be used with `orderby`.
 
               * Facetable fields can be requested using `facets`.
+          - divider: false
+            border: false
+            id: topics-api-topics-endpoints
+            title: Topics endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                           | **Method** | **Endpoint**                 |
+
+              | --------------------------------------- | ---------- | ---------------------------- |
+
+              | Get a single Topic                      | `GET`      | `/v4/topics/{topicId}`       |
+
+              | Search Topics using URL parameters      | `GET`      | `/v4/search/topics`          |
+
+              | Search Topics using a JSON request body | `POST`     | `/v4/search/topics`          |
+
+              | Retrieve Works associated with a Topic  | `GET`      | `/v4/topics/{topicId}/works` |
+
+
+              A reverse relationship may also be exposed:
+
+
+              ```http
+
+              GET /v4/works/{workId}/topics
+
+              ```
+
+
+              The `POST` search method is read-only. It does not create or modify Topic records.
+
+
+              #### Get a single Topic
+
+
+              Retrieves one Topic using its CORE Topic identifier.
+
+
+              ##### API endpoint
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/topics/{topicId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                      |
+
+              | ------------- | -------- | ------------ | ------------------------------------ |
+
+              | `topicId`     | integer  | Yes          | Unique CORE identifier of the Topic. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                 |
+
+              | ------------- | -------- | ------------ | ----------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of Topic fields to return. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/topics/12345" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/topics/12345?select=topicId,label,domainName,fieldName,subfieldName" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "topicId": 12345,
+                "label": "Particle physics theoretical and experimental studies",
+                "domainName": "Physical Sciences",
+                "fieldName": "Physics and Astronomy",
+                "subfieldName": "Nuclear and High Energy Physics"
+              }
+
+              ```
   - item: Search
     children:
       - item: null
