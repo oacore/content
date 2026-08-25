@@ -20,7 +20,7 @@ sections:
 
   - title:
     content: |
-      In comparison to DOIs, OAI identifiers are registered in a distributed rather than centralised manner and there is therefore no cost for minting them. OAI identifiers are persistent identifiers in repositories that declare their level of support for deleted documents in the *deletedRecord* element of the *Identify* response as *persistent*. CORE recommends repositories to provide this persistent level of support.
+      In comparison to DOIs, OAI identifiers are registered in a distributed rather than centralised manner and there is therefore no cost for minting them. OAI identifiers are persistent identifiers in repositories that declare their level of support for deleted documents in the deletedRecord element of the Identify response as persistent. CORE recommends repositories to provide this persistent level of support.
 
       There is no strict format for the identifier apart from it having to be a URI, but a good practice is for it to consist of a globally unique prefix identifying the repository and a suffix that is locally unique to a given metadata record in the repository.
 
@@ -39,7 +39,7 @@ sections:
 
       This approach has the potential to increase the importance of repositories in the process of disseminating knowledge. CORE provides a global [OAI Resolver](https://oai.core.ac.uk/) built on top of the CORE research outputs aggregation system.
 
-  - title: OAI identifiers and DOIs
+  - title:
     content: |
       OAI identifiers do not replace DOIs, but complement them. According to the DOI handbook, "*Uniqueness (specification by a DOI name of one and only one referent) is enforced by the DOI system. It is desirable that two DOI names should not be assigned to the same thing.*" A DOI typically identifies the canonical final version of record (VoR) of a paper. An OAI Identifier a metadata record in a repository. As there often exist multiple copies of a paper across repositories, it is, in fact, desirable that these records identified using an OAI Identifier are linked to a single DOI.
 
@@ -49,7 +49,7 @@ sections:
 
       The RESTful call to resolve an OAI is available at: https://oai.core.ac.uk/<oai-identifier>
 
-  - title: How the resolver works for repositories
+  - title:
     content: |
       As CORE aggregates data from repositories from across the globe, it is aware of OAI Identifiers for each repository record across this network. This means that repositories do not need to do anything to register their OAI identifiers to allow the OAI resolver to work on their records apart from making sure that they expose their metadata using OAI-PMH, which is a widely supported functionality.
 
