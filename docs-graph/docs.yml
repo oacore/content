@@ -652,6 +652,240 @@ items:
 
 
               The endpoint identifies the resource. The HTTP method identifies the action performed on that resource.
+          - divider: false
+            border: false
+            id: "#graph-api-quick-start"
+            title: Quick start
+            descriptionAbout: >-
+              
+              This guide shows how to authenticate, search for Works, retrieve a specific Work, and navigate from the canonical Work to its source-specific Outputs.
+
+
+              > **Development status:** The CORE Graph API v4 is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
+
+
+              #### Before you begin
+
+
+              To use the CORE Graph API, you need:
+
+
+              - A [CORE API key](https://core.ac.uk/services/api)
+
+              - An HTTP client such as cURL
+
+              - The Graph API base URL: [https://api.core.ac.uk/v4](https://api.core.ac.uk/v4)
+
+
+              Include your API key as a Bearer token in the `Authorization` header:
+
+
+              ```http
+
+              Authorization: Bearer YOUR_API_KEY
+
+              ```
+
+
+              Replace `YOUR_API_KEY` in the examples below with your API key.
+
+
+              #### Search for Works
+
+
+              The following operation searches for canonical Works containing the phrase `particle physics`:
+
+
+              ```http
+
+              GET /v4/search/works?q="particle physics"&searchMode=keyword&select=workId,title,yearPublished&count=true&limit=2
+
+              ```
+
+
+              The runnable cURL command uses a percent-encoded URL:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/search/works?q=%22particle%20physics%22&searchMode=keyword&select=workId%2Ctitle%2CyearPublished&count=true&limit=2" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              The request uses the following parameters:
+
+
+              | Parameter | Description |
+
+              | --- | --- |
+
+              | `q` | Contains the search expression. Quotation marks identify a phrase. |
+
+              | `searchMode` | Selects the retrieval method. This example uses keyword search. |
+
+              | `select` | Limits each result to the specified fields. |
+
+              | `count` | Adds `totalHits` to the response. |
+
+              | `limit` | Sets the maximum number of results returned. |
+
+
+              An abbreviated response may contain:
+
+
+              ```json
+
+              {
+                "totalHits": 15482,
+                "results": [
+                  {
+                    "workId": 323030168,
+                    "title": "High energy particle interactions",
+                    "yearPublished": 2025
+                  },
+                  {
+                    "workId": 323030169,
+                    "title": "Experimental studies in particle physics",
+                    "yearPublished": 2024
+                  }
+                ]
+              }
+
+              ```
+
+
+              `results` contains the matching canonical Works. When `count=true`, `totalHits` reports the total number of matching Works independently of the requested `limit`.
+
+
+              Because the CORE Graph is continually updated, result counts and ordering may change.
+
+
+              #### Retrieve a Work
+
+
+              Use a `workId` returned by the search operation to retrieve the complete canonical Work:
+
+
+              ```http
+
+              GET /v4/works/323030168
+
+              ```
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/works/323030168" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              A Work is CORE’s deduplicated and harmonised representation of a scholarly research object. It is independent of the individual source records collected from repositories, journals, and other Data Providers.
+
+
+              #### Retrieve the Work’s Outputs
+
+
+              A Work may be represented by several source-specific Outputs. Use the relationship endpoint to retrieve them:
+
+
+              ```http
+
+              GET /v4/works/323030168/outputs
+
+              ```
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/works/323030168/outputs" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Each Output represents an individual manifestation or source record. Outputs may contain different source identifiers, URLs, licences, access information, deposit dates, metadata, and full-text locations.
+
+
+              This operation allows you to begin with a deduplicated Work and then inspect the source records and provenance supporting it.
+
+
+              #### Combine text with structured conditions
+
+
+              Search expressions can combine unfielded text with field-based conditions. The following operation finds Works containing the phrase `text and data mining` that were published from 2020 onwards:
+
+
+              ```http
+
+              GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&select=workId,title,yearPublished&limit=10
+
+              ```
+
+
+              In the runnable cURL command, quotation marks, spaces, and comparison operators are percent-encoded:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/search/works?q=%22text%20and%20data%20mining%22%20AND%20yearPublished%3E%3D2020&select=workId%2Ctitle%2CyearPublished&limit=10" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              CORE query syntax uses explicit operators such as `AND`, `OR`, and `NOT`. See the [Search](search.md) documentation for fielded queries, ranges, grouping, existence checks, facets, ordering, and pagination.
+
+
+              #### Run a hybrid search
+
+
+              Works and Outputs support hybrid search, which combines keyword relevance with vector similarity. `POST` can be used for read-only searches containing a JSON request body:
+
+
+              ```http
+
+              POST /v4/search/works
+
+              ```
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/works" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"text and data mining\" AND yearPublished>=2020",
+                  "searchMode": "hybrid",
+                  "semanticRanking": true,
+                  "select": [
+                    "workId",
+                    "title",
+                    "yearPublished"
+                  ],
+                  "limit": 10
+                }'
+              ```
+
+
+              In this example:
+
+
+              - `"text and data mining"` provides the text used for keyword and vector retrieval.
+
+              - `yearPublished>=2020` is applied as a structured condition.
+
+              - `semanticRanking=true` reranks the candidates produced by hybrid search.
+
+              - `select` limits the fields included in each result.
+
+
+              `POST` search is read-only and does not create or modify a Work. Vector, hybrid, and semantic search are supported only for the entities identified in the search capability matrix.
   - item: Entities
     children:
       - item: Works
