@@ -886,6 +886,183 @@ items:
 
 
               `POST` search is read-only and does not create or modify a Work. Vector, hybrid, and semantic search are supported only for the entities identified in the search capability matrix.
+          - divider: false
+            border: false
+            id: graph-api-common-response-conventions
+            title: Common response conventions
+            descriptionAbout: >-
+              The CORE Graph API uses consistent response structures for
+              single-entity and collection operations. Individual endpoint pages
+              document any additional response properties specific to that
+              operation.
+
+
+              #### Single-entity responses
+
+
+              An operation that retrieves one entity returns the entity directly.
+
+
+              ```http
+
+              GET /v4/works/323030168
+
+              ```
+
+
+              ```json
+
+              {
+                "workId": 323030168,
+                "title": "High energy particle interactions",
+                "yearPublished": 2025
+              }
+
+              ```
+
+
+              If no entity exists for the supplied canonical identifier, the API returns an error response rather than an empty object. See the Errors documentation for the applicable HTTP status codes and response structure.
+
+
+              #### Collection responses
+
+
+              Search and relationship operations that return collections use a `results` array:
+
+
+              ```json
+
+              {
+                "totalHits": 15482,
+                "results": [
+                  {
+                    "workId": 323030168,
+                    "title": "High energy particle interactions",
+                    "yearPublished": 2025
+                  },
+                  {
+                    "workId": 323030169,
+                    "title": "Experimental studies in particle physics",
+                    "yearPublished": 2024
+                  }
+                ]
+              }
+
+              ```
+
+
+              Some operations may add properties such as facets or grouped results. These are documented on the relevant endpoint or Search page.
+
+
+              #### Counting and pagination
+
+
+              The following properties and parameters control the number and position of the results returned:
+
+
+              | **Name**    | **Location** | **Type**  | **Default** | **Description**                                                                                                          |
+
+              | ----------- | ------------ | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
+
+              | `results`   | Response     | object\[] | —           | Contains the entities returned for the current request. The array is always present in a successful collection response. |
+
+              | `totalHits` | Response     | integer   | —           | Total number of matching entities before `limit` and `offset` are applied. Returned when `count=true`.                   |
+
+              | `count`     | Request      | boolean   | `false`     | Determines whether `totalHits` is included in the response.                                                              |
+
+              | `limit`     | Request      | integer   | `10`        | Maximum number of results to return. A response may contain fewer results when fewer matches are available.              |
+
+              | `offset`    | Request      | integer   | `0`         | Zero-based number of matching results to skip before returning the current result set.                                   |
+
+
+              `count`, `limit`, and `offset` are request parameters. They are not repeated as properties in the response.
+
+
+              For example:
+
+
+              ```http
+
+              GET /v4/search/works?q="particle physics"&count=true&limit=10&offset=20
+
+              ```
+
+
+              This request skips the first 20 matching Works and returns up to 10 subsequent results. When `count=true`, `totalHits` represents all matching Works, not only the Works returned in the current response.
+
+
+              #### Empty results
+
+
+              A successful collection operation with no matching entities returns HTTP `200 OK` with an empty `results` array.
+
+
+              When `count=true`:
+
+
+              ```json
+
+              {
+                "totalHits": 0,
+                "results": []
+              }
+
+              ```
+
+
+              When `count` is omitted or set to `false`:
+
+
+              ```json
+
+              {
+                "results": []
+              }
+
+              ```
+
+
+              An empty collection is different from an unsuccessful request. Invalid requests and attempts to retrieve a single entity that does not exist return an error response.
+
+
+              #### Null, empty, and omitted values
+
+
+              The API distinguishes between `null` values, empty collections, and omitted fields:
+
+
+              | **Representation** | **Meaning**                                                                                                                                                 |
+
+              | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `null`             | The field is applicable, but no value is available, known, or resolved.                                                                                     |
+
+              | `[]`               | A multi-valued field was returned but contains no values.                                                                                                   |
+
+              | Field omitted      | The field was excluded using `select`, is not part of that endpoint’s response representation, or is conditionally unavailable as documented for the field. |
+
+
+              For example, an Affiliation may preserve its original affiliation text even when it has not been resolved to a canonical Institution:
+
+
+              ```json
+
+              {
+                "affiliationId": "A12345",
+                "rawAffiliation": "Department of Example Studies, Example University",
+                "institutionId": null,
+                "evidenceWorkIds": []
+              }
+
+              ```
+
+
+              In this example:
+
+
+              * `institutionId: null` indicates that no canonical Institution has been resolved.
+
+              * `evidenceWorkIds: []` indicates that the returned evidence collection is empty.
   - item: Entities
     children:
       - item: Works
