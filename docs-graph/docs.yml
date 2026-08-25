@@ -18259,6 +18259,105 @@ items:
               | `429`      | API request limit has been exceeded.                                                             |
 
               | `500`      | An unexpected server error occurred.                                                             |
+          - divider: false
+            border: false
+            id: topics-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              #### Works associated with a Topic
+
+
+              ```http
+
+              GET /v4/topics/{topicId}/works
+
+              ```
+
+
+              Retrieves Works associated with the specified Topic.
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/topics/12345/works" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "workId": 323030168,
+                    "title": "High energy particle interactions",
+                    "yearPublished": 2025
+                  },
+                  {
+                    "workId": 323030169,
+                    "title": "Experimental studies in particle physics",
+                    "yearPublished": 2024
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Topics associated with a Work
+
+
+              The reverse relationship is:
+
+
+              ```http
+
+              GET /v4/works/{workId}/topics
+
+              ```
+
+
+              Retrieves Topics associated with the specified Work.
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/works/323030168/topics" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "results": [
+                  {
+                    "topicId": 12345,
+                    "label": "Particle physics theoretical and experimental studies",
+                    "domainName": "Physical Sciences",
+                    "fieldName": "Physics and Astronomy",
+                    "subfieldName": "Nuclear and High Energy Physics"
+                  }
+                ]
+              }
+
+              ```
   - item: Search
     children:
       - item: null
