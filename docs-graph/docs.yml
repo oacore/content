@@ -17867,69 +17867,398 @@ items:
               ```
           - divider: false
             border: false
-            id: topics-api-search-topics
-            title: Search Topics
+            id: topics-api-search-examples
+            title: Search examples
             descriptionAbout: >-
-              Topics use the common Graph API search interface:
+              #### Search Topics by label
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=label:"particle physics"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "label:\"particle physics\""
+              }
+
+              ```
+
+
+              #### Free-text Topic search
+
+
+              ```http
+
+              GET /v4/search/topics?q="particle physics"
+
+              ```
+
+
+              This searches fields marked as searchable, including `label` and `altLabels`.
+
+
+              #### Retrieve Topics belonging to a domain
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=domainName:"Physical Sciences"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "domainName:\"Physical Sciences\""
+              }
+
+              ```
+
+
+              #### Retrieve Topics belonging to a field
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=fieldName:"Physics and Astronomy"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "fieldName:\"Physics and Astronomy\""
+              }
+
+              ```
+
+
+              #### Retrieve Topics belonging to a subfield
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=subfieldName:"Nuclear and High Energy Physics"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "subfieldName:\"Nuclear and High Energy Physics\""
+              }
+
+              ```
+
+
+              #### Retrieve controlled Topics
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=isControlled:true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "isControlled:true"
+              }
+
+              ```
+
+
+              #### Retrieve Topics from a particular source
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=source:OpenAIRE
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "source:OpenAIRE"
+              }
+
+              ```
+
+
+              #### Retrieve Topics from a classification scheme
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=scheme:DDC
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "scheme:DDC"
+              }
+
+              ```
+
+
+              #### Retrieve Topics above a confidence threshold
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=trustScore>=0.8
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "trustScore>=0.8"
+              }
+
+              ```
+
+
+              #### Retrieve Topics by relevance
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=score>=0.9
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "score>=0.9"
+              }
+
+              ```
+
+
+              #### Retrieve Topics in a particular language
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=language:en
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "language:en"
+              }
+
+              ```
+
+
+              #### Retrieve Topics with spatial coverage
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=_exists_:spatial
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "_exists_:spatial"
+              }
+
+              ```
+
+
+              #### Facets
+
+
+              Fields configured as facetable can be used to summarise the Topic collection.
+
+
+              GET:
 
 
               ```http
 
               GET /v4/search/topics
+                  ?q=*
+                  &facets=type,language,scheme,source,domainName,fieldName,subfieldName,isControlled
+                  &count=true
+                  &limit=0
+              ```
 
-              POST /v4/search/topics
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "type",
+                  "language",
+                  "scheme",
+                  "source",
+                  "domainName",
+                  "fieldName",
+                  "subfieldName",
+                  "isControlled"
+                ],
+                "count": true,
+                "limit": 0
+              }
 
               ```
 
 
-              Topic search supports:
+              This could support questions such as:
 
 
-              * Free-text search
+              * How many Topics occur in each research domain
 
-              * Field-specific queries
+              * How many Topics belong to each field or subfield
 
-              * Structured conditions
+              * Which classification schemes contribute Topics
 
-              * Ranges
+              * How many Topics are controlled versus inferred
 
-              * Existence queries
-
-              * Ordering
-
-              * Field selection
-
-              * Facets
-
-              * Result counting
-
-              * Pagination
+              * Which source systems contribute Topic data
 
 
-              Vector and hybrid search are not currently proposed for Topics.
+              #### Ordering
 
 
-              Complete request syntax and generic search parameters are documented in the common [Search](search.md) section.
+              Topics may be ordered by fields configured as sortable.
 
 
-              #### Responses
+              #### Alphabetically by label
 
 
-              | **Status** | **Description**                                                     |
+              ```http
 
-              | ---------- | ------------------------------------------------------------------- |
+              GET /v4/search/topics?orderby=label:asc
 
-              | `200`      | Topic search was completed successfully.                            |
+              ```
 
-              | `400`      | Request contains an invalid query, parameter, or unsupported field. |
 
-              | `401`      | Authentication credentials are missing or invalid.                  |
+              ##### Highest relevance score first
 
-              | `413`      | `POST` request body exceeds the permitted size.                     |
 
-              | `429`      | API request limit has been exceeded.                                |
+              ```http
 
-              | `500`      | An unexpected server error occurred.                                |
+              GET /v4/search/topics?orderby=score:desc
+
+              ```
+
+
+              #### Search Topics responses
+
+
+              | **Status** | **Description**                                                                                  |
+
+              | ---------- | ------------------------------------------------------------------------------------------------ |
+
+              | `200`      | Topic search was completed successfully.                                                         |
+
+              | `400`      | Request contains an invalid query, field, facet, sort expression, or response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                               |
+
+              | `413`      | `POST` request body exceeds the permitted size.                                                  |
+
+              | `429`      | API request limit has been exceeded.                                                             |
+
+              | `500`      | An unexpected server error occurred.                                                             |
   - item: Search
     children:
       - item: null
