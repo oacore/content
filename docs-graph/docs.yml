@@ -17103,6 +17103,1261 @@ items:
               GET /v4/citations/{citationId}
 
               ```
+      - item: Topics
+        sections:
+          - divider: false
+            border: false
+            id: topics-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Topic entity represents a subject, keyword, concept, or
+              classification label associated with scholarly research in CORE.
+
+
+              Topics provide a structured way of describing what a Work is about. They may originate from source metadata, controlled vocabularies, external scholarly data sources, or CORE machine-learning models.
+
+
+              A Topic may represent:
+
+
+              - A research topic or concept
+
+              - A keyword
+
+              - A subject classification
+
+              - A controlled-vocabulary term
+
+              - Spatial subject coverage
+
+              - Temporal subject coverage
+
+
+              For example, a Work concerning high-energy particle physics may be associated with the following Topic:
+
+
+              ```text
+
+              Particle physics theoretical and experimental studies
+
+              ```
+
+
+              This Topic may be placed within a broader hierarchy:
+
+
+              ```text
+
+              Physical Sciences
+                  → Physics and Astronomy
+                      → Nuclear and High Energy Physics
+                          → Particle physics theoretical and experimental studies
+              ```
+
+
+              Topics may also retain information about:
+
+
+              - The classification scheme
+
+              - The source of the Topic
+
+              - Provenance information
+
+              - The confidence with which the Topic was assigned
+          - divider: false
+            border: false
+            id: topics-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following table describes the proposed top-level fields of the
+              Topic entity.
+
+
+              | **Property**   | **Type**  | **Example value**                                         | **Description**                                       | **Source**                                                                                           |                                                     |
+
+              | -------------- | --------- | --------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+
+              | `id`           | string    | `"core-topic-12345"`                                      | CORE internal identifier for the Topic entity.        | CORE                                                                                                 |                                                     |
+
+              | `label`        | string    | `"Particle physics theoretical and experimental studies"` | Preferred label describing the Topic.                 | CORE                                                                                                 |                                                     |
+
+              | `altLabels`    | string\[] | null                                                      | `["Particle physics"]`                                | Alternative labels, synonyms, or variants associated with the Topic.                                 | CORE / OpenAlex / OpenAIRE / Dublin Core / Crossref |
+
+              | `type`         | string    | null                                                      | `"topic"`                                             | General classification of the subject entity.                                                        | CORE                                                |
+
+              | `language`     | string    | null                                                      | `"en"`                                                | Language of the Topic label, where available.                                                        | QDC / Dublin Core Terms                             |
+
+              | `source`       | string\[] | `["OpenAlex", "OpenAIRE"]`                                | Source systems contributing information to the Topic. | CORE                                                                                                 |                                                     |
+
+              | `scheme`       | string    | null                                                      | `"DDC"`                                               | Subject or classification scheme associated with the Topic.                                          | DataCite / Dublin Core Terms / OpenAIRE / CORE      |
+
+              | `schemeUri`    | string    | null                                                      | `"http://dewey.info/"`                                | URI identifying the classification scheme.                                                           | DataCite / OpenAIRE                                 |
+
+              | `spatial`      | string    | null                                                      | `"Scotland"`                                          | Spatial subject coverage associated with the Topic.                                                  | QDC                                                 |
+
+              | `temporal`     | string    | null                                                      | `"19th century"`                                      | Temporal subject coverage associated with the Topic.                                                 | QDC                                                 |
+
+              | `topicId`      | integer   | null                                                      | `12345`                                               | CORE Topic identifier, where available.                                                              | CORE                                                |
+
+              | `score`        | number    | null                                                      | `0.91`                                                | Relevance score associated with the Topic.                                                           | CORE                                                |
+
+              | `domainId`     | string    | null                                                      | `"1"`                                                 | Identifier of the broader research domain.                                                           | CORE                                                |
+
+              | `domainName`   | string    | null                                                      | `"Physical Sciences"`                                 | Name of the broader research domain.                                                                 | CORE                                                |
+
+              | `fieldId`      | string    | null                                                      | `"12"`                                                | Identifier of the research field.                                                                    | CORE                                                |
+
+              | `fieldName`    | string    | null                                                      | `"Physics and Astronomy"`                             | Name of the research field.                                                                          | CORE                                                |
+
+              | `subfieldId`   | string    | null                                                      | `"1206"`                                              | Identifier of the research subfield.                                                                 | CORE                                                |
+
+              | `subfieldName` | string    | null                                                      | `"Nuclear and High Energy Physics"`                   | Name of the research subfield.                                                                       | CORE                                                |
+
+              | `provenance`   | string    | null                                                      | `"inferred by CORE"`                                  | Statement describing how the Topic or classification was assigned.                                   | CORE                                                |
+
+              | `trustScore`   | number    | null                                                      | `0.85`                                                | Confidence or trust score associated with the Topic assignment.                                      | CORE                                                |
+
+              | `isControlled` | boolean   | null                                                      | `true`                                                | Indicates whether the Topic originates from a controlled vocabulary or formal classification scheme. | CORE                                                |
+
+
+              #### Topic labels
+
+
+              ##### Preferred label
+
+
+              The `label` property contains the preferred human-readable representation of the Topic.
+
+
+              ```json
+
+              {
+                "label": "Particle physics theoretical and experimental studies"
+              }
+
+              ```
+
+
+              The preferred label may be selected or normalised by CORE from source classifications or machine-learning output.
+
+
+              ##### Alternative labels
+
+
+              The `altLabels` property contains alternative representations of the same Topic.
+
+
+              ```json
+
+              {
+                "altLabels": [
+                  "Particle physics",
+                  "Experimental particle physics"
+                ]
+              }
+
+              ```
+
+
+              Alternative labels may include:
+
+
+              * Synonyms
+
+              * Abbreviated forms
+
+              * Normalised labels
+
+              * Labels contributed by other source systems
+
+
+              #### Topic type
+
+
+              The `type` property identifies the general kind of subject information represented by the record.
+
+
+              ```json
+
+              {
+                "type": "topic"
+              }
+
+              ```
+
+
+              Possible values may include:
+
+
+              | **Value**        | **Description**                                           |
+
+              | ---------------- | --------------------------------------------------------- |
+
+              | `topic`          | General scholarly research topic or concept.              |
+
+              | `keyword`        | Keyword associated with a scholarly resource.             |
+
+              | `classification` | Term belonging to a formal subject-classification scheme. |
+
+              | `spatial`        | Geographic or spatial subject coverage.                   |
+
+              | `temporal`       | Temporal or historical subject coverage.                  |
+
+
+              > The final controlled vocabulary should be defined before implementation.
+
+
+              #### Language
+
+
+              The `language` property identifies the language of the preferred Topic label.
+
+
+              ```json
+
+              {
+                "language": "en"
+              }
+
+              ```
+
+
+              Example values include:
+
+
+              * `en`
+
+              * `fr`
+
+              * `de`
+
+              * `es`
+
+
+              The value should follow a recognised language-code convention. The exact ISO language-code standard should be specified before public release.
+
+
+              ## Classification scheme
+
+
+              A Topic may originate from a formal subject-classification or controlled-vocabulary scheme.
+
+
+              ```json
+
+              {
+                "scheme": "DDC",
+                "schemeUri": "http://dewey.info/"
+              }
+
+              ```
+
+
+              | **Property** | **Type** | **Description** |                                                  |
+
+              | ------------ | -------- | --------------- | ------------------------------------------------ |
+
+              | `scheme`     | string   | null            | Name or identifier of the classification scheme. |
+
+              | `schemeUri`  | string   | null            | URI identifying or describing the scheme.        |
+
+
+              Examples may include schemes supplied through DataCite, OpenAIRE, Dublin Core Terms, or CORE.
+
+
+              The value should not be assumed to be controlled unless `isControlled=true` or CORE otherwise recognises the scheme.
+
+
+              #### Spatial and temporal coverage
+
+
+              Topics may represent non-disciplinary subject information.
+
+
+              ##### Spatial coverage
+
+
+              ```json
+
+              {
+                "type": "spatial",
+                "spatial": "Scotland"
+              }
+
+              ```
+
+
+              The `spatial` property describes geographic subject coverage.
+
+
+              ##### Temporal coverage
+
+
+              ```json
+
+              {
+                "type": "temporal",
+                "temporal": "19th century"
+              }
+
+              ```
+
+
+              The `temporal` property describes a historical or temporal period associated with the subject.
+
+
+              If `spatial` and `temporal` are retained as fields on the same Topic structure, their relationship with `type` should be defined. For example:
+
+
+              ```text
+
+              type = spatial  → spatial may contain a value
+
+              type = temporal → temporal may contain a value
+
+              ```
+
+
+              #### Topic hierarchy
+
+
+              CORE Topics may be organised within a research-classification hierarchy consisting of domain, field, subfield, and Topic levels.
+
+
+              ```text
+
+              Physical Sciences
+                  → Physics and Astronomy
+                      → Nuclear and High Energy Physics
+                          → Particle physics theoretical and experimental studies
+              ```
+
+
+              The corresponding representation is:
+
+
+              ```json
+
+              {
+                "domainId": "1",
+                "domainName": "Physical Sciences",
+                "fieldId": "12",
+                "fieldName": "Physics and Astronomy",
+                "subfieldId": "1206",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "topicId": 12345,
+                "label": "Particle physics theoretical and experimental studies"
+              }
+
+              ```
+
+
+              ##### Hierarchy properties
+
+
+              | **Property**   | **Type** | **Description** |                                                                                       |
+
+              | -------------- | -------- | --------------- | ------------------------------------------------------------------------------------- |
+
+              | `domainId`     | string               | Identifier of the broadest research domain.                                           |
+
+              | `domainName`   | string               | Human-readable name of the domain.                                                    |
+
+              | `fieldId`      | string               | Identifier of the research field.                                                     |
+
+              | `fieldName`    | string               | Human-readable name of the field.                                                     |
+
+              | `subfieldId`   | string               | Identifier of the research subfield.                                                  |
+
+              | `subfieldName` | string               | Human-readable name of the subfield.                                                  |
+
+              | `topicId`      | integer              | Identifier of the Topic at the most specific level represented by the classification. |
+
+
+              #### Provenance and confidence
+
+
+              Topics may originate from several sources or may be inferred by CORE.
+
+
+              ```json
+
+              {
+                "source": [
+                  "CORE",
+                  "OpenAIRE"
+                ],
+                "provenance": "inferred by CORE",
+                "score": 0.91,
+                "trustScore": 0.85,
+                "isControlled": true
+              }
+
+              ```
+
+
+              ##### Source
+
+
+              The `source` collection identifies systems that contributed information to the Topic entity.
+
+
+              ```json
+
+              {
+                "source": [
+                  "CORE",
+                  "OpenAlex",
+                  "OpenAIRE"
+                ]
+              }
+
+              ```
+
+
+              A Topic may contain multiple sources when the same concept is reconciled across systems.
+
+
+              ##### Provenance
+
+
+              The `provenance` property describes how the Topic was obtained or assigned.
+
+
+              Examples may include:
+
+
+              * `inferred by CORE`
+
+              * `supplied by source`
+
+              * `inferred by OpenAIRE`
+
+              * `mapped from controlled vocabulary`
+
+
+              The final vocabulary should be defined before implementation if clients are expected to query this field programmatically.
+
+
+              ##### Controlled vocabulary
+
+
+              The `isControlled` property indicates whether the Topic originates from a recognised classification or controlled vocabulary.
+
+
+              ```json
+
+              {
+                "isControlled": true
+              }
+
+              ```
+
+
+              `true` indicates that the value is associated with a controlled scheme.
+
+
+              `false` may indicate a free-text keyword, automatically inferred concept, or another non-controlled label.
+
+
+              #### Topic relevance and confidence
+
+
+              The proposed model contains both `score` and `trustScore`.
+
+
+              ##### Relevance score
+
+
+              ```json
+
+              {
+                "score": 0.91
+              }
+
+              ```
+
+
+              `score` represents how strongly a Topic relates to a scholarly object.
+
+
+              For example, a Topic classifier may determine that a Work is strongly related to:
+
+
+              ```text
+
+              Particle physics theoretical and experimental studies
+
+              ```
+
+
+              With:
+
+
+              ```text
+
+              score = 0.91
+
+              ```
+
+
+              ##### Trust score
+
+
+              ```json
+
+              {
+                "trustScore": 0.85
+              }
+
+              ```
+
+
+              `trustScore` represents the confidence or trust associated with the Topic assignment.
+
+
+              The semantic distinction between these values should be made explicit before implementation. A recommended interpretation is:
+
+
+              | **Property** | **Meaning**                                                       |
+
+              | ------------ | ----------------------------------------------------------------- |
+
+              | `score`      | How strongly the Topic relates to the scholarly object.           |
+
+              | `trustScore` | How confident CORE is that the assignment or mapping is reliable. |
+
+
+              For example:
+
+
+              ```json
+
+              {
+                "score": 0.91,
+                "trustScore": 0.85
+              }
+
+              ```
+
+
+              This indicates that the Topic is highly relevant and that CORE has high confidence in the classification.
+
+
+              If CORE does not make this distinction internally, the two fields should be consolidated.
+
+
+              Example Topic record:
+
+
+              ```json
+
+              {
+                "id": "core-topic-12345",
+                "label": "Particle physics theoretical and experimental studies",
+                "altLabels": [
+                  "Particle physics"
+                ],
+                "type": "topic",
+                "language": "en",
+                "source": [
+                  "CORE",
+                  "OpenAIRE"
+                ],
+                "scheme": "CORE",
+                "schemeUri": null,
+                "spatial": null,
+                "temporal": null,
+                "topicId": 12345,
+                "score": 0.91,
+                "domainId": "1",
+                "domainName": "Physical Sciences",
+                "fieldId": "12",
+                "fieldName": "Physics and Astronomy",
+                "subfieldId": "1206",
+                "subfieldName": "Nuclear and High Energy Physics",
+                "provenance": "inferred by OpenAIRE",
+                "trustScore": 0.85,
+                "isControlled": true
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: topics-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >
+              The following table presents the recommended search configuration
+              based on the semantics of the proposed Topic fields.
+
+
+              | **Attribute**  | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | -------------- | -------------- | -------------- | ------------ | ------------- |
+
+              | `id`           | No             | Yes            | No           | No            |
+
+              | `label`        | Yes            | No             | Yes          | No            |
+
+              | `altLabels`    | Yes            | No             | No           | No            |
+
+              | `type`         | No             | Yes            | No           | Yes           |
+
+              | `language`     | No             | Yes            | No           | Yes           |
+
+              | `source`       | No             | Yes            | No           | Yes           |
+
+              | `scheme`       | No             | Yes            | No           | Yes           |
+
+              | `schemeUri`    | No             | Yes            | No           | No            |
+
+              | `spatial`      | Yes            | Yes            | No           | Yes           |
+
+              | `temporal`     | Yes            | Yes            | No           | Yes           |
+
+              | `topicId`      | No             | Yes            | Yes          | No            |
+
+              | `score`        | No             | Yes            | Yes          | No            |
+
+              | `domainId`     | No             | Yes            | No           | Yes           |
+
+              | `domainName`   | Yes            | Yes            | No           | Yes           |
+
+              | `fieldId`      | No             | Yes            | No           | Yes           |
+
+              | `fieldName`    | Yes            | Yes            | No           | Yes           |
+
+              | `subfieldId`   | No             | Yes            | No           | Yes           |
+
+              | `subfieldName` | Yes            | Yes            | No           | Yes           |
+
+              | `provenance`   | No             | Yes            | No           | Yes           |
+
+              | `trustScore`   | No             | Yes            | Yes          | No            |
+
+              | `isControlled` | No             | Yes            | No           | Yes           |
+
+
+              The field-operation settings have the following meanings:
+
+
+              * Searchable fields participate in text search.
+
+              * Filterable fields can be used in field lookup, Boolean conditions, ranges, and existence queries.
+
+              * Sortable fields can be used with `orderby`.
+
+              * Facetable fields can be requested using `facets`.
+          - divider: false
+            border: false
+            id: topics-api-topics-endpoints
+            title: Topics endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                           | **Method** | **Endpoint**                 |
+
+              | --------------------------------------- | ---------- | ---------------------------- |
+
+              | Get a single Topic                      | `GET`      | `/v4/topics/{topicId}`       |
+
+              | Search Topics using URL parameters      | `GET`      | `/v4/search/topics`          |
+
+              | Search Topics using a JSON request body | `POST`     | `/v4/search/topics`          |
+
+              | Retrieve Works associated with a Topic  | `GET`      | `/v4/topics/{topicId}/works` |
+
+
+              A reverse relationship may also be exposed:
+
+
+              ```http
+
+              GET /v4/works/{workId}/topics
+
+              ```
+
+
+              The `POST` search method is read-only. It does not create or modify Topic records.
+
+
+              #### Get a single Topic
+
+
+              Retrieves one Topic using its CORE Topic identifier.
+
+
+              ##### API endpoint
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/topics/{topicId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                      |
+
+              | ------------- | -------- | ------------ | ------------------------------------ |
+
+              | `topicId`     | integer  | Yes          | Unique CORE identifier of the Topic. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                 |
+
+              | ------------- | -------- | ------------ | ----------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of Topic fields to return. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/topics/12345" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/topics/12345?select=topicId,label,domainName,fieldName,subfieldName" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "topicId": 12345,
+                "label": "Particle physics theoretical and experimental studies",
+                "domainName": "Physical Sciences",
+                "fieldName": "Physics and Astronomy",
+                "subfieldName": "Nuclear and High Energy Physics"
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: topics-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search Topics by label
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=label:"particle physics"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "label:\"particle physics\""
+              }
+
+              ```
+
+
+              #### Free-text Topic search
+
+
+              ```http
+
+              GET /v4/search/topics?q="particle physics"
+
+              ```
+
+
+              This searches fields marked as searchable, including `label` and `altLabels`.
+
+
+              #### Retrieve Topics belonging to a domain
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=domainName:"Physical Sciences"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "domainName:\"Physical Sciences\""
+              }
+
+              ```
+
+
+              #### Retrieve Topics belonging to a field
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=fieldName:"Physics and Astronomy"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "fieldName:\"Physics and Astronomy\""
+              }
+
+              ```
+
+
+              #### Retrieve Topics belonging to a subfield
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=subfieldName:"Nuclear and High Energy Physics"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "subfieldName:\"Nuclear and High Energy Physics\""
+              }
+
+              ```
+
+
+              #### Retrieve controlled Topics
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=isControlled:true
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "isControlled:true"
+              }
+
+              ```
+
+
+              #### Retrieve Topics from a particular source
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=source:OpenAIRE
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "source:OpenAIRE"
+              }
+
+              ```
+
+
+              #### Retrieve Topics from a classification scheme
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=scheme:DDC
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "scheme:DDC"
+              }
+
+              ```
+
+
+              #### Retrieve Topics above a confidence threshold
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=trustScore>=0.8
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "trustScore>=0.8"
+              }
+
+              ```
+
+
+              #### Retrieve Topics by relevance
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=score>=0.9
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "score>=0.9"
+              }
+
+              ```
+
+
+              #### Retrieve Topics in a particular language
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=language:en
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "language:en"
+              }
+
+              ```
+
+
+              #### Retrieve Topics with spatial coverage
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics?q=_exists_:spatial
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "_exists_:spatial"
+              }
+
+              ```
+
+
+              #### Facets
+
+
+              Fields configured as facetable can be used to summarise the Topic collection.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/topics
+                  ?q=*
+                  &facets=type,language,scheme,source,domainName,fieldName,subfieldName,isControlled
+                  &count=true
+                  &limit=0
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "type",
+                  "language",
+                  "scheme",
+                  "source",
+                  "domainName",
+                  "fieldName",
+                  "subfieldName",
+                  "isControlled"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              This could support questions such as:
+
+
+              * How many Topics occur in each research domain
+
+              * How many Topics belong to each field or subfield
+
+              * Which classification schemes contribute Topics
+
+              * How many Topics are controlled versus inferred
+
+              * Which source systems contribute Topic data
+
+
+              #### Ordering
+
+
+              Topics may be ordered by fields configured as sortable.
+
+
+              #### Alphabetically by label
+
+
+              ```http
+
+              GET /v4/search/topics?orderby=label:asc
+
+              ```
+
+
+              ##### Highest relevance score first
+
+
+              ```http
+
+              GET /v4/search/topics?orderby=score:desc
+
+              ```
+
+
+              #### Search Topics responses
+
+
+              | **Status** | **Description**                                                                                  |
+
+              | ---------- | ------------------------------------------------------------------------------------------------ |
+
+              | `200`      | Topic search was completed successfully.                                                         |
+
+              | `400`      | Request contains an invalid query, field, facet, sort expression, or response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                               |
+
+              | `413`      | `POST` request body exceeds the permitted size.                                                  |
+
+              | `429`      | API request limit has been exceeded.                                                             |
+
+              | `500`      | An unexpected server error occurred.                                                             |
+          - divider: false
+            border: false
+            id: topics-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              #### Works associated with a Topic
+
+
+              ```http
+
+              GET /v4/topics/{topicId}/works
+
+              ```
+
+
+              Retrieves Works associated with the specified Topic.
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/topics/12345/works" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "workId": 323030168,
+                    "title": "High energy particle interactions",
+                    "yearPublished": 2025
+                  },
+                  {
+                    "workId": 323030169,
+                    "title": "Experimental studies in particle physics",
+                    "yearPublished": 2024
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Topics associated with a Work
+
+
+              The reverse relationship is:
+
+
+              ```http
+
+              GET /v4/works/{workId}/topics
+
+              ```
+
+
+              Retrieves Topics associated with the specified Work.
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/works/323030168/topics" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "results": [
+                  {
+                    "topicId": 12345,
+                    "label": "Particle physics theoretical and experimental studies",
+                    "domainName": "Physical Sciences",
+                    "fieldName": "Physics and Astronomy",
+                    "subfieldName": "Nuclear and High Energy Physics"
+                  }
+                ]
+              }
+
+              ```
   - item: Search
     children:
       - item: null
