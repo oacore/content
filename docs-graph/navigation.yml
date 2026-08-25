@@ -205,6 +205,28 @@ navItems:
       - item: Grants
       - item: Funders
       - item: Topics
+        children:
+          - hidden: false
+            href: "#topics-api-introduction"
+            item: Introduction
+          - hidden: false
+            item: Data structure
+            href: "#topics-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#topics-api-supported-field-operations"
+          - hidden: false
+            item: Topics endpoints
+            href: "#topics-api-topics-endpoints"
+          - hidden: false
+            item: Search Topics
+            href: "#topics-api-search-topics"
+          - hidden: false
+            item: Search examples
+            href: "#topics-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#topics-api-relationship-oriented-endpoints"
       - hidden: false
         item: Citations
         children:
