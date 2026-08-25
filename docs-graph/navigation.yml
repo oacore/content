@@ -18,8 +18,14 @@ navItems:
         item: Resource and endpoint patterns
         href: "#core-graph-resource-and-endpoint-patterns"
       - hidden: false
+        item: Common response conventions
+        href: "#graph-api-common-response-conventions"
+      - hidden: false
         item: Naming conventions
         href: "#graph-api-naming-conventions"
+      - hidden: false
+        item: Quick start
+        href: "#graph-api-quick-start"
   - item: Entities
     children:
       - item: Works
