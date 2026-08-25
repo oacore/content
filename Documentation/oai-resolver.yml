@@ -45,9 +45,9 @@ sections:
 
   - title: OAI Resolver
     content: |
-      CORE provides a global resolver for OAI identifiers at https://core.ac.uk/oai_resolver
+      **CORE provides a global resolver for OAI identifiers at** https://core.ac.uk/oai_resolver
 
-      The RESTful call to resolve an OAI is available at: https://oai.core.ac.uk/<oai-identifier>
+      **The** RESTful **call to resolve an OAI is available at**: https://oai.core.ac.uk/<oai-identifier>
 
   - title:
     content: |
