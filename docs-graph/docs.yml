@@ -1951,66 +1951,71 @@ items:
             border: false
             id: works-api-search-works
             title: Search Works
-            descriptionAbout: >+
-              Searches, filters, orders, facets, counts, and paginates canonical
-              Work records.
+            descriptionAbout: >-
+              
+              Searches, filters, orders, facets, counts, and paginates canonical Work records.
 
 
               Work search supports:
 
 
-              * Keyword search
+              - Keyword search
 
-              * Vector-based semantic search
+              - Vector-based semantic search
 
-              * Hybrid search combining keyword and vector relevance
+              - Hybrid search combining keyword and vector relevance
 
-              * Structured field conditions
+              - Structured field conditions
 
-              * Explicit client-generated vectors
+              - Explicit client-generated vectors
 
-              * Field selection, ordering, faceting, counting, and pagination
+              - Field selection, ordering, faceting, counting, and pagination
 
 
               Work search is available through `GET` and `POST`:
 
 
-              ```http
+              | Method | API endpoint |
 
-              GET https://api.core.ac.uk/v4/search/works
+              | --- | --- |
 
-              POST https://api.core.ac.uk/v4/search/works
+              | `GET` | [https://api.core.ac.uk/v4/search/works](https://api.core.ac.uk/v4/search/works) |
 
-              ```
+              | `POST` | [https://api.core.ac.uk/v4/search/works](https://api.core.ac.uk/v4/search/works) |
 
 
               Both methods return the same Work search-response structure.
 
 
-              #### GET search parameters
+              #### GET and POST search parameters
 
 
-              | **Parameter** | **Type** | **Required** | **Default**                                       | **Description**                                                                                                            |
+              ##### GET search parameters
 
-              | ------------- | -------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 
-              | `q`           | string   | No           | `*`                                               | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+              | Parameter | Type | Required | Default | Description |
 
-              | `searchMode`  | string   | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                                   |
+              | --- | --- | --- | --- | --- |
 
-              | `vectorTopK`  | integer  | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                                          |
+              | `q` | string | No | `*` | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
 
-              | `orderby`     | string   | No           | Relevance for textual, vector, and hybrid queries | Comma-separated ordering directives in `field:direction` format.                                                           |
+              | `searchMode` | string | No | `keyword` | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`. |
 
-              | `select`      | string   | No           | All retrievable fields                            | Comma-separated list of Work fields to return.                                                                             |
+              | `semanticRanking` | boolean | No | `false` | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`. |
 
-              | `facets`      | string   | No           | —                                                 | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
+              | `vectorTopK` | integer | No | Implementation-defined | Number of nearest vector candidates considered during vector or hybrid retrieval. |
 
-              | `count`       | boolean  | No           | `false`                                           | Indicates whether the total number of matching Work records should be included.                                            |
+              | `orderby` | string | No | Relevance for textual, vector, and hybrid queries | Comma-separated ordering directives in `field:direction` format. |
 
-              | `limit`       | integer  | No           | `10`                                              | Maximum number of Work records to return.                                                                                  |
+              | `select` | string | No | All retrievable fields | Comma-separated list of Work fields to return. |
 
-              | `offset`      | integer  | No           | `0`                                               | Number of matching Work records to skip.                                                                                   |
+              | `facets` | string | No | — | Comma-separated list of facetable fields for which value buckets and counts should be returned. |
+
+              | `count` | boolean | No | `false` | Indicates whether the total number of matching Work records should be included. |
+
+              | `limit` | integer | No | `10` | Maximum number of Work records to return. |
+
+              | `offset` | integer | No | `0` | Number of matching Work records to skip. |
 
 
               The `GET` method supports text-based vector search. Explicit embedding vectors are accepted only through `POST`.
@@ -2019,62 +2024,148 @@ items:
               #### POST request body
 
 
-              | **Property** | **Type**  | **Required** | **Default**                                       | **Description**                                                                   |
+              | Property | Type | Required | Default | Description |
 
-              | ------------ | --------- | ------------ | ------------------------------------------------- | --------------------------------------------------------------------------------- |
+              | --- | --- | --- | --- | --- |
 
-              | `q`          | string    | No           | `*`                                               | CORE query expression containing textual content, structured conditions, or both. |
+              | `q` | string | No | `*` | CORE query expression containing textual content, structured conditions, or both. |
 
-              | `searchMode` | string    | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.          |
+              | `searchMode` | string | No | `keyword` | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`. |
 
-              | `vector`     | number\[] | No           | —                                                 | Client-generated embedding used for vector or hybrid search.                      |
+              | `semanticRanking` | boolean | No | `false` | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`. |
 
-              | `vectorTopK` | integer   | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval. |
+              | `vector` | number[] | No | — | Client-generated embedding used for vector or hybrid search. |
 
-              | `orderby`    | string\[] | No           | Relevance for textual, vector, and hybrid queries | Ordered list of sorting directives in `field:direction` format.                   |
+              | `vectorTopK` | integer | No | Implementation-defined | Number of nearest vector candidates considered during vector or hybrid retrieval. |
 
-              | `select`     | string\[] | No           | All retrievable fields                            | List of Work fields to return.                                                    |
+              | `orderby` | string[] | No | Relevance for textual, vector, and hybrid queries | Ordered list of sorting directives in `field:direction` format. |
 
-              | `facets`     | string\[] | No           | —                                                 | List of facetable fields for which value buckets and counts should be returned.   |
+              | `select` | string[] | No | All retrievable fields | List of Work fields to return. |
 
-              | `count`      | boolean   | No           | `false`                                           | Indicates whether the total number of matching Work records should be included.   |
+              | `facets` | string[] | No | — | List of facetable fields for which value buckets and counts should be returned. |
 
-              | `limit`      | integer   | No           | `10`                                              | Maximum number of Work records to return.                                         |
+              | `count` | boolean | No | `false` | Indicates whether the total number of matching Work records should be included. |
 
-              | `offset`     | integer   | No           | `0`                                               | Number of matching Work records to skip.                                          |
+              | `limit` | integer | No | `10` | Maximum number of Work records to return. |
+
+              | `offset` | integer | No | `0` | Number of matching Work records to skip. |
 
 
-              #### GET and POST parameter mapping
+              ##### GET and POST parameter mapping
 
 
-              | **GET query parameter**             | **POST body property**                        |
+              | GET query parameter | POST body property |
 
-              | ----------------------------------- | --------------------------------------------- |
+              | --- | --- |
 
-              | `q=yearPublished:2022`              | `"q": "yearPublished:2022"`                   |
+              | `q=yearPublished:2022` | `"q": "yearPublished:2022"` |
 
-              | `searchMode=vector`                 | `"searchMode": "vector"`                      |
+              | `searchMode=vector` | `"searchMode": "vector"` |
 
-              | `searchMode=hybrid`                 | `"searchMode": "hybrid"`                      |
+              | `semanticRanking=true` | `"semanticRanking": true` |
 
-              | `vectorTopK=100`                    | `"vectorTopK": 100`                           |
+              | `searchMode=hybrid` | `"searchMode": "hybrid"` |
 
-              | Not supported through `GET`         | `"vector": [0.012, -0.084, 0.031, ...]`       |
+              | `vectorTopK=100` | `"vectorTopK": 100` |
 
-              | `orderby=yearPublished:desc`        | `"orderby": ["yearPublished:desc"]`           |
+              | Not supported through `GET` | `"vector": [0.012, -0.084, 0.031, ...]` |
 
-              | `select=workId,title,doi`           | `"select": ["workId", "title", "doi"]`        |
+              | `orderby=yearPublished:desc` | `"orderby": ["yearPublished:desc"]` |
+
+              | `select=workId,title,doi` | `"select": ["workId", "title", "doi"]` |
 
               | `facets=documentType,yearPublished` | `"facets": ["documentType", "yearPublished"]` |
 
-              | `count=true`                        | `"count": true`                               |
+              | `count=true` | `"count": true` |
 
-              | `limit=10`                          | `"limit": 10`                                 |
+              | `limit=10` | `"limit": 10` |
 
-              | `offset=0`                          | `"offset": 0`                                 |
+              | `offset=0` | `"offset": 0` |
 
 
+              #### Keyword search
 
+
+              Keyword search uses textual relevance without vector similarity.
+
+
+              ##### Search by title
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=title:"edge computing"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "title:\"edge computing\"",
+                "searchMode": "keyword"
+              }
+
+              ```
+
+
+              ##### Search across all searchable Work fields
+
+
+              ```http
+
+              GET /v4/search/works?q="text and data mining"
+
+              ```
+
+
+              A broad textual query may search fields including:
+
+
+              - `title`
+
+              - `abstract`
+
+              - `fullText`
+
+              - Searchable reference fields
+
+              - Searchable contributor fields
+
+
+              When `orderby` is omitted, keyword results are ordered by textual relevance.
+
+
+              ##### Search full text
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=fullText:"text and data mining"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "fullText:\"text and data mining\"",
+                "searchMode": "keyword"
+              }
+
+              ```
           - divider: false
             border: false
             id: works-api-search-examples
