@@ -5465,23 +5465,22 @@ items:
             id: dataproviders-api-data-providers-endpoints
             title: Data providers endpoints
             descriptionAbout: >-
-              
               #### Available endpoints
 
 
-              | Operation | Method | Endpoint |
+              | **Operation**                                   | **Method** | **Endpoint**                                      |
 
-              | --- | --- | --- |
+              | ----------------------------------------------- | ---------- | ------------------------------------------------- |
 
-              | Get a single Data Provider | `GET` | `/v4/data-providers/{dataProviderId}` |
+              | Get a single Data Provider                      | `GET`      | `/v4/data-providers/{dataProviderId}`             |
 
-              | Search Data Providers using URL parameters | `GET` | `/v4/search/data-providers` |
+              | Search Data Providers using URL parameters      | `GET`      | `/v4/search/data-providers`                       |
 
-              | Search Data Providers using a JSON request body | `POST` | `/v4/search/data-providers` |
+              | Search Data Providers using a JSON request body | `POST`     | `/v4/search/data-providers`                       |
 
-              | Retrieve Outputs supplied by a Data Provider | `GET` | `/v4/data-providers/{dataProviderId}/outputs` |
+              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/outputs`     |
 
-              | Retrieve Data Providers for an Institution | `GET` | `/v4/institutions/{institutionId}/data-providers` |
+              | Retrieve Data Providers for an Institution      | `GET`      | `/v4/institutions/{institutionId}/data-providers` |
 
 
               A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
@@ -5509,31 +5508,31 @@ items:
               ##### Authorization
 
 
-              | Parameter | Location | Type | Required | Description |
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
 
-              | --- | --- | --- | --- | --- |
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
 
-              | `Authorization` | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
 
 
               ##### Path parameters
 
 
-              | Parameter | Type | Required | Description |
+              | **Parameter**    | **Type** | **Required** | **Description**                                     |
 
-              | --- | --- | --- | --- |
+              | ---------------- | -------- | ------------ | --------------------------------------------------- |
 
-              | `dataProviderId` | integer | Yes | Unique CORE identifier of the Data Provider record. |
+              | `dataProviderId` | integer  | Yes          | Unique CORE identifier of the Data Provider record. |
 
 
               ##### Query parameters
 
 
-              | Parameter | Type | Required | Description |
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                           |
 
-              | --- | --- | --- | --- |
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- |
 
-              | `select` | string | No | Comma-separated list of top-level Data Provider fields to return. Example: `select=dataProviderId,name,type,homepageUrl`. |
+              | `select`      | string   | No           | Comma-separated list of top-level Data Provider fields to return. Example: `select=dataProviderId,name,type,homepageUrl`. |
 
 
               Example request:
@@ -5611,21 +5610,21 @@ items:
               #### Responses
 
 
-              | Status | Description |
+              | **Status** | **Description**                                                      |
 
-              | --- | --- |
+              | ---------- | -------------------------------------------------------------------- |
 
-              | `200` | The Data Provider record was retrieved successfully. |
+              | `200`      | The Data Provider record was retrieved successfully.                 |
 
-              | `400` | The request contains an invalid parameter or unsupported field name. |
+              | `400`      | The request contains an invalid parameter or unsupported field name. |
 
-              | `401` | Authentication credentials are missing or invalid. |
+              | `401`      | Authentication credentials are missing or invalid.                   |
 
-              | `404` | No Data Provider record was found for the supplied identifier. |
+              | `404`      | No Data Provider record was found for the supplied identifier.       |
 
-              | `429` | The API request limit has been exceeded. |
+              | `429`      | The API request limit has been exceeded.                             |
 
-              | `500` | An unexpected server error occurred. |
+              | `500`      | An unexpected server error occurred.                                 |
           - divider: false
             border: false
             id: dataproviders-api-search-data-providers
@@ -5638,16 +5637,16 @@ items:
               Data Provider search is available through `GET` and `POST`:
 
 
-              ```http
+              | **Method** | **API endpoint**                                  |
 
-              GET https://api.core.ac.uk/v4/search/data-providers
+              | ---------- | ------------------------------------------------- |
 
-              POST https://api.core.ac.uk/v4/search/data-providers
+              | `GET`      | <https://api.core.ac.uk/v4/search/data-providers> |
 
-              ```
+              | `POST`     | <https://api.core.ac.uk/v4/search/data-providers> |
 
 
-              Both methods use the same CORE query language and return the same response structure.
+              Both methods use the same CORE query language and return the same Data Provider search-response structure.
 
 
               #### GET and POST search parameters
@@ -6274,7 +6273,7 @@ items:
               A deterministic `orderby` expression should be used when retrieving multiple pages.
 
 
-              ##### First page using GET
+              First page using GET:
 
 
               ```http
@@ -6284,7 +6283,7 @@ items:
               ```
 
 
-              ##### Second page using GET
+              Second page using GET:
 
 
               ```http
@@ -6294,7 +6293,7 @@ items:
               ```
 
 
-              ##### First page using POST
+              First page using POST:
 
 
               ```json
@@ -6311,7 +6310,7 @@ items:
               ```
 
 
-              ##### Second page using POST
+              Second page using POST:
 
 
               ```json
