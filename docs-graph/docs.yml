@@ -1952,39 +1952,39 @@ items:
             id: works-api-search-works
             title: Search Works
             descriptionAbout: >-
-              
-              Searches, filters, orders, facets, counts, and paginates canonical Work records.
+              Searches, filters, orders, facets, counts, and paginates canonical
+              Work records.
 
 
-              Work search supports:
+              Works search supports:
 
 
-              - Keyword search
+              * Keyword search
 
-              - Vector-based semantic search
+              * Vector-based semantic search
 
-              - Hybrid search combining keyword and vector relevance
+              * Hybrid search combining keyword and vector relevance
 
-              - Structured field conditions
+              * Structured field conditions
 
-              - Explicit client-generated vectors
+              * Explicit client-generated vectors
 
-              - Field selection, ordering, faceting, counting, and pagination
-
-
-              Work search is available through `GET` and `POST`:
+              * Field selection, ordering, faceting, counting, and pagination
 
 
-              | Method | API endpoint |
-
-              | --- | --- |
-
-              | `GET` | [https://api.core.ac.uk/v4/search/works](https://api.core.ac.uk/v4/search/works) |
-
-              | `POST` | [https://api.core.ac.uk/v4/search/works](https://api.core.ac.uk/v4/search/works) |
+              Works search is available through `GET` and `POST`:
 
 
-              Both methods return the same Work search-response structure.
+              | **Method** | **API endpoint**                         |
+
+              | ---------- | ---------------------------------------- |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/works> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/works> |
+
+
+              Both methods return the same Works search-response structure.
 
 
               #### GET and POST search parameters
@@ -1993,29 +1993,29 @@ items:
               ##### GET search parameters
 
 
-              | Parameter | Type | Required | Default | Description |
+              | **Parameter**     | **Type** | **Required** | **Default**                                       | **Description**                                                                                                            |
 
-              | --- | --- | --- | --- | --- |
+              | ----------------- | -------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 
-              | `q` | string | No | `*` | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+              | `q`               | string   | No           | `*`                                               | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
 
-              | `searchMode` | string | No | `keyword` | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`. |
+              | `searchMode`      | string   | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                                   |
 
-              | `semanticRanking` | boolean | No | `false` | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`. |
+              | `semanticRanking` | boolean  | No           | `false`                                           | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`.             |
 
-              | `vectorTopK` | integer | No | Implementation-defined | Number of nearest vector candidates considered during vector or hybrid retrieval. |
+              | `vectorTopK`      | integer  | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                                          |
 
-              | `orderby` | string | No | Relevance for textual, vector, and hybrid queries | Comma-separated ordering directives in `field:direction` format. |
+              | `orderby`         | string   | No           | Relevance for textual, vector, and hybrid queries | Comma-separated ordering directives in `field:direction` format.                                                           |
 
-              | `select` | string | No | All retrievable fields | Comma-separated list of Work fields to return. |
+              | `select`          | string   | No           | All retrievable fields                            | Comma-separated list of Work fields to return.                                                                             |
 
-              | `facets` | string | No | — | Comma-separated list of facetable fields for which value buckets and counts should be returned. |
+              | `facets`          | string   | No           | —                                                 | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
 
-              | `count` | boolean | No | `false` | Indicates whether the total number of matching Work records should be included. |
+              | `count`           | boolean  | No           | `false`                                           | Indicates whether the total number of matching Work records should be included.                                            |
 
-              | `limit` | integer | No | `10` | Maximum number of Work records to return. |
+              | `limit`           | integer  | No           | `10`                                              | Maximum number of Work records to return.                                                                                  |
 
-              | `offset` | integer | No | `0` | Number of matching Work records to skip. |
+              | `offset`          | integer  | No           | `0`                                               | Number of matching Work records to skip.                                                                                   |
 
 
               The `GET` method supports text-based vector search. Explicit embedding vectors are accepted only through `POST`.
@@ -2024,63 +2024,63 @@ items:
               #### POST request body
 
 
-              | Property | Type | Required | Default | Description |
+              | **Property**      | **Type**  | **Required** | **Default**                                       | **Description**                                                                                                |
 
-              | --- | --- | --- | --- | --- |
+              | ----------------- | --------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 
-              | `q` | string | No | `*` | CORE query expression containing textual content, structured conditions, or both. |
+              | `q`               | string    | No           | `*`                                               | CORE query expression containing textual content, structured conditions, or both.                              |
 
-              | `searchMode` | string | No | `keyword` | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`. |
+              | `searchMode`      | string    | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                       |
 
-              | `semanticRanking` | boolean | No | `false` | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`. |
+              | `semanticRanking` | boolean   | No           | `false`                                           | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`. |
 
-              | `vector` | number[] | No | — | Client-generated embedding used for vector or hybrid search. |
+              | `vector`          | number\[] | No           | —                                                 | Client-generated embedding used for vector or hybrid search.                                                   |
 
-              | `vectorTopK` | integer | No | Implementation-defined | Number of nearest vector candidates considered during vector or hybrid retrieval. |
+              | `vectorTopK`      | integer   | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                              |
 
-              | `orderby` | string[] | No | Relevance for textual, vector, and hybrid queries | Ordered list of sorting directives in `field:direction` format. |
+              | `orderby`         | string\[] | No           | Relevance for textual, vector, and hybrid queries | Ordered list of sorting directives in `field:direction` format.                                                |
 
-              | `select` | string[] | No | All retrievable fields | List of Work fields to return. |
+              | `select`          | string\[] | No           | All retrievable fields                            | List of Work fields to return.                                                                                 |
 
-              | `facets` | string[] | No | — | List of facetable fields for which value buckets and counts should be returned. |
+              | `facets`          | string\[] | No           | —                                                 | List of facetable fields for which value buckets and counts should be returned.                                |
 
-              | `count` | boolean | No | `false` | Indicates whether the total number of matching Work records should be included. |
+              | `count`           | boolean   | No           | `false`                                           | Indicates whether the total number of matching Work records should be included.                                |
 
-              | `limit` | integer | No | `10` | Maximum number of Work records to return. |
+              | `limit`           | integer   | No           | `10`                                              | Maximum number of Work records to return.                                                                      |
 
-              | `offset` | integer | No | `0` | Number of matching Work records to skip. |
+              | `offset`          | integer   | No           | `0`                                               | Number of matching Work records to skip.                                                                       |
 
 
               ##### GET and POST parameter mapping
 
 
-              | GET query parameter | POST body property |
+              | **GET query parameter**             | **POST body property**                        |
 
-              | --- | --- |
+              | ----------------------------------- | --------------------------------------------- |
 
-              | `q=yearPublished:2022` | `"q": "yearPublished:2022"` |
+              | `q=yearPublished:2022`              | `"q": "yearPublished:2022"`                   |
 
-              | `searchMode=vector` | `"searchMode": "vector"` |
+              | `searchMode=vector`                 | `"searchMode": "vector"`                      |
 
-              | `semanticRanking=true` | `"semanticRanking": true` |
+              | `semanticRanking=true`              | `"semanticRanking": true`                     |
 
-              | `searchMode=hybrid` | `"searchMode": "hybrid"` |
+              | `searchMode=hybrid`                 | `"searchMode": "hybrid"`                      |
 
-              | `vectorTopK=100` | `"vectorTopK": 100` |
+              | `vectorTopK=100`                    | `"vectorTopK": 100`                           |
 
-              | Not supported through `GET` | `"vector": [0.012, -0.084, 0.031, ...]` |
+              | Not supported through `GET`         | `"vector": [0.012, -0.084, 0.031, ...]`       |
 
-              | `orderby=yearPublished:desc` | `"orderby": ["yearPublished:desc"]` |
+              | `orderby=yearPublished:desc`        | `"orderby": ["yearPublished:desc"]`           |
 
-              | `select=workId,title,doi` | `"select": ["workId", "title", "doi"]` |
+              | `select=workId,title,doi`           | `"select": ["workId", "title", "doi"]`        |
 
               | `facets=documentType,yearPublished` | `"facets": ["documentType", "yearPublished"]` |
 
-              | `count=true` | `"count": true` |
+              | `count=true`                        | `"count": true`                               |
 
-              | `limit=10` | `"limit": 10` |
+              | `limit=10`                          | `"limit": 10`                                 |
 
-              | `offset=0` | `"offset": 0` |
+              | `offset=0`                          | `"offset": 0`                                 |
 
 
               #### Keyword search
@@ -2103,94 +2103,6 @@ items:
 
 
               Equivalent POST:
-
-
-              ```json
-
-              {
-                "q": "title:\"edge computing\"",
-                "searchMode": "keyword"
-              }
-
-              ```
-
-
-              ##### Search across all searchable Work fields
-
-
-              ```http
-
-              GET /v4/search/works?q="text and data mining"
-
-              ```
-
-
-              A broad textual query may search fields including:
-
-
-              - `title`
-
-              - `abstract`
-
-              - `fullText`
-
-              - Searchable reference fields
-
-              - Searchable contributor fields
-
-
-              When `orderby` is omitted, keyword results are ordered by textual relevance.
-
-
-              ##### Search full text
-
-
-              GET:
-
-
-              ```http
-
-              GET /v4/search/works?q=fullText:"text and data mining"
-
-              ```
-
-
-              Equivalent POST:
-
-
-              ```json
-
-              {
-                "q": "fullText:\"text and data mining\"",
-                "searchMode": "keyword"
-              }
-
-              ```
-          - divider: false
-            border: false
-            id: works-api-search-examples
-            title: Search examples
-            descriptionAbout: >-
-              #### Keyword search
-
-
-              Keyword search uses textual relevance without vector similarity.
-
-
-              ##### Search by title
-
-
-              GET request:
-
-
-              ```http
-
-              GET /v4/search/works?q=title:"edge computing"
-
-              ```
-
-
-              Equivalent POST request:
 
 
               ```json
@@ -2233,7 +2145,7 @@ items:
               ##### Search full text
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2243,7 +2155,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2254,15 +2166,15 @@ items:
               }
 
               ```
-
-
-              ####Other structured search examples
-
-
+          - divider: false
+            border: false
+            id: works-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
               #### Retrieve a Work by DOI
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2272,7 +2184,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2287,7 +2199,7 @@ items:
               #### Retrieve a Work by external identifier
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2297,7 +2209,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2315,7 +2227,7 @@ items:
               #### Retrieve Works by publication year and document type
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2325,7 +2237,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2340,7 +2252,7 @@ items:
               #### Retrieve the Work represented by an Output
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2350,7 +2262,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2365,7 +2277,7 @@ items:
               #### Retrieve Works associated with a Journal
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2375,7 +2287,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2390,7 +2302,7 @@ items:
               #### Retrieve Works associated with a Data Provider
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2400,7 +2312,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2415,7 +2327,7 @@ items:
               #### Retrieve Works citing a DOI
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2425,7 +2337,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2437,10 +2349,166 @@ items:
               ```
 
 
+              #### Retrieve Works classified under a Topic
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=topics.topicId:T1001
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "topics.topicId:T1001"
+              }
+
+              ```
+
+
+              #### Search Works by Topic name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=topics.displayName:"artificial intelligence"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "topics.displayName:\"artificial intelligence\""
+              }
+
+              ```
+
+
+              #### Retrieve Works with at least ten references
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=referenceCount>=10
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "referenceCount>=10"
+              }
+
+              ```
+
+
+              #### Retrieve highly cited Works
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=citationCount>=100&orderby=citationCount:desc
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citationCount>=100",
+                "orderby": [
+                  "citationCount:desc"
+                ]
+              }
+
+              ```
+
+
+              #### Retrieve Works associated with a Citation record
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/works?q=citationIds:7865
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citationIds:7865"
+              }
+
+              ```
+
+
+              #### Find Works citing a DOI using Citation search
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              {
+                "q": "citedDoi:\"10.1000/abc456\""
+              }
+
+              ```
+
+
+              The returned Citation records contain the `citingWorkId` values identifying the Works that cite the DOI.
+
+
               #### Retrieve Works with full text
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2450,7 +2518,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2462,478 +2530,13 @@ items:
               ```
 
 
-              #### Text-based vector search
-
-
-              Text-based vector search allows clients to submit natural-language text without generating an embedding themselves.
-
-
-              CORE extracts the textual query, generates an embedding, and retrieves semantically similar Works.
-
-
-              GET request:
-
-
-              ```http
-
-              GET /v4/search/works?q="text and data mining"&searchMode=vector
-
-              ```
-
-
-              Equivalent POST request:
-
-
-              ```json
-
-              {
-                "q": "\"text and data mining\"",
-                "searchMode": "vector",
-                "limit": 10,
-                "offset": 0
-              }
-
-              ```
-
-
-              Unlike keyword search, vector search may retrieve conceptually related Works that do not contain the exact query terms.
-
-
-              For example, the query:
-
-
-              ```text
-
-              institution name matching
-
-              ```
-
-
-              may retrieve Works discussing:
-
-
-              * Affiliation disambiguation
-
-              * Organisation-name normalisation
-
-              * Institutional entity resolution
-
-              * Research-organisation matching
-
-
-              #### Vector search with structured conditions
-
-
-              Vector retrieval can be combined with structured Work conditions.
-
-
-              GET request:
-
-
-              ```http
-
-              GET /v4/search/works?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"&searchMode=vector
-
-              ```
-
-
-              Executable request:
-
-
-              ```bash
-
-              curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/works?q="text%20and%20data%20mining"%20AND%20yearPublished>=2020%20AND%20documentType:"research%20article"&searchMode=vector&select=workId,title,abstract,yearPublished,documentType&limit=10' \
-                --header "Authorization: Bearer YOUR_API_KEY"
-              ```
-
-
-              Equivalent POST request:
-
-
-              ```bash
-
-              curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/works" \
-                --header "Authorization: Bearer YOUR_API_KEY" \
-                --header "Content-Type: application/json" \
-                --data '{
-                  "q": "\"text and data mining\" AND yearPublished>=2020 AND documentType:\"research article\"",
-                  "searchMode": "vector",
-                  "select": [
-                    "workId",
-                    "title",
-                    "abstract",
-                    "yearPublished",
-                    "documentType"
-                  ],
-                  "limit": 10,
-                  "offset": 0
-                }'
-              ```
-
-
-              This request:
-
-
-              * Converts `text and data mining` into an embedding
-
-              * Retrieves semantically similar Works
-
-              * Restricts results to Works published from 2020 onwards
-
-              * Restricts results to research articles
-
-              * Returns selected Work fields
-
-
-              #### Hybrid search
-
-
-              Hybrid search combines keyword relevance and vector similarity.
-
-
-              GET request:
-
-
-              ```http
-
-              GET /v4/search/works?q="text and data mining"&searchMode=hybrid
-
-              ```
-
-
-              Equivalent POST request:
-
-
-              ```json
-
-              {
-                "q": "\"text and data mining\"",
-                "searchMode": "hybrid",
-                "limit": 10,
-                "offset": 0
-              }
-
-              ```
-
-
-              In hybrid mode, the same textual query is used for:
-
-
-              * Keyword retrieval
-
-              * Vector generation
-
-              * Combined relevance ranking
-
-
-              The implementation should document how keyword and vector scores are combined.
-
-
-              #### Hybrid search with structured conditions
-
-
-              GET request:
-
-
-              ```http
-
-              GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&searchMode=hybrid
-
-              ```
-
-
-              Equivalent POST request:
-
-
-              ```json
-
-              {
-                "q": "\"text and data mining\" AND yearPublished>=2020",
-                "searchMode": "hybrid",
-                "select": [
-                  "workId",
-                  "title",
-                  "abstract",
-                  "yearPublished",
-                  "documentType"
-                ],
-                "limit": 10
-              }
-
-              ```
-
-
-              The textual query contributes to both keyword and vector relevance. The publication-year condition restricts the returned Works.
-
-
-              #### User-generated vector search
-
-
-              Users may supply an embedding directly through `POST`.
-
-
-              ```http
-
-              POST /v4/search/works
-
-              ```
-
-
-              ```json
-
-              {
-                "vector": [
-                  0.012,
-                  -0.084,
-                  0.031,
-                  0.107
-                ],
-                "searchMode": "vector",
-                "q": "yearPublished>=2020",
-                "select": [
-                  "workId",
-                  "title",
-                  "abstract",
-                  "yearPublished"
-                ],
-                "vectorTopK": 100,
-                "limit": 10,
-                "offset": 0
-              }
-
-              ```
-
-
-              The vector in this example is shortened for readability. A real request must contain the complete embedding required by the configured Work vector index.
-
-
-              When an explicit vector is supplied:
-
-
-              * CORE uses the supplied vector instead of generating one from query text
-
-              * `q` may contain structured conditions
-
-              * The vector must be compatible with the Work vector index
-
-
-              The public API documentation must specify:
-
-
-              * The embedding model or compatible vector-generation method
-
-              * The required number of vector dimensions
-
-              * The accepted numeric format
-
-              * Whether vectors must be normalised
-
-              * The maximum request-body size
-
-
-              #### Hybrid search using a user-generated vector
-
-
-              A user-generated vector may be combined with keyword relevance.
-
-
-              ```json
-
-              {
-                "q": "title:\"data mining\" AND yearPublished>=2020",
-                "vector": [
-                  0.012,
-                  -0.084,
-                  0.031,
-                  0.107
-                ],
-                "searchMode": "hybrid",
-                "vectorTopK": 100,
-                "select": [
-                  "workId",
-                  "title",
-                  "abstract",
-                  "yearPublished"
-                ],
-                "limit": 10
-              }
-
-              ```
-
-
-              This request combines:
-
-
-              * Keyword relevance for `data mining`
-
-              * Semantic similarity using the supplied vector
-
-              * A publication-year restriction
-
-
-              #### Explicit vector validation
-
-
-              A request containing `vector` should be rejected when:
-
-
-              * `searchMode` is `keyword`
-
-              * The vector has the wrong number of dimensions
-
-              * The vector contains invalid numeric values
-
-              * The vector is empty
-
-              * The vector is incompatible with the configured Work vector index
-
-
-              Example invalid request:
-
-
-              ```json
-
-              {
-                "searchMode": "keyword",
-                "vector": [
-                  0.12,
-                  0.34
-                ]
-              }
-
-              ```
-
-
-              Recommended response:
-
-
-              ```json
-
-              {
-                "status": 400,
-                "message": "The vector property can only be used when searchMode is vector or hybrid."
-              }
-
-              ```
-
-
-              #### Vector candidate count
-
-
-              The optional `vectorTopK` property controls the number of nearest vector candidates considered before final result processing.
-
-
-              Example:
-
-
-              ```json
-
-              {
-                "q": "\"scholarly document classification\"",
-                "searchMode": "vector",
-                "vectorTopK": 100,
-                "limit": 10
-              }
-
-              ```
-
-
-              `vectorTopK` is not the number of records returned.
-
-
-              In this example:
-
-
-              * Up to 100 nearest vector candidates are considered
-
-              * At most 10 records are returned
-
-
-              CORE should define:
-
-
-              * The default value
-
-              * The minimum permitted value
-
-              * The maximum permitted value
-
-              * Whether the value can be overridden by all API plans
-
-
-              #### Vector and hybrid result ordering
-
-
-              When `searchMode=vector` and `orderby` is omitted, results are ordered by vector similarity.
-
-
-              When `searchMode=hybrid` and `orderby` is omitted, results are ordered by combined keyword and vector relevance.
-
-
-              Applying an explicit `orderby` expression may replace relevance-based ordering.
-
-
-              For example:
-
-
-              ```http
-
-              GET /v4/search/works?q="machine learning"&searchMode=vector&orderby=yearPublished:desc
-
-              ```
-
-
-              This request orders the matching Works by publication year rather than vector similarity.
-
-
-              API users should omit `orderby` when semantic or hybrid relevance should determine the result order.
-
-
-              #### Search-result scores
-
-
-              Vector and hybrid relevance scores are search-result metadata. They are not persistent Work properties and should not be included in the Work data-structure table.
-
-
-              When exposed, a search result may include:
-
-
-              ```json
-
-              {
-                "workId": 323030168,
-                "title": "Text and data mining for scholarly repositories",
-                "yearPublished": 2025,
-                "relevanceScore": 0.873
-              }
-
-              ```
-
-
-              The API should document whether `relevanceScore` represents:
-
-
-              * Keyword relevance
-
-              * Vector similarity
-
-              * Combined hybrid relevance
-
-
-              Scores generated by different search modes should not be assumed to be directly comparable.
-
-
-
-
               #### Facets with vector search
 
 
               Facets may be requested with keyword, vector, and hybrid searches.
 
 
-              GET request:
+              GET:
 
 
               ```http
@@ -2943,7 +2546,7 @@ items:
               ```
 
 
-              Equivalent POST request:
+              Equivalent POST:
 
 
               ```json
@@ -2965,11 +2568,11 @@ items:
               The API implementation should define whether vector and hybrid facet counts are calculated over:
 
 
-              - The complete filtered index
+              * The complete filtered index
 
-              - The vector candidate set
+              * The vector candidate set
 
-              - The final ranked result set
+              * The final ranked result set
 
 
               This behaviour should be stated explicitly because it affects how clients interpret facet counts.
@@ -2981,7 +2584,7 @@ items:
               Vector and hybrid results may be paginated using `limit` and `offset`.
 
 
-              First page:
+              ##### First page
 
 
               ```json
@@ -2996,7 +2599,7 @@ items:
               ```
 
 
-              Second page:
+              ##### Second page
 
 
               ```json
@@ -3011,7 +2614,7 @@ items:
               ```
 
 
-              For stable pagination, the same query, search mode, vector, candidate settings, and index version should be used across requests.
+              For stable pagination, clients should use the same query, search mode, vector, candidate settings, and index version across requests.
 
 
               Because vector indexes may be updated between requests, results may change when pagination requests are made at different times.
@@ -3058,21 +2661,21 @@ items:
               #### Search responses
 
 
-              | Status | Description |
+              | **Status** | **Description**                                                                                                                                                                          |
 
-              | --- | --- |
+              | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-              | `200` | The Work search was completed successfully. |
+              | `200`      | The Work search was completed successfully.                                                                                                                                              |
 
-              | `400` | The request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400`      | The request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
 
-              | `401` | Authentication credentials are missing or invalid. |
+              | `401`      | Authentication credentials are missing or invalid.                                                                                                                                       |
 
-              | `413` | The POST request body exceeds the permitted size. |
+              | `413`      | The `POST` request body exceeds the permitted size.                                                                                                                                      |
 
-              | `429` | The API request limit has been exceeded. |
+              | `429`      | The API request limit has been exceeded.                                                                                                                                                 |
 
-              | `500` | An unexpected server error occurred. |
+              | `500`      | An unexpected server error occurred.                                                                                                                                                     |
           - divider: false
             border: false
             id: works-api-relationship-oriented-endpoints
