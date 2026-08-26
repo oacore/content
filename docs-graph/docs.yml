@@ -1683,9 +1683,6 @@ items:
               }
 
               ```
-
-
-              Authorships, Outputs, Journals, and Data Providers are not embedded as complete records in this response.
           - divider: false
             border: false
             id: works-api-supported-field-operations
