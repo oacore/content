@@ -2940,7 +2940,10 @@ items:
               \* More information is provided in the following sections.
 
 
-              #### Normalised external identifiers
+              #### Identifiers
+
+
+              ##### Normalised external identifiers
 
 
               The `externalIdentifiers` property contains normalised identifiers associated with the Output.
@@ -2985,7 +2988,7 @@ items:
               | `identifier` | string   | `"10.1000/xyz"`   | Identifier value associated with the Output. |
 
 
-              Supported identifier types may include:
+              T﻿he property, `type` can have following values:
 
 
               | **Value**     | **Description**                      |
@@ -3009,6 +3012,27 @@ items:
               | `PMID`        | PubMed identifier.                   |
 
               | `PMCID`       | PubMed Central identifier.           |
+
+
+              #### Raw identifier objects
+
+
+              The ER model contains both `externalIdentifiers` and `ids`.
+
+
+              The recommended distinction is:
+
+
+              | **Property**          | **Purpose**                                                                                   |
+
+              | --------------------- | --------------------------------------------------------------------------------------------- |
+
+              | `externalIdentifiers` | Normalised identifier values using the CORE identifier model.                                 |
+
+              | `ids`                 | Raw source-specific identifier structures retained for provenance or backwards compatibility. |
+
+
+              If CORE does not require both representations, `ids` should be removed and all identifiers should be consolidated under `externalIdentifiers`.
 
 
               #### Inverted abstract
@@ -3116,6 +3140,12 @@ items:
               | `collected`        | Date on which CORE collected the source record.       | CORE / OpenAIRE                                     |
 
 
+              Because `dates` is a collection, the Output cannot be unambiguously ordered by `dates.value`.
+
+
+              Frequently used dates should be exposed as top-level fields if direct ordering is required.
+
+
               #### Contributors
 
 
@@ -3147,15 +3177,15 @@ items:
               ```
 
 
-              | **Property** | **Type**      | **Example value** | **Description**                                                | **Source**                                       |
+              | **Property** | **Type** | **Example value** | **Description**                                                | **Source**                                       |
 
-              | ------------ | ------------- | ----------------- | -------------------------------------------------------------- | ------------------------------------------------ |
+              | ------------ | -------- | ----------------- | -------------------------------------------------------------- | ------------------------------------------------ |
 
-              | `name`       | string        | `"Alice Smith"`   | Name of the contributing person or organisation.               | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+              | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.               | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
 
-              | `type`       | string | null | `"Personal"`      | Indicates whether the contributor is a person or organisation. | DataCite / OpenAIRE                              |
+              | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or organisation. | DataCite / OpenAIRE                              |
 
-              | `role`       | string | null | `"editor"`        | Role performed by the contributor.                             | Crossref / DataCite / OpenAIRE                   |
+              | `role`       | string   | `"editor"`        | Role performed by the contributor.                             | Crossref / DataCite / OpenAIRE                   |
 
 
               Possible roles may include:
@@ -3194,15 +3224,15 @@ items:
               ```
 
 
-              | **Property** | **Type**       | **Example value** | **Description**                                                      | **Source**                   |
+              | **Property** | **Type** | **Example value** | **Description**                                                      | **Source**                   |
 
-              | ------------ | -------------- | ----------------- | -------------------------------------------------------------------- | ---------------------------- |
+              | ------------ | -------- | ----------------- | -------------------------------------------------------------------- | ---------------------------- |
 
-              | `id`         | integer | null | `1`               | Internal identifier for the language classification, when available. | CORE                         |
+              | `id`         | integer  | `1`               | Internal identifier for the language classification, when available. | CORE                         |
 
-              | `code`       | string         | `"en"`            | ISO 639 language code.                                               | OAI-PMH / Language detection |
+              | `code`       | string   | `"en"`            | ISO 639 language code.                                               | OAI-PMH / Language detection |
 
-              | `name`       | string | null  | `"English"`       | Human-readable language name.                                        | OAI-PMH / CORE               |
+              | `name`       | string   | `"English"`       | Human-readable language name.                                        | OAI-PMH / CORE               |
 
 
               An Output may contain multiple language records when more than one language is identified.
@@ -3211,7 +3241,7 @@ items:
               #### Access rights
 
 
-              The `accessRights` property contains structured access-right and open-access information.
+              The `accessRights` property contains structured access and open-access information.
 
 
               ```json
@@ -3244,39 +3274,39 @@ items:
               ```
 
 
-              | **Property**               | **Type**         | **Example value**                            | **Description**                                                               | **Source**                               |
+              | **Property**               | **Type**  | **Example value**                            | **Description**                                                               | **Source**                               |
 
-              | -------------------------- | ---------------- | -------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- |
+              | -------------------------- | --------- | -------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- |
 
-              | `accessRight`              | string | null    | `"open access"`                              | Human-readable access-right status.                                           | COAR / OpenAIRE / OAI-PMH / DataCite     |
+              | `accessRight`              | string    | `"open access"`                              | Human-readable access-right status.                                           | COAR / OpenAIRE / OAI-PMH / DataCite     |
 
-              | `accessRightUri`           | string | null    | `"http://purl.org/coar/access_right/c_abf2"` | URI identifying the access-right status.                                      | COAR / DataCite / OpenAIRE               |
+              | `accessRightUri`           | string    | `"http://purl.org/coar/access_right/c_abf2"` | URI identifying the access-right status.                                      | COAR / DataCite / OpenAIRE               |
 
-              | `scheme`                   | string | null    | `"COAR"`                                     | Vocabulary or scheme used for the access-right value.                         | OpenAIRE                                 |
+              | `scheme`                   | string    | `"COAR"`                                     | Vocabulary or scheme used for the access-right value.                         | OpenAIRE                                 |
 
-              | `isOpenAccess`             | boolean | null   | `true`                                       | Indicates whether the Output is considered open access.                       | OpenAlex / OpenAIRE / Derived by CORE    |
+              | `isOpenAccess`             | boolean   | `true`                                       | Indicates whether the Output is considered open access.                       | OpenAlex / OpenAIRE / Derived by CORE    |
 
-              | `oaStatus`                 | string | null    | `"gold"`                                     | Open-access status, such as `gold`, `green`, `bronze`, `hybrid`, or `closed`. | OpenAlex / OpenAIRE                      |
+              | `oaStatus`                 | string    | `"gold"`                                     | Open-access status, such as `gold`, `green`, `bronze`, `hybrid`, or `closed`. | OpenAlex / OpenAIRE                      |
 
-              | `openAccessRoute`          | string | null    | `"gold"`                                     | Open-access route, when supplied separately from the status.                  | OpenAIRE                                 |
+              | `openAccessRoute`          | string    | `"gold"`                                     | Open-access route, when supplied separately from the status.                  | OpenAIRE                                 |
 
-              | `freeToRead`               | boolean | null   | `true`                                       | Indicates whether the Output is free to read.                                 | RIOXX / ALI                              |
+              | `freeToRead`               | boolean   | `true`                                       | Indicates whether the Output is free to read.                                 | RIOXX / ALI                              |
 
-              | `accessStartDate`          | string | null    | `"2022-05-01"`                               | Date from which access begins.                                                | RIOXX / Crossref / Qualified Dublin Core |
+              | `accessStartDate`          | string    | `"2022-05-01"`                               | Date from which access begins.                                                | RIOXX / Crossref / Qualified Dublin Core |
 
-              | `accessEndDate`            | string | null    | `"2024-05-01"`                               | Date on which access ends, when supplied.                                     | RIOXX                                    |
+              | `accessEndDate`            | string    | `"2024-05-01"`                               | Date on which access ends, when supplied.                                     | RIOXX                                    |
 
-              | `embargoEndDate`           | string | null    | `"2023-05-01"`                               | Date on which an embargo ends.                                                | OpenAIRE                                 |
+              | `embargoEndDate`           | string    | `"2023-05-01"`                               | Date on which an embargo ends.                                                | OpenAIRE                                 |
 
-              | `version`                  | string | null    | `"publishedVersion"`                         | Version associated with the accessible copy.                                  | Crossref / RIOXX / OpenAlex / OpenAIRE   |
+              | `version`                  | string    | `"publishedVersion"`                         | Version associated with the accessible copy.                                  | Crossref / RIOXX / OpenAlex / OpenAIRE   |
 
-              | `oaUrl`                    | string | null    | `"https://example.org/article"`              | Landing-page URL of an open-access copy.                                      | OpenAlex                                 |
+              | `oaUrl`                    | string    | `"https://example.org/article"`              | Landing-page URL of an open-access copy.                                      | OpenAlex                                 |
 
-              | `pdfUrl`                   | string | null    | `"https://example.org/article.pdf"`          | Direct PDF URL of an open-access copy.                                        | OpenAlex                                 |
+              | `pdfUrl`                   | string    | `"https://example.org/article.pdf"`          | Direct PDF URL of an open-access copy.                                        | OpenAlex                                 |
 
-              | `anyRepositoryHasFulltext` | boolean | null   | `true`                                       | Indicates whether any known repository provides full text.                    | OpenAlex                                 |
+              | `anyRepositoryHasFulltext` | boolean   | `true`                                       | Indicates whether any known repository provides full text.                    | OpenAlex                                 |
 
-              | `raw`                      | string\[] | null | `["open access"]`                            | Raw access-right strings supplied by source metadata.                         | OAI-PMH / OpenAIRE                       |
+              | `raw`                      | string\[] | `["open access"]`                            | Raw access-right strings supplied by source metadata.                         | OAI-PMH / OpenAIRE                       |
 
 
               #### Licence
@@ -3304,21 +3334,21 @@ items:
               ```
 
 
-              | **Property**     | **Type**         | **Example value**                                | **Description**                                  | **Source**                             |
+              | **Property**     | **Type**  | **Example value**                                | **Description**                                  | **Source**                             |
 
-              | ---------------- | ---------------- | ------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
+              | ---------------- | --------- | ------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
 
-              | `name`           | string | null    | `"CC BY 4.0"`                                    | Normalised licence name.                         | OAI-PMH / OpenAIRE / OpenAlex          |
+              | `name`           | string    | `"CC BY 4.0"`                                    | Normalised licence name.                         | OAI-PMH / OpenAIRE / OpenAlex          |
 
-              | `uri`            | string | null    | `"https://creativecommons.org/licenses/by/4.0/"` | URI containing or identifying the licence terms. | Crossref / OpenAIRE / OpenAlex / RIOXX |
+              | `uri`            | string    | `"https://creativecommons.org/licenses/by/4.0/"` | URI containing or identifying the licence terms. | Crossref / OpenAIRE / OpenAlex / RIOXX |
 
-              | `startDate`      | string | null    | `"2022-05-01"`                                   | Date from which the licence applies.             | Crossref / RIOXX / OpenAIRE            |
+              | `startDate`      | string    | `"2022-05-01"`                                   | Date from which the licence applies.             | Crossref / RIOXX / OpenAIRE            |
 
-              | `delayDays`      | integer | null   | `365`                                            | Embargo or licence delay in days.                | Crossref                               |
+              | `delayDays`      | integer   | `365`                                            | Embargo or licence delay in days.                | Crossref                               |
 
-              | `contentVersion` | string | null    | `"published"`                                    | Content version covered by the licence.          | Crossref                               |
+              | `contentVersion` | string    | `"published"`                                    | Content version covered by the licence.          | Crossref                               |
 
-              | `raw`            | string\[] | null | `["CC-BY"]`                                      | Raw licence strings supplied by source metadata. | OAI-PMH / OpenAIRE / Crossref          |
+              | `raw`            | string\[] | `["CC-BY"]`                                      | Raw licence strings supplied by source metadata. | OAI-PMH / OpenAIRE / Crossref          |
 
 
               #### Links
@@ -3347,15 +3377,15 @@ items:
               ```
 
 
-              | **Property**  | **Type**      | **Example value**                             | Description                            |
+              | **Property**  | **Type** | **Example value**                             | **Description**                        |
 
-              | ------------- | ------------- | --------------------------------------------- | -------------------------------------- |
+              | ------------- | -------- | --------------------------------------------- | -------------------------------------- |
 
-              | `type`        | string | null | `"download"`                                  | Classification of the linked resource. |
+              | `type`        | string   | `"download"`                                  | Classification of the linked resource. |
 
-              | `url`         | string        | `"https://core.ac.uk/download/216874849.pdf"` | URL of the linked resource.            |
+              | `url`         | string   | `"https://core.ac.uk/download/216874849.pdf"` | URL of the linked resource.            |
 
-              | `contentType` | string | null | `"application/pdf"`                           | MIME type of the linked resource.      |
+              | `contentType` | string   | `"application/pdf"`                           | MIME type of the linked resource.      |
 
 
               The `urls` property separately retains related URLs supplied by source metadata.
@@ -3379,7 +3409,7 @@ items:
               ```
 
 
-              The supported vocabulary must be documented by CORE. Values should not be inferred solely from whether `fullText` is `null`.
+              The supported vocabulary must be documented by CORE. Possible values should not be inferred solely from whether `fullText` is `null`.
 
 
               ##### Disabled status
@@ -3409,7 +3439,17 @@ items:
               ```
 
 
-              The supported values and their meanings should be defined before implementation.
+              The `deleted` field is represented as a string in the ER model. Its controlled vocabulary and meaning should be defined before public release.
+
+
+              If this field is intended to represent a simple deleted/not-deleted state, it should instead be modelled as:
+
+
+              ```text
+
+              boolean | null
+
+              ```
 
 
               #### Sustainable Development Goals
@@ -3436,13 +3476,13 @@ items:
               ```
 
 
-              | Property | Type          | Example value | Description                                                                                                              | Source        |
+              | **Property** | **Type** | **Example value** | **Description**                                                                                                          | **Source**    |
 
-              | -------- | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------- |
+              | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------- |
 
-              | `type`   | string        | `"SDG04"`     | Identifier of the United Nations Sustainable Development Goal assigned to the Output.                                    | CORE ML model |
+              | `type`       | string   | `"SDG04"`         | Identifier of the United Nations Sustainable Development Goal assigned to the Output.                                    | CORE ML model |
 
-              | `score`  | number | null | `0.92`        | Confidence or relevance score for the SDG classification. Higher values indicate stronger model confidence or relevance. | CORE ML model |
+              | `score`      | number   | `0.92`            | Confidence or relevance score for the SDG classification. Higher values indicate stronger model confidence or relevance. | CORE ML model |
 
 
               Example Output record:
@@ -3930,20 +3970,43 @@ items:
               Output search is available through `GET` and `POST`:
 
 
-              ```http
+              | **Method** | **API endpoint**                           |
 
-              GET https://api.core.ac.uk/v4/search/outputs
+              | ---------- | ------------------------------------------ |
 
-              POST https://api.core.ac.uk/v4/search/outputs
+              | `GET`      | <https://api.core.ac.uk/v4/search/outputs> |
 
-              ```
+              | `POST`     | <https://api.core.ac.uk/v4/search/outputs> |
 
 
               Both methods use the CORE query language and return the same Output search-response structure.
 
 
+              `GET` is suitable for:
 
-              #### Output and Work vector search
+
+              * Keyword searches
+
+              * Structured searches
+
+              * Text-based vector searches
+
+              * Hybrid searches that can be represented conveniently in a URL
+
+
+              `POST` is recommended for:
+
+
+              * Explicit client-generated vectors
+
+              * Long or complex queries
+
+              * Searches containing many selected fields or facets
+
+              * Requests that may exceed practical URL-length limits
+
+
+              #### Output vector search
 
 
               Outputs are source-specific manifestations. Several Outputs from different Data Providers may represent the same canonical Work.
@@ -3952,7 +4015,7 @@ items:
               As a result, vector or hybrid search over Outputs may return near-duplicate records from multiple repositories or publication sources.
 
 
-              For deduplicated semantic discovery, clients should use:
+              For deduplicated semantic discovery, use Work search:
 
 
               ```http
@@ -3964,7 +4027,7 @@ items:
               ```
 
 
-              Output vector search is most appropriate when clients require:
+              Output vector search is most appropriate when users require:
 
 
               * Repository-specific metadata
@@ -3982,69 +4045,68 @@ items:
               * Output processing and availability status
 
 
-
-
               #### GET and POST search parameters
 
 
               ##### GET query parameters
 
 
-              | **Parameter** | **Type** | **Required** | **Default**                                       | **Description**                                                                                                            |
+              | **Parameter**     | **Type** | **Required** | **Default**                                       | **Description**                                                                                                            |
 
-              | ------------- | -------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+              | ----------------- | -------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 
-              | `q`           | string   | No           | `*`                                               | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
+              | `q`               | string   | No           | `*`                                               | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, ranges, and existence queries. |
 
-              | `searchMode`  | string   | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                                   |
+              | `searchMode`      | string   | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                                   |
 
-              | `vectorTopK`  | integer  | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                                          |
+              | `semanticRanking` | boolean  | No           | `false`                                           | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`.             |
 
-              | `orderby`     | string   | No           | Relevance for textual, vector, or hybrid searches | Comma-separated ordering directives in `field:direction` format.                                                           |
+              | `vectorTopK`      | integer  | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                                          |
 
-              | `select`      | string   | No           | All retrievable fields                            | Comma-separated list of Output fields to return.                                                                           |
+              | `orderby`         | string   | No           | Relevance for textual, vector, or hybrid searches | Comma-separated ordering directives in `field:direction` format.                                                           |
 
-              | `facets`      | string   | No           | —                                                 | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
+              | `select`          | string   | No           | All retrievable fields                            | Comma-separated list of Output fields to return.                                                                           |
 
-              | `count`       | boolean  | No           | `false`                                           | Indicates whether the total number of matching Outputs should be included.                                                 |
+              | `facets`          | string   | No           | —                                                 | Comma-separated list of facetable fields for which value buckets and counts should be returned.                            |
 
-              | `limit`       | integer  | No           | `10`                                              | Maximum number of Output records to return.                                                                                |
+              | `count`           | boolean  | No           | `false`                                           | Indicates whether the total number of matching Outputs should be included.                                                 |
 
-              | `offset`      | integer  | No           | `0`                                               | Number of matching Output records to skip.                                                                                 |
+              | `limit`           | integer  | No           | `10`                                              | Maximum number of Output records to return.                                                                                |
+
+              | `offset`          | integer  | No           | `0`                                               | Number of matching Output records to skip.                                                                                 |
 
 
-              The `GET` endpoint supports text-based vector and hybrid searches.
-
-
-              Client-generated embedding vectors are supported only through `POST`.
+              The `GET` endpoint supports text-based vector and hybrid searches. User-generated embedding vectors are supported only through `POST`.
 
 
               ##### POST request body
 
 
-              | **Property** | **Type**  | **Required** | **Default**                                       | **Description**                                                                   |
+              | **Property**      | **Type**  | **Required** | **Default**                                       | **Description**                                                                                                |
 
-              | ------------ | --------- | ------------ | ------------------------------------------------- | --------------------------------------------------------------------------------- |
+              | ----------------- | --------- | ------------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 
-              | `q`          | string    | No           | `*`                                               | CORE query expression containing textual content, structured conditions, or both. |
+              | `q`               | string    | No           | `*`                                               | CORE query expression containing textual content, structured conditions, or both.                              |
 
-              | `searchMode` | string    | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.          |
+              | `searchMode`      | string    | No           | `keyword`                                         | Search strategy. Supported values are `keyword`, `vector`, and `hybrid`.                                       |
 
-              | `vector`     | number\[] | No           | —                                                 | Client-generated embedding used for vector or hybrid search.                      |
+              | `semanticRanking` | boolean   | No           | `false`                                           | Applies semantic reranking to candidate results produced by hybrid search. Supported when `searchMode=hybrid`. |
 
-              | `vectorTopK` | integer   | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval. |
+              | `vector`          | number\[] | No           | —                                                 | Client-generated embedding used for vector or hybrid search.                                                   |
 
-              | `orderby`    | string\[] | No           | Relevance for textual, vector, or hybrid searches | Ordered list of sorting directives in `field:direction` format.                   |
+              | `vectorTopK`      | integer   | No           | Implementation-defined                            | Number of nearest vector candidates considered during vector or hybrid retrieval.                              |
 
-              | `select`     | string\[] | No           | All retrievable fields                            | List of Output fields to return.                                                  |
+              | `orderby`         | string\[] | No           | Relevance for textual, vector, or hybrid searches | Ordered list of sorting directives in `field:direction` format.                                                |
 
-              | `facets`     | string\[] | No           | —                                                 | List of facetable fields for which value buckets and counts should be returned.   |
+              | `select`          | string\[] | No           | All retrievable fields                            | List of Output fields to return.                                                                               |
 
-              | `count`      | boolean   | No           | `false`                                           | Indicates whether the total number of matching Outputs should be included.        |
+              | `facets`          | string\[] | No           | —                                                 | List of facetable fields for which value buckets and counts should be returned.                                |
 
-              | `limit`      | integer   | No           | `10`                                              | Maximum number of Output records to return.                                       |
+              | `count`           | boolean   | No           | `false`                                           | Indicates whether the total number of matching Outputs should be included.                                     |
 
-              | `offset`     | integer   | No           | `0`                                               | Number of matching Output records to skip.                                        |
+              | `limit`           | integer   | No           | `10`                                              | Maximum number of Output records to return.                                                                    |
+
+              | `offset`          | integer   | No           | `0`                                               | Number of matching Output records to skip.                                                                     |
 
 
               #### GET and POST parameter mapping
@@ -4057,6 +4119,8 @@ items:
               | `q=dataProviderId:86`               | `"q": "dataProviderId:86"`                       |
 
               | `searchMode=vector`                 | `"searchMode": "vector"`                         |
+
+              | `semanticRanking=true`              | `"semanticRanking": true`                        |
 
               | `searchMode=hybrid`                 | `"searchMode": "hybrid"`                         |
 
@@ -4075,9 +4139,6 @@ items:
               | `limit=10`                          | `"limit": 10`                                    |
 
               | `offset=0`                          | `"offset": 0`                                    |
-
-
-              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
           - divider: false
             border: false
             id: outputs-api-search-examples
