@@ -2824,43 +2824,42 @@ items:
             id: outputs-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Output entity represents a source-specific manifestation of a
-              scholarly research item harvested by CORE.
+              
+
+              The Output entity represents a source-specific manifestation of a scholarly research item harvested by CORE.
 
 
-              An Output corresponds to one record supplied by a Data Provider, such as:
+              An Output corresponds to a record supplied by a Data Provider, such as:
 
 
-              * an institutional repository;
+              * An institutional repository
 
-              * a subject repository;
+              * A subject repository
 
-              * a preprint server;
+              * A preprint server
 
-              * a Journal;
+              * A Journal
 
-              * a Publisher platform;
+              * A Publisher platform
 
-              * another scholarly metadata source.
-
-
-              Unlike a Work, which is a canonical deduplicated representation of a research item, an Output preserves the metadata and full-text information associated with one particular source record.
+              * Another scholarly metadata source
 
 
-              An Output may also contain CORE-generated processing information, including:
+              Unlike a Work, which is a canonical and deduplicated representation of a research item, an Output preserves the metadata and full-text information associated with a particular source record.
 
 
-              * extracted full text;
+              An Output may also contain information derived by CORE, including:
 
-              * normalised document types;
 
-              * language detection;
+              * Normalised document types
 
-              * open-access classification;
+              * Publication language
 
-              * Sustainable Development Goal classification;
+              * Access-rights and licence information
 
-              * full-text availability status.
+              * Sustainable Development Goal classifications
+
+              * Full-text availability status
             images:
               - file: /images/docs-graph/outputs.png
             subTitle: ""
