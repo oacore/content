@@ -295,6 +295,9 @@ navItems:
           - hidden: false
             item: Projects endpoints
             href: "#projects-api-projects-endpoints"
+          - hidden: false
+            item: Search Projects
+            href: "#projects-api-search-projects"
   - item: Search
     children:
       - item: Overview
