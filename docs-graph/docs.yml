@@ -19006,6 +19006,151 @@ items:
 
 
               An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: publishers-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to entities directly connected to a Publishers record. They return related records rather than embedding those records in the Publishers response.
+
+
+              The examples below assume that related entities expose a filterable `publisherId` field. This relationship field should be included in the final Output, Journal, and Data Provider schemas if these endpoints are adopted.
+
+
+              #### Outputs for a Publishers record
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/outputs
+
+              ```
+
+
+              Retrieves Outputs directly associated with the Publishers record.
+
+
+              Equivalent search:
+
+
+              ```http
+
+              GET /v4/search/outputs?q=publisherId:{publisherId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/publishers/8102/outputs?select=outputId,title,doi,publishedDate&orderby=publishedDate:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Journals for a Publishers record
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/journals
+
+              ```
+
+
+              Retrieves Journals published or managed by the Publishers record.
+
+
+              Equivalent search:
+
+
+              ```http
+
+              GET /v4/search/journals?q=publisherId:{publisherId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/publishers/8102/journals?select=journalId,title,issn&orderby=title:asc&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Data Providers for a Publishers record
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/data-providers
+
+              ```
+
+
+              Retrieves Data Providers hosted or operated by the Publishers record.
+
+
+              Equivalent search:
+
+
+              ```http
+
+              GET /v4/search/data-providers?q=publisherId:{publisherId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/publishers/8102/data-providers?select=dataProviderId,name,type&orderby=name:asc&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Child Publishers records
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/children
+
+              ```
+
+
+              Retrieves Publishers records whose parent relationship resolves to the specified Publishers record.
+
+
+              If `publisherParentId` remains an OpenAlex identifier, the equivalent search uses the selected Publishers record's `publisherOpenalexId`:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+
+              ```
+
+
+              If the final model changes `publisherParentId` to a CORE identifier, the equivalent search becomes:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherParentId:{publisherId}
+
+              ```
+
+
+              An existing Publishers record with no related records returns `200 OK` with an empty `results` array. If the supplied Publishers record does not exist, the relationship endpoint returns `404 Not Found`.
   - item: Search
     children:
       - item: null
