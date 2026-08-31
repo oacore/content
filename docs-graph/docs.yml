@@ -19151,6 +19151,39 @@ items:
 
 
               An existing Publishers record with no related records returns `200 OK` with an empty `results` array. If the supplied Publishers record does not exist, the relationship endpoint returns `404 Not Found`.
+      - item: Projects
+        sections:
+          - divider: false
+            border: false
+            id: projects-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Projects entity represents a funded research activity,
+              programme, or initiative associated with scholarly Works. A
+              Projects record may contain identifiers, descriptive metadata,
+              funding organisations and streams, grant amounts, programme
+              information, temporal coverage, and open-access mandates.
+
+
+              Unlike a Grant, which represents a funding award or agreement, a Projects record represents the research activity undertaken using that funding. A Projects record may be supported by one or more Grants, while a Grant may support one or more Projects. Works produced by or associated with a Projects record are connected through graph relationships rather than embedded in the Projects record.
+
+
+              ## Direct entity relationships
+
+
+              ![Projects direct entity relationships](/images/docs-graph/projects.png)
+
+
+              | **Relationship** | **Cardinality** | **Description**                                                                                                       |
+
+              | ---------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
+
+              | Projects–Works   | Many-to-many    | A Projects record may be associated with multiple Works, and a Work may acknowledge or result from multiple Projects. |
+
+              | Projects–Grants  | Many-to-many    | A Projects record may receive support through multiple Grants, and a Grant may support multiple Projects.             |
+
+
+              Funding organisations are represented in the supplied schema inside `fundings`. If funding organisations are later resolved to canonical Institution records, a direct Projects–Institutions relationship may also be added. It is not shown in the diagram because no canonical Institution identifier is currently present in the supplied Projects fields.
   - item: Search
     children:
       - item: null
