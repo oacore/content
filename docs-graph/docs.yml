@@ -19151,6 +19151,1154 @@ items:
 
 
               An existing Publishers record with no related records returns `200 OK` with an empty `results` array. If the supplied Publishers record does not exist, the relationship endpoint returns `404 Not Found`.
+      - item: Projects
+        sections:
+          - divider: false
+            border: false
+            id: projects-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Projects entity represents a funded research activity,
+              programme, or initiative associated with scholarly Works. A
+              Projects record may contain identifiers, descriptive metadata,
+              funding organisations and streams, grant amounts, programme
+              information, temporal coverage, and open-access mandates.
+
+
+              Unlike a Grant, which represents a funding award or agreement, a Projects record represents the research activity undertaken using that funding. A Projects record may be supported by one or more Grants, while a Grant may support one or more Projects. Works produced by or associated with a Projects record are connected through graph relationships rather than embedded in the Projects record.
+
+
+              ## Direct entity relationships
+
+
+              ![Projects direct entity relationships](/images/docs-graph/projects.png)
+
+
+              | **Relationship** | **Cardinality** | **Description**                                                                                                       |
+
+              | ---------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
+
+              | Projects–Works   | Many-to-many    | A Projects record may be associated with multiple Works, and a Work may acknowledge or result from multiple Projects. |
+
+              | Projects–Grants  | Many-to-many    | A Projects record may receive support through multiple Grants, and a Grant may support multiple Projects.             |
+
+
+              Funding organisations are represented in the supplied schema inside `fundings`. If funding organisations are later resolved to canonical Institution records, a direct Projects–Institutions relationship may also be added. It is not shown in the diagram because no canonical Institution identifier is currently present in the supplied Projects fields.
+          - divider: false
+            border: false
+            id: projects-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the top-level fields in the
+              planned CORE Graph metadata schema for the Projects entity.
+
+
+              #### Identifiers
+
+
+              | **Property**     | **Type**      | **Example value**                                  | **Description**                                                                | **Source** |
+
+              | ---------------- | ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------ | ---------- |
+
+              | `projectId`      | string        | `"coreproj____::001"`                              | Unique CORE internal canonical identifier for a record in the Projects entity. | CORE       |
+
+              | `openaireId`     | string | null | `"corda__h2020::70ea22400fd890c5033cb31642c4ae68"` | OpenAIRE identifier associated with the Projects record.                       | OpenAIRE   |
+
+              | `code`           | string | null | `"777541"`                                         | Source-supplied project code or grant agreement code.                          | OpenAIRE   |
+
+              | `acronym`        | string | null | `"OpenAIRE-Advance"`                               | Acronym associated with the Projects record.                                   | OpenAIRE   |
+
+              | `callIdentifier` | string | null | `"H2020-EINFRA-2017"`                              | Identifier of the funding call associated with the Projects record.            | OpenAIRE   |
+
+
+              #### Descriptive metadata
+
+
+              | **Property** | **Type**         | **Example value**                                                       | **Description**                                                                                | **Source** |
+
+              | ------------ | ---------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+
+              | `title`      | string           | `"OpenAIRE Advancing Open Scholarship"`                                 | Preferred title of the Projects record.                                                        | OpenAIRE   |
+
+              | `summary`    | string | null    | `"OpenAIRE-Advance continues the mission of OpenAIRE..."`               | Short summary or abstract describing the research activity represented by the Projects record. | OpenAIRE   |
+
+              | `keywords`   | string\[] | null | `["Open Science", "Repositories", "Open Access"]`                       | Keywords associated with the Projects record.                                                  | OpenAIRE   |
+
+              | `subjects`   | string\[] | null | `["Data and Distributed Computing e-infrastructures for Open Science"]` | Subjects or thematic areas associated with the Projects record.                                | OpenAIRE   |
+
+              | `websiteUrl` | string | null    | `"https://www.openaire.eu/advance/"`                                    | Public website associated with the Projects record.                                            | OpenAIRE   |
+
+
+              #### Temporal coverage
+
+
+              | **Property** | **Type**      | **Example value** | **Description**                                                                                        | **Source** |
+
+              | ------------ | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------ | ---------- |
+
+              | `startDate`  | string | null | `"2018-01-01"`    | Start date of the research activity represented by the Projects record, formatted as an ISO 8601 date. | OpenAIRE   |
+
+              | `endDate`    | string | null | `"2021-02-28"`    | End date of the research activity represented by the Projects record, formatted as an ISO 8601 date.   | OpenAIRE   |
+
+
+              These dates describe the planned or recorded duration of the activity represented by the Projects record. They are not CORE record-management dates.
+
+
+              #### Funding
+
+
+              | **Property** | **Type**         | **Example value** | **Description**                                                                           | **Source** |
+
+              | ------------ | ---------------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------- |
+
+              | `fundings`   | object\[] | null | See below         | Funding organisations and funding-stream information associated with the Projects record. | OpenAIRE   |
+
+              | `granted`    | object | null    | See below         | Financial information associated with the funding award recorded for the Projects record. | OpenAIRE   |
+
+
+              ##### `fundings` fields
+
+
+              | **Property**    | **Type**      | **Example value**       | **Description**                                                   |
+
+              | --------------- | ------------- | ----------------------- | ----------------------------------------------------------------- |
+
+              | `name`          | string | null | `"European Commission"` | Name of the funding organisation.                                 |
+
+              | `shortName`     | string | null | `"EC"`                  | Short name or acronym of the funding organisation.                |
+
+              | `jurisdiction`  | string | null | `"EU"`                  | Jurisdiction or country associated with the funding organisation. |
+
+              | `fundingStream` | object | null | See below               | Funding stream associated with the Projects record.               |
+
+
+              ##### `fundings.fundingStream` fields
+
+
+              | **Property**  | **Type**      | **Example value**                                                     | **Description**                          |
+
+              | ------------- | ------------- | --------------------------------------------------------------------- | ---------------------------------------- |
+
+              | `id`          | string | null | `"EC::H2020::RIA"`                                                    | Source identifier of the funding stream. |
+
+              | `description` | string | null | `"Horizon 2020 Framework Programme - Research and Innovation action"` | Description of the funding stream.       |
+
+
+              ##### `granted` fields
+
+
+              | **Property**   | **Type**      | **Example value** | **Description**                                                                               |
+
+              | -------------- | ------------- | ----------------- | --------------------------------------------------------------------------------------------- |
+
+              | `currency`     | string | null | `"EUR"`           | ISO 4217 currency code used for the financial values.                                         |
+
+              | `fundedAmount` | number | null | `10000000`        | Amount awarded to the activity represented by the Projects record, in the specified currency. |
+
+              | `totalCost`    | number | null | `10000000`        | Total recorded cost associated with the Projects record, in the specified currency.           |
+
+
+              Financial values should always be interpreted together with `granted.currency`. Missing values must not be treated as zero.
+
+
+              #### Programme information
+
+
+              | Property          | Type             | Example value | Description                                                  | Source   |
+
+              | ----------------- | ---------------- | ------------- | ------------------------------------------------------------ | -------- |
+
+              | `h2020Programmes` | object\[] | null | See below     | Horizon 2020 programmes associated with the Projects record. | OpenAIRE |
+
+
+              ##### `h2020Programmes` fields
+
+
+              | Property      | Type          | Example value                                                            | Description                   |
+
+              | ------------- | ------------- | ------------------------------------------------------------------------ | ----------------------------- |
+
+              | `code`        | string | null | `"H2020-EU.1.4.1.3."`                                                    | Horizon 2020 programme code.  |
+
+              | `description` | string | null | `"Development, deployment and operation of ICT-based e-infrastructures"` | Description of the programme. |
+
+
+              `h2020Programmes` is specific to Horizon 2020. If CORE later ingests structured programme information from additional funding schemes, a source-neutral property such as `programmes` may provide a more extensible representation.
+
+
+              #### Open-access mandates
+
+
+              | **Property**                       | **Type**       | **Example value** | **Description**                                                                         | **Source** |
+
+              | ---------------------------------- | -------------- | ----------------- | --------------------------------------------------------------------------------------- | ---------- |
+
+              | `openAccessMandateForDataset`      | boolean | null | `true`            | Indicates whether the Projects record includes an open-access mandate for datasets.     | OpenAIRE   |
+
+              | `openAccessMandateForPublications` | boolean | null | `true`            | Indicates whether the Projects record includes an open-access mandate for publications. | OpenAIRE   |
+
+
+              A `null` value means that the source did not provide enough information to determine whether the mandate applies. It must not be interpreted as `false`.
+
+
+              Example Projects record:
+
+
+              ```json
+
+              {
+                "projectId": "coreproj____::001",
+                "openaireId": "corda__h2020::70ea22400fd890c5033cb31642c4ae68",
+                "code": "777541",
+                "acronym": "OpenAIRE-Advance",
+                "title": "OpenAIRE Advancing Open Scholarship",
+                "callIdentifier": "H2020-EINFRA-2017",
+                "summary": "OpenAIRE-Advance continues the mission of OpenAIRE...",
+                "keywords": [
+                  "Open Science",
+                  "Repositories",
+                  "Open Access"
+                ],
+                "subjects": [
+                  "Data and Distributed Computing e-infrastructures for Open Science"
+                ],
+                "websiteUrl": "https://www.openaire.eu/advance/",
+                "fundings": [
+                  {
+                    "name": "European Commission",
+                    "shortName": "EC",
+                    "jurisdiction": "EU",
+                    "fundingStream": {
+                      "id": "EC::H2020::RIA",
+                      "description": "Horizon 2020 Framework Programme - Research and Innovation action"
+                    }
+                  }
+                ],
+                "granted": {
+                  "currency": "EUR",
+                  "fundedAmount": 10000000,
+                  "totalCost": 10000000
+                },
+                "h2020Programmes": [
+                  {
+                    "code": "H2020-EU.1.4.1.3.",
+                    "description": "Development, deployment and operation of ICT-based e-infrastructures"
+                  }
+                ],
+                "openAccessMandateForDataset": true,
+                "openAccessMandateForPublications": true,
+                "startDate": "2018-01-01",
+                "endDate": "2021-02-28"
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: projects-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              The following table describes the proposed field operations for
+              the future Projects entity.
+
+
+              | **Attribute**                        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | ------------------------------------ | -------------- | -------------- | ------------ | ------------- |
+
+              | `projectId`                          | No             | Yes            | Yes          | No            |
+
+              | `openaireId`                         | No             | Yes            | No           | No            |
+
+              | `code`                               | No             | Yes            | No           | No            |
+
+              | `acronym`                            | Yes            | Yes            | Yes          | No            |
+
+              | `callIdentifier`                     | No             | Yes            | No           | Yes           |
+
+              | `title`                              | Yes            | No             | Yes          | No            |
+
+              | `summary`                            | Yes            | No             | No           | No            |
+
+              | `keywords`                           | Yes            | Yes            | No           | Yes           |
+
+              | `subjects`                           | Yes            | Yes            | No           | Yes           |
+
+              | `websiteUrl`                         | No             | No             | No           | No            |
+
+              | `startDate`                          | No             | Yes            | Yes          | No            |
+
+              | `endDate`                            | No             | Yes            | Yes          | No            |
+
+              | `fundings.name`                      | Yes            | No             | No           | No            |
+
+              | `fundings.shortName`                 | Yes            | Yes            | No           | Yes           |
+
+              | `fundings.jurisdiction`              | No             | Yes            | No           | Yes           |
+
+              | `fundings.fundingStream.id`          | No             | Yes            | No           | Yes           |
+
+              | `fundings.fundingStream.description` | Yes            | No             | No           | No            |
+
+              | `granted.currency`                   | No             | Yes            | No           | Yes           |
+
+              | `granted.fundedAmount`               | No             | Yes            | Yes          | No            |
+
+              | `granted.totalCost`                  | No             | Yes            | Yes          | No            |
+
+              | `h2020Programmes.code`               | No             | Yes            | No           | Yes           |
+
+              | `h2020Programmes.description`        | Yes            | No             | No           | No            |
+
+              | `openAccessMandateForDataset`        | No             | Yes            | No           | Yes           |
+
+              | `openAccessMandateForPublications`   | No             | Yes            | No           | Yes           |
+          - divider: false
+            border: false
+            id: projects-api-projects-endpoints
+            title: Projects endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                             | **Method** | **Endpoint**                      |
+
+              | ----------------------------------------- | ---------- | --------------------------------- |
+
+              | Get a single Projects record              | `GET`      | `/v4/projects/{projectId}`        |
+
+              | Search Projects using URL parameters      | `GET`      | `/v4/search/projects`             |
+
+              | Search Projects using a JSON request body | `POST`     | `/v4/search/projects`             |
+
+              | Retrieve Works for a Projects record      | `GET`      | `/v4/projects/{projectId}/works`  |
+
+              | Retrieve Grants for a Projects record     | `GET`      | `/v4/projects/{projectId}/grants` |
+
+
+              #### Get a single Projects record
+
+
+              Retrieves one Projects record using its CORE identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/projects/{projectId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                    |
+
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------ |
+
+              | `projectId`   | string   | Yes          | Unique CORE identifier of the Projects record. The value must be URL-encoded when it contains reserved characters. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                           |
+
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Projects fields to return. Example: `select=projectId,title,acronym,startDate,endDate`. |
+
+
+              Example request:
+
+
+              The `projectId` value `coreproj____::001` is URL-encoded as `coreproj____%3A%3A001` in the request path.
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "projectId": "coreproj____::001",
+                "openaireId": "corda__h2020::70ea22400fd890c5033cb31642c4ae68",
+                "code": "777541",
+                "acronym": "OpenAIRE-Advance",
+                "title": "OpenAIRE Advancing Open Scholarship",
+                "callIdentifier": "H2020-EINFRA-2017",
+                "fundings": [
+                  {
+                    "name": "European Commission",
+                    "shortName": "EC",
+                    "jurisdiction": "EU",
+                    "fundingStream": {
+                      "id": "EC::H2020::RIA",
+                      "description": "Horizon 2020 Framework Programme - Research and Innovation action"
+                    }
+                  }
+                ],
+                "openAccessMandateForPublications": true,
+                "startDate": "2018-01-01",
+                "endDate": "2021-02-28"
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001?select=projectId,title,acronym,startDate,endDate" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "projectId": "coreproj____::001",
+                "title": "OpenAIRE Advancing Open Scholarship",
+                "acronym": "OpenAIRE-Advance",
+                "startDate": "2018-01-01",
+                "endDate": "2021-02-28"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                         |
+
+              | ---------- | ------------------------------------------------------- |
+
+              | `200`      | Projects record was returned successfully.              |
+
+              | `400`      | Projects identifier or `select` expression is invalid.  |
+
+              | `401`      | Authentication credentials are missing or invalid.      |
+
+              | `404`      | No Projects record exists for the supplied `projectId`. |
+
+              | `429`      | API request limit has been exceeded.                    |
+
+              | `500`      | An unexpected server error occurred.                    |
+          - divider: false
+            border: false
+            id: projects-api-search-projects
+            title: Search Projects
+            descriptionAbout: >-
+              Searches, filters, orders, facets, counts, and paginates Projects
+              records.
+
+
+              Projects search is available through `GET` and `POST`:
+
+
+              | **Method** | **API endpoint**                            |
+
+              | ---------- | ------------------------------------------- |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/projects> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/projects> |
+
+
+              Both methods use the same CORE query language and return the same Projects search-response structure.
+
+
+              Projects search supports textual keyword search and structured queries. Vector search, hybrid search, and semantic reranking are not supported for this entity.
+
+
+              #### GET and POST search parameters
+
+
+              ##### GET query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+              | `select`      | string   | No           | All retrievable fields        | Comma-separated list of Projects fields to include in each result.                                                                |
+
+              | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+              | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Projects records should be included.                                               |
+
+              | `limit`       | integer  | No           | `10`                          | Maximum number of Projects records to return.                                                                                     |
+
+              | `offset`      | integer  | No           | `0`                           | Number of matching Projects records to skip.                                                                                      |
+
+
+              ##### POST request body
+
+
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+              | `select`     | string\[] | No           | All retrievable fields        | List of Projects fields to include in each result.                                                                                |
+
+              | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+              | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Projects records should be included.                                               |
+
+              | `limit`      | integer   | No           | `10`                          | Maximum number of Projects records to return.                                                                                     |
+
+              | `offset`     | integer   | No           | `0`                           | Number of matching Projects records to skip.                                                                                      |
+
+
+              ##### GET and POST parameter mapping
+
+
+              | **GET query parameter**                            | **POST body property**                                                |
+
+              | -------------------------------------------------- | --------------------------------------------------------------------- |
+
+              | `q=callIdentifier:H2020-EINFRA-2017`               | `"q": "callIdentifier:H2020-EINFRA-2017"`                             |
+
+              | `orderby=startDate:desc`                           | `"orderby": ["startDate:desc"]`                                       |
+
+              | `select=projectId,title,acronym,startDate,endDate` | `"select": ["projectId", "title", "acronym", "startDate", "endDate"]` |
+
+              | `facets=fundings.jurisdiction,granted.currency`    | `"facets": ["fundings.jurisdiction", "granted.currency"]`             |
+
+              | `count=true`                                       | `"count": true`                                                       |
+
+              | `limit=10`                                         | `"limit": 10`                                                         |
+
+              | `offset=0`                                         | `"offset": 0`                                                         |
+
+
+              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: projects-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search by title
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?q=title:"OpenAIRE Advancing Open Scholarship"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "title:\"OpenAIRE Advancing Open Scholarship\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/projects?q="Open Scholarship"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `acronym`
+
+              * `title`
+
+              * `summary`
+
+              * `keywords`
+
+              * `subjects`
+
+              * `fundings.name`
+
+              * `fundings.shortName`
+
+              * `fundings.fundingStream.description`
+
+              * `h2020Programmes.description`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Projects record by OpenAIRE identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?q=openaireId:"corda__h2020::70ea22400fd890c5033cb31642c4ae68"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "openaireId:\"corda__h2020::70ea22400fd890c5033cb31642c4ae68\""
+              }
+
+              ```
+
+
+              #### Retrieve a Projects record by code
+
+
+              ```http
+
+              GET /v4/search/projects?q=code:777541
+
+              ```
+
+
+              #### Retrieve Projects records for a funding call
+
+
+              ```http
+
+              GET /v4/search/projects?q=callIdentifier:H2020-EINFRA-2017
+
+              ```
+
+
+              #### Search by funding organisation
+
+
+              ```http
+
+              GET /v4/search/projects?q=fundings.name:"European Commission"
+
+              ```
+
+
+              #### Retrieve Projects records by funding stream
+
+
+              ```http
+
+              GET /v4/search/projects?q=fundings.fundingStream.id:"EC::H2020::RIA"
+
+              ```
+
+
+              #### Retrieve Projects records with a publication open-access mandate
+
+
+              ```http
+
+              GET /v4/search/projects?q=openAccessMandateForPublications:true
+
+              ```
+
+
+              #### Retrieve Projects records active on a particular date
+
+
+              ```http
+
+              GET /v4/search/projects?q=startDate<=2020-06-01 AND endDate>=2020-06-01
+
+              ```
+
+
+              This query returns Projects records whose recorded date range includes 1 June 2020. Projects records with a missing `startDate` or `endDate` are not matched by both clauses.
+
+
+              #### Retrieve Projects records above a funding threshold
+
+
+              ```http
+
+              GET /v4/search/projects?q=granted.currency:EUR AND granted.fundedAmount>=1000000&orderby=granted.fundedAmount:desc
+
+              ```
+
+
+              The currency condition is essential when comparing monetary values from multiple currencies.
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Searches for Projects records concerning open science
+
+              * Restricts results to Projects records funded within the EU jurisdiction
+
+              * Requires a publication open-access mandate
+
+              * Orders results by start date in descending order
+
+              * Returns selected fields and the total matching result count
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects
+                  ?q="open science" AND fundings.jurisdiction:EU AND openAccessMandateForPublications:true
+                  &orderby=startDate:desc,projectId:asc
+                  &select=projectId,code,acronym,title,startDate,endDate,openAccessMandateForPublications
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/projects" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"open science\" AND fundings.jurisdiction:EU AND openAccessMandateForPublications:true",
+                  "orderby": [
+                    "startDate:desc",
+                    "projectId:asc"
+                  ],
+                  "select": [
+                    "projectId",
+                    "code",
+                    "acronym",
+                    "title",
+                    "startDate",
+                    "endDate",
+                    "openAccessMandateForPublications"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "projectId": "coreproj____::001",
+                    "code": "777541",
+                    "acronym": "OpenAIRE-Advance",
+                    "title": "OpenAIRE Advancing Open Scholarship",
+                    "startDate": "2018-01-01",
+                    "endDate": "2021-02-28",
+                    "openAccessMandateForPublications": true
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Projects results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by title
+
+
+              ```http
+
+              GET /v4/search/projects?orderby=title:asc
+
+              ```
+
+
+              ##### Order by start date
+
+
+              ```http
+
+              GET /v4/search/projects?orderby=startDate:desc
+
+              ```
+
+
+              ##### Order by awarded amount
+
+
+              ```http
+
+              GET /v4/search/projects?q=granted.currency:EUR&orderby=granted.fundedAmount:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?orderby=startDate:desc,projectId:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "startDate:desc",
+                  "projectId:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by start date. Projects records with the same start date are then ordered by their CORE identifiers.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?q=*&facets=fundings.jurisdiction,fundings.fundingStream.id,granted.currency,openAccessMandateForPublications&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "fundings.jurisdiction",
+                  "fundings.fundingStream.id",
+                  "granted.currency",
+                  "openAccessMandateForPublications"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 75000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "fundings.jurisdiction": [
+                    {
+                      "value": "EU",
+                      "count": 42000
+                    },
+                    {
+                      "value": "GB",
+                      "count": 6500
+                    }
+                  ],
+                  "fundings.fundingStream.id": [
+                    {
+                      "value": "EC::H2020::RIA",
+                      "count": 8200
+                    },
+                    {
+                      "value": "EC::H2020::CSA",
+                      "count": 4900
+                    }
+                  ],
+                  "granted.currency": [
+                    {
+                      "value": "EUR",
+                      "count": 51000
+                    },
+                    {
+                      "value": "GBP",
+                      "count": 6200
+                    }
+                  ],
+                  "openAccessMandateForPublications": [
+                    {
+                      "value": true,
+                      "count": 38000
+                    },
+                    {
+                      "value": false,
+                      "count": 9000
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Projects records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Projects records.
+
+
+              ```http
+
+              GET /v4/search/projects?q=fundings.jurisdiction:EU&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Projects results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Projects search was completed successfully.                                                                 |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: projects-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to entities directly connected to a Projects record. They return related records rather than embedding those records in the Projects response.
+
+
+              The examples below assume that the relationship is indexed through a filterable identifier on the related entity or implemented through an internal join. The exact storage direction does not need to be exposed to API clients.
+
+
+              #### Works for a Projects record
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/works
+
+              ```
+
+
+              Retrieves Works produced by, funded by, or otherwise associated with the Projects record.
+
+
+              Example request:
+
+
+              The `projectId` value must be URL-encoded when it contains reserved characters.
+
+
+              ```http
+
+              GET /v4/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Works expose a filterable `projectIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/works?q=projectIds:"coreproj____::001"
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/works/{workId}/projects
+
+              ```
+
+
+              #### Grants for a Projects record
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/grants
+
+              ```
+
+
+              Retrieves Grants that fund or otherwise support the Projects record.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Grants expose a filterable `projectIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/grants?q=projectIds:"coreproj____::001"
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/projects
+
+              ```
+
+
+              An existing Projects record with no related records returns `200 OK` with an empty `results` array. If the supplied Projects record does not exist, the relationship endpoint returns `404 Not Found`.
   - item: Search
     children:
       - item: null
