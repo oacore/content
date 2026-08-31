@@ -298,6 +298,9 @@ navItems:
           - hidden: false
             item: Search Projects
             href: "#projects-api-search-projects"
+          - hidden: false
+            item: Search examples
+            href: "#projects-api-search-examples"
   - item: Search
     children:
       - item: Overview
