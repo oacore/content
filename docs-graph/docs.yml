@@ -18266,6 +18266,158 @@ items:
               | `publisherCreatedDate`               | No             | Yes            | Yes          | No            |
 
               | `publisherUpdatedDate`               | No             | Yes            | Yes          | No            |
+          - divider: false
+            border: false
+            id: publishers-api-publishers-endpoints
+            title: Publishers endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                                   | **Method** | **Endpoint**                                  |
+
+              | ----------------------------------------------- | ---------- | --------------------------------------------- |
+
+              | Get a single Publishers record                  | `GET`      | `/v4/publishers/{publisherId}`                |
+
+              | Search Publishers using URL parameters          | `GET`      | `/v4/search/publishers`                       |
+
+              | Search Publishers using a JSON request body     | `POST`     | `/v4/search/publishers`                       |
+
+              | Retrieve Outputs for a Publishers record        | `GET`      | `/v4/publishers/{publisherId}/outputs`        |
+
+              | Retrieve Journals for a Publishers record       | `GET`      | `/v4/publishers/{publisherId}/journals`       |
+
+              | Retrieve Data Providers for a Publishers record | `GET`      | `/v4/publishers/{publisherId}/data-providers` |
+
+              | Retrieve child Publishers records               | `GET`      | `/v4/publishers/{publisherId}/children`       |
+
+
+              #### Get a single Publishers record
+
+
+              Retrieves one Publishers record using its CORE Publishers identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/publishers/{publisherId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                  |
+
+              | ------------- | -------- | ------------ | ------------------------------------------------ |
+
+              | `publisherId` | integer  | Yes          | Unique CORE identifier of the Publishers record. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Publishers fields to return. Example: `select=publisherId,publisherName,publisherCountryCodes`. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/publishers/8102" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "publisherId": 8102,
+                "publisherOpenalexId": "https://openalex.org/P4310319965",
+                "publisherRorId": "https://ror.org/0117jxy09",
+                "publisherMemberId": "297",
+                "publisherName": "Springer Nature",
+                "publisherCountryCodes": [
+                  "DE",
+                  "US"
+                ],
+                "publisherHomepageUrl": "https://www.springernature.com",
+                "publisherWorksCount": 123456,
+                "publisherCitedByCount": 987654,
+                "publisherUpdatedDate": "2024-11-07T05:31:56Z"
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/publishers/8102?select=publisherId,publisherName,publisherCountryCodes,publisherHomepageUrl" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "publisherId": 8102,
+                "publisherName": "Springer Nature",
+                "publisherCountryCodes": [
+                  "DE",
+                  "US"
+                ],
+                "publisherHomepageUrl": "https://www.springernature.com"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                              |
+
+              | ---------- | ------------------------------------------------------------ |
+
+              | `200`      | The Publishers record was returned successfully.             |
+
+              | `400`      | The Publishers identifier or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.           |
+
+              | `404`      | No Publishers record exists for the supplied `publisherId`.  |
+
+              | `429`      | The API request limit has been exceeded.                     |
+
+              | `500`      | An unexpected server error occurred.                         |
   - item: Search
     children:
       - item: null
