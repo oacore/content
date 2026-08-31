@@ -227,6 +227,9 @@ navItems:
           - hidden: false
             item: Search examples
             href: "#publishers-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#publishers-api-relationship-oriented-endpoints"
       - item: Grants
       - item: Funders
       - item: Topics
