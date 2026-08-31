@@ -17907,6 +17907,46 @@ items:
               }
 
               ```
+      - item: Publishers
+        sections:
+          - divider: false
+            border: false
+            id: publishers-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Publishers entity represents organisations responsible for
+              publishing, hosting, or disseminating scholarly Outputs. It
+              consolidates publisher information supplied through repository
+              metadata, RIOXX, DataCite, Crossref, OpenAIRE Graph, Qualified
+              Dublin Core, and OpenAlex into canonical CORE records.
+
+
+              Unlike the Outputs entity, which represents specific manifestations of scholarly Works, the Publishers entity represents the organisations associated with publishing or hosting those Outputs. A Publishers record may be connected to many Outputs, multiple Journals, multiple Data Providers, and a larger Publishers hierarchy.
+
+
+              #### Direct entity relationships
+
+
+              ![Publishers direct entity relationships](/images/docs-graph/publishers.png)
+
+
+              | **Relationship**          | **Cardinality** | **Description**                                                                                                                                      |
+
+              | ------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Publishers–Outputs        | One-to-many     | A Publishers record may publish or disseminate multiple Outputs. An Output may have no resolved Publishers record or one resolved Publishers record. |
+
+              | Publishers–Journals       | One-to-many     | A Publishers record may publish or manage multiple Journals. A Journal may have no resolved Publishers record or one resolved Publishers record.     |
+
+              | Publishers–Data Providers | One-to-many     | A Publishers record may host or operate multiple Data Providers, such as journal platforms or repositories.                                          |
+
+              | Publishers hierarchy      | Hierarchical    | A Publishers record may have one parent and multiple child records within the Publishers entity.                                                     |
+
+
+              The relationship between Publishers and Works is normally derived through Outputs or Journals. It is therefore not shown as a direct relationship in this diagram.
+
+
+              Citation metrics may be aggregated for a Publishers record, but Citations are likewise not directly connected to the Publishers entity.
   - item: Search
     children:
       - item: null
