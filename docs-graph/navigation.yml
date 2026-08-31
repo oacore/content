@@ -208,6 +208,28 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#authors-api-relationship-oriented-endpoints"
       - item: Publishers
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#publishers-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#publishers-api-data-structure"
+          - hidden: false
+            href: "#publishers-api-supported-field-operations"
+            item: Supported field operations
+          - hidden: false
+            item: Publishers endpoints
+            href: "#publishers-api-publishers-endpoints"
+          - hidden: false
+            item: Search Publishers
+            href: "#publishers-api-search-publishers"
+          - hidden: false
+            item: Search examples
+            href: "#publishers-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#publishers-api-relationship-oriented-endpoints"
       - item: Grants
       - item: Funders
       - item: Topics
