@@ -301,6 +301,9 @@ navItems:
           - hidden: false
             item: Search examples
             href: "#projects-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#projects-api-relationship-oriented-endpoints"
   - item: Search
     children:
       - item: Overview
