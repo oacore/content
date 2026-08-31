@@ -5465,23 +5465,22 @@ items:
             id: dataproviders-api-data-providers-endpoints
             title: Data providers endpoints
             descriptionAbout: >-
-              
               #### Available endpoints
 
 
-              | Operation | Method | Endpoint |
+              | **Operation**                                   | **Method** | **Endpoint**                                      |
 
-              | --- | --- | --- |
+              | ----------------------------------------------- | ---------- | ------------------------------------------------- |
 
-              | Get a single Data Provider | `GET` | `/v4/data-providers/{dataProviderId}` |
+              | Get a single Data Provider                      | `GET`      | `/v4/data-providers/{dataProviderId}`             |
 
-              | Search Data Providers using URL parameters | `GET` | `/v4/search/data-providers` |
+              | Search Data Providers using URL parameters      | `GET`      | `/v4/search/data-providers`                       |
 
-              | Search Data Providers using a JSON request body | `POST` | `/v4/search/data-providers` |
+              | Search Data Providers using a JSON request body | `POST`     | `/v4/search/data-providers`                       |
 
-              | Retrieve Outputs supplied by a Data Provider | `GET` | `/v4/data-providers/{dataProviderId}/outputs` |
+              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/outputs`     |
 
-              | Retrieve Data Providers for an Institution | `GET` | `/v4/institutions/{institutionId}/data-providers` |
+              | Retrieve Data Providers for an Institution      | `GET`      | `/v4/institutions/{institutionId}/data-providers` |
 
 
               A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
@@ -5509,31 +5508,31 @@ items:
               ##### Authorization
 
 
-              | Parameter | Location | Type | Required | Description |
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
 
-              | --- | --- | --- | --- | --- |
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
 
-              | `Authorization` | Header | string | Yes | CORE API authentication token supplied as a Bearer token. |
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
 
 
               ##### Path parameters
 
 
-              | Parameter | Type | Required | Description |
+              | **Parameter**    | **Type** | **Required** | **Description**                                     |
 
-              | --- | --- | --- | --- |
+              | ---------------- | -------- | ------------ | --------------------------------------------------- |
 
-              | `dataProviderId` | integer | Yes | Unique CORE identifier of the Data Provider record. |
+              | `dataProviderId` | integer  | Yes          | Unique CORE identifier of the Data Provider record. |
 
 
               ##### Query parameters
 
 
-              | Parameter | Type | Required | Description |
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                           |
 
-              | --- | --- | --- | --- |
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- |
 
-              | `select` | string | No | Comma-separated list of top-level Data Provider fields to return. Example: `select=dataProviderId,name,type,homepageUrl`. |
+              | `select`      | string   | No           | Comma-separated list of top-level Data Provider fields to return. Example: `select=dataProviderId,name,type,homepageUrl`. |
 
 
               Example request:
@@ -5611,21 +5610,21 @@ items:
               #### Responses
 
 
-              | Status | Description |
+              | **Status** | **Description**                                                      |
 
-              | --- | --- |
+              | ---------- | -------------------------------------------------------------------- |
 
-              | `200` | The Data Provider record was retrieved successfully. |
+              | `200`      | The Data Provider record was retrieved successfully.                 |
 
-              | `400` | The request contains an invalid parameter or unsupported field name. |
+              | `400`      | The request contains an invalid parameter or unsupported field name. |
 
-              | `401` | Authentication credentials are missing or invalid. |
+              | `401`      | Authentication credentials are missing or invalid.                   |
 
-              | `404` | No Data Provider record was found for the supplied identifier. |
+              | `404`      | No Data Provider record was found for the supplied identifier.       |
 
-              | `429` | The API request limit has been exceeded. |
+              | `429`      | The API request limit has been exceeded.                             |
 
-              | `500` | An unexpected server error occurred. |
+              | `500`      | An unexpected server error occurred.                                 |
           - divider: false
             border: false
             id: dataproviders-api-search-data-providers
@@ -5638,16 +5637,16 @@ items:
               Data Provider search is available through `GET` and `POST`:
 
 
-              ```http
+              | **Method** | **API endpoint**                                  |
 
-              GET https://api.core.ac.uk/v4/search/data-providers
+              | ---------- | ------------------------------------------------- |
 
-              POST https://api.core.ac.uk/v4/search/data-providers
+              | `GET`      | <https://api.core.ac.uk/v4/search/data-providers> |
 
-              ```
+              | `POST`     | <https://api.core.ac.uk/v4/search/data-providers> |
 
 
-              Both methods use the same CORE query language and return the same response structure.
+              Both methods use the same CORE query language and return the same Data Provider search-response structure.
 
 
               #### GET and POST search parameters
@@ -6274,7 +6273,7 @@ items:
               A deterministic `orderby` expression should be used when retrieving multiple pages.
 
 
-              ##### First page using GET
+              First page using GET:
 
 
               ```http
@@ -6284,7 +6283,7 @@ items:
               ```
 
 
-              ##### Second page using GET
+              Second page using GET:
 
 
               ```http
@@ -6294,7 +6293,7 @@ items:
               ```
 
 
-              ##### First page using POST
+              First page using POST:
 
 
               ```json
@@ -6311,7 +6310,7 @@ items:
               ```
 
 
-              ##### Second page using POST
+              Second page using POST:
 
 
               ```json
@@ -17908,6 +17907,1250 @@ items:
               }
 
               ```
+      - item: Publishers
+        sections:
+          - divider: false
+            border: false
+            id: publishers-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Publishers entity represents organisations responsible for
+              publishing, hosting, or disseminating scholarly Outputs. It
+              consolidates publisher information supplied through repository
+              metadata, RIOXX, DataCite, Crossref, OpenAIRE Graph, Qualified
+              Dublin Core, and OpenAlex into canonical CORE records.
+
+
+              Unlike the Outputs entity, which represents specific manifestations of scholarly Works, the Publishers entity represents the organisations associated with publishing or hosting those Outputs. A Publishers record may be connected to many Outputs, multiple Journals, multiple Data Providers, and a larger Publishers hierarchy.
+
+
+              #### Direct entity relationships
+
+
+              ![Publishers direct entity relationships](/images/docs-graph/publishers.png)
+
+
+              | **Relationship**          | **Cardinality** | **Description**                                                                                                                                      |
+
+              | ------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Publishers–Outputs        | One-to-many     | A Publishers record may publish or disseminate multiple Outputs. An Output may have no resolved Publishers record or one resolved Publishers record. |
+
+              | Publishers–Journals       | One-to-many     | A Publishers record may publish or manage multiple Journals. A Journal may have no resolved Publishers record or one resolved Publishers record.     |
+
+              | Publishers–Data Providers | One-to-many     | A Publishers record may host or operate multiple Data Providers, such as journal platforms or repositories.                                          |
+
+              | Publishers hierarchy      | Hierarchical    | A Publishers record may have one parent and multiple child records within the Publishers entity.                                                     |
+
+
+              The relationship between Publishers and Works is normally derived through Outputs or Journals. It is therefore not shown as a direct relationship in this diagram.
+
+
+              Citation metrics may be aggregated for a Publishers record, but Citations are likewise not directly connected to the Publishers entity.
+          - divider: false
+            border: false
+            id: publishers-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the top-level fields in the
+              planned CORE Graph metadata schema for the Publishers entity.
+
+
+              #### Identifiers
+
+
+              | **Property**          | **Type**         | **Example value**                         | **Description**                                                             | **Source**                  |
+
+              | --------------------- | ---------------- | ----------------------------------------- | --------------------------------------------------------------------------- | --------------------------- |
+
+              | `publisherId`         | integer          | `8102`                                    | Unique CORE internal canonical identifier for the Publishers entity.        | CORE                        |
+
+              | `publisherOpenalexId` | string | null    | `"https://openalex.org/P4310319965"`      | OpenAlex Publisher identifier.                                              | OpenAlex                    |
+
+              | `publisherRorId`      | string | null    | `"https://ror.org/0117jxy09"`             | ROR identifier associated with the Publishers record.                       | OpenAlex / ROR              |
+
+              | `publisherWikidataId` | string | null    | `"https://www.wikidata.org/wiki/Q180760"` | Wikidata identifier associated with the Publishers record.                  | OpenAlex / Wikidata         |
+
+              | `publisherMemberId`   | string | null    | `"297"`                                   | Crossref member identifier associated with the Publishers record.           | Crossref                    |
+
+              | `publisherIds`        | object\[] | null | See below                                 | Structured list of Publishers identifiers collected from different sources. | RIOXX / OpenAlex / Crossref |
+
+
+              ##### `publisherIds` fields
+
+
+              | **Property** | **Type**      | **Example value**                    | **Description**                                            |
+
+              | ------------ | ------------- | ------------------------------------ | ---------------------------------------------------------- |
+
+              | `scheme`     | string        | `"openalex"`                         | Identifier scheme, expressed as a stable controlled value. |
+
+              | `value`      | string        | `"P4310319965"`                      | Identifier value without additional normalisation.         |
+
+              | `uri`        | string | null | `"https://openalex.org/P4310319965"` | Resolvable URI for the identifier, when available.         |
+
+
+              #### Names and labels
+
+
+              | **Property**               | **Type**         | **Example value**                              | **Description**                                                            | **Source**                                                                          |
+
+              | -------------------------- | ---------------- | ---------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+
+              | `publisherName`            | string | null    | `"Springer Nature"`                            | Preferred Publishers name selected by CORE.                                | CORE                                                                                |
+
+              | `publisherNames`           | string\[] | null | `["Springer Nature", "Springer Nature Group"]` | Publishers names found across source records.                              | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE / Qualified Dublin Core / OpenAlex |
+
+              | `publisherAlternateTitles` | string\[] | null | `["施普林格-自然出版集团"]`                              | Alternative, historical, transliterated, or multilingual Publishers names. | OpenAlex                                                                            |
+
+
+              #### Location and country
+
+
+              | **Property**            | **Type**         | **Example value**       | **Description**                                                                                                                                       | **Source** |
+
+              | ----------------------- | ---------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherLocation`     | string | null    | `"Heidelberg, Germany"` | Publishers location as supplied by the source. This is not necessarily a structured or current headquarters address.                                  | Crossref   |
+
+              | `publisherCountryCodes` | string\[] | null | `["DE", "US"]`          | ISO 3166-1 alpha-2 country codes associated with the Publishers record. Multiple values may be retained when sources identify more than one location. | OpenAlex   |
+
+
+              #### Relationships and hierarchy
+
+
+              | **Property**              | **Type**         | **Example value**                      | **Description**                                                                         | **Source** |
+
+              | ------------------------- | ---------------- | -------------------------------------- | --------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherHierarchyLevel` | integer | null   | `0`                                    | Level of the Publishers record within the OpenAlex Publisher hierarchy.                 | OpenAlex   |
+
+              | `publisherParentId`       | string | null    | `"https://openalex.org/P4310319965"`   | OpenAlex identifier of the parent Publishers record, when available.                    | OpenAlex   |
+
+              | `publisherParentName`     | string | null    | `"Springer Nature"`                    | Display name of the parent Publishers record.                                           | OpenAlex   |
+
+              | `publisherLineage`        | string\[] | null | `["https://openalex.org/P4310319965"]` | Ordered Publishers hierarchy lineage represented using OpenAlex Publisher identifiers.  | OpenAlex   |
+
+              | `publisherRoles`          | object\[] | null | See below                              | Roles associated with the Publishers record, such as publisher, funder, or institution. | OpenAlex   |
+
+
+              ##### `publisherRoles` fields
+
+
+              | **Property** | **Type**       | **Example value**                    | **Description**                                                                        |
+
+              | ------------ | -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+
+              | `role`       | string         | `"publisher"`                        | Role assigned to the organisation by the source.                                       |
+
+              | `id`         | string         | `"https://openalex.org/P4310319965"` | Source identifier for the organisation in this role.                                   |
+
+              | `worksCount` | integer | null | `123456`                             | Number of Works associated with the organisation in this role according to the source. |
+
+
+              #### Web and media
+
+
+              | **Property**                 | **Type**      | **Example value**                  | **Description**                                                 | **Source** |
+
+              | ---------------------------- | ------------- | ---------------------------------- | --------------------------------------------------------------- | ---------- |
+
+              | `publisherHomepageUrl`       | string | null | `"https://www.springernature.com"` | Publishers homepage URL.                                        | OpenAlex   |
+
+              | `publisherImageUrl`          | string | null | `"https://example.org/image.png"`  | URL of an image associated with the Publishers record.          | OpenAlex   |
+
+              | `publisherImageThumbnailUrl` | string | null | `"https://example.org/thumb.png"`  | URL of a thumbnail image associated with the Publishers record. | OpenAlex   |
+
+
+              #### Work and citation metrics
+
+
+              | **Property**                | **Type**         | **Example value** | **Description**                                                                                             | **Source** |
+
+              | --------------------------- | ---------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherWorksCount`       | integer | null   | `123456`          | Number of Works associated with the Publishers record according to the source.                              | OpenAlex   |
+
+              | `publisherCitedByCount`     | integer | null   | `987654`          | Total citations received by Works associated with the Publishers record.                                    | OpenAlex   |
+
+              | `publisher2yrMeanCitedness` | number | null    | `4.2314`          | Mean number of citations received by the Publishers record's Works over the source-defined two-year period. | OpenAlex   |
+
+              | `publisherHIndex`           | integer | null   | `312`             | Source-calculated h-index for Works associated with the Publishers record.                                  | OpenAlex   |
+
+              | `publisherI10Index`         | integer | null   | `8241`            | Number of the Publishers record's associated Works that have received at least ten citations.               | OpenAlex   |
+
+              | `publisherCountsByYear`     | object\[] | null | See below         | Yearly Work and citation counts associated with the Publishers record.                                      | OpenAlex   |
+
+
+              Metric values are source-derived snapshots. They may change when the source data or calculation date changes and should not be interpreted as permanent properties of a Publishers record.
+
+
+              ##### `publisherCountsByYear` fields
+
+
+              | **Property**   | **Type** | **Example value** | **Description**                                                          |
+
+              | -------------- | -------- | ----------------- | ------------------------------------------------------------------------ |
+
+              | `year`         | integer  | `2023`            | Calendar year represented by the count record.                           |
+
+              | `worksCount`   | integer  | `12000`           | Number of Works associated with the Publishers record for the year.      |
+
+              | `citedByCount` | integer  | `45000`           | Number of citations associated with those Works according to the source. |
+
+
+              #### Source lookup and lifecycle
+
+
+              | **Property**             | **Type**      | **Example value**                                                            | **Description**                                                                                          | **Source** |
+
+              | ------------------------ | ------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherSourcesApiUrl` | string | null | `"https://api.openalex.org/sources?filter=host_organization.id:P4310319965"` | OpenAlex API URL for Sources hosted by the Publishers record.                                            | OpenAlex   |
+
+              | `publisherCreatedDate`   | string | null | `"2023-12-25"`                                                               | Date on which the source Publisher record was created, formatted as an ISO 8601 date.                    | OpenAlex   |
+
+              | `publisherUpdatedDate`   | string | null | `"2024-11-07T05:31:56Z"`                                                     | Date and time at which the source Publisher record was last updated, formatted as an ISO 8601 timestamp. | OpenAlex   |
+
+
+              `publisherCreatedDate` and `publisherUpdatedDate` describe the lifecycle of the source record. They do not represent the creation and update dates of the canonical CORE Publishers record. If CORE record-management dates are required, they should be represented separately, for example as `createdDate` and `updatedDate`.
+
+
+              Example Publishers record:
+
+
+              ```json
+
+              {
+                "publisherId": 8102,
+                "publisherOpenalexId": "https://openalex.org/P4310319965",
+                "publisherRorId": "https://ror.org/0117jxy09",
+                "publisherWikidataId": "https://www.wikidata.org/wiki/Q180760",
+                "publisherMemberId": "297",
+                "publisherIds": [
+                  {
+                    "scheme": "openalex",
+                    "value": "P4310319965",
+                    "uri": "https://openalex.org/P4310319965"
+                  },
+                  {
+                    "scheme": "ror",
+                    "value": "0117jxy09",
+                    "uri": "https://ror.org/0117jxy09"
+                  }
+                ],
+                "publisherName": "Springer Nature",
+                "publisherNames": [
+                  "Springer Nature",
+                  "Springer Nature Group"
+                ],
+                "publisherAlternateTitles": [
+                  "施普林格-自然出版集团"
+                ],
+                "publisherLocation": "Heidelberg, Germany",
+                "publisherCountryCodes": [
+                  "DE",
+                  "US"
+                ],
+                "publisherHierarchyLevel": 0,
+                "publisherParentId": null,
+                "publisherParentName": null,
+                "publisherLineage": [
+                  "https://openalex.org/P4310319965"
+                ],
+                "publisherRoles": [
+                  {
+                    "role": "publisher",
+                    "id": "https://openalex.org/P4310319965",
+                    "worksCount": 123456
+                  }
+                ],
+                "publisherHomepageUrl": "https://www.springernature.com",
+                "publisherImageUrl": "https://example.org/image.png",
+                "publisherImageThumbnailUrl": "https://example.org/thumb.png",
+                "publisherWorksCount": 123456,
+                "publisherCitedByCount": 987654,
+                "publisher2yrMeanCitedness": 4.2314,
+                "publisherHIndex": 312,
+                "publisherI10Index": 8241,
+                "publisherCountsByYear": [
+                  {
+                    "year": 2023,
+                    "worksCount": 12000,
+                    "citedByCount": 45000
+                  }
+                ],
+                "publisherSourcesApiUrl": "https://api.openalex.org/sources?filter=host_organization.id:P4310319965",
+                "publisherCreatedDate": "2023-12-25",
+                "publisherUpdatedDate": "2024-11-07T05:31:56Z"
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: publishers-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              The following table describes the proposed field operations for
+              the future Publishers entity.
+
+
+              | **Attribute**                        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | ------------------------------------ | -------------- | -------------- | ------------ | ------------- |
+
+              | `publisherId`                        | No             | Yes            | Yes          | No            |
+
+              | `publisherOpenalexId`                | No             | Yes            | No           | No            |
+
+              | `publisherRorId`                     | No             | Yes            | No           | No            |
+
+              | `publisherWikidataId`                | No             | Yes            | No           | No            |
+
+              | `publisherMemberId`                  | No             | Yes            | No           | No            |
+
+              | `publisherIds.scheme`                | No             | Yes            | No           | Yes           |
+
+              | `publisherIds.value`                 | No             | Yes            | No           | No            |
+
+              | `publisherIds.uri`                   | No             | Yes            | No           | No            |
+
+              | `publisherName`                      | Yes            | No             | Yes          | No            |
+
+              | `publisherNames`                     | Yes            | No             | No           | No            |
+
+              | `publisherAlternateTitles`           | Yes            | No             | No           | No            |
+
+              | `publisherLocation`                  | Yes            | No             | No           | No            |
+
+              | `publisherCountryCodes`              | No             | Yes            | No           | Yes           |
+
+              | `publisherHierarchyLevel`            | No             | Yes            | Yes          | Yes           |
+
+              | `publisherParentId`                  | No             | Yes            | No           | Yes           |
+
+              | `publisherParentName`                | Yes            | No             | No           | No            |
+
+              | `publisherLineage`                   | No             | Yes            | No           | No            |
+
+              | `publisherRoles.role`                | No             | Yes            | No           | Yes           |
+
+              | `publisherRoles.id`                  | No             | Yes            | No           | No            |
+
+              | `publisherRoles.worksCount`          | No             | Yes            | Yes          | No            |
+
+              | `publisherHomepageUrl`               | No             | No             | No           | No            |
+
+              | `publisherImageUrl`                  | No             | No             | No           | No            |
+
+              | `publisherImageThumbnailUrl`         | No             | No             | No           | No            |
+
+              | `publisherWorksCount`                | No             | Yes            | Yes          | No            |
+
+              | `publisherCitedByCount`              | No             | Yes            | Yes          | No            |
+
+              | `publisher2yrMeanCitedness`          | No             | Yes            | Yes          | No            |
+
+              | `publisherHIndex`                    | No             | Yes            | Yes          | No            |
+
+              | `publisherI10Index`                  | No             | Yes            | Yes          | No            |
+
+              | `publisherCountsByYear.year`         | No             | Yes            | No           | Yes           |
+
+              | `publisherCountsByYear.worksCount`   | No             | Yes            | Yes          | No            |
+
+              | `publisherCountsByYear.citedByCount` | No             | Yes            | Yes          | No            |
+
+              | `publisherSourcesApiUrl`             | No             | No             | No           | No            |
+
+              | `publisherCreatedDate`               | No             | Yes            | Yes          | No            |
+
+              | `publisherUpdatedDate`               | No             | Yes            | Yes          | No            |
+          - divider: false
+            border: false
+            id: publishers-api-publishers-endpoints
+            title: Publishers endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                                   | **Method** | **Endpoint**                                  |
+
+              | ----------------------------------------------- | ---------- | --------------------------------------------- |
+
+              | Get a single Publishers record                  | `GET`      | `/v4/publishers/{publisherId}`                |
+
+              | Search Publishers using URL parameters          | `GET`      | `/v4/search/publishers`                       |
+
+              | Search Publishers using a JSON request body     | `POST`     | `/v4/search/publishers`                       |
+
+              | Retrieve Outputs for a Publishers record        | `GET`      | `/v4/publishers/{publisherId}/outputs`        |
+
+              | Retrieve Journals for a Publishers record       | `GET`      | `/v4/publishers/{publisherId}/journals`       |
+
+              | Retrieve Data Providers for a Publishers record | `GET`      | `/v4/publishers/{publisherId}/data-providers` |
+
+              | Retrieve child Publishers records               | `GET`      | `/v4/publishers/{publisherId}/children`       |
+
+
+              #### Get a single Publishers record
+
+
+              Retrieves one Publishers record using its CORE Publishers identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/publishers/{publisherId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                  |
+
+              | ------------- | -------- | ------------ | ------------------------------------------------ |
+
+              | `publisherId` | integer  | Yes          | Unique CORE identifier of the Publishers record. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Publishers fields to return. Example: `select=publisherId,publisherName,publisherCountryCodes`. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/publishers/8102" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "publisherId": 8102,
+                "publisherOpenalexId": "https://openalex.org/P4310319965",
+                "publisherRorId": "https://ror.org/0117jxy09",
+                "publisherMemberId": "297",
+                "publisherName": "Springer Nature",
+                "publisherCountryCodes": [
+                  "DE",
+                  "US"
+                ],
+                "publisherHomepageUrl": "https://www.springernature.com",
+                "publisherWorksCount": 123456,
+                "publisherCitedByCount": 987654,
+                "publisherUpdatedDate": "2024-11-07T05:31:56Z"
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/publishers/8102?select=publisherId,publisherName,publisherCountryCodes,publisherHomepageUrl" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "publisherId": 8102,
+                "publisherName": "Springer Nature",
+                "publisherCountryCodes": [
+                  "DE",
+                  "US"
+                ],
+                "publisherHomepageUrl": "https://www.springernature.com"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                              |
+
+              | ---------- | ------------------------------------------------------------ |
+
+              | `200`      | The Publishers record was returned successfully.             |
+
+              | `400`      | The Publishers identifier or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.           |
+
+              | `404`      | No Publishers record exists for the supplied `publisherId`.  |
+
+              | `429`      | The API request limit has been exceeded.                     |
+
+              | `500`      | An unexpected server error occurred.                         |
+          - divider: false
+            border: false
+            id: "#publishers-api-search-publishers"
+            title: Search Publishers
+            descriptionAbout: >-
+              Searches, filters, orders, facets, counts, and paginates
+              Publishers records.
+
+
+              Publishers search is available through `GET` and `POST`:
+
+
+              | **Method** | **API endpoint**                              |
+
+              | ---------- | --------------------------------------------- |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/publishers> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/publishers> |
+
+
+              Both methods use the same CORE query language and return the same Publishers search-response structure.
+
+
+              Publishers search supports textual keyword search and structured queries. Vector search, hybrid search, and semantic reranking are not supported for this entity.
+
+
+              #### GET and POST search parameters
+
+
+              ##### GET query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+              | `select`      | string   | No           | All retrievable fields        | Comma-separated list of Publishers fields to include in each result.                                                              |
+
+              | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+              | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Publishers records should be included.                                             |
+
+              | `limit`       | integer  | No           | `10`                          | Maximum number of Publishers records to return.                                                                                   |
+
+              | `offset`      | integer  | No           | `0`                           | Number of matching Publishers records to skip.                                                                                    |
+
+
+              ##### POST request body
+
+
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+              | `select`     | string\[] | No           | All retrievable fields        | List of Publishers fields to include in each result.                                                                              |
+
+              | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+              | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Publishers records should be included.                                             |
+
+              | `limit`      | integer   | No           | `10`                          | Maximum number of Publishers records to return.                                                                                   |
+
+              | `offset`     | integer   | No           | `0`                           | Number of matching Publishers records to skip.                                                                                    |
+
+
+              ##### GET and POST parameter mapping
+
+
+              | **GET query parameter**                                  | **POST body property**                                                |
+
+              | -------------------------------------------------------- | --------------------------------------------------------------------- |
+
+              | `q=publisherCountryCodes:DE`                             | `"q": "publisherCountryCodes:DE"`                                     |
+
+              | `orderby=publisherName:asc`                              | `"orderby": ["publisherName:asc"]`                                    |
+
+              | `select=publisherId,publisherName,publisherCountryCodes` | `"select": ["publisherId", "publisherName", "publisherCountryCodes"]` |
+
+              | `facets=publisherCountryCodes,publisherRoles.role`       | `"facets": ["publisherCountryCodes", "publisherRoles.role"]`          |
+
+              | `count=true`                                             | `"count": true`                                                       |
+
+              | `limit=10`                                               | `"limit": 10`                                                         |
+
+              | `offset=0`                                               | `"offset": 0`                                                         |
+
+
+              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: publishers-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search by Publishers name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherName:"Springer Nature"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherName:\"Springer Nature\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/publishers?q="Springer Nature"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `publisherName`
+
+              * `publisherNames`
+
+              * `publisherAlternateTitles`
+
+              * `publisherLocation`
+
+              * `publisherParentName`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Publishers record by external identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRorId:"https://ror.org/0117jxy09"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherRorId:\"https://ror.org/0117jxy09\""
+              }
+
+              ```
+
+
+              The structured `publisherIds` list may also be queried:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherIds.scheme:ror AND publisherIds.value:0117jxy09
+
+              ```
+
+
+              Both conditions must apply to the same `publisherIds` object.
+
+
+              #### Retrieve Publishers records associated with a country
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherCountryCodes:DE
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherCountryCodes:DE"
+              }
+
+              ```
+
+
+              #### Retrieve child Publishers records
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+
+              ```
+
+
+              #### Retrieve Publishers records by role
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRoles.role:publisher
+
+              ```
+
+
+              #### Retrieve Publishers records above a Work-count threshold
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherWorksCount>=100000&orderby=publisherWorksCount:desc
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherWorksCount>=100000",
+                "orderby": [
+                  "publisherWorksCount:desc"
+                ]
+              }
+
+              ```
+
+
+              #### Retrieve Publishers records with ROR identifiers
+
+
+              ```http
+
+              GET /v4/search/publishers?q=_exists_:publisherRorId
+
+              ```
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Retrieves Publishers records associated with Germany
+
+              * Restricts results to records whose `publisherWorksCount` is at least 10,000
+
+              * Orders results by Work count in descending order
+
+              * Returns selected fields
+
+              * Includes the total matching result count
+
+              * Returns a maximum of ten records
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers
+                  ?q=publisherCountryCodes:DE AND publisherWorksCount>=10000
+                  &orderby=publisherWorksCount:desc
+                  &select=publisherId,publisherName,publisherCountryCodes,publisherWorksCount,publisherCitedByCount
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/publishers" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "publisherCountryCodes:DE AND publisherWorksCount>=10000",
+                  "orderby": [
+                    "publisherWorksCount:desc"
+                  ],
+                  "select": [
+                    "publisherId",
+                    "publisherName",
+                    "publisherCountryCodes",
+                    "publisherWorksCount",
+                    "publisherCitedByCount"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "publisherId": 8102,
+                    "publisherName": "Springer Nature",
+                    "publisherCountryCodes": [
+                      "DE",
+                      "US"
+                    ],
+                    "publisherWorksCount": 123456,
+                    "publisherCitedByCount": 987654
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Publishers results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by preferred name
+
+
+              ```http
+
+              GET /v4/search/publishers?orderby=publisherName:asc
+
+              ```
+
+
+              ##### Order by Work count
+
+
+              ```http
+
+              GET /v4/search/publishers?orderby=publisherWorksCount:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?orderby=publisherHierarchyLevel:asc,publisherName:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "publisherHierarchyLevel:asc",
+                  "publisherName:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by hierarchy level. Records at the same level are then ordered by preferred Publishers name.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=*&facets=publisherCountryCodes,publisherRoles.role,publisherHierarchyLevel&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "publisherCountryCodes",
+                  "publisherRoles.role",
+                  "publisherHierarchyLevel"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 25000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "publisherCountryCodes": [
+                    {
+                      "value": "US",
+                      "count": 7100
+                    },
+                    {
+                      "value": "GB",
+                      "count": 2450
+                    },
+                    {
+                      "value": "DE",
+                      "count": 1800
+                    }
+                  ],
+                  "publisherRoles.role": [
+                    {
+                      "value": "publisher",
+                      "count": 22000
+                    },
+                    {
+                      "value": "funder",
+                      "count": 1200
+                    },
+                    {
+                      "value": "institution",
+                      "count": 850
+                    }
+                  ],
+                  "publisherHierarchyLevel": [
+                    {
+                      "value": 0,
+                      "count": 18000
+                    },
+                    {
+                      "value": 1,
+                      "count": 5200
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Publishers records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Publishers records.
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherCountryCodes:GB&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Publishers results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Publishers search was completed successfully.                                                               |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: publishers-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to entities directly connected to a Publishers record. They return related records rather than embedding those records in the Publishers response.
+
+
+              The examples below assume that related entities expose a filterable `publisherId` field. This relationship field should be included in the final Output, Journal, and Data Provider schemas if these endpoints are adopted.
+
+
+              #### Outputs for a Publishers record
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/outputs
+
+              ```
+
+
+              Retrieves Outputs directly associated with the Publishers record.
+
+
+              Equivalent search:
+
+
+              ```http
+
+              GET /v4/search/outputs?q=publisherId:{publisherId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/publishers/8102/outputs?select=outputId,title,doi,publishedDate&orderby=publishedDate:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Journals for a Publishers record
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/journals
+
+              ```
+
+
+              Retrieves Journals published or managed by the Publishers record.
+
+
+              Equivalent search:
+
+
+              ```http
+
+              GET /v4/search/journals?q=publisherId:{publisherId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/publishers/8102/journals?select=journalId,title,issn&orderby=title:asc&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Data Providers for a Publishers record
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/data-providers
+
+              ```
+
+
+              Retrieves Data Providers hosted or operated by the Publishers record.
+
+
+              Equivalent search:
+
+
+              ```http
+
+              GET /v4/search/data-providers?q=publisherId:{publisherId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/publishers/8102/data-providers?select=dataProviderId,name,type&orderby=name:asc&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Child Publishers records
+
+
+              ```http
+
+              GET /v4/publishers/{publisherId}/children
+
+              ```
+
+
+              Retrieves Publishers records whose parent relationship resolves to the specified Publishers record.
+
+
+              If `publisherParentId` remains an OpenAlex identifier, the equivalent search uses the selected Publishers record's `publisherOpenalexId`:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+
+              ```
+
+
+              If the final model changes `publisherParentId` to a CORE identifier, the equivalent search becomes:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherParentId:{publisherId}
+
+              ```
+
+
+              An existing Publishers record with no related records returns `200 OK` with an empty `results` array. If the supplied Publishers record does not exist, the relationship endpoint returns `404 Not Found`.
   - item: Search
     children:
       - item: null
