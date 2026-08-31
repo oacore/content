@@ -17947,6 +17947,245 @@ items:
 
 
               Citation metrics may be aggregated for a Publishers record, but Citations are likewise not directly connected to the Publishers entity.
+          - divider: false
+            border: false
+            id: publishers-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the top-level fields in the
+              planned CORE Graph metadata schema for the Publishers entity.
+
+
+              #### Identifiers
+
+
+              | **Property**          | **Type**         | **Example value**                         | **Description**                                                             | **Source**                  |
+
+              | --------------------- | ---------------- | ----------------------------------------- | --------------------------------------------------------------------------- | --------------------------- |
+
+              | `publisherId`         | integer          | `8102`                                    | Unique CORE internal canonical identifier for the Publishers entity.        | CORE                        |
+
+              | `publisherOpenalexId` | string | null    | `"https://openalex.org/P4310319965"`      | OpenAlex Publisher identifier.                                              | OpenAlex                    |
+
+              | `publisherRorId`      | string | null    | `"https://ror.org/0117jxy09"`             | ROR identifier associated with the Publishers record.                       | OpenAlex / ROR              |
+
+              | `publisherWikidataId` | string | null    | `"https://www.wikidata.org/wiki/Q180760"` | Wikidata identifier associated with the Publishers record.                  | OpenAlex / Wikidata         |
+
+              | `publisherMemberId`   | string | null    | `"297"`                                   | Crossref member identifier associated with the Publishers record.           | Crossref                    |
+
+              | `publisherIds`        | object\[] | null | See below                                 | Structured list of Publishers identifiers collected from different sources. | RIOXX / OpenAlex / Crossref |
+
+
+              ##### `publisherIds` fields
+
+
+              | **Property** | **Type**      | **Example value**                    | **Description**                                            |
+
+              | ------------ | ------------- | ------------------------------------ | ---------------------------------------------------------- |
+
+              | `scheme`     | string        | `"openalex"`                         | Identifier scheme, expressed as a stable controlled value. |
+
+              | `value`      | string        | `"P4310319965"`                      | Identifier value without additional normalisation.         |
+
+              | `uri`        | string | null | `"https://openalex.org/P4310319965"` | Resolvable URI for the identifier, when available.         |
+
+
+              #### Names and labels
+
+
+              | **Property**               | **Type**         | **Example value**                              | **Description**                                                            | **Source**                                                                          |
+
+              | -------------------------- | ---------------- | ---------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+
+              | `publisherName`            | string | null    | `"Springer Nature"`                            | Preferred Publishers name selected by CORE.                                | CORE                                                                                |
+
+              | `publisherNames`           | string\[] | null | `["Springer Nature", "Springer Nature Group"]` | Publishers names found across source records.                              | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE / Qualified Dublin Core / OpenAlex |
+
+              | `publisherAlternateTitles` | string\[] | null | `["施普林格-自然出版集团"]`                              | Alternative, historical, transliterated, or multilingual Publishers names. | OpenAlex                                                                            |
+
+
+              #### Location and country
+
+
+              | **Property**            | **Type**         | **Example value**       | **Description**                                                                                                                                       | **Source** |
+
+              | ----------------------- | ---------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherLocation`     | string | null    | `"Heidelberg, Germany"` | Publishers location as supplied by the source. This is not necessarily a structured or current headquarters address.                                  | Crossref   |
+
+              | `publisherCountryCodes` | string\[] | null | `["DE", "US"]`          | ISO 3166-1 alpha-2 country codes associated with the Publishers record. Multiple values may be retained when sources identify more than one location. | OpenAlex   |
+
+
+              #### Relationships and hierarchy
+
+
+              | **Property**              | **Type**         | **Example value**                      | **Description**                                                                         | **Source** |
+
+              | ------------------------- | ---------------- | -------------------------------------- | --------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherHierarchyLevel` | integer | null   | `0`                                    | Level of the Publishers record within the OpenAlex Publisher hierarchy.                 | OpenAlex   |
+
+              | `publisherParentId`       | string | null    | `"https://openalex.org/P4310319965"`   | OpenAlex identifier of the parent Publishers record, when available.                    | OpenAlex   |
+
+              | `publisherParentName`     | string | null    | `"Springer Nature"`                    | Display name of the parent Publishers record.                                           | OpenAlex   |
+
+              | `publisherLineage`        | string\[] | null | `["https://openalex.org/P4310319965"]` | Ordered Publishers hierarchy lineage represented using OpenAlex Publisher identifiers.  | OpenAlex   |
+
+              | `publisherRoles`          | object\[] | null | See below                              | Roles associated with the Publishers record, such as publisher, funder, or institution. | OpenAlex   |
+
+
+              ##### `publisherRoles` fields
+
+
+              | **Property** | **Type**       | **Example value**                    | **Description**                                                                        |
+
+              | ------------ | -------------- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+
+              | `role`       | string         | `"publisher"`                        | Role assigned to the organisation by the source.                                       |
+
+              | `id`         | string         | `"https://openalex.org/P4310319965"` | Source identifier for the organisation in this role.                                   |
+
+              | `worksCount` | integer | null | `123456`                             | Number of Works associated with the organisation in this role according to the source. |
+
+
+              #### Web and media
+
+
+              | **Property**                 | **Type**      | **Example value**                  | **Description**                                                 | **Source** |
+
+              | ---------------------------- | ------------- | ---------------------------------- | --------------------------------------------------------------- | ---------- |
+
+              | `publisherHomepageUrl`       | string | null | `"https://www.springernature.com"` | Publishers homepage URL.                                        | OpenAlex   |
+
+              | `publisherImageUrl`          | string | null | `"https://example.org/image.png"`  | URL of an image associated with the Publishers record.          | OpenAlex   |
+
+              | `publisherImageThumbnailUrl` | string | null | `"https://example.org/thumb.png"`  | URL of a thumbnail image associated with the Publishers record. | OpenAlex   |
+
+
+              #### Work and citation metrics
+
+
+              | **Property**                | **Type**         | **Example value** | **Description**                                                                                             | **Source** |
+
+              | --------------------------- | ---------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherWorksCount`       | integer | null   | `123456`          | Number of Works associated with the Publishers record according to the source.                              | OpenAlex   |
+
+              | `publisherCitedByCount`     | integer | null   | `987654`          | Total citations received by Works associated with the Publishers record.                                    | OpenAlex   |
+
+              | `publisher2yrMeanCitedness` | number | null    | `4.2314`          | Mean number of citations received by the Publishers record's Works over the source-defined two-year period. | OpenAlex   |
+
+              | `publisherHIndex`           | integer | null   | `312`             | Source-calculated h-index for Works associated with the Publishers record.                                  | OpenAlex   |
+
+              | `publisherI10Index`         | integer | null   | `8241`            | Number of the Publishers record's associated Works that have received at least ten citations.               | OpenAlex   |
+
+              | `publisherCountsByYear`     | object\[] | null | See below         | Yearly Work and citation counts associated with the Publishers record.                                      | OpenAlex   |
+
+
+              Metric values are source-derived snapshots. They may change when the source data or calculation date changes and should not be interpreted as permanent properties of a Publishers record.
+
+
+              ##### `publisherCountsByYear` fields
+
+
+              | **Property**   | **Type** | **Example value** | **Description**                                                          |
+
+              | -------------- | -------- | ----------------- | ------------------------------------------------------------------------ |
+
+              | `year`         | integer  | `2023`            | Calendar year represented by the count record.                           |
+
+              | `worksCount`   | integer  | `12000`           | Number of Works associated with the Publishers record for the year.      |
+
+              | `citedByCount` | integer  | `45000`           | Number of citations associated with those Works according to the source. |
+
+
+              #### Source lookup and lifecycle
+
+
+              | **Property**             | **Type**      | **Example value**                                                            | **Description**                                                                                          | **Source** |
+
+              | ------------------------ | ------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `publisherSourcesApiUrl` | string | null | `"https://api.openalex.org/sources?filter=host_organization.id:P4310319965"` | OpenAlex API URL for Sources hosted by the Publishers record.                                            | OpenAlex   |
+
+              | `publisherCreatedDate`   | string | null | `"2023-12-25"`                                                               | Date on which the source Publisher record was created, formatted as an ISO 8601 date.                    | OpenAlex   |
+
+              | `publisherUpdatedDate`   | string | null | `"2024-11-07T05:31:56Z"`                                                     | Date and time at which the source Publisher record was last updated, formatted as an ISO 8601 timestamp. | OpenAlex   |
+
+
+              `publisherCreatedDate` and `publisherUpdatedDate` describe the lifecycle of the source record. They do not represent the creation and update dates of the canonical CORE Publishers record. If CORE record-management dates are required, they should be represented separately, for example as `createdDate` and `updatedDate`.
+
+
+              Example Publishers record:
+
+
+              ```json
+
+              {
+                "publisherId": 8102,
+                "publisherOpenalexId": "https://openalex.org/P4310319965",
+                "publisherRorId": "https://ror.org/0117jxy09",
+                "publisherWikidataId": "https://www.wikidata.org/wiki/Q180760",
+                "publisherMemberId": "297",
+                "publisherIds": [
+                  {
+                    "scheme": "openalex",
+                    "value": "P4310319965",
+                    "uri": "https://openalex.org/P4310319965"
+                  },
+                  {
+                    "scheme": "ror",
+                    "value": "0117jxy09",
+                    "uri": "https://ror.org/0117jxy09"
+                  }
+                ],
+                "publisherName": "Springer Nature",
+                "publisherNames": [
+                  "Springer Nature",
+                  "Springer Nature Group"
+                ],
+                "publisherAlternateTitles": [
+                  "施普林格-自然出版集团"
+                ],
+                "publisherLocation": "Heidelberg, Germany",
+                "publisherCountryCodes": [
+                  "DE",
+                  "US"
+                ],
+                "publisherHierarchyLevel": 0,
+                "publisherParentId": null,
+                "publisherParentName": null,
+                "publisherLineage": [
+                  "https://openalex.org/P4310319965"
+                ],
+                "publisherRoles": [
+                  {
+                    "role": "publisher",
+                    "id": "https://openalex.org/P4310319965",
+                    "worksCount": 123456
+                  }
+                ],
+                "publisherHomepageUrl": "https://www.springernature.com",
+                "publisherImageUrl": "https://example.org/image.png",
+                "publisherImageThumbnailUrl": "https://example.org/thumb.png",
+                "publisherWorksCount": 123456,
+                "publisherCitedByCount": 987654,
+                "publisher2yrMeanCitedness": 4.2314,
+                "publisherHIndex": 312,
+                "publisherI10Index": 8241,
+                "publisherCountsByYear": [
+                  {
+                    "year": 2023,
+                    "worksCount": 12000,
+                    "citedByCount": 45000
+                  }
+                ],
+                "publisherSourcesApiUrl": "https://api.openalex.org/sources?filter=host_organization.id:P4310319965",
+                "publisherCreatedDate": "2023-12-25",
+                "publisherUpdatedDate": "2024-11-07T05:31:56Z"
+              }
+
+              ```
   - item: Search
     children:
       - item: null
