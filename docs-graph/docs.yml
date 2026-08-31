@@ -18422,6 +18422,10 @@ items:
             border: false
             id: publishers-api-search-examples
             title: Search examples
+          - divider: false
+            border: false
+            id: "#publishers-api-search-publishers"
+            title: Search Publishers
   - item: Search
     children:
       - item: null
