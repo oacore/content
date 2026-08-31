@@ -19705,6 +19705,498 @@ items:
 
 
               The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: projects-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search by title
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?q=title:"OpenAIRE Advancing Open Scholarship"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "title:\"OpenAIRE Advancing Open Scholarship\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/projects?q="Open Scholarship"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `acronym`
+
+              * `title`
+
+              * `summary`
+
+              * `keywords`
+
+              * `subjects`
+
+              * `fundings.name`
+
+              * `fundings.shortName`
+
+              * `fundings.fundingStream.description`
+
+              * `h2020Programmes.description`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Projects record by OpenAIRE identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?q=openaireId:"corda__h2020::70ea22400fd890c5033cb31642c4ae68"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "openaireId:\"corda__h2020::70ea22400fd890c5033cb31642c4ae68\""
+              }
+
+              ```
+
+
+              #### Retrieve a Projects record by code
+
+
+              ```http
+
+              GET /v4/search/projects?q=code:777541
+
+              ```
+
+
+              #### Retrieve Projects records for a funding call
+
+
+              ```http
+
+              GET /v4/search/projects?q=callIdentifier:H2020-EINFRA-2017
+
+              ```
+
+
+              #### Search by funding organisation
+
+
+              ```http
+
+              GET /v4/search/projects?q=fundings.name:"European Commission"
+
+              ```
+
+
+              #### Retrieve Projects records by funding stream
+
+
+              ```http
+
+              GET /v4/search/projects?q=fundings.fundingStream.id:"EC::H2020::RIA"
+
+              ```
+
+
+              #### Retrieve Projects records with a publication open-access mandate
+
+
+              ```http
+
+              GET /v4/search/projects?q=openAccessMandateForPublications:true
+
+              ```
+
+
+              #### Retrieve Projects records active on a particular date
+
+
+              ```http
+
+              GET /v4/search/projects?q=startDate<=2020-06-01 AND endDate>=2020-06-01
+
+              ```
+
+
+              This query returns Projects records whose recorded date range includes 1 June 2020. Projects records with a missing `startDate` or `endDate` are not matched by both clauses.
+
+
+              #### Retrieve Projects records above a funding threshold
+
+
+              ```http
+
+              GET /v4/search/projects?q=granted.currency:EUR AND granted.fundedAmount>=1000000&orderby=granted.fundedAmount:desc
+
+              ```
+
+
+              The currency condition is essential when comparing monetary values from multiple currencies.
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Searches for Projects records concerning open science
+
+              * Restricts results to Projects records funded within the EU jurisdiction
+
+              * Requires a publication open-access mandate
+
+              * Orders results by start date in descending order
+
+              * Returns selected fields and the total matching result count
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects
+                  ?q="open science" AND fundings.jurisdiction:EU AND openAccessMandateForPublications:true
+                  &orderby=startDate:desc,projectId:asc
+                  &select=projectId,code,acronym,title,startDate,endDate,openAccessMandateForPublications
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/projects" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"open science\" AND fundings.jurisdiction:EU AND openAccessMandateForPublications:true",
+                  "orderby": [
+                    "startDate:desc",
+                    "projectId:asc"
+                  ],
+                  "select": [
+                    "projectId",
+                    "code",
+                    "acronym",
+                    "title",
+                    "startDate",
+                    "endDate",
+                    "openAccessMandateForPublications"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "projectId": "coreproj____::001",
+                    "code": "777541",
+                    "acronym": "OpenAIRE-Advance",
+                    "title": "OpenAIRE Advancing Open Scholarship",
+                    "startDate": "2018-01-01",
+                    "endDate": "2021-02-28",
+                    "openAccessMandateForPublications": true
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Projects results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by title
+
+
+              ```http
+
+              GET /v4/search/projects?orderby=title:asc
+
+              ```
+
+
+              ##### Order by start date
+
+
+              ```http
+
+              GET /v4/search/projects?orderby=startDate:desc
+
+              ```
+
+
+              ##### Order by awarded amount
+
+
+              ```http
+
+              GET /v4/search/projects?q=granted.currency:EUR&orderby=granted.fundedAmount:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?orderby=startDate:desc,projectId:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "startDate:desc",
+                  "projectId:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by start date. Projects records with the same start date are then ordered by their CORE identifiers.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/projects?q=*&facets=fundings.jurisdiction,fundings.fundingStream.id,granted.currency,openAccessMandateForPublications&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "fundings.jurisdiction",
+                  "fundings.fundingStream.id",
+                  "granted.currency",
+                  "openAccessMandateForPublications"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 75000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "fundings.jurisdiction": [
+                    {
+                      "value": "EU",
+                      "count": 42000
+                    },
+                    {
+                      "value": "GB",
+                      "count": 6500
+                    }
+                  ],
+                  "fundings.fundingStream.id": [
+                    {
+                      "value": "EC::H2020::RIA",
+                      "count": 8200
+                    },
+                    {
+                      "value": "EC::H2020::CSA",
+                      "count": 4900
+                    }
+                  ],
+                  "granted.currency": [
+                    {
+                      "value": "EUR",
+                      "count": 51000
+                    },
+                    {
+                      "value": "GBP",
+                      "count": 6200
+                    }
+                  ],
+                  "openAccessMandateForPublications": [
+                    {
+                      "value": true,
+                      "count": 38000
+                    },
+                    {
+                      "value": false,
+                      "count": 9000
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Projects records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Projects records.
+
+
+              ```http
+
+              GET /v4/search/projects?q=fundings.jurisdiction:EU&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Projects results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Projects search was completed successfully.                                                                 |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
   - item: Search
     children:
       - item: null
