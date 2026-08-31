@@ -18186,6 +18186,86 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: publishers-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              The following table describes the proposed field operations for
+              the future Publishers entity.
+
+
+              | **Attribute**                        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | ------------------------------------ | -------------- | -------------- | ------------ | ------------- |
+
+              | `publisherId`                        | No             | Yes            | Yes          | No            |
+
+              | `publisherOpenalexId`                | No             | Yes            | No           | No            |
+
+              | `publisherRorId`                     | No             | Yes            | No           | No            |
+
+              | `publisherWikidataId`                | No             | Yes            | No           | No            |
+
+              | `publisherMemberId`                  | No             | Yes            | No           | No            |
+
+              | `publisherIds.scheme`                | No             | Yes            | No           | Yes           |
+
+              | `publisherIds.value`                 | No             | Yes            | No           | No            |
+
+              | `publisherIds.uri`                   | No             | Yes            | No           | No            |
+
+              | `publisherName`                      | Yes            | No             | Yes          | No            |
+
+              | `publisherNames`                     | Yes            | No             | No           | No            |
+
+              | `publisherAlternateTitles`           | Yes            | No             | No           | No            |
+
+              | `publisherLocation`                  | Yes            | No             | No           | No            |
+
+              | `publisherCountryCodes`              | No             | Yes            | No           | Yes           |
+
+              | `publisherHierarchyLevel`            | No             | Yes            | Yes          | Yes           |
+
+              | `publisherParentId`                  | No             | Yes            | No           | Yes           |
+
+              | `publisherParentName`                | Yes            | No             | No           | No            |
+
+              | `publisherLineage`                   | No             | Yes            | No           | No            |
+
+              | `publisherRoles.role`                | No             | Yes            | No           | Yes           |
+
+              | `publisherRoles.id`                  | No             | Yes            | No           | No            |
+
+              | `publisherRoles.worksCount`          | No             | Yes            | Yes          | No            |
+
+              | `publisherHomepageUrl`               | No             | No             | No           | No            |
+
+              | `publisherImageUrl`                  | No             | No             | No           | No            |
+
+              | `publisherImageThumbnailUrl`         | No             | No             | No           | No            |
+
+              | `publisherWorksCount`                | No             | Yes            | Yes          | No            |
+
+              | `publisherCitedByCount`              | No             | Yes            | Yes          | No            |
+
+              | `publisher2yrMeanCitedness`          | No             | Yes            | Yes          | No            |
+
+              | `publisherHIndex`                    | No             | Yes            | Yes          | No            |
+
+              | `publisherI10Index`                  | No             | Yes            | Yes          | No            |
+
+              | `publisherCountsByYear.year`         | No             | Yes            | No           | Yes           |
+
+              | `publisherCountsByYear.worksCount`   | No             | Yes            | Yes          | No            |
+
+              | `publisherCountsByYear.citedByCount` | No             | Yes            | Yes          | No            |
+
+              | `publisherSourcesApiUrl`             | No             | No             | No           | No            |
+
+              | `publisherCreatedDate`               | No             | Yes            | Yes          | No            |
+
+              | `publisherUpdatedDate`               | No             | Yes            | Yes          | No            |
   - item: Search
     children:
       - item: null
