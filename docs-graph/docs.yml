@@ -19452,6 +19452,162 @@ items:
               | `openAccessMandateForDataset`        | No             | Yes            | No           | Yes           |
 
               | `openAccessMandateForPublications`   | No             | Yes            | No           | Yes           |
+          - divider: false
+            border: false
+            id: projects-api-projects-endpoints
+            title: Projects endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                             | **Method** | **Endpoint**                      |
+
+              | ----------------------------------------- | ---------- | --------------------------------- |
+
+              | Get a single Projects record              | `GET`      | `/v4/projects/{projectId}`        |
+
+              | Search Projects using URL parameters      | `GET`      | `/v4/search/projects`             |
+
+              | Search Projects using a JSON request body | `POST`     | `/v4/search/projects`             |
+
+              | Retrieve Works for a Projects record      | `GET`      | `/v4/projects/{projectId}/works`  |
+
+              | Retrieve Grants for a Projects record     | `GET`      | `/v4/projects/{projectId}/grants` |
+
+
+              #### Get a single Projects record
+
+
+              Retrieves one Projects record using its CORE identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/projects/{projectId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                    |
+
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------ |
+
+              | `projectId`   | string   | Yes          | Unique CORE identifier of the Projects record. The value must be URL-encoded when it contains reserved characters. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                           |
+
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Projects fields to return. Example: `select=projectId,title,acronym,startDate,endDate`. |
+
+
+              Example request:
+
+
+              The `projectId` value `coreproj____::001` is URL-encoded as `coreproj____%3A%3A001` in the request path.
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "projectId": "coreproj____::001",
+                "openaireId": "corda__h2020::70ea22400fd890c5033cb31642c4ae68",
+                "code": "777541",
+                "acronym": "OpenAIRE-Advance",
+                "title": "OpenAIRE Advancing Open Scholarship",
+                "callIdentifier": "H2020-EINFRA-2017",
+                "fundings": [
+                  {
+                    "name": "European Commission",
+                    "shortName": "EC",
+                    "jurisdiction": "EU",
+                    "fundingStream": {
+                      "id": "EC::H2020::RIA",
+                      "description": "Horizon 2020 Framework Programme - Research and Innovation action"
+                    }
+                  }
+                ],
+                "openAccessMandateForPublications": true,
+                "startDate": "2018-01-01",
+                "endDate": "2021-02-28"
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001?select=projectId,title,acronym,startDate,endDate" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "projectId": "coreproj____::001",
+                "title": "OpenAIRE Advancing Open Scholarship",
+                "acronym": "OpenAIRE-Advance",
+                "startDate": "2018-01-01",
+                "endDate": "2021-02-28"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                            |
+
+              | ---------- | ---------------------------------------------------------- |
+
+              | `200`      | The Projects record was returned successfully.             |
+
+              | `400`      | The Projects identifier or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.         |
+
+              | `404`      | No Projects record exists for the supplied `projectId`.    |
+
+              | `429`      | The API request limit has been exceeded.                   |
+
+              | `500`      | An unexpected server error occurred.                       |
   - item: Search
     children:
       - item: null
