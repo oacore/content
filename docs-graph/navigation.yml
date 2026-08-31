@@ -218,6 +218,9 @@ navItems:
           - hidden: false
             href: "#publishers-api-supported-field-operations"
             item: Supported field operations
+          - hidden: false
+            item: Publishers endpoints
+            href: "#publishers-api-publishers-endpoints"
       - item: Grants
       - item: Funders
       - item: Topics
