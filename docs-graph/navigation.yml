@@ -221,6 +221,9 @@ navItems:
           - hidden: false
             item: Publishers endpoints
             href: "#publishers-api-publishers-endpoints"
+          - hidden: false
+            item: Search examples
+            href: "#publishers-api-search-examples"
       - item: Grants
       - item: Funders
       - item: Topics
