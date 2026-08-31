@@ -208,6 +208,10 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#authors-api-relationship-oriented-endpoints"
       - item: Publishers
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#publishers-api-introduction"
       - item: Grants
       - item: Funders
       - item: Topics
