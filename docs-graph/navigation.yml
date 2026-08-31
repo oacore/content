@@ -279,6 +279,31 @@ navItems:
           - hidden: false
             item: Relationship-oriented endpoints
             href: "#citations-api-relationship-oriented-endpoints"
+      - hidden: false
+        item: Projects
+        href: "#projects-api"
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#projects-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#projects-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#projects-api-supported-field-operations"
+          - hidden: false
+            item: Projects endpoints
+            href: "#projects-api-projects-endpoints"
+          - hidden: false
+            item: Search Projects
+            href: "#projects-api-search-projects"
+          - hidden: false
+            item: Search examples
+            href: "#projects-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#projects-api-relationship-oriented-endpoints"
   - item: Search
     children:
       - item: Overview
