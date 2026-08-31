@@ -292,6 +292,9 @@ navItems:
           - hidden: false
             item: Supported field operations
             href: "#projects-api-supported-field-operations"
+          - hidden: false
+            item: Projects endpoints
+            href: "#projects-api-projects-endpoints"
   - item: Search
     children:
       - item: Overview
