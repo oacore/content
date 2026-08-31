@@ -281,7 +281,7 @@ navItems:
             href: "#citations-api-relationship-oriented-endpoints"
       - hidden: false
         item: Projects
-        href: "#projects-api"
+        href: ""
         children:
           - hidden: false
             item: Introduction
