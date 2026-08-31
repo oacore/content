@@ -286,6 +286,12 @@ navItems:
           - hidden: false
             item: Introduction
             href: "#projects-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#projects-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#projects-api-supported-field-operations"
   - item: Search
     children:
       - item: Overview
