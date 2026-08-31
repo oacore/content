@@ -20197,6 +20197,108 @@ items:
 
 
               An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: projects-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to entities directly connected to a Projects record. They return related records rather than embedding those records in the Projects response.
+
+
+              The examples below assume that the relationship is indexed through a filterable identifier on the related entity or implemented through an internal join. The exact storage direction does not need to be exposed to API clients.
+
+
+              #### Works for a Projects record
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/works
+
+              ```
+
+
+              Retrieves Works produced by, funded by, or otherwise associated with the Projects record.
+
+
+              Example request:
+
+
+              The `projectId` value must be URL-encoded when it contains reserved characters.
+
+
+              ```http
+
+              GET /v4/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Works expose a filterable `projectIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/works?q=projectIds:"coreproj____::001"
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/works/{workId}/projects
+
+              ```
+
+
+              #### Grants for a Projects record
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/grants
+
+              ```
+
+
+              Retrieves Grants that fund or otherwise support the Projects record.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Grants expose a filterable `projectIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/grants?q=projectIds:"coreproj____::001"
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/projects
+
+              ```
+
+
+              An existing Projects record with no related records returns `200 OK` with an empty `results` array. If the supplied Projects record does not exist, the relationship endpoint returns `404 Not Found`.
   - item: Search
     children:
       - item: null
