@@ -18519,6 +18519,493 @@ items:
             border: false
             id: publishers-api-search-examples
             title: Search examples
+            descriptionAbout: >-
+              #### Search by Publishers name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherName:"Springer Nature"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherName:\"Springer Nature\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/publishers?q="Springer Nature"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `publisherName`
+
+              * `publisherNames`
+
+              * `publisherAlternateTitles`
+
+              * `publisherLocation`
+
+              * `publisherParentName`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Publishers record by external identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRorId:"https://ror.org/0117jxy09"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherRorId:\"https://ror.org/0117jxy09\""
+              }
+
+              ```
+
+
+              The structured `publisherIds` list may also be queried:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherIds.scheme:ror AND publisherIds.value:0117jxy09
+
+              ```
+
+
+              Both conditions must apply to the same `publisherIds` object.
+
+
+              #### Retrieve Publishers records associated with a country
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherCountryCodes:DE
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherCountryCodes:DE"
+              }
+
+              ```
+
+
+              #### Retrieve child Publishers records
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+
+              ```
+
+
+              #### Retrieve Publishers records by role
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRoles.role:publisher
+
+              ```
+
+
+              #### Retrieve Publishers records above a Work-count threshold
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherWorksCount>=100000&orderby=publisherWorksCount:desc
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "publisherWorksCount>=100000",
+                "orderby": [
+                  "publisherWorksCount:desc"
+                ]
+              }
+
+              ```
+
+
+              #### Retrieve Publishers records with ROR identifiers
+
+
+              ```http
+
+              GET /v4/search/publishers?q=_exists_:publisherRorId
+
+              ```
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Retrieves Publishers records associated with Germany
+
+              * Restricts results to records whose `publisherWorksCount` is at least 10,000
+
+              * Orders results by Work count in descending order
+
+              * Returns selected fields
+
+              * Includes the total matching result count
+
+              * Returns a maximum of ten records
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers
+                  ?q=publisherCountryCodes:DE AND publisherWorksCount>=10000
+                  &orderby=publisherWorksCount:desc
+                  &select=publisherId,publisherName,publisherCountryCodes,publisherWorksCount,publisherCitedByCount
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/publishers" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "publisherCountryCodes:DE AND publisherWorksCount>=10000",
+                  "orderby": [
+                    "publisherWorksCount:desc"
+                  ],
+                  "select": [
+                    "publisherId",
+                    "publisherName",
+                    "publisherCountryCodes",
+                    "publisherWorksCount",
+                    "publisherCitedByCount"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "publisherId": 8102,
+                    "publisherName": "Springer Nature",
+                    "publisherCountryCodes": [
+                      "DE",
+                      "US"
+                    ],
+                    "publisherWorksCount": 123456,
+                    "publisherCitedByCount": 987654
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Publishers results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by preferred name
+
+
+              ```http
+
+              GET /v4/search/publishers?orderby=publisherName:asc
+
+              ```
+
+
+              ##### Order by Work count
+
+
+              ```http
+
+              GET /v4/search/publishers?orderby=publisherWorksCount:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?orderby=publisherHierarchyLevel:asc,publisherName:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "publisherHierarchyLevel:asc",
+                  "publisherName:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by hierarchy level. Records at the same level are then ordered by preferred Publishers name.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=*&facets=publisherCountryCodes,publisherRoles.role,publisherHierarchyLevel&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "publisherCountryCodes",
+                  "publisherRoles.role",
+                  "publisherHierarchyLevel"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 25000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "publisherCountryCodes": [
+                    {
+                      "value": "US",
+                      "count": 7100
+                    },
+                    {
+                      "value": "GB",
+                      "count": 2450
+                    },
+                    {
+                      "value": "DE",
+                      "count": 1800
+                    }
+                  ],
+                  "publisherRoles.role": [
+                    {
+                      "value": "publisher",
+                      "count": 22000
+                    },
+                    {
+                      "value": "funder",
+                      "count": 1200
+                    },
+                    {
+                      "value": "institution",
+                      "count": 850
+                    }
+                  ],
+                  "publisherHierarchyLevel": [
+                    {
+                      "value": 0,
+                      "count": 18000
+                    },
+                    {
+                      "value": 1,
+                      "count": 5200
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Publishers records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Publishers records.
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherCountryCodes:GB&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Publishers results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Publishers search was completed successfully.                                                               |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
   - item: Search
     children:
       - item: null
