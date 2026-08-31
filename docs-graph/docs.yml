@@ -19392,6 +19392,66 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: projects-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              The following table describes the proposed field operations for
+              the future Projects entity.
+
+
+              | **Attribute**                        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | ------------------------------------ | -------------- | -------------- | ------------ | ------------- |
+
+              | `projectId`                          | No             | Yes            | Yes          | No            |
+
+              | `openaireId`                         | No             | Yes            | No           | No            |
+
+              | `code`                               | No             | Yes            | No           | No            |
+
+              | `acronym`                            | Yes            | Yes            | Yes          | No            |
+
+              | `callIdentifier`                     | No             | Yes            | No           | Yes           |
+
+              | `title`                              | Yes            | No             | Yes          | No            |
+
+              | `summary`                            | Yes            | No             | No           | No            |
+
+              | `keywords`                           | Yes            | Yes            | No           | Yes           |
+
+              | `subjects`                           | Yes            | Yes            | No           | Yes           |
+
+              | `websiteUrl`                         | No             | No             | No           | No            |
+
+              | `startDate`                          | No             | Yes            | Yes          | No            |
+
+              | `endDate`                            | No             | Yes            | Yes          | No            |
+
+              | `fundings.name`                      | Yes            | No             | No           | No            |
+
+              | `fundings.shortName`                 | Yes            | Yes            | No           | Yes           |
+
+              | `fundings.jurisdiction`              | No             | Yes            | No           | Yes           |
+
+              | `fundings.fundingStream.id`          | No             | Yes            | No           | Yes           |
+
+              | `fundings.fundingStream.description` | Yes            | No             | No           | No            |
+
+              | `granted.currency`                   | No             | Yes            | No           | Yes           |
+
+              | `granted.fundedAmount`               | No             | Yes            | Yes          | No            |
+
+              | `granted.totalCost`                  | No             | Yes            | Yes          | No            |
+
+              | `h2020Programmes.code`               | No             | Yes            | No           | Yes           |
+
+              | `h2020Programmes.description`        | Yes            | No             | No           | No            |
+
+              | `openAccessMandateForDataset`        | No             | Yes            | No           | Yes           |
+
+              | `openAccessMandateForPublications`   | No             | Yes            | No           | Yes           |
   - item: Search
     children:
       - item: null
