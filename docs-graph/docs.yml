@@ -1730,6 +1730,8 @@ items:
 
               | `dataProviderIds`                | No             | Yes            | No           | Yes           |
 
+              | `projectIds` | No | Yes | No | No |
+
               | `dates.type`                     | No             | Yes            | No           | Yes           |
 
               | `dates.value`                    | No             | Yes            | No           | No            |
