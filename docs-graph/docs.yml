@@ -1101,7 +1101,7 @@ items:
 
               Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
             images:
-              - file: /images/docs-graph/works.png
+              - file: /images/docs-graph/works_v2.png
             subTitle: ""
             subDescription: >-
               A Work may:
