@@ -2826,6 +2826,48 @@ items:
               GET /v4/works/{workId}/data-providers
 
               ```
+
+
+
+              #### Projects for a Work
+
+
+              ```http
+
+              GET /v4/works/{workId}/projects
+
+              ```
+
+
+              Retrieves Projects records referenced by projectIds.
+
+
+              Example request:
+
+
+              ```GET /v4/works/323030168/projects?count=true&limit=10&offset=0
+
+              ```
+
+
+              The relationship is resolved as:
+
+
+              Works.projectIds → Projects.projectId
+
+
+              An existing Work with no associated Projects returns 200 OK with an empty results array.
+
+
+
+              A reverse endpoint can remain in the Projects documentation:
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/works
+
+              ```
       - item: Outputs
         sections:
           - divider: false
