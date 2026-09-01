@@ -1862,6 +1862,8 @@ items:
 
               | Retrieve Data Providers for a Work     | `GET`      | `/v4/works/{workId}/data-providers` |
 
+              | Retrieve Projects for a Work | `GET` | `/v4/works/{workId}/projects` |
+
 
               The `POST` search method is read-only. It does not create or modify Work records.
 
