@@ -21734,6 +21734,41 @@ items:
 
 
               If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
+      - item: Funders
+        sections:
+          - divider: false
+            border: false
+            id: funders-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Funders entity represents organisations or funding bodies that
+              provide financial support for research. A Funders record contains
+              the organisation's canonical CORE identifier, names, external
+              identifiers, jurisdiction, and source-provenance information.
+              Source metadata may also associate a Funders record with awards,
+              Grants, Projects, Works, or clinical trials.
+
+
+              The Funders entity represents the funding organisation itself. Award-specific information belongs primarily in the Grants entity, research-activity information belongs in the Projects entity, and research-result information belongs in the Works or Outputs entities.
+
+
+              #### Entity relationships
+
+
+              ![Funders entity relationships](/images/docs-graph/funders.png)
+
+
+              | **Relationship**        | **Type**            | **Description**                                                                                                                                                                         |
+
+              | ----------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Funders–Grants          | Direct, one-to-many | A Funders record may award multiple Grants records. A Grants record may have zero or one resolved Funders record.                                                                       |
+
+              | Funders–Projects        | Normally indirect   | Projects records are normally connected to Funders through Grants. A direct source association may be retained when no Grants record can be resolved.                                   |
+
+              | Funders–Works           | Normally indirect   | Works are normally connected to Funders through Grants. A direct funding assertion may be retained when source metadata identifies a funding organisation but no award can be resolved. |
+
+              | Funders–clinical trials | Contextual          | Clinical-trial identifiers describe the funded research context. They are not stable properties of the funding organisation itself.                                                     |
   - item: Search
     children:
       - item: null
