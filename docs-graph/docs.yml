@@ -20768,6 +20768,159 @@ items:
               | `grantCreatedDate`               | No             | Yes            | Yes          | No            |
 
               | `grantUpdatedDate`               | No             | Yes            | Yes          | No            |
+          - divider: false
+            border: false
+            id: grants-api-grants-endpoints
+            title: Grants endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                           | **Method** | **Endpoint**                         |
+
+              | --------------------------------------- | ---------- | ------------------------------------ |
+
+              | Get a single Grants record              | `GET`      | `/v4/grants/{grantId}`               |
+
+              | Search Grants using URL parameters      | `GET`      | `/v4/search/grants`                  |
+
+              | Search Grants using a JSON request body | `POST`     | `/v4/search/grants`                  |
+
+              | Retrieve Works for a Grants record      | `GET`      | `/v4/grants/{grantId}/works`         |
+
+              | Retrieve Projects for a Grants record   | `GET`      | `/v4/grants/{grantId}/projects`      |
+
+              | Retrieve the funding Institution        | `GET`      | `/v4/grants/{grantId}/funder`        |
+
+              | Retrieve investigators                  | `GET`      | `/v4/grants/{grantId}/investigators` |
+
+
+              #### Get a single Grants record
+
+
+              Retrieves one Grants record using its CORE identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/grants/{grantId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                              |
+
+              | ------------- | -------- | ------------ | -------------------------------------------- |
+
+              | `grantId`     | integer  | Yes          | Unique CORE identifier of the Grants record. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                                              |
+
+              | ------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Grants fields to return. Example: `select=grantId,grantName,funderName,amount,currency,startDate,endDate`. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/grants/13" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "grantId": 13,
+                "grantOpenalexId": "https://openalex.org/G5859020988",
+                "grantDoi": "https://doi.org/10.35802/218671",
+                "funderAwardId": "AH/W007622/1",
+                "grantName": "AI methods for biomedical discovery",
+                "fundingType": "grant",
+                "funderScheme": "Horizon Europe",
+                "funderId": "https://ror.org/0505m1554",
+                "funderName": "Arts and Humanities Research Council",
+                "amount": 250000.00,
+                "currency": "GBP",
+                "startDate": "2023-01-01",
+                "endDate": "2026-12-31",
+                "fundedOutputsCount": 12
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/grants/13?select=grantId,grantName,funderName,amount,currency,startDate,endDate" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "grantId": 13,
+                "grantName": "AI methods for biomedical discovery",
+                "funderName": "Arts and Humanities Research Council",
+                "amount": 250000.00,
+                "currency": "GBP",
+                "startDate": "2023-01-01",
+                "endDate": "2026-12-31"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                           |
+
+              | ---------- | --------------------------------------------------------- |
+
+              | `200`      | The Grants record was returned successfully.              |
+
+              | `400`      | The supplied `grantId` or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.        |
+
+              | `404`      | No Grants record exists for the supplied `grantId`.       |
+
+              | `429`      | The API request limit has been exceeded.                  |
+
+              | `500`      | An unexpected server error occurred.                      |
   - item: Search
     children:
       - item: null
