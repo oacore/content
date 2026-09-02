@@ -21543,6 +21543,197 @@ items:
 
 
               An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: grants-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to entities directly connected to a Grants record. They return related records rather than embedding complete related entities in the Grants response.
+
+
+              #### Works funded by a Grants record
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/works
+
+              ```
+
+
+              Retrieves canonical Works associated with the Grants record. Source-specific OpenAlex Work identifiers in `fundedOutputs` must be resolved against the Works entity's external identifiers.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/grants/13/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Works expose a filterable `grantIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/works?q=grantIds:13
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/works/{workId}/grants
+
+              ```
+
+
+              #### Projects supported by a Grants record
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/projects
+
+              ```
+
+
+              Retrieves Projects records supported by the Grants record.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/grants/13/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Projects expose a filterable `grantIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/projects?q=grantIds:13
+
+              ```
+
+
+              The reverse convenience endpoint is:
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/grants
+
+              ```
+
+
+              #### Funding Institution
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/funder
+
+              ```
+
+
+              Retrieves the Institutions record resolved from `funderId`, `funder.id`, or `funderDoi`.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/grants/13/funder
+
+              ```
+
+
+              If the identifier is a ROR URI, the equivalent Institutions search is:
+
+
+              ```http
+
+              GET /v4/search/institutions?q=rorId:"https://ror.org/0505m1554"
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/institutions/{institutionId}/grants
+
+              ```
+
+
+              #### Investigators
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/investigators
+
+              ```
+
+
+              Retrieves distinct Authors records referenced by `leadInvestigator.authorId`, `coLeadInvestigator.authorId`, and `investigators.authorId`. The relationship response should retain each investigator's role.
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "authorId": 67890,
+                    "displayName": "Alice Smith",
+                    "orcidId": "0000-0003-1613-5981",
+                    "role": "lead"
+                  },
+                  {
+                    "authorId": 67912,
+                    "displayName": "David Jones",
+                    "orcidId": null,
+                    "role": "investigator"
+                  }
+                ]
+              }
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/authors/{authorId}/grants
+
+              ```
+
+
+              An existing Grants record with no related records returns `200 OK` with an empty `results` array. If the supplied Grants record does not exist, a collection relationship endpoint returns `404 Not Found`.
+
+
+              If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
   - item: Search
     children:
       - item: null
