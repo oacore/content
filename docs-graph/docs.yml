@@ -20666,6 +20666,108 @@ items:
               }
 
               ```
+          - divider: false
+            border: false
+            id: grants-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              The following table describes the field operations for Grants
+              entity.
+
+
+              | **Attribute**                    | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | -------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+              | `grantId`                        | No             | Yes            | Yes          | No            |
+
+              | `grantOpenalexId`                | No             | Yes            | No           | No            |
+
+              | `grantDoi`                       | No             | Yes            | No           | No            |
+
+              | `funderAwardId`                  | No             | Yes            | No           | No            |
+
+              | `grantIds.scheme`                | No             | Yes            | No           | Yes           |
+
+              | `grantIds.value`                 | No             | Yes            | No           | No            |
+
+              | `grantIds.uri`                   | No             | Yes            | No           | No            |
+
+              | `grantName`                      | Yes            | No             | Yes          | No            |
+
+              | `grantDescription`               | Yes            | No             | No           | No            |
+
+              | `fundingType`                    | No             | Yes            | No           | Yes           |
+
+              | `funderScheme`                   | Yes            | Yes            | No           | Yes           |
+
+              | `provenance`                     | Yes            | Yes            | No           | Yes           |
+
+              | `funderId`                       | No             | Yes            | No           | Yes           |
+
+              | `funderName`                     | Yes            | No             | No           | No            |
+
+              | `funderDoi`                      | No             | Yes            | No           | No            |
+
+              | `funder.id`                      | No             | Yes            | No           | Yes           |
+
+              | `funder.name`                    | Yes            | No             | No           | No            |
+
+              | `funder.doi`                     | No             | Yes            | No           | No            |
+
+              | `amount`                         | No             | Yes            | Yes          | No            |
+
+              | `currency`                       | No             | Yes            | No           | Yes           |
+
+              | `startDate`                      | No             | Yes            | Yes          | No            |
+
+              | `endDate`                        | No             | Yes            | Yes          | No            |
+
+              | `startYear`                      | No             | Yes            | Yes          | Yes           |
+
+              | `endYear`                        | No             | Yes            | Yes          | Yes           |
+
+              | `leadInvestigator.authorId`      | No             | Yes            | No           | No            |
+
+              | `leadInvestigator.openalexId`    | No             | Yes            | No           | No            |
+
+              | `leadInvestigator.orcidId`       | No             | Yes            | No           | No            |
+
+              | `leadInvestigator.displayName`   | Yes            | No             | No           | No            |
+
+              | `leadInvestigator.role`          | No             | Yes            | No           | Yes           |
+
+              | `coLeadInvestigator.authorId`    | No             | Yes            | No           | No            |
+
+              | `coLeadInvestigator.openalexId`  | No             | Yes            | No           | No            |
+
+              | `coLeadInvestigator.orcidId`     | No             | Yes            | No           | No            |
+
+              | `coLeadInvestigator.displayName` | Yes            | No             | No           | No            |
+
+              | `coLeadInvestigator.role`        | No             | Yes            | No           | Yes           |
+
+              | `investigators.authorId`         | No             | Yes            | No           | No            |
+
+              | `investigators.openalexId`       | No             | Yes            | No           | No            |
+
+              | `investigators.orcidId`          | No             | Yes            | No           | No            |
+
+              | `investigators.displayName`      | Yes            | No             | No           | No            |
+
+              | `investigators.role`             | No             | Yes            | No           | Yes           |
+
+              | `fundedOutputs`                  | No             | Yes            | No           | No            |
+
+              | `fundedOutputsCount`             | No             | Yes            | Yes          | No            |
+
+              | `worksApiUrl`                    | No             | No             | No           | No            |
+
+              | `landingPageUrl`                 | No             | No             | No           | No            |
+
+              | `grantCreatedDate`               | No             | Yes            | Yes          | No            |
+
+              | `grantUpdatedDate`               | No             | Yes            | Yes          | No            |
   - item: Search
     children:
       - item: null
