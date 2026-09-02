@@ -20384,6 +20384,288 @@ items:
               | Grants–Works        | Many-to-many    | A Grants record may support multiple Works, and a Work may acknowledge multiple Grants records.                                   |
 
               | Authors–Grants      | Many-to-many    | Multiple Authors may participate in a Grants record in different roles, and an Author may participate in multiple Grants records. |
+          - divider: false
+            border: false
+            id: grants-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the top-level fields in the
+              planned CORE Graph metadata schema for the Grants entity.
+
+
+              #### Identifiers
+
+
+              | **Property**      | **Type**         | **Example value**                    | **Description**                                                              | **Source**              |
+
+              | ----------------- | ---------------- | ------------------------------------ | ---------------------------------------------------------------------------- | ----------------------- |
+
+              | `grantId`         | integer          | `13`                                 | Unique CORE internal canonical identifier for a record in the Grants entity. | CORE                    |
+
+              | `grantOpenalexId` | string | null    | `"https://openalex.org/G5859020988"` | OpenAlex identifier associated with the Grants record.                       | OpenAlex                |
+
+              | `grantDoi`        | string | null    | `"https://doi.org/10.35802/218671"`  | DOI associated with the Grants record, when available.                       | OpenAlex / RIOXX        |
+
+              | `funderAwardId`   | string | null    | `"AH/W007622/1"`                     | Award identifier assigned by the funding organisation.                       | OpenAlex / RIOXX        |
+
+              | `grantIds`        | object\[] | null | See below                            | Structured list of all known identifiers associated with the Grants record.  | CORE / OpenAlex / RIOXX |
+
+
+              ##### `grantIds` fields
+
+
+              | **Property** | **Type**      | **Example value**                    | **Description**                                                     |
+
+              | ------------ | ------------- | ------------------------------------ | ------------------------------------------------------------------- |
+
+              | `scheme`     | string        | `"openalex"`                         | Identifier scheme represented as a stable controlled value.         |
+
+              | `value`      | string        | `"G5859020988"`                      | Identifier value in the form supplied or normalised for the scheme. |
+
+              | `uri`        | string | null | `"https://openalex.org/G5859020988"` | Resolvable URI for the identifier, when available.                  |
+
+
+              #### Award metadata
+
+
+              | **Property**       | **Type**      | **Example value**                                               | **Description**                                                     | **Source**      |
+
+              | ------------------ | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------- | --------------- |
+
+              | `grantName`        | string | null | `"AI methods for biomedical discovery"`                         | Preferred title selected by CORE for the Grants record.             | CORE / OpenAlex |
+
+              | `grantDescription` | string | null | `"Funding for research on AI methods in biomedical discovery."` | Description of the funding award or the activity it supports.       | OpenAlex        |
+
+              | `fundingType`      | string | null | `"grant"`                                                       | Type of funding award.                                              | OpenAlex        |
+
+              | `funderScheme`     | string | null | `"Horizon Europe"`                                              | Funding scheme, programme, or stream associated with the award.     | OpenAlex        |
+
+              | `provenance`       | string | null | `"funder registry"`                                             | Source or provenance statement associated with the Grants metadata. | OpenAlex        |
+
+
+              #### Funder information
+
+
+              | **Property** | **Type**      | **Example value**                        | **Description**                                                                                      | **Source**         |
+
+              | ------------ | ------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------ |
+
+              | `funderId`   | string | null | `"https://ror.org/0505m1554"`            | Globally unique identifier for the funding organisation, preferably a ROR, ISNI, or FundRef DOI URI. | RIOXX / OpenAlex   |
+
+              | `funderName` | string | null | `"Arts and Humanities Research Council"` | Canonical or source-preferred name of the funding organisation.                                      | RIOXX / OpenAlex   |
+
+              | `funderDoi`  | string | null | `"10.13039/501100000267"`                | FundRef DOI associated with the funding organisation, when available.                                | OpenAlex / FundRef |
+
+              | `funder`     | object | null | See below                                | Structured representation of the funding organisation.                                               | OpenAlex / RIOXX   |
+
+
+              ##### `funder` fields
+
+
+              | **Property** | **Type**      | **Example value**                        | **Description**                                                       |
+
+              | ------------ | ------------- | ---------------------------------------- | --------------------------------------------------------------------- |
+
+              | `id`         | string | null | `"https://ror.org/0505m1554"`            | Source or global identifier associated with the funding organisation. |
+
+              | `name`       | string | null | `"Arts and Humanities Research Council"` | Name of the funding organisation.                                     |
+
+              | `doi`        | string | null | `"10.13039/501100000267"`                | FundRef DOI associated with the funding organisation.                 |
+
+
+              If `funder.id` contains a ROR identifier, the relationship to the Institutions entity can be resolved by matching it to `Institutions.rorId`. A canonical CORE relationship may instead use a separate integer `institutionId` if direct identifier-based traversal is required.
+
+
+              #### Funding amount
+
+
+              | **Property** | **Type**      | **Example value** | **Description**                                                 | **Source** |
+
+              | ------------ | ------------- | ----------------- | --------------------------------------------------------------- | ---------- |
+
+              | `amount`     | number | null | `250000.00`       | Funding amount awarded in the currency specified by `currency`. | OpenAlex   |
+
+              | `currency`   | string | null | `"GBP"`           | ISO 4217 currency code associated with `amount`.                | OpenAlex   |
+
+
+              The amount must always be interpreted together with its currency. A missing amount must not be treated as zero, and amounts in different currencies should not be directly compared without conversion.
+
+
+              #### Dates
+
+
+              | **Property** | **Type**       | **Example value** | **Description**                                                 | **Source** |
+
+              | ------------ | -------------- | ----------------- | --------------------------------------------------------------- | ---------- |
+
+              | `startDate`  | string | null  | `"2023-01-01"`    | Start date of the funding award, formatted as an ISO 8601 date. | OpenAlex   |
+
+              | `endDate`    | string | null  | `"2026-12-31"`    | End date of the funding award, formatted as an ISO 8601 date.   | OpenAlex   |
+
+              | `startYear`  | integer | null | `2023`            | Calendar year in which the funding award begins.                | OpenAlex   |
+
+              | `endYear`    | integer | null | `2026`            | Calendar year in which the funding award ends.                  | OpenAlex   |
+
+
+              `startYear` and `endYear` provide convenient year-level filtering. When complete dates are available, their values should remain consistent with `startDate` and `endDate`.
+
+
+              #### Investigators
+
+
+              | **Property**         | **Type**         | **Example value** | **Description**                                                   | **Source** |
+
+              | -------------------- | ---------------- | ----------------- | ----------------------------------------------------------------- | ---------- |
+
+              | `leadInvestigator`   | object | null    | See below         | Principal or lead investigator associated with the Grants record. | OpenAlex   |
+
+              | `coLeadInvestigator` | object | null    | See below         | Co-lead investigator associated with the Grants record.           | OpenAlex   |
+
+              | `investigators`      | object\[] | null | See below         | Other investigators associated with the Grants record.            | OpenAlex   |
+
+
+              ##### Investigator object
+
+
+              The following proposed structure can be used consistently for `leadInvestigator`, `coLeadInvestigator`, and items in `investigators`.
+
+
+              | **Property**  | **Type**       | **Example value**                    | **Description**                                                      | **Source**       |
+
+              | ------------- | -------------- | ------------------------------------ | -------------------------------------------------------------------- | ---------------- |
+
+              | `authorId`    | integer | null | `67890`                              | CORE identifier of the related Authors record, when resolved.        | CORE             |
+
+              | `openalexId`  | string | null  | `"https://openalex.org/A5048491430"` | OpenAlex Author identifier, when available.                          | OpenAlex         |
+
+              | `orcidId`     | string | null  | `"0000-0003-1613-5981"`              | ORCID identifier, when available.                                    | OpenAlex / ORCID |
+
+              | `displayName` | string | null  | `"Alice Smith"`                      | Display name of the investigator.                                    | OpenAlex         |
+
+              | `role`        | string | null  | `"lead"`                             | Role performed by the investigator in relation to the Grants record. | OpenAlex / CORE  |
+
+
+              Recommended controlled values for `role` include:
+
+
+              * `lead`
+
+              * `co-lead`
+
+              * `investigator`
+
+
+              The role is relationship-specific and does not become a permanent property of the Authors record.
+
+
+              #### Funded Works
+
+
+              | **Property**         | **Type**         | **Example value**                                               | **Description**                                                                                                                    | **Source** |
+
+              | -------------------- | ---------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `fundedOutputs`      | string\[] | null | `["https://openalex.org/W1234567890"]`                          | OpenAlex Work identifiers associated with the Grants record. Despite the property name, these values do not identify CORE Outputs. | OpenAlex   |
+
+              | `fundedOutputsCount` | integer | null   | `12`                                                            | Number of source Works associated with the Grants record.                                                                          | OpenAlex   |
+
+              | `worksApiUrl`        | string | null    | `"https://api.openalex.org/works?filter=grants.id:G5859020988"` | OpenAlex API URL for Works associated with the Grants record.                                                                      | OpenAlex   |
+
+
+              `fundedOutputsCount` is a source-derived snapshot and may change as the source identifies additional funded Works.
+
+
+              #### Web and source lifecycle
+
+
+              | **Property**       | **Type**      | **Example value**                           | **Description**                                                                                | **Source** |
+
+              | ------------------ | ------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+
+              | `landingPageUrl`   | string | null | `"https://example.org/grants/AH-W007622-1"` | Landing page associated with the funding award.                                                | OpenAlex   |
+
+              | `grantCreatedDate` | string | null | `"2023-12-25"`                              | Date on which the source record was created, formatted as an ISO 8601 date.                    | OpenAlex   |
+
+              | `grantUpdatedDate` | string | null | `"2024-11-07T05:31:56Z"`                    | Date and time at which the source record was last updated, formatted as an ISO 8601 timestamp. | OpenAlex   |
+
+
+              `grantCreatedDate` and `grantUpdatedDate` describe the lifecycle of the source record. They do not represent the creation and update dates of the canonical CORE Grants record. If CORE record-management dates are needed, they should be represented separately, for example as `createdDate` and `updatedDate`.
+
+
+              Example Grants record:
+
+
+              ```json
+
+              {
+                "grantId": 13,
+                "grantOpenalexId": "https://openalex.org/G5859020988",
+                "grantDoi": "https://doi.org/10.35802/218671",
+                "funderAwardId": "AH/W007622/1",
+                "grantIds": [
+                  {
+                    "scheme": "openalex",
+                    "value": "G5859020988",
+                    "uri": "https://openalex.org/G5859020988"
+                  },
+                  {
+                    "scheme": "doi",
+                    "value": "10.35802/218671",
+                    "uri": "https://doi.org/10.35802/218671"
+                  },
+                  {
+                    "scheme": "funder_award_id",
+                    "value": "AH/W007622/1",
+                    "uri": null
+                  }
+                ],
+                "grantName": "AI methods for biomedical discovery",
+                "grantDescription": "Funding for research on AI methods in biomedical discovery.",
+                "fundingType": "grant",
+                "funderScheme": "Horizon Europe",
+                "provenance": "funder registry",
+                "funderId": "https://ror.org/0505m1554",
+                "funderName": "Arts and Humanities Research Council",
+                "funderDoi": "10.13039/501100000267",
+                "funder": {
+                  "id": "https://ror.org/0505m1554",
+                  "name": "Arts and Humanities Research Council",
+                  "doi": "10.13039/501100000267"
+                },
+                "amount": 250000.00,
+                "currency": "GBP",
+                "startDate": "2023-01-01",
+                "endDate": "2026-12-31",
+                "startYear": 2023,
+                "endYear": 2026,
+                "leadInvestigator": {
+                  "authorId": 67890,
+                  "openalexId": "https://openalex.org/A5048491430",
+                  "orcidId": "0000-0003-1613-5981",
+                  "displayName": "Alice Smith",
+                  "role": "lead"
+                },
+                "coLeadInvestigator": null,
+                "investigators": [
+                  {
+                    "authorId": 67912,
+                    "openalexId": "https://openalex.org/A5061122334",
+                    "orcidId": null,
+                    "displayName": "David Jones",
+                    "role": "investigator"
+                  }
+                ],
+                "fundedOutputs": [
+                  "https://openalex.org/W1234567890"
+                ],
+                "fundedOutputsCount": 12,
+                "worksApiUrl": "https://api.openalex.org/works?filter=grants.id:G5859020988",
+                "landingPageUrl": "https://example.org/grants/AH-W007622-1",
+                "grantCreatedDate": "2023-12-25",
+                "grantUpdatedDate": "2024-11-07T05:31:56Z"
+              }
+
+              ```
   - item: Search
     children:
       - item: null
