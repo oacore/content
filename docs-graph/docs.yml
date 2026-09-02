@@ -21018,6 +21018,531 @@ items:
 
 
               The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: grants-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search by name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?q=grantName:"AI methods for biomedical discovery"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "grantName:\"AI methods for biomedical discovery\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/grants?q="biomedical discovery"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `grantName`
+
+              * `grantDescription`
+
+              * `funderScheme`
+
+              * `provenance`
+
+              * `funderName`
+
+              * `funder.name`
+
+              * `leadInvestigator.displayName`
+
+              * `coLeadInvestigator.displayName`
+
+              * `investigators.displayName`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Grants record by OpenAlex identifier
+
+
+              ```http
+
+              GET /v4/search/grants?q=grantOpenalexId:"https://openalex.org/G5859020988"
+
+              ```
+
+
+              #### Retrieve a Grants record by DOI
+
+
+              ```http
+
+              GET /v4/search/grants?q=grantDoi:"https://doi.org/10.35802/218671"
+
+              ```
+
+
+              #### Retrieve a Grants record by funder award identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderAwardId:"AH/W007622/1"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "funderAwardId:\"AH/W007622/1\""
+              }
+
+              ```
+
+
+              #### Search by funding organisation
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderName:"Arts and Humanities Research Council"
+
+              ```
+
+
+              The global funder identifier should be used when exact identity matching is required:
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderId:"https://ror.org/0505m1554"
+
+              ```
+
+
+              #### Retrieve Grants records by funding scheme
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderScheme:"Horizon Europe"
+
+              ```
+
+
+              #### Retrieve Grants records within an amount range
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP AND amount>=100000 AND amount<=500000&orderby=amount:desc
+
+              ```
+
+
+              The currency clause is essential when comparing monetary values.
+
+
+              #### Retrieve Grants records active on a particular date
+
+
+              ```http
+
+              GET /v4/search/grants?q=startDate<=2025-06-01 AND endDate>=2025-06-01
+
+              ```
+
+
+              This query returns Grants records whose recorded date range includes 1 June 2025. Records with a missing `startDate` or `endDate` are not matched by both clauses.
+
+
+              #### Search by investigator
+
+
+              ```http
+
+              GET /v4/search/grants?q=leadInvestigator.authorId:67890 OR coLeadInvestigator.authorId:67890 OR investigators.authorId:67890
+
+              ```
+
+
+              An investigator name may also be searched textually:
+
+
+              ```http
+
+              GET /v4/search/grants?q=investigators.displayName:"David Jones"
+
+              ```
+
+
+              #### Retrieve Grants records associated with an OpenAlex Work
+
+
+              ```http
+
+              GET /v4/search/grants?q=fundedOutputs:"https://openalex.org/W1234567890"
+
+              ```
+
+
+              This query uses the source-specific OpenAlex Work identifier. A canonical CORE Works relationship should instead use a CORE `workId` when available.
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Searches for Grants records concerning biomedical discovery
+
+              * Restricts results to GBP awards of at least 100,000
+
+              * Restricts results to awards starting in or after 2020
+
+              * Orders results by funding amount in descending order
+
+              * Returns selected fields and the total matching result count
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants
+                  ?q="biomedical discovery" AND currency:GBP AND amount>=100000 AND startYear>=2020
+                  &orderby=amount:desc,grantId:asc
+                  &select=grantId,grantName,funderName,amount,currency,startDate,endDate
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/grants" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"biomedical discovery\" AND currency:GBP AND amount>=100000 AND startYear>=2020",
+                  "orderby": [
+                    "amount:desc",
+                    "grantId:asc"
+                  ],
+                  "select": [
+                    "grantId",
+                    "grantName",
+                    "funderName",
+                    "amount",
+                    "currency",
+                    "startDate",
+                    "endDate"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "grantId": 13,
+                    "grantName": "AI methods for biomedical discovery",
+                    "funderName": "Arts and Humanities Research Council",
+                    "amount": 250000.00,
+                    "currency": "GBP",
+                    "startDate": "2023-01-01",
+                    "endDate": "2026-12-31"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Grants results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by preferred name
+
+
+              ```http
+
+              GET /v4/search/grants?orderby=grantName:asc
+
+              ```
+
+
+              ##### Order by start date
+
+
+              ```http
+
+              GET /v4/search/grants?orderby=startDate:desc
+
+              ```
+
+
+              ##### Order by amount within one currency
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP&orderby=amount:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?orderby=startDate:desc,grantId:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "startDate:desc",
+                  "grantId:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by start date. Records with the same start date are then ordered by their CORE identifiers.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?q=*&facets=fundingType,funderScheme,currency,startYear&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "fundingType",
+                  "funderScheme",
+                  "currency",
+                  "startYear"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 125000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "fundingType": [
+                    {
+                      "value": "grant",
+                      "count": 104000
+                    },
+                    {
+                      "value": "contract",
+                      "count": 12500
+                    }
+                  ],
+                  "funderScheme": [
+                    {
+                      "value": "Horizon Europe",
+                      "count": 18500
+                    },
+                    {
+                      "value": "Horizon 2020",
+                      "count": 16300
+                    }
+                  ],
+                  "currency": [
+                    {
+                      "value": "EUR",
+                      "count": 57000
+                    },
+                    {
+                      "value": "GBP",
+                      "count": 21000
+                    }
+                  ],
+                  "startYear": [
+                    {
+                      "value": 2023,
+                      "count": 9400
+                    },
+                    {
+                      "value": 2022,
+                      "count": 8800
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Grants records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Grants records.
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderScheme:"Horizon Europe"&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Grants results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Grants search was completed successfully.                                                                   |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
   - item: Search
     children:
       - item: null
