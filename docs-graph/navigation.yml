@@ -250,6 +250,9 @@ navItems:
           - hidden: false
             item: Search examples
             href: "#grants-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#grants-api-relationship-oriented-endpoints"
       - item: Funders
       - item: Topics
         children:
