@@ -21769,6 +21769,263 @@ items:
               | Funders–Works           | Normally indirect   | Works are normally connected to Funders through Grants. A direct funding assertion may be retained when source metadata identifies a funding organisation but no award can be resolved. |
 
               | Funders–clinical trials | Contextual          | Clinical-trial identifiers describe the funded research context. They are not stable properties of the funding organisation itself.                                                     |
+          - divider: false
+            border: false
+            id: funders-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the fields in the planned CORE
+              Graph metadata schema for the Funders entity. All CORE entity
+              identifiers, including `funderId`, `grantId`, `projectId`, and
+              `workId`, use the `integer` type.
+
+
+              #### Identifiers and names
+
+
+              | **Property**       | **Type**         | **Example value**        | **Description**                                                                                    | **Source**                             |
+
+              | ------------------ | ---------------- | ------------------------ | -------------------------------------------------------------------------------------------------- | -------------------------------------- |
+
+              | `funderId`         | integer          | `501`                    | Unique CORE internal canonical identifier for a record in the Funders entity.                      | CORE                                   |
+
+              | `name`             | string | null    | `"Wellcome Trust"`       | Preferred name selected by CORE for the Funders record.                                            | CORE / Crossref / OpenAlex / OpenAIRE  |
+
+              | `shortName`        | string | null    | `"Wellcome"`             | Short or abbreviated name associated with the Funders record.                                      | OpenAIRE                               |
+
+              | `alternativeNames` | string\[] | null | `["The Wellcome Trust"]` | Alternative, historical, or source-provided names associated with the Funders record.              | RIOXX / OpenAIRE / Crossref / OpenAlex |
+
+              | `funderDoi`        | string | null    | `"10.13039/100004440"`   | Crossref Funder Registry DOI associated with the Funders record.                                   | Crossref / RIOXX / OpenAIRE            |
+
+              | `funderIds`        | string\[] | null | `["100004440"]`          | Source-provided external identifiers for the Funders record. These are not CORE `funderId` values. | RIOXX / OpenAIRE / Crossref            |
+
+              | `identifiers`      | object\[]        | See below                | Structured list of all known external identifiers associated with the Funders record.              | CORE                                   |
+
+
+              ##### `identifiers` fields
+
+
+              | **Property** | **Type**      | **Example value**      | **Description**                                  |
+
+              | ------------ | ------------- | ---------------------- | ------------------------------------------------ |
+
+              | `scheme`     | string        | `"FUNDER_DOI"`         | Identifier scheme or classification.             |
+
+              | `value`      | string        | `"10.13039/100004440"` | Identifier value.                                |
+
+              | `assertedBy` | string | null | `"Crossref"`           | Source that supplied or asserted the identifier. |
+
+
+              Recommended controlled values for `scheme` may include:
+
+
+              * `FUNDER_DOI`
+
+              * `ROR`
+
+              * `ISNI`
+
+              * `OFR`
+
+              * `OPENALEX_ID`
+
+              * `OPENAIRE_ID`
+
+
+              `funderId` is the canonical CORE integer identifier. Values in `funderIds` and `identifiers` are external identifiers and therefore remain strings.
+
+
+              #### Award and Grants context
+
+
+              | **Property**    | **Type**       | **Example value**                       | **Description**                                                  | **Source**                            |
+
+              | --------------- | -------------- | --------------------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
+
+              | `awardNumber`   | string | null  | `"WT123456"`                            | Award number associated with this source funding assertion.      | OpenAIRE / Crossref / OpenAlex        |
+
+              | `awardUri`      | string | null  | `"https://example.org/grants/WT123456"` | URI associated with the award number.                            | OpenAIRE                              |
+
+              | `awardTitle`    | string | null  | `"AI methods for biomedical discovery"` | Title of the associated award or Grants record.                  | OpenAIRE                              |
+
+              | `fundingStream` | string | null  | `"Biomedical Research"`                 | Funding stream or programme through which the award was made.    | OpenAIRE                              |
+
+              | `projectId`     | integer | null | `12034`                                 | CORE identifier of an associated Projects record, when resolved. | CORE resolution from RIOXX / OpenAIRE |
+
+
+              These properties describe one award or Projects association. If a Funders record can be associated with multiple awards or Projects records, they should not be treated as single-valued permanent properties of the organisation.
+
+
+              Prefer relationships such as:
+
+
+              ```text
+
+              Funders.funderId → Grants.funderId
+
+              Grants.projectIds → Projects.projectId
+
+              ```
+
+
+              #### Funders context and identifier provenance
+
+
+              | **Property**    | **Type**      | **Example value** | **Description**                                                                                                                 | **Source** |
+
+              | --------------- | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `jurisdiction`  | string | null | `"GB"`            | Jurisdiction or country associated with the Funders record. Use an ISO 3166-1 alpha-2 code when the value represents a country. | OpenAIRE   |
+
+              | `doiAssertedBy` | string | null | `"publisher"`     | Source that asserted `funderDoi`.                                                                                               | Crossref   |
+
+              | `idAssertedBy`  | string | null | `"publisher"`     | Source that asserted an external identifier for the Funders record.                                                             | Crossref   |
+
+
+              `doiAssertedBy` and `idAssertedBy` overlap with `identifiers.assertedBy`. If the structured `identifiers` collection is authoritative, the top-level assertion fields may be retained only as compatibility aliases.
+
+
+              #### Project validation
+
+
+              | **Property**               | **Type**       | **Example value** | **Description**                                                                                             | **Source** |
+
+              | -------------------------- | -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `projectValidatedDate`     | string | null  | `"2023-06-14"`    | Date on which the associated Projects or funding record was validated, formatted as an ISO 8601 date.       | OpenAIRE   |
+
+              | `projectValidatedByFunder` | boolean | null | `true`            | Indicates whether the associated Projects or funding information was validated by the funding organisation. | OpenAIRE   |
+
+
+              These values describe a particular Projects or funding association. A `null` validation flag means that the source did not provide enough information to determine validation status; it must not be interpreted as `false`.
+
+
+              #### Clinical-trial context
+
+
+              | **Property**                    | **Type**         | **Example value**                      | **Description**                                                                                | **Source**                     |
+
+              | ------------------------------- | ---------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------ |
+
+              | `clinicalTrialNumbers`          | string\[] | null | `["NCT04512345", "ISRCTN12345678"]`    | Clinical-trial identifiers associated with the funded Work, Grants record, or Projects record. | Repository metadata / Crossref |
+
+              | `clinicalTrialNumberRegistries` | string\[] | null | `["clinicaltrials.gov", "isrctn"]`     | Registries associated with the clinical-trial identifiers.                                     | Repository metadata / Crossref |
+
+              | `clinicalTrialNumberTypes`      | string\[] | null | `["pre-registration", "post-results"]` | Types or categories associated with the clinical-trial identifiers.                            | Repository metadata / Crossref |
+
+
+              When the arrays are used, values at the same array position must describe the same clinical trial. For example, index `0` across the three arrays describes `NCT04512345`, its registry, and its type.
+
+
+              Example Funders record:
+
+
+              ```json
+
+              {
+                "funderId": 501,
+                "name": "Wellcome Trust",
+                "shortName": "Wellcome",
+                "alternativeNames": [
+                  "The Wellcome Trust"
+                ],
+                "funderDoi": "10.13039/100004440",
+                "funderIds": [
+                  "100004440"
+                ],
+                "identifiers": [
+                  {
+                    "scheme": "FUNDER_DOI",
+                    "value": "10.13039/100004440",
+                    "assertedBy": "Crossref"
+                  },
+                  {
+                    "scheme": "OFR",
+                    "value": "100004440",
+                    "assertedBy": "Crossref"
+                  }
+                ],
+                "awardNumber": "WT123456",
+                "awardUri": "https://example.org/grants/WT123456",
+                "awardTitle": "AI methods for biomedical discovery",
+                "fundingStream": "Biomedical Research",
+                "projectId": 12034,
+                "jurisdiction": "GB",
+                "doiAssertedBy": "publisher",
+                "idAssertedBy": "publisher",
+                "projectValidatedDate": "2023-06-14",
+                "projectValidatedByFunder": true,
+                "clinicalTrialNumbers": [
+                  "NCT04512345",
+                  "ISRCTN12345678"
+                ],
+                "clinicalTrialNumberRegistries": [
+                  "clinicaltrials.gov",
+                  "isrctn"
+                ],
+                "clinicalTrialNumberTypes": [
+                  "pre-registration",
+                  "post-results"
+                ]
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: funders-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              
+              The following table describes the proposed field operations for the Funders entity.
+
+
+              | Attribute | Searchable | Filterable | Sortable | Facetable |
+
+              | --- | --- | --- | --- | --- |
+
+              | `funderId` | No | Yes | Yes | No |
+
+              | `name` | Yes | No | Yes | No |
+
+              | `shortName` | Yes | No | No | No |
+
+              | `alternativeNames` | Yes | No | No | No |
+
+              | `funderDoi` | No | Yes | No | No |
+
+              | `funderIds` | No | Yes | No | No |
+
+              | `identifiers.scheme` | No | Yes | No | Yes |
+
+              | `identifiers.value` | No | Yes | No | No |
+
+              | `identifiers.assertedBy` | No | Yes | No | Yes |
+
+              | `awardNumber` | No | Yes | No | No |
+
+              | `awardUri` | No | No | No | No |
+
+              | `awardTitle` | Yes | No | No | No |
+
+              | `fundingStream` | Yes | Yes | No | Yes |
+
+              | `projectId` | No | Yes | No | No |
+
+              | `jurisdiction` | No | Yes | No | Yes |
+
+              | `doiAssertedBy` | No | Yes | No | Yes |
+
+              | `idAssertedBy` | No | Yes | No | Yes |
+
+              | `projectValidatedDate` | No | Yes | Yes | No |
+
+              | `projectValidatedByFunder` | No | Yes | No | Yes |
+
+              | `clinicalTrialNumbers` | No | Yes | No | No |
+
+              | `clinicalTrialNumberRegistries` | No | Yes | No | Yes |
+
+              | `clinicalTrialNumberTypes` | No | Yes | No | Yes |
   - item: Search
     children:
       - item: null
