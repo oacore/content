@@ -22273,6 +22273,480 @@ items:
 
 
               The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: funders-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              
+              #### Search by name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?q=name:"Wellcome Trust"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "name:\"Wellcome Trust\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/funders?q="Wellcome"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              - `name`
+
+              - `shortName`
+
+              - `alternativeNames`
+
+              - `awardTitle`
+
+              - `fundingStream`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Funders record by DOI
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?q=funderDoi:"10.13039/100004440"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "funderDoi:\"10.13039/100004440\""
+              }
+
+              ```
+
+
+              #### Retrieve a Funders record by structured identifier
+
+
+              ```http
+
+              GET /v4/search/funders?q=identifiers.scheme:FUNDER_DOI AND identifiers.value:"10.13039/100004440"
+
+              ```
+
+
+              Both conditions must match the same item in the `identifiers` collection.
+
+
+              #### Retrieve Funders records by jurisdiction
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB
+
+              ```
+
+
+              #### Search by award number
+
+
+              ```http
+
+              GET /v4/search/funders?q=awardNumber:WT123456
+
+              ```
+
+
+              Award-centric searches should normally use the Grants endpoint when the award has been resolved as a Grants record.
+
+
+              #### Retrieve Funders records by funding stream
+
+
+              ```http
+
+              GET /v4/search/funders?q=fundingStream:"Biomedical Research"
+
+              ```
+
+
+              #### Retrieve Funders records associated with a Projects record
+
+
+              ```http
+
+              GET /v4/search/funders?q=projectId:12034
+
+              ```
+
+
+              This query uses the supplied direct association. In the normalised graph, the same relationship may be derived through Grants.
+
+
+              #### Retrieve funder-validated records
+
+
+              ```http
+
+              GET /v4/search/funders?q=projectValidatedByFunder:true
+
+              ```
+
+
+              #### Retrieve Funders records associated with a clinical trial
+
+
+              ```http
+
+              GET /v4/search/funders?q=clinicalTrialNumbers:"NCT04512345"
+
+              ```
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              - Searches for Funders records whose names or alternative names contain `Wellcome`
+
+              - Restricts results to the `GB` jurisdiction
+
+              - Requires a source record validated by the funding organisation
+
+              - Orders results by preferred name
+
+              - Returns selected fields and the total matching result count
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders
+                  ?q="Wellcome" AND jurisdiction:GB AND projectValidatedByFunder:true
+                  &orderby=name:asc,funderId:asc
+                  &select=funderId,name,shortName,funderDoi,jurisdiction
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/funders" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"Wellcome\" AND jurisdiction:GB AND projectValidatedByFunder:true",
+                  "orderby": [
+                    "name:asc",
+                    "funderId:asc"
+                  ],
+                  "select": [
+                    "funderId",
+                    "name",
+                    "shortName",
+                    "funderDoi",
+                    "jurisdiction"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "funderId": 501,
+                    "name": "Wellcome Trust",
+                    "shortName": "Wellcome",
+                    "funderDoi": "10.13039/100004440",
+                    "jurisdiction": "GB"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Funders results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by preferred name
+
+
+              ```http
+
+              GET /v4/search/funders?orderby=name:asc
+
+              ```
+
+
+              ##### Order by validation date
+
+
+              ```http
+
+              GET /v4/search/funders?orderby=projectValidatedDate:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?orderby=name:asc,funderId:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "name:asc",
+                  "funderId:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by preferred name. Records with the same name are then ordered by their CORE identifiers.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?q=*&facets=jurisdiction,fundingStream,identifiers.scheme,projectValidatedByFunder&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "jurisdiction",
+                  "fundingStream",
+                  "identifiers.scheme",
+                  "projectValidatedByFunder"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 35000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "jurisdiction": [
+                    {
+                      "value": "US",
+                      "count": 10200
+                    },
+                    {
+                      "value": "GB",
+                      "count": 4800
+                    }
+                  ],
+                  "fundingStream": [
+                    {
+                      "value": "Horizon Europe",
+                      "count": 2600
+                    },
+                    {
+                      "value": "Biomedical Research",
+                      "count": 1200
+                    }
+                  ],
+                  "identifiers.scheme": [
+                    {
+                      "value": "FUNDER_DOI",
+                      "count": 21000
+                    },
+                    {
+                      "value": "ROR",
+                      "count": 17500
+                    }
+                  ],
+                  "projectValidatedByFunder": [
+                    {
+                      "value": true,
+                      "count": 9500
+                    },
+                    {
+                      "value": false,
+                      "count": 3200
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Funders records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Funders records.
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Funders results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | Status | Description |
+
+              | --- | --- |
+
+              | `200` | The Funders search was completed successfully. |
+
+              | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401` | Authentication credentials are missing or invalid. |
+
+              | `413` | The `POST` request body exceeds the permitted size. |
+
+              | `429` | The API request limit has been exceeded. |
+
+              | `500` | An unexpected server error occurred. |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
   - item: Search
     children:
       - item: null
