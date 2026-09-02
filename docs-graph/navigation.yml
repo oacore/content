@@ -231,6 +231,28 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#publishers-api-relationship-oriented-endpoints"
       - item: Grants
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#grants-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#grants-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#grants-api-supported-field-operations"
+          - hidden: false
+            item: Grants endpoints
+            href: "#grants-api-grants-endpoints"
+          - hidden: false
+            item: Search Grants
+            href: "#grants-api-search-grants"
+          - hidden: false
+            item: Search examples
+            href: "#grants-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#grants-api-relationship-oriented-endpoints"
       - item: Funders
       - item: Topics
         children:
