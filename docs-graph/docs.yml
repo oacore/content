@@ -1101,7 +1101,7 @@ items:
 
               Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
             images:
-              - file: /images/docs-graph/works.png
+              - file: /images/docs-graph/works_v2.png
             subTitle: ""
             subDescription: >-
               A Work may:
@@ -1219,6 +1219,8 @@ items:
               | `journalIds`          | integer\[] | `[12345]`                                                                       | CORE Journal identifiers associated with the Work.                                                      | CORE / ISSN resolution                                           |
 
               | `dataProviderIds`     | integer\[] | `[86,144]`                                                                      | CORE Data Provider identifiers associated with the Work’s source Outputs.                               | CORE                                                             |
+
+              | projectIds | integer[] \| null | [11] | CORE identifiers of Projects records associated with the Work. | OpenAIRE / CORE relationship resolution |
 
               | `dates`               | object\[]  | `[{"type":"published","value":"2022-04-27"}]`                                   | Structured list of publication, deposit, availability, and CORE record-management dates.                | CORE / Crossref / DataCite / OpenAlex / OpenAIRE / OAI-PMH       |
 
@@ -1626,6 +1628,9 @@ items:
                   86,
                   144
                 ],
+               ﻿ "projectIds": [
+                  11
+                ],
                 "dates": [
                   {
                     "type": "published",
@@ -1724,6 +1729,8 @@ items:
               | `journalIds`                     | No             | Yes            | No           | No            |
 
               | `dataProviderIds`                | No             | Yes            | No           | Yes           |
+
+              | `projectIds` | No | Yes | No | No |
 
               | `dates.type`                     | No             | Yes            | No           | Yes           |
 
@@ -1854,6 +1861,8 @@ items:
               | Retrieve Journals for a Work           | `GET`      | `/v4/works/{workId}/journals`       |
 
               | Retrieve Data Providers for a Work     | `GET`      | `/v4/works/{workId}/data-providers` |
+
+              | Retrieve Projects for a Work | `GET` | `/v4/works/{workId}/projects` |
 
 
               The `POST` search method is read-only. It does not create or modify Work records.
@@ -2815,6 +2824,48 @@ items:
               ```http
 
               GET /v4/works/{workId}/data-providers
+
+              ```
+
+
+
+              #### Projects for a Work
+
+
+              ```http
+
+              GET /v4/works/{workId}/projects
+
+              ```
+
+
+              Retrieves Projects records referenced by projectIds.
+
+
+              Example request:
+
+
+              ```GET /v4/works/323030168/projects?count=true&limit=10&offset=0
+
+              ```
+
+
+              The relationship is resolved as:
+
+
+              Works.projectIds → Projects.projectId
+
+
+              An existing Work with no associated Projects returns 200 OK with an empty results array.
+
+
+
+              A reverse endpoint can remain in the Projects documentation:
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/works
 
               ```
       - item: Outputs
@@ -20299,6 +20350,1390 @@ items:
 
 
               An existing Projects record with no related records returns `200 OK` with an empty `results` array. If the supplied Projects record does not exist, the relationship endpoint returns `404 Not Found`.
+      - item: Grants
+        sections:
+          - divider: false
+            border: false
+            id: grants-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Grants entity represents funding awards associated with
+              scholarly research. A Grants record may contain canonical and
+              source-specific identifiers, funder information, award metadata,
+              funding amounts, investigators, funded Works, dates, provenance,
+              and links to source records.
+
+
+              Unlike the Projects entity, which represents research activities, programmes, or initiatives, the Grants entity represents the funding award or agreement that supports those activities. A Grants record may support multiple Projects and Works. Multiple Grants records may also support the same Projects record or Work.
+
+
+              #### Direct entity relationships
+
+
+              ![Grants direct entity relationships](/images/docs-graph/grants.png)
+
+
+              | **Relationship**    | **Cardinality** | **Description**                                                                                                                   |
+
+              | ------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Institutions–Grants | One-to-many     | A Grants record may have zero or one resolved funding Institution. An Institution may award multiple Grants records.              |
+
+              | Grants–Projects     | Many-to-many    | A Grants record may support multiple Projects records, and a Projects record may be supported by multiple Grants records.         |
+
+              | Grants–Works        | Many-to-many    | A Grants record may support multiple Works, and a Work may acknowledge multiple Grants records.                                   |
+
+              | Authors–Grants      | Many-to-many    | Multiple Authors may participate in a Grants record in different roles, and an Author may participate in multiple Grants records. |
+          - divider: false
+            border: false
+            id: grants-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the top-level fields in the
+              planned CORE Graph metadata schema for the Grants entity.
+
+
+              #### Identifiers
+
+
+              | **Property**      | **Type**         | **Example value**                    | **Description**                                                              | **Source**              |
+
+              | ----------------- | ---------------- | ------------------------------------ | ---------------------------------------------------------------------------- | ----------------------- |
+
+              | `grantId`         | integer          | `13`                                 | Unique CORE internal canonical identifier for a record in the Grants entity. | CORE                    |
+
+              | `grantOpenalexId` | string | null    | `"https://openalex.org/G5859020988"` | OpenAlex identifier associated with the Grants record.                       | OpenAlex                |
+
+              | `grantDoi`        | string | null    | `"https://doi.org/10.35802/218671"`  | DOI associated with the Grants record, when available.                       | OpenAlex / RIOXX        |
+
+              | `funderAwardId`   | string | null    | `"AH/W007622/1"`                     | Award identifier assigned by the funding organisation.                       | OpenAlex / RIOXX        |
+
+              | `grantIds`        | object\[] | null | See below                            | Structured list of all known identifiers associated with the Grants record.  | CORE / OpenAlex / RIOXX |
+
+
+              ##### `grantIds` fields
+
+
+              | **Property** | **Type**      | **Example value**                    | **Description**                                                     |
+
+              | ------------ | ------------- | ------------------------------------ | ------------------------------------------------------------------- |
+
+              | `scheme`     | string        | `"openalex"`                         | Identifier scheme represented as a stable controlled value.         |
+
+              | `value`      | string        | `"G5859020988"`                      | Identifier value in the form supplied or normalised for the scheme. |
+
+              | `uri`        | string | null | `"https://openalex.org/G5859020988"` | Resolvable URI for the identifier, when available.                  |
+
+
+              #### Award metadata
+
+
+              | **Property**       | **Type**      | **Example value**                                               | **Description**                                                     | **Source**      |
+
+              | ------------------ | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------- | --------------- |
+
+              | `grantName`        | string | null | `"AI methods for biomedical discovery"`                         | Preferred title selected by CORE for the Grants record.             | CORE / OpenAlex |
+
+              | `grantDescription` | string | null | `"Funding for research on AI methods in biomedical discovery."` | Description of the funding award or the activity it supports.       | OpenAlex        |
+
+              | `fundingType`      | string | null | `"grant"`                                                       | Type of funding award.                                              | OpenAlex        |
+
+              | `funderScheme`     | string | null | `"Horizon Europe"`                                              | Funding scheme, programme, or stream associated with the award.     | OpenAlex        |
+
+              | `provenance`       | string | null | `"funder registry"`                                             | Source or provenance statement associated with the Grants metadata. | OpenAlex        |
+
+
+              #### Funder information
+
+
+              | **Property** | **Type**      | **Example value**                        | **Description**                                                                                      | **Source**         |
+
+              | ------------ | ------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------ |
+
+              | `funderId`   | string | null | `"https://ror.org/0505m1554"`            | Globally unique identifier for the funding organisation, preferably a ROR, ISNI, or FundRef DOI URI. | RIOXX / OpenAlex   |
+
+              | `funderName` | string | null | `"Arts and Humanities Research Council"` | Canonical or source-preferred name of the funding organisation.                                      | RIOXX / OpenAlex   |
+
+              | `funderDoi`  | string | null | `"10.13039/501100000267"`                | FundRef DOI associated with the funding organisation, when available.                                | OpenAlex / FundRef |
+
+              | `funder`     | object | null | See below                                | Structured representation of the funding organisation.                                               | OpenAlex / RIOXX   |
+
+
+              ##### `funder` fields
+
+
+              | **Property** | **Type**      | **Example value**                        | **Description**                                                       |
+
+              | ------------ | ------------- | ---------------------------------------- | --------------------------------------------------------------------- |
+
+              | `id`         | string | null | `"https://ror.org/0505m1554"`            | Source or global identifier associated with the funding organisation. |
+
+              | `name`       | string | null | `"Arts and Humanities Research Council"` | Name of the funding organisation.                                     |
+
+              | `doi`        | string | null | `"10.13039/501100000267"`                | FundRef DOI associated with the funding organisation.                 |
+
+
+              If `funder.id` contains a ROR identifier, the relationship to the Institutions entity can be resolved by matching it to `Institutions.rorId`. A canonical CORE relationship may instead use a separate integer `institutionId` if direct identifier-based traversal is required.
+
+
+              #### Funding amount
+
+
+              | **Property** | **Type**      | **Example value** | **Description**                                                 | **Source** |
+
+              | ------------ | ------------- | ----------------- | --------------------------------------------------------------- | ---------- |
+
+              | `amount`     | number | null | `250000.00`       | Funding amount awarded in the currency specified by `currency`. | OpenAlex   |
+
+              | `currency`   | string | null | `"GBP"`           | ISO 4217 currency code associated with `amount`.                | OpenAlex   |
+
+
+              The amount must always be interpreted together with its currency. A missing amount must not be treated as zero, and amounts in different currencies should not be directly compared without conversion.
+
+
+              #### Dates
+
+
+              | **Property** | **Type**       | **Example value** | **Description**                                                 | **Source** |
+
+              | ------------ | -------------- | ----------------- | --------------------------------------------------------------- | ---------- |
+
+              | `startDate`  | string | null  | `"2023-01-01"`    | Start date of the funding award, formatted as an ISO 8601 date. | OpenAlex   |
+
+              | `endDate`    | string | null  | `"2026-12-31"`    | End date of the funding award, formatted as an ISO 8601 date.   | OpenAlex   |
+
+              | `startYear`  | integer | null | `2023`            | Calendar year in which the funding award begins.                | OpenAlex   |
+
+              | `endYear`    | integer | null | `2026`            | Calendar year in which the funding award ends.                  | OpenAlex   |
+
+
+              `startYear` and `endYear` provide convenient year-level filtering. When complete dates are available, their values should remain consistent with `startDate` and `endDate`.
+
+
+              #### Investigators
+
+
+              | **Property**         | **Type**         | **Example value** | **Description**                                                   | **Source** |
+
+              | -------------------- | ---------------- | ----------------- | ----------------------------------------------------------------- | ---------- |
+
+              | `leadInvestigator`   | object | null    | See below         | Principal or lead investigator associated with the Grants record. | OpenAlex   |
+
+              | `coLeadInvestigator` | object | null    | See below         | Co-lead investigator associated with the Grants record.           | OpenAlex   |
+
+              | `investigators`      | object\[] | null | See below         | Other investigators associated with the Grants record.            | OpenAlex   |
+
+
+              ##### Investigator object
+
+
+              The following proposed structure can be used consistently for `leadInvestigator`, `coLeadInvestigator`, and items in `investigators`.
+
+
+              | **Property**  | **Type**       | **Example value**                    | **Description**                                                      | **Source**       |
+
+              | ------------- | -------------- | ------------------------------------ | -------------------------------------------------------------------- | ---------------- |
+
+              | `authorId`    | integer | null | `67890`                              | CORE identifier of the related Authors record, when resolved.        | CORE             |
+
+              | `openalexId`  | string | null  | `"https://openalex.org/A5048491430"` | OpenAlex Author identifier, when available.                          | OpenAlex         |
+
+              | `orcidId`     | string | null  | `"0000-0003-1613-5981"`              | ORCID identifier, when available.                                    | OpenAlex / ORCID |
+
+              | `displayName` | string | null  | `"Alice Smith"`                      | Display name of the investigator.                                    | OpenAlex         |
+
+              | `role`        | string | null  | `"lead"`                             | Role performed by the investigator in relation to the Grants record. | OpenAlex / CORE  |
+
+
+              Recommended controlled values for `role` include:
+
+
+              * `lead`
+
+              * `co-lead`
+
+              * `investigator`
+
+
+              The role is relationship-specific and does not become a permanent property of the Authors record.
+
+
+              #### Funded Works
+
+
+              | **Property**         | **Type**         | **Example value**                                               | **Description**                                                                                                                    | **Source** |
+
+              | -------------------- | ---------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `fundedOutputs`      | string\[] | null | `["https://openalex.org/W1234567890"]`                          | OpenAlex Work identifiers associated with the Grants record. Despite the property name, these values do not identify CORE Outputs. | OpenAlex   |
+
+              | `fundedOutputsCount` | integer | null   | `12`                                                            | Number of source Works associated with the Grants record.                                                                          | OpenAlex   |
+
+              | `worksApiUrl`        | string | null    | `"https://api.openalex.org/works?filter=grants.id:G5859020988"` | OpenAlex API URL for Works associated with the Grants record.                                                                      | OpenAlex   |
+
+
+              `fundedOutputsCount` is a source-derived snapshot and may change as the source identifies additional funded Works.
+
+
+              #### Web and source lifecycle
+
+
+              | **Property**       | **Type**      | **Example value**                           | **Description**                                                                                | **Source** |
+
+              | ------------------ | ------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+
+              | `landingPageUrl`   | string | null | `"https://example.org/grants/AH-W007622-1"` | Landing page associated with the funding award.                                                | OpenAlex   |
+
+              | `grantCreatedDate` | string | null | `"2023-12-25"`                              | Date on which the source record was created, formatted as an ISO 8601 date.                    | OpenAlex   |
+
+              | `grantUpdatedDate` | string | null | `"2024-11-07T05:31:56Z"`                    | Date and time at which the source record was last updated, formatted as an ISO 8601 timestamp. | OpenAlex   |
+
+
+              `grantCreatedDate` and `grantUpdatedDate` describe the lifecycle of the source record. They do not represent the creation and update dates of the canonical CORE Grants record. If CORE record-management dates are needed, they should be represented separately, for example as `createdDate` and `updatedDate`.
+
+
+              Example Grants record:
+
+
+              ```json
+
+              {
+                "grantId": 13,
+                "grantOpenalexId": "https://openalex.org/G5859020988",
+                "grantDoi": "https://doi.org/10.35802/218671",
+                "funderAwardId": "AH/W007622/1",
+                "grantIds": [
+                  {
+                    "scheme": "openalex",
+                    "value": "G5859020988",
+                    "uri": "https://openalex.org/G5859020988"
+                  },
+                  {
+                    "scheme": "doi",
+                    "value": "10.35802/218671",
+                    "uri": "https://doi.org/10.35802/218671"
+                  },
+                  {
+                    "scheme": "funder_award_id",
+                    "value": "AH/W007622/1",
+                    "uri": null
+                  }
+                ],
+                "grantName": "AI methods for biomedical discovery",
+                "grantDescription": "Funding for research on AI methods in biomedical discovery.",
+                "fundingType": "grant",
+                "funderScheme": "Horizon Europe",
+                "provenance": "funder registry",
+                "funderId": "https://ror.org/0505m1554",
+                "funderName": "Arts and Humanities Research Council",
+                "funderDoi": "10.13039/501100000267",
+                "funder": {
+                  "id": "https://ror.org/0505m1554",
+                  "name": "Arts and Humanities Research Council",
+                  "doi": "10.13039/501100000267"
+                },
+                "amount": 250000.00,
+                "currency": "GBP",
+                "startDate": "2023-01-01",
+                "endDate": "2026-12-31",
+                "startYear": 2023,
+                "endYear": 2026,
+                "leadInvestigator": {
+                  "authorId": 67890,
+                  "openalexId": "https://openalex.org/A5048491430",
+                  "orcidId": "0000-0003-1613-5981",
+                  "displayName": "Alice Smith",
+                  "role": "lead"
+                },
+                "coLeadInvestigator": null,
+                "investigators": [
+                  {
+                    "authorId": 67912,
+                    "openalexId": "https://openalex.org/A5061122334",
+                    "orcidId": null,
+                    "displayName": "David Jones",
+                    "role": "investigator"
+                  }
+                ],
+                "fundedOutputs": [
+                  "https://openalex.org/W1234567890"
+                ],
+                "fundedOutputsCount": 12,
+                "worksApiUrl": "https://api.openalex.org/works?filter=grants.id:G5859020988",
+                "landingPageUrl": "https://example.org/grants/AH-W007622-1",
+                "grantCreatedDate": "2023-12-25",
+                "grantUpdatedDate": "2024-11-07T05:31:56Z"
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: grants-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              The following table describes the field operations for Grants
+              entity.
+
+
+              | **Attribute**                    | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
+
+              | -------------------------------- | -------------- | -------------- | ------------ | ------------- |
+
+              | `grantId`                        | No             | Yes            | Yes          | No            |
+
+              | `grantOpenalexId`                | No             | Yes            | No           | No            |
+
+              | `grantDoi`                       | No             | Yes            | No           | No            |
+
+              | `funderAwardId`                  | No             | Yes            | No           | No            |
+
+              | `grantIds.scheme`                | No             | Yes            | No           | Yes           |
+
+              | `grantIds.value`                 | No             | Yes            | No           | No            |
+
+              | `grantIds.uri`                   | No             | Yes            | No           | No            |
+
+              | `grantName`                      | Yes            | No             | Yes          | No            |
+
+              | `grantDescription`               | Yes            | No             | No           | No            |
+
+              | `fundingType`                    | No             | Yes            | No           | Yes           |
+
+              | `funderScheme`                   | Yes            | Yes            | No           | Yes           |
+
+              | `provenance`                     | Yes            | Yes            | No           | Yes           |
+
+              | `funderId`                       | No             | Yes            | No           | Yes           |
+
+              | `funderName`                     | Yes            | No             | No           | No            |
+
+              | `funderDoi`                      | No             | Yes            | No           | No            |
+
+              | `funder.id`                      | No             | Yes            | No           | Yes           |
+
+              | `funder.name`                    | Yes            | No             | No           | No            |
+
+              | `funder.doi`                     | No             | Yes            | No           | No            |
+
+              | `amount`                         | No             | Yes            | Yes          | No            |
+
+              | `currency`                       | No             | Yes            | No           | Yes           |
+
+              | `startDate`                      | No             | Yes            | Yes          | No            |
+
+              | `endDate`                        | No             | Yes            | Yes          | No            |
+
+              | `startYear`                      | No             | Yes            | Yes          | Yes           |
+
+              | `endYear`                        | No             | Yes            | Yes          | Yes           |
+
+              | `leadInvestigator.authorId`      | No             | Yes            | No           | No            |
+
+              | `leadInvestigator.openalexId`    | No             | Yes            | No           | No            |
+
+              | `leadInvestigator.orcidId`       | No             | Yes            | No           | No            |
+
+              | `leadInvestigator.displayName`   | Yes            | No             | No           | No            |
+
+              | `leadInvestigator.role`          | No             | Yes            | No           | Yes           |
+
+              | `coLeadInvestigator.authorId`    | No             | Yes            | No           | No            |
+
+              | `coLeadInvestigator.openalexId`  | No             | Yes            | No           | No            |
+
+              | `coLeadInvestigator.orcidId`     | No             | Yes            | No           | No            |
+
+              | `coLeadInvestigator.displayName` | Yes            | No             | No           | No            |
+
+              | `coLeadInvestigator.role`        | No             | Yes            | No           | Yes           |
+
+              | `investigators.authorId`         | No             | Yes            | No           | No            |
+
+              | `investigators.openalexId`       | No             | Yes            | No           | No            |
+
+              | `investigators.orcidId`          | No             | Yes            | No           | No            |
+
+              | `investigators.displayName`      | Yes            | No             | No           | No            |
+
+              | `investigators.role`             | No             | Yes            | No           | Yes           |
+
+              | `fundedOutputs`                  | No             | Yes            | No           | No            |
+
+              | `fundedOutputsCount`             | No             | Yes            | Yes          | No            |
+
+              | `worksApiUrl`                    | No             | No             | No           | No            |
+
+              | `landingPageUrl`                 | No             | No             | No           | No            |
+
+              | `grantCreatedDate`               | No             | Yes            | Yes          | No            |
+
+              | `grantUpdatedDate`               | No             | Yes            | Yes          | No            |
+          - divider: false
+            border: false
+            id: grants-api-grants-endpoints
+            title: Grants endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                           | **Method** | **Endpoint**                         |
+
+              | --------------------------------------- | ---------- | ------------------------------------ |
+
+              | Get a single Grants record              | `GET`      | `/v4/grants/{grantId}`               |
+
+              | Search Grants using URL parameters      | `GET`      | `/v4/search/grants`                  |
+
+              | Search Grants using a JSON request body | `POST`     | `/v4/search/grants`                  |
+
+              | Retrieve Works for a Grants record      | `GET`      | `/v4/grants/{grantId}/works`         |
+
+              | Retrieve Projects for a Grants record   | `GET`      | `/v4/grants/{grantId}/projects`      |
+
+              | Retrieve the funding Institution        | `GET`      | `/v4/grants/{grantId}/funder`        |
+
+              | Retrieve investigators                  | `GET`      | `/v4/grants/{grantId}/investigators` |
+
+
+              #### Get a single Grants record
+
+
+              Retrieves one Grants record using its CORE identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/grants/{grantId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                              |
+
+              | ------------- | -------- | ------------ | -------------------------------------------- |
+
+              | `grantId`     | integer  | Yes          | Unique CORE identifier of the Grants record. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                                              |
+
+              | ------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Grants fields to return. Example: `select=grantId,grantName,funderName,amount,currency,startDate,endDate`. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/grants/13" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "grantId": 13,
+                "grantOpenalexId": "https://openalex.org/G5859020988",
+                "grantDoi": "https://doi.org/10.35802/218671",
+                "funderAwardId": "AH/W007622/1",
+                "grantName": "AI methods for biomedical discovery",
+                "fundingType": "grant",
+                "funderScheme": "Horizon Europe",
+                "funderId": "https://ror.org/0505m1554",
+                "funderName": "Arts and Humanities Research Council",
+                "amount": 250000.00,
+                "currency": "GBP",
+                "startDate": "2023-01-01",
+                "endDate": "2026-12-31",
+                "fundedOutputsCount": 12
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/grants/13?select=grantId,grantName,funderName,amount,currency,startDate,endDate" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "grantId": 13,
+                "grantName": "AI methods for biomedical discovery",
+                "funderName": "Arts and Humanities Research Council",
+                "amount": 250000.00,
+                "currency": "GBP",
+                "startDate": "2023-01-01",
+                "endDate": "2026-12-31"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                           |
+
+              | ---------- | --------------------------------------------------------- |
+
+              | `200`      | The Grants record was returned successfully.              |
+
+              | `400`      | The supplied `grantId` or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.        |
+
+              | `404`      | No Grants record exists for the supplied `grantId`.       |
+
+              | `429`      | The API request limit has been exceeded.                  |
+
+              | `500`      | An unexpected server error occurred.                      |
+          - divider: false
+            border: false
+            id: grants-api-search-grants
+            title: Search Grants
+            descriptionAbout: >-
+              Searches, filters, orders, facets, counts, and paginates Grants
+              records.
+
+
+              Grants search is available through `GET` and `POST`:
+
+
+              | **Method** | **API endpoint**                          |
+
+              | ---------- | ----------------------------------------- |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/grants> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/grants> |
+
+
+              Both methods use the same CORE query language and return the same Grants search-response structure.
+
+
+              Grants search supports textual keyword search and structured queries. Vector search, hybrid search, and semantic reranking are not supported for this entity.
+
+
+              #### GET and POST search parameters
+
+
+              ##### GET query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+              | `select`      | string   | No           | All retrievable fields        | Comma-separated list of Grants fields to include in each result.                                                                  |
+
+              | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+              | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Grants records should be included.                                                 |
+
+              | `limit`       | integer  | No           | `10`                          | Maximum number of Grants records to return.                                                                                       |
+
+              | `offset`      | integer  | No           | `0`                           | Number of matching Grants records to skip.                                                                                        |
+
+
+              ##### POST request body
+
+
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+              | `select`     | string\[] | No           | All retrievable fields        | List of Grants fields to include in each result.                                                                                  |
+
+              | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+              | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Grants records should be included.                                                 |
+
+              | `limit`      | integer   | No           | `10`                          | Maximum number of Grants records to return.                                                                                       |
+
+              | `offset`     | integer   | No           | `0`                           | Number of matching Grants records to skip.                                                                                        |
+
+
+              ##### GET and POST parameter mapping
+
+
+              | **GET query parameter**                               | **POST body property**                                                   |
+
+              | ----------------------------------------------------- | ------------------------------------------------------------- |
+
+              | `q=currency:GBP`                                      | `"q": "currency:GBP"`                                                    |
+
+              | `orderby=startDate:desc`                              | `"orderby": ["startDate:desc"]`                                          |
+
+              | `select=grantId,grantName,funderName,amount,currency` | `"select": ["grantId", "grantName", "funderName", "amount", "currency"]` |
+
+              | `facets=fundingType,funderScheme,currency,startYear`  | `"facets": ["fundingType", "funderScheme", "currency", "startYear"]`     |
+
+              | `count=true`                                          | `"count": true`                                                          |
+
+              | `limit=10`                                            | `"limit": 10`                                                            |
+
+              | `offset=0`                                            | `"offset": 0`                                                            |
+
+
+              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: grants-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search by name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?q=grantName:"AI methods for biomedical discovery"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "grantName:\"AI methods for biomedical discovery\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/grants?q="biomedical discovery"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `grantName`
+
+              * `grantDescription`
+
+              * `funderScheme`
+
+              * `provenance`
+
+              * `funderName`
+
+              * `funder.name`
+
+              * `leadInvestigator.displayName`
+
+              * `coLeadInvestigator.displayName`
+
+              * `investigators.displayName`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Grants record by OpenAlex identifier
+
+
+              ```http
+
+              GET /v4/search/grants?q=grantOpenalexId:"https://openalex.org/G5859020988"
+
+              ```
+
+
+              #### Retrieve a Grants record by DOI
+
+
+              ```http
+
+              GET /v4/search/grants?q=grantDoi:"https://doi.org/10.35802/218671"
+
+              ```
+
+
+              #### Retrieve a Grants record by funder award identifier
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderAwardId:"AH/W007622/1"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "funderAwardId:\"AH/W007622/1\""
+              }
+
+              ```
+
+
+              #### Search by funding organisation
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderName:"Arts and Humanities Research Council"
+
+              ```
+
+
+              The global funder identifier should be used when exact identity matching is required:
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderId:"https://ror.org/0505m1554"
+
+              ```
+
+
+              #### Retrieve Grants records by funding scheme
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderScheme:"Horizon Europe"
+
+              ```
+
+
+              #### Retrieve Grants records within an amount range
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP AND amount>=100000 AND amount<=500000&orderby=amount:desc
+
+              ```
+
+
+              The currency clause is essential when comparing monetary values.
+
+
+              #### Retrieve Grants records active on a particular date
+
+
+              ```http
+
+              GET /v4/search/grants?q=startDate<=2025-06-01 AND endDate>=2025-06-01
+
+              ```
+
+
+              This query returns Grants records whose recorded date range includes 1 June 2025. Records with a missing `startDate` or `endDate` are not matched by both clauses.
+
+
+              #### Search by investigator
+
+
+              ```http
+
+              GET /v4/search/grants?q=leadInvestigator.authorId:67890 OR coLeadInvestigator.authorId:67890 OR investigators.authorId:67890
+
+              ```
+
+
+              An investigator name may also be searched textually:
+
+
+              ```http
+
+              GET /v4/search/grants?q=investigators.displayName:"David Jones"
+
+              ```
+
+
+              #### Retrieve Grants records associated with an OpenAlex Work
+
+
+              ```http
+
+              GET /v4/search/grants?q=fundedOutputs:"https://openalex.org/W1234567890"
+
+              ```
+
+
+              This query uses the source-specific OpenAlex Work identifier. A canonical CORE Works relationship should instead use a CORE `workId` when available.
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Searches for Grants records concerning biomedical discovery
+
+              * Restricts results to GBP awards of at least 100,000
+
+              * Restricts results to awards starting in or after 2020
+
+              * Orders results by funding amount in descending order
+
+              * Returns selected fields and the total matching result count
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants
+                  ?q="biomedical discovery" AND currency:GBP AND amount>=100000 AND startYear>=2020
+                  &orderby=amount:desc,grantId:asc
+                  &select=grantId,grantName,funderName,amount,currency,startDate,endDate
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/grants" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"biomedical discovery\" AND currency:GBP AND amount>=100000 AND startYear>=2020",
+                  "orderby": [
+                    "amount:desc",
+                    "grantId:asc"
+                  ],
+                  "select": [
+                    "grantId",
+                    "grantName",
+                    "funderName",
+                    "amount",
+                    "currency",
+                    "startDate",
+                    "endDate"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "grantId": 13,
+                    "grantName": "AI methods for biomedical discovery",
+                    "funderName": "Arts and Humanities Research Council",
+                    "amount": 250000.00,
+                    "currency": "GBP",
+                    "startDate": "2023-01-01",
+                    "endDate": "2026-12-31"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Grants results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by preferred name
+
+
+              ```http
+
+              GET /v4/search/grants?orderby=grantName:asc
+
+              ```
+
+
+              ##### Order by start date
+
+
+              ```http
+
+              GET /v4/search/grants?orderby=startDate:desc
+
+              ```
+
+
+              ##### Order by amount within one currency
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP&orderby=amount:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?orderby=startDate:desc,grantId:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "startDate:desc",
+                  "grantId:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by start date. Records with the same start date are then ordered by their CORE identifiers.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/grants?q=*&facets=fundingType,funderScheme,currency,startYear&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "fundingType",
+                  "funderScheme",
+                  "currency",
+                  "startYear"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 125000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "fundingType": [
+                    {
+                      "value": "grant",
+                      "count": 104000
+                    },
+                    {
+                      "value": "contract",
+                      "count": 12500
+                    }
+                  ],
+                  "funderScheme": [
+                    {
+                      "value": "Horizon Europe",
+                      "count": 18500
+                    },
+                    {
+                      "value": "Horizon 2020",
+                      "count": 16300
+                    }
+                  ],
+                  "currency": [
+                    {
+                      "value": "EUR",
+                      "count": 57000
+                    },
+                    {
+                      "value": "GBP",
+                      "count": 21000
+                    }
+                  ],
+                  "startYear": [
+                    {
+                      "value": 2023,
+                      "count": 9400
+                    },
+                    {
+                      "value": 2022,
+                      "count": 8800
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Grants records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Grants records.
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderScheme:"Horizon Europe"&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Grants results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Grants search was completed successfully.                                                                   |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: grants-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to entities directly connected to a Grants record. They return related records rather than embedding complete related entities in the Grants response.
+
+
+              #### Works funded by a Grants record
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/works
+
+              ```
+
+
+              Retrieves canonical Works associated with the Grants record. Source-specific OpenAlex Work identifiers in `fundedOutputs` must be resolved against the Works entity's external identifiers.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/grants/13/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Works expose a filterable `grantIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/works?q=grantIds:13
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/works/{workId}/grants
+
+              ```
+
+
+              #### Projects supported by a Grants record
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/projects
+
+              ```
+
+
+              Retrieves Projects records supported by the Grants record.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/grants/13/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+
+              ```
+
+
+              If Projects expose a filterable `grantIds` field, the equivalent search is:
+
+
+              ```http
+
+              GET /v4/search/projects?q=grantIds:13
+
+              ```
+
+
+              The reverse convenience endpoint is:
+
+
+              ```http
+
+              GET /v4/projects/{projectId}/grants
+
+              ```
+
+
+              #### Funding Institution
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/funder
+
+              ```
+
+
+              Retrieves the Institutions record resolved from `funderId`, `funder.id`, or `funderDoi`.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/grants/13/funder
+
+              ```
+
+
+              If the identifier is a ROR URI, the equivalent Institutions search is:
+
+
+              ```http
+
+              GET /v4/search/institutions?q=rorId:"https://ror.org/0505m1554"
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/institutions/{institutionId}/grants
+
+              ```
+
+
+              #### Investigators
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/investigators
+
+              ```
+
+
+              Retrieves distinct Authors records referenced by `leadInvestigator.authorId`, `coLeadInvestigator.authorId`, and `investigators.authorId`. The relationship response should retain each investigator's role.
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "totalHits": 2,
+                "results": [
+                  {
+                    "authorId": 67890,
+                    "displayName": "Alice Smith",
+                    "orcidId": "0000-0003-1613-5981",
+                    "role": "lead"
+                  },
+                  {
+                    "authorId": 67912,
+                    "displayName": "David Jones",
+                    "orcidId": null,
+                    "role": "investigator"
+                  }
+                ]
+              }
+
+              ```
+
+
+              The reverse convenience endpoint may be exposed as:
+
+
+              ```http
+
+              GET /v4/authors/{authorId}/grants
+
+              ```
+
+
+              An existing Grants record with no related records returns `200 OK` with an empty `results` array. If the supplied Grants record does not exist, a collection relationship endpoint returns `404 Not Found`.
+
+
+              If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
   - item: Search
     children:
       - item: null
