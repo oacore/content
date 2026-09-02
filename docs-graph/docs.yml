@@ -22026,6 +22026,156 @@ items:
               | `clinicalTrialNumberRegistries` | No | Yes | No | Yes |
 
               | `clinicalTrialNumberTypes` | No | Yes | No | Yes |
+          - divider: false
+            border: false
+            id: funders-api-funders-endpoints
+            title: Funders endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                                   | **Method** | **Endpoint**                      |
+
+              | ----------------------------------------------- | ---------- | --------------------------------- |
+
+              | Get a single Funders record                     | `GET`      | `/v4/funders/{funderId}`          |
+
+              | Search Funders using URL parameters             | `GET`      | `/v4/search/funders`              |
+
+              | Search Funders using a JSON request body        | `POST`     | `/v4/search/funders`              |
+
+              | Retrieve Grants awarded by a Funders record     | `GET`      | `/v4/funders/{funderId}/grants`   |
+
+              | Retrieve Projects supported by a Funders record | `GET`      | `/v4/funders/{funderId}/projects` |
+
+              | Retrieve Works supported by a Funders record    | `GET`      | `/v4/funders/{funderId}/works`    |
+
+
+              #### Get a single Funders record
+
+
+              Retrieves one Funders record using its CORE identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/funders/{funderId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                               |
+
+              | ------------- | -------- | ------------ | --------------------------------------------- |
+
+              | `funderId`    | integer  | Yes          | Unique CORE identifier of the Funders record. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                               |
+
+              | ------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Funders fields to return. Example: `select=funderId,name,shortName,funderDoi,jurisdiction`. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/funders/501" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "funderId": 501,
+                "name": "Wellcome Trust",
+                "shortName": "Wellcome",
+                "alternativeNames": [
+                  "The Wellcome Trust"
+                ],
+                "funderDoi": "10.13039/100004440",
+                "identifiers": [
+                  {
+                    "scheme": "FUNDER_DOI",
+                    "value": "10.13039/100004440",
+                    "assertedBy": "Crossref"
+                  }
+                ],
+                "jurisdiction": "GB"
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/funders/501?select=funderId,name,shortName,funderDoi,jurisdiction" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "funderId": 501,
+                "name": "Wellcome Trust",
+                "shortName": "Wellcome",
+                "funderDoi": "10.13039/100004440",
+                "jurisdiction": "GB"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                            |
+
+              | ---------- | ---------------------------------------------------------- |
+
+              | `200`      | The Funders record was returned successfully.              |
+
+              | `400`      | The supplied `funderId` or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.         |
+
+              | `404`      | No Funders record exists for the supplied `funderId`.      |
+
+              | `429`      | The API request limit has been exceeded.                   |
+
+              | `500`      | An unexpected server error occurred.                       |
   - item: Search
     children:
       - item: null
