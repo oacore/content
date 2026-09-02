@@ -254,6 +254,16 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#grants-api-relationship-oriented-endpoints"
       - item: Funders
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#funders-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#funders-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#funders-api-supported-field-operations"
       - item: Topics
         children:
           - hidden: false
