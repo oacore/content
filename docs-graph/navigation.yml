@@ -238,6 +238,12 @@ navItems:
           - hidden: false
             item: Data structure
             href: "#grants-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#grants-api-supported-field-operations"
+          - hidden: false
+            item: Grants endpoints
+            href: "#grants-api-grants-endpoints"
       - item: Funders
       - item: Topics
         children:
