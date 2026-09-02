@@ -21734,6 +21734,1117 @@ items:
 
 
               If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
+      - item: Funders
+        sections:
+          - divider: false
+            border: false
+            id: funders-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Funders entity represents organisations or funding bodies that
+              provide financial support for research. A Funders record contains
+              the organisation's canonical CORE identifier, names, external
+              identifiers, jurisdiction, and source-provenance information.
+              Source metadata may also associate a Funders record with awards,
+              Grants, Projects, Works, or clinical trials.
+
+
+              The Funders entity represents the funding organisation itself. Award-specific information belongs primarily in the Grants entity, research-activity information belongs in the Projects entity, and research-result information belongs in the Works or Outputs entities.
+
+
+              #### Entity relationships
+
+
+              ![Funders entity relationships](/images/docs-graph/funders.png)
+
+
+              | **Relationship**        | **Type**            | **Description**                                                                                                                                                                         |
+
+              | ----------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Funders–Grants          | Direct, one-to-many | A Funders record may award multiple Grants records. A Grants record may have zero or one resolved Funders record.                                                                       |
+
+              | Funders–Projects        | Normally indirect   | Projects records are normally connected to Funders through Grants. A direct source association may be retained when no Grants record can be resolved.                                   |
+
+              | Funders–Works           | Normally indirect   | Works are normally connected to Funders through Grants. A direct funding assertion may be retained when source metadata identifies a funding organisation but no award can be resolved. |
+
+              | Funders–clinical trials | Contextual          | Clinical-trial identifiers describe the funded research context. They are not stable properties of the funding organisation itself.                                                     |
+          - divider: false
+            border: false
+            id: funders-api-data-structure
+            title: Data structure
+            descriptionAbout: >-
+              The following sections describe the fields in the planned CORE
+              Graph metadata schema for the Funders entity. All CORE entity
+              identifiers, including `funderId`, `grantId`, `projectId`, and
+              `workId`, use the `integer` type.
+
+
+              #### Identifiers and names
+
+
+              | **Property**       | **Type**         | **Example value**        | **Description**                                                                                    | **Source**                             |
+
+              | ------------------ | ---------------- | ------------------------ | -------------------------------------------------------------------------------------------------- | -------------------------------------- |
+
+              | `funderId`         | integer          | `501`                    | Unique CORE internal canonical identifier for a record in the Funders entity.                      | CORE                                   |
+
+              | `name`             | string | null    | `"Wellcome Trust"`       | Preferred name selected by CORE for the Funders record.                                            | CORE / Crossref / OpenAlex / OpenAIRE  |
+
+              | `shortName`        | string | null    | `"Wellcome"`             | Short or abbreviated name associated with the Funders record.                                      | OpenAIRE                               |
+
+              | `alternativeNames` | string\[] | null | `["The Wellcome Trust"]` | Alternative, historical, or source-provided names associated with the Funders record.              | RIOXX / OpenAIRE / Crossref / OpenAlex |
+
+              | `funderDoi`        | string | null    | `"10.13039/100004440"`   | Crossref Funder Registry DOI associated with the Funders record.                                   | Crossref / RIOXX / OpenAIRE            |
+
+              | `funderIds`        | string\[] | null | `["100004440"]`          | Source-provided external identifiers for the Funders record. These are not CORE `funderId` values. | RIOXX / OpenAIRE / Crossref            |
+
+              | `identifiers`      | object\[]        | See below                | Structured list of all known external identifiers associated with the Funders record.              | CORE                                   |
+
+
+              ##### `identifiers` fields
+
+
+              | **Property** | **Type**      | **Example value**      | **Description**                                  |
+
+              | ------------ | ------------- | ---------------------- | ------------------------------------------------ |
+
+              | `scheme`     | string        | `"FUNDER_DOI"`         | Identifier scheme or classification.             |
+
+              | `value`      | string        | `"10.13039/100004440"` | Identifier value.                                |
+
+              | `assertedBy` | string | null | `"Crossref"`           | Source that supplied or asserted the identifier. |
+
+
+              Recommended controlled values for `scheme` may include:
+
+
+              * `FUNDER_DOI`
+
+              * `ROR`
+
+              * `ISNI`
+
+              * `OFR`
+
+              * `OPENALEX_ID`
+
+              * `OPENAIRE_ID`
+
+
+              `funderId` is the canonical CORE integer identifier. Values in `funderIds` and `identifiers` are external identifiers and therefore remain strings.
+
+
+              #### Award and Grants context
+
+
+              | **Property**    | **Type**       | **Example value**                       | **Description**                                                  | **Source**                            |
+
+              | --------------- | -------------- | --------------------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
+
+              | `awardNumber`   | string | null  | `"WT123456"`                            | Award number associated with this source funding assertion.      | OpenAIRE / Crossref / OpenAlex        |
+
+              | `awardUri`      | string | null  | `"https://example.org/grants/WT123456"` | URI associated with the award number.                            | OpenAIRE                              |
+
+              | `awardTitle`    | string | null  | `"AI methods for biomedical discovery"` | Title of the associated award or Grants record.                  | OpenAIRE                              |
+
+              | `fundingStream` | string | null  | `"Biomedical Research"`                 | Funding stream or programme through which the award was made.    | OpenAIRE                              |
+
+              | `projectId`     | integer | null | `12034`                                 | CORE identifier of an associated Projects record, when resolved. | CORE resolution from RIOXX / OpenAIRE |
+
+
+              These properties describe one award or Projects association. If a Funders record can be associated with multiple awards or Projects records, they should not be treated as single-valued permanent properties of the organisation.
+
+
+              Prefer relationships such as:
+
+
+              ```text
+
+              Funders.funderId → Grants.funderId
+
+              Grants.projectIds → Projects.projectId
+
+              ```
+
+
+              #### Funders context and identifier provenance
+
+
+              | **Property**    | **Type**      | **Example value** | **Description**                                                                                                                 | **Source** |
+
+              | --------------- | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `jurisdiction`  | string | null | `"GB"`            | Jurisdiction or country associated with the Funders record. Use an ISO 3166-1 alpha-2 code when the value represents a country. | OpenAIRE   |
+
+              | `doiAssertedBy` | string | null | `"publisher"`     | Source that asserted `funderDoi`.                                                                                               | Crossref   |
+
+              | `idAssertedBy`  | string | null | `"publisher"`     | Source that asserted an external identifier for the Funders record.                                                             | Crossref   |
+
+
+              `doiAssertedBy` and `idAssertedBy` overlap with `identifiers.assertedBy`. If the structured `identifiers` collection is authoritative, the top-level assertion fields may be retained only as compatibility aliases.
+
+
+              #### Project validation
+
+
+              | **Property**               | **Type**       | **Example value** | **Description**                                                                                             | **Source** |
+
+              | -------------------------- | -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ---------- |
+
+              | `projectValidatedDate`     | string | null  | `"2023-06-14"`    | Date on which the associated Projects or funding record was validated, formatted as an ISO 8601 date.       | OpenAIRE   |
+
+              | `projectValidatedByFunder` | boolean | null | `true`            | Indicates whether the associated Projects or funding information was validated by the funding organisation. | OpenAIRE   |
+
+
+              These values describe a particular Projects or funding association. A `null` validation flag means that the source did not provide enough information to determine validation status; it must not be interpreted as `false`.
+
+
+              #### Clinical-trial context
+
+
+              | **Property**                    | **Type**         | **Example value**                      | **Description**                                                                                | **Source**                     |
+
+              | ------------------------------- | ---------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------ |
+
+              | `clinicalTrialNumbers`          | string\[] | null | `["NCT04512345", "ISRCTN12345678"]`    | Clinical-trial identifiers associated with the funded Work, Grants record, or Projects record. | Repository metadata / Crossref |
+
+              | `clinicalTrialNumberRegistries` | string\[] | null | `["clinicaltrials.gov", "isrctn"]`     | Registries associated with the clinical-trial identifiers.                                     | Repository metadata / Crossref |
+
+              | `clinicalTrialNumberTypes`      | string\[] | null | `["pre-registration", "post-results"]` | Types or categories associated with the clinical-trial identifiers.                            | Repository metadata / Crossref |
+
+
+              When the arrays are used, values at the same array position must describe the same clinical trial. For example, index `0` across the three arrays describes `NCT04512345`, its registry, and its type.
+
+
+              Example Funders record:
+
+
+              ```json
+
+              {
+                "funderId": 501,
+                "name": "Wellcome Trust",
+                "shortName": "Wellcome",
+                "alternativeNames": [
+                  "The Wellcome Trust"
+                ],
+                "funderDoi": "10.13039/100004440",
+                "funderIds": [
+                  "100004440"
+                ],
+                "identifiers": [
+                  {
+                    "scheme": "FUNDER_DOI",
+                    "value": "10.13039/100004440",
+                    "assertedBy": "Crossref"
+                  },
+                  {
+                    "scheme": "OFR",
+                    "value": "100004440",
+                    "assertedBy": "Crossref"
+                  }
+                ],
+                "awardNumber": "WT123456",
+                "awardUri": "https://example.org/grants/WT123456",
+                "awardTitle": "AI methods for biomedical discovery",
+                "fundingStream": "Biomedical Research",
+                "projectId": 12034,
+                "jurisdiction": "GB",
+                "doiAssertedBy": "publisher",
+                "idAssertedBy": "publisher",
+                "projectValidatedDate": "2023-06-14",
+                "projectValidatedByFunder": true,
+                "clinicalTrialNumbers": [
+                  "NCT04512345",
+                  "ISRCTN12345678"
+                ],
+                "clinicalTrialNumberRegistries": [
+                  "clinicaltrials.gov",
+                  "isrctn"
+                ],
+                "clinicalTrialNumberTypes": [
+                  "pre-registration",
+                  "post-results"
+                ]
+              }
+
+              ```
+          - divider: false
+            border: false
+            id: funders-api-supported-field-operations
+            title: Supported field operations
+            descriptionAbout: >-
+              
+              The following table describes the proposed field operations for the Funders entity.
+
+
+              | Attribute | Searchable | Filterable | Sortable | Facetable |
+
+              | --- | --- | --- | --- | --- |
+
+              | `funderId` | No | Yes | Yes | No |
+
+              | `name` | Yes | No | Yes | No |
+
+              | `shortName` | Yes | No | No | No |
+
+              | `alternativeNames` | Yes | No | No | No |
+
+              | `funderDoi` | No | Yes | No | No |
+
+              | `funderIds` | No | Yes | No | No |
+
+              | `identifiers.scheme` | No | Yes | No | Yes |
+
+              | `identifiers.value` | No | Yes | No | No |
+
+              | `identifiers.assertedBy` | No | Yes | No | Yes |
+
+              | `awardNumber` | No | Yes | No | No |
+
+              | `awardUri` | No | No | No | No |
+
+              | `awardTitle` | Yes | No | No | No |
+
+              | `fundingStream` | Yes | Yes | No | Yes |
+
+              | `projectId` | No | Yes | No | No |
+
+              | `jurisdiction` | No | Yes | No | Yes |
+
+              | `doiAssertedBy` | No | Yes | No | Yes |
+
+              | `idAssertedBy` | No | Yes | No | Yes |
+
+              | `projectValidatedDate` | No | Yes | Yes | No |
+
+              | `projectValidatedByFunder` | No | Yes | No | Yes |
+
+              | `clinicalTrialNumbers` | No | Yes | No | No |
+
+              | `clinicalTrialNumberRegistries` | No | Yes | No | Yes |
+
+              | `clinicalTrialNumberTypes` | No | Yes | No | Yes |
+          - divider: false
+            border: false
+            id: funders-api-funders-endpoints
+            title: Funders endpoints
+            descriptionAbout: >-
+              #### Available endpoints
+
+
+              | **Operation**                                   | **Method** | **Endpoint**                      |
+
+              | ----------------------------------------------- | ---------- | --------------------------------- |
+
+              | Get a single Funders record                     | `GET`      | `/v4/funders/{funderId}`          |
+
+              | Search Funders using URL parameters             | `GET`      | `/v4/search/funders`              |
+
+              | Search Funders using a JSON request body        | `POST`     | `/v4/search/funders`              |
+
+              | Retrieve Grants awarded by a Funders record     | `GET`      | `/v4/funders/{funderId}/grants`   |
+
+              | Retrieve Projects supported by a Funders record | `GET`      | `/v4/funders/{funderId}/projects` |
+
+              | Retrieve Works supported by a Funders record    | `GET`      | `/v4/funders/{funderId}/works`    |
+
+
+              #### Get a single Funders record
+
+
+              Retrieves one Funders record using its CORE identifier.
+
+
+              ```http
+
+              GET https://api.core.ac.uk/v4/funders/{funderId}
+
+              ```
+
+
+              ##### Authorization
+
+
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
+
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
+
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
+
+
+              ##### Path parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                               |
+
+              | ------------- | -------- | ------------ | --------------------------------------------- |
+
+              | `funderId`    | integer  | Yes          | Unique CORE identifier of the Funders record. |
+
+
+              ##### Query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                               |
+
+              | ------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+
+              | `select`      | string   | No           | Comma-separated list of top-level Funders fields to return. Example: `select=funderId,name,shortName,funderDoi,jurisdiction`. |
+
+
+              Example request:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/funders/501" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response:
+
+
+              ```json
+
+              {
+                "funderId": 501,
+                "name": "Wellcome Trust",
+                "shortName": "Wellcome",
+                "alternativeNames": [
+                  "The Wellcome Trust"
+                ],
+                "funderDoi": "10.13039/100004440",
+                "identifiers": [
+                  {
+                    "scheme": "FUNDER_DOI",
+                    "value": "10.13039/100004440",
+                    "assertedBy": "Crossref"
+                  }
+                ],
+                "jurisdiction": "GB"
+              }
+
+              ```
+
+
+              Example request using `select`:
+
+
+              ```bash
+
+              curl --request GET \
+                --url "https://api.core.ac.uk/v4/funders/501?select=funderId,name,shortName,funderDoi,jurisdiction" \
+                --header "Authorization: Bearer YOUR_API_KEY"
+              ```
+
+
+              Example response using `select`:
+
+
+              ```json
+
+              {
+                "funderId": 501,
+                "name": "Wellcome Trust",
+                "shortName": "Wellcome",
+                "funderDoi": "10.13039/100004440",
+                "jurisdiction": "GB"
+              }
+
+              ```
+
+
+              #### Responses
+
+
+              | **Status** | **Description**                                            |
+
+              | ---------- | ---------------------------------------------------------- |
+
+              | `200`      | The Funders record was returned successfully.              |
+
+              | `400`      | The supplied `funderId` or `select` expression is invalid. |
+
+              | `401`      | Authentication credentials are missing or invalid.         |
+
+              | `404`      | No Funders record exists for the supplied `funderId`.      |
+
+              | `429`      | The API request limit has been exceeded.                   |
+
+              | `500`      | An unexpected server error occurred.                       |
+          - divider: false
+            border: false
+            id: funders-api-search-funders
+            title: Search Funders
+            descriptionAbout: >-
+              Searches, filters, orders, facets, counts, and paginates Funders
+              records.
+
+
+              Funders search is available through `GET` and `POST`:
+
+
+              | **Method** | **API endpoint**                           |
+
+              | ---------- | ------------------------------------------ |
+
+              | `GET`      | <https://api.core.ac.uk/v4/search/funders> |
+
+              | `POST`     | <https://api.core.ac.uk/v4/search/funders> |
+
+
+              Both methods use the same CORE query language and return the same Funders search-response structure.
+
+
+              Funders search supports textual keyword search and structured queries. Vector search, hybrid search, and semantic reranking are not supported for this entity.
+
+
+              #### GET and POST search parameters
+
+
+              ##### GET query parameters
+
+
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`           | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`     | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+
+              | `select`      | string   | No           | All retrievable fields        | Comma-separated list of Funders fields to include in each result.                                                                 |
+
+              | `facets`      | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+
+              | `count`       | boolean  | No           | `false`                       | Indicates whether the total number of matching Funders records should be included.                                                |
+
+              | `limit`       | integer  | No           | `10`                          | Maximum number of Funders records to return.                                                                                      |
+
+              | `offset`      | integer  | No           | `0`                           | Number of matching Funders records to skip.                                                                                       |
+
+
+              ##### POST request body
+
+
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                   |
+
+              | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | `q`          | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | `orderby`    | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+
+              | `select`     | string\[] | No           | All retrievable fields        | List of Funders fields to include in each result.                                                                                 |
+
+              | `facets`     | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+
+              | `count`      | boolean   | No           | `false`                       | Indicates whether the total number of matching Funders records should be included.                                                |
+
+              | `limit`      | integer   | No           | `10`                          | Maximum number of Funders records to return.                                                                                      |
+
+              | `offset`     | integer   | No           | `0`                           | Number of matching Funders records to skip.                                                                                       |
+
+
+              ##### GET and POST parameter mapping
+
+
+              | **GET query parameter**                                      | **POST body property**                                                     |
+
+              | ------------------------------------------------------------ | -------------------------------------------------------------------------- |
+
+              | `q=jurisdiction:GB`                                          | `"q": "jurisdiction:GB"`                                                   |
+
+              | `orderby=name:asc`                                           | `"orderby": ["name:asc"]`                                                  |
+
+              | `select=funderId,name,shortName,funderDoi,jurisdiction`      | `"select": ["funderId", "name", "shortName", "funderDoi", "jurisdiction"]` |
+
+              | `facets=jurisdiction,fundingStream,projectValidatedByFunder` | `"facets": ["jurisdiction", "fundingStream", "projectValidatedByFunder"]`  |
+
+              | `count=true`                                                 | `"count": true`                                                            |
+
+              | `limit=10`                                                   | `"limit": 10`                                                              |
+
+              | `offset=0`                                                   | `"offset": 0`                                                              |
+
+
+              The `GET` method represents `orderby`, `select`, and `facets` as comma-separated strings. The `POST` method represents them as JSON arrays.
+          - divider: false
+            border: false
+            id: funders-api-search-examples
+            title: Search examples
+            descriptionAbout: >-
+              #### Search by name
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?q=name:"Wellcome Trust"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "name:\"Wellcome Trust\""
+              }
+
+              ```
+
+
+              A broader free-text query may also be used:
+
+
+              ```http
+
+              GET /v4/search/funders?q="Wellcome"
+
+              ```
+
+
+              A broad textual query searches the following fields:
+
+
+              * `name`
+
+              * `shortName`
+
+              * `alternativeNames`
+
+              * `awardTitle`
+
+              * `fundingStream`
+
+
+              When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
+
+
+              #### Retrieve a Funders record by DOI
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?q=funderDoi:"10.13039/100004440"
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "funderDoi:\"10.13039/100004440\""
+              }
+
+              ```
+
+
+              #### Retrieve a Funders record by structured identifier
+
+
+              ```http
+
+              GET /v4/search/funders?q=identifiers.scheme:FUNDER_DOI AND identifiers.value:"10.13039/100004440"
+
+              ```
+
+
+              Both conditions must match the same item in the `identifiers` collection.
+
+
+              #### Retrieve Funders records by jurisdiction
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB
+
+              ```
+
+
+              #### Search by award number
+
+
+              ```http
+
+              GET /v4/search/funders?q=awardNumber:WT123456
+
+              ```
+
+
+              Award-centric searches should normally use the Grants endpoint when the award has been resolved as a Grants record.
+
+
+              #### Retrieve Funders records by funding stream
+
+
+              ```http
+
+              GET /v4/search/funders?q=fundingStream:"Biomedical Research"
+
+              ```
+
+
+              #### Retrieve Funders records associated with a Projects record
+
+
+              ```http
+
+              GET /v4/search/funders?q=projectId:12034
+
+              ```
+
+
+              This query uses the supplied direct association. In the normalised graph, the same relationship may be derived through Grants.
+
+
+              #### Retrieve funder-validated records
+
+
+              ```http
+
+              GET /v4/search/funders?q=projectValidatedByFunder:true
+
+              ```
+
+
+              #### Retrieve Funders records associated with a clinical trial
+
+
+              ```http
+
+              GET /v4/search/funders?q=clinicalTrialNumbers:"NCT04512345"
+
+              ```
+
+
+              #### Combined search, selection, and ordering
+
+
+              The following request:
+
+
+              * Searches for Funders records whose names or alternative names contain `Wellcome`
+
+              * Restricts results to the `GB` jurisdiction
+
+              * Requires a source record validated by the funding organisation
+
+              * Orders results by preferred name
+
+              * Returns selected fields and the total matching result count
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders
+                  ?q="Wellcome" AND jurisdiction:GB AND projectValidatedByFunder:true
+                  &orderby=name:asc,funderId:asc
+                  &select=funderId,name,shortName,funderDoi,jurisdiction
+                  &count=true
+                  &limit=10
+                  &offset=0
+              ```
+
+
+              Equivalent POST request:
+
+
+              ```bash
+
+              curl --request POST \
+                --url "https://api.core.ac.uk/v4/search/funders" \
+                --header "Authorization: Bearer YOUR_API_KEY" \
+                --header "Content-Type: application/json" \
+                --data '{
+                  "q": "\"Wellcome\" AND jurisdiction:GB AND projectValidatedByFunder:true",
+                  "orderby": [
+                    "name:asc",
+                    "funderId:asc"
+                  ],
+                  "select": [
+                    "funderId",
+                    "name",
+                    "shortName",
+                    "funderDoi",
+                    "jurisdiction"
+                  ],
+                  "count": true,
+                  "limit": 10,
+                  "offset": 0
+                }'
+              ```
+
+
+              Example search response:
+
+
+              ```json
+
+              {
+                "totalHits": 1,
+                "count": 1,
+                "limit": 10,
+                "offset": 0,
+                "results": [
+                  {
+                    "funderId": 501,
+                    "name": "Wellcome Trust",
+                    "shortName": "Wellcome",
+                    "funderDoi": "10.13039/100004440",
+                    "jurisdiction": "GB"
+                  }
+                ]
+              }
+
+              ```
+
+
+              #### Ordering Funders results
+
+
+              Only fields configured as sortable may be used with `orderby`.
+
+
+              ##### Order by preferred name
+
+
+              ```http
+
+              GET /v4/search/funders?orderby=name:asc
+
+              ```
+
+
+              ##### Order by validation date
+
+
+              ```http
+
+              GET /v4/search/funders?orderby=projectValidatedDate:desc
+
+              ```
+
+
+              ##### Order by multiple fields
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?orderby=name:asc,funderId:asc
+
+              ```
+
+
+              POST representation:
+
+
+              ```json
+
+              {
+                "orderby": [
+                  "name:asc",
+                  "funderId:asc"
+                ]
+              }
+
+              ```
+
+
+              Results are first ordered by preferred name. Records with the same name are then ordered by their CORE identifiers.
+
+
+              #### Facets
+
+
+              The `facets` option returns value buckets and counts for fields configured as facetable.
+
+
+              GET:
+
+
+              ```http
+
+              GET /v4/search/funders?q=*&facets=jurisdiction,fundingStream,identifiers.scheme,projectValidatedByFunder&count=true&limit=0
+
+              ```
+
+
+              Equivalent POST body:
+
+
+              ```json
+
+              {
+                "q": "*",
+                "facets": [
+                  "jurisdiction",
+                  "fundingStream",
+                  "identifiers.scheme",
+                  "projectValidatedByFunder"
+                ],
+                "count": true,
+                "limit": 0
+              }
+
+              ```
+
+
+              Example facet response:
+
+
+              ```json
+
+              {
+                "totalHits": 35000,
+                "count": 0,
+                "limit": 0,
+                "offset": 0,
+                "facets": {
+                  "jurisdiction": [
+                    {
+                      "value": "US",
+                      "count": 10200
+                    },
+                    {
+                      "value": "GB",
+                      "count": 4800
+                    }
+                  ],
+                  "fundingStream": [
+                    {
+                      "value": "Horizon Europe",
+                      "count": 2600
+                    },
+                    {
+                      "value": "Biomedical Research",
+                      "count": 1200
+                    }
+                  ],
+                  "identifiers.scheme": [
+                    {
+                      "value": "FUNDER_DOI",
+                      "count": 21000
+                    },
+                    {
+                      "value": "ROR",
+                      "count": 17500
+                    }
+                  ],
+                  "projectValidatedByFunder": [
+                    {
+                      "value": true,
+                      "count": 9500
+                    },
+                    {
+                      "value": false,
+                      "count": 3200
+                    }
+                  ]
+                },
+                "results": []
+              }
+
+              ```
+
+
+              Facet counts describe the complete matching result set. Setting `limit=0` returns facet buckets and counts without returning Funders records.
+
+
+              #### Result count
+
+
+              Set `count=true` to include the total number of matching Funders records.
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB&count=true
+
+              ```
+
+
+              When `count` is omitted or set to `false`, `totalHits` may be omitted from the response. The response-level `count` is the number of records returned on the current page.
+
+
+              #### Pagination
+
+
+              Use `limit` and `offset` to paginate Funders results. A deterministic `orderby` expression should be used when retrieving multiple pages.
+
+
+              First page:
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=0
+
+              ```
+
+
+              Second page:
+
+
+              ```http
+
+              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=20
+
+              ```
+
+
+              The offset is calculated as:
+
+
+              ```text
+
+              offset = page size × number of previous pages
+
+              ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | `200`      | The Funders search was completed successfully.                                                                  |
+
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
+
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+
+              | `429`      | The API request limit has been exceeded.                                                                        |
+
+              | `500`      | An unexpected server error occurred.                                                                            |
+
+
+              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: funders-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to records connected to a Funders record. The Grants relationship is direct. Relationships with Projects and Works can be derived through Grants.
+
+
+              #### Grants awarded by a Funders record
+
+
+              ```http
+
+              GET /v4/funders/{funderId}/grants
+
+              ```
+
+
+              Retrieves Grants records whose canonical `funderId` matches the Funders record.
+
+
+              Equivalent Grants search:
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderId:{funderId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/funders/501/grants?select=grantId,grantName,funderAwardId,amount,currency,startDate,endDate&count=true&limit=10&offset=0
+
+              ```
+
+
+              The reverse convenience endpoint is:
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/funder
+
+              ```
+
+
+              #### Projects supported by a Funders record
+
+
+              ```http
+
+              GET /v4/funders/{funderId}/projects
+
+              ```
+
+
+              Retrieves distinct Projects records connected to the Funders record through Grants. A legacy direct `projectId` association may also be resolved when present.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/funders/501/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Works supported by a Funders record
+
+
+              ```http
+
+              GET /v4/funders/{funderId}/works
+
+              ```
+
+
+              Retrieves distinct Works connected to the Funders record through Grants.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/funders/501/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              An existing Funders record with no related records returns `200 OK` with an empty `results` array. If the supplied Funders record does not exist, the relationship endpoint returns `404 Not Found`.
   - item: Search
     children:
       - item: null
