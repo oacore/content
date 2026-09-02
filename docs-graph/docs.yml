@@ -20350,6 +20350,40 @@ items:
 
 
               An existing Projects record with no related records returns `200 OK` with an empty `results` array. If the supplied Projects record does not exist, the relationship endpoint returns `404 Not Found`.
+      - item: Grants
+        sections:
+          - divider: false
+            border: false
+            id: grants-api-introduction
+            title: Introduction
+            descriptionAbout: >-
+              The Grants entity represents funding awards associated with
+              scholarly research. A Grants record may contain canonical and
+              source-specific identifiers, funder information, award metadata,
+              funding amounts, investigators, funded Works, dates, provenance,
+              and links to source records.
+
+
+              Unlike the Projects entity, which represents research activities, programmes, or initiatives, the Grants entity represents the funding award or agreement that supports those activities. A Grants record may support multiple Projects and Works. Multiple Grants records may also support the same Projects record or Work.
+
+
+              #### Direct entity relationships
+
+
+              ![Grants direct entity relationships](/images/docs-graph/grants.png)
+
+
+              | **Relationship**    | **Cardinality** | **Description**                                                                                                                   |
+
+              | ------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Institutions–Grants | One-to-many     | A Grants record may have zero or one resolved funding Institution. An Institution may award multiple Grants records.              |
+
+              | Grants–Projects     | Many-to-many    | A Grants record may support multiple Projects records, and a Projects record may be supported by multiple Grants records.         |
+
+              | Grants–Works        | Many-to-many    | A Grants record may support multiple Works, and a Work may acknowledge multiple Grants records.                                   |
+
+              | Authors–Grants      | Many-to-many    | Multiple Authors may participate in a Grants record in different roles, and an Author may participate in multiple Grants records. |
   - item: Search
     children:
       - item: null
