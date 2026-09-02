@@ -22278,7 +22278,6 @@ items:
             id: funders-api-search-examples
             title: Search examples
             descriptionAbout: >-
-              
               #### Search by name
 
 
@@ -22317,15 +22316,15 @@ items:
               A broad textual query searches the following fields:
 
 
-              - `name`
+              * `name`
 
-              - `shortName`
+              * `shortName`
 
-              - `alternativeNames`
+              * `alternativeNames`
 
-              - `awardTitle`
+              * `awardTitle`
 
-              - `fundingStream`
+              * `fundingStream`
 
 
               When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
@@ -22441,15 +22440,15 @@ items:
               The following request:
 
 
-              - Searches for Funders records whose names or alternative names contain `Wellcome`
+              * Searches for Funders records whose names or alternative names contain `Wellcome`
 
-              - Restricts results to the `GB` jurisdiction
+              * Restricts results to the `GB` jurisdiction
 
-              - Requires a source record validated by the funding organisation
+              * Requires a source record validated by the funding organisation
 
-              - Orders results by preferred name
+              * Orders results by preferred name
 
-              - Returns selected fields and the total matching result count
+              * Returns selected fields and the total matching result count
 
 
               GET:
@@ -22729,24 +22728,123 @@ items:
               #### Search responses
 
 
-              | Status | Description |
+              | **Status** | **Description**                                                                                                 |
 
-              | --- | --- |
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
 
-              | `200` | The Funders search was completed successfully. |
+              | `200`      | The Funders search was completed successfully.                                                                  |
 
-              | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
-              | `401` | Authentication credentials are missing or invalid. |
+              | `401`      | Authentication credentials are missing or invalid.                                                              |
 
-              | `413` | The `POST` request body exceeds the permitted size. |
+              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
 
-              | `429` | The API request limit has been exceeded. |
+              | `429`      | The API request limit has been exceeded.                                                                        |
 
-              | `500` | An unexpected server error occurred. |
+              | `500`      | An unexpected server error occurred.                                                                            |
 
 
               An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
+          - divider: false
+            border: false
+            id: funders-api-relationship-oriented-endpoints
+            title: Relationship-oriented endpoints
+            descriptionAbout: >-
+              
+              Relationship-oriented endpoints provide convenient access to records connected to a Funders record. The Grants relationship is direct. Relationships with Projects and Works can be derived through Grants.
+
+
+              #### Grants awarded by a Funders record
+
+
+              ```http
+
+              GET /v4/funders/{funderId}/grants
+
+              ```
+
+
+              Retrieves Grants records whose canonical `funderId` matches the Funders record.
+
+
+              Equivalent Grants search:
+
+
+              ```http
+
+              GET /v4/search/grants?q=funderId:{funderId}
+
+              ```
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/funders/501/grants?select=grantId,grantName,funderAwardId,amount,currency,startDate,endDate&count=true&limit=10&offset=0
+
+              ```
+
+
+              The reverse convenience endpoint is:
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/funder
+
+              ```
+
+
+              #### Projects supported by a Funders record
+
+
+              ```http
+
+              GET /v4/funders/{funderId}/projects
+
+              ```
+
+
+              Retrieves distinct Projects records connected to the Funders record through Grants. A legacy direct `projectId` association may also be resolved when present.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/funders/501/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+
+              ```
+
+
+              #### Works supported by a Funders record
+
+
+              ```http
+
+              GET /v4/funders/{funderId}/works
+
+              ```
+
+
+              Retrieves distinct Works connected to the Funders record through Grants.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/funders/501/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+
+              ```
+
+
+              An existing Funders record with no related records returns `200 OK` with an empty `results` array. If the supplied Funders record does not exist, the relationship endpoint returns `404 Not Found`.
   - item: Search
     children:
       - item: null
