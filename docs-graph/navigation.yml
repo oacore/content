@@ -267,6 +267,9 @@ navItems:
           - hidden: false
             item: Funders endpoints
             href: "#funders-api-funders-endpoints"
+          - hidden: false
+            item: Search funders
+            href: "#funders-api-search-funders"
       - item: Topics
         children:
           - hidden: false
