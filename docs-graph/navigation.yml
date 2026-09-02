@@ -264,6 +264,18 @@ navItems:
           - hidden: false
             item: Supported field operations
             href: "#funders-api-supported-field-operations"
+          - hidden: false
+            item: Funders endpoints
+            href: "#funders-api-funders-endpoints"
+          - hidden: false
+            item: Search funders
+            href: "#funders-api-search-funders"
+          - hidden: false
+            item: Search examples
+            href: "#funders-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#funders-api-relationship-oriented-endpoints"
       - item: Topics
         children:
           - hidden: false
