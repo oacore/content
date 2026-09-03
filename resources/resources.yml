@@ -9,7 +9,7 @@ resources:
   id: brochure
   name: Brochure
   type: pdf
-  url: /pdfs/CORE-Flyer-2023.pdf
+  url: /resources/CORE-Flyer-2023.pdf
   picture: /images/brochure.png
 -
   id: adaptable-promo-text
@@ -22,36 +22,36 @@ resources:
     options:
       -
         title: English
-        value: /pdfs/core-adaptable-promo-text.pdf
+        value: /resources/core-adaptable-promo-text.pdf
       -
         title: Arabic
-        value: /pdfs/core-adaptable-promo-text-arabic.pdf
+        value: /resources/core-adaptable-promo-text-arabic.pdf
       -
         title: Bangla
-        value: /pdfs/core-adaptable-promo-text-bangla.pdf
+        value: /resources/core-adaptable-promo-text-bangla.pdf
       -
         title: Greek
-        value: /pdfs/core-adaptable-promo-text-greek.pdf
+        value: /resources/core-adaptable-promo-text-greek.pdf
       -
         title: Gujarati
-        value: /pdfs/core-adaptable-promo-text-gujarati.pdf
+        value: /resources/core-adaptable-promo-text-gujarati.pdf
       -
         title: Russian
-        value: /pdfs/core-adaptable-promo-text-russian.pdf
+        value: /resources/core-adaptable-promo-text-russian.pdf
       -
         title: Serbian (Cyrillic)
-        value: /pdfs/core-adaptable-promo-text-serbian-cyrillic.pdf
+        value: /resources/core-adaptable-promo-text-serbian-cyrillic.pdf
       -
         title: Serbian (Latin)
-        value: /pdfs/core-adaptable-promo-text-serbian-latin.pdf
+        value: /resources/core-adaptable-promo-text-serbian-latin.pdf
       -
         title: Ukrainian
-        value: /pdfs/core-adaptable-promo-text-ukrainian.pdf
+        value: /resources/core-adaptable-promo-text-ukrainian.pdf
 -
   id: presentation
   name: Membership presentation
   type: pdf
-  url: /pdfs/core-member-benefits-presentation.pdf
+  url: /resources/core-member-benefits-presentation.pdf
   picture: /images/presentation.svg
 -
   id: Badges
@@ -64,7 +64,7 @@ resources:
   id: business-card
   name: Business card
   type: pdf
-  url: /pdfs/core-business-card.pdf
+  url: /resources/core-business-card.pdf
   picture: /images/bcard.png
 -
   id: general-presentation
