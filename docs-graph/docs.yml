@@ -2503,6 +2503,57 @@ items:
               ```
 
 
+              #### Retrieve Works associated with a Projects record
+
+
+              GET:
+
+
+              ```json
+
+              GET /v4/search/works?q=projectIds:11 
+
+              ```
+
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              { 
+                "q": "projectIds:11"
+              } 
+
+              ```
+
+
+              #### Retrieve Works associated with a Grants record
+
+
+              GET:
+
+
+              ```json
+
+              GET /v4/search/works?q=grantIds:701 
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              { 
+                "q": "grantIds:701" 
+              } 
+
+              ```
+
+
               #### Find Works citing a DOI using Citation search
 
 
