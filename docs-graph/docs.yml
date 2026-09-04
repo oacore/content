@@ -1220,7 +1220,9 @@ items:
 
               | `dataProviderIds`     | integer\[] | `[86,144]`                                                                      | CORE Data Provider identifiers associated with the Work’s source Outputs.                               | CORE                                                             |
 
-              | projectIds | integer[] \| null | [11] | CORE identifiers of Projects records associated with the Work. | OpenAIRE / CORE relationship resolution |
+              | projectIds | integer[]  | [11] | CORE identifiers of Projects records associated with the Work. | OpenAIRE / CORE relationship resolution |
+
+              |﻿ grantIds   | integer[]  | [701, 702] | CORE identifiers of Grants directly associated with the Work. | CORE / OpenAlex / OpenAIRE / RIOXX / Crossref |
 
               | `dates`               | object\[]  | `[{"type":"published","value":"2022-04-27"}]`                                   | Structured list of publication, deposit, availability, and CORE record-management dates.                | CORE / Crossref / DataCite / OpenAlex / OpenAIRE / OAI-PMH       |
 
