@@ -2936,6 +2936,49 @@ items:
               GET /v4/projects/{projectId}/works
 
               ```
+
+
+              #### Grants for a Work
+
+
+              ```http 
+
+              GET /v4/works/{workId}/grants 
+
+              ```
+
+
+              Retrieves Grants records referenced by `grantIds`.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/works/323030168/grants?count=true&limit=10&offset=0 
+
+              ```
+
+
+
+              The relationship is resolved as:
+
+
+              Works.grantIds → Grants.grantId
+
+
+              An existing Work with no associated Grants returns `200 OK` with an empty `results` array.
+
+
+              A reverse endpoint is available in the Grants documentation:
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/works 
+
+              ```
       - item: Outputs
         sections:
           - divider: false
