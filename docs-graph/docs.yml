@@ -1645,6 +1645,7 @@ items:
                ﻿ "projectIds": [
                   11
                 ],
+               ﻿ "grantIds": [701, 702],
                 "dates": [
                   {
                     "type": "published",
