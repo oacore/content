@@ -1104,6 +1104,8 @@ items:
               - file: /images/docs-graph/works_v2.png
             subTitle: ""
             subDescription: >-
+              
+
               A Work may:
 
 
@@ -1115,7 +1117,17 @@ items:
 
               * be supplied by multiple Data Providers;
 
+              * be classified under multiple Topics;
+
+              * cite zero or more other Works through Citation records;
+
+              * be associated with one or more Projects;
+
+              * have multiple Grants, and a Grant can fund multiple Works.
+
               * contain multiple identifiers, dates, references, contributors, and links.
+
+
 
 
               #### Work and Output separation
@@ -1162,15 +1174,15 @@ items:
               Work-specific Author information is represented through Authorship records, including:
 
 
-              - Author rank
+              * Author rank
 
-              - Author sequence
+              * Author sequence
 
-              - Corresponding-Author status
+              * Corresponding-Author status
 
-              - Source-provided Author name
+              * Source-provided Author name
 
-              - Affiliations used on the Work
+              * Affiliations used on the Work
 
 
               Authorship records associated with a Work are retrieved through:
@@ -1220,7 +1232,9 @@ items:
 
               | `dataProviderIds`     | integer\[] | `[86,144]`                                                                      | CORE Data Provider identifiers associated with the Work’s source Outputs.                               | CORE                                                             |
 
-              | projectIds | integer[] \| null | [11] | CORE identifiers of Projects records associated with the Work. | OpenAIRE / CORE relationship resolution |
+              | projectIds | integer[]  | [11] | CORE identifiers of Projects records associated with the Work. | OpenAIRE / CORE relationship resolution |
+
+              |﻿ grantIds   | integer[]  | [701, 702] | CORE identifiers of Grants directly associated with the Work. | CORE / OpenAlex / OpenAIRE / RIOXX / Crossref |
 
               | `dates`               | object\[]  | `[{"type":"published","value":"2022-04-27"}]`                                   | Structured list of publication, deposit, availability, and CORE record-management dates.                | CORE / Crossref / DataCite / OpenAlex / OpenAIRE / OAI-PMH       |
 
@@ -1628,9 +1642,8 @@ items:
                   86,
                   144
                 ],
-               ﻿ "projectIds": [
-                  11
-                ],
+               ﻿ "projectIds": [11],
+               ﻿ "grantIds": [701, 702],
                 "dates": [
                   {
                     "type": "published",
@@ -1731,6 +1744,8 @@ items:
               | `dataProviderIds`                | No             | Yes            | No           | Yes           |
 
               | `projectIds` | No | Yes | No | No |
+
+              | `grantIds` | No | Yes | No | No |
 
               | `dates.type`                     | No             | Yes            | No           | Yes           |
 
@@ -1863,6 +1878,8 @@ items:
               | Retrieve Data Providers for a Work     | `GET`      | `/v4/works/{workId}/data-providers` |
 
               | Retrieve Projects for a Work | `GET` | `/v4/works/{workId}/projects` |
+
+              | Retrieve Grants for a Work | `GET` | `/v4/works/{workId}/grants` |
 
 
               The `POST` search method is read-only. It does not create or modify Work records.
@@ -2486,6 +2503,57 @@ items:
               ```
 
 
+              #### Retrieve Works associated with a Projects record
+
+
+              GET:
+
+
+              ```json
+
+              GET /v4/search/works?q=projectIds:11 
+
+              ```
+
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              { 
+                "q": "projectIds:11"
+              } 
+
+              ```
+
+
+              #### Retrieve Works associated with a Grants record
+
+
+              GET:
+
+
+              ```json
+
+              GET /v4/search/works?q=grantIds:701 
+
+              ```
+
+
+              Equivalent POST:
+
+
+              ```json
+
+              { 
+                "q": "grantIds:701" 
+              } 
+
+              ```
+
+
               #### Find Works citing a DOI using Citation search
 
 
@@ -2866,6 +2934,49 @@ items:
               ```http
 
               GET /v4/projects/{projectId}/works
+
+              ```
+
+
+              #### Grants for a Work
+
+
+              ```http 
+
+              GET /v4/works/{workId}/grants 
+
+              ```
+
+
+              Retrieves Grants records referenced by `grantIds`.
+
+
+              Example request:
+
+
+              ```http
+
+              GET /v4/works/323030168/grants?count=true&limit=10&offset=0 
+
+              ```
+
+
+
+              The relationship is resolved as:
+
+
+              Works.grantIds → Grants.grantId
+
+
+              An existing Work with no associated Grants returns `200 OK` with an empty `results` array.
+
+
+              A reverse endpoint is available in the Grants documentation:
+
+
+              ```http
+
+              GET /v4/grants/{grantId}/works 
 
               ```
       - item: Outputs
