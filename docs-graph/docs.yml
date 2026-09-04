@@ -1104,6 +1104,8 @@ items:
               - file: /images/docs-graph/works_v2.png
             subTitle: ""
             subDescription: >-
+              
+
               A Work may:
 
 
@@ -1115,7 +1117,17 @@ items:
 
               * be supplied by multiple Data Providers;
 
+              * be classified under multiple Topics;
+
+              * cite zero or more other Works through Citation records;
+
+              * be associated with one or more Projects;
+
+              * have multiple Grants, and a Grant can fund multiple Works.
+
               * contain multiple identifiers, dates, references, contributors, and links.
+
+
 
 
               #### Work and Output separation
@@ -1162,15 +1174,15 @@ items:
               Work-specific Author information is represented through Authorship records, including:
 
 
-              - Author rank
+              * Author rank
 
-              - Author sequence
+              * Author sequence
 
-              - Corresponding-Author status
+              * Corresponding-Author status
 
-              - Source-provided Author name
+              * Source-provided Author name
 
-              - Affiliations used on the Work
+              * Affiliations used on the Work
 
 
               Authorship records associated with a Work are retrieved through:
