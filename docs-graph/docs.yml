@@ -15059,99 +15059,70 @@ items:
             border: false
             id: citations-api-introduction
             title: Introduction
-            descriptionAbout: >+
-              The Citation entity represents a directed bibliographic
-              relationship between a citing Work and a cited Work or
-              bibliographic reference.
-
-              A citation connects citing and cited works:
-
-            images:
-              - file: /images/docs-graph/citations.png
-            subDescription: >-
-              The Citation entity may contain:
+            descriptionAbout: >-
+              The Citations entity represents directed bibliographic
+              relationships between scholarly Works. Each Citation connects
+              exactly one citing Work to zero or one resolved cited Work. When
+              the cited item cannot be resolved to a canonical CORE Work, the
+              Citation may instead retain its external identifiers and
+              bibliographic reference metadata.
 
 
-              - CORE identifiers for the citing and cited Works
-
-              - External identifiers such as DOI, PMID, OMID, and OCI
-
-              - Bibliographic metadata describing the cited item
-
-              - Information about when the citation relationship was created or established
-
-              - Indicators describing properties of the citation relationship, such as author or journal self-citation
-
-              - Citation-related metrics supplied by external sources
+              A Citation record may contain:
 
 
-              Citation information may be derived from multiple scholarly sources, including OpenCitations, OpenAlex, OpenAIRE Graph, Crossref, and reference metadata available to CORE.
+              * CORE identifiers for the citing and cited Works
+
+              * External identifiers such as DOI, PMID, OMID, and OCI
+
+              * Structured or unstructured bibliographic metadata describing the cited item
+
+              * Information about when the Citation relationship was created or established
+
+              * Indicators such as author or journal self-citation
+
+              * Citation-related metrics supplied by external sources
 
 
-              A Citation is directional. A relationship from Work A to Work B is distinct from a relationship from Work B to Work A.
+              Citation information may be derived from OpenCitations, OpenAlex, OpenAIRE Graph, Crossref, and reference metadata available to CORE.
 
 
-              ```text
+              A Citation is directional. A Citation from Work A to Work B is different from a Citation from Work B to Work A:
 
-              A → B ≠ B → A
 
-              ```
+              `A → B ≠ B → A`
+
+
+              #### Direct entity relationships
+
+
+              ![Citations direct entity relationships](/images/docs-graph/citations.png)
+
+
+              | **Relationship**         | **Cardinality** | **Description**                                                                                                     |
+
+              | ------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------- |
+
+              | Works–Citations (citing) | One-to-many     | A Work may have zero or more outgoing Citation records. Each Citation identifies exactly one citing Work.           |
+
+              | Works–Citations (cited)  | One-to-many     | A Work may have zero or more incoming Citation records. Each Citation may identify zero or one resolved cited Work. |
 
 
               #### Entity scope
 
 
-              Citation is a relationship entity because it connects two scholarly Works and may contain information describing that relationship.
+              A Citation is a relationship entity because it connects a citing Work to a cited Work or unresolved bibliographic reference and may contain metadata describing that relationship.
 
 
-              ```text
-
-              WORKS
-                ↓ citing
-              CITATIONS
-                ↓ cited
-              WORKS
-
-              ```
+              The Citations entity supports navigation in both directions:
 
 
-              A Work may:
+              * From a Work to its Citations and cited Works
+
+              * From a Work to the Citations and Works that cite it
 
 
-              - Cite zero or more other Works
-
-              - Be cited by zero or more other Works
-
-
-              The Citation entity enables navigation in both directions:
-
-
-              ```text
-
-              Work
-                → citations
-                → cited Works
-              ```
-
-
-              And:
-
-
-              ```text
-
-              Work
-                → cited-by
-                → citing Works
-              ```
-
-
-              #### Unresolved cited Works
-
-
-              Where a cited bibliographic item cannot be resolved to a canonical CORE Work, the Citation may still retain its external identifiers and structured or unstructured reference metadata.
-
-
-              For example:
+              When the cited bibliographic item cannot be resolved to a canonical CORE Work, the Citation can still be represented:
 
 
               ```json
@@ -15171,7 +15142,9 @@ items:
               ```
 
 
-              This allows unresolved references to remain represented without requiring every cited item to have a corresponding CORE Work.
+              This allows unresolved references to remain available without requiring every cited item to have a corresponding CORE Work.
+            images: []
+            subDescription: ""
           - divider: false
             border: false
             id: citations-api-data-structure
