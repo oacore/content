@@ -6,10 +6,14 @@ items:
           - id: core-graph-api
             title: CORE Graph API
             descriptionAbout: >-
-              The CORE Graph API provides structured access to CORE’s global
-              scholarly knowledge graph. It connects research works with their
-              manifestations, creators, organisations, publication venues,
-              funding, projects, topics, and citation relationships.
+              :::**Development status**
+
+              The CORE Graph API v4 is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
+
+              :::
+
+
+              The CORE Graph API provides structured access to CORE’s global scholarly knowledge graph. It connects research works with their manifestations, creators, organisations, publication venues, funding, projects, topics, and citation relationships.
 
 
               CORE aggregates metadata and full text from a global network of repositories, journals, and other scholarly sources. Records collected from these sources are normalised, enriched, and linked to create consistent entities and relationships.
@@ -95,7 +99,7 @@ items:
               Canonical Work
 
 
-              * represented by one or more Outputs
+              *  represented by one or more Outputs
 
               *  connected to Authors through Authorships
 
@@ -109,8 +113,6 @@ items:
 
 
               This model allows users to retrieve a canonical Work while still navigating to the source records and relationships that support it.
-
-
 
 
               #### What makes the CORE Graph API distinctive?
@@ -1101,7 +1103,7 @@ items:
 
               Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
             images:
-              - file: /images/docs-graph/works_v2.png
+              - file: /images/docs-graph/works_v3.png
             subTitle: ""
             subDescription: >-
               
@@ -2986,12 +2988,9 @@ items:
             id: outputs-api-introduction
             title: Introduction
             descriptionAbout: >-
-              
-
-              The Output entity represents a source-specific manifestation of a scholarly research item harvested by CORE.
-
-
-              An Output corresponds to a record supplied by a Data Provider, such as:
+              The Outputs entity represents source-specific manifestations of
+              scholarly research items harvested by CORE. An Output corresponds
+              to an individual record supplied by a Data Provider, such as:
 
 
               * An institutional repository
@@ -3007,32 +3006,49 @@ items:
               * Another scholarly metadata source
 
 
-              Unlike a Work, which is a canonical and deduplicated representation of a research item, an Output preserves the metadata and full-text information associated with a particular source record.
+              Unlike a Work, which represents a canonical, deduplicated scholarly research item, an Output preserves the metadata and full-text information associated with a particular source record.
 
 
-              An Output may also contain information derived by CORE, including:
+              An Output may also contain CORE-derived information, including:
 
 
               * Normalised document types
 
               * Publication language
 
-              * Access-rights and licence information
+              * Access-right and licence information
 
               * Sustainable Development Goal classifications
 
-              * Full-text availability status
-            images:
-              - file: /images/docs-graph/outputs.png
-            subTitle: ""
-            subDescription: |-
-              Each Output:
+              * Full-text availability and processing status
 
-              * has exactly one CORE Output identifier;
-              * is associated with one Data Provider;
-              * may be associated with one Journal;
-              * may be associated with one Publisher;
-              * may be represented by one canonical Work.
+
+              Each Output has exactly one CORE Output identifier and is associated with exactly one Data Provider. It may also be associated with a Journal, a Publisher, and a canonical Work.
+
+
+              #### Direct entity relationships
+
+
+              ![Outputs direct entity relationships](/images/docs-graph/outputs.png)
+
+
+              | **Relationship**       | **Cardinality** | **Description**                                                                                                                                                |
+
+              | ---------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Outputs–Works          | Many-to-one     | Multiple Outputs may represent the same canonical Work. An Output may be associated with zero or one Work, while a Work is represented by one or more Outputs. |
+
+              | Outputs–Data Providers | Many-to-one     | Each Output is harvested from exactly one Data Provider, while a Data Provider may supply multiple Outputs.                                                    |
+
+              | Outputs–Journals       | Many-to-one     | An Output may be associated with zero or one Journal, while a Journal may contain multiple Outputs.                                                            |
+
+              | Outputs–Publishers     | Many-to-one     | An Output may be associated with zero or one Publishers record, while a Publishers record may be associated with multiple Outputs.                             |
+
+
+              Grants, Funders, Projects, Authors, Authorships, Topics, and Citations are associated with the canonical Work rather than directly with individual Outputs. These relationships can be accessed by first retrieving the Work represented by the Output.
+            images: []
+            subTitle: ""
+            subDescription: ""
           - divider: false
             border: false
             id: outputs-api-data-structure
@@ -5225,37 +5241,48 @@ items:
             id: dataproviders-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Data Provider entity represents a source that supplies
-              scholarly content to CORE.
+              The Data Providers entity represents sources that supply scholarly
+              content to CORE. Data Providers may include:
 
 
-              Data Providers may include:
+              * Institutional repositories
 
+              * Disciplinary repositories
 
-              * institutional repositories;
+              * Preprint servers
 
-              * disciplinary repositories;
+              * Journals
 
-              * preprint servers;
+              * Publishers
 
-              * journals;
+              * Aggregators
 
-              * publishers;
-
-              * aggregators;
-
-              * other metadata-harvesting sources.
+              * Other metadata-harvesting sources
 
 
               A Data Provider record contains source-level information such as its name, type, OAI-PMH endpoint, metadata format, repository software, associated Institution identifiers, contact information, and geographic location.
 
 
-              Unlike an Institution, which represents a persistent organisational identity, a Data Provider represents a specific source from which CORE collects records.
+              Unlike an Institution, which represents a persistent organisational identity, a Data Provider represents a particular source from which CORE collects records. For example, a university may operate one or more institutional repositories. The university is represented as an Institution, while each repository is represented as a separate Data Provider.
 
 
-              For example, a university may operate one or more institutional repositories. The university is represented as an Institution, while each repository is represented as a separate Data Provider.
-            images:
-              - file: /images/docs-graph/dataproviders.png
+              #### Direct entity relationships
+
+
+              ![Data Providers direct entity relationships](/images/docs-graph/dataproviders.png)
+
+
+              | **Relationship**            | **Cardinality** | **Description**                                                                                                                      |
+
+              | --------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+
+              | Data Providers–Outputs      | One-to-many     | A Data Provider may supply multiple Outputs. Each Output is harvested from exactly one Data Provider.                                |
+
+              | Institutions–Data Providers | One-to-many     | An Institution may operate or host multiple Data Providers. A Data Provider may be associated with zero or one resolved Institution. |
+
+
+              Although Journals and Publishers may act as Data Providers, their classification as a source type does not by itself create a direct relationship between the Data Providers, Journals, and Publishers entities. Journals and Publishers are connected to individual Outputs when their canonical identifiers have been resolved.
+            images: []
             subTitle: ""
             subDescription: A Data Provider may supply multiple Outputs. An Institution may
               operate or host multiple Data Providers.
@@ -6640,96 +6667,102 @@ items:
             id: journals-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Journal entity represents an academic or scholarly journal
-              associated with content in the CORE collection.
+              The Journals entity represents academic or scholarly journals
+              associated with content in the CORE collection. Journals records
+              may be created or enriched using:
 
 
-              Journal records may be created from:
+              * Metadata supplied by CORE Data Providers
+
+              * Journal information contained in harvested Output metadata
+
+              * Metadata from external sources such as the Directory of Open Access Journals
+
+              * Journal identifier matching and normalisation performed by CORE
 
 
-              * metadata supplied by CORE Data Providers;
-
-              * journal information contained in harvested Output metadata;
-
-              * metadata enrichment from external sources such as the Directory of Open Access Journals;
-
-              * journal identifier matching and normalisation performed by CORE.
+              A Journals record may contain:
 
 
-              A Journal record may contain:
+              * Canonical and source-specific identifiers
+
+              * Journal titles and alternative titles
+
+              * Language and subject classifications
+
+              * Publishers and hosting-Institution information
+
+              * Open-access and article-processing-charge information
+
+              * Licensing and copyright policies
+
+              * Editorial and peer-review information
+
+              * Preservation, deposit, and research-integrity policies
 
 
-              * canonical and source-specific identifiers;
-
-              * journal titles and alternative titles;
-
-              * language and subject classifications;
-
-              * publisher and hosting-Institution information;
-
-              * open-access and article-processing-charge information;
-
-              * licensing and copyright policies;
-
-              * editorial and peer-review information;
-
-              * preservation, deposit, and research-integrity policies.
+              The Journals entity represents publication venues. Individual articles published in a Journal are represented as Outputs and, after deduplication, as Works.
 
 
-              The Journal entity represents the publication venue. Individual articles published in a Journal are represented as Outputs and, after deduplication, Works.
-            images:
-              - file: /images/docs-graph/journals.png
-            subTitle: >-
-              A Journal may be associated with multiple Outputs.
+              #### Direct entity relationships
 
 
-              A Data Provider may supply metadata for multiple Journals. A Publisher may publish multiple Journals, and an Institution may host or operate multiple Journals.
+              ![Journals direct entity relationships](/images/docs-graph/journals_v2.png)
 
 
+              | **Relationship**        | **Cardinality** | **Description**                                                                                                                                                                     |
+
+              | ----------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Journals–Outputs        | One-to-many     | A Journals record may be associated with multiple Outputs. An Output may be associated with zero or one resolved Journals record.                                                   |
+
+              | Journals–Works          | Many-to-many    | A Journals record may contain multiple Works. A Work may be associated with multiple Journals records when its underlying Outputs contain different resolved journal relationships. |
+
+              | Data Providers–Journals | Many-to-many    | A Data Provider may supply metadata for multiple Journals records, and metadata for a Journals record may be supplied or enriched by multiple Data Providers.                       |
+
+              | Publishers–Journals     | One-to-many     | A Publishers record may publish or manage multiple Journals records. A Journals record may be associated with zero or one resolved Publishers record.                               |
+
+              | Institutions–Journals   | One-to-many     | An Institution may host or operate multiple Journals records. A Journals record may be associated with zero or one resolved hosting Institution.                                    |
 
 
               #### Entity scope
 
 
-              The Journal entity contains journal-level metadata only.
+              The Journals entity contains journal-level metadata only. Article-level information such as:
 
 
-              Article-level information such as:
+              * Article title
+
+              * Abstract
+
+              * Publication year
+
+              * Article Authors
+
+              * Volume and issue
+
+              * Page range
+
+              * Article DOI
+
+              * Article full-text links
 
 
-              * article title;
-
-              * abstract;
-
-              * publication year;
-
-              * article authors;
-
-              * volume and issue;
-
-              * page range;
-
-              * article DOI;
-
-              * article full-text links;
+              is not stored as part of a Journals record. This information belongs to the Outputs and Works entities.
 
 
-              is not stored as part of the Journal entity.
+              Outputs and Works associated with a Journals record can be retrieved through:
 
 
-              This information belongs to the Output and Work entities.
+              | **Related records** | **Endpoint**                           |
 
+              | ------------------- | -------------------------------------- |
 
-              Articles associated with a Journal can be retrieved through:
+              | Outputs             | `GET /v4/journals/{journalId}/outputs` |
 
-
-              ```
-
-              GET /v4/journals/{journalId}/outputs
-
-
-
-              ```
+              | Works               | `GET /v4/journals/{journalId}/works`   |
+            images: []
+            subTitle: "\n\n"
           - divider: false
             border: false
             id: journals-api-data-structure
@@ -8756,33 +8789,57 @@ items:
             id: institutions-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Institution entity represents universities, research
+              The Institutions entity represents universities, research
               organisations, healthcare organisations, companies, government
-              bodies, funders, archives, and other organisations participating
-              in the scholarly communication graph.
+              bodies, archives, nonprofit organisations, and other organisations
+              participating in the scholarly communication graph.
+
+
+              Institution metadata is primarily sourced from the Research Organization Registry (ROR). It may be enriched with identifiers, names, hierarchy information, publication metrics, and metadata obtained from other sources.
 
 
               Institutions may be associated with:
 
 
-              * Authors through Affiliation records;
+              * Affiliations representing connections between Authors and Institutions
 
-              * Data Providers that they operate or host;
+              * Data Providers that they operate or host
 
-              * other Institutions through hierarchical, historical, or related-organisation relationships;
+              * Journals that they operate or host
 
-              * Works, Projects, Grants, and other graph entities through their respective relationship entities.
+              * Other Institutions through hierarchical, historical, or related-organisation relationships
+
+              * Works, Projects, Grants, and other graph entities through indirect or relationship-based connections
 
 
-              Institution metadata is primarily sourced from the Research Organization Registry (ROR). It may be enriched with identifiers, names, hierarchy information, publication metrics, and other information from other data sources.
+              For example, a university may employ or host multiple Authors and operate several institutional repositories. The university is represented as an Institution, its repositories are represented as Data Providers, and the relationships between its Authors and the Institution are represented through Affiliations.
 
 
-              The diagram below illustrates the principal Institution relationships.
-            images:
-              - file: /images/docs-graph/institutions.png
-            subTitle: An Institution may employ or host multiple Authors through Affiliation
-              records. An Institution may also operate multiple Data Providers,
-              such as institutional repositories or journal platforms.
+              #### Direct entity relationships
+
+
+              ![Institutions direct entity relationships](/images/docs-graph/institutions_v2.png)
+
+
+              | **Relationship**            | **Cardinality**  | **Description**                                                                                                                             |
+
+              | --------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Institutions–Affiliations   | One-to-many      | An Institution may be associated with multiple Affiliation records. Each resolved Affiliation identifies zero or one Institution.           |
+
+              | Institutions–Data Providers | One-to-many      | An Institution may operate or host multiple Data Providers. A Data Provider may be associated with zero or one resolved Institution.        |
+
+              | Institutions–Journals       | One-to-many      | An Institution may operate or host multiple Journals. A Journal may be associated with zero or one resolved hosting Institution.            |
+
+              | Institutions–Institutions   | Self-referential | An Institution may be connected to other Institutions through parent, child, predecessor, successor, or related-organisation relationships. |
+
+
+              Authors are connected to Institutions through Affiliation records rather than through a direct Authors–Institutions relationship. Works may be connected indirectly through Authorships, Affiliations, Data Providers, or Journals. Projects and Grants are connected through their corresponding graph relationships when canonical Institution identifiers are available.
+
+
+              Organisations acting as funding bodies are represented by the Funders entity for funding-related relationships. When the same organisation is represented in both Institutions and Funders, the records may be connected through shared external identifiers such as ROR or Crossref Funder Registry identifiers.
+            images: []
+            subTitle: ""
           - divider: false
             border: false
             id: institutions-api-data-structure
@@ -10449,20 +10506,36 @@ items:
               An Authorship record describes how an Author appears on a
               particular scholarly Work. It contains Work-specific information
               such as the Author's position in the author list, numeric rank,
-              corresponding-Author status, and source-provided name.
-              Affiliations used by the Author on the Work are connected to the
-              Authorship through the Authorship_Affiliation bridge entity.
+              corresponding-author status, and source-provided name.
 
 
-              Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
-            images:
-              - file: /images/docs-graph/works-citations-outputs1.png
+              Unlike the Authors entity, which represents persistent researcher identities across multiple Works, the Authorships entity represents the association between one Author and one specific Work.
+
+
+              Affiliations used by the Author on the Work are connected to the Authorship through the `Authorship_Affiliation` bridge entity.
+
+
+              #### Direct entity relationships
+
+
+              ![Authorships direct entity relationships](/images/docs-graph/works-citations-outputs1.png)
+
+
+              | **Relationship**         | **Cardinality** | **Description**                                                                                                                                                                                                        |
+
+              | ------------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Works–Authorships        | One-to-many     | A Work may have multiple Authorship records. Each Authorship record is associated with exactly one Work.                                                                                                               |
+
+              | Authors–Authorships      | One-to-many     | An Author may appear in multiple Authorship records. Each Authorship record identifies exactly one Author.                                                                                                             |
+
+              | Authorships–Affiliations | Many-to-many    | An Authorship may be associated with zero or more Affiliations, and an Affiliation may provide evidence for multiple Authorships. This relationship is represented through the `Authorship_Affiliation` bridge entity. |
+
+
+              Each Authorship therefore links exactly one Work to exactly one Author while preserving the Author's Work-specific name, position, rank, corresponding-author status, and Affiliations.
+            images: []
             subTitle: null
-            subDescription: A Work may have multiple Authorship records, and an Author may
-              appear in multiple Authorship records. Each Authorship record
-              links exactly one Work to exactly one Author. An Authorship may be
-              linked to zero or more Affiliation records through
-              `Authorship_Affiliation`.
+            subDescription: ""
           - id: authorships-api-data-structure
             title: Data structure
             descriptionAbout: >-
@@ -11782,43 +11855,34 @@ items:
             id: affiliations-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Affiliation entity represents the relationship between an
-              Author and an Institution over time. Each Affiliation record
-              connects one Author to one Institution and may include temporal
-              information such as the start date, end date, and whether the
-              affiliation is current.
+              The Affiliations entity represents relationships between Authors
+              and Institutions over time. Each Affiliation record is associated
+              with exactly one Author and may identify zero or one resolved
+              Institution.
 
 
-              An Affiliation may be obtained directly from an authoritative source such as ORCID or derived by CORE from affiliation metadata associated with scholarly Works.
+              An Affiliation may include information such as the raw affiliation text, department, start date, end date, and whether the Affiliation is current. It may be obtained from an authoritative source such as ORCID or derived by CORE from scholarly metadata.
 
 
-              Unlike Authorship, which describes how an Author appears on one specific Work, Affiliation represents a potentially longer-term relationship between an Author and an Institution.
+              Unlike an Authorship, which describes how an Author appears on a particular Work, an Affiliation represents a potentially longer-term relationship between an Author and an Institution.
 
 
-              Affiliations used on individual Works are connected to Authorship records through the Authorship_Affiliation bridge entity.
+              #### Direct entity relationships
 
 
-              The diagram below represents the relationships between Authors, Affiliations, and Institutions.
+              ![Affiliations direct entity relationships](/images/docs-graph/affiliations.png)
 
 
-              ![](/images/docs-graph/affiliations.png)
+              | **Relationship**          | **Cardinality** | **Description**                                                                                                                     |
+
+              | ------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Authors–Affiliations      | One-to-many     | An Author may have multiple Affiliation records. Each Affiliation is associated with exactly one Author.                            |
+
+              | Institutions–Affiliations | One-to-many     | An Institution may be associated with multiple Affiliation records. Each Affiliation may identify zero or one resolved Institution. |
 
 
-
-
-              An Author may have multiple Affiliation records over time. An Institution may be associated with multiple Authors.
-
-
-              Each Affiliation record:
-
-
-              * links exactly one Author;
-
-              * may link to zero or one resolved Institution;
-
-              * may be connected to multiple Authorship records through `Authorship_Affiliation`;
-
-              * may contain one or more Works that provide evidence for the relationship.
+              Affiliations may also be connected to Authorship records through the `Authorship_Affiliation` bridge entity. The `evidenceWorkIds` property may identify Works that provide evidence for an Affiliation. These supporting relationships are not shown in the principal ER diagram.
           - divider: false
             border: false
             id: affiliations-api-data-structure
@@ -13567,22 +13631,34 @@ items:
             id: authors-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Author entity represents a persistent person identity across
-              scholarly Works.
+              The Authors entity represents persistent person identities across
+              scholarly Works. An Author record may contain normalised name
+              information, external identifiers, alternative and source-provided
+              names, profile information, research interests, and other
+              attributes associated with the person.
 
 
-              An Author record contains normalised name information, external identifiers, alternative and source-provided names, profile information, research interests, and other attributes associated with the person.
+              Unlike an Authorship, which describes how an Author appears on one particular Work, an Author record represents the person across all known Works.
 
 
-              Unlike Authorship, which represents how an Author appears on one particular Work, the Author entity represents the person across all known Works.
+              #### Direct entity relationships
 
 
-              The diagram below represents the relationships between Authors, Authorships, Works, Affiliations, and Institutions.
-            images:
-              - file: /images/docs-graph/authors.png
-            subDescription: An Author may have multiple Authorship records, be credited on
-              multiple Works, have multiple institutional Affiliations over time
-              and have multiple external identifiers and name variants.
+              ![Authors direct entity relationships](/images/docs-graph/authors.png)
+
+
+              | **Relationship**     | **Cardinality** | **Description**                                                                                                           |
+
+              | -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
+
+              | Authors–Authorships  | One-to-many     | An Author may appear in multiple Authorship records. Each Authorship record identifies exactly one Author.                |
+
+              | Authors–Affiliations | One-to-many     | An Author may have multiple Affiliation records over time. Each Affiliation record is associated with exactly one Author. |
+
+
+              Works are connected to Authors through Authorship records, while Institutions are connected to Authors through Affiliation records. These indirect relationships are not shown as direct Authors relationships.
+            images: []
+            subDescription: ""
           - divider: false
             border: false
             id: authors-api-data-structure
@@ -14983,99 +15059,70 @@ items:
             border: false
             id: citations-api-introduction
             title: Introduction
-            descriptionAbout: >+
-              The Citation entity represents a directed bibliographic
-              relationship between a citing Work and a cited Work or
-              bibliographic reference.
-
-              A citation connects citing and cited works:
-
-            images:
-              - file: /images/docs-graph/citations.png
-            subDescription: >-
-              The Citation entity may contain:
+            descriptionAbout: >-
+              The Citations entity represents directed bibliographic
+              relationships between scholarly Works. Each Citation connects
+              exactly one citing Work to zero or one resolved cited Work. When
+              the cited item cannot be resolved to a canonical CORE Work, the
+              Citation may instead retain its external identifiers and
+              bibliographic reference metadata.
 
 
-              - CORE identifiers for the citing and cited Works
-
-              - External identifiers such as DOI, PMID, OMID, and OCI
-
-              - Bibliographic metadata describing the cited item
-
-              - Information about when the citation relationship was created or established
-
-              - Indicators describing properties of the citation relationship, such as author or journal self-citation
-
-              - Citation-related metrics supplied by external sources
+              A Citation record may contain:
 
 
-              Citation information may be derived from multiple scholarly sources, including OpenCitations, OpenAlex, OpenAIRE Graph, Crossref, and reference metadata available to CORE.
+              * CORE identifiers for the citing and cited Works
+
+              * External identifiers such as DOI, PMID, OMID, and OCI
+
+              * Structured or unstructured bibliographic metadata describing the cited item
+
+              * Information about when the Citation relationship was created or established
+
+              * Indicators such as author or journal self-citation
+
+              * Citation-related metrics supplied by external sources
 
 
-              A Citation is directional. A relationship from Work A to Work B is distinct from a relationship from Work B to Work A.
+              Citation information may be derived from OpenCitations, OpenAlex, OpenAIRE Graph, Crossref, and reference metadata available to CORE.
 
 
-              ```text
+              A Citation is directional. A Citation from Work A to Work B is different from a Citation from Work B to Work A:
 
-              A → B ≠ B → A
 
-              ```
+              `A → B ≠ B → A`
+
+
+              #### Direct entity relationships
+
+
+              ![Citations direct entity relationships](/images/docs-graph/citations.png)
+
+
+              | **Relationship**         | **Cardinality** | **Description**                                                                                                     |
+
+              | ------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------- |
+
+              | Works–Citations (citing) | One-to-many     | A Work may have zero or more outgoing Citation records. Each Citation identifies exactly one citing Work.           |
+
+              | Works–Citations (cited)  | One-to-many     | A Work may have zero or more incoming Citation records. Each Citation may identify zero or one resolved cited Work. |
 
 
               #### Entity scope
 
 
-              Citation is a relationship entity because it connects two scholarly Works and may contain information describing that relationship.
+              A Citation is a relationship entity because it connects a citing Work to a cited Work or unresolved bibliographic reference and may contain metadata describing that relationship.
 
 
-              ```text
-
-              WORKS
-                ↓ citing
-              CITATIONS
-                ↓ cited
-              WORKS
-
-              ```
+              The Citations entity supports navigation in both directions:
 
 
-              A Work may:
+              * From a Work to its Citations and cited Works
+
+              * From a Work to the Citations and Works that cite it
 
 
-              - Cite zero or more other Works
-
-              - Be cited by zero or more other Works
-
-
-              The Citation entity enables navigation in both directions:
-
-
-              ```text
-
-              Work
-                → citations
-                → cited Works
-              ```
-
-
-              And:
-
-
-              ```text
-
-              Work
-                → cited-by
-                → citing Works
-              ```
-
-
-              #### Unresolved cited Works
-
-
-              Where a cited bibliographic item cannot be resolved to a canonical CORE Work, the Citation may still retain its external identifiers and structured or unstructured reference metadata.
-
-
-              For example:
+              When the cited bibliographic item cannot be resolved to a canonical CORE Work, the Citation can still be represented:
 
 
               ```json
@@ -15095,7 +15142,9 @@ items:
               ```
 
 
-              This allows unresolved references to remain represented without requiring every cited item to have a corresponding CORE Work.
+              This allows unresolved references to remain available without requiring every cited item to have a corresponding CORE Work.
+            images: []
+            subDescription: ""
           - divider: false
             border: false
             id: citations-api-data-structure
@@ -16821,61 +16870,44 @@ items:
             id: topics-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Topic entity represents a subject, keyword, concept, or
-              classification label associated with scholarly research in CORE.
+              The Topics entity represents subjects, keywords, concepts, and
+              classification terms associated with scholarly research in CORE.
 
 
-              Topics provide a structured way of describing what a Work is about. They may originate from source metadata, controlled vocabularies, external scholarly data sources, or CORE machine-learning models.
+              Topics provide a structured way to describe what a Work is about. They may originate from source metadata, controlled vocabularies, external scholarly data sources, or CORE machine-learning models.
 
 
               A Topic may represent:
 
 
-              - A research topic or concept
+              * A research topic or concept
 
-              - A keyword
+              * A keyword
 
-              - A subject classification
+              * A subject classification
 
-              - A controlled-vocabulary term
+              * A controlled-vocabulary term
 
-              - Spatial subject coverage
-
-              - Temporal subject coverage
+              * Spatial or temporal subject coverage
 
 
-              For example, a Work concerning high-energy particle physics may be associated with the following Topic:
+              Topics may also contain information about their classification scheme, source, provenance, and the confidence with which they were assigned.
 
 
-              ```text
-
-              Particle physics theoretical and experimental studies
-
-              ```
+              #### Direct entity relationships
 
 
-              This Topic may be placed within a broader hierarchy:
+              ![Topics direct entity relationships](/images/docs-graph/topics.png)
 
 
-              ```text
+              | **Relationship** | **Cardinality** | **Description**                                                                          |
 
-              Physical Sciences
-                  → Physics and Astronomy
-                      → Nuclear and High Energy Physics
-                          → Particle physics theoretical and experimental studies
-              ```
+              | ---------------- | --------------- | ---------------------------------------------------------------------------------------- |
+
+              | Works–Topics     | Many-to-many    | A Work may be classified under multiple Topics, and a Topic may classify multiple Works. |
 
 
-              Topics may also retain information about:
-
-
-              - The classification scheme
-
-              - The source of the Topic
-
-              - Provenance information
-
-              - The confidence with which the Topic was assigned
+              Topics may be organised into broader classification hierarchies. These hierarchical details are treated as Topic metadata and are not shown in the principal ER diagram.
           - divider: false
             border: false
             id: topics-api-data-structure
@@ -19330,7 +19362,7 @@ items:
               Unlike a Grant, which represents a funding award or agreement, a Projects record represents the research activity undertaken using that funding. A Projects record may be supported by one or more Grants, while a Grant may support one or more Projects. Works produced by or associated with a Projects record are connected through graph relationships rather than embedded in the Projects record.
 
 
-              ## Direct entity relationships
+              #### Direct entity relationships
 
 
               ![Projects direct entity relationships](/images/docs-graph/projects.png)
