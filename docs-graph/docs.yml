@@ -6667,96 +6667,102 @@ items:
             id: journals-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Journal entity represents an academic or scholarly journal
-              associated with content in the CORE collection.
+              The Journals entity represents academic or scholarly journals
+              associated with content in the CORE collection. Journals records
+              may be created or enriched using:
 
 
-              Journal records may be created from:
+              * Metadata supplied by CORE Data Providers
+
+              * Journal information contained in harvested Output metadata
+
+              * Metadata from external sources such as the Directory of Open Access Journals
+
+              * Journal identifier matching and normalisation performed by CORE
 
 
-              * metadata supplied by CORE Data Providers;
-
-              * journal information contained in harvested Output metadata;
-
-              * metadata enrichment from external sources such as the Directory of Open Access Journals;
-
-              * journal identifier matching and normalisation performed by CORE.
+              A Journals record may contain:
 
 
-              A Journal record may contain:
+              * Canonical and source-specific identifiers
+
+              * Journal titles and alternative titles
+
+              * Language and subject classifications
+
+              * Publishers and hosting-Institution information
+
+              * Open-access and article-processing-charge information
+
+              * Licensing and copyright policies
+
+              * Editorial and peer-review information
+
+              * Preservation, deposit, and research-integrity policies
 
 
-              * canonical and source-specific identifiers;
-
-              * journal titles and alternative titles;
-
-              * language and subject classifications;
-
-              * publisher and hosting-Institution information;
-
-              * open-access and article-processing-charge information;
-
-              * licensing and copyright policies;
-
-              * editorial and peer-review information;
-
-              * preservation, deposit, and research-integrity policies.
+              The Journals entity represents publication venues. Individual articles published in a Journal are represented as Outputs and, after deduplication, as Works.
 
 
-              The Journal entity represents the publication venue. Individual articles published in a Journal are represented as Outputs and, after deduplication, Works.
-            images:
-              - file: /images/docs-graph/journals.png
-            subTitle: >-
-              A Journal may be associated with multiple Outputs.
+              #### Direct entity relationships
 
 
-              A Data Provider may supply metadata for multiple Journals. A Publisher may publish multiple Journals, and an Institution may host or operate multiple Journals.
+              ![Journals direct entity relationships](/images/docs-graph/journals_v2.png)
 
 
+              | **Relationship**        | **Cardinality** | **Description**                                                                                                                                                                     |
+
+              | ----------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Journals–Outputs        | One-to-many     | A Journals record may be associated with multiple Outputs. An Output may be associated with zero or one resolved Journals record.                                                   |
+
+              | Journals–Works          | Many-to-many    | A Journals record may contain multiple Works. A Work may be associated with multiple Journals records when its underlying Outputs contain different resolved journal relationships. |
+
+              | Data Providers–Journals | Many-to-many    | A Data Provider may supply metadata for multiple Journals records, and metadata for a Journals record may be supplied or enriched by multiple Data Providers.                       |
+
+              | Publishers–Journals     | One-to-many     | A Publishers record may publish or manage multiple Journals records. A Journals record may be associated with zero or one resolved Publishers record.                               |
+
+              | Institutions–Journals   | One-to-many     | An Institution may host or operate multiple Journals records. A Journals record may be associated with zero or one resolved hosting Institution.                                    |
 
 
               #### Entity scope
 
 
-              The Journal entity contains journal-level metadata only.
+              The Journals entity contains journal-level metadata only. Article-level information such as:
 
 
-              Article-level information such as:
+              * Article title
+
+              * Abstract
+
+              * Publication year
+
+              * Article Authors
+
+              * Volume and issue
+
+              * Page range
+
+              * Article DOI
+
+              * Article full-text links
 
 
-              * article title;
-
-              * abstract;
-
-              * publication year;
-
-              * article authors;
-
-              * volume and issue;
-
-              * page range;
-
-              * article DOI;
-
-              * article full-text links;
+              is not stored as part of a Journals record. This information belongs to the Outputs and Works entities.
 
 
-              is not stored as part of the Journal entity.
+              Outputs and Works associated with a Journals record can be retrieved through:
 
 
-              This information belongs to the Output and Work entities.
+              | **Related records** | **Endpoint**                           |
 
+              | ------------------- | -------------------------------------- |
 
-              Articles associated with a Journal can be retrieved through:
+              | Outputs             | `GET /v4/journals/{journalId}/outputs` |
 
-
-              ```
-
-              GET /v4/journals/{journalId}/outputs
-
-
-
-              ```
+              | Works               | `GET /v4/journals/{journalId}/works`   |
+            images: []
+            subTitle: "\n\n"
           - divider: false
             border: false
             id: journals-api-data-structure
