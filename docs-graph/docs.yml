@@ -10506,20 +10506,36 @@ items:
               An Authorship record describes how an Author appears on a
               particular scholarly Work. It contains Work-specific information
               such as the Author's position in the author list, numeric rank,
-              corresponding-Author status, and source-provided name.
-              Affiliations used by the Author on the Work are connected to the
-              Authorship through the Authorship_Affiliation bridge entity.
+              corresponding-author status, and source-provided name.
 
 
-              Unlike the Author entity, which represents a persistent researcher identity across multiple works, Authorship represents an author's association with one specific Work. The diagram below represents the entity relationships between Works, Authorships and Authors.
-            images:
-              - file: /images/docs-graph/works-citations-outputs1.png
+              Unlike the Authors entity, which represents persistent researcher identities across multiple Works, the Authorships entity represents the association between one Author and one specific Work.
+
+
+              Affiliations used by the Author on the Work are connected to the Authorship through the `Authorship_Affiliation` bridge entity.
+
+
+              #### Direct entity relationships
+
+
+              ![Authorships direct entity relationships](/images/docs-graph/works-citations-outputs1.png)
+
+
+              | **Relationship**         | **Cardinality** | **Description**                                                                                                                                                                                                        |
+
+              | ------------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Works–Authorships        | One-to-many     | A Work may have multiple Authorship records. Each Authorship record is associated with exactly one Work.                                                                                                               |
+
+              | Authors–Authorships      | One-to-many     | An Author may appear in multiple Authorship records. Each Authorship record identifies exactly one Author.                                                                                                             |
+
+              | Authorships–Affiliations | Many-to-many    | An Authorship may be associated with zero or more Affiliations, and an Affiliation may provide evidence for multiple Authorships. This relationship is represented through the `Authorship_Affiliation` bridge entity. |
+
+
+              Each Authorship therefore links exactly one Work to exactly one Author while preserving the Author's Work-specific name, position, rank, corresponding-author status, and Affiliations.
+            images: []
             subTitle: null
-            subDescription: A Work may have multiple Authorship records, and an Author may
-              appear in multiple Authorship records. Each Authorship record
-              links exactly one Work to exactly one Author. An Authorship may be
-              linked to zero or more Affiliation records through
-              `Authorship_Affiliation`.
+            subDescription: ""
           - id: authorships-api-data-structure
             title: Data structure
             descriptionAbout: >-
