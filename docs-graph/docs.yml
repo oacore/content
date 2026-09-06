@@ -16870,61 +16870,44 @@ items:
             id: topics-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Topic entity represents a subject, keyword, concept, or
-              classification label associated with scholarly research in CORE.
+              The Topics entity represents subjects, keywords, concepts, and
+              classification terms associated with scholarly research in CORE.
 
 
-              Topics provide a structured way of describing what a Work is about. They may originate from source metadata, controlled vocabularies, external scholarly data sources, or CORE machine-learning models.
+              Topics provide a structured way to describe what a Work is about. They may originate from source metadata, controlled vocabularies, external scholarly data sources, or CORE machine-learning models.
 
 
               A Topic may represent:
 
 
-              - A research topic or concept
+              * A research topic or concept
 
-              - A keyword
+              * A keyword
 
-              - A subject classification
+              * A subject classification
 
-              - A controlled-vocabulary term
+              * A controlled-vocabulary term
 
-              - Spatial subject coverage
-
-              - Temporal subject coverage
+              * Spatial or temporal subject coverage
 
 
-              For example, a Work concerning high-energy particle physics may be associated with the following Topic:
+              Topics may also contain information about their classification scheme, source, provenance, and the confidence with which they were assigned.
 
 
-              ```text
-
-              Particle physics theoretical and experimental studies
-
-              ```
+              #### Direct entity relationships
 
 
-              This Topic may be placed within a broader hierarchy:
+              ![Topics direct entity relationships](/images/docs-graph/topics.png)
 
 
-              ```text
+              | Relationship | Cardinality  | Description                                                                              |
 
-              Physical Sciences
-                  → Physics and Astronomy
-                      → Nuclear and High Energy Physics
-                          → Particle physics theoretical and experimental studies
-              ```
+              | ------------ | ------------ | ---------------------------------------------------------------------------------------- |
+
+              | Works–Topics | Many-to-many | A Work may be classified under multiple Topics, and a Topic may classify multiple Works. |
 
 
-              Topics may also retain information about:
-
-
-              - The classification scheme
-
-              - The source of the Topic
-
-              - Provenance information
-
-              - The confidence with which the Topic was assigned
+              Topics may be organised into broader classification hierarchies. These hierarchical details are treated as Topic metadata and are not shown in the principal ER diagram.
           - divider: false
             border: false
             id: topics-api-data-structure
