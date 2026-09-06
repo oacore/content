@@ -16900,11 +16900,11 @@ items:
               ![Topics direct entity relationships](/images/docs-graph/topics.png)
 
 
-              | Relationship | Cardinality  | Description                                                                              |
+              | **Relationship** | **Cardinality** | **Description**                                                                          |
 
-              | ------------ | ------------ | ---------------------------------------------------------------------------------------- |
+              | ---------------- | --------------- | ---------------------------------------------------------------------------------------- |
 
-              | Works–Topics | Many-to-many | A Work may be classified under multiple Topics, and a Topic may classify multiple Works. |
+              | Works–Topics     | Many-to-many    | A Work may be classified under multiple Topics, and a Topic may classify multiple Works. |
 
 
               Topics may be organised into broader classification hierarchies. These hierarchical details are treated as Topic metadata and are not shown in the principal ER diagram.
@@ -19362,7 +19362,7 @@ items:
               Unlike a Grant, which represents a funding award or agreement, a Projects record represents the research activity undertaken using that funding. A Projects record may be supported by one or more Grants, while a Grant may support one or more Projects. Works produced by or associated with a Projects record are connected through graph relationships rather than embedded in the Projects record.
 
 
-              ## Direct entity relationships
+              #### Direct entity relationships
 
 
               ![Projects direct entity relationships](/images/docs-graph/projects.png)
