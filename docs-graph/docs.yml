@@ -13631,22 +13631,34 @@ items:
             id: authors-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Author entity represents a persistent person identity across
-              scholarly Works.
+              The Authors entity represents persistent person identities across
+              scholarly Works. An Author record may contain normalised name
+              information, external identifiers, alternative and source-provided
+              names, profile information, research interests, and other
+              attributes associated with the person.
 
 
-              An Author record contains normalised name information, external identifiers, alternative and source-provided names, profile information, research interests, and other attributes associated with the person.
+              Unlike an Authorship, which describes how an Author appears on one particular Work, an Author record represents the person across all known Works.
 
 
-              Unlike Authorship, which represents how an Author appears on one particular Work, the Author entity represents the person across all known Works.
+              #### Direct entity relationships
 
 
-              The diagram below represents the relationships between Authors, Authorships, Works, Affiliations, and Institutions.
-            images:
-              - file: /images/docs-graph/authors.png
-            subDescription: An Author may have multiple Authorship records, be credited on
-              multiple Works, have multiple institutional Affiliations over time
-              and have multiple external identifiers and name variants.
+              ![Authors direct entity relationships](/images/docs-graph/authors.png)
+
+
+              | **Relationship**     | **Cardinality** | **Description**                                                                                                           |
+
+              | -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
+
+              | Authors–Authorships  | One-to-many     | An Author may appear in multiple Authorship records. Each Authorship record identifies exactly one Author.                |
+
+              | Authors–Affiliations | One-to-many     | An Author may have multiple Affiliation records over time. Each Affiliation record is associated with exactly one Author. |
+
+
+              Works are connected to Authors through Authorship records, while Institutions are connected to Authors through Affiliation records. These indirect relationships are not shown as direct Authors relationships.
+            images: []
+            subDescription: ""
           - divider: false
             border: false
             id: authors-api-data-structure
