@@ -1074,62 +1074,71 @@ items:
             id: works-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Work entity represents a canonical, deduplicated piece of
-              scholarly research.
+              ## Introduction
+
+
+              The Work entity represents a canonical, deduplicated piece of scholarly research.
 
 
               Works may include:
 
 
-              * research articles;
+              * Research articles
 
-              * conference papers;
+              * Conference papers
 
-              * theses and dissertations;
+              * Theses and dissertations
 
-              * preprints;
+              * Preprints
 
-              * books and book chapters;
+              * Books and book chapters
 
-              * reports;
+              * Reports
 
-              * datasets;
+              * Datasets
 
-              * other scholarly research outputs.
+              * Other scholarly research outputs
 
 
               A Work combines and enriches metadata from one or more underlying CORE Outputs harvested from repositories, journals, and other Data Providers.
 
 
               Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
-            images:
-              - file: /images/docs-graph/works_v3.png
-            subTitle: ""
-            subDescription: >-
-              
-
-              A Work may:
 
 
-              * be represented by multiple Outputs;
-
-              * have multiple Authorship records;
-
-              * be associated with one or more Journals;
-
-              * be supplied by multiple Data Providers;
-
-              * be classified under multiple Topics;
-
-              * cite zero or more other Works through Citation records;
-
-              * be associated with one or more Projects;
-
-              * have multiple Grants, and a Grant can fund multiple Works.
-
-              * contain multiple identifiers, dates, references, contributors, and links.
+              A Work may contain multiple identifiers, dates, bibliographic references, contributors, classifications, and links. It may also be connected to Outputs, Authorships, Journals, Data Providers, Topics, Projects, Grants, and Citations.
 
 
+              #### Direct entity relationships
+
+
+              ![Work direct entity relationships](/images/docs-graph/works_v3.png)
+
+
+              | **Relationship**         | **Cardinality** | **Description**                                                                                                               |
+
+              | ------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+
+              | Works–Outputs            | One-to-many     | A Work is represented by one or more Outputs. An Output may be associated with zero or one canonical Work.                    |
+
+              | Works–Authorships        | One-to-many     | A Work may have multiple Authorship records. Each Authorship belongs to exactly one Work and connects it to one Author.       |
+
+              | Works–Journals           | Many-to-many    | A Work may be associated with multiple Journals through its source Outputs, and a Journal may contain multiple Works.         |
+
+              | Works–Data Providers     | Many-to-many    | A Work may be supplied through Outputs harvested from multiple Data Providers, and a Data Provider may supply multiple Works. |
+
+              | Works–Topics             | Many-to-many    | A Work may be classified under multiple Topics, and a Topic may classify multiple Works.                                      |
+
+              | Works–Projects           | Many-to-many    | A Work may acknowledge or result from multiple Projects, and a Projects record may be associated with multiple Works.         |
+
+              | Works–Grants             | Many-to-many    | A Work may be supported by multiple Grants, and a Grants record may fund multiple Works.                                      |
+
+              | Works–Citations (citing) | One-to-many     | A Work may cite zero or more other scholarly items through Citation records. Each Citation has exactly one citing Work.       |
+
+              | Works–Citations (cited)  | One-to-many     | A Work may be cited by zero or more Citation records. A Citation may reference zero or one resolved cited Work.               |
+
+
+              Authors are connected to Works through Authorships rather than through a direct Works–Authors relationship. Publishers are connected through Outputs, while Funders are connected through Grants. These indirect relationships are not shown as direct Works relationships.
 
 
               #### Work and Output separation
@@ -1195,6 +1204,9 @@ items:
               GET /v4/works/{workId}/authorships
 
               ```
+            images: []
+            subTitle: ""
+            subDescription: "\n\n\n\n"
           - divider: false
             border: false
             id: works-api-data-structure
