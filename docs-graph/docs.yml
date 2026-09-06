@@ -11855,43 +11855,34 @@ items:
             id: affiliations-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Affiliation entity represents the relationship between an
-              Author and an Institution over time. Each Affiliation record
-              connects one Author to one Institution and may include temporal
-              information such as the start date, end date, and whether the
-              affiliation is current.
+              The Affiliations entity represents relationships between Authors
+              and Institutions over time. Each Affiliation record is associated
+              with exactly one Author and may identify zero or one resolved
+              Institution.
 
 
-              An Affiliation may be obtained directly from an authoritative source such as ORCID or derived by CORE from affiliation metadata associated with scholarly Works.
+              An Affiliation may include information such as the raw affiliation text, department, start date, end date, and whether the Affiliation is current. It may be obtained from an authoritative source such as ORCID or derived by CORE from scholarly metadata.
 
 
-              Unlike Authorship, which describes how an Author appears on one specific Work, Affiliation represents a potentially longer-term relationship between an Author and an Institution.
+              Unlike an Authorship, which describes how an Author appears on a particular Work, an Affiliation represents a potentially longer-term relationship between an Author and an Institution.
 
 
-              Affiliations used on individual Works are connected to Authorship records through the Authorship_Affiliation bridge entity.
+              #### Direct entity relationships
 
 
-              The diagram below represents the relationships between Authors, Affiliations, and Institutions.
+              ![Affiliations direct entity relationships](/images/docs-graph/affiliations.png)
 
 
-              ![](/images/docs-graph/affiliations.png)
+              | **Relationship**          | **Cardinality** | **Description**                                                                                                                     |
+
+              | ------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Authors–Affiliations      | One-to-many     | An Author may have multiple Affiliation records. Each Affiliation is associated with exactly one Author.                            |
+
+              | Institutions–Affiliations | One-to-many     | An Institution may be associated with multiple Affiliation records. Each Affiliation may identify zero or one resolved Institution. |
 
 
-
-
-              An Author may have multiple Affiliation records over time. An Institution may be associated with multiple Authors.
-
-
-              Each Affiliation record:
-
-
-              * links exactly one Author;
-
-              * may link to zero or one resolved Institution;
-
-              * may be connected to multiple Authorship records through `Authorship_Affiliation`;
-
-              * may contain one or more Works that provide evidence for the relationship.
+              Affiliations may also be connected to Authorship records through the `Authorship_Affiliation` bridge entity. The `evidenceWorkIds` property may identify Works that provide evidence for an Affiliation. These supporting relationships are not shown in the principal ER diagram.
           - divider: false
             border: false
             id: affiliations-api-data-structure
