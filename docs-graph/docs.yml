@@ -1074,71 +1074,62 @@ items:
             id: works-api-introduction
             title: Introduction
             descriptionAbout: >-
-              ## Introduction
-
-
-              The Work entity represents a canonical, deduplicated piece of scholarly research.
+              The Work entity represents a canonical, deduplicated piece of
+              scholarly research.
 
 
               Works may include:
 
 
-              * Research articles
+              * research articles;
 
-              * Conference papers
+              * conference papers;
 
-              * Theses and dissertations
+              * theses and dissertations;
 
-              * Preprints
+              * preprints;
 
-              * Books and book chapters
+              * books and book chapters;
 
-              * Reports
+              * reports;
 
-              * Datasets
+              * datasets;
 
-              * Other scholarly research outputs
+              * other scholarly research outputs.
 
 
               A Work combines and enriches metadata from one or more underlying CORE Outputs harvested from repositories, journals, and other Data Providers.
 
 
               Unlike an Output, which represents a particular source-specific manifestation of a research item, a Work represents the deduplicated scholarly object across all known manifestations.
+            images:
+              - file: /images/docs-graph/works_v3.png
+            subTitle: ""
+            subDescription: >-
+              
+
+              A Work may:
 
 
-              A Work may contain multiple identifiers, dates, bibliographic references, contributors, classifications, and links. It may also be connected to Outputs, Authorships, Journals, Data Providers, Topics, Projects, Grants, and Citations.
+              * be represented by multiple Outputs;
+
+              * have multiple Authorship records;
+
+              * be associated with one or more Journals;
+
+              * be supplied by multiple Data Providers;
+
+              * be classified under multiple Topics;
+
+              * cite zero or more other Works through Citation records;
+
+              * be associated with one or more Projects;
+
+              * have multiple Grants, and a Grant can fund multiple Works.
+
+              * contain multiple identifiers, dates, references, contributors, and links.
 
 
-              #### Direct entity relationships
-
-
-              ![Work direct entity relationships](/images/docs-graph/works_v3.png)
-
-
-              | **Relationship**         | **Cardinality** | **Description**                                                                                                               |
-
-              | ------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-
-              | Works–Outputs            | One-to-many     | A Work is represented by one or more Outputs. An Output may be associated with zero or one canonical Work.                    |
-
-              | Works–Authorships        | One-to-many     | A Work may have multiple Authorship records. Each Authorship belongs to exactly one Work and connects it to one Author.       |
-
-              | Works–Journals           | Many-to-many    | A Work may be associated with multiple Journals through its source Outputs, and a Journal may contain multiple Works.         |
-
-              | Works–Data Providers     | Many-to-many    | A Work may be supplied through Outputs harvested from multiple Data Providers, and a Data Provider may supply multiple Works. |
-
-              | Works–Topics             | Many-to-many    | A Work may be classified under multiple Topics, and a Topic may classify multiple Works.                                      |
-
-              | Works–Projects           | Many-to-many    | A Work may acknowledge or result from multiple Projects, and a Projects record may be associated with multiple Works.         |
-
-              | Works–Grants             | Many-to-many    | A Work may be supported by multiple Grants, and a Grants record may fund multiple Works.                                      |
-
-              | Works–Citations (citing) | One-to-many     | A Work may cite zero or more other scholarly items through Citation records. Each Citation has exactly one citing Work.       |
-
-              | Works–Citations (cited)  | One-to-many     | A Work may be cited by zero or more Citation records. A Citation may reference zero or one resolved cited Work.               |
-
-
-              Authors are connected to Works through Authorships rather than through a direct Works–Authors relationship. Publishers are connected through Outputs, while Funders are connected through Grants. These indirect relationships are not shown as direct Works relationships.
 
 
               #### Work and Output separation
@@ -1204,9 +1195,6 @@ items:
               GET /v4/works/{workId}/authorships
 
               ```
-            images: []
-            subTitle: ""
-            subDescription: "\n\n\n\n"
           - divider: false
             border: false
             id: works-api-data-structure
@@ -3000,12 +2988,10 @@ items:
             id: outputs-api-introduction
             title: Introduction
             descriptionAbout: >-
-              
-
-              The Output entity represents a source-specific manifestation of a scholarly research item harvested by CORE.
+              ## Introduction
 
 
-              An Output corresponds to a record supplied by a Data Provider, such as:
+              The Outputs entity represents source-specific manifestations of scholarly research items harvested by CORE. An Output corresponds to an individual record supplied by a Data Provider, such as:
 
 
               * An institutional repository
@@ -3021,32 +3007,49 @@ items:
               * Another scholarly metadata source
 
 
-              Unlike a Work, which is a canonical and deduplicated representation of a research item, an Output preserves the metadata and full-text information associated with a particular source record.
+              Unlike a Work, which represents a canonical, deduplicated scholarly research item, an Output preserves the metadata and full-text information associated with a particular source record.
 
 
-              An Output may also contain information derived by CORE, including:
+              An Output may also contain CORE-derived information, including:
 
 
               * Normalised document types
 
               * Publication language
 
-              * Access-rights and licence information
+              * Access-right and licence information
 
               * Sustainable Development Goal classifications
 
-              * Full-text availability status
-            images:
-              - file: /images/docs-graph/outputs.png
-            subTitle: ""
-            subDescription: |-
-              Each Output:
+              * Full-text availability and processing status
 
-              * has exactly one CORE Output identifier;
-              * is associated with one Data Provider;
-              * may be associated with one Journal;
-              * may be associated with one Publisher;
-              * may be represented by one canonical Work.
+
+              Each Output has exactly one CORE Output identifier and is associated with exactly one Data Provider. It may also be associated with a Journal, a Publisher, and a canonical Work.
+
+
+              #### Direct entity relationships
+
+
+              ![Outputs direct entity relationships](/images/docs-graph/outputs.png)
+
+
+              | **Relationship**       | **Cardinality** | **Description**                                                                                                                                                |
+
+              | ---------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Outputs–Works          | Many-to-one     | Multiple Outputs may represent the same canonical Work. An Output may be associated with zero or one Work, while a Work is represented by one or more Outputs. |
+
+              | Outputs–Data Providers | Many-to-one     | Each Output is harvested from exactly one Data Provider, while a Data Provider may supply multiple Outputs.                                                    |
+
+              | Outputs–Journals       | Many-to-one     | An Output may be associated with zero or one Journal, while a Journal may contain multiple Outputs.                                                            |
+
+              | Outputs–Publishers     | Many-to-one     | An Output may be associated with zero or one Publishers record, while a Publishers record may be associated with multiple Outputs.                             |
+
+
+              Grants, Funders, Projects, Authors, Authorships, Topics, and Citations are associated with the canonical Work rather than directly with individual Outputs. These relationships can be accessed by first retrieving the Work represented by the Output.
+            images: []
+            subTitle: ""
+            subDescription: ""
           - divider: false
             border: false
             id: outputs-api-data-structure
