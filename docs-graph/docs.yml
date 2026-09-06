@@ -6,10 +6,14 @@ items:
           - id: core-graph-api
             title: CORE Graph API
             descriptionAbout: >-
-              The CORE Graph API provides structured access to CORE’s global
-              scholarly knowledge graph. It connects research works with their
-              manifestations, creators, organisations, publication venues,
-              funding, projects, topics, and citation relationships.
+              :::**Development status**
+
+              The CORE Graph API v4 is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
+
+              :::
+
+
+              The CORE Graph API provides structured access to CORE’s global scholarly knowledge graph. It connects research works with their manifestations, creators, organisations, publication venues, funding, projects, topics, and citation relationships.
 
 
               CORE aggregates metadata and full text from a global network of repositories, journals, and other scholarly sources. Records collected from these sources are normalised, enriched, and linked to create consistent entities and relationships.
@@ -109,8 +113,6 @@ items:
 
 
               This model allows users to retrieve a canonical Work while still navigating to the source records and relationships that support it.
-
-
 
 
               #### What makes the CORE Graph API distinctive?
