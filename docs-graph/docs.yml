@@ -8789,33 +8789,57 @@ items:
             id: institutions-api-introduction
             title: Introduction
             descriptionAbout: >-
-              The Institution entity represents universities, research
+              The Institutions entity represents universities, research
               organisations, healthcare organisations, companies, government
-              bodies, funders, archives, and other organisations participating
-              in the scholarly communication graph.
+              bodies, archives, nonprofit organisations, and other organisations
+              participating in the scholarly communication graph.
+
+
+              Institution metadata is primarily sourced from the Research Organization Registry (ROR). It may be enriched with identifiers, names, hierarchy information, publication metrics, and metadata obtained from other sources.
 
 
               Institutions may be associated with:
 
 
-              * Authors through Affiliation records;
+              * Affiliations representing connections between Authors and Institutions
 
-              * Data Providers that they operate or host;
+              * Data Providers that they operate or host
 
-              * other Institutions through hierarchical, historical, or related-organisation relationships;
+              * Journals that they operate or host
 
-              * Works, Projects, Grants, and other graph entities through their respective relationship entities.
+              * Other Institutions through hierarchical, historical, or related-organisation relationships
+
+              * Works, Projects, Grants, and other graph entities through indirect or relationship-based connections
 
 
-              Institution metadata is primarily sourced from the Research Organization Registry (ROR). It may be enriched with identifiers, names, hierarchy information, publication metrics, and other information from other data sources.
+              For example, a university may employ or host multiple Authors and operate several institutional repositories. The university is represented as an Institution, its repositories are represented as Data Providers, and the relationships between its Authors and the Institution are represented through Affiliations.
 
 
-              The diagram below illustrates the principal Institution relationships.
-            images:
-              - file: /images/docs-graph/institutions.png
-            subTitle: An Institution may employ or host multiple Authors through Affiliation
-              records. An Institution may also operate multiple Data Providers,
-              such as institutional repositories or journal platforms.
+              #### Direct entity relationships
+
+
+              ![Institutions direct entity relationships](/images/docs-graph/institutions_v2.png)
+
+
+              | **Relationship**            | **Cardinality**  | **Description**                                                                                                                             |
+
+              | --------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+
+              | Institutions–Affiliations   | One-to-many      | An Institution may be associated with multiple Affiliation records. Each resolved Affiliation identifies zero or one Institution.           |
+
+              | Institutions–Data Providers | One-to-many      | An Institution may operate or host multiple Data Providers. A Data Provider may be associated with zero or one resolved Institution.        |
+
+              | Institutions–Journals       | One-to-many      | An Institution may operate or host multiple Journals. A Journal may be associated with zero or one resolved hosting Institution.            |
+
+              | Institutions–Institutions   | Self-referential | An Institution may be connected to other Institutions through parent, child, predecessor, successor, or related-organisation relationships. |
+
+
+              Authors are connected to Institutions through Affiliation records rather than through a direct Authors–Institutions relationship. Works may be connected indirectly through Authorships, Affiliations, Data Providers, or Journals. Projects and Grants are connected through their corresponding graph relationships when canonical Institution identifiers are available.
+
+
+              Organisations acting as funding bodies are represented by the Funders entity for funding-related relationships. When the same organisation is represented in both Institutions and Funders, the records may be connected through shared external identifiers such as ROR or Crossref Funder Registry identifiers.
+            images: []
+            subTitle: ""
           - divider: false
             border: false
             id: institutions-api-data-structure
