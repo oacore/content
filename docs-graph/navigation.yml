@@ -2,25 +2,30 @@ navTitle: CORE Graph API Documentation
 navItems:
   - item: Overview
     children:
-      - item: null
-        children:
-          - item: "CORE Graph API "
-            href: "#core-graph-api"
-          - hidden: false
-            item: Design Principles
-            href: "#core-graph-design-principles"
-          - hidden: false
-            item: CORE data model
-            href: "#core-graph-core-data-model"
-          - hidden: false
-            item: Principal relationships
-            href: "#core-graph-principal-relationships"
-          - hidden: false
-            item: Resource and endpoint patterns
-            href: "#core-graph-resource-and-endpoint-patterns"
-          - hidden: false
-            item: Naming conventions
-            href: "#graph-api-naming-conventions"
+      - hidden: false
+        item: "CORE Graph API "
+        href: "#core-graph-api"
+      - hidden: false
+        item: Design Principles
+        href: "#core-graph-design-principles"
+      - hidden: false
+        item: CORE data model
+        href: "#core-graph-core-data-model"
+      - hidden: false
+        item: Principal relationships
+        href: "#core-graph-principal-relationships"
+      - hidden: false
+        item: Resource and endpoint patterns
+        href: "#core-graph-resource-and-endpoint-patterns"
+      - hidden: false
+        item: Common response conventions
+        href: "#graph-api-common-response-conventions"
+      - hidden: false
+        item: Naming conventions
+        href: "#graph-api-naming-conventions"
+      - hidden: false
+        item: Quick start
+        href: "#graph-api-quick-start"
   - item: Entities
     children:
       - item: Works
@@ -35,8 +40,8 @@ navItems:
             item: Supported field operations
             href: "#works-api-supported-field-operations"
           - hidden: false
-            item: Work endpoints
-            href: "#works-api-work-endpoints"
+            item: Works endpoints
+            href: "#works-api-works-endpoints"
           - hidden: false
             item: Search Works
             href: "#works-api-search-works"
@@ -59,7 +64,7 @@ navItems:
             href: "#outputs-api-supported-field-operations"
           - hidden: false
             item: Outputs endpoints
-            href: "#outputs-api-output-endpoints"
+            href: "#outputs-api-outputs-endpoints"
           - hidden: false
             item: Search Outputs
             href: "#outputs-api-search-outputs"
@@ -81,8 +86,8 @@ navItems:
             href: "#dataproviders-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            item: Data Provider endpoints
-            href: "#dataproviders-api-data-provider-endpoints"
+            item: Data Providers endpoints
+            href: "#dataproviders-api-data-providers-endpoints"
           - hidden: false
             href: "#dataproviders-api-search-data-providers"
             item: Search Data providers
@@ -104,8 +109,8 @@ navItems:
             href: "#journals-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            href: "#journals-api-journal-endpoints"
-            item: Journal endpoints
+            href: "#journals-api-journals-endpoints"
+            item: Journals endpoints
           - hidden: false
             href: "#journals-api-search-journals"
             item: Search Journals
@@ -148,8 +153,8 @@ navItems:
             href: "#authorships-api-authorship-affiliation-relationship"
           - item: Supported field operations
             href: "#authorships-api-supported-field-operations"
-          - item: Authorship endpoints
-            href: "#authorships-api-available-endpoints"
+          - item: Authorships endpoints
+            href: "#authorships-api-authorships-endpoints"
           - item: Search Authorships
             href: "#authorships-api-search-authorships"
           - item: Search examples
@@ -168,8 +173,8 @@ navItems:
             href: "#affiliations-api-supported-field-operations"
             item: Supported field operations
           - hidden: false
-            item: Affiliation endpoints
-            href: "#affiliations-api-affiliation-endpoints"
+            item: Affiliations endpoints
+            href: "#affiliations-api-affiliations-endpoints"
           - hidden: false
             item: Search Affiliations
             href: "#affiliations-api-search-affiliations"
@@ -191,7 +196,7 @@ navItems:
             item: Supported field operations
             href: "#authors-api-supported-field-operations"
           - hidden: false
-            item: Author endpoints
+            item: Authors endpoints
             href: "#authors-api-authors-endpoints"
           - hidden: false
             item: Search Authors
@@ -203,31 +208,166 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#authors-api-relationship-oriented-endpoints"
       - item: Publishers
-      - item: Grants
-      - item: Funders
-      - item: Topics
-  - item: Search
-    children:
-      - item: null
         children:
           - hidden: false
-            item: Overview
-            href: "#search-overview"
+            item: Introduction
+            href: "#publishers-api-introduction"
           - hidden: false
-            item: CORE API Query Language
-            href: "#search-core-api-query-language"
+            item: Data structure
+            href: "#publishers-api-data-structure"
           - hidden: false
-            item: Search request
-            href: "#search-search-request"
+            href: "#publishers-api-supported-field-operations"
+            item: Supported field operations
           - hidden: false
-            item: Vector and Hybrid search
-            href: "#search-vector-and-hybrid-search"
+            item: Publishers endpoints
+            href: "#publishers-api-publishers-endpoints"
           - hidden: false
-            item: Result control
-            href: "#search-result-control"
+            item: Search Publishers
+            href: "#publishers-api-search-publishers"
           - hidden: false
-            item: Facets and aggregation
-            href: "#search-facets-and-aggregation"
+            item: Search examples
+            href: "#publishers-api-search-examples"
           - hidden: false
-            item: Responses
-            href: "#search-responses"
+            item: Relationship-oriented endpoints
+            href: "#publishers-api-relationship-oriented-endpoints"
+      - item: Grants
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#grants-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#grants-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#grants-api-supported-field-operations"
+          - hidden: false
+            item: Grants endpoints
+            href: "#grants-api-grants-endpoints"
+          - hidden: false
+            item: Search Grants
+            href: "#grants-api-search-grants"
+          - hidden: false
+            item: Search examples
+            href: "#grants-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#grants-api-relationship-oriented-endpoints"
+      - item: Funders
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#funders-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#funders-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#funders-api-supported-field-operations"
+          - hidden: false
+            item: Funders endpoints
+            href: "#funders-api-funders-endpoints"
+          - hidden: false
+            item: Search funders
+            href: "#funders-api-search-funders"
+          - hidden: false
+            item: Search examples
+            href: "#funders-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#funders-api-relationship-oriented-endpoints"
+      - item: Topics
+        children:
+          - hidden: false
+            href: "#topics-api-introduction"
+            item: Introduction
+          - hidden: false
+            item: Data structure
+            href: "#topics-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#topics-api-supported-field-operations"
+          - hidden: false
+            item: Topics endpoints
+            href: "#topics-api-topics-endpoints"
+          - hidden: false
+            item: Search Topics
+            href: "#topics-api-search-topics"
+          - hidden: false
+            item: Search examples
+            href: "#topics-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#topics-api-relationship-oriented-endpoints"
+      - hidden: false
+        item: Citations
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#citations-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#citations-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#citations-api-supported-field-operations"
+          - hidden: false
+            item: Citations endpoints
+            href: "#citations-api-citations-endpoints"
+          - hidden: false
+            item: Search citations
+            href: "#citations-api-search-citations"
+          - hidden: false
+            item: Search examples
+            href: "#citations-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#citations-api-relationship-oriented-endpoints"
+      - hidden: false
+        item: Projects
+        href: ""
+        children:
+          - hidden: false
+            item: Introduction
+            href: "#projects-api-introduction"
+          - hidden: false
+            item: Data structure
+            href: "#projects-api-data-structure"
+          - hidden: false
+            item: Supported field operations
+            href: "#projects-api-supported-field-operations"
+          - hidden: false
+            item: Projects endpoints
+            href: "#projects-api-projects-endpoints"
+          - hidden: false
+            item: Search Projects
+            href: "#projects-api-search-projects"
+          - hidden: false
+            item: Search examples
+            href: "#projects-api-search-examples"
+          - hidden: false
+            item: Relationship-oriented endpoints
+            href: "#projects-api-relationship-oriented-endpoints"
+  - item: Search
+    children:
+      - item: Overview
+        children: []
+        href: "#search-overview"
+      - hidden: false
+        item: CORE API Query Language
+        href: "#search-core-api-query-language"
+      - hidden: false
+        item: Search request
+        href: "#search-search-request"
+      - hidden: false
+        item: Vector and Hybrid search
+        href: "#search-vector-and-hybrid-search"
+      - hidden: false
+        item: Result control
+        href: "#search-result-control"
+      - hidden: false
+        item: Facets and aggregation
+        href: "#search-facets-and-aggregation"
+      - hidden: false
+        item: Responses
+        href: "#search-responses"
