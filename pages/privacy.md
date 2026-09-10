@@ -3,7 +3,7 @@ title: Privacy notice
 description: CORE Privacy Notice
 ---
 
-**Last updated:** [DATE HERE]
+**Last updated:** 14/09/2026
 
 This policy explains how CORE ("we", "us", "our") collects, uses, and protects information about people who use our open access research platform, including researchers, institutional partners, and members of the public who search or browse our content.
 
