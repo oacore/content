@@ -13,14 +13,14 @@ materials:
       title: CORE Membership Introduction
       action:
         caption: Open presentation
-        url: /images/pdfs/core-membership-introduction-.pdf
+        url: /images/pdfs/core-membership-introduction-_website.pdf
         target: _blank
     - image: /images/pdfView.svg
       key: overview
       title: CORE Membership benefits overview
       action:
         caption: Open presentation
-        url: /images/pdfs/core-membership-benefits-overview-2025.pdf
+        url: /images/pdfs/core-membership-benefits-overview_website.pdf
         target: _blank
     - image: /images/videoPreview.svg
       key: access
