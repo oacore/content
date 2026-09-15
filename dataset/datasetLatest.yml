@@ -4,6 +4,10 @@ box:
   title: Metadata Dataset 2026-09
   icon: /images/dataset/cloud.svg
   dataSize:
+    - count: 496,721,900
+      dataType: records
+    - count: 13,068
+      dataType: files
     - count: 197 GB
       dataType: compressed
     - count: 1.12 TB
