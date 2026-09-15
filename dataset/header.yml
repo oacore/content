@@ -21,7 +21,8 @@ links:
     - label: Structure of dataset pre - 2017
       link: dataset2017pre
 caption: >-
-  It’s more than 300GB so we recommend you to use appropriate tools for
-  downloading it and make the recovery easy.
+  The dataset folder can be downloaded from our Azure Blob Storage.
 
-  For example there is a dedicated tool to keep the file downloading efficiently, in the past I used aria2 <https://aria2.github.io/>.
+  We recommend using the azcopy tool — 
+  installation instructions are available on the official Azure documentation page:
+  <https://learn.microsoft.com/en-gb/azure/storage/common/storage-use-azcopy-v10>.
