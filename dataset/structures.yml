@@ -1,7 +1,353 @@
 title: Structure of datasets
 items:
-  - title: Current dataset structure (from 2020 onwards)
+  - title: Current dataset structure (from 2026 onwards)
     id: Currentdataset
+    text: >-
+
+      The dataset files are Gzip-compressed JSONL files. 
+      When decompressed, each JSONL file contains one JSON object per line, 
+      where each JSON record represents a single CORE output.
+
+
+      Perform the extraction by running:
+      
+      ```sh
+
+      # Decompresses and removes the original .gz file
+      gzip -d outputs_1_27014.jsonl.gz
+
+      # Keep the original .gz file intact while extracting
+      gunzip -c outputs_1_27014.jsonl.gz > outputs_1_27014.jsonl
+
+      ```
+
+
+      To navigate the dataset files more efficiently, 
+      refer to the manifest files located in the Metadata-Dataset-2026-09/outputs/manifest/ folder. 
+      Each manifest file contains a JSON list where every entry describes a dataset file, 
+      providing the following information:
+
+
+      * **output_id_range** — the range of CORE article IDs contained in this file;
+      * **records_count** — the number of CORE outputs in this file;
+      * **size** — the size of the compressed dataset file, in bytes;
+      * **size_extracted** — the size of the decompressed dataset file, in bytes;
+      * **created_at** — the date and time when this JSONL dump was created;
+      * **timestamp** — the date and time when this JSONL dump was packaged.
+
+
+      Example manifest entry:
+
+
+      ```json
+
+      {
+        "blob_name": "Metadata-Dataset-2026-09/outputs/outputs_1_27014.jsonl.gz",
+        "output_id_range": {
+          "from": 1,
+          "to": 27014
+        },
+        "records_count": 11383,
+        "size": 23612781,
+        "size_extracted": 99994748,
+        "created_at": "2026-08-21T16_55_52",
+        "timestamp": "2026-09-04T13_16_44"
+      }
+
+      ```
+
+
+      This is a sample data structure from the Dataset
+
+
+      ```json
+
+      {
+        "id": 12345,
+        "title": "TITLE",
+        "abstract": <INVERTED_INDEX>,
+        "doi": "DOI",
+        "oai": "OAI_IDENTIFIER",
+        "download_url": "DOWNLOAD URL IF AVAILABLE",
+        "fulltext_status": "AVAILABLE",
+        "year_published": PUBLICATION YEAR,
+        "accepted_date": "DATETIME",
+        "created_date": "DATETIME",
+        "deposited_date": "DATETIME",
+        "published_date": "DATETIME",
+        "updated_date": "DATETIME",
+        "last_update": "DATETIME",
+        "created_at": "DATETIME",
+        "updated_at": "DATETIME",
+        "language": {
+          "code": "COUNTRY CODE",
+          "name": "LANGUAGE NAME",
+          "id": ID
+        },
+        "publisher": "PUBLISHER",
+        "repository_document": {
+          "pdfUrl": "FULL TEXT URL IF AVAILABLE",
+          "pdfStatus": 0 OR 1,
+          "idRepository": DATA PROVIDER ID,
+          "fullTextSource": "FULL TEXT SOURCE",
+        },
+        "data_provider": {
+          "id": DATA PROVIDER ID,
+          "name": "DATA PROVIDER NAME",
+          "url": "CORE API LINK",
+          "logo": "CORE API LINK"
+        },
+        "license": "LICENSE STRING IF AVAILABLE",
+        "deleted": "ALLOWED",
+        "disabled": 0 OR 1,
+        "authors": [AUTHORS],
+        "contributors": [CONTRIBUTORS],
+        "versions": [VERSIONS],
+        "identifiers": [ADDITIONAL IDENTIFIERS],
+        "references": [REFERENCES],
+        "links": [LINKS],
+        "tags": [TAGS],
+        "setSpecs": [SETS],
+        "subjects": [SUBJECTS],
+        "journals": [JOURNALS],
+        "urls": [URLS],
+        "sdg": [SDGS],
+        "sourceFulltextUrl": {
+          "url": "FULL TEXT URL IF AVAILABLE",
+          "type": "TYPE"
+        }
+      }
+
+      ```
+    fields: >-
+      ##### Fields description
+
+
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Example value</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>int</td>
+          <td>216874849</td>
+          <td>Unique CORE identifier for the Output</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>str</td>
+          <td>“Sustainable Development Goals and Research”</td>
+          <td>Title of the Output as supplied or selected from source metadata.</td>
+        </tr>
+        <tr>
+          <td>abstract</td>
+          <td>obj</td>
+          <td><code>{"This":[0],"paper":[1],"explores":[2]}</code></td>
+          <td>Abstract represented as an inverted index in which each token maps to its positions.</td>
+        </tr>
+        <tr>
+          <td>doi</td>
+          <td>str</td>
+          <td>10.1353/jsh/29.3.527</td>
+          <td>Digital Object Identifier.</td>
+        </tr>
+        <tr>
+          <td>oai</td>
+          <td>str</td>
+          <td>oai:oro.open.ac.uk:6</td>
+          <td>OAI-PMH identifier.</td>
+        </tr>
+        <tr>
+          <td>download_url</td>
+          <td>str</td>
+          <td>"https://core.ac.uk/download/216874849.pdf"</td>
+          <td>Preferred URL for downloading the Output full text.</td>
+        </tr>
+        <tr>
+          <td>fulltext_status</td>
+          <td>str</td>
+          <td>AVAILABLE / UNAVAILABLE</td>
+          <td>Status indicating the availability or processing state of the Output full text.</td>
+        </tr>
+        <tr>
+          <td>year_published</td>
+          <td>int</td>
+          <td>2022</td>
+          <td>Publication year derived from the preferred publication date.</td>
+        </tr>
+        <tr>
+          <td>accepted_date</td>
+          <td>str</td>
+          <td>2003-01-01T00:00:00Z</td>
+          <td>Date on which the resource was accepted.</td>
+        </tr>
+        <tr>
+          <td>created_date</td>
+          <td>str</td>
+          <td>2012-06-26T18:35:50Z</td>
+          <td>Date on which the source or CORE record was created.</td>
+        </tr>
+        <tr>
+          <td>deposited_date</td>
+          <td>str</td>
+          <td>2006-05-10T00:00:00Z</td>
+          <td>Date on which metadata was deposited with the source.</td>
+        </tr>
+        <tr>
+          <td>published_date</td>
+          <td>str</td>
+          <td>2003-01-01T00:00:00Z</td>
+          <td>Preferred publication date.</td>
+        </tr>
+        <tr>
+          <td>updated_date</td>
+          <td>str</td>
+          <td>2026-08-07T21:39:03Z</td>
+          <td>Date on which the Output record was last updated.</td>
+        </tr>
+        <tr>
+          <td>created_at</td>
+          <td>str</td>
+          <td>2023-01-01T00:00:00Z</td>
+          <td>Date on which the Output record was created.</td>
+        </tr>
+        <tr>
+          <td>updated_at</td>
+          <td>str</td>
+          <td>2023-01-01T00:00:00Z</td>
+          <td>Date on which the Output record was last updated.</td>
+        </tr>
+        <tr>
+          <td>language</td>
+          <td>obj</td>
+          <td><code>{"code": "en", "name": "English", "languageId": 9}</code></td>
+          <td>Structured language information associated with the Output.</td>
+        </tr>
+        <tr>
+          <td>publisher</td>
+          <td>str</td>
+          <td>IIED</td>
+          <td>Publisher associated with the Output.</td>
+        </tr>
+        <tr>
+          <td>repository_document</td>
+          <td>obj</td>
+          <td><code>{"pdfUrl": "http://oro.open.ac.uk/6/1/The_OU_goes_digital_article_CILIP_Update_Feb031b.pdf", "pdfStatus": 1, "idRepository": 86, "fullTextSource": "OAIPMH"}</code></td>
+          <td>Structured information about the repository document.</td>
+        </tr>
+        <tr>
+          <td>data_provider</td>
+          <td>obj</td>
+          <td><code>{"id": 86, "name": "Open Research Online (Open)", "url": "https://api.core.ac.uk/v3/data-providers/86", "logo": "https://api.core.ac.uk/v3/data-providers/86/logo"}</code></td>
+          <td>Structured information about the data provider.</td>
+        </tr>
+        <tr>
+          <td>license</td>
+          <td>str</td>
+          <td>cc_by_nc</td>
+          <td>licence information associated with the Output.</td>
+        </tr>
+        <tr>
+          <td>deleted</td>
+          <td>str</td>
+          <td>ALLOWED</td>
+          <td>Source or CORE status describing whether the Output is accessible or has been removed.</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>int</td>
+          <td>0</td>
+          <td>Indicates whether the Output has been disabled in CORE.</td>
+        </tr>
+        <tr>
+          <td>authors</td>
+          <td>obj[]</td>
+          <td><code>[{"name": "Horne, Jane"}, {"name": "Corr, Susan"}, {"name": "Earle, Sarah"}]</code></td>
+          <td>An array containing the list of authors.</td>
+        </tr>
+        <tr>
+          <td>contributors</td>
+          <td>str[]</td>
+          <td><code>["Kaplan, Bonnie", "Truex, Dwayne P.", "Wastell, David", "Wood-Harper, A. Trevor", "DeGross, Janice I."]</code></td>
+          <td>People or organisations contributing to the Output in roles other than canonical Authorship.</td>
+        </tr>
+        <tr>
+          <td>versions</td>
+          <td>str[]</td>
+          <td><code>"versions": [{"version": "review"}]</code></td>
+          <td>List of structured versions of the Output.</td>
+        </tr>
+        <tr>
+          <td>identifiers</td>
+          <td>obj[]</td>
+          <td><code>[{"identifier": "oai:oro.open.ac.uk:2669", "type": "oai"}]</code></td>
+          <td>Raw source-specific identifier structures retained for provenance or backwards compatibility</td>
+        </tr>
+        <tr>
+          <td>references</td>
+          <td>obj[]</td>
+          <td><code>[{"id": 6970, "output_id": 612, "ref_core_id": null, "authors": null, "cites": null, "date": "2001", "doi": null, "raw": "Hemmelgarn BR, Ghali WA, Quan H. A case study of hospital closure and centralization of coronary revascularization procedures. Canadian Medical Association Journal 2001; 164: 1431-1435.", "title": "A case study of hospital closure and centralization of coronary revascularization procedures."}, {"id": 6971, "output_id": 612, "ref_core_id": null, "authors": null, "cites": null, "date": "2007", "doi": null, "raw": "© VA Hundley, JS Tucker, E van Teijlingen, A Kiger, JC Ireland, F Harris, J Farmer, JL Caldow, H Bryers, 2007.  A licence to publish this material has been given to ARHEN http://www.rrh.org.au   12", "title": "A licence to publish this material has been given to ARHEN"}]</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>links</td>
+          <td>obj[]</td>
+          <td><code>[{"url": "https://repository.alt.ac.uk/854/", "type": "relation"}, {"url": "10.1080/09687760802649855", "type": "relation"}]</code></td>
+          <td>CORE-generated or structured links associated with the Output.</td>
+        </tr>
+        <tr>
+          <td>tags</td>
+          <td>str[]</td>
+          <td><code>["conference paper", "review"]</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>setSpecs</td>
+          <td>str[]</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>last_update</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        <tr>
+          <td>subjects</td>
+          <td>str[]</td>
+          <td><code>["HE", "HB"]</code></td>
+          <td>Coming from \`dc.subject\`</td>
+        </tr>
+        <tr>
+          <td>journals</td>
+          <td>obj[]</td>
+          <td><code>[{"journal_id": 4249705}, {"journal_id": 4177838}]</code></td>
+          <td>Structured objects containing metadata about the journal where the record has been publish.</td>
+        </tr>
+        <tr>
+          <td>urls</td>
+          <td>obj[]</td>
+          <td><code>[{"url": "https://oro.open.ac.uk/4112/1/01435458.pdf", "type": "fulltext"}]</code></td>
+          <td>The urls connected to the record.</td>
+        </tr>
+        <tr>
+          <td>sdg</td>
+          <td>obj[]</td>
+          <td><code>[{"type": "SDG05", "score": 62.48}]</code></td>
+          <td>Contains Sustainable Development Goal classifications assigned to the Output by a CORE machine-learning model</td>
+        </tr>
+        <tr>
+          <td>sourceFulltextUrl</td>
+          <td>obj</td>
+          <td><code>{"url": "https://oro.open.ac.uk/2792/1/JOS_2005.pdf", "type": "fulltext"}</code></td>
+          <td>Source URL at which full text is available.</td>
+        </tr>
+      </table>
+  - title: Current dataset structure (from 2020 onwards)
+    id: dataset2020
     text: >-
       The CORE dump implements the approach of the [ResourceSync Framework
 
