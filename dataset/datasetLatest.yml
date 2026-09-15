@@ -1,19 +1,19 @@
 title: "Latest datasets:"
 id: latest
 box:
-  title: Dataset 2024-07-12
+  title: Metadata Dataset 2026-09
   icon: /images/dataset/cloud.svg
   dataSize:
-    - count: 749 GB
+    - count: 197 GB
       dataType: compressed
-    - count: 2.7 TB
+    - count: 1.12 TB
       dataType: extracted
   actions:
     - variant: text
       caption: Register for access
       url: https://core.ac.uk/services/dataset#what-is-included
   text: >-
-    Full dataset (Full text & metadata).
+    Metadata dataset.
 
 
     License: See our [Terms & Conditions](https://core.ac.uk/terms).
@@ -21,7 +21,7 @@ box:
 
     **Note**: Please read the section "[Structure of datasets](#dataset2020)" below for more information.
   dataSizes:
-    - count: "749 GB "
+    - count: "197 GB "
       dataType: compressed
-    - count: ~2.7 TB
+    - count: ~1.12 TB
       dataType: extracted
