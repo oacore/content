@@ -346,7 +346,7 @@ items:
           <td>Source URL at which full text is available.</td>
         </tr>
       </table>
-  - title: Structure of dataset 2020-2023
+  - title: Structure of dataset 2020-2024
     id: dataset2020
     text: >-
       The CORE dump implements the approach of the [ResourceSync Framework
