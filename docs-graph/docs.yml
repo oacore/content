@@ -6762,7 +6762,7 @@ items:
 
               | Works               | `GET /v4/journals/{journalId}/works`   |
             images: []
-            subTitle: "\n\n"
+            subTitle: ""
           - divider: false
             border: false
             id: journals-api-data-structure
