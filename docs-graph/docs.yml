@@ -10740,81 +10740,60 @@ items:
             subDescription: null
           - id: authorships-api-supported-field-operations
             title: Supported field operations
-            descriptionAbout: >
+            descriptionAbout: >-
               The table below describes which Authorship properties can be
               searched, queried through field lookups, ordered, or used as
-              facets.
+              facets. It includes both Work-specific authorship fields and the
+              author details included in the initial release.
 
 
-              | Attribute | Searchable | Filterable | Sortable | Facetable |
+              | **Attribute**        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
 
-              | --- | --- | --- | --- | --- |
+              | -------------------- | -------------- | -------------- | ------------ | ------------- |
 
-              | authorshipId | No | Yes | No | No |
+              | authorshipId         | No             | Yes            | No           | No            |
 
-              | workId | No | Yes | Yes | No |
+              | workId               | No             | Yes            | Yes          | No            |
 
-              | authorId | No | Yes | Yes | No |
+              | authorId             | No             | Yes            | Yes          | No            |
 
-              | rawName | Yes | No | No | No |
+              | rawName              | Yes            | No             | No           | No            |
 
-              | sequence | No | Yes | Yes | Yes |
+              | displayName          | Yes            | Yes            | Yes          | No            |
 
-              | rank | No | Yes | Yes | Yes |
+              | givenNames           | Yes            | Yes            | Yes          | No            |
 
-              | isFirstNamedAuthor | No | Yes | No | Yes |
+              | familyNames          | Yes            | Yes            | Yes          | No            |
 
-              | isCorresponding | No | Yes | No | Yes |
+              | prefixes             | No             | No             | No           | No            |
 
-              | sourceOutputIds | No | Yes | No | No |
+              | suffixes             | No             | No             | No           | No            |
 
-              | createdDate | No | Yes | Yes | No |
+              | altNames             | Yes            | No             | No           | No            |
 
-              | updatedDate | No | Yes | Yes | No |
+              | rawNames             | Yes            | No             | No           | No            |
 
+              | biography            | Yes            | No             | No           | No            |
 
-              The field-operation settings have the following meanings:
+              | authorUrl            | No             | Yes            | No           | No            |
 
+              | authorUrlDescription | No             | No             | No           | No            |
 
-              - **Searchable** fields can participate in textual queries through `q`.
+              | email                | No             | Yes            | No           | No            |
 
-              - **Filterable** fields can be used in field lookups, Boolean conditions, range expressions, and existence queries through `q`.
+              | sequence             | No             | Yes            | Yes          | Yes           |
 
-              - **Sortable** fields can be used with `orderby`.
+              | rank                 | No             | Yes            | Yes          | Yes           |
 
-              - **Facetable** fields can be used with `facets`.
+              | isFirstNamedAuthor   | No             | Yes            | No           | Yes           |
 
+              | isCorresponding      | No             | Yes            | No           | Yes           |
 
-              Refer to the common CORE API Query Language documentation for the complete query syntax.
+              | sourceOutputIds      | No             | Yes            | No           | No            |
 
+              | createdDate          | No             | Yes            | Yes          | No            |
 
-              ## Boolean query syntax
-
-
-              The examples in this document use explicit Boolean operators:
-
-
-              ```
-
-              workId:12345 AND isCorresponding:true
-
-              ```
-
-
-              Commas are not used as an alternative to `AND` inside `q`.
-
-
-              In executable URLs, spaces should be URL-encoded:
-
-
-              ```
-
-              workId:12345%20AND%20isCorresponding:true
-
-              ```
-
-
-              Readable examples may show the unencoded form for clarity.
+              | updatedDate          | No             | Yes            | Yes          | No            |
           - id: authorships-api-authorships-endpoints
             title: Authorships endpoints
             descriptionAbout: >-
