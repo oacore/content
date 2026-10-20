@@ -104,3 +104,9 @@ materials:
       action:
         caption: Open Newsletter
         url: /images/pdfs/core-community-newsletter-march-2026.pdf
+    - image: /images/pdfView.svg
+      key: newsletter4
+      title: CORE Newsletter, November 2026
+      action:
+        caption: Open Newsletter
+        url: /images/pdfs/core-community-newsletter-november-2026-2-.pdf
