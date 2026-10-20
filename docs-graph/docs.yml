@@ -10796,7 +10796,7 @@ items:
               | updatedDate          | No             | Yes            | Yes          | No            |
           - id: authorships-api-authorships-endpoints
             title: Authorships endpoints
-            descriptionAbout: >-
+            descriptionAbout: >+
               | Operation                                    | Method |
               Endpoint                                         |
 
@@ -10804,9 +10804,9 @@ items:
 
               | Get a single Authorship                      | GET    | `/graph/authorships/{authorshipId}`              |
 
-              | Search Authorships using URL parameters      | GET    | `/graph/search/authorships`                      |
+              | Search Authorships using URL parameters      | GET    | `/graph/authorships`                      |
 
-              | Search Authorships using a JSON request body | POST   | `/graph/search/authorships`                      |
+              | Search Authorships using a JSON request body | POST   | `/graph/authorships`                      |
 
               | Retrieve Affiliations for an Authorship      | GET    | `/graph/authorships/{authorshipId}/affiliations` |
 
@@ -11021,10 +11021,10 @@ items:
               This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
 
 
-              ## Responses
+              #### Responses
 
 
-              ### Get a single Authorship
+              ##### Get a single Authorship
 
 
               | Status | Description                                                          |
@@ -11043,25 +11043,6 @@ items:
 
               | 500    | An unexpected server error occurred.                                 |
 
-
-              ### Search Authorships
-
-
-              | Status | Description                                                                                                   |
-
-              | ------ | ------------------------------------------------------------------------------------------------------------- |
-
-              | 200    | The Authorship search was completed successfully.                                                             |
-
-              | 400    | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
-
-              | 401    | Authentication credentials are missing or invalid.                                                            |
-
-              | 413    | The POST request body exceeds the permitted size.                                                             |
-
-              | 429    | The API request limit has been exceeded.                                                                      |
-
-              | 500    | An unexpected server error occurred.                                                                          |
           - id: authorships-api-search-authorships
             title: Search Authorships
             descriptionAbout: >-
