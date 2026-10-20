@@ -11762,12 +11762,12 @@ items:
               They do not introduce a different Authorship representation. Internally, they apply the appropriate relationship condition to the Authorship collection.
 
 
-              ## Authorships for a Work
+              #### Authorships for a Work
 
 
               ```
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
               ```
 
@@ -11790,7 +11790,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+              GET /graph/authorships?q=workId:{workId}&orderby=rank:asc
 
               ```
 
@@ -11813,12 +11813,12 @@ items:
               This relationship endpoint is documented under the Works entity.
 
 
-              ## Authorships for an Author
+              #### Authorships for an Author
 
 
               ```
 
-              GET /v4/authors/{authorId}/authorships
+              GET /graph/authors/{authorId}/authorships
 
               ```
 
@@ -11831,7 +11831,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=authorId:{authorId}
+              GET /graph/authorships?q=authorId:{authorId}
 
               ```
 
@@ -11848,12 +11848,12 @@ items:
               ```
 
 
-              ## Affiliations for an Authorship
+              #### Affiliations for an Authorship
 
 
               ```
 
-              GET /v4/authorships/{authorshipId}/affiliations
+              GET /graph/authorships/{authorshipId}/affiliations
 
               ```
 
@@ -11861,12 +11861,12 @@ items:
               This relationship is resolved through `authorship_affiliation`.
 
 
-              ## Authorships for an Affiliation
+              #### Authorships for an Affiliation
 
 
               ```
 
-              GET /v4/affiliations/{affiliationId}/authorships
+              GET /graph/affiliations/{affiliationId}/authorships
 
               ```
 
