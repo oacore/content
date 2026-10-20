@@ -11156,13 +11156,13 @@ items:
               The `rawName` property is the principal searchable field in the Authorship entity.
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"' \
+                --url 'https://api.core.ac.uk/graph/authorships?q=rawName:"Smith"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11173,18 +11173,18 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=Smith" \
+                --url "https://api.core.ac.uk/graph/authorships?q=Smith" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11202,24 +11202,24 @@ items:
               #### Retrieve Authorships for a Work
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&orderby=rank:asc" \
+                --url "https://api.core.ac.uk/graph/authorships?q=workId:12345&orderby=rank:asc" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11239,7 +11239,7 @@ items:
 
               ```
 
-              GET /v4/works/12345/authorships
+              GET /graph/works/12345/authorships
 
               ```
 
@@ -11247,24 +11247,24 @@ items:
               #### Retrieve Authorships for an Author
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=authorId:67890" \
+                --url "https://api.core.ac.uk/graph/authorships?q=authorId:67890" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11281,7 +11281,7 @@ items:
 
               ```
 
-              GET /v4/authors/67890/authorships
+              GET /graph/authors/67890/authorships
 
               ```
 
@@ -11289,13 +11289,13 @@ items:
               #### Retrieve corresponding Authorships for a Work
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345%20AND%20isCorresponding:true" \
+                --url "https://api.core.ac.uk/graph/authorships?q=workId:12345%20AND%20isCorresponding:true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11305,18 +11305,18 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=workId:12345 AND isCorresponding:true
+              GET /graph/authorships?q=workId:12345 AND isCorresponding:true
 
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11334,13 +11334,13 @@ items:
               #### Retrieve first or last Authorships
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=(sequence:first%20OR%20sequence:last)" \
+                --url "https://api.core.ac.uk/graph/authorships?q=(sequence:first%20OR%20sequence:last)" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11350,12 +11350,12 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=(sequence:first OR sequence:last)
+              GET /graph/authorships?q=(sequence:first OR sequence:last)
 
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```json
@@ -11389,13 +11389,13 @@ items:
               * returns a maximum of ten records.
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"%20AND%20workId:12345&orderby=rank:asc&select=authorshipId,authorId,rawName,rank,isCorresponding&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/authorships?q=rawName:"Smith"%20AND%20workId:12345&orderby=rank:asc&select=authorshipId,authorId,rawName,rank,isCorresponding&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11405,7 +11405,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships
+              GET /graph/authorships
                   ?q=rawName:"Smith" AND workId:12345
                   &orderby=rank:asc
                   &select=authorshipId,authorId,rawName,rank,isCorresponding
@@ -11415,13 +11415,13 @@ items:
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11477,23 +11477,23 @@ items:
               #### Order by Author rank
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authorships?q=workId:12345&orderby=rank:asc
+              GET /graph/authorships?q=workId:12345&orderby=rank:asc
 
               ```
 
 
-              E﻿quivalent POST
+              E﻿quivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11518,7 +11518,7 @@ items:
               #### Order by multiple fields
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
@@ -11551,7 +11551,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?orderby=updatedDate:desc
+              GET /graph/authorships?orderby=updatedDate:desc
 
               ```
 
@@ -11579,24 +11579,24 @@ items:
               The `facets` option returns value buckets and counts for fields configured as facetable.
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&facets=sequence,isCorresponding&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/authorships?q=workId:12345&facets=sequence,isCorresponding&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11611,7 +11611,7 @@ items:
               ```
 
 
-              E﻿xample facet response
+              E﻿xample facet response:
 
 
               ```json
@@ -11661,7 +11661,7 @@ items:
 
               ```
 
-              POST /v4/search/authorships/aggregate
+              POST /graph/authorships/aggregate
 
               ```
 
@@ -11672,17 +11672,17 @@ items:
               Set `count=true` to include the total number of matching Authorship records.
 
 
-              GET
+              GET:
 
 
               ```
 
-              GET /v4/search/authorships?q=authorId:67890&count=true
+              GET /graph/authorships?q=authorId:67890&count=true
 
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```json
@@ -11714,7 +11714,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=0
+              GET /graph/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=0
 
               ```
 
@@ -11724,7 +11724,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=20
+              GET /graph/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=20
 
               ```
 
