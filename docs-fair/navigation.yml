@@ -1,0 +1,29 @@
+navItems:
+  - item: "**1. What is FAIR Repository Certification?**"
+    href: "#what-is"
+  - item: "**2. Certification types**"
+    href: "#certification-types"
+  - item: "**3. FAIR Repository Certificate benefits**"
+    href: "#benefits"
+  - item: "**4. Requirements and guidelines for getting FAIR Repository Certificate**"
+    href: "#requirements"
+    children:
+      - item: 4.1. List of requirements
+        href: "#list-of-requirements"
+      - item: 4.2. Requirements guidance
+        href: "#requirements-guidance"
+  - item: "**5. How to get your repository FAIR certified?**"
+    href: "#how-to"
+    children:
+      - item: 5.1. How to apply?
+        href: "#how-to-apply"
+      - item: 5.2. Administrative fee
+        href: "#administrative-fee"
+      - item: 5.3. Assessment Methodology and Timeline
+        href: "#assessment"
+      - item: 5.4. Eligible repositories
+        href: "#eligible-repositories"
+      - item: 5.5. Certification Deliverables
+        href: "#deliverables"
+      - item: 5.6. Upgrading your certification
+        href: "#upgrading"
