@@ -10539,7 +10539,7 @@ items:
               #### Initial Authorships entity release
 
 
-              In the initial release of the CORE Graph AP, the Authorships entity combines authorship information with available author details, such as display name, given names, family names, and biography. A separate Authors entity, representing researcher identities across multiple Works, is planned for a later release.
+              In the initial release of the CORE Graph API, the Authorships entity combines authorship information with available author details, such as display name, given names, family names, and biography. A separate Authors entity, representing researcher identities across multiple Works, is planned for a later release.
 
             images: []
             subTitle: null
@@ -10547,79 +10547,58 @@ items:
           - id: authorships-api-data-structure
             title: Data structure
             descriptionAbout: >-
-              Below is the data structure table for the initial release of
-              Authorships entity. Each record represents an author’s association
-              with a particular Work and includes the available author details.
+              ## Data structure
 
 
-              | **Property**           | **Type**   | **Example value**                               | **Description**                                                                                                                                                                                                              | Source                 |
-
-              | ---------------------- | ---------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-
-              | `authorshipId`         | integer    | `987654`                                        | Unique CORE identifier for the Authorship record.                                                                                                                                                                            | CORE                   |
-
-              | `workId`               | integer    | `12345`                                         | CORE identifier of the associated Work.                                                                                                                                                                                      | CORE                   |
-
-              | `authorId`             | integer    | `67890`                                         | CORE identifier of the associated Author, where assigned. The separate Authors entity is not available in the initial v4 release.                                                                                            | CORE                   |
-
-              | `rawName`              | string     | `"Smith, Alice"`                                | Author name as supplied in the source metadata for this Work.                                                                                                                                                                | Source metadata        |
-
-              | `displayName`          | string     | `"Alice Smith"`                                 | Name used to display the author.                                                                                                                                                                                             | Source metadata / CORE |
-
-              | `givenNames`           | string     | `"Alice Jane"`                                  | Author’s given names, where available.                                                                                                                                                                                       | Source metadata        |
-
-              | `familyNames`          | string     | `"Smith"`                                       | Author’s family names, where available.                                                                                                                                                                                      | Source metadata        |
-
-              | `prefixes`             | string     | `"Dr"`                                          | Prefixes or titles associated with the author’s name.                                                                                                                                                                        | Source metadata        |
-
-              | `suffixes`             | string     | `"Jr"`                                          | Suffixes associated with the author’s name.                                                                                                                                                                                  | Source metadata        |
-
-              | `altNames`             | string\[]  | `["Alice J. Smith", "A. J. Smith"]`             | Alternative forms of the author’s name, where available.                                                                                                                                                                     | Source metadata        |
-
-              | `rawNames`             | string\[]  | `["Smith, Alice", "Smith, A."]`                 | Source-provided name strings retained for the author.                                                                                                                                                                        | Source metadata        |
-
-              | `biography`            | string     | `"Researcher in environmental science."`        | Biographical description of the author, where available.                                                                                                                                                                     | Source metadata        |
-
-              | `authorUrl`            | string     | `"https://example.org/researchers/alice-smith"` | URL of a webpage associated with the author.                                                                                                                                                                                 | Source metadata        |
-
-              | `authorUrlDescription` | string     | `"Institutional profile"`                       | Description of the webpage referenced by `authorUrl`.                                                                                                                                                                        | Source metadata        |
-
-              | `email`                | string     | `"alice.smith@example.org"`                     | Author’s email address, where available and exposed by the API.                                                                                                                                                              | Source metadata        |
-
-              | `sequence`             | string     | `"first"`                                       | Author position classification within the Work. See the Author position section for supported values.                                                                                                                        | Source metadata        |
-
-              | `rank`                 | integer    | `1`                                             | Numeric position of the author in the Work’s author list, starting at 1.                                                                                                                                                     | Source metadata / CORE |
-
-              | `isFirstNamedAuthor`   | boolean    | `true`                                          | Whether the author is the first-listed author on the Work. `null` indicates that this is unknown.                                                                                                                            | Derived by CORE        |
-
-              | `isCorresponding`      | boolean    | `true`                                          | Whether the author is a corresponding author for the Work. `true` indicates explicitly identified as corresponding; `false` indicates explicitly identified as not corresponding; `null` indicates insufficient information. | Source metadata        |
-
-              | `sourceOutputIds`      | integer\[] | `[216874849, 216874850]`                        | CORE Output identifiers from which evidence for this Authorship was derived.                                                                                                                                                 | CORE                   |
-
-              | `createdDate`          | string     | `"2026-06-15T10:30:00Z"`                        | Date and time when the Authorship record was created in CORE, in ISO 8601 format.                                                                                                                                            | CORE                   |
-
-              | `updatedDate`          | string     | `"2026-07-01T14:20:00Z"`                        | Date and time when the Authorship record was last updated in CORE, in ISO 8601 format.                                                                                                                                       | CORE                   |
+              The table below describes the top-level fields in the CORE Graph metadata schema for the Authorship entity, including their types, example values, descriptions, and sources.
 
 
+              | Property | Type | Example value | Description | Source |
 
-              #### Author position
+              | --- | --- | --- | --- | --- |
+
+              | `authorshipId` | integer | `234` | CORE identifier for the authorship. | CORE |
+
+              | `workId` | integer | `23456` | CORE identifier of the associated work. | CORE |
+
+              | `authorId` | integer | `12` | CORE identifier of the associated author. | CORE |
+
+              | `rawName` | string \| null | `"Smith, Alice"` | Verbatim author name string as supplied in the source metadata for this work. | OAI-PMH / Crossref |
+
+              | `sequence`* | string \| null | `"first"` | Author order classification within the work, such as first or additional. | Crossref / OpenAlex |
+
+              | `rank`* | integer \| null | `1` | Numeric rank of the author in the author list. | OpenAIRE / OpenAlex |
+
+              | `isFirstNamedAuthor`* | boolean \| null | `true` | Indicates whether the author is the first-listed author on the work. | Derived by CORE |
+
+              | `isCorresponding` | boolean \| null | `false` | Indicates whether the author is a corresponding author.`true`: author is explicitly identified as a corresponding author.`false`: source explicitly indicates that the author is not a corresponding author.`null`: source does not provide sufficient information to determine corresponding-author status. | Derived by CORE|
+
+              | `createdDate` | string \| null | `"2026-06-15T10:30:00Z"` | Date and time when the authorship record was created in CORE. | CORE |
+
+              | `updatedDate` | string \| null | `"2023-11-07T05:31:56Z"` | Date and time when the authorship record was last updated in CORE. | CORE |
 
 
-              The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
+              \* See the Author position section below.
+
+
+              ### Author position
+
+
+              The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the author’s position in the author list for the specific work.
 
 
               For example:
 
 
-              | **Author position** | **rank** | **sequence** | **isFirstNamedAuthor** |
+              | Author position | rank | sequence | isFirstNamedAuthor |
 
-              | ------------------- | -------- | ------------ | ---------------------- |
+              | --- | --- | --- | --- |
 
-              | First author        | 1        | "first"      | true                   |
+              | First author | `1` | `"first"` | `true` |
 
-              | Middle author       | 2        | "additional" | false                  |
+              | Middle author | `2` | `"additional"` | `false` |
 
-              | Final author        | 5        | "last"       | false                  |
+              | Final author | `5` | `"last"` | `false` |
 
 
               The `rank` property provides the exact numeric position of the Author.
@@ -10650,40 +10629,17 @@ items:
               {
                 "authorshipId": 987654,
                 "workId": 12345,
-                "authorId": null,
+                "authorId": 67890,
                 "rawName": "Smith, Alice",
-                "displayName": "Alice Jane Smith",
-                "givenNames": "Alice Jane",
-                "familyNames": "Smith",
-                "prefixes": "Dr",
-                "suffixes": null,
-                "altNames": [
-                  "Alice J. Smith",
-                  "A. J. Smith"
-                ],
-                "rawNames": [
-                  "Smith, Alice",
-                  "Smith, A."
-                ],
-                "biography": "Researcher in environmental science.",
-                "authorUrl": "https://example.org/researchers/alice-smith",
-                "authorUrlDescription": "Institutional profile",
-                "email": "alice.smith@example.org",
                 "sequence": "first",
                 "rank": 1,
                 "isFirstNamedAuthor": true,
                 "isCorresponding": true,
-                "sourceOutputIds": [
-                  216874849,
-                  216874850
-                ],
                 "createdDate": "2026-06-15T10:30:00Z",
                 "updatedDate": "2026-07-01T14:20:00Z"
               }
 
               ```
-
-              In this example, `authorId` is `null` because an Author identifier has not been assigned. Where assigned, this field may contain a CORE Author identifier even though the separate Authors entity is not yet available.
           - id: authorships-api-authorship-affiliation-relationship
             title: Authorship–Affiliation relationship
             descriptionAbout: >
