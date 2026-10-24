@@ -1,34 +1,26 @@
-title: How to download the latest dataset (2024-07-12)
+title: How to download the latest dataset (2026-09)
 id: latest
 recommended: >-
-  We recommend you download the files using **CURL** or **WGET**
+  We recommend you download the dataset using **AZCOPY**.
 
 
-  Since we changed the structure of **Dataset 2024**, you don't need to download one big archive; now, you can download smaller parts individually.
+  You can download the dataset to your local machine. 
+  Alternatively, if you already have an Azure Storage Account, 
+  you can transfer the dataset folder directly to your container.
 
 
-  Required credentials to gain access to the list of batches:
+  Required credentials to gain access to the latest dataset:
+    * **https://[core-storage-account].blob.core.windows.net/[core-container]/Metadata-Dataset-2026-09** (URL to the dataset folder)
+    * **SAS** (Shared Access Signature) token
 
 
-    * **https://core.ac.uk/[link]/dataset_index.xml,**
-
-    * **[username]** 
-
-    * **[password]** 
-
-  **The link and credentials will be shared with you via email.**
+  **The link and the token will be shared with you via email.**
 reminder:
-  title: "Example::"
+  title: "Example:"
   description: >
     Example to download one single Dataset archive:
 
 
+    * **azcopy** copy "https://[core-storage-account].blob.core.windows.net/[core-container]/Metadata-Dataset-2026-09?[SAS]" "/path/to/dir" --recursive
 
-    * **wget** -c https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
-
-
-    * **curl** -L -O -C - https://[user]:[password]@core.ac.uk/[link]/[batch-name].tar.gz
-
-
-
-    To download all archives, you can save and parse the **dataset_index.xml** file with links for archives
+    * **azcopy** copy "https://[core-storage-account].blob.core.windows.net/[core-container]/Metadata-Dataset-2026-09?[SAS]" "https://[storage-account-name].blob.core.windows.net/[container-name]?[SAS]" --recursive
