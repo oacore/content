@@ -10699,60 +10699,35 @@ items:
             descriptionAbout: >-
               The table below describes which Authorship properties can be
               searched, queried through field lookups, ordered, or used as
-              facets. It includes both Work-specific authorship fields and the
-              author details included in the initial release.
+              facets.
 
 
               | **Attribute**        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
 
               | -------------------- | -------------- | -------------- | ------------ | ------------- |
 
-              | authorshipId         | No             | Yes            | No           | No            |
+              | `authorshipId`       | No             | Yes            | No           | No            |
 
-              | workId               | No             | Yes            | Yes          | No            |
+              | `workId`             | No             | Yes            | Yes          | No            |
 
-              | authorId             | No             | Yes            | Yes          | No            |
+              | `authorId`           | No             | Yes            | Yes          | No            |
 
-              | rawName              | Yes            | No             | No           | No            |
+              | `rawName`            | Yes            | No             | No           | No            |
 
-              | displayName          | Yes            | Yes            | Yes          | No            |
+              | `sequence`           | No             | Yes            | Yes          | Yes           |
 
-              | givenNames           | Yes            | Yes            | Yes          | No            |
+              | `rank`               | No             | Yes            | Yes          | Yes           |
 
-              | familyNames          | Yes            | Yes            | Yes          | No            |
+              | `isFirstNamedAuthor` | No             | Yes            | No           | Yes           |
 
-              | prefixes             | No             | No             | No           | No            |
+              | `isCorresponding`    | No             | Yes            | No           | Yes           |
 
-              | suffixes             | No             | No             | No           | No            |
+              | `createdDate`        | No             | Yes            | Yes          | No            |
 
-              | altNames             | Yes            | No             | No           | No            |
-
-              | rawNames             | Yes            | No             | No           | No            |
-
-              | biography            | Yes            | No             | No           | No            |
-
-              | authorUrl            | No             | Yes            | No           | No            |
-
-              | authorUrlDescription | No             | No             | No           | No            |
-
-              | email                | No             | Yes            | No           | No            |
-
-              | sequence             | No             | Yes            | Yes          | Yes           |
-
-              | rank                 | No             | Yes            | Yes          | Yes           |
-
-              | isFirstNamedAuthor   | No             | Yes            | No           | Yes           |
-
-              | isCorresponding      | No             | Yes            | No           | Yes           |
-
-              | sourceOutputIds      | No             | Yes            | No           | No            |
-
-              | createdDate          | No             | Yes            | Yes          | No            |
-
-              | updatedDate          | No             | Yes            | Yes          | No            |
+              | `updatedDate`        | No             | Yes            | Yes          | No            |
           - id: authorships-api-authorships-endpoints
             title: Authorships endpoints
-            descriptionAbout: >+
+            descriptionAbout: >-
               | Operation                                    | Method |
               Endpoint                                         |
 
@@ -10760,9 +10735,9 @@ items:
 
               | Get a single Authorship                      | GET    | `/graph/authorships/{authorshipId}`              |
 
-              | Search Authorships using URL parameters      | GET    | `/graph/authorships`                      |
+              | Search Authorships using URL parameters      | GET    | `/graph/authorships`                             |
 
-              | Search Authorships using a JSON request body | POST   | `/graph/authorships`                      |
+              | Search Authorships using a JSON request body | POST   | `/graph/authorships`                             |
 
               | Retrieve Affiliations for an Authorship      | GET    | `/graph/authorships/{authorshipId}/affiliations` |
 
@@ -10848,31 +10823,10 @@ items:
                 "workId": 12345,
                 "authorId": 67890,
                 "rawName": "Smith, Alice",
-                "displayName": "Alice Jane Smith",
-                "givenNames": "Alice Jane",
-                "familyNames": "Smith",
-                "prefixes": "Dr",
-                "suffixes": null,
-                "altNames": [
-                  "Alice J. Smith",
-                  "A. J. Smith"
-                ],
-                "rawNames": [
-                  "Smith, Alice",
-                  "Smith, A."
-                ],
-                "biography": "Researcher in environmental science.",
-                "authorUrl": "https://example.org/researchers/alice-smith",
-                "authorUrlDescription": "Institutional profile",
-                "email": "alice.smith@example.org",
                 "sequence": "first",
                 "rank": 1,
                 "isFirstNamedAuthor": true,
                 "isCorresponding": true,
-                "sourceOutputIds": [
-                  216874849,
-                  216874850
-                ],
                 "createdDate": "2026-06-15T10:30:00Z",
                 "updatedDate": "2026-07-01T14:20:00Z"
               }
@@ -10910,7 +10864,7 @@ items:
               #### Retrieve Affiliations for an Authorship
 
 
-              Retrieves the Affiliation records connected to an Authorship through the `Athorship_Affiliation` bridge.
+              Retrieves the Affiliation records connected to an Authorship through the `Authorship_Affiliation` bridge.
 
 
               ##### API endpoint
@@ -10939,7 +10893,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/graph/authorships/987654/affiliations" \
+                --url "https://api.core.ac.uk/graph/authorships/1/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10950,23 +10904,58 @@ items:
               ```json
 
               {
-                "totalHits": 2,
+                "totalHits": 3,
                 "results": [
                   {
-                    "affiliationId": 901,
-                    "authorId": 67890,
-                    "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
-                    "department": "Department of Computer Science",
-                    "institutionId": 3201,
-                    "institutionName": "University of Oxford"
+                    "affiliationId": 1,
+                    "authorId": 574792711,
+                    "rawAffiliation": "University of Cambridge",
+                    "department": null,
+                    "institutionId": 122484,
+                    "institutionName": "University of Cambridge",
+                    "isCurrent": null,
+                    "startDate": null,
+                    "endDate": null,
+                    "evidenceWorkIds": [],
+                    "externalIds": [],
+                    "address": null,
+                    "url": null,
+                    "createdDate": "2026-07-30T16:05:32Z",
+                    "updatedDate": "2026-07-30T17:31:07Z"
                   },
                   {
-                    "affiliationId": 902,
-                    "authorId": 67890,
-                    "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
-                    "department": "Oxford Internet Institute",
-                    "institutionId": 3201,
-                    "institutionName": "University of Oxford"
+                    "affiliationId": 6453,
+                    "authorId": 574792711,
+                    "rawAffiliation": "Central Saint Martins, University of Arts London",
+                    "department": null,
+                    "institutionId": 20004,
+                    "institutionName": "Saint Martin's University",
+                    "isCurrent": null,
+                    "startDate": null,
+                    "endDate": null,
+                    "evidenceWorkIds": [],
+                    "externalIds": [],
+                    "address": null,
+                    "url": null,
+                    "createdDate": "2026-07-30T17:31:06Z",
+                    "updatedDate": "2026-07-30T17:31:06Z"
+                  },
+                  {
+                    "affiliationId": 6454,
+                    "authorId": 574792711,
+                    "rawAffiliation": "Central Saint Martins, University of Arts London",
+                    "department": null,
+                    "institutionId": 156,
+                    "institutionName": "University of the Arts London",
+                    "isCurrent": null,
+                    "startDate": null,
+                    "endDate": null,
+                    "evidenceWorkIds": [],
+                    "externalIds": [],
+                    "address": null,
+                    "url": null,
+                    "createdDate": "2026-07-30T17:31:06Z",
+                    "updatedDate": "2026-07-30T17:31:06Z"
                   }
                 ]
               }
@@ -10980,25 +10969,21 @@ items:
               #### Responses
 
 
-              ##### Get a single Authorship
+              | **Status** | **Description**                                                      |
 
+              | ---------- | -------------------------------------------------------------------- |
 
-              | Status | Description                                                          |
+              | 200        | The Authorship record was retrieved successfully.                    |
 
-              | ------ | -------------------------------------------------------------------- |
+              | 400        | The request contains an invalid parameter or unsupported field name. |
 
-              | 200    | The Authorship record was retrieved successfully.                    |
+              | 401        | Authentication credentials are missing or invalid.                   |
 
-              | 400    | The request contains an invalid parameter or unsupported field name. |
+              | 404        | No Authorship record was found for the supplied identifier.          |
 
-              | 401    | Authentication credentials are missing or invalid.                   |
+              | 429        | The API request limit has been exceeded.                             |
 
-              | 404    | No Authorship record was found for the supplied identifier.          |
-
-              | 429    | The API request limit has been exceeded.                             |
-
-              | 500    | An unexpected server error occurred.                                 |
-
+              | 500        | An unexpected server error occurred.                                 |
           - id: authorships-api-search-authorships
             title: Search Authorships
             descriptionAbout: >-
@@ -11090,7 +11075,7 @@ items:
               #### Search by raw Author name
 
 
-              The `rawName` property is the principal searchable field in the Authorship entity.
+              The `rawName` property is the only field available for text searches in the Authorship entity.
 
 
               GET:
