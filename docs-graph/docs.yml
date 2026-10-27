@@ -8,7 +8,7 @@ items:
             descriptionAbout: >-
               :::**Development status**
 
-              The CORE Graph API v4 is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
 
               :::
 
@@ -99,7 +99,7 @@ items:
               Canonical Work
 
 
-              *  represented by one or more Outputs
+              * represented by one or more Outputs
 
               *  connected to Authors through Authorships
 
@@ -353,7 +353,7 @@ items:
 
               ```http
 
-              GET /v4/{entity}/{id}
+              GET /graph/{entity}/{id}
 
               ```
 
@@ -363,11 +363,11 @@ items:
 
               ```http
 
-              GET /v4/works/323030168
+              GET /graph/works/323030168
 
-              GET /v4/outputs/216874849
+              GET /graph/outputs/216874849
 
-              GET /v4/institutions/1256
+              GET /graph/institutions/1256
 
               ```
 
@@ -380,9 +380,9 @@ items:
 
               ```http
 
-              GET /v4/search/{entity}
+              GET /graph/{entity}
 
-              POST /v4/search/{entity}
+              POST /graph/{entity}
 
               ```
 
@@ -392,11 +392,11 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
-              GET /v4/search/institutions
+              GET /graph/institutions
 
               ```
 
@@ -409,7 +409,7 @@ items:
 
               ```http
 
-              GET /v4/{entity}/{id}/{relatedEntity}
+              GET /graph/{entity}/{id}/{relatedEntity}
 
               ```
 
@@ -419,13 +419,13 @@ items:
 
               ```http
 
-              GET /v4/works/323030168/outputs
+              GET /graph/works/323030168/outputs
 
-              GET /v4/works/323030168/authorships
+              GET /graph/works/323030168/authorships
 
-              GET /v4/authors/67890/affiliations
+              GET /graph/authors/67890/affiliations
 
-              GET /v4/institutions/1256/data-providers
+              GET /graph/institutions/1256/data-providers
 
               ```
 
