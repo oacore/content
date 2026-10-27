@@ -450,7 +450,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168
+              GET /graph/works/323030168
 
               ```
 
@@ -699,7 +699,7 @@ items:
 
               | Resource              | The API representation of an entity or collection.                                                                                              |
 
-              | Endpoint              | An API path that exposes a resource or operation, such as `/v4/works/{workId}`.                                                                 |
+              | Endpoint              | An API path that exposes a resource or operation, such as `/graph/works/{workId}`.                                                                 |
 
               | Path                  | The URL component that identifies an endpoint.                                                                                                  |
 
@@ -757,11 +757,9 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}
+              GET /graph/works/{workId}
 
-              GET /v4/works/{workId}/outputs
-
-              GET /v4/search/works
+              GET /graph/works/{workId}/outputs
 
               ```
 
@@ -780,7 +778,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -815,7 +813,7 @@ items:
 
               ```http
 
-              /v4/works/{workId}
+              /graph/works/{workId}
 
               ```
 
@@ -825,7 +823,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}
+              GET /graph/works/{workId}
 
               ```
 
