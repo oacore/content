@@ -10712,7 +10712,7 @@ items:
 
               | `authorId`           | No             | Yes            | Yes          | No            |
 
-              | `rawName`            | Yes            | No             | No           | No            |
+              | `rawName`            | Yes            | No             | Yes          | No            |
 
               | `sequence`           | No             | Yes            | Yes          | Yes           |
 
@@ -11365,7 +11365,7 @@ items:
               ```
 
 
-              E﻿xample search response
+              E﻿xample search response:
 
 
               ```json
