@@ -17866,7 +17866,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=language:en
+              GET /graph/topics?q=language:en
 
               ```
 
@@ -18018,9 +18018,12 @@ items:
               #### Works associated with a Topic
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/topics/{topicId}/works
+              GET /graph/topics/{topicId}/works
 
               ```
 
@@ -18034,7 +18037,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/topics/12345/works" \
+                --url "https://api.core.ac.uk/graph/topics/12345/works" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -18071,7 +18074,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/topics
+              GET /graph/works/{workId}/topics
 
               ```
 
@@ -18085,7 +18088,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168/topics" \
+                --url "https://api.core.ac.uk/graph/works/323030168/topics" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
