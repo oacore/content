@@ -9498,14 +9498,14 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/graph/search/institutions
+              GET https://api.core.ac.uk/graph/institutions
 
               ```
 
 
               ```
 
-              POST https://api.core.ac.uk/graph/search/institutions
+              POST https://api.core.ac.uk/graph/institutions
 
               ```
 
@@ -10301,7 +10301,7 @@ items:
 
               ```
 
-              GET /graph/search/affiliations?q=institutionId:{institutionId}
+              GET /graph/affiliations?q=institutionId:{institutionId}
 
               ```
 
@@ -13859,17 +13859,17 @@ items:
 
               | ---------------------------------------- | ---------- | ------------------------------------- |
 
-              | Get a single Author                      | GET        | `/v4/authors/{authorId}`              |
+              | Get a single Author                      | GET        | `/graph/authors/{authorId}`              |
 
-              | Search Authors using URL parameters      | GET        | `/v4/search/authors`                  |
+              | Search Authors using URL parameters      | GET        | `/graph/authors`                  |
 
-              | Search Authors using a JSON request body | POST       | `/v4/search/authors`                  |
+              | Search Authors using a JSON request body | POST       | `/graph/authors`                  |
 
-              | Retrieve Authorships for an Author       | GET        | `/v4/authors/{authorId}/authorships`  |
+              | Retrieve Authorships for an Author       | GET        | `/graph/authors/{authorId}/authorships`  |
 
-              | Retrieve Works for an Author             | GET        | `/v4/authors/{authorId}/works`        |
+              | Retrieve Works for an Author             | GET        | `/graph/authors/{authorId}/works`        |
 
-              | Retrieve Affiliations for an Author      | GET        | `/v4/authors/{authorId}/affiliations` |
+              | Retrieve Affiliations for an Author      | GET        | `/graph/authors/{authorId}/affiliations` |
 
 
               #### Get a single Author
@@ -13880,7 +13880,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/authors/{authorId}
+              GET https://api.core.ac.uk/graph/authors/{authorId}
 
               ```
 
@@ -13923,7 +13923,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890" \
+                --url "https://api.core.ac.uk/graph/authors/67890" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
@@ -13973,7 +13973,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890?select=authorId,orcidId,displayName,countries,keywords" \
+                --url "https://api.core.ac.uk/graph/authors/67890?select=authorId,orcidId,displayName,countries,keywords" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
               ```
@@ -14013,9 +14013,9 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/search/authors 
+              GET https://api.core.ac.uk/graph/authors 
 
-              POST https://api.core.ac.uk/v4/search/authors
+              POST https://api.core.ac.uk/graph/authors
 
               ```
 
