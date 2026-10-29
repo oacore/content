@@ -424,3 +424,13 @@ navItems:
   - hidden: false
     item: Discovery
     href: "#discovery-api-overview"
+  - hidden: false
+    item: Rate limits
+    href: ""
+    children:
+      - hidden: false
+        item: Access tiers and token allowances
+        href: "#api-access-tiers"
+      - hidden: false
+        item: How to monitor your API rate limits
+        href: "#api-monitor-ratelimits"
