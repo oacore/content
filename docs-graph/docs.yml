@@ -5798,7 +5798,7 @@ items:
               Provider records.
 
 
-              Data Provider search is available through `GET` and `POST`:
+              Data provider search is available through `GET` and `POST`:
 
 
               ```http
@@ -7644,7 +7644,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/journals?q=title:"Journal%20of%20Open%20Science"' \
+                --url 'https://api.core.ac.uk/graph/journals?q=title:"Journal%20of%20Open%20Science"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -7654,7 +7654,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=title:"Journal of Open Science"
+              GET /graph/journals?q=title:"Journal of Open Science"
 
               ```
 
@@ -7664,7 +7664,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q="Open Science"
+              GET /graph/journals?q="Open Science"
 
               ```
 
@@ -7675,7 +7675,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/journals" \
+                --url "https://api.core.ac.uk/graph/journals" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -7715,7 +7715,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=issns:"1744-9081"
+              GET /graph/journals?q=issns:"1744-9081"
 
               ```
 
@@ -7740,7 +7740,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=eissn:"1744-909X"
+              GET /graph/journals?q=eissn:"1744-909X"
 
               ```
 
@@ -7765,7 +7765,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=doajId:"1234567890"
+              GET /graph/journals?q=doajId:"1234567890"
 
               ```
 
@@ -7790,7 +7790,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=publisher:"Springer Nature"
+              GET /graph/journals?q=publisher:"Springer Nature"
 
               ```
 
@@ -7815,7 +7815,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=language:en AND subjects.term:"Computer Science"
+              GET /graph/journals?q=language:en AND subjects.term:"Computer Science"
 
               ```
 
@@ -7840,7 +7840,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasApc:false
+              GET /graph/journals?q=hasApc:false
 
               ```
 
@@ -7868,7 +7868,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasApc:true AND hasWaiver:true
+              GET /graph/journals?q=hasApc:true AND hasWaiver:true
 
               ```
 
@@ -7896,7 +7896,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=apcMax.currency:GBP AND apcMax.price<=1500
+              GET /graph/journals?q=apcMax.currency:GBP AND apcMax.price<=1500
 
               ```
 
@@ -7924,7 +7924,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=licenses.type:"CC BY 4.0"
+              GET /graph/journals?q=licenses.type:"CC BY 4.0"
 
               ```
 
@@ -7949,7 +7949,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasPreservation:true
+              GET /graph/journals?q=hasPreservation:true
 
               ```
 
@@ -7971,7 +7971,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=preservationServices:CLOCKSS
+              GET /graph/journals?q=preservationServices:CLOCKSS
 
               ```
 
@@ -7984,7 +7984,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=pidSchemes:DOI
+              GET /graph/journals?q=pidSchemes:DOI
 
               ```
 
@@ -8009,7 +8009,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=dataProviderId:86
+              GET /graph/journals?q=dataProviderId:86
 
               ```
 
@@ -8031,7 +8031,7 @@ items:
 
               ```http
 
-              GET /v4/data-providers/86/journals
+              GET /graph/data-providers/86/journals
 
               ```
 
@@ -8044,7 +8044,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=institutionId:3201
+              GET /graph/journals?q=institutionId:3201
 
               ```
 
@@ -8066,7 +8066,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/3201/journals
+              GET /graph/institutions/3201/journals
 
               ```
 
@@ -8082,7 +8082,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=!_exists_:discontinuedDate
+              GET /graph/journals?q=!_exists_:discontinuedDate
 
               ```
 
@@ -8129,7 +8129,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/journals?q=keywords:"Open%20Science"%20AND%20language:en%20AND%20hasApc:false&orderby=title:asc&select=journalId,title,issns,publisher,language,hasApc,licenses&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/journals?q=keywords:"Open%20Science"%20AND%20language:en%20AND%20hasApc:false&orderby=title:asc&select=journalId,title,issns,publisher,language,hasApc,licenses&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -8139,7 +8139,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals
+              GET /graph/journals
                   ?q=keywords:"Open Science" AND language:en AND hasApc:false
                   &orderby=title:asc
                   &select=journalId,title,issns,publisher,language,hasApc,licenses
@@ -8155,7 +8155,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/journals" \
+                --url "https://api.core.ac.uk/graph/journals" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -8221,7 +8221,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=title:asc
+              GET /graph/journals?orderby=title:asc
 
               ```
 
@@ -8248,7 +8248,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=oaStartYear:asc
+              GET /graph/journals?orderby=oaStartYear:asc
 
               ```
 
@@ -8275,7 +8275,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=publicationTimeWeeks:asc
+              GET /graph/journals?orderby=publicationTimeWeeks:asc
 
               ```
 
@@ -8302,7 +8302,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=updatedDate:desc
+              GET /graph/journals?orderby=updatedDate:desc
 
               ```
 
@@ -8329,7 +8329,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=title:asc,updatedDate:desc
+              GET /graph/journals?orderby=title:asc,updatedDate:desc
 
               ```
 
@@ -8361,7 +8361,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/journals?q=*&facets=language,hasApc,hasWaiver,licenses.type,publisherCountry&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/journals?q=*&facets=language,hasApc,hasWaiver,licenses.type,publisherCountry&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -8372,7 +8372,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/journals" \
+                --url "https://api.core.ac.uk/graph/journals" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -8466,7 +8466,7 @@ items:
 
               ```http
 
-              POST /v4/search/journals/aggregate
+              POST /graph/journals/aggregate
 
               ```
 
@@ -8485,7 +8485,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasApc:false&count=true
+              GET /graph/journals?q=hasApc:false&count=true
 
               ```
 
@@ -8520,7 +8520,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=0
+              GET /graph/journals?q=language:en&orderby=title:asc&limit=20&offset=0
 
               ```
 
@@ -8530,7 +8530,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=20
+              GET /graph/journals?q=language:en&orderby=title:asc&limit=20&offset=20
 
               ```
 
