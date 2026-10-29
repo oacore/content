@@ -24774,3 +24774,47 @@ items:
               }
 
               ```
+  - item: "Discovery "
+    children:
+      - sections:
+          - divider: false
+            border: false
+            id: discovery-api-overview
+            title: Discovery
+            descriptionAbout: >+
+              The CORE Discovery service finds links to full texts using a
+              publication’s DOI. It searches CORE data and external sources to
+              identify the best available match.
+
+
+              The request body is supplied as JSON and supports the following parameters:
+
+
+              | **Parameter** | **Type** | **Required** |
+
+              | ------------- | -------- | ------------ |
+
+              | `doi`         | string   | Yes          |
+
+              | `title`       | string   | Yes          |
+
+              | `year`        | integer  | Yes          |
+
+              | `eprints_id`  | string   | Yes          |
+
+              | `plugin_id`   | string   | Yes          |
+
+              | `referrer`    | string   | Yes          |
+
+
+              A successful request returns HTTP `200` with a JSON response containing the full-text link and its source.
+
+
+              | **Field**        | **Type** | **Required** | **Description**                                    |
+
+              | ---------------- | -------- | ------------ | -------------------------------------------------- |
+
+              | `full_text_link` | string   | Yes          | URL of the full text identified by the service.    |
+
+              | `source`         | string   | Yes          | Source from which the full-text link was obtained. |
+
