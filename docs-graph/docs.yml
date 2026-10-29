@@ -851,7 +851,7 @@ items:
 
               - An HTTP client such as cURL
 
-              - The Graph API base URL: [https://api.core.ac.uk/v4](https://api.core.ac.uk/v4)
+              - The Graph API base URL: [http://api.core.ac.uk/graph/]
 
 
               Include your API key as a Bearer token in the `Authorization` header:
@@ -875,7 +875,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="particle physics"&searchMode=keyword&select=workId,title,yearPublished&count=true&limit=2
+              GET /graph/works?q="particle physics"&searchMode=keyword&select=workId,title,yearPublished&count=true&limit=2
 
               ```
 
@@ -886,7 +886,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/works?q=%22particle%20physics%22&searchMode=keyword&select=workId%2Ctitle%2CyearPublished&count=true&limit=2" \
+                --url "https://api.core.ac.uk/graph/works?q=%22particle%20physics%22&searchMode=keyword&select=workId%2Ctitle%2CyearPublished&count=true&limit=2" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -947,7 +947,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168
+              GET /graph/works/323030168
 
               ```
 
@@ -955,7 +955,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168" \
+                --url "https://api.core.ac.uk/graph/works/323030168" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -971,7 +971,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168/outputs
+              GET /graph/works/323030168/outputs
 
               ```
 
@@ -979,7 +979,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168/outputs" \
+                --url "https://api.core.ac.uk/graph/works/323030168/outputs" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -998,7 +998,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&select=workId,title,yearPublished&limit=10
+              GET /graph/works?q="text and data mining" AND yearPublished>=2020&select=workId,title,yearPublished&limit=10
 
               ```
 
@@ -1009,7 +1009,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/works?q=%22text%20and%20data%20mining%22%20AND%20yearPublished%3E%3D2020&select=workId%2Ctitle%2CyearPublished&limit=10" \
+                --url "https://api.core.ac.uk/graph/works?q=%22text%20and%20data%20mining%22%20AND%20yearPublished%3E%3D2020&select=workId%2Ctitle%2CyearPublished&limit=10" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1025,7 +1025,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -1033,7 +1033,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/works" \
+                --url "https://api.core.ac.uk/graph/works" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
