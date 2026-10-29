@@ -5,11 +5,14 @@ items:
         sections:
           - id: core-graph-api
             title: CORE Graph API
-            note: |
-              **Development status**
-
-              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
+              :::**Development status**
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
+
+              :::
+
+
               The CORE Graph API provides structured access to CORE’s global scholarly knowledge graph. It connects research works with their manifestations, creators, organisations, publication venues, funding, projects, topics, and citation relationships.
 
 
@@ -1064,14 +1067,6 @@ items:
         sections:
           - divider: false
             border: false
-            id: works-api-status
-            title: Works
-            note: >-
-              **Under Development:** Works is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
-          - divider: false
-            border: false
             id: works-api-introduction
             title: Introduction
             descriptionAbout: >-
@@ -1160,7 +1155,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
               ```
 
@@ -1193,7 +1188,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
               ```
           - divider: false
@@ -1866,23 +1861,23 @@ items:
 
               | -------------------------------------- | ---------- | ----------------------------------- |
 
-              | Get a single Work                      | `GET`      | `/v4/works/{workId}`                |
+              | Get a single Work                      | `GET`      | `/graph/works/{workId}`                |
 
-              | Search Works using URL parameters      | `GET`      | `/v4/search/works`                  |
+              | Search Works using URL parameters      | `GET`      | `/graph/works`                  |
 
-              | Search Works using a JSON request body | `POST`     | `/v4/search/works`                  |
+              | Search Works using a JSON request body | `POST`     | `/graph/works`                  |
 
-              | Retrieve Outputs for a Work            | `GET`      | `/v4/works/{workId}/outputs`        |
+              | Retrieve Outputs for a Work            | `GET`      | `/graph/works/{workId}/outputs`        |
 
-              | Retrieve Authorships for a Work        | `GET`      | `/v4/works/{workId}/authorships`    |
+              | Retrieve Authorships for a Work        | `GET`      | `/graph/works/{workId}/authorships`    |
 
-              | Retrieve Journals for a Work           | `GET`      | `/v4/works/{workId}/journals`       |
+              | Retrieve Journals for a Work           | `GET`      | `/graph/works/{workId}/journals`       |
 
-              | Retrieve Data Providers for a Work     | `GET`      | `/v4/works/{workId}/data-providers` |
+              | Retrieve Data Providers for a Work     | `GET`      | `/graph/works/{workId}/data-providers` |
 
-              | Retrieve Projects for a Work | `GET` | `/v4/works/{workId}/projects` |
+              | Retrieve Projects for a Work | `GET` | `/graph/works/{workId}/projects` |
 
-              | Retrieve Grants for a Work | `GET` | `/v4/works/{workId}/grants` |
+              | Retrieve Grants for a Work | `GET` | `/graph/works/{workId}/grants` |
 
 
               The `POST` search method is read-only. It does not create or modify Work records.
@@ -1899,7 +1894,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/works/{workId}
+              GET https://api.core.ac.uk/graph/works/{workId}
 
               ```
 
@@ -1940,7 +1935,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168" \
+                --url "https://api.core.ac.uk/graph/works/323030168" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1951,7 +1946,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168?select=workId,title,doi,yearPublished,documentType,coreIds" \
+                --url "https://api.core.ac.uk/graph/works/323030168?select=workId,title,doi,yearPublished,documentType,coreIds" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1985,6 +1980,21 @@ items:
               Work records.
 
 
+              Works search is available through `GET` and `POST`:
+
+
+              ```http
+
+              GET https://api.core.ac.uk/graph/works
+
+              POST https://api.core.ac.uk/graph/works
+
+              ```
+
+
+              Both methods use the same CORE query language and return the same response structure.
+
+
               Works search supports:
 
 
@@ -2000,20 +2010,6 @@ items:
 
               * Field selection, ordering, faceting, counting, and pagination
 
-
-              Works search is available through `GET` and `POST`:
-
-
-              | **Method** | **API endpoint**                         |
-
-              | ---------- | ---------------------------------------- |
-
-              | `GET`      | <https://api.core.ac.uk/v4/search/works> |
-
-              | `POST`     | <https://api.core.ac.uk/v4/search/works> |
-
-
-              Both methods return the same Works search-response structure.
 
 
               #### GET and POST search parameters
@@ -2126,7 +2122,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:"edge computing"
+              GET /graph/works?q=title:"edge computing"
 
               ```
 
@@ -2149,7 +2145,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining"
+              GET /graph/works?q="text and data mining"
 
               ```
 
@@ -2179,7 +2175,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=fullText:"text and data mining"
+              GET /graph/works?q=fullText:"text and data mining"
 
               ```
 
@@ -2208,7 +2204,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=doi:"10.1109/jiot.2020.2984887"
+              GET /graph/works?q=doi:"10.1109/jiot.2020.2984887"
 
               ```
 
@@ -2233,7 +2229,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
+              GET /graph/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
 
               ```
 
@@ -2261,7 +2257,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=yearPublished>=2020 AND documentType:"research article"
+              GET /graph/works?q=yearPublished>=2020 AND documentType:"research article"
 
               ```
 
@@ -2286,7 +2282,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=coreIds:216874849
+              GET /graph/works?q=coreIds:216874849
 
               ```
 
@@ -2311,7 +2307,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=journalIds:12345
+              GET /graph/works?q=journalIds:12345
 
               ```
 
@@ -2336,7 +2332,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=dataProviderIds:86
+              GET /graph/works?q=dataProviderIds:86
 
               ```
 
@@ -2361,7 +2357,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=references.citedDoi:"10.1000/abc456"
+              GET /graph/works?q=references.citedDoi:"10.1000/abc456"
 
               ```
 
@@ -2386,7 +2382,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=topics.topicId:T1001
+              GET /graph/works?q=topics.topicId:T1001
 
               ```
 
@@ -2411,7 +2407,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=topics.displayName:"artificial intelligence"
+              GET /graph/works?q=topics.displayName:"artificial intelligence"
 
               ```
 
@@ -2436,7 +2432,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=referenceCount>=10
+              GET /graph/works?q=referenceCount>=10
 
               ```
 
@@ -2461,7 +2457,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=citationCount>=100&orderby=citationCount:desc
+              GET /graph/works?q=citationCount>=100&orderby=citationCount:desc
 
               ```
 
@@ -2489,7 +2485,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=citationIds:7865
+              GET /graph/works?q=citationIds:7865
 
               ```
 
@@ -2514,7 +2510,7 @@ items:
 
               ```json
 
-              GET /v4/search/works?q=projectIds:11 
+              GET /graph/works?q=projectIds:11 
 
               ```
 
@@ -2540,7 +2536,7 @@ items:
 
               ```json
 
-              GET /v4/search/works?q=grantIds:701 
+              GET /graph/works?q=grantIds:701 
 
               ```
 
@@ -2565,7 +2561,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+              GET /graph/citations?q=citedDoi:"10.1000/abc456"
 
               ```
 
@@ -2593,7 +2589,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=_exists_:fullText
+              GET /graph/works?q=_exists_:fullText
 
               ```
 
@@ -2621,7 +2617,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="climate change"&searchMode=hybrid&facets=documentType,yearPublished&count=true&limit=0
+              GET /graph/works?q="climate change"&searchMode=hybrid&facets=documentType,yearPublished&count=true&limit=0
 
               ```
 
@@ -2776,7 +2772,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
               ```
 
@@ -2787,7 +2783,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168/outputs?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/works/323030168/outputs?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -2834,7 +2830,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
               ```
 
@@ -2847,7 +2843,7 @@ items:
 
               ```http
 
-              GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+              GET /graph/search/authorships?q=workId:{workId}&orderby=rank:asc
 
               ```
 
@@ -2878,7 +2874,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/journals
+              GET /graph/works/{workId}/journals
 
               ```
 
@@ -2894,7 +2890,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/data-providers
+              GET /graph/works/{workId}/data-providers
 
               ```
 
@@ -2905,7 +2901,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/projects
+              GET /graph/works/{workId}/projects
 
               ```
 
@@ -2916,7 +2912,7 @@ items:
               Example request:
 
 
-              ```GET /v4/works/323030168/projects?count=true&limit=10&offset=0
+              ```GET /graph/works/323030168/projects?count=true&limit=10&offset=0
 
               ```
 
@@ -2936,7 +2932,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/works
+              GET /graph/projects/{projectId}/works
 
               ```
 
@@ -2946,7 +2942,7 @@ items:
 
               ```http 
 
-              GET /v4/works/{workId}/grants 
+              GET /graph/works/{workId}/grants 
 
               ```
 
@@ -2959,7 +2955,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168/grants?count=true&limit=10&offset=0 
+              GET /graph/works/323030168/grants?count=true&limit=10&offset=0 
 
               ```
 
@@ -2979,19 +2975,11 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/works 
+              GET /graph/grants/{grantId}/works 
 
               ```
       - item: Outputs
         sections:
-          - divider: false
-            border: false
-            id: outputs-api-status
-            title: Outputs
-            note: >-
-              **Under Development:** Outputs is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: outputs-api-introduction
@@ -4022,19 +4010,19 @@ items:
 
               | ------------------------------------------ | ---------- | ------------------------------------ |
 
-              | Get a single Output                        | `GET`      | `/v4/outputs/{coreId}`               |
+              | Get a single Output                        | `GET`      | `/graph/outputs/{coreId}`               |
 
-              | Search Outputs using URL parameters        | `GET`      | `/v4/search/outputs`                 |
+              | Search Outputs using URL parameters        | `GET`      | `/graph/outputs`                 |
 
-              | Search Outputs using a JSON request body   | `POST`     | `/v4/search/outputs`                 |
+              | Search Outputs using a JSON request body   | `POST`     | `/graph/outputs`                 |
 
-              | Retrieve the Work represented by an Output | `GET`      | `/v4/outputs/{coreId}/work`          |
+              | Retrieve the Work represented by an Output | `GET`      | `/graph/outputs/{coreId}/work`          |
 
-              | Retrieve the Data Provider of an Output    | `GET`      | `/v4/outputs/{coreId}/data-provider` |
+              | Retrieve the Data Provider of an Output    | `GET`      | `/graph/outputs/{coreId}/data-provider` |
 
-              | Retrieve the Journal of an Output          | `GET`      | `/v4/outputs/{coreId}/journal`       |
+              | Retrieve the Journal of an Output          | `GET`      | `/graph/outputs/{coreId}/journal`       |
 
-              | Retrieve the Publisher of an Output        | `GET`      | `/v4/outputs/{coreId}/publisher`     |
+              | Retrieve the Publisher of an Output        | `GET`      | `/graph/outputs/{coreId}/publisher`     |
 
 
               The `POST` search method is read-only. It does not create or modify Output records.
@@ -4051,7 +4039,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/outputs/{coreId}
+              GET https://api.core.ac.uk/graph/outputs/{coreId}
 
               ```
 
@@ -4095,7 +4083,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/outputs/216874849" \
+                --url "https://api.core.ac.uk/graph/outputs/216874849" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -4106,7 +4094,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/outputs/216874849?select=coreId,title,yearPublished,documentType,dataProviderId,journalId" \
+                --url "https://api.core.ac.uk/graph/outputs/216874849?select=coreId,title,yearPublished,documentType,dataProviderId,journalId" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -4138,6 +4126,22 @@ items:
               source-specific Output records.
 
 
+              Outputs search is available through `GET` and `POST`:
+
+
+              ```http
+
+              GET https://api.core.ac.uk/graph/outputs
+
+              POST https://api.core.ac.uk/graph/outputs
+
+              ```
+
+
+              Both methods use the same CORE query language and return the same response structure.
+
+
+
               Output search supports:
 
 
@@ -4154,44 +4158,6 @@ items:
               * Field selection, ordering, faceting, counting, and pagination
 
 
-              Output search is available through `GET` and `POST`:
-
-
-              | **Method** | **API endpoint**                           |
-
-              | ---------- | ------------------------------------------ |
-
-              | `GET`      | <https://api.core.ac.uk/v4/search/outputs> |
-
-              | `POST`     | <https://api.core.ac.uk/v4/search/outputs> |
-
-
-              Both methods use the CORE query language and return the same Output search-response structure.
-
-
-              `GET` is suitable for:
-
-
-              * Keyword searches
-
-              * Structured searches
-
-              * Text-based vector searches
-
-              * Hybrid searches that can be represented conveniently in a URL
-
-
-              `POST` is recommended for:
-
-
-              * Explicit client-generated vectors
-
-              * Long or complex queries
-
-              * Searches containing many selected fields or facets
-
-              * Requests that may exceed practical URL-length limits
-
 
               #### Output vector search
 
@@ -4207,9 +4173,9 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/search/works
 
-              POST /v4/search/works
+              POST /graph/search/works
 
               ```
 
@@ -4340,7 +4306,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=title:"Sustainable Development Goals"
+              GET /graph/outputs?q=title:"Sustainable Development Goals"
 
               ```
 
@@ -4365,7 +4331,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=fullText:"climate change"
+              GET /graph/outputs?q=fullText:"climate change"
 
               ```
 
@@ -4390,7 +4356,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=externalIdentifiers.type:DOI AND externalIdentifiers.identifier:"10.1000/xyz"
+              GET /graph/outputs?q=externalIdentifiers.type:DOI AND externalIdentifiers.identifier:"10.1000/xyz"
 
               ```
 
@@ -4418,7 +4384,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:86
+              GET /graph/outputs?q=dataProviderId:86
 
               ```
 
@@ -4443,7 +4409,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=journalId:12345
+              GET /graph/outputs?q=journalId:12345
 
               ```
 
@@ -4468,7 +4434,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=publisherId:78
+              GET /graph/outputs?q=publisherId:78
 
               ```
 
@@ -4493,7 +4459,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=documentType:"research article" AND yearPublished>=2020
+              GET /graph/outputs?q=documentType:"research article" AND yearPublished>=2020
 
               ```
 
@@ -4518,7 +4484,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=_exists_:fullText
+              GET /graph/outputs?q=_exists_:fullText
 
               ```
 
@@ -4543,7 +4509,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=fullTextStatus:enabled AND disabled:false
+              GET /graph/outputs?q=fullTextStatus:enabled AND disabled:false
 
               ```
 
@@ -4568,7 +4534,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=accessRights.isOpenAccess:true
+              GET /graph/outputs?q=accessRights.isOpenAccess:true
 
               ```
 
@@ -4593,7 +4559,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=accessRights.isOpenAccess:true AND accessRights.oaStatus:gold
+              GET /graph/outputs?q=accessRights.isOpenAccess:true AND accessRights.oaStatus:gold
 
               ```
 
@@ -4621,7 +4587,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=license.name:"CC BY 4.0"
+              GET /graph/outputs?q=license.name:"CC BY 4.0"
 
               ```
 
@@ -4646,7 +4612,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=language.code:en
+              GET /graph/outputs?q=language.code:en
 
               ```
 
@@ -4671,7 +4637,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=sdg.type:SDG04
+              GET /graph/outputs?q=sdg.type:SDG04
 
               ```
 
@@ -4699,7 +4665,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=sdg.type:SDG04 AND sdg.score>=0.8
+              GET /graph/outputs?q=sdg.type:SDG04 AND sdg.score>=0.8
 
               ```
 
@@ -4727,7 +4693,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=_exists_:sdg
+              GET /graph/outputs?q=_exists_:sdg
 
               ```
 
@@ -4771,7 +4737,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/outputs?q=fullText%3A%22climate%20change%22%20AND%20documentType%3A%22research%20article%22%20AND%20accessRights.isOpenAccess%3Atrue%20AND%20yearPublished%3E%3D2020&searchMode=keyword&orderby=yearPublished%3Adesc&select=coreId%2Ctitle%2CyearPublished%2CdocumentType%2CdataProviderId%2CjournalId%2CdownloadUrl&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/outputs?q=fullText%3A%22climate%20change%22%20AND%20documentType%3A%22research%20article%22%20AND%20accessRights.isOpenAccess%3Atrue%20AND%20yearPublished%3E%3D2020&searchMode=keyword&orderby=yearPublished%3Adesc&select=coreId%2Ctitle%2CyearPublished%2CdocumentType%2CdataProviderId%2CjournalId%2CdownloadUrl&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -4781,7 +4747,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs
+              GET /graph/outputs
                   ?q=fullText:"climate change" AND documentType:"research article" AND accessRights.isOpenAccess:true AND yearPublished>=2020
                   &searchMode=keyword
                   &orderby=yearPublished:desc
@@ -4798,7 +4764,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/outputs" \
+                --url "https://api.core.ac.uk/graph/outputs" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -4837,7 +4803,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?orderby=yearPublished:desc
+              GET /graph/outputs?orderby=yearPublished:desc
 
               ```
 
@@ -4864,7 +4830,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?orderby=title:asc
+              GET /graph/outputs?orderby=title:asc
 
               ```
 
@@ -4891,7 +4857,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?orderby=yearPublished:desc,title:asc
+              GET /graph/outputs?orderby=yearPublished:desc,title:asc
 
               ```
 
@@ -4925,7 +4891,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:86&count=true
+              GET /graph/outputs?q=dataProviderId:86&count=true
 
               ```
 
@@ -4938,7 +4904,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q="scholarly repositories"&searchMode=vector&count=true
+              GET /graph/outputs?q="scholarly repositories"&searchMode=vector&count=true
 
               ```
 
@@ -4984,7 +4950,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=0
+              GET /graph/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=0
 
               ```
 
@@ -4994,7 +4960,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=20
+              GET /graph/outputs?q=dataProviderId:86&orderby=yearPublished:desc,title:asc&limit=20&offset=20
 
               ```
 
@@ -5065,7 +5031,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/work
+              GET /graph/outputs/{coreId}/work
 
               ```
 
@@ -5078,7 +5044,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=coreIds:{coreId}
+              GET /graph/works?q=coreIds:{coreId}
 
               ```
 
@@ -5101,7 +5067,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/outputs/216874849/work" \
+                --url "https://api.core.ac.uk/graph/outputs/216874849/work" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -5133,7 +5099,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/data-provider
+              GET /graph/outputs/{coreId}/data-provider
 
               ```
 
@@ -5165,7 +5131,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/journal
+              GET /graph/outputs/{coreId}/journal
 
               ```
 
@@ -5198,7 +5164,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/publisher
+              GET /graph/outputs/{coreId}/publisher
 
               ```
 
@@ -5217,13 +5183,13 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
-              GET /v4/data-providers/{dataProviderId}/outputs
+              GET /graph/data-providers/{dataProviderId}/outputs
 
-              GET /v4/journals/{journalId}/outputs
+              GET /graph/journals/{journalId}/outputs
 
-              GET /v4/publishers/{publisherId}/outputs
+              GET /graph/publishers/{publisherId}/outputs
 
               ```
 
@@ -5236,23 +5202,15 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+              GET /graph/outputs?q=dataProviderId:{dataProviderId}
 
-              GET /v4/search/outputs?q=journalId:{journalId}
+              GET /graph/outputs?q=journalId:{journalId}
 
-              GET /v4/search/outputs?q=publisherId:{publisherId}
+              GET /graph/outputs?q=publisherId:{publisherId}
 
               ```
       - item: Data Providers
         sections:
-          - divider: false
-            border: false
-            id: dataproviders-api-status
-            title: Data Providers
-            note: >-
-              **Under Development:** Data Providers is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: dataproviders-api-introduction
@@ -5678,15 +5636,15 @@ items:
 
               | ----------------------------------------------- | ---------- | ------------------------------------------------- |
 
-              | Get a single Data Provider                      | `GET`      | `/v4/data-providers/{dataProviderId}`             |
+              | Get a single Data Provider                      | `GET`      | `/graph/data-providers/{dataProviderId}`             |
 
-              | Search Data Providers using URL parameters      | `GET`      | `/v4/search/data-providers`                       |
+              | Search Data Providers using URL parameters      | `GET`      | `/graph/search/data-providers`                       |
 
-              | Search Data Providers using a JSON request body | `POST`     | `/v4/search/data-providers`                       |
+              | Search Data Providers using a JSON request body | `POST`     | `/graph/data-providers`                       |
 
-              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/outputs`     |
+              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/graph/data-providers/{dataProviderId}/outputs`     |
 
-              | Retrieve Data Providers for an Institution      | `GET`      | `/v4/institutions/{institutionId}/data-providers` |
+              | Retrieve Data Providers for an Institution      | `GET`      | `/graph/institutions/{institutionId}/data-providers` |
 
 
               A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
@@ -5703,7 +5661,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/data-providers/{dataProviderId}
+              GET https://api.core.ac.uk/graph/data-providers/{dataProviderId}
 
               ```
 
@@ -5747,7 +5705,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/data-providers/100" \
+                --url "https://api.core.ac.uk/graph/data-providers/100" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -5791,7 +5749,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/data-providers/100?select=dataProviderId,name,type,software,metadataFormat,homepageUrl" \
+                --url "https://api.core.ac.uk/graph/data-providers/100?select=dataProviderId,name,type,software,metadataFormat,homepageUrl" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -5840,19 +5798,20 @@ items:
               Provider records.
 
 
-              Data Provider search is available through `GET` and `POST`:
+              Data provider search is available through `GET` and `POST`:
 
 
-              | **Method** | **API endpoint**                                  |
+              ```http
 
-              | ---------- | ------------------------------------------------- |
+              GET https://api.core.ac.uk/graph/data-providers
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/data-providers> |
+              POST https://api.core.ac.uk/graph/data-providers
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/data-providers> |
+              ```
 
 
-              Both methods use the same CORE query language and return the same Data Provider search-response structure.
+              Both methods use the same CORE query language and return the same response structure.
+
 
 
               #### GET and POST search parameters
@@ -5940,7 +5899,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/data-providers?q=name:"Apollo"' \
+                --url 'https://api.core.ac.uk/graph/data-providers?q=name:"Apollo"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -5950,7 +5909,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q="Cambridge Repository"
+              GET /graph/data-providers?q="Cambridge Repository"
 
               ```
 
@@ -5961,7 +5920,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/data-providers" \
+                --url "https://api.core.ac.uk/graph/data-providers" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -5991,7 +5950,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=openDoarId:"1275"
+              GET /graph/data-providers?q=openDoarId:"1275"
 
               ```
 
@@ -6016,7 +5975,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=rorId:"https://ror.org/04ea70f07"
+              GET /graph/data-providers?q=rorId:"https://ror.org/04ea70f07"
 
               ```
 
@@ -6041,7 +6000,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=type:REPOSITORY
+              GET /graph/data-providers?q=type:REPOSITORY
 
               ```
 
@@ -6066,7 +6025,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=software:DSpace
+              GET /graph/data-providers?q=software:DSpace
 
               ```
 
@@ -6091,7 +6050,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=metadataFormat:rioxx
+              GET /graph/data-providers?q=metadataFormat:rioxx
 
               ```
 
@@ -6116,7 +6075,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=location.countryCode:GB
+              GET /graph/data-providers?q=location.countryCode:GB
 
               ```
 
@@ -6141,7 +6100,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=_exists_:oaiPmhUrl
+              GET /graph/data-providers?q=_exists_:oaiPmhUrl
 
               ```
 
@@ -6166,7 +6125,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=_exists_:openDoarId
+              GET /graph/data-providers?q=_exists_:openDoarId
 
               ```
 
@@ -6210,7 +6169,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/data-providers?q=institutionName:"Cambridge"%20AND%20type:REPOSITORY%20AND%20location.countryCode:GB&orderby=name:asc&select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/data-providers?q=institutionName:"Cambridge"%20AND%20type:REPOSITORY%20AND%20location.countryCode:GB&orderby=name:asc&select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -6220,7 +6179,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers
+              GET /graph/data-providers
                   ?q=institutionName:"Cambridge" AND type:REPOSITORY AND location.countryCode:GB
                   &orderby=name:asc
                   &select=dataProviderId,name,institutionName,type,software,metadataFormat,homepageUrl
@@ -6236,7 +6195,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/data-providers" \
+                --url "https://api.core.ac.uk/graph/data-providers" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -6294,7 +6253,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?orderby=name:asc
+              GET /graph/data-providers?orderby=name:asc
 
               ```
 
@@ -6321,7 +6280,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?orderby=createdDate:desc
+              GET /graph/data-providers?orderby=createdDate:desc
 
               ```
 
@@ -6352,7 +6311,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/data-providers?q=*&facets=type,software,metadataFormat,location.countryCode&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/data-providers?q=*&facets=type,software,metadataFormat,location.countryCode&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -6363,7 +6322,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/data-providers" \
+                --url "https://api.core.ac.uk/graph/data-providers" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -6449,7 +6408,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=type:REPOSITORY&count=true
+              GET /graph/data-providers?q=type:REPOSITORY&count=true
 
               ```
 
@@ -6484,7 +6443,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=0
+              GET /graph/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=0
 
               ```
 
@@ -6494,7 +6453,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=20
+              GET /graph/data-providers?q=type:REPOSITORY&orderby=name:asc&limit=20&offset=20
 
               ```
 
@@ -6575,7 +6534,7 @@ items:
 
               ```http
 
-              GET /v4/data-providers/{dataProviderId}/outputs
+              GET /graph/data-providers/{dataProviderId}/outputs
 
               ```
 
@@ -6588,7 +6547,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+              GET /graph/outputs?q=dataProviderId:{dataProviderId}
 
               ```
 
@@ -6611,7 +6570,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/data-providers/100/outputs?select=coreId,title,yearPublished,documentType&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/data-providers/100/outputs?select=coreId,title,yearPublished,documentType&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -6654,7 +6613,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/{institutionId}/data-providers
+              GET /graph/institutions/{institutionId}/data-providers
 
               ```
 
@@ -6671,7 +6630,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/data-providers?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/data-providers?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -6679,14 +6638,6 @@ items:
               This endpoint is documented primarily under the Institution entity.
       - item: Journals
         sections:
-          - divider: false
-            border: false
-            id: journals-api-status
-            title: Journals
-            note: >-
-              **Under Development:** Journals is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: journals-api-introduction
@@ -6783,9 +6734,9 @@ items:
 
               | ------------------- | -------------------------------------- |
 
-              | Outputs             | `GET /v4/journals/{journalId}/outputs` |
+              | Outputs             | `GET /graph/journals/{journalId}/outputs` |
 
-              | Works               | `GET /v4/journals/{journalId}/works`   |
+              | Works               | `GET /graph/journals/{journalId}/works`   |
             images: []
             subTitle: ""
           - divider: false
@@ -7421,13 +7372,13 @@ items:
 
               | ----------------------------------------- | ---------- | ---------------------------------- |
 
-              | Get a single Journal                      | `GET`      | `/v4/journals/{journalId}`         |
+              | Get a single Journal                      | `GET`      | `/graph/journals/{journalId}`         |
 
-              | Search Journals using URL parameters      | `GET`      | `/v4/search/journals`              |
+              | Search Journals using URL parameters      | `GET`      | `/graph/journals`              |
 
-              | Search Journals using a JSON request body | `POST`     | `/v4/search/journals`              |
+              | Search Journals using a JSON request body | `POST`     | `/graph/journals`              |
 
-              | Retrieve Outputs for a Journal            | `GET`      | `/v4/journals/{journalId}/outputs` |
+              | Retrieve Outputs for a Journal            | `GET`      | `/graph/journals/{journalId}/outputs` |
 
 
               Related Journals may also be retrieved through reverse relationship endpoints:
@@ -7437,9 +7388,9 @@ items:
 
               | ------------------------------------------------ | ---------- | ---------------------------------------------- |
 
-              | Retrieve Journals supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/journals` |
+              | Retrieve Journals supplied by a Data Provider    | `GET`      | `/graph/data-providers/{dataProviderId}/journals` |
 
-              | Retrieve Journals associated with an Institution | `GET`      | `/v4/institutions/{institutionId}/journals`    |
+              | Retrieve Journals associated with an Institution | `GET`      | `/graph/institutions/{institutionId}/journals`    |
 
 
               A Publisher relationship endpoint should be introduced only after the Journal model contains a canonical `publisherId`.
@@ -7456,7 +7407,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/journals/{journalId}
+              GET https://api.core.ac.uk/graph/journals/{journalId}
 
               ```
 
@@ -7500,7 +7451,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/journals/12345" \
+                --url "https://api.core.ac.uk/graph/journals/12345" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -7541,7 +7492,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/journals/12345?select=journalId,title,issns,publisher,language,hasApc" \
+                --url "https://api.core.ac.uk/graph/journals/12345?select=journalId,title,issns,publisher,language,hasApc" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -7598,9 +7549,9 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/search/journals
+              GET https://api.core.ac.uk/graph/journals
 
-              POST https://api.core.ac.uk/v4/search/journals
+              POST https://api.core.ac.uk/graph/journals
 
               ```
 
@@ -7693,7 +7644,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/journals?q=title:"Journal%20of%20Open%20Science"' \
+                --url 'https://api.core.ac.uk/graph/journals?q=title:"Journal%20of%20Open%20Science"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -7703,7 +7654,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=title:"Journal of Open Science"
+              GET /graph/journals?q=title:"Journal of Open Science"
 
               ```
 
@@ -7713,7 +7664,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q="Open Science"
+              GET /graph/journals?q="Open Science"
 
               ```
 
@@ -7724,7 +7675,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/journals" \
+                --url "https://api.core.ac.uk/graph/journals" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -7764,7 +7715,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=issns:"1744-9081"
+              GET /graph/journals?q=issns:"1744-9081"
 
               ```
 
@@ -7789,7 +7740,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=eissn:"1744-909X"
+              GET /graph/journals?q=eissn:"1744-909X"
 
               ```
 
@@ -7814,7 +7765,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=doajId:"1234567890"
+              GET /graph/journals?q=doajId:"1234567890"
 
               ```
 
@@ -7839,7 +7790,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=publisher:"Springer Nature"
+              GET /graph/journals?q=publisher:"Springer Nature"
 
               ```
 
@@ -7864,7 +7815,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=language:en AND subjects.term:"Computer Science"
+              GET /graph/journals?q=language:en AND subjects.term:"Computer Science"
 
               ```
 
@@ -7889,7 +7840,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasApc:false
+              GET /graph/journals?q=hasApc:false
 
               ```
 
@@ -7917,7 +7868,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasApc:true AND hasWaiver:true
+              GET /graph/journals?q=hasApc:true AND hasWaiver:true
 
               ```
 
@@ -7945,7 +7896,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=apcMax.currency:GBP AND apcMax.price<=1500
+              GET /graph/journals?q=apcMax.currency:GBP AND apcMax.price<=1500
 
               ```
 
@@ -7973,7 +7924,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=licenses.type:"CC BY 4.0"
+              GET /graph/journals?q=licenses.type:"CC BY 4.0"
 
               ```
 
@@ -7998,7 +7949,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasPreservation:true
+              GET /graph/journals?q=hasPreservation:true
 
               ```
 
@@ -8020,7 +7971,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=preservationServices:CLOCKSS
+              GET /graph/journals?q=preservationServices:CLOCKSS
 
               ```
 
@@ -8033,7 +7984,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=pidSchemes:DOI
+              GET /graph/journals?q=pidSchemes:DOI
 
               ```
 
@@ -8058,7 +8009,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=dataProviderId:86
+              GET /graph/journals?q=dataProviderId:86
 
               ```
 
@@ -8080,7 +8031,7 @@ items:
 
               ```http
 
-              GET /v4/data-providers/86/journals
+              GET /graph/data-providers/86/journals
 
               ```
 
@@ -8093,7 +8044,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=institutionId:3201
+              GET /graph/journals?q=institutionId:3201
 
               ```
 
@@ -8115,7 +8066,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/3201/journals
+              GET /graph/institutions/3201/journals
 
               ```
 
@@ -8131,7 +8082,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=!_exists_:discontinuedDate
+              GET /graph/journals?q=!_exists_:discontinuedDate
 
               ```
 
@@ -8178,7 +8129,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/journals?q=keywords:"Open%20Science"%20AND%20language:en%20AND%20hasApc:false&orderby=title:asc&select=journalId,title,issns,publisher,language,hasApc,licenses&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/journals?q=keywords:"Open%20Science"%20AND%20language:en%20AND%20hasApc:false&orderby=title:asc&select=journalId,title,issns,publisher,language,hasApc,licenses&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -8188,7 +8139,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals
+              GET /graph/journals
                   ?q=keywords:"Open Science" AND language:en AND hasApc:false
                   &orderby=title:asc
                   &select=journalId,title,issns,publisher,language,hasApc,licenses
@@ -8204,7 +8155,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/journals" \
+                --url "https://api.core.ac.uk/graph/journals" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -8270,7 +8221,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=title:asc
+              GET /graph/journals?orderby=title:asc
 
               ```
 
@@ -8297,7 +8248,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=oaStartYear:asc
+              GET /graph/journals?orderby=oaStartYear:asc
 
               ```
 
@@ -8324,7 +8275,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=publicationTimeWeeks:asc
+              GET /graph/journals?orderby=publicationTimeWeeks:asc
 
               ```
 
@@ -8351,7 +8302,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=updatedDate:desc
+              GET /graph/journals?orderby=updatedDate:desc
 
               ```
 
@@ -8378,7 +8329,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?orderby=title:asc,updatedDate:desc
+              GET /graph/journals?orderby=title:asc,updatedDate:desc
 
               ```
 
@@ -8410,7 +8361,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/journals?q=*&facets=language,hasApc,hasWaiver,licenses.type,publisherCountry&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/journals?q=*&facets=language,hasApc,hasWaiver,licenses.type,publisherCountry&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -8421,7 +8372,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/journals" \
+                --url "https://api.core.ac.uk/graph/journals" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -8515,7 +8466,7 @@ items:
 
               ```http
 
-              POST /v4/search/journals/aggregate
+              POST /graph/journals/aggregate
 
               ```
 
@@ -8534,7 +8485,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=hasApc:false&count=true
+              GET /graph/journals?q=hasApc:false&count=true
 
               ```
 
@@ -8569,7 +8520,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=0
+              GET /graph/journals?q=language:en&orderby=title:asc&limit=20&offset=0
 
               ```
 
@@ -8579,7 +8530,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=language:en&orderby=title:asc&limit=20&offset=20
+              GET /graph/journals?q=language:en&orderby=title:asc&limit=20&offset=20
 
               ```
 
@@ -8628,7 +8579,7 @@ items:
               ```
 
 
-              #### Responses
+              #### Search responses
 
 
               | Status | Description |
@@ -8663,7 +8614,7 @@ items:
 
               ```http
 
-              GET /v4/journals/{journalId}/outputs
+              GET /graph/journals/{journalId}/outputs
 
               ```
 
@@ -8676,7 +8627,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=journalId:{journalId}
+              GET /graph/outputs?q=journalId:{journalId}
 
               ```
 
@@ -8699,7 +8650,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/journals/12345/outputs?select=coreId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/journals/12345/outputs?select=coreId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -8738,7 +8689,7 @@ items:
 
               ```http
 
-              GET /v4/data-providers/{dataProviderId}/journals
+              GET /graph/data-providers/{dataProviderId}/journals
 
               ```
 
@@ -8751,7 +8702,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=dataProviderId:{dataProviderId}
+              GET /graph/journals?q=dataProviderId:{dataProviderId}
 
               ```
 
@@ -8776,7 +8727,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/{institutionId}/journals
+              GET /graph/institutions/{institutionId}/journals
 
               ```
 
@@ -8789,7 +8740,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=institutionId:{institutionId}
+              GET /graph/journals?q=institutionId:{institutionId}
 
               ```
 
@@ -9377,11 +9328,11 @@ items:
 
               | --------------------------------------------- | ---------- | ---------------------------------- |
 
-              | Get a single Institution                      | GET        | `/v4/institutions/{institutionId}` |
+              | Get a single Institution                      | GET        | `/graph/institutions/{institutionId}` |
 
-              | Search Institutions                           | GET        | `/v4/search/institutions`          |
+              | Search Institutions                           | GET        | `/graph/institutions`          |
 
-              | Search Institutions using a JSON request body | POST       | `/v4/search/institutions`          |
+              | Search Institutions using a JSON request body | POST       | `/graph/institutions`          |
 
 
               Related records may also be retrieved through relationship-oriented endpoints:
@@ -9391,11 +9342,11 @@ items:
 
               | ------------------------------------------ | ---------- | ------------------------------------------------ |
 
-              | Retrieve Affiliations for an Institution   | GET        | `/v4/institutions/{institutionId}/affiliations`  |
+              | Retrieve Affiliations for an Institution   | GET        | `/graph/institutions/{institutionId}/affiliations`  |
 
-              | Retrieve Data Providers for an Institution | GET        | `/v4/institutions/{institutionId}/dataProviders` |
+              | Retrieve Data Providers for an Institution | GET        | `/graph/institutions/{institutionId}/dataProviders` |
 
-              | Retrieve Topics for an Institution         | GET        | `/v4/institutions/{institutionId}/topics`        |
+              | Retrieve Topics for an Institution         | GET        | `/graph/institutions/{institutionId}/topics`        |
 
 
               #### Get a single Institution
@@ -9409,7 +9360,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/institutions/{institutionId}
+              GET https://api.core.ac.uk/graph/institutions/{institutionId}
 
               ```
 
@@ -9450,7 +9401,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256" \
+                --url "https://api.core.ac.uk/graph/institutions/1256" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -9490,7 +9441,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256?select=institutionId,rorId,displayName,countryCode,types,status" \
+                --url "https://api.core.ac.uk/graph/institutions/1256?select=institutionId,rorId,displayName,countryCode,types,status" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -9547,14 +9498,14 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/search/institutions
+              GET https://api.core.ac.uk/graph/institutions
 
               ```
 
 
               ```
 
-              POST https://api.core.ac.uk/v4/search/institutions
+              POST https://api.core.ac.uk/graph/institutions
 
               ```
 
@@ -9645,7 +9596,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=displayName:"The Open University"
+              GET /graph/institutions?q=displayName:"The Open University"
 
               ```
 
@@ -9655,7 +9606,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q="Open University"
+              GET /graph/institutions?q="Open University"
 
               ```
 
@@ -9708,7 +9659,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=rorId:"https://ror.org/05mzfcs16"
+              GET /graph/institutions?q=rorId:"https://ror.org/05mzfcs16"
 
               ```
 
@@ -9733,7 +9684,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=domains:"open.ac.uk"
+              GET /graph/institutions?q=domains:"open.ac.uk"
 
               ```
 
@@ -9758,7 +9709,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education AND countryCode:GB
+              GET /graph/institutions?q=types:education AND countryCode:GB
 
               ```
 
@@ -9783,7 +9734,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=status:active
+              GET /graph/institutions?q=status:active
 
               ```
 
@@ -9808,7 +9759,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=establishedYear>2000
+              GET /graph/institutions?q=establishedYear>2000
 
               ```
 
@@ -9833,7 +9784,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=_exists_:dataProviderIds
+              GET /graph/institutions?q=_exists_:dataProviderIds
 
               ```
 
@@ -9858,7 +9809,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=topics.topicId:"23"
+              GET /graph/institutions?q=topics.topicId:"23"
 
               ```
 
@@ -9880,7 +9831,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=topics.displayName:"Particle physics"
+              GET /graph/institutions?q=topics.displayName:"Particle physics"
 
               ```
 
@@ -9896,7 +9847,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000
+              GET /graph/institutions?q=yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000
 
               ```
 
@@ -9924,7 +9875,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions
+              GET /graph/institutions
                   ?q=displayName:"Open" AND types:education AND countryCode:GB
                   &orderby=displayName:asc
                   &select=institutionId,rorId,displayName,countryCode,types,status
@@ -9955,7 +9906,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/institutions" \
+                --url "https://api.core.ac.uk/graph/institutions" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -10014,7 +9965,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&orderby=displayName:asc
+              GET /graph/institutions?q=types:education&orderby=displayName:asc
 
               ```
 
@@ -10042,7 +9993,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?orderby=establishedYear:asc
+              GET /graph/institutions?orderby=establishedYear:asc
 
               ```
 
@@ -10069,7 +10020,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?orderby=countryCode:asc,displayName:asc
+              GET /graph/institutions?orderby=countryCode:asc,displayName:asc
 
               ```
 
@@ -10079,7 +10030,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=countryCode:GB&orderby=displayName:asc
+              GET /graph/institutions?q=countryCode:GB&orderby=displayName:asc
 
               ```
 
@@ -10092,7 +10043,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?orderby=updatedAt:desc
+              GET /graph/institutions?orderby=updatedAt:desc
 
               ```
 
@@ -10123,7 +10074,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/institutions?q=status:active&facets=types,status,countryCode&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/institutions?q=status:active&facets=types,status,countryCode&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10134,7 +10085,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/institutions" \
+                --url "https://api.core.ac.uk/graph/institutions" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -10209,7 +10160,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&count=true
+              GET /graph/institutions?q=types:education&count=true
 
               ```
 
@@ -10241,7 +10192,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=0
+              GET /graph/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=0
 
               ```
 
@@ -10251,7 +10202,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=20
+              GET /graph/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=20
 
               ```
 
@@ -10302,7 +10253,7 @@ items:
 
 
 
-              #### R﻿esponses
+              #### Search responses
 
 
               | Status | Description |
@@ -10337,7 +10288,7 @@ items:
 
               ```
 
-              GET /v4/institutions/{institutionId}/affiliations
+              GET /graph/institutions/{institutionId}/affiliations
 
               ```
 
@@ -10350,7 +10301,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:{institutionId}
+              GET /graph/affiliations?q=institutionId:{institutionId}
 
               ```
 
@@ -10373,7 +10324,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/affiliations?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/affiliations?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10422,7 +10373,7 @@ items:
 
               ```
 
-              GET /v4/institutions/{institutionId}/dataProviders
+              GET /graph/institutions/{institutionId}/dataProviders
 
               ```
 
@@ -10439,7 +10390,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/dataProviders?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/dataProviders?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10474,7 +10425,7 @@ items:
 
               ```
 
-              GET /v4/institutions/{institutionId}/topics
+              GET /graph/institutions/{institutionId}/topics
 
               ```
 
@@ -10491,7 +10442,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/topics?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/topics?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11096,7 +11047,7 @@ items:
               | `offset=0`                          | `"offset": 0`                                    |
           - id: authorships-api-search-examples
             title: Search examples
-            descriptionAbout: >+
+            descriptionAbout: >-
               #### Search by raw Author name
 
 
@@ -11719,6 +11670,25 @@ items:
 
               ```
 
+
+              #### Search responses
+
+
+              | **Status** | **Description** |
+
+              | --- | --- |
+
+              | 200 | The Authorship search was completed successfully. |
+
+              | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | 401 | Authentication credentials are missing or invalid. |
+
+              | 413 | The POST request body exceeds the permitted size. |
+
+              | 429 | The API request limit has been exceeded. |
+
+              | 500 | An unexpected server error occurred. |
           - id: authorships-api-relationship-endpoints
             title: Relationship-oriented endpoints
             descriptionAbout: >
@@ -13469,9 +13439,12 @@ items:
               #### Affiliations for an Institution
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/institutions/{institutionId}/affiliations
+              GET /graph/institutions/{institutionId}/affiliations
 
 
 
@@ -13486,7 +13459,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:{institutionId}
+              GET /graph/affiliations?q=institutionId:{institutionId}
 
 
 
@@ -13513,9 +13486,12 @@ items:
               #### Authorships for an Affiliation
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/affiliations/{affiliationId}/authorships
+              GET /graph/affiliations/{affiliationId}/authorships
 
 
 
@@ -13531,7 +13507,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/affiliations/901/authorships?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/affiliations/901/authorships?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
@@ -13583,9 +13559,12 @@ items:
               #### Affiliations for an Authorship
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authorships/{authorshipId}/affiliations
+              GET /graph/authorships/{authorshipId}/affiliations
 
 
 
@@ -13601,9 +13580,12 @@ items:
               #### Affiliations for an Author
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
 
 
@@ -13613,14 +13595,6 @@ items:
               Retrieves Affiliation records associated with an Author.
       - item: Authors
         sections:
-          - divider: false
-            border: false
-            id: authors-api-status
-            title: Authors
-            note: >-
-              **Under Development:** Authors is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: authors-api-introduction
@@ -13885,17 +13859,17 @@ items:
 
               | ---------------------------------------- | ---------- | ------------------------------------- |
 
-              | Get a single Author                      | GET        | `/v4/authors/{authorId}`              |
+              | Get a single Author                      | GET        | `/graph/authors/{authorId}`              |
 
-              | Search Authors using URL parameters      | GET        | `/v4/search/authors`                  |
+              | Search Authors using URL parameters      | GET        | `/graph/authors`                  |
 
-              | Search Authors using a JSON request body | POST       | `/v4/search/authors`                  |
+              | Search Authors using a JSON request body | POST       | `/graph/authors`                  |
 
-              | Retrieve Authorships for an Author       | GET        | `/v4/authors/{authorId}/authorships`  |
+              | Retrieve Authorships for an Author       | GET        | `/graph/authors/{authorId}/authorships`  |
 
-              | Retrieve Works for an Author             | GET        | `/v4/authors/{authorId}/works`        |
+              | Retrieve Works for an Author             | GET        | `/graph/authors/{authorId}/works`        |
 
-              | Retrieve Affiliations for an Author      | GET        | `/v4/authors/{authorId}/affiliations` |
+              | Retrieve Affiliations for an Author      | GET        | `/graph/authors/{authorId}/affiliations` |
 
 
               #### Get a single Author
@@ -13906,7 +13880,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/authors/{authorId}
+              GET https://api.core.ac.uk/graph/authors/{authorId}
 
               ```
 
@@ -13949,7 +13923,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890" \
+                --url "https://api.core.ac.uk/graph/authors/67890" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
@@ -13999,7 +13973,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890?select=authorId,orcidId,displayName,countries,keywords" \
+                --url "https://api.core.ac.uk/graph/authors/67890?select=authorId,orcidId,displayName,countries,keywords" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
               ```
@@ -14039,9 +14013,9 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/search/authors 
+              GET https://api.core.ac.uk/graph/authors 
 
-              POST https://api.core.ac.uk/v4/search/authors
+              POST https://api.core.ac.uk/graph/authors
 
               ```
 
@@ -14132,7 +14106,7 @@ items:
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authors?q=displayName:"Alice%20Smith"' \
+                --url 'https://api.core.ac.uk/graph/authors?q=displayName:"Alice%20Smith"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -14142,7 +14116,7 @@ items:
 
               ```
 
-              GET /v4/search/authors?q=displayName:"Alice Smith"
+              GET /graph/authors?q=displayName:"Alice Smith"
 
               ```
 
@@ -14152,7 +14126,7 @@ items:
 
               ```
 
-              GET /v4/search/authors?q="Alice Smith"
+              GET /graph/authors?q="Alice Smith"
 
               ```
 
@@ -14163,7 +14137,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authors" \
+                --url "https://api.core.ac.uk/graph/authors" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -14196,17 +14170,17 @@ items:
               #### **Retrieve an Author by ORCID**
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=orcidId:"0000-0002-1825-0097"
+              GET /graph/authors?q=orcidId:"0000-0002-1825-0097"
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14221,19 +14195,19 @@ items:
               #### Search by research keyword
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=keywords:"Machine Learning"
+              GET /graph/authors?q=keywords:"Machine Learning"
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14250,19 +14224,19 @@ items:
               #### Retrieve Authors associated with a country
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=countries:GB
+              GET /graph/authors?q=countries:GB
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14280,19 +14254,19 @@ items:
               #### **Retrieve Authors by career stage**
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=careerStage:early-career
+              GET /graph/authors?q=careerStage:early-career
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14309,19 +14283,19 @@ items:
               #### **Retrieve Authors with ORCID identifiers**
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=_exists_:orcidId
+              GET /graph/authors?q=_exists_:orcidId
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14356,13 +14330,13 @@ items:
               * returns a maximum of ten records.
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authors?q=keywords:"Machine%20Learning"%20AND%20countries:GB&orderby=displayName:asc&select=authorId,orcidId,displayName,countries,careerStage,keywords&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/authors?q=keywords:"Machine%20Learning"%20AND%20countries:GB&orderby=displayName:asc&select=authorId,orcidId,displayName,countries,careerStage,keywords&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
@@ -14374,7 +14348,7 @@ items:
 
               ```
 
-              GET /v4/search/authors
+              GET /graph/authors
                   ?q=keywords:"Machine Learning" AND countries:GB
                   &orderby=displayName:asc
                   &select=authorId,orcidId,displayName,countries,careerStage,keywords
@@ -14384,13 +14358,13 @@ items:
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authors" \
+                --url "https://api.core.ac.uk/graph/authors" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -14452,19 +14426,19 @@ items:
               ##### Order by display name
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=displayName:asc
+              GET /graph/authors?orderby=displayName:asc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14483,19 +14457,19 @@ items:
               ##### Order by creation date
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=createdDate:asc
+              GET /graph/authors?orderby=createdDate:asc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14514,19 +14488,19 @@ items:
               ##### Order by update date
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=updatedDate:desc
+              GET /graph/authors?orderby=updatedDate:desc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14545,19 +14519,19 @@ items:
               ##### Order by multiple fields
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=displayName:asc,updatedDate:desc
+              GET /graph/authors?orderby=displayName:asc,updatedDate:desc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14585,26 +14559,26 @@ items:
               The facets option returns value buckets and counts for fields configured as facetable.
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authors?q=*&facets=countries,careerStage,keywords&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/authors?q=*&facets=countries,careerStage,keywords&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authors" \
+                --url "https://api.core.ac.uk/graph/authors" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -14685,21 +14659,20 @@ items:
               Set count=true to include the total number of matching Author records.
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=countries:GB&count=true
+              GET /graph/authors?q=countries:GB&count=true
 
 
 
               ```
 
 
-              \
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14726,29 +14699,29 @@ items:
               A deterministic orderby expression should be used when retrieving multiple pages.
 
 
-              F﻿irst page using GET
+              F﻿irst page using GET:
 
 
               ```
 
-              GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=0
+              GET /graph/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=0
 
 
 
               ```
 
 
-              Second page using GET
+              Second page using GET:
 
 
               ```
 
-              GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=20
+              GET /graph/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=20
 
               ```
 
 
-              First page using POST
+              First page using POST:
 
 
               ```
@@ -14767,9 +14740,8 @@ items:
               ```
 
 
-              \
 
-              Second page using POST
+              Second page using POST:
 
 
               ```
@@ -14792,6 +14764,26 @@ items:
 
 
               offset = page size × number of previous pages
+
+
+              ### Search responses
+
+
+              | **Status** | **Description** |
+
+              | --- | --- |
+
+              | 200 | The Author search was completed successfully. |
+
+              | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | 401 | Authentication credentials are missing or invalid. |
+
+              | 413 | The POST request body exceeds the permitted size. |
+
+              | 429 | The API request limit has been exceeded. |
+
+              | 500 | An unexpected server error occurred. |
           - divider: false
             border: false
             id: authors-api-relationship-oriented-endpoints
@@ -14806,24 +14798,27 @@ items:
 
               #### Authorships for an Author
 
-
-              ```
-
-              GET /v4/authors/{authorId}/authorships
-
+              G﻿ET:
 
 
               ```
 
+              GET /graph/authors/{authorId}/authorships
 
-              Retrieves Authorship records associated with the Author.\
+
+
+              ```
+
+
+              Retrieves Authorship records associated with the Author.
+
 
               Equivalent GET search:
 
 
               ```
 
-              GET /v4/search/authorships?q=authorId:{authorId}
+              GET /graph/authorships?q=authorId:{authorId}
 
 
 
@@ -14844,20 +14839,20 @@ items:
               ```
 
 
-              E﻿xample request
+              E﻿xample request:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890/authorships?orderby=workId:asc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/authors/67890/authorships?orderby=workId:asc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
               ```
 
 
-              E﻿xample response
+              E﻿xample response:
 
 
               ```
@@ -14896,9 +14891,12 @@ items:
               #### Works for an Author
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authors/{authorId}/works
+              GET /graph/authors/{authorId}/works
 
 
 
@@ -14908,18 +14906,18 @@ items:
               Retrieves Works connected to the Author through Authorship records.
 
 
-              E﻿xample request
+              E﻿xample request:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890/works?select=workId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/authors/67890/works?select=workId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              E﻿xample response
+              E﻿xample response:
 
 
               ```
@@ -14947,7 +14945,6 @@ items:
               ```
 
 
-              \
 
               An existing Author with no connected Works returns 200 with an empty results array.
 
@@ -14955,9 +14952,12 @@ items:
               #### Affiliations for an Author
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
 
 
@@ -14972,7 +14972,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:{authorId}&orderby=startDate:asc
+              GET /graph/affiliations?q=authorId:{authorId}&orderby=startDate:asc
 
 
 
@@ -14996,20 +14996,20 @@ items:
               ```
 
 
-              E﻿xample request
+              E﻿xample request:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890/affiliations?orderby=startDate:asc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/authors/67890/affiliations?orderby=startDate:asc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
               ```
 
 
-              E﻿xample response
+              E﻿xample response:
 
 
               ```
@@ -15050,14 +15050,6 @@ items:
               An existing Author with no connected Affiliations returns 200 with an empty results array.
       - item: Citations
         sections:
-          - divider: false
-            border: false
-            id: citations-api-status
-            title: Citations
-            note: >-
-              **Under Development:** Citations is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: citations-api-introduction
@@ -15703,19 +15695,19 @@ items:
 
               | ------------------------------------- | ---------- | ---------------------------------------- |
 
-              | Get a single Citation                 | `GET`      | `/v4/citations/{citationId}`             |
+              | Get a single Citation                 | `GET`      | `/graph/citations/{citationId}`             |
 
-              | Search Citations using URL parameters | `GET`      | `/v4/search/citations`                   |
+              | Search Citations using URL parameters | `GET`      | `/graph/citations`                   |
 
-              | Search Citations using a JSON body    | `POST`     | `/v4/search/citations`                   |
+              | Search Citations using a JSON body    | `POST`     | `/graph/citations`                   |
 
-              | Retrieve citations made by a Work     | `GET`      | `/v4/works/{workId}/citations`           |
+              | Retrieve citations made by a Work     | `GET`      | `/graph/works/{workId}/citations`           |
 
-              | Retrieve Works citing a Work          | `GET`      | `/v4/works/{workId}/cited-by`            |
+              | Retrieve Works citing a Work          | `GET`      | `/graph/works/{workId}/cited-by`            |
 
-              | Retrieve the citing Work              | `GET`      | `/v4/citations/{citationId}/citing-work` |
+              | Retrieve the citing Work              | `GET`      | `/graph/citations/{citationId}/citing-work` |
 
-              | Retrieve the cited Work               | `GET`      | `/v4/citations/{citationId}/cited-work`  |
+              | Retrieve the cited Work               | `GET`      | `/graph/citations/{citationId}/cited-work`  |
 
 
               #### Get a single Citation
@@ -15729,7 +15721,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/citations/{citationId}
+              GET https://api.core.ac.uk/graph/citations/{citationId}
 
               ```
 
@@ -15770,7 +15762,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/citations/1256789" \
+                --url "https://api.core.ac.uk/graph/citations/1256789" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -15781,7 +15773,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/citations/1256789?select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi" \
+                --url "https://api.core.ac.uk/graph/citations/1256789?select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -15817,9 +15809,9 @@ items:
 
               | ---------- | -------------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/citations> |
+              | `GET`      | <https://api.core.ac.uk/graph/citations> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/citations> |
+              | `POST`     | <https://api.core.ac.uk/graph/citations> |
 
 
               Both methods use the same CORE query language and return the same response structure.
@@ -15941,7 +15933,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:345678
+              GET /graph/citations?q=citingWorkId:345678
 
               ```
 
@@ -15969,7 +15961,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:23456
+              GET /graph/citations?q=citedWorkId:23456
 
               ```
 
@@ -15994,7 +15986,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=openCitationId:"oci:0610200888-0613012615"
+              GET /graph/citations?q=openCitationId:"oci:0610200888-0613012615"
 
               ```
 
@@ -16019,7 +16011,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingDoi:"10.1000/xyz123"
+              GET /graph/citations?q=citingDoi:"10.1000/xyz123"
 
               ```
 
@@ -16044,7 +16036,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+              GET /graph/citations?q=citedDoi:"10.1000/abc456"
 
               ```
 
@@ -16072,7 +16064,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=NOT _exists_:citedWorkId
+              GET /graph/citations?q=NOT _exists_:citedWorkId
 
               ```
 
@@ -16107,7 +16099,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=reference.articleTitle:"Quantum effects"
+              GET /graph/citations?q=reference.articleTitle:"Quantum effects"
 
               ```
 
@@ -16132,7 +16124,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=reference.unstructured:"quantum materials"
+              GET /graph/citations?q=reference.unstructured:"quantum materials"
 
               ```
 
@@ -16154,7 +16146,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q="quantum materials"
+              GET /graph/citations?q="quantum materials"
 
               ```
 
@@ -16180,7 +16172,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=metrics.authorSelfCitation:true
+              GET /graph/citations?q=metrics.authorSelfCitation:true
 
               ```
 
@@ -16205,7 +16197,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=metrics.journalSelfCitation:true
+              GET /graph/citations?q=metrics.journalSelfCitation:true
 
               ```
 
@@ -16230,7 +16222,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=creationDate>="2022-01-01"
+              GET /graph/citations?q=creationDate>="2022-01-01"
 
               ```
 
@@ -16274,7 +16266,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/citations?q=citingWorkId%3A345678%20AND%20creationDate%3E%3D%222022-01-01%22%20AND%20_exists_%3AcitedWorkId&orderby=creationDate%3Adesc&select=citationId%2CopenCitationId%2CcitingWorkId%2CcitedWorkId%2CcitingDoi%2CcitedDoi%2CcreationDate&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/citations?q=citingWorkId%3A345678%20AND%20creationDate%3E%3D%222022-01-01%22%20AND%20_exists_%3AcitedWorkId&orderby=creationDate%3Adesc&select=citationId%2CopenCitationId%2CcitingWorkId%2CcitedWorkId%2CcitingDoi%2CcitedDoi%2CcreationDate&count=true&limit=10&offset=0' \
                 --header 'Authorization: Bearer YOUR_API_KEY'
               ```
 
@@ -16284,7 +16276,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations
+              GET /graph/citations
                   ?q=citingWorkId:345678 AND creationDate>="2022-01-01" AND _exists_:citedWorkId
                   &orderby=creationDate:desc
                   &select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi,creationDate
@@ -16300,7 +16292,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --url 'https://api.core.ac.uk/graph/citations' \
                 --header 'Authorization: Bearer YOUR_API_KEY' \
                 --header 'Content-Type: application/json' \
                 --data '{
@@ -16361,7 +16353,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?orderby=creationDate:desc
+              GET /graph/citations?orderby=creationDate:desc
 
               ```
 
@@ -16388,7 +16380,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?orderby=citingWorkId:asc,creationDate:desc
+              GET /graph/citations?orderby=citingWorkId:asc,creationDate:desc
 
               ```
 
@@ -16426,7 +16418,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/citations?q=%2A&facets=metrics.authorSelfCitation%2Cmetrics.journalSelfCitation&count=true&limit=0' \
+                --url 'https://api.core.ac.uk/graph/citations?q=%2A&facets=metrics.authorSelfCitation%2Cmetrics.journalSelfCitation&count=true&limit=0' \
                 --header 'Authorization: Bearer YOUR_API_KEY'
               ```
 
@@ -16437,7 +16429,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --url 'https://api.core.ac.uk/graph/citations' \
                 --header 'Authorization: Bearer YOUR_API_KEY' \
                 --header 'Content-Type: application/json' \
                 --data '{
@@ -16501,7 +16493,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:23456&count=true
+              GET /graph/citations?q=citedWorkId:23456&count=true
 
               ```
 
@@ -16536,7 +16528,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=0
+              GET /graph/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=0
 
               ```
 
@@ -16546,7 +16538,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=20
+              GET /graph/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=20
 
               ```
 
@@ -16595,7 +16587,7 @@ items:
               ```
 
 
-              #### Responses
+              #### Search responses
 
 
               | **Status** | **Description**                                                                                                 |
@@ -16622,9 +16614,12 @@ items:
               #### Citations made by a Work
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/works/{workId}/citations
+              GET /graph/works/{workId}/citations
 
               ```
 
@@ -16644,7 +16639,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:{workId}
+              GET /graph/citations?q=citingWorkId:{workId}
 
               ```
 
@@ -16654,7 +16649,7 @@ items:
 
               ```http
 
-              GET /v4/works/345678/citations
+              GET /graph/works/345678/citations
 
               ```
 
@@ -16688,9 +16683,12 @@ items:
               #### Works citing a Work
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/works/{workId}/cited-by
+              GET /graph/works/{workId}/cited-by
 
               ```
 
@@ -16710,7 +16708,7 @@ items:
 
               ```http
 
-              GET /v4/works/23456/cited-by
+              GET /graph/works/23456/cited-by
 
               ```
 
@@ -16742,7 +16740,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:{workId}
+              GET /graph/citations?q=citedWorkId:{workId}
 
               ```
 
@@ -16752,7 +16750,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:23456
+              GET /graph/citations?q=citedWorkId:23456
 
               ```
 
@@ -16760,9 +16758,12 @@ items:
               #### Citing Work of a Citation
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/citations/{citationId}/citing-work
+              GET /graph/citations/{citationId}/citing-work
 
               ```
 
@@ -16786,7 +16787,7 @@ items:
 
               ```http
 
-              GET /v4/citations/1256789/citing-work
+              GET /graph/citations/1256789/citing-work
 
               ```
 
@@ -16807,9 +16808,12 @@ items:
               #### Cited Work of a Citation
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/citations/{citationId}/cited-work
+              GET /graph/citations/{citationId}/cited-work
 
               ```
 
@@ -16830,7 +16834,7 @@ items:
 
               ```http
 
-              GET /v4/citations/1256789/cited-work
+              GET /graph/citations/1256789/cited-work
 
               ```
 
@@ -16863,19 +16867,11 @@ items:
 
               ```http
 
-              GET /v4/citations/{citationId}
+              GET /graph/citations/{citationId}
 
               ```
       - item: Topics
         sections:
-          - divider: false
-            border: false
-            id: topics-api-status
-            title: Topics
-            note: >-
-              **Under Development:** Topics is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: topics-api-introduction
@@ -17515,13 +17511,13 @@ items:
 
               | --------------------------------------- | ---------- | ---------------------------- |
 
-              | Get a single Topic                      | `GET`      | `/v4/topics/{topicId}`       |
+              | Get a single Topic                      | `GET`      | `/graph/topics/{topicId}`       |
 
-              | Search Topics using URL parameters      | `GET`      | `/v4/search/topics`          |
+              | Search Topics using URL parameters      | `GET`      | `/graph/topics`          |
 
-              | Search Topics using a JSON request body | `POST`     | `/v4/search/topics`          |
+              | Search Topics using a JSON request body | `POST`     | `/graph/topics`          |
 
-              | Retrieve Works associated with a Topic  | `GET`      | `/v4/topics/{topicId}/works` |
+              | Retrieve Works associated with a Topic  | `GET`      | `/graph/topics/{topicId}/works` |
 
 
               A reverse relationship may also be exposed:
@@ -17529,7 +17525,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/topics
+              GET /graph/works/{workId}/topics
 
               ```
 
@@ -17548,7 +17544,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/topics/{topicId}
+              GET https://api.core.ac.uk/graph/topics/{topicId}
 
               ```
 
@@ -17589,7 +17585,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/topics/12345" \
+                --url "https://api.core.ac.uk/graph/topics/12345" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -17600,7 +17596,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/topics/12345?select=topicId,label,domainName,fieldName,subfieldName" \
+                --url "https://api.core.ac.uk/graph/topics/12345?select=topicId,label,domainName,fieldName,subfieldName" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -17632,7 +17628,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=label:"particle physics"
+              GET /graph/topics?q=label:"particle physics"
 
               ```
 
@@ -17654,7 +17650,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q="particle physics"
+              GET /graph/topics?q="particle physics"
 
               ```
 
@@ -17670,7 +17666,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=domainName:"Physical Sciences"
+              GET /graph/topics?q=domainName:"Physical Sciences"
 
               ```
 
@@ -17695,7 +17691,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=fieldName:"Physics and Astronomy"
+              GET /graph/topics?q=fieldName:"Physics and Astronomy"
 
               ```
 
@@ -17720,7 +17716,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=subfieldName:"Nuclear and High Energy Physics"
+              GET /graph/topics?q=subfieldName:"Nuclear and High Energy Physics"
 
               ```
 
@@ -17745,7 +17741,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=isControlled:true
+              GET /graph/topics?q=isControlled:true
 
               ```
 
@@ -17770,7 +17766,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=source:OpenAIRE
+              GET /graph/topics?q=source:OpenAIRE
 
               ```
 
@@ -17795,7 +17791,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=scheme:DDC
+              GET /graph/topics?q=scheme:DDC
 
               ```
 
@@ -17820,7 +17816,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=trustScore>=0.8
+              GET /graph/topics?q=trustScore>=0.8
 
               ```
 
@@ -17845,7 +17841,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=score>=0.9
+              GET /graph/topics?q=score>=0.9
 
               ```
 
@@ -17870,7 +17866,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=language:en
+              GET /graph/topics?q=language:en
 
               ```
 
@@ -17895,7 +17891,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=_exists_:spatial
+              GET /graph/topics?q=_exists_:spatial
 
               ```
 
@@ -17923,7 +17919,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics
+              GET /graph/topics
                   ?q=*
                   &facets=type,language,scheme,source,domainName,fieldName,subfieldName,isControlled
                   &count=true
@@ -17980,7 +17976,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?orderby=label:asc
+              GET /graph/topics?orderby=label:asc
 
               ```
 
@@ -17990,12 +17986,12 @@ items:
 
               ```http
 
-              GET /v4/search/topics?orderby=score:desc
+              GET /graph/topics?orderby=score:desc
 
               ```
 
 
-              #### Search Topics responses
+              #### Search responses
 
 
               | **Status** | **Description**                                                                                  |
@@ -18022,9 +18018,12 @@ items:
               #### Works associated with a Topic
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/topics/{topicId}/works
+              GET /graph/topics/{topicId}/works
 
               ```
 
@@ -18038,7 +18037,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/topics/12345/works" \
+                --url "https://api.core.ac.uk/graph/topics/12345/works" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -18075,7 +18074,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/topics
+              GET /graph/works/{workId}/topics
 
               ```
 
@@ -18089,7 +18088,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168/topics" \
+                --url "https://api.core.ac.uk/graph/works/323030168/topics" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -18114,14 +18113,6 @@ items:
               ```
       - item: Publishers
         sections:
-          - divider: false
-            border: false
-            id: publishers-api-status
-            title: Publishers
-            note: >-
-              **Under Development:** Publishers is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: publishers-api-introduction
@@ -18491,19 +18482,19 @@ items:
 
               | ----------------------------------------------- | ---------- | --------------------------------------------- |
 
-              | Get a single Publishers record                  | `GET`      | `/v4/publishers/{publisherId}`                |
+              | Get a single Publishers record                  | `GET`      | `/graph/publishers/{publisherId}`                |
 
-              | Search Publishers using URL parameters          | `GET`      | `/v4/search/publishers`                       |
+              | Search Publishers using URL parameters          | `GET`      | `/graph/publishers`                       |
 
-              | Search Publishers using a JSON request body     | `POST`     | `/v4/search/publishers`                       |
+              | Search Publishers using a JSON request body     | `POST`     | `/graph/publishers`                       |
 
-              | Retrieve Outputs for a Publishers record        | `GET`      | `/v4/publishers/{publisherId}/outputs`        |
+              | Retrieve Outputs for a Publishers record        | `GET`      | `/graph/publishers/{publisherId}/outputs`        |
 
-              | Retrieve Journals for a Publishers record       | `GET`      | `/v4/publishers/{publisherId}/journals`       |
+              | Retrieve Journals for a Publishers record       | `GET`      | `/graph/publishers/{publisherId}/journals`       |
 
-              | Retrieve Data Providers for a Publishers record | `GET`      | `/v4/publishers/{publisherId}/data-providers` |
+              | Retrieve Data Providers for a Publishers record | `GET`      | `/graph/publishers/{publisherId}/data-providers` |
 
-              | Retrieve child Publishers records               | `GET`      | `/v4/publishers/{publisherId}/children`       |
+              | Retrieve child Publishers records               | `GET`      | `/graph/publishers/{publisherId}/children`       |
 
 
               #### Get a single Publishers record
@@ -18514,7 +18505,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/publishers/{publisherId}
+              GET https://api.core.ac.uk/graph/publishers/{publisherId}
 
               ```
 
@@ -18555,7 +18546,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/publishers/8102" \
+                --url "https://api.core.ac.uk/graph/publishers/8102" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -18590,7 +18581,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/publishers/8102?select=publisherId,publisherName,publisherCountryCodes,publisherHomepageUrl" \
+                --url "https://api.core.ac.uk/graph/publishers/8102?select=publisherId,publisherName,publisherCountryCodes,publisherHomepageUrl" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -18647,9 +18638,9 @@ items:
 
               | ---------- | --------------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/publishers> |
+              | `GET`      | <https://api.core.ac.uk/graph/publishers> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/publishers> |
+              | `POST`     | <https://api.core.ac.uk/graph/publishers> |
 
 
               Both methods use the same CORE query language and return the same Publishers search-response structure.
@@ -18732,7 +18723,7 @@ items:
             border: false
             id: publishers-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >
               #### Search by Publishers name
 
 
@@ -18741,7 +18732,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherName:"Springer Nature"
+              GET /graph/publishers?q=publisherName:"Springer Nature"
 
               ```
 
@@ -18763,7 +18754,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q="Springer Nature"
+              GET /graph/publishers?q="Springer Nature"
 
               ```
 
@@ -18793,7 +18784,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRorId:"https://ror.org/0117jxy09"
+              GET /graph/publishers?q=publisherRorId:"https://ror.org/0117jxy09"
 
               ```
 
@@ -18815,7 +18806,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherIds.scheme:ror AND publisherIds.value:0117jxy09
+              GET /graph/publishers?q=publisherIds.scheme:ror AND publisherIds.value:0117jxy09
 
               ```
 
@@ -18831,7 +18822,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherCountryCodes:DE
+              GET /graph/publishers?q=publisherCountryCodes:DE
 
               ```
 
@@ -18853,7 +18844,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+              GET /graph/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
 
               ```
 
@@ -18863,7 +18854,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRoles.role:publisher
+              GET /graph/publishers?q=publisherRoles.role:publisher
 
               ```
 
@@ -18876,7 +18867,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherWorksCount>=100000&orderby=publisherWorksCount:desc
+              GET /graph/publishers?q=publisherWorksCount>=100000&orderby=publisherWorksCount:desc
 
               ```
 
@@ -18901,7 +18892,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=_exists_:publisherRorId
+              GET /graph/publishers?q=_exists_:publisherRorId
 
               ```
 
@@ -18930,7 +18921,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers
+              GET /graph/publishers
                   ?q=publisherCountryCodes:DE AND publisherWorksCount>=10000
                   &orderby=publisherWorksCount:desc
                   &select=publisherId,publisherName,publisherCountryCodes,publisherWorksCount,publisherCitedByCount
@@ -18946,7 +18937,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/publishers" \
+                --url "https://api.core.ac.uk/graph/publishers" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -19004,9 +18995,12 @@ items:
               ##### Order by preferred name
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/publishers?orderby=publisherName:asc
+              GET /graph/publishers?orderby=publisherName:asc
 
               ```
 
@@ -19014,9 +19008,12 @@ items:
               ##### Order by Work count
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/publishers?orderby=publisherWorksCount:desc
+              GET /graph/publishers?orderby=publisherWorksCount:desc
 
               ```
 
@@ -19029,7 +19026,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?orderby=publisherHierarchyLevel:asc,publisherName:asc
+              GET /graph/publishers?orderby=publisherHierarchyLevel:asc,publisherName:asc
 
               ```
 
@@ -19063,7 +19060,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=*&facets=publisherCountryCodes,publisherRoles.role,publisherHierarchyLevel&count=true&limit=0
+              GET /graph/publishers?q=*&facets=publisherCountryCodes,publisherRoles.role,publisherHierarchyLevel&count=true&limit=0
 
               ```
 
@@ -19154,7 +19151,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherCountryCodes:GB&count=true
+              GET /graph/publishers?q=publisherCountryCodes:GB&count=true
 
               ```
 
@@ -19173,7 +19170,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=0
+              GET /graph/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=0
 
               ```
 
@@ -19183,7 +19180,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=20
+              GET /graph/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=20
 
               ```
 
@@ -19216,9 +19213,6 @@ items:
               | `429`      | The API request limit has been exceeded.                                                                        |
 
               | `500`      | An unexpected server error occurred.                                                                            |
-
-
-              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
           - divider: false
             border: false
             id: publishers-api-relationship-oriented-endpoints
@@ -19236,7 +19230,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/outputs
+              GET /graph/publishers/{publisherId}/outputs
 
               ```
 
@@ -19249,7 +19243,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=publisherId:{publisherId}
+              GET /graph/outputs?q=publisherId:{publisherId}
 
               ```
 
@@ -19259,7 +19253,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/8102/outputs?select=outputId,title,doi,publishedDate&orderby=publishedDate:desc&count=true&limit=10&offset=0
+              GET /graph/publishers/8102/outputs?select=outputId,title,doi,publishedDate&orderby=publishedDate:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -19269,7 +19263,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/journals
+              GET /graph/publishers/{publisherId}/journals
 
               ```
 
@@ -19282,7 +19276,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=publisherId:{publisherId}
+              GET /graph/journals?q=publisherId:{publisherId}
 
               ```
 
@@ -19292,7 +19286,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/8102/journals?select=journalId,title,issn&orderby=title:asc&count=true&limit=10&offset=0
+              GET /graph/publishers/8102/journals?select=journalId,title,issn&orderby=title:asc&count=true&limit=10&offset=0
 
               ```
 
@@ -19302,7 +19296,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/data-providers
+              GET /graph/publishers/{publisherId}/data-providers
 
               ```
 
@@ -19315,7 +19309,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=publisherId:{publisherId}
+              GET /graph/data-providers?q=publisherId:{publisherId}
 
               ```
 
@@ -19325,7 +19319,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/8102/data-providers?select=dataProviderId,name,type&orderby=name:asc&count=true&limit=10&offset=0
+              GET /graph/publishers/8102/data-providers?select=dataProviderId,name,type&orderby=name:asc&count=true&limit=10&offset=0
 
               ```
 
@@ -19335,7 +19329,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/children
+              GET /graph/publishers/{publisherId}/children
 
               ```
 
@@ -19348,7 +19342,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+              GET /graph/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
 
               ```
 
@@ -19358,7 +19352,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherParentId:{publisherId}
+              GET /graph/publishers?q=publisherParentId:{publisherId}
 
               ```
 
@@ -19366,14 +19360,6 @@ items:
               An existing Publishers record with no related records returns `200 OK` with an empty `results` array. If the supplied Publishers record does not exist, the relationship endpoint returns `404 Not Found`.
       - item: Projects
         sections:
-          - divider: false
-            border: false
-            id: projects-api-status
-            title: Projects
-            note: >-
-              **Under Development:** Projects is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: projects-api-introduction
@@ -19685,15 +19671,15 @@ items:
 
               | ----------------------------------------- | ---------- | --------------------------------- |
 
-              | Get a single Projects record              | `GET`      | `/v4/projects/{projectId}`        |
+              | Get a single Projects record              | `GET`      | `/graph/projects/{projectId}`        |
 
-              | Search Projects using URL parameters      | `GET`      | `/v4/search/projects`             |
+              | Search Projects using URL parameters      | `GET`      | `/graph/projects`             |
 
-              | Search Projects using a JSON request body | `POST`     | `/v4/search/projects`             |
+              | Search Projects using a JSON request body | `POST`     | `/graph/projects`             |
 
-              | Retrieve Works for a Projects record      | `GET`      | `/v4/projects/{projectId}/works`  |
+              | Retrieve Works for a Projects record      | `GET`      | `/graph/projects/{projectId}/works`  |
 
-              | Retrieve Grants for a Projects record     | `GET`      | `/v4/projects/{projectId}/grants` |
+              | Retrieve Grants for a Projects record     | `GET`      | `/graph/projects/{projectId}/grants` |
 
 
               #### Get a single Projects record
@@ -19704,7 +19690,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/projects/{projectId}
+              GET https://api.core.ac.uk/graph/projects/{projectId}
 
               ```
 
@@ -19748,7 +19734,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001" \
+                --url "https://api.core.ac.uk/graph/projects/coreproj____%3A%3A001" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -19790,7 +19776,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001?select=projectId,title,acronym,startDate,endDate" \
+                --url "https://api.core.ac.uk/graph/projects/coreproj____%3A%3A001?select=projectId,title,acronym,startDate,endDate" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -19845,9 +19831,9 @@ items:
 
               | ---------- | ------------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/projects> |
+              | `GET`      | <https://api.core.ac.uk/graph/projects> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/projects> |
+              | `POST`     | <https://api.core.ac.uk/graph/projects> |
 
 
               Both methods use the same CORE query language and return the same Projects search-response structure.
@@ -19939,7 +19925,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=title:"OpenAIRE Advancing Open Scholarship"
+              GET /graph/projects?q=title:"OpenAIRE Advancing Open Scholarship"
 
               ```
 
@@ -19961,7 +19947,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q="Open Scholarship"
+              GET /graph/projects?q="Open Scholarship"
 
               ```
 
@@ -19999,7 +19985,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=openaireId:"corda__h2020::70ea22400fd890c5033cb31642c4ae68"
+              GET /graph/projects?q=openaireId:"corda__h2020::70ea22400fd890c5033cb31642c4ae68"
 
               ```
 
@@ -20019,9 +20005,12 @@ items:
               #### Retrieve a Projects record by code
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=code:777541
+              GET /graph/projects?q=code:777541
 
               ```
 
@@ -20029,9 +20018,12 @@ items:
               #### Retrieve Projects records for a funding call
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=callIdentifier:H2020-EINFRA-2017
+              GET /graph/projects?q=callIdentifier:H2020-EINFRA-2017
 
               ```
 
@@ -20039,9 +20031,12 @@ items:
               #### Search by funding organisation
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=fundings.name:"European Commission"
+              GET /graph/projects?q=fundings.name:"European Commission"
 
               ```
 
@@ -20049,9 +20044,12 @@ items:
               #### Retrieve Projects records by funding stream
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=fundings.fundingStream.id:"EC::H2020::RIA"
+              GET /graph/projects?q=fundings.fundingStream.id:"EC::H2020::RIA"
 
               ```
 
@@ -20059,9 +20057,12 @@ items:
               #### Retrieve Projects records with a publication open-access mandate
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=openAccessMandateForPublications:true
+              GET /graph/projects?q=openAccessMandateForPublications:true
 
               ```
 
@@ -20069,9 +20070,12 @@ items:
               #### Retrieve Projects records active on a particular date
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=startDate<=2020-06-01 AND endDate>=2020-06-01
+              GET /graph/projects?q=startDate<=2020-06-01 AND endDate>=2020-06-01
 
               ```
 
@@ -20082,9 +20086,12 @@ items:
               #### Retrieve Projects records above a funding threshold
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=granted.currency:EUR AND granted.fundedAmount>=1000000&orderby=granted.fundedAmount:desc
+              GET /graph/projects?q=granted.currency:EUR AND granted.fundedAmount>=1000000&orderby=granted.fundedAmount:desc
 
               ```
 
@@ -20114,7 +20121,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects
+              GET /graph/projects
                   ?q="open science" AND fundings.jurisdiction:EU AND openAccessMandateForPublications:true
                   &orderby=startDate:desc,projectId:asc
                   &select=projectId,code,acronym,title,startDate,endDate,openAccessMandateForPublications
@@ -20130,7 +20137,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/projects" \
+                --url "https://api.core.ac.uk/graph/projects" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -20190,9 +20197,12 @@ items:
               ##### Order by title
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?orderby=title:asc
+              GET /graph/projects?orderby=title:asc
 
               ```
 
@@ -20200,9 +20210,12 @@ items:
               ##### Order by start date
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?orderby=startDate:desc
+              GET /graph/projects?orderby=startDate:desc
 
               ```
 
@@ -20210,9 +20223,12 @@ items:
               ##### Order by awarded amount
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=granted.currency:EUR&orderby=granted.fundedAmount:desc
+              GET /graph/projects?q=granted.currency:EUR&orderby=granted.fundedAmount:desc
 
               ```
 
@@ -20225,7 +20241,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?orderby=startDate:desc,projectId:asc
+              GET /graph/projects?orderby=startDate:desc,projectId:asc
 
               ```
 
@@ -20259,7 +20275,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=*&facets=fundings.jurisdiction,fundings.fundingStream.id,granted.currency,openAccessMandateForPublications&count=true&limit=0
+              GET /graph/projects?q=*&facets=fundings.jurisdiction,fundings.fundingStream.id,granted.currency,openAccessMandateForPublications&count=true&limit=0
 
               ```
 
@@ -20353,7 +20369,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=fundings.jurisdiction:EU&count=true
+              GET /graph/projects?q=fundings.jurisdiction:EU&count=true
 
               ```
 
@@ -20372,7 +20388,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=0
+              GET /graph/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=0
 
               ```
 
@@ -20382,7 +20398,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=20
+              GET /graph/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=20
 
               ```
 
@@ -20435,7 +20451,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/works
+              GET /graph/projects/{projectId}/works
 
               ```
 
@@ -20451,7 +20467,7 @@ items:
 
               ```http
 
-              GET /v4/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -20461,7 +20477,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=projectIds:"coreproj____::001"
+              GET /graph/works?q=projectIds:"coreproj____::001"
 
               ```
 
@@ -20471,7 +20487,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/projects
+              GET /graph/works/{workId}/projects
 
               ```
 
@@ -20481,7 +20497,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/grants
+              GET /graph/projects/{projectId}/grants
 
               ```
 
@@ -20494,7 +20510,7 @@ items:
 
               ```http
 
-              GET /v4/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
+              GET /graph/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
 
               ```
 
@@ -20504,7 +20520,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=projectIds:"coreproj____::001"
+              GET /graph/grants?q=projectIds:"coreproj____::001"
 
               ```
 
@@ -20514,7 +20530,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/projects
+              GET /graph/grants/{grantId}/projects
 
               ```
 
@@ -20522,14 +20538,6 @@ items:
               An existing Projects record with no related records returns `200 OK` with an empty `results` array. If the supplied Projects record does not exist, the relationship endpoint returns `404 Not Found`.
       - item: Grants
         sections:
-          - divider: false
-            border: false
-            id: grants-api-status
-            title: Grants
-            note: >-
-              **Under Development:** Grants is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: grants-api-introduction
@@ -20958,19 +20966,19 @@ items:
 
               | --------------------------------------- | ---------- | ------------------------------------ |
 
-              | Get a single Grants record              | `GET`      | `/v4/grants/{grantId}`               |
+              | Get a single Grants record              | `GET`      | `/graph/grants/{grantId}`               |
 
-              | Search Grants using URL parameters      | `GET`      | `/v4/search/grants`                  |
+              | Search Grants using URL parameters      | `GET`      | `/graph/grants`                  |
 
-              | Search Grants using a JSON request body | `POST`     | `/v4/search/grants`                  |
+              | Search Grants using a JSON request body | `POST`     | `/graph/grants`                  |
 
-              | Retrieve Works for a Grants record      | `GET`      | `/v4/grants/{grantId}/works`         |
+              | Retrieve Works for a Grants record      | `GET`      | `/graph/grants/{grantId}/works`         |
 
-              | Retrieve Projects for a Grants record   | `GET`      | `/v4/grants/{grantId}/projects`      |
+              | Retrieve Projects for a Grants record   | `GET`      | `/graph/grants/{grantId}/projects`      |
 
-              | Retrieve the funding Institution        | `GET`      | `/v4/grants/{grantId}/funder`        |
+              | Retrieve the funding Institution        | `GET`      | `/graph/grants/{grantId}/funder`        |
 
-              | Retrieve investigators                  | `GET`      | `/v4/grants/{grantId}/investigators` |
+              | Retrieve investigators                  | `GET`      | `/graph/grants/{grantId}/investigators` |
 
 
               #### Get a single Grants record
@@ -20981,7 +20989,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/grants/{grantId}
+              GET https://api.core.ac.uk/graph/grants/{grantId}
 
               ```
 
@@ -21022,7 +21030,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/grants/13" \
+                --url "https://api.core.ac.uk/graph/grants/13" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -21058,7 +21066,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/grants/13?select=grantId,grantName,funderName,amount,currency,startDate,endDate" \
+                --url "https://api.core.ac.uk/graph/grants/13?select=grantId,grantName,funderName,amount,currency,startDate,endDate" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -21115,9 +21123,9 @@ items:
 
               | ---------- | ----------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/grants> |
+              | `GET`      | <https://api.core.ac.uk/graph/grants> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/grants> |
+              | `POST`     | <https://api.core.ac.uk/graph/grants> |
 
 
               Both methods use the same CORE query language and return the same Grants search-response structure.
@@ -21200,7 +21208,7 @@ items:
             border: false
             id: grants-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Search by name
 
 
@@ -21209,7 +21217,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=grantName:"AI methods for biomedical discovery"
+              GET /graph/grants?q=grantName:"AI methods for biomedical discovery"
 
               ```
 
@@ -21231,7 +21239,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q="biomedical discovery"
+              GET /graph/grants?q="biomedical discovery"
 
               ```
 
@@ -21261,22 +21269,16 @@ items:
               When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
 
 
-              #### Retrieve a Grants record by OpenAlex identifier
-
-
-              ```http
-
-              GET /v4/search/grants?q=grantOpenalexId:"https://openalex.org/G5859020988"
-
-              ```
-
 
               #### Retrieve a Grants record by DOI
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/grants?q=grantDoi:"https://doi.org/10.35802/218671"
+              GET /graph/grants?q=grantDoi:"https://doi.org/10.35802/218671"
 
               ```
 
@@ -21289,7 +21291,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderAwardId:"AH/W007622/1"
+              GET /graph/grants?q=funderAwardId:"AH/W007622/1"
 
               ```
 
@@ -21311,7 +21313,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderName:"Arts and Humanities Research Council"
+              GET /graph/grants?q=funderName:"Arts and Humanities Research Council"
 
               ```
 
@@ -21321,7 +21323,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderId:"https://ror.org/0505m1554"
+              GET /graph/grants?q=funderId:"https://ror.org/0505m1554"
 
               ```
 
@@ -21331,7 +21333,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderScheme:"Horizon Europe"
+              GET /graph/grants?q=funderScheme:"Horizon Europe"
 
               ```
 
@@ -21341,7 +21343,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP AND amount>=100000 AND amount<=500000&orderby=amount:desc
+              GET /graph/grants?q=currency:GBP AND amount>=100000 AND amount<=500000&orderby=amount:desc
 
               ```
 
@@ -21354,7 +21356,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=startDate<=2025-06-01 AND endDate>=2025-06-01
+              GET /graph/grants?q=startDate<=2025-06-01 AND endDate>=2025-06-01
 
               ```
 
@@ -21367,7 +21369,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=leadInvestigator.authorId:67890 OR coLeadInvestigator.authorId:67890 OR investigators.authorId:67890
+              GET /graph/grants?q=leadInvestigator.authorId:67890 OR coLeadInvestigator.authorId:67890 OR investigators.authorId:67890
 
               ```
 
@@ -21377,22 +21379,9 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=investigators.displayName:"David Jones"
+              GET /graph/grants?q=investigators.displayName:"David Jones"
 
               ```
-
-
-              #### Retrieve Grants records associated with an OpenAlex Work
-
-
-              ```http
-
-              GET /v4/search/grants?q=fundedOutputs:"https://openalex.org/W1234567890"
-
-              ```
-
-
-              This query uses the source-specific OpenAlex Work identifier. A canonical CORE Works relationship should instead use a CORE `workId` when available.
 
 
               #### Combined search, selection, and ordering
@@ -21417,7 +21406,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants
+              GET /graph/grants
                   ?q="biomedical discovery" AND currency:GBP AND amount>=100000 AND startYear>=2020
                   &orderby=amount:desc,grantId:asc
                   &select=grantId,grantName,funderName,amount,currency,startDate,endDate
@@ -21433,7 +21422,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/grants" \
+                --url "https://api.core.ac.uk/graph/grants" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -21495,7 +21484,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?orderby=grantName:asc
+              GET /graph/grants?orderby=grantName:asc
 
               ```
 
@@ -21505,7 +21494,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?orderby=startDate:desc
+              GET /graph/grants?orderby=startDate:desc
 
               ```
 
@@ -21515,7 +21504,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP&orderby=amount:desc
+              GET /graph/grants?q=currency:GBP&orderby=amount:desc
 
               ```
 
@@ -21528,7 +21517,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?orderby=startDate:desc,grantId:asc
+              GET /graph/grants?orderby=startDate:desc,grantId:asc
 
               ```
 
@@ -21562,7 +21551,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=*&facets=fundingType,funderScheme,currency,startYear&count=true&limit=0
+              GET /graph/grants?q=*&facets=fundingType,funderScheme,currency,startYear&count=true&limit=0
 
               ```
 
@@ -21656,7 +21645,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderScheme:"Horizon Europe"&count=true
+              GET /graph/grants?q=funderScheme:"Horizon Europe"&count=true
 
               ```
 
@@ -21675,7 +21664,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=0
+              GET /graph/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=0
 
               ```
 
@@ -21685,7 +21674,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=20
+              GET /graph/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=20
 
               ```
 
@@ -21719,13 +21708,11 @@ items:
 
               | `500`      | An unexpected server error occurred.                                                                            |
 
-
-              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
           - divider: false
             border: false
             id: grants-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
-            descriptionAbout: >-
+            descriptionAbout: >
               
               Relationship-oriented endpoints provide convenient access to entities directly connected to a Grants record. They return related records rather than embedding complete related entities in the Grants response.
 
@@ -21735,7 +21722,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/works
+              GET /graph/grants/{grantId}/works
 
               ```
 
@@ -21748,7 +21735,7 @@ items:
 
               ```http
 
-              GET /v4/grants/13/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/grants/13/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -21758,7 +21745,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=grantIds:13
+              GET /graph/works?q=grantIds:13
 
               ```
 
@@ -21768,7 +21755,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/grants
+              GET /graph/works/{workId}/grants
 
               ```
 
@@ -21778,7 +21765,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/projects
+              GET /graph/grants/{grantId}/projects
 
               ```
 
@@ -21791,7 +21778,7 @@ items:
 
               ```http
 
-              GET /v4/grants/13/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+              GET /graph/grants/13/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
 
               ```
 
@@ -21801,7 +21788,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=grantIds:13
+              GET /graph/projects?q=grantIds:13
 
               ```
 
@@ -21811,7 +21798,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/grants
+              GET /graph/projects/{projectId}/grants
 
               ```
 
@@ -21821,7 +21808,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/funder
+              GET /graph/grants/{grantId}/funder
 
               ```
 
@@ -21834,7 +21821,7 @@ items:
 
               ```http
 
-              GET /v4/grants/13/funder
+              GET /graph/grants/13/funder
 
               ```
 
@@ -21844,7 +21831,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions?q=rorId:"https://ror.org/0505m1554"
+              GET /graph/institutions?q=rorId:"https://ror.org/0505m1554"
 
               ```
 
@@ -21854,7 +21841,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/{institutionId}/grants
+              GET /graph/institutions/{institutionId}/grants
 
               ```
 
@@ -21864,7 +21851,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/investigators
+              GET /graph/grants/{grantId}/investigators
 
               ```
 
@@ -21903,25 +21890,14 @@ items:
 
               ```http
 
-              GET /v4/authors/{authorId}/grants
+              GET /graph/authors/{authorId}/grants
 
               ```
 
 
               An existing Grants record with no related records returns `200 OK` with an empty `results` array. If the supplied Grants record does not exist, a collection relationship endpoint returns `404 Not Found`.
-
-
-              If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
       - item: Funders
         sections:
-          - divider: false
-            border: false
-            id: funders-api-status
-            title: Funders
-            note: >-
-              **Under Development:** Funders is planned for inclusion in
-              the CORE Graph API but has not yet been fully specified or
-              implemented.
           - divider: false
             border: false
             id: funders-api-introduction
@@ -22224,17 +22200,17 @@ items:
 
               | ----------------------------------------------- | ---------- | --------------------------------- |
 
-              | Get a single Funders record                     | `GET`      | `/v4/funders/{funderId}`          |
+              | Get a single Funders record                     | `GET`      | `/graph/funders/{funderId}`          |
 
-              | Search Funders using URL parameters             | `GET`      | `/v4/search/funders`              |
+              | Search Funders using URL parameters             | `GET`      | `/graph/funders`              |
 
-              | Search Funders using a JSON request body        | `POST`     | `/v4/search/funders`              |
+              | Search Funders using a JSON request body        | `POST`     | `/graph/funders`              |
 
-              | Retrieve Grants awarded by a Funders record     | `GET`      | `/v4/funders/{funderId}/grants`   |
+              | Retrieve Grants awarded by a Funders record     | `GET`      | `/graph/funders/{funderId}/grants`   |
 
-              | Retrieve Projects supported by a Funders record | `GET`      | `/v4/funders/{funderId}/projects` |
+              | Retrieve Projects supported by a Funders record | `GET`      | `/graph/funders/{funderId}/projects` |
 
-              | Retrieve Works supported by a Funders record    | `GET`      | `/v4/funders/{funderId}/works`    |
+              | Retrieve Works supported by a Funders record    | `GET`      | `/graph/funders/{funderId}/works`    |
 
 
               #### Get a single Funders record
@@ -22245,7 +22221,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/funders/{funderId}
+              GET https://api.core.ac.uk/graph/funders/{funderId}
 
               ```
 
@@ -22286,7 +22262,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/funders/501" \
+                --url "https://api.core.ac.uk/graph/funders/501" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -22323,7 +22299,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/funders/501?select=funderId,name,shortName,funderDoi,jurisdiction" \
+                --url "https://api.core.ac.uk/graph/funders/501?select=funderId,name,shortName,funderDoi,jurisdiction" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -22378,9 +22354,9 @@ items:
 
               | ---------- | ------------------------------------------ |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/funders> |
+              | `GET`      | <https://api.core.ac.uk/graph/funders> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/funders> |
+              | `POST`     | <https://api.core.ac.uk/graph/funders> |
 
 
               Both methods use the same CORE query language and return the same Funders search-response structure.
@@ -22472,7 +22448,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=name:"Wellcome Trust"
+              GET /graph/funders?q=name:"Wellcome Trust"
 
               ```
 
@@ -22494,7 +22470,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q="Wellcome"
+              GET /graph/funders?q="Wellcome"
 
               ```
 
@@ -22524,7 +22500,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=funderDoi:"10.13039/100004440"
+              GET /graph/funders?q=funderDoi:"10.13039/100004440"
 
               ```
 
@@ -22546,7 +22522,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=identifiers.scheme:FUNDER_DOI AND identifiers.value:"10.13039/100004440"
+              GET /graph/funders?q=identifiers.scheme:FUNDER_DOI AND identifiers.value:"10.13039/100004440"
 
               ```
 
@@ -22559,7 +22535,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB
+              GET /graph/funders?q=jurisdiction:GB
 
               ```
 
@@ -22569,7 +22545,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=awardNumber:WT123456
+              GET /graph/funders?q=awardNumber:WT123456
 
               ```
 
@@ -22582,7 +22558,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=fundingStream:"Biomedical Research"
+              GET /graph/funders?q=fundingStream:"Biomedical Research"
 
               ```
 
@@ -22592,7 +22568,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=projectId:12034
+              GET /graph/funders?q=projectId:12034
 
               ```
 
@@ -22605,7 +22581,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=projectValidatedByFunder:true
+              GET /graph/funders?q=projectValidatedByFunder:true
 
               ```
 
@@ -22615,7 +22591,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=clinicalTrialNumbers:"NCT04512345"
+              GET /graph/funders?q=clinicalTrialNumbers:"NCT04512345"
 
               ```
 
@@ -22642,7 +22618,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders
+              GET /graph/funders
                   ?q="Wellcome" AND jurisdiction:GB AND projectValidatedByFunder:true
                   &orderby=name:asc,funderId:asc
                   &select=funderId,name,shortName,funderDoi,jurisdiction
@@ -22658,7 +22634,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/funders" \
+                --url "https://api.core.ac.uk/graph/funders" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -22716,7 +22692,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?orderby=name:asc
+              GET /graph/funders?orderby=name:asc
 
               ```
 
@@ -22726,7 +22702,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?orderby=projectValidatedDate:desc
+              GET /graph/funders?orderby=projectValidatedDate:desc
 
               ```
 
@@ -22739,7 +22715,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?orderby=name:asc,funderId:asc
+              GET /graph/funders?orderby=name:asc,funderId:asc
 
               ```
 
@@ -22773,7 +22749,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=*&facets=jurisdiction,fundingStream,identifiers.scheme,projectValidatedByFunder&count=true&limit=0
+              GET /graph/funders?q=*&facets=jurisdiction,fundingStream,identifiers.scheme,projectValidatedByFunder&count=true&limit=0
 
               ```
 
@@ -22867,7 +22843,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB&count=true
+              GET /graph/funders?q=jurisdiction:GB&count=true
 
               ```
 
@@ -22886,7 +22862,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=0
+              GET /graph/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=0
 
               ```
 
@@ -22896,7 +22872,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=20
+              GET /graph/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=20
 
               ```
 
@@ -22946,7 +22922,7 @@ items:
 
               ```http
 
-              GET /v4/funders/{funderId}/grants
+              GET /graph/funders/{funderId}/grants
 
               ```
 
@@ -22959,7 +22935,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderId:{funderId}
+              GET /graph/grants?q=funderId:{funderId}
 
               ```
 
@@ -22969,7 +22945,7 @@ items:
 
               ```http
 
-              GET /v4/funders/501/grants?select=grantId,grantName,funderAwardId,amount,currency,startDate,endDate&count=true&limit=10&offset=0
+              GET /graph/funders/501/grants?select=grantId,grantName,funderAwardId,amount,currency,startDate,endDate&count=true&limit=10&offset=0
 
               ```
 
@@ -22979,7 +22955,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/funder
+              GET /graph/grants/{grantId}/funder
 
               ```
 
@@ -22989,7 +22965,7 @@ items:
 
               ```http
 
-              GET /v4/funders/{funderId}/projects
+              GET /graph/funders/{funderId}/projects
 
               ```
 
@@ -23002,7 +22978,7 @@ items:
 
               ```http
 
-              GET /v4/funders/501/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+              GET /graph/funders/501/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
 
               ```
 
@@ -23012,7 +22988,7 @@ items:
 
               ```http
 
-              GET /v4/funders/{funderId}/works
+              GET /graph/funders/{funderId}/works
 
               ```
 
@@ -23025,7 +23001,7 @@ items:
 
               ```http
 
-              GET /v4/funders/501/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/funders/501/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -23085,10 +23061,10 @@ items:
 
               ```http
 
-              GET /v4/search/{entityType}
+              GET /graph/{entityType}
 
 
-              POST /v4/search/{entityType}
+              POST /graph/{entityType}
 
               ```
 
@@ -23096,62 +23072,47 @@ items:
               The POST operation is read-only. It does not create or modify entity records.
 
 
-              #### Supported entities
 
-
-              The `entityType` path value identifies the entity to search.
-
-
-              | **Entity**     | **Search endpoint**         |
-
-              | -------------- | --------------------------- |
-
-              | Works          | `/v4/search/works`          |
-
-              | Outputs        | `/v4/search/outputs`        |
-
-              | Authors        | `/v4/search/authors`        |
-
-              | Authorships    | `/v4/search/authorships`    |
-
-              | Affiliations   | `/v4/search/affiliations`   |
-
-              | Institutions   | `/v4/search/institutions`   |
-
-              | Journals       | `/v4/search/journals`       |
-
-              | Data Providers | `/v4/search/data-providers` |
-
-              | Publishers     | `/v4/search/publishers`     |
-
-
-              ##### Search capability matrix
+              #### Search capability matrix
 
 
               Based on the current Graph API design:
 
 
-              | **Entity**     | **Keyword search** | **Structured conditions** | **Facets** | **Vector search** | **Hybrid search** | **Explicit vector** |
+              | **Entity** | **Keyword search** | **Structured conditions** | **Facets** | **Vector search** | **Hybrid search** | **Explicit vector** |
 
-              | -------------- | ------------------ | ------------------------- | ---------- | ----------------- | ----------------- | ------------------- |
+              | --- | --- | --- | --- | --- | --- | --- |
 
-              | Works          | Yes                | Yes                       | Yes        | Yes               | Yes               | POST                |
+              | Works | Yes | Yes | Yes | Yes | Yes | POST |
 
-              | Outputs        | Yes                | Yes                       | Yes        | Yes               | Yes               | POST                |
+              | Outputs | Yes | Yes | Yes | Yes | Yes | POST |
 
-              | Authors        | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Authors | Yes | Yes | Yes | No | No | No |
 
-              | Authorships    | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Authorships | Yes | Yes | Yes | No | No | No |
 
-              | Affiliations   | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Affiliations | Yes | Yes | Yes | No | No | No |
 
-              | Institutions   | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Institutions | Yes | Yes | Yes | No | No | No |
 
-              | Journals       | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Journals | Yes | Yes | Yes | No | No | No |
 
-              | Data Providers | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Data Providers | Yes | Yes | Yes | No | No | No |
 
-              | Publishers     | Yes                | Yes                       | Yes        | No                | No                | No                  |
+              | Publishers | Yes | Yes | Yes | No | No | No |
+
+              | Citations | TBC | TBC | TBC | TBC | TBC | TBC |
+
+              | Topics | TBC | TBC | TBC | TBC | TBC | TBC |
+
+              | Grants | TBC | TBC | TBC | TBC | TBC | TBC |
+
+              | Funders | TBC | TBC | TBC | TBC | TBC | TBC |
+
+              | Projects | TBC | TBC | TBC | TBC | TBC | TBC |
+
+
+              > **TBC:** Capability to be confirmed against the entity’s search index and endpoint implementation.
 
 
               > Vector and hybrid search are described only for entities whose search indexes contain vector fields.
@@ -23224,7 +23185,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=scientometrics
+              GET /graph/works?q=scientometrics
 
               ```
 
@@ -23278,11 +23239,11 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:"Machine Learning"
+              GET /graph/works?q=title:"Machine Learning"
 
-              GET /v4/search/institutions?q=countryCode:GB
+              GET /graph/institutions?q=countryCode:GB
 
-              GET /v4/search/outputs?q=sdg.type:SDG04
+              GET /graph/outputs?q=sdg.type:SDG04
 
               ```
 
@@ -23310,7 +23271,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:attention is all you need
+              GET /graph/works?q=title:attention is all you need
 
               ```
 
@@ -23332,7 +23293,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:"Attention is all you need"
+              GET /graph/works?q=title:"Attention is all you need"
 
               ```
 
@@ -23377,7 +23338,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=documentType:"research article" AND yearPublished>=2020
+              GET /graph/works?q=documentType:"research article" AND yearPublished>=2020
 
               ```
 
@@ -23416,7 +23377,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=(title:"Artificial Intelligence" OR title:"Machine Learning") AND yearPublished>2020
+              GET /graph/works?q=(title:"Artificial Intelligence" OR title:"Machine Learning") AND yearPublished>2020
 
               ```
 
@@ -23447,9 +23408,9 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=yearPublished>2018
+              GET /graph/works?q=yearPublished>2018
 
-              GET /v4/search/outputs?q=sdg.score>=0.8
+              GET /graph/outputs?q=sdg.score>=0.8
 
               ```
 
@@ -23459,9 +23420,9 @@ items:
 
               ```http
 
-              GET /v4/search/affiliations?q=startDate>="2020-01-01"
+              GET /graph/affiliations?q=startDate>="2020-01-01"
 
-              GET /v4/search/journals?q=createdDate>="2025-01-01"
+              GET /graph/journals?q=createdDate>="2025-01-01"
 
               ```
 
@@ -23477,11 +23438,11 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=_exists_:fullText
+              GET /graph/works?q=_exists_:fullText
 
-              GET /v4/search/authors?q=_exists_:orcidId
+              GET /graph/authors?q=_exists_:orcidId
 
-              GET /v4/search/outputs?q=_exists_:sdg
+              GET /graph/outputs?q=_exists_:sdg
 
               ```
 
@@ -23491,7 +23452,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=NOT _exists_:discontinuedDate
+              GET /graph/journals?q=NOT _exists_:discontinuedDate
 
               ```
 
@@ -23501,7 +23462,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=!_exists_:discontinuedDate
+              GET /graph/journals?q=!_exists_:discontinuedDate
 
               ```
 
@@ -23520,7 +23481,7 @@ items:
 
               ```http
 
-              GET /v4/search/authors?q=countries:GB
+              GET /graph/authors?q=countries:GB
 
               ```
 
@@ -23530,7 +23491,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=documentType:"research article"
+              GET /graph/works?q=documentType:"research article"
 
               ```
 
@@ -23622,7 +23583,7 @@ items:
 
               ```http
 
-              GET /v4/search/{entityType}
+              GET /graph/{entityType}
 
               ```
 
@@ -23659,7 +23620,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/works?q=documentType:"research%20article"%20AND%20yearPublished>=2020&orderby=yearPublished:desc&select=workId,title,yearPublished,doi&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/works?q=documentType:"research%20article"%20AND%20yearPublished>=2020&orderby=yearPublished:desc&select=workId,title,yearPublished,doi&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -23669,7 +23630,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q=documentType:"research article" AND yearPublished>=2020
                   &orderby=yearPublished:desc
                   &select=workId,title,yearPublished,doi
@@ -23690,7 +23651,7 @@ items:
 
               ```http
 
-              POST /v4/search/{entityType}
+              POST /graph/{entityType}
 
               ```
 
@@ -23748,7 +23709,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/works" \
+                --url "https://api.core.ac.uk/graph/works" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -23800,9 +23761,8 @@ items:
             id: search-vector-and-hybrid-search
             title: Vector and hybrid search
             descriptionAbout: >-
-              
-              Vector and hybrid search are supported for canonical Works and source-specific Outputs.
-
+              Vector and hybrid search are supported for canonical Works and
+              source-specific Outputs.
 
 
               For general scholarly discovery, use Work vector search:
@@ -23810,9 +23770,9 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23825,9 +23785,9 @@ items:
 
               ```http
 
-              GET /v4/search/outputs
+              GET /graph/outputs
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
               ```
 
@@ -23838,19 +23798,18 @@ items:
               #### Search modes
 
 
-              | Mode | Description |
+              | Mode      | Description                                                                      |
 
-              | --- | --- |
+              | --------- | -------------------------------------------------------------------------------- |
 
-              | `keyword` | Uses standard keyword relevance and structured conditions. |
+              | `keyword` | Uses standard keyword relevance and structured conditions.                       |
 
-              | `vector` | Uses semantic similarity between the query embedding and indexed entity vectors. |
+              | `vector`  | Uses semantic similarity between the query embedding and indexed entity vectors. |
 
-              | `hybrid` | Combines keyword relevance and vector similarity. |
+              | `hybrid`  | Combines keyword relevance and vector similarity.                                |
 
 
               The default mode is `keyword`. When searchMode is omitted, the request uses standard keyword and structured search.
-
 
 
               #### Text-based vector search
@@ -23864,7 +23823,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining"&searchMode=vector
+              GET /graph/works?q="text and data mining"&searchMode=vector
 
               ```
 
@@ -23874,7 +23833,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23895,7 +23854,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=vector
+              GET /graph/outputs?q="climate adaptation strategies"&searchMode=vector
 
               ```
 
@@ -23905,7 +23864,7 @@ items:
 
               ```http
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
               ```
 
@@ -23932,7 +23891,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"
                   &searchMode=vector
               ```
@@ -23943,7 +23902,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23969,11 +23928,11 @@ items:
               In this example:
 
 
-              - The textual clause is converted into an embedding.
+              * The textual clause is converted into an embedding.
 
-              - Semantic similarity is used to retrieve candidate Works.
+              * Semantic similarity is used to retrieve candidate Works.
 
-              - Publication year and document type are applied as structured conditions.
+              * Publication year and document type are applied as structured conditions.
 
 
               #### Hybrid search
@@ -23984,7 +23943,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+              GET /graph/works?q="text and data mining"&searchMode=hybrid
 
               ```
 
@@ -23994,7 +23953,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -24021,7 +23980,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -24056,31 +24015,31 @@ items:
               The complete API documentation must specify:
 
 
-              - The compatible embedding model
+              * The compatible embedding model
 
-              - The required number of vector dimensions
+              * The required number of vector dimensions
 
-              - The accepted numeric format
+              * The accepted numeric format
 
-              - Whether vectors must be normalised
+              * Whether vectors must be normalised
 
-              - The maximum vector length
+              * The maximum vector length
 
-              - The maximum request-body size
+              * The maximum request-body size
 
 
               A vector should be rejected when:
 
 
-              - `searchMode` is `keyword`.
+              * `searchMode` is `keyword`.
 
-              - The vector is empty.
+              * The vector is empty.
 
-              - The vector has the wrong number of dimensions.
+              * The vector has the wrong number of dimensions.
 
-              - The vector contains non-numeric values.
+              * The vector contains non-numeric values.
 
-              - The vector is incompatible with the selected entity index.
+              * The vector is incompatible with the selected entity index.
 
 
               #### Embedding-generation endpoint
@@ -24094,7 +24053,7 @@ items:
 
               ```http
 
-              POST /v4/embeddings
+              POST /graph/embeddings
 
               ```
 
@@ -24129,8 +24088,6 @@ items:
               ```
 
 
-
-
               #### Vector candidate count
 
 
@@ -24152,9 +24109,9 @@ items:
               In this example:
 
 
-              - Up to 100 nearest vector candidates are considered.
+              * Up to 100 nearest vector candidates are considered.
 
-              - At most 10 records are returned.
+              * At most 10 records are returned.
 
 
               Therefore, `vectorTopK` is not equivalent to `limit`.
@@ -24169,15 +24126,15 @@ items:
               When `orderby` is omitted, the default ordering depends on the type of search.
 
 
-              | Search type | Default order |
+              | **Search type**               | **Default order**                                       |
 
-              | --- | --- |
+              | ----------------------------- | ------------------------------------------------------- |
 
-              | Keyword query | Keyword relevance |
+              | Keyword query                 | Keyword relevance                                       |
 
-              | Vector query | Vector similarity |
+              | Vector query                  | Vector similarity                                       |
 
-              | Hybrid query | Combined relevance |
+              | Hybrid query                  | Combined relevance                                      |
 
               | Structured query without text | Implementation-defined; clients should supply `orderby` |
 
@@ -24187,7 +24144,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q="machine learning"
                   &searchMode=vector
                   &orderby=yearPublished:desc
@@ -24223,11 +24180,11 @@ items:
               The response documentation should state whether the score represents:
 
 
-              - Keyword relevance
+              * Keyword relevance
 
-              - Vector similarity
+              * Vector similarity
 
-              - Hybrid relevance
+              * Hybrid relevance
 
 
               Scores produced by different search modes should not be treated as directly comparable.
@@ -24251,7 +24208,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q=yearPublished:2025
                   &select=workId,title,doi,yearPublished
               ```
@@ -24286,7 +24243,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?orderby=yearPublished:desc,title:asc
+              GET /graph/works?orderby=yearPublished:desc,title:asc
 
               ```
 
@@ -24338,7 +24295,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions?q=countryCode:GB&count=true
+              GET /graph/institutions?q=countryCode:GB&count=true
 
               ```
 
@@ -24380,7 +24337,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions
+              GET /graph/institutions
                   ?q=types:education
                   &orderby=displayName:asc
                   &limit=20
@@ -24392,7 +24349,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions
+              GET /graph/institutions
                   ?q=types:education
                   &orderby=displayName:asc
                   &limit=20
@@ -24446,7 +24403,7 @@ items:
 
               ```http
 
-              POST /v3/search/{entityType}/aggregate
+              POST /graph/{entityType}/aggregate
 
               ```
 
@@ -24456,9 +24413,9 @@ items:
 
               ```http
 
-              GET /v4/search/{entityType}?facets=field1,field2
+              GET /graph/{entityType}?facets=field1,field2
 
-              POST /v4/search/{entityType}
+              POST /graph/{entityType}
 
               ```
 
@@ -24468,7 +24425,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs
+              GET /graph/outputs
                   ?q=accessRights.isOpenAccess:true
                   &facets=documentType,yearPublished,sdg.type
                   &count=true
@@ -24481,7 +24438,7 @@ items:
 
               ```http
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
               ```
 
@@ -24652,3 +24609,277 @@ items:
               }
 
               ```
+  - item: Recommender
+    children:
+      - sections:
+          - divider: false
+            border: false
+            id: recommender-api-overview
+            title: Recommender
+            descriptionAbout: >-
+              
+              The CORE Recommender identifies records in the CORE collection related to a publication or topic. It helps users discover similar research and explore related reading.
+
+
+              Recommendations can be requested using a CORE identifier with the `core:` prefix, another supported identifier, or descriptive text. Publication metadata, such as a title, abstract, and author names, can provide additional context for identifying relevant records.
+
+
+              The request body is supplied as JSON and supports the following parameters:
+
+
+              | **Parameter**      | **Type**  | **Description**                                                                                           |
+
+              | ------------------ | --------- | --------------------------------------------------------------------------------------------------------- |
+
+              | `text`             | string    | Text describing the topic or content for which recommendations are requested.                             |
+
+              | `limit`            | string    | Maximum number of recommendations to return.                                                              |
+
+              | `identifier`       | string    | Identifier of the publication used to generate recommendations. Use the `core:` prefix for a CORE record. |
+
+              | `abstract`         | string    | Abstract of the publication used to generate recommendations.                                             |
+
+              | `authors`          | string\[] | Author names associated with the input publication.                                                       |
+
+              | `title`            | string    | Title of the input publication.                                                                           |
+
+              | `result_type`      | string    | Requested result type. Accepted values must be specified.                                                 |
+
+              | `data_provider_id` | integer   | Data provider identifier. Its effect on the recommendations must be specified.                            |
+
+
+              The response schema describes the following record fields:
+
+
+              | **Field**              | **Type**           | **Description**                                                                          |
+
+              | ---------------------- | ------------------ | ---------------------------------------------------------------------------------------- |
+
+              | `accepted_date`        | string (date-time) | Date and time when the work was first accepted.                                          |
+
+              | `authors`              | string\[]          | Author names associated with the publication.                                            |
+
+              | `contributors`         | string\[]          | Contributors associated with the publication, usually obtained from `dc.contributors`.   |
+
+              | `created_date`         | string (date-time) | Date and time when the record was first created in CORE.                                 |
+
+              | `data_provider`        | string\[]          | Data provider URLs associated with the publication.                                      |
+
+              | `deposited_date`       | string (date-time) | Date and time when the work was first deposited in an institutional repository.          |
+
+              | `abstract`             | string             | Abstract of the publication.                                                             |
+
+              | `document_type`        | string\[]          | Types assigned to the output, such as presentation, research, or thesis.                 |
+
+              | `versions`             | string\[]          | Output versions based on the COAR version vocabulary.                                    |
+
+              | `doi`                  | string             | Digital Object Identifier associated with the output.                                    |
+
+              | `oai`                  | string             | OAI identifier associated with the record.                                               |
+
+              | `download_url`         | string             | URL from which the full text can be downloaded.                                          |
+
+              | `full_text`            | string             | Plain-text extraction of the document’s full text.                                       |
+
+              | `id`                   | integer            | Unique CORE identifier of the output.                                                    |
+
+              | `identifiers`          | object\[]          | Identifiers and URLs associated with the output, usually obtained from `dc.identifier`.  |
+
+              | `title`                | string             | Title of the publication.                                                                |
+
+              | `language`             | object             | Language information associated with the publication.                                    |
+
+              | `published_date`       | string (date-time) | Date and time when the publication was first published.                                  |
+
+              | `publisher`            | object             | Publisher information associated with the publication.                                   |
+
+              | `references`           | object\[]          | References cited by the publication.                                                     |
+
+              | `source_fulltext_urls` | string\[]          | Source URLs from which the document can be downloaded.                                   |
+
+              | `updated_date`         | string (date-time) | Date and time when the record was last updated.                                          |
+
+              | `year_published`       | string             | Year in which the publication was published.                                             |
+
+              | `links`                | string\[]          | Links available for the output.                                                          |
+
+              | `tags`                 | string\[]          | Classification tags obtained from source metadata, including `dc.subject` and `dc.type`. |
+
+              | `set_specs`            | string\[]          | OAI-PMH set specifications associated with the output.                                   |
+
+              | `fulltext_status`      | string             | Full-text status of the output.                                                          |
+
+              | `subjects`             | string\[]          | Subjects associated with the publication.                                                |
+
+              | `deleted`              | string             | Deletion status of the record.                                                           |
+
+              | `journals`             | object\[]          | Journal information associated with the publication.                                     |
+
+              | `repositories`         | object\[]          | Repository information associated with the publication.                                  |
+
+              | `repository_document`  | object             | Repository-specific document information.                                                |
+
+              | `urls`                 | string\[]          | URLs associated with the publication.                                                    |
+
+              | `license`              | string             | Licence information associated with the output.                                          |
+
+              | `orcids`               | string\[]          | ORCID identifiers associated with the publication’s authors.                             |
+
+              | `disabled`             | integer            | Disabled status of the record.                                                           |
+
+              | `last_update`          | string (date-time) | Additional update timestamp supplied by the API.                                         |
+
+              | `sdg`                  | string\[]          | UN Sustainable Development Goals associated with the output. Defaults to an empty array. |
+
+
+              A successful request returns HTTP `200` with a JSON response containing recommended record metadata. The following example illustrates selected fields from a recommended record; it does not show the complete response structure.
+
+
+              ```json
+
+              {
+                "id": 216874849,
+                "title": "Machine learning approaches for scholarly document classification",
+                "authors": [
+                  "Alice Smith",
+                  "Robert Jones"
+                ],
+                "abstract": "This study explores machine learning methods for classifying scholarly documents.",
+                "year_published": "2026",
+                "download_url": "https://example.org/articles/216874849.pdf",
+                "subjects": [
+                  "Machine learning",
+                  "Scholarly document processing"
+                ],
+                "sdg": []
+              }
+
+              ```
+  - item: "Discovery "
+    children:
+      - sections:
+          - divider: false
+            border: false
+            id: discovery-api-overview
+            title: Discovery
+            descriptionAbout: >+
+              The CORE Discovery service finds links to full texts using a
+              publication’s DOI. It searches CORE data and external sources to
+              identify the best available match.
+
+
+              The request body is supplied as JSON and supports the following parameters:
+
+
+              | **Parameter** | **Type** | **Required** |
+
+              | ------------- | -------- | ------------ |
+
+              | `doi`         | string   | Yes          |
+
+              | `title`       | string   | Yes          |
+
+              | `year`        | integer  | Yes          |
+
+              | `eprints_id`  | string   | Yes          |
+
+              | `plugin_id`   | string   | Yes          |
+
+              | `referrer`    | string   | Yes          |
+
+
+              A successful request returns HTTP `200` with a JSON response containing the full-text link and its source.
+
+
+              | **Field**        | **Type** | **Required** | **Description**                                    |
+
+              | ---------------- | -------- | ------------ | -------------------------------------------------- |
+
+              | `full_text_link` | string   | Yes          | URL of the full text identified by the service.    |
+
+              | `source`         | string   | Yes          | Source from which the full-text link was obtained. |
+
+  - item: Rate Limits
+    children:
+      - item: ""
+        sections:
+          - divider: false
+            border: false
+            title: Access tiers and token allowances
+            id: api-access-tiers
+            descriptionAbout: >-
+              Access to the CORE API is free and requires no authentication.
+              Providing free access to general users is part of our mission.
+              Being a sustainable scholarly infrastructure is also part of our
+              mission. As a result, we offer better performance to registered
+              users. The below table provides information about our rate limits
+              depending on your situation.
+
+
+              To control the load on our systems we use a rate-limiting technology based on tokens. Each user has access to a certain number of tokens at the start of their session and they can use them to perform their queries.
+
+
+              Certain calls in CORE are more computationally expensive than others, therefore some calls such as recommender, scroll search and bulk queries will cost you more tokens than others. As a rule of thumb, a simple query will cost you 1 token while more complex queries will cost you between 3 to 5 tokens.
+
+
+              We are monitoring the load on our servers and at some point we might decide to increase or decrease the “cost” of certain operations to control the overall load. The best way to keep on top of your API usage is to use the HTTP headers included in every API call response (see below for details about the headers).
+
+
+              | **User type**                                                                                                       | **How to obtain**                                                         | **Rate limit**                                                                                                                                                                                                                                                                                                                                                               | **Support**                |
+
+              | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+
+              | Unauthenticated users**\***                                                                                         | No registration required, just start using the API.                       | 100 tokens per day, maximum 10 per minute.                                                                                                                                                                                                                                                                                                                                   | No support                 |
+
+              | Registered Personal users                                                                                           | Registration through the [CORE API](https://core.ac.uk/services/api) form | 1,000 tokens per day, maximum 25 per minute.                                                                                                                                                                                                                                                                                                                                 | Best effort                |
+
+              | Registered academic users NOT affiliated with Supporting or Sustaining institutions.                                | Registration through the [CORE API](https://core.ac.uk/services/api) form | 5,000 tokens per day, maximum 10 per minute.                                                                                                                                                                                                                                                                                                                                 | Best effort                |
+
+              | Registered academic users affiliated with Supporting or Sustaining institutions and Non-academic organisation users | Registration through the [CORE API](https://core.ac.uk/services/api) form | The API limits are designed to allow reasonable usage and we will change them depending on the load on our servers. However, on average, we estimate this plan should be good for up to about 200k tokens per day. You are able to monitor your current API limit by looking for our customised HTTP headers: X-RateLimitRemaining X-RateLimit-Retry-After X-RateLimit-Limit | Dedicated support          |
+
+              | VIP                                                                                                                 | Contact us to discuss a dedicated plan to upgrade your registration.      | Sky is the limit. We can support your needs. Just let us know and we will find a way to accommodate your usage needs.                                                                                                                                                                                                                                                        | Unlimited priority support |
+
+
+              **\*** - Full-text is not available for unauthenticated API users.
+          - divider: false
+            border: false
+            id: api-monitor-ratelimits
+            title: How to monitor your API rate limits
+            descriptionAbout: >-
+              To ensure fair usage and maintain API stability, CORE implements
+              rate limits. These limits may be adjusted dynamically based on
+              server load and usage patterns.
+
+
+              You can monitor your current rate usage by checking the following custom HTTP response headers included in every API response:
+
+
+              | **Header** | **Description** |
+
+              | --- | --- |
+
+              | `X-RateLimit-Limit` | The total number of requests allowed within the current rate-limiting window. This represents your maximum quota before the limit resets. |
+
+              | `X-RateLimit-Remaining` | The number of requests you still have available in the current window. Once this value reaches zero, additional requests will be blocked until the window resets. |
+
+              | `X-RateLimit-Retry-After` | Indicates when you can safely make another request after hitting the rate limit. |
+  - item: PDF Download Policy
+    children:
+      - sections:
+          - divider: false
+            border: false
+            id: api-pdf-download-policy
+            title: PDF download policy
+            descriptionAbout: >-
+              
+              - Outputs PDF downloads are possible via the original `downloadUrl` supplied link, if a URL exists. This is the preferred method.
+
+              - Where users are prevented, restricted or blocked from reaching the resource specified in `downloadUrl`, CORE API users can also use the following GET request endpoint to download PDFs directly from CORE:
+
+                ```http
+                GET https://api.core.ac.uk/graph/outputs/{identifier}/download
+                ```
+
+                This request counts against your API token allowance and is generally more expensive because it has more significant data implications.
+
+              - **IMPORTANT:** Systematic harvesting of PDFs from CORE that circumvents the API, e.g. via `https://fileserver-az.core.ac.uk/download/{identifier}.pdf` or other methods, is unacceptable. Such usage will be blocked and associated API keys will be disabled.
