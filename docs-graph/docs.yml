@@ -13009,27 +13009,6 @@ items:
               ```
 
 
-              #### R﻿esponses
-
-
-              | **Status** | **Description**                                                                                                 |
-
-              | ---------- | --------------------------------------------------------------------------------------------------------------- |
-
-              | 200        | The Affiliation search was completed successfully.                                                              |
-
-              | 400        | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
-
-              | 401        | Authentication credentials are missing or invalid.                                                              |
-
-              | 413        | The POST request body exceeds the permitted size.                                                               |
-
-              | 429        | The API request limit has been exceeded.                                                                        |
-
-              | 500        | An unexpected server error occurred.                                                                            |
-
-
-
 
               #### Ordering Affiliation results
 
@@ -13432,6 +13411,26 @@ items:
               }
 
               ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | 200        | The Affiliation search was completed successfully.                                                              |
+
+              | 400        | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | 401        | Authentication credentials are missing or invalid.                                                              |
+
+              | 413        | The POST request body exceeds the permitted size.                                                               |
+
+              | 429        | The API request limit has been exceeded.                                                                        |
+
+              | 500        | An unexpected server error occurred.                                                                            |
           - divider: false
             border: false
             id: affiliations-api-relationship-oriented-endpoints
