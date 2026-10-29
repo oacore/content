@@ -20966,19 +20966,19 @@ items:
 
               | --------------------------------------- | ---------- | ------------------------------------ |
 
-              | Get a single Grants record              | `GET`      | `/v4/grants/{grantId}`               |
+              | Get a single Grants record              | `GET`      | `/graph/grants/{grantId}`               |
 
-              | Search Grants using URL parameters      | `GET`      | `/v4/search/grants`                  |
+              | Search Grants using URL parameters      | `GET`      | `/graph/grants`                  |
 
-              | Search Grants using a JSON request body | `POST`     | `/v4/search/grants`                  |
+              | Search Grants using a JSON request body | `POST`     | `/graph/grants`                  |
 
-              | Retrieve Works for a Grants record      | `GET`      | `/v4/grants/{grantId}/works`         |
+              | Retrieve Works for a Grants record      | `GET`      | `/graph/grants/{grantId}/works`         |
 
-              | Retrieve Projects for a Grants record   | `GET`      | `/v4/grants/{grantId}/projects`      |
+              | Retrieve Projects for a Grants record   | `GET`      | `/graph/grants/{grantId}/projects`      |
 
-              | Retrieve the funding Institution        | `GET`      | `/v4/grants/{grantId}/funder`        |
+              | Retrieve the funding Institution        | `GET`      | `/graph/grants/{grantId}/funder`        |
 
-              | Retrieve investigators                  | `GET`      | `/v4/grants/{grantId}/investigators` |
+              | Retrieve investigators                  | `GET`      | `/graph/grants/{grantId}/investigators` |
 
 
               #### Get a single Grants record
@@ -20989,7 +20989,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/grants/{grantId}
+              GET https://api.core.ac.uk/graph/grants/{grantId}
 
               ```
 
@@ -21030,7 +21030,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/grants/13" \
+                --url "https://api.core.ac.uk/graph/grants/13" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -21066,7 +21066,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/grants/13?select=grantId,grantName,funderName,amount,currency,startDate,endDate" \
+                --url "https://api.core.ac.uk/graph/grants/13?select=grantId,grantName,funderName,amount,currency,startDate,endDate" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -21123,9 +21123,9 @@ items:
 
               | ---------- | ----------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/grants> |
+              | `GET`      | <https://api.core.ac.uk/graph/grants> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/grants> |
+              | `POST`     | <https://api.core.ac.uk/graph/grants> |
 
 
               Both methods use the same CORE query language and return the same Grants search-response structure.
@@ -21208,7 +21208,7 @@ items:
             border: false
             id: grants-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Search by name
 
 
@@ -21217,7 +21217,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=grantName:"AI methods for biomedical discovery"
+              GET /graph/grants?q=grantName:"AI methods for biomedical discovery"
 
               ```
 
@@ -21239,7 +21239,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q="biomedical discovery"
+              GET /graph/grants?q="biomedical discovery"
 
               ```
 
@@ -21269,22 +21269,16 @@ items:
               When a textual query is supplied and `orderby` is omitted, results are ordered by relevance.
 
 
-              #### Retrieve a Grants record by OpenAlex identifier
-
-
-              ```http
-
-              GET /v4/search/grants?q=grantOpenalexId:"https://openalex.org/G5859020988"
-
-              ```
-
 
               #### Retrieve a Grants record by DOI
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/grants?q=grantDoi:"https://doi.org/10.35802/218671"
+              GET /graph/grants?q=grantDoi:"https://doi.org/10.35802/218671"
 
               ```
 
@@ -21297,7 +21291,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderAwardId:"AH/W007622/1"
+              GET /graph/grants?q=funderAwardId:"AH/W007622/1"
 
               ```
 
@@ -21319,7 +21313,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderName:"Arts and Humanities Research Council"
+              GET /graph/grants?q=funderName:"Arts and Humanities Research Council"
 
               ```
 
@@ -21329,7 +21323,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderId:"https://ror.org/0505m1554"
+              GET /graph/grants?q=funderId:"https://ror.org/0505m1554"
 
               ```
 
@@ -21339,7 +21333,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderScheme:"Horizon Europe"
+              GET /graph/grants?q=funderScheme:"Horizon Europe"
 
               ```
 
@@ -21349,7 +21343,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP AND amount>=100000 AND amount<=500000&orderby=amount:desc
+              GET /graph/grants?q=currency:GBP AND amount>=100000 AND amount<=500000&orderby=amount:desc
 
               ```
 
@@ -21362,7 +21356,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=startDate<=2025-06-01 AND endDate>=2025-06-01
+              GET /graph/grants?q=startDate<=2025-06-01 AND endDate>=2025-06-01
 
               ```
 
@@ -21375,7 +21369,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=leadInvestigator.authorId:67890 OR coLeadInvestigator.authorId:67890 OR investigators.authorId:67890
+              GET /graph/grants?q=leadInvestigator.authorId:67890 OR coLeadInvestigator.authorId:67890 OR investigators.authorId:67890
 
               ```
 
@@ -21385,22 +21379,9 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=investigators.displayName:"David Jones"
+              GET /graph/grants?q=investigators.displayName:"David Jones"
 
               ```
-
-
-              #### Retrieve Grants records associated with an OpenAlex Work
-
-
-              ```http
-
-              GET /v4/search/grants?q=fundedOutputs:"https://openalex.org/W1234567890"
-
-              ```
-
-
-              This query uses the source-specific OpenAlex Work identifier. A canonical CORE Works relationship should instead use a CORE `workId` when available.
 
 
               #### Combined search, selection, and ordering
@@ -21425,7 +21406,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants
+              GET /graph/grants
                   ?q="biomedical discovery" AND currency:GBP AND amount>=100000 AND startYear>=2020
                   &orderby=amount:desc,grantId:asc
                   &select=grantId,grantName,funderName,amount,currency,startDate,endDate
@@ -21441,7 +21422,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/grants" \
+                --url "https://api.core.ac.uk/graph/grants" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -21503,7 +21484,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?orderby=grantName:asc
+              GET /graph/grants?orderby=grantName:asc
 
               ```
 
@@ -21513,7 +21494,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?orderby=startDate:desc
+              GET /graph/grants?orderby=startDate:desc
 
               ```
 
@@ -21523,7 +21504,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP&orderby=amount:desc
+              GET /graph/grants?q=currency:GBP&orderby=amount:desc
 
               ```
 
@@ -21536,7 +21517,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?orderby=startDate:desc,grantId:asc
+              GET /graph/grants?orderby=startDate:desc,grantId:asc
 
               ```
 
@@ -21570,7 +21551,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=*&facets=fundingType,funderScheme,currency,startYear&count=true&limit=0
+              GET /graph/grants?q=*&facets=fundingType,funderScheme,currency,startYear&count=true&limit=0
 
               ```
 
@@ -21664,7 +21645,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderScheme:"Horizon Europe"&count=true
+              GET /graph/grants?q=funderScheme:"Horizon Europe"&count=true
 
               ```
 
@@ -21683,7 +21664,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=0
+              GET /graph/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=0
 
               ```
 
@@ -21693,7 +21674,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=20
+              GET /graph/grants?q=currency:GBP&orderby=startDate:desc,grantId:asc&limit=20&offset=20
 
               ```
 
@@ -21727,13 +21708,11 @@ items:
 
               | `500`      | An unexpected server error occurred.                                                                            |
 
-
-              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
           - divider: false
             border: false
             id: grants-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
-            descriptionAbout: >-
+            descriptionAbout: >
               
               Relationship-oriented endpoints provide convenient access to entities directly connected to a Grants record. They return related records rather than embedding complete related entities in the Grants response.
 
@@ -21743,7 +21722,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/works
+              GET /graph/grants/{grantId}/works
 
               ```
 
@@ -21756,7 +21735,7 @@ items:
 
               ```http
 
-              GET /v4/grants/13/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/grants/13/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -21766,7 +21745,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=grantIds:13
+              GET /graph/works?q=grantIds:13
 
               ```
 
@@ -21776,7 +21755,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/grants
+              GET /graph/works/{workId}/grants
 
               ```
 
@@ -21786,7 +21765,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/projects
+              GET /graph/grants/{grantId}/projects
 
               ```
 
@@ -21799,7 +21778,7 @@ items:
 
               ```http
 
-              GET /v4/grants/13/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+              GET /graph/grants/13/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
 
               ```
 
@@ -21809,7 +21788,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=grantIds:13
+              GET /graph/projects?q=grantIds:13
 
               ```
 
@@ -21819,7 +21798,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/grants
+              GET /graph/projects/{projectId}/grants
 
               ```
 
@@ -21829,7 +21808,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/funder
+              GET /graph/grants/{grantId}/funder
 
               ```
 
@@ -21842,7 +21821,7 @@ items:
 
               ```http
 
-              GET /v4/grants/13/funder
+              GET /graph/grants/13/funder
 
               ```
 
@@ -21852,7 +21831,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions?q=rorId:"https://ror.org/0505m1554"
+              GET /graph/institutions?q=rorId:"https://ror.org/0505m1554"
 
               ```
 
@@ -21862,7 +21841,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/{institutionId}/grants
+              GET /graph/institutions/{institutionId}/grants
 
               ```
 
@@ -21872,7 +21851,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/investigators
+              GET /graph/grants/{grantId}/investigators
 
               ```
 
@@ -21911,15 +21890,12 @@ items:
 
               ```http
 
-              GET /v4/authors/{authorId}/grants
+              GET /graph/authors/{authorId}/grants
 
               ```
 
 
               An existing Grants record with no related records returns `200 OK` with an empty `results` array. If the supplied Grants record does not exist, a collection relationship endpoint returns `404 Not Found`.
-
-
-              If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
       - item: Funders
         sections:
           - divider: false
