@@ -417,3 +417,23 @@ navItems:
       - hidden: false
         item: Responses
         href: "#search-responses"
+  - hidden: false
+    item: Recommender
+    children: []
+    href: "#recommender-api-overview"
+  - hidden: false
+    item: Discovery
+    href: "#discovery-api-overview"
+  - hidden: false
+    item: Rate limits
+    href: ""
+    children:
+      - hidden: false
+        item: Access tiers and token allowances
+        href: "#api-access-tiers"
+      - hidden: false
+        item: How to monitor your API rate limits
+        href: "#api-monitor-ratelimits"
+  - hidden: false
+    item: PDF Download Policy
+    href: "#api-pdf-download-policy"
