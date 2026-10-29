@@ -19831,9 +19831,9 @@ items:
 
               | ---------- | ------------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/projects> |
+              | `GET`      | <https://api.core.ac.uk/graph/projects> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/projects> |
+              | `POST`     | <https://api.core.ac.uk/graph/projects> |
 
 
               Both methods use the same CORE query language and return the same Projects search-response structure.
@@ -19925,7 +19925,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=title:"OpenAIRE Advancing Open Scholarship"
+              GET /graph/projects?q=title:"OpenAIRE Advancing Open Scholarship"
 
               ```
 
@@ -19947,7 +19947,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q="Open Scholarship"
+              GET /graph/projects?q="Open Scholarship"
 
               ```
 
@@ -19985,7 +19985,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=openaireId:"corda__h2020::70ea22400fd890c5033cb31642c4ae68"
+              GET /graph/projects?q=openaireId:"corda__h2020::70ea22400fd890c5033cb31642c4ae68"
 
               ```
 
@@ -20005,9 +20005,12 @@ items:
               #### Retrieve a Projects record by code
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=code:777541
+              GET /graph/projects?q=code:777541
 
               ```
 
@@ -20015,9 +20018,12 @@ items:
               #### Retrieve Projects records for a funding call
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=callIdentifier:H2020-EINFRA-2017
+              GET /graph/projects?q=callIdentifier:H2020-EINFRA-2017
 
               ```
 
@@ -20025,9 +20031,12 @@ items:
               #### Search by funding organisation
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=fundings.name:"European Commission"
+              GET /graph/projects?q=fundings.name:"European Commission"
 
               ```
 
@@ -20035,9 +20044,12 @@ items:
               #### Retrieve Projects records by funding stream
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=fundings.fundingStream.id:"EC::H2020::RIA"
+              GET /graph/projects?q=fundings.fundingStream.id:"EC::H2020::RIA"
 
               ```
 
@@ -20045,9 +20057,12 @@ items:
               #### Retrieve Projects records with a publication open-access mandate
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=openAccessMandateForPublications:true
+              GET /graph/projects?q=openAccessMandateForPublications:true
 
               ```
 
@@ -20055,9 +20070,12 @@ items:
               #### Retrieve Projects records active on a particular date
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=startDate<=2020-06-01 AND endDate>=2020-06-01
+              GET /graph/projects?q=startDate<=2020-06-01 AND endDate>=2020-06-01
 
               ```
 
@@ -20068,9 +20086,12 @@ items:
               #### Retrieve Projects records above a funding threshold
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=granted.currency:EUR AND granted.fundedAmount>=1000000&orderby=granted.fundedAmount:desc
+              GET /graph/projects?q=granted.currency:EUR AND granted.fundedAmount>=1000000&orderby=granted.fundedAmount:desc
 
               ```
 
@@ -20100,7 +20121,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects
+              GET /graph/projects
                   ?q="open science" AND fundings.jurisdiction:EU AND openAccessMandateForPublications:true
                   &orderby=startDate:desc,projectId:asc
                   &select=projectId,code,acronym,title,startDate,endDate,openAccessMandateForPublications
@@ -20116,7 +20137,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/projects" \
+                --url "https://api.core.ac.uk/graph/projects" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -20176,9 +20197,12 @@ items:
               ##### Order by title
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?orderby=title:asc
+              GET /graph/projects?orderby=title:asc
 
               ```
 
@@ -20186,9 +20210,12 @@ items:
               ##### Order by start date
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?orderby=startDate:desc
+              GET /graph/projects?orderby=startDate:desc
 
               ```
 
@@ -20196,9 +20223,12 @@ items:
               ##### Order by awarded amount
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/search/projects?q=granted.currency:EUR&orderby=granted.fundedAmount:desc
+              GET /graph/projects?q=granted.currency:EUR&orderby=granted.fundedAmount:desc
 
               ```
 
@@ -20211,7 +20241,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?orderby=startDate:desc,projectId:asc
+              GET /graph/projects?orderby=startDate:desc,projectId:asc
 
               ```
 
@@ -20245,7 +20275,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=*&facets=fundings.jurisdiction,fundings.fundingStream.id,granted.currency,openAccessMandateForPublications&count=true&limit=0
+              GET /graph/projects?q=*&facets=fundings.jurisdiction,fundings.fundingStream.id,granted.currency,openAccessMandateForPublications&count=true&limit=0
 
               ```
 
@@ -20339,7 +20369,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=fundings.jurisdiction:EU&count=true
+              GET /graph/projects?q=fundings.jurisdiction:EU&count=true
 
               ```
 
@@ -20358,7 +20388,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=0
+              GET /graph/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=0
 
               ```
 
@@ -20368,7 +20398,7 @@ items:
 
               ```http
 
-              GET /v4/search/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=20
+              GET /graph/projects?q=openAccessMandateForPublications:true&orderby=startDate:desc,projectId:asc&limit=20&offset=20
 
               ```
 
@@ -20421,7 +20451,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/works
+              GET /graph/projects/{projectId}/works
 
               ```
 
@@ -20437,7 +20467,7 @@ items:
 
               ```http
 
-              GET /v4/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -20447,7 +20477,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=projectIds:"coreproj____::001"
+              GET /graph/works?q=projectIds:"coreproj____::001"
 
               ```
 
@@ -20457,7 +20487,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/projects
+              GET /graph/works/{workId}/projects
 
               ```
 
@@ -20467,7 +20497,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/grants
+              GET /graph/projects/{projectId}/grants
 
               ```
 
@@ -20480,7 +20510,7 @@ items:
 
               ```http
 
-              GET /v4/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
+              GET /graph/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
 
               ```
 
@@ -20490,7 +20520,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=projectIds:"coreproj____::001"
+              GET /graph/grants?q=projectIds:"coreproj____::001"
 
               ```
 
@@ -20500,7 +20530,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/projects
+              GET /graph/grants/{grantId}/projects
 
               ```
 
