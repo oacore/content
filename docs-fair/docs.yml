@@ -1,8 +1,15 @@
 items:
   - title: 1. What is FAIR Repository Certification?
     id: what-is
-    descriptionAbout: |
-      FAIR Certification offers an opportunity for data providers (publisher repositories, journals, data repositories, etc.) to demonstrate and evidence their adherence to the widely recognised FAIR (Findable, Accessible, Interoperable, Reusable) principles. A FAIR-compliant repository becomes a dynamic, machine-actionable component of the global research infrastructure, maximising the impact and reusability of the research it hosts.
+    descriptionAbout: >
+      FAIR Certification offers an opportunity for data providers (publisher
+      repositories, journals, data repositories, etc.) to demonstrate and
+      evidence their adherence to the widely recognised FAIR (Findable,
+      Accessible, Interoperable, Reusable) principles. A FAIR-compliant
+      repository becomes a dynamic, machine-actionable component of the global
+      research infrastructure, maximising the impact and reusability of the
+      research it hosts.
+
 
       Aligning with FAIR is crucial for ensuring that repository content is easily discoverable, accessible, interoperable and reusable within scholarly infrastructures. Our FAIR Certification programme consists of a set of objective, data-driven automated checks of your platform, directly assessing FAIRness. Our easy-to-navigate certification process is fully technology-supported, objective and provides specific guidance and recommendations leading to tangible improvements, ensuring that your platform aligns with best technology and content management practices.
     images: null
@@ -10,10 +17,14 @@ items:
     subDescription: null
   - title: 2. Certification types
     id: certification-types
-    descriptionAbout: |
-      **Bronze** — Guarantees a foundational level of compliance. Repository metadata and content is indexable, records are assigned identifiers, and metadata have been populated to at least a minimum level.
+    descriptionAbout: >
+      **Bronze** — Guarantees a foundational level of compliance. Repository
+      metadata and content is indexable, records are assigned identifiers, and
+      metadata have been populated to at least a minimum level.
+
 
       **Silver** — Demonstrates strong compliance with FAIR. Metadata are exposed using industry-leading application profiles and vocabularies, contain machine-readable licence information and have been sufficiently populated.
+
 
       **Gold** — Achieves full machine-actionability. Metadata has been richly populated and supports linking of research papers and datasets. Repository supports industry-leading protocols and interoperability standards.
     images: null
@@ -22,66 +33,99 @@ items:
     divider: true
   - title: 3. FAIR Repository Certificate benefits
     id: benefits
-    descriptionAbout: |
+    descriptionAbout: >
       **1. The only FAIR certification service**
+
 
       CORE FAIR certification stands out as the only available certification service specifically designed to assess repositories against the established criteria of the FAIR Principles (Findable, Accessible, Interoperable, and Reusable). This unique focus addresses a critical need within the scholarly communications and data management landscape, providing a standardized, rigorous method for repository owners and stakeholders to verify and demonstrate their commitment to open science and high-quality data stewardship.
 
+
       **2. Certification of publication repositories**
+
 
       CORE FAIR Certification is the only certification service designed specifically for publication repositories, addressing the unique FAIR challenges of articles, metadata, and scholarly content rather than generic data repositories.
 
+
       **3. Evidence-based, quantitative assessment**
+
 
       The certification process relies heavily on measurable, quantitative evaluation supported by hard evidence and data-driven assessment, rather than mere narrative self-assessment. This approach guarantees objective, verifiable, and repeatable results.
 
+
       **4. Technology-supported, fast feedback**
+
 
       Most assessment criteria are evaluated using technology-supported validation, providing rapid feedback and eliminating the need to wait for lengthy human peer review for the majority of checks.
 
+
       **5. Direct alignment with FAIR Principles**
+
 
       Each component of Findable, Accessible, Interoperable, and Reusable (FAIR) is:
 
+
       * Explicitly addressed
+
       * Quantitatively measured
+
       * Linked to actionable improvements
+
 
       The certification actively drives FAIR maturity, not just compliance.
 
+
       **6. High-reliability, data-driven results**
+
 
       The assessment is characterised by high data-driven reliability, providing demonstrable evidence that those who possess the certificate are FAIR repositories.
 
+
       **7. Resistant to cheating and over-reporting**
+
 
       By relying on external validation and machine-verifiable indicators, the certification is resistant to inflated or unreliable self-reporting and significantly reduces the risk of gaming the system.
 
+
       **8. Continuously updated best-practice alignment**
+
 
       The assessment framework is designed to remain aligned with the latest international best practices for open repositories, FAIR implementation, and scholarly infrastructure management.
 
+
       **9. Easy application**
+
 
       The application process is simple, lightweight, and intuitive. Repositories spend minimal time on paperwork and maximum time improving FAIRness, guided by clear, actionable feedback.
 
+
       **10. Tiered certification levels**
+
 
       Repositories are recognised according to their FAIR maturity through three certification levels:
 
+
       * **Bronze** — foundational FAIR readiness
+
       * **Silver** — strong FAIR implementation
+
       * **Gold** — advanced FAIR excellence
+
 
       This allows repositories to progress over time.
 
+
       **11. Affordable and accessible**
 
+
       * Free of charge for CORE Sustaining Members
+
       * 50% discount for CORE Supporting Members
+
       * Making FAIR certification accessible to repositories of all sizes
 
+
       **12. Community-endorsed and growing**
+
 
       The certification is designed to incorporate future endorsements from trusted organisations and CORE Advisory Board members, strengthening credibility and long-term community recognition.
     images: null
@@ -90,20 +134,31 @@ items:
     divider: true
   - title: 4. Requirements and guidelines for getting FAIR Repository Certificate
     id: requirements
-    descriptionAbout: |
-      This section lists all requirements with which a repository should comply to get FAIR Repository Certification, along with guidelines for best practices of FAIR repositories. All requirements are divided into 7 topics, which allows us to better estimate how your repository aligns with FAIR principles:
+    descriptionAbout: >
+      This section lists all requirements with which a repository should comply
+      to get FAIR Repository Certification, along with guidelines for best
+      practices of FAIR repositories. All requirements are divided into 7
+      topics, which allows us to better estimate how your repository aligns with
+      FAIR principles:
+
 
       1. **Findable** — The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services, so this is an essential component of the FAIRification process.
 
+
       2. **Accessible** — Once the data or its metadata is found, users need to know precisely how they can be accessed. This includes clear protocols for retrieval and, where necessary, information on authentication and authorisation requirements. The goal is to ensure the repository supports open, free, and universally implementable communication protocols that allow as many users and systems as possible to retrieve the data.
+
 
       3. **Interoperable** — This section assesses how well the data within the repository can be integrated with other datasets and how effectively it can be used with various applications or workflows for analysis, storage, and processing.
 
+
       4. **Reusable** — The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings.
+
 
       5. **Fit for funders** — The repository is designed to meet the requirements of funders by ensuring that metadata includes key information for compliance, monitoring and accountability.
 
+
       6. **Fit for the future** — The repository is committed to adopting emerging standards and technologies that ensure long-term sustainability, scalability and interoperability within the global research ecosystem.
+
 
       7. **Operational / Environmental considerations** — The repository operates under clear policies and workflows that ensure trustworthiness, sustainability and alignment with best practices in scholarly communication. Deposits are managed through a defined submission workflow, where researchers can self-deposit their outputs and trained staff check submissions for metadata quality, copyright compliance and adherence to institutional policies.
     images: null
@@ -112,760 +167,1194 @@ items:
     divider: true
   - title: 4.1. List of requirements
     id: list-of-requirements
-    descriptionAbout: |
-      Categorizing questions under a specific letter of FAIR can be somewhat arbitrary, as many points naturally span multiple aspects of the principles. This structure is simply a practical way to distribute them, though we recognize there is significant overlap and that alternative configurations are certainly possible.
+    descriptionAbout: >
+      Categorizing questions under a specific letter of FAIR can be somewhat
+      arbitrary, as many points naturally span multiple aspects of the
+      principles. This structure is simply a practical way to distribute them,
+      though we recognize there is significant overlap and that alternative
+      configurations are certainly possible.
+
 
       There are two types of requirements:
 
+
       * **Data-driven indicators (DD)** — data-driven assessment based on the data available and visible to the wide world from your repository (this data exposed via OAI-PMH URL).
+
       * **Open questions (OQ)** — requirements that need manually written answers from a repository representative.
+
 
       **1. Findable**
 
+
       * 1.1. Does your repository support OAI-PMH? (DD)
+
       * 1.2. Your repository metadata supports a widely used Application Profile (DD)
+
       * 1.3. How many metadata records are there in your repository? (DD)
+
 
       **2. Accessible**
 
+
       * 2.1. Do you provide access to full texts of research papers for your content? (DD)
+
       * 2.2. Do you label embargoed documents in a machine-readable way? (DD)
+
       * 2.3. Do you support machine-readable licensing? (DD)
+
       * 2.4. Do you support any tool for tracking COUNTER-compliant downloads in your system? (DD)
+
 
       **3. Interoperable**
 
+
       * 3.1. Do you support FAIR Signposting? (DD)
+
       * 3.2. Do your metadata use COAR vocabularies? (DD)
+
       * 3.3. Does your repository support persistent management of records? (DD)
+
       * 3.4. Is your repository configured for the OAI resolver, and does it work? (DD)
+
       * 3.5. Persistable identifiers (DD)
+
       * 3.6. ORCID (DD)
+
       * 3.7. ROR (DD)
+
 
       **4. Reusable**
 
+
       * 4.1. Do you have an institutional policy on data sharing? (OQ)
+
       * 4.2. Do you have an institutional policy on sharing software? (OQ)
+
       * 4.3. Do you have an Institutional RRS, and do your papers contain an RRS section? (OQ)
+
 
       **5. Fit for funders**
 
+
       * 5.1. Is your research identifiable by funding bodies? (OQ)
+
       * 5.2. Do you expose metadata about dates of deposit? (OQ)
+
       * 5.3. Do you provide information about funding bodies for the research outputs? (OQ)
+
       * 5.4. Do you provide in the metadata information about project IDs? (OQ)
+
 
       **6. Fit for the future**
 
+
       * 6.1. Do you support ResourceSync? (OQ)
+
       * 6.2. Do you support COAR Notify? (OQ)
+
       * 6.3. Do you support [FAIRiCat](https://signposting.org/FAIRiCat/)? (OQ)
+
 
       **7. Operational / Environmental considerations**
 
+
       * 7.1. How do you manage deposits? Is there someone to check them? (OQ)
+
       * 7.2. Deposits are checked before made available. (OQ)
+
       * 7.3. How do you handle take-down notices? (OQ)
+
       * 7.4. How do you manage the preservation of content in your repository? (OQ)
+
       * 7.5. How do you encourage researchers to get their ORCID? (OQ)
+
       * 7.6. What are you doing to promote FAIR principles? (OQ)
+
       * 7.7. What are you doing to promote research reproducibility? (OQ)
+
       * 7.8. How do you support Open Science at your institution? (OQ)
     images: null
     subTitle: null
     subDescription: null
   - title: 4.2. Requirements guidance
     id: requirements-guidance
-    descriptionAbout: |
+    descriptionAbout: >
       **1. Findable**
+
 
       **R(1.1) Does your repository support OAI-PMH? (DD)**
 
+
       **Description**
+
 
       The Open Archives Initiative Protocol for Metadata Harvesting (referred to as the OAI-PMH in the remainder of this document) provides an application-independent interoperability framework based on metadata harvesting. This provides the basic building block to provide an interoperable digital publications repository.
 
+
       **Recommendations**
+
 
       OAI-PMH is the most widely used protocol for exchanging information between repositories. It is the standard used by CERN, by arXiv, by Wikipedia, by repository software tools such as DSpace and ePrints, and by CORE. It reduces network traffic because it can do incremental harvesting.
 
+
       Repository managers can check their OAI-PMH endpoint using the [OAI-PMH Validator](https://www.openarchives.org/Register/ValidateSite) tool. A valid OAI-PMH endpoint is not enough, the endpoint also needs to be accessible for machines. You can use the [Repository Indexability Diagnostics](https://core.ac.uk/blocking-diagnostic) tool to quickly check your accessibility level.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes
+
       * **Gold:** Yes
+
 
       **R(1.2) Does your repository metadata support a widely used Application Profile? (DD)**
 
+
       **Description**
+
 
       An application profile is a set of policies and metadata guidelines for describing scholarly documents. Examples include Dublin Core, OpenAIRE Guidelines and RIOXX. However, these application profiles are not equally detailed.
 
+
       Ensuring the usage of a well-known application profile means that the metadata of the publication is described in a less ambiguous and more accurate way. Most used publications profiles are the OpenAIRE Guidelines 3.0+ and the RIOXX metadata application profile.
+
 
       Apart from matching an application profile, it is also important that your content supports at least the minimal set of metadata to give it the rights to be a scholarly record. We define the minimal set as title, abstract, authors, publication year (or year of first visibility). This list is in no way complete but it helps us establish a minimal compliance of your records.
 
+
       **Recommendations**
+
 
       CORE metadata indexing requires Dublin Core as a minimum; it supports OpenAIRE Guidelines; and it recommends RIOXX version 3. CORE recommends that repositories use [RIOXX v3](https://rioxx.net/profiles/v3-0-final/), which we consider to be the most suitable metadata application profile for describing scholarly research outputs. Rioxx: The Research Outputs Metadata Schema was developed for institutional repositories to share metadata about the scholarly resources they contain.
 
+
       Information about how to comply with metadata recommendations is provided in the [CORE Data Provider’s Guide](https://core.ac.uk/documentation/data-providers-guide#meta-configuration).
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes, (80%) Minimal set of metadata available: title, authors, abstracts, publication date, link.
+
       * **Silver:** Yes, (80%) As bronze criteria, plus supporting an advanced metadata profile and having partial compliance.
+
       * **Gold:** Yes, (50%) As silver plus and complete compliance with the metadata profile.
+
 
       **R(1.3) How many metadata records are there in your repository? (DD)**
 
+
       **Description**
+
 
       It is not always easy to extract this information from your repository platform, so some estimation is good to enable us to compare what we see in the public to your expectations. We compare your number with the number of records CORE is able to index from your repository. If this number doesn't match your records it might mean you have issues in exposing your records in an interoperable way.
 
+
       **Recommendations**
+
 
       The Indexing status tab provides a summary of any issue CORE finds while indexing your repository. A common issue is when institutions have more than one repository. CORE identifies some but not all of the repositories, which means the total number it identifies is less than the total in the repositories.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** Yes, (90%+ of all metadata)
+
       * **Silver:** Yes, (95%+ of all metadata)
+
       * **Gold:** Yes, (100% of all metadata)
+
 
       **2. Accessible**
 
+
       **R(2.1) Do you provide access to full texts of research papers for your content? (DD)**
 
+
       **Description**
+
 
       The number of full text CORE is able to discover from your digital repository.
 
+
       **Recommendations**
+
 
       You can check the Indexing tab where we collect issues CORE discovered while indexing your repository. If this number doesn't match your records it might mean you have issues in exposing your records in an interoperable way. The Indexing status tab provides a summary of any issue CORE finds while indexing your repository. CORE requires that full text must be hosted on the same domain or subdomains as the OAI-PMH endpoint, unless we are informed by the institution about other owned domains containing full text.
 
+
       Also, we highly recommend checking your repository for compliance with the [CORE Data Provider’s Guide](https://core.ac.uk/documentation/data-providers-guide) requirements, where you will find detailed information about how to configure your repository so it can be indexed to the maximum effect to get more accurate results in the CORE dashboard and to enhance visibility and interoperability beyond CORE.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes (repository is configured to expose full texts; we have at least, for example, 1% full texts indexed)
+
       * **Silver:** Yes (>25% of represented manuscripts have full texts)
+
       * **Gold:** Yes (>50% of represented manuscripts have full texts)
+
 
       **R(2.2) Do you label embargoed documents in a machine-readable way? (DD)**
 
+
       **Description**
+
 
       Embargoed documents are articles that can only be made available open access after a stated interval, such as 90 days or six months. These delays are best managed when the embargo is tagged in a machine-readable way to ensure that machines can access and understand the policy.
 
+
       **Recommendations**
+
 
       There are various supported ways of tagging an embargo document. CORE recognises only a few of them. The [Rioxx specification](https://rioxx.net/profiles/v3-0-final/) recommends that they are tagged using “HTTP status 451 Unavailable For Legal Reasons”. If this number doesn't match the one in your records please review your system.
 
+
       Another common case is reporting 401 when a record is not available. We recognise both of these cases to be valid.
+
 
       Many platforms report embargoed documents through a redirect to a login page or external links. These solutions, although effective for humans, are extremely difficult to catch for a machine, and we recommend against it.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(2.3) Do you support machine-readable licensing? (DD)**
 
+
       **Description**
+
 
       This requirement assesses whether licensing information is provided in a machine-readable format, such as a standardized licence URL that software can automatically recognize and interpret.
 
+
       **Recommendations**
+
 
       Licensing and copyright information may be displayed in a machine-readable way or by a text description. However, text descriptions such as “all rights reserved” may not be specific enough for other users to interpret. Much better is to provide a URL to the relevant Creative Commons licence, for example, for the non-commercial CC-BY licence, [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/). By clicking on this link, a human can see the precise meaning of this licence. Any machine can identify immediately and unambiguously what kind of licence is stated.
 
+
       CORE promotes and advocates for the use of machine-readable licencing descriptions. In particular, we advise the use of the [NISO Access License and Indicators (ALI) Schema](https://www.niso-sts.org/TagLibrary/niso-sts-TL-1-0-html/element/ali-license_ref.html).
+
 
       Institutions may have a blanket policy that covers all content with a specific publisher, which usually means that individual documents contain no licensing information. However, a specific CC-BY licence enables exceptions to be made for individual documents and reduces ambiguity.
 
+
       The CORE Rights Retention Statement tracker identifies with reasonable accuracy any specific licence conditions that are stated within an article or text file.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes (you have it for 25% of your manuscript metadata records)
+
       * **Gold:** Yes (you have it for 50% of your manuscript metadata records)
+
 
       **R(2.4) Do you support any tool for tracking COUNTER-compliant downloads in your system? (DD)**
 
+
       **Description**
+
 
       Tools for tracking COUNTER-compliant downloads allow you to demonstrate the value and impact of your institutional repository (IR) by enabling institutional repositories to share and compare usage statistics based on the COUNTER standard.
 
+
       **Recommendations**
+
 
       By using a standard set of statistics, it becomes possible to provide meaningful stats to compare downloads across several repositories.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **3. Interoperable**
 
+
       **R(3.1) Do you support FAIR Signposting to signpost full text and other related resources from article landing pages? (DD)**
 
+
       **Description**
+
 
       FAIR Signposting is a technical approach designed to enhance the discoverability and interoperability of scholarly resources on the web. It involves using standardized HTTP link relations to expose key information about web resources, particularly in the context of scholarly communication. This approach aligns with the broader FAIR principles, which aim for data to be Findable, Accessible, Interoperable and Reusable.
 
+
       **Recommendations**
+
 
       FAIR signposting can be done by adding information to HTTP headers. Specifically, the HTTP header can contain an element to describe the type of content resource, for example, “author”, or “collection”. Find more information in the [CORE Data Provider’s Guide](https://core.ac.uk/documentation/data-providers-guide#fair-signposting).
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(3.2) Do your metadata use COAR vocabularies? (DD)**
 
+
       **Description**
+
 
       COAR (Confederation of Open Access Repositories) vocabularies are structured sets of terms organized to provide a common framework for the sharing and integration of data across different systems. They comprise three types: Access rights, resource types and version types.
 
+
       **Recommendations**
+
 
       A metadata profile such as RIOXX can provide an easy way to share and use COAR vocabularies in your metadata.
 
+
       * **Access rights:** describe the access status of a resource, such as “embargoed access” or “restricted access”.
+
       * **Resource type:** describe the type of resource, such as “patent”, “bibliography” or “conference presentation”.
+
       * **Version type:** distinguish the various states of an academic article, including the version of record (VOR), the Author’s Original (AO) and the Author’s Accepted Manuscript (AM).
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes. Repository supports at least the COAR types vocabularies for Resource Types (more than 10%). Vocabularies for Access Rights (COAR or info:repo recommended) and JAV are also recommended but not required (we can still test for that presence).
+
       * **Gold:** Yes
+
 
       **R(3.3) Does your repository support persistent management of records? (DD)**
 
+
       **Description**
+
 
       A repository with persistent management ensures that metadata and content are not lost, that links remain valid and that researchers can reliably cite and access resources over time.
 
+
       **Recommendations**
+
 
       It is recommended that the repository implements a recognized system for persistent identifiers like DOI or ROR. Clear policies should be in place for record versioning, updates and withdrawal, ensuring transparency and trustworthiness. Documentation of these policies should be openly available to users.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes
+
       * **Gold:** Yes
+
 
       **R(3.4) Is your repository configured for the OAI resolver and does it work? (DD)**
 
+
       **Description**
+
 
       An OAI (Open Archives Initiative) identifier is a unique identifier of a metadata record. CORE can resolve any OAI identifier directly to your repository page.
 
+
       **Recommendations**
+
 
       To register your OAI mapping, navigate to the Settings tab in the CORE Dashboard. To route directly to the repository, it is necessary to provide mapping in the CORE Repository page between the OAI prefix of a repository and the currently used URL for the repository metadata record display page. The redirection will change instantly. More information about the OAI resolver and its configuration can be found in the:
 
+
       * [CORE Data Provider’s Guide: OAI identifiers](https://core.ac.uk/documentation/data-providers-guide#oai-identifier)
+
       * [Membership documentation: Get your OAI identifiers resolved to your repository](https://core.ac.uk/documentation/membership-documentation#OAI-identifiers)
+
       * [OAI Identifier documentation](https://core.ac.uk/documentation/oai-resolver)
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes
+
       * **Gold:** Yes
+
 
       **R(3.5) Persistable identifiers (DD)**
 
+
       **Description**
+
 
       Does your repository support identifiers for your content that can be made persistent, such as ARKs or DOIs, etc? Persistent identifiers (PIDs) are essential for the long-term discoverability and citability of research. They provide a stable, unique, and permanent link to digital objects, ensuring that even if the underlying storage location changes, the resource remains accessible.
 
+
       **Recommendations**
+
 
       Ensure that your repository assigns and exposes persistent identifiers (PIDs) for all content objects, such as DOIs or ARKs.
 
+
       To enrich your metadata with more DOIs, you can go to the DOI tab. It provides a checklist of the number of content objects in your repository which have a DOI. It also identifies (and counts) the number of DOIs that it finds from articles held in other repositories relating to research in your institution.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes (75% of content from last year has an identifier)
+
       * **Gold:** Yes (75% of content from last year has an identifier)
+
 
       **R(3.6) Does your repository metadata contain ORCID identifiers? (DD)**
 
+
       **Description**
+
 
       ORCID (Open Researcher and Contributor Identifier) is a non-proprietary alphanumeric code that uniquely identifies scientific authors. ORCID is an essential metadata tool that enables researchers to claim credit for their own research, without ambiguity. For example, there are many researchers with the common name “John Smith” or “Zhang Wei”. ORCID enables these names to be disambiguated.
 
+
       **Recommendations**
+
 
       The repository should support integration with ORCID IDs in its metadata schema. Metadata records should expose ORCID identifiers in a standardised way using DataCite or Dublin Core fields. If possible, the repository should support ORCID authentication during deposit, allowing researchers to connect their ORCID profile directly and authorise the repository to update their ORCID record with new works.
 
+
       The CORE ORCID dashboard tab enables repository managers both to identify missing ORCID IDs, and to enrich their data with ORCID IDs found from elsewhere. Find more information in the [ORCID membership documentation](https://core.ac.uk/documentation/membership-documentation#orcid).
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes, for metadata records with a publication date of 2020 onwards, ORCID IDs are present in at least 10% of records.
+
       * **Gold:** Yes, for metadata records with a publication date of 2020 onwards, ORCID IDs are present in at least 50% of records.
+
 
       **R(3.7) ROR (DD)**
 
+
       **Description**
+
 
       ROR (Research Organisation Registry) identifies institutions and organisations: universities, research centres, funders, etc.
 
+
       **Recommendations**
+
 
       The CORE Dashboard enables you to specify your ROR ID. You should check the details to make sure your institution is identified correctly. If the ROR ID is missing or incorrect, you can correct it on the dashboard. The ROR ID can be obtained from the [Research Organisation Registry](https://ror.org/).
 
+
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes
+
       * **Gold:** Yes
+
 
       **4. Reusable**
 
+
       **R(4.1) Do you have an institutional policy on data sharing? (OQ)**
+
 
       **Description**
 
+
       A data availability statement, also sometimes called a “data access statement”, is a short, mandatory section in a paper that tells the reader where the research data associated with a paper is available and under what conditions the data can be accessed.
+
 
       **Recommendations**
 
+
       Here are some recommendations on how to increase the number of data availability statements in your repository:
 
+
       1. Include links where applicable to the data set. For example, the paper may state “The data that support the findings of this study are openly available in [repository name] at https://doi.org/[doi]”.
+
       2. Provide a dedicated metadata field for the data availability statement, not just full text in the description.
+
       3. Provide researchers with approved, compliant data availability statement text for all scenarios, such as “Data are openly available in [Repository Name] at [DOI].” and “Data are available upon request due to ethical restrictions. Contact [Email/Data Access Committee].”
+
       4. CORE provides several tools under the [Data Availability Statement identification](https://core.ac.uk/documentation/membership-documentation#das-identification) tab:
          * monitoring statistics about data availability statements in your repository
          * Data Availability Statement checker
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(4.2) Do you have an institutional policy on sharing software? (OQ)**
 
+
       **Description**
+
 
       Providing links to source means that the repository includes references to the software that was used in the research.
 
+
       **Recommendations**
+
 
       We are working on making software mentions a first-class citation object. The most common place to store this information in the metadata is `dc:relation`. See the [CORE Data Provider’s Guide](https://core.ac.uk/documentation/data-providers-guide#linking-full-text) for the recommended ways of linking related resources. CORE also supports a machine learning tool to recognise software mentions directly inside the paper. Using this feedback loop, the repository can track more citations and integrate them in the global scholarly graph.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(4.3) Do you have an Institutional RRS or do your papers contain an RRS section? (OQ)**
 
+
       **Description**
+
 
       Rights Retention Strategy (RRS) enables authors to exercise the authorship rights they have on their manuscripts to deposit a copy of the Author Accepted Manuscript (AAM) in a repository on publication and provide open access to it. RRS is typically implemented by means of authors inserting a rights retention statement in their manuscript.
 
+
       **Recommendations**
+
 
       CORE provides functionality to automatically identify papers with these Rights Retention Strategy statements, by means of testing if the rights retention statement is present in the paper's full text. You can find more details on the [RRS Policy](https://core.ac.uk/documentation/membership-documentation#rrs-identification) tab.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** No
+
 
       **5. Fit for funders**
 
+
       **R(5.1) Is your research identifiable by funding bodies? (OQ)**
 
+
       **Description**
+
 
       Applies only to UK repositories. Only a recommendation for everybody else.
 
+
       The repository records and exposes details about the organizations or agencies that financially supported the research.
+
 
       **Recommendations**
 
+
       This typically includes the funder name, grant number or project ID and ideally a persistent identifier for the funder, a ROR ID or Crossref Funder Registry ID.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes, there is a policy but it is not widely used
+
       * **Gold:** Yes, the policy is used for most of the recent records
+
 
       **R(5.2) Do you expose metadata about dates of deposit? (OQ)**
 
+
       **Description**
+
 
       Exposing metadata about dates of deposit means that the repository clearly records and makes available the date an item was first deposited into the system.
 
+
       **Recommendations**
+
 
       This provides provenance information and helps users and aggregators know when the record entered the repository. It is also useful for version control, compliance checking and tracking the research lifecycle. The compliance percentage is reported here just for the sake of completeness, it won’t be used in evaluating your certification submission.
 
+
       * Configure the repository to automatically capture deposit dates during submission.
+
       * Ensure the deposit date is included in all exposed metadata formats (OAI-PMH, DataCite, Dublin Core).
+
       * Regularly audit metadata records to check completeness and identify missing dates.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes. Applies only to UK repositories. Only a recommendation for everybody else. At least 50% of papers deposited after 2025.
+
       * **Gold:** Yes
+
 
       **R(5.3) Do you provide information about funding bodies for the research outputs? (OQ)**
 
+
       **Description**
+
 
       The repository records and exposes details about the organizations or agencies that financially supported the research.
 
+
       **Recommendations**
+
 
       This typically includes the funder name, grant number or project ID and ideally a persistent identifier for the funder, a ROR ID or Crossref Funder Registry ID.
 
+
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes. For 2020 onwards manuscripts, at least 10% have grant IDs.
+
 
       **R(5.4) Do you provide in the metadata information about project IDs? (OQ)**
 
+
       **Description**
+
 
       The repository records and exposes identifiers of funded projects associated with research outputs.
 
+
       **Recommendations**
 
+
       * Implement a dedicated metadata field for project IDs alongside funding body details.
+
       * Support standard formats and schemas like OpenAIRE Guidelines or DataCite metadata that include fields for project identifiers.
+
       * Encourage depositors to enter official grant or project IDs at the time of submission.
+
       * Where possible, use persistent identifiers for projects: OpenAIRE project IDs, DOIs.
+
       * Ensure the information is machine-readable and harvestable through OAI-PMH.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes. For 2020 onwards manuscripts, at least 10% have project information filled in metadata.
+
 
       **6. Fit for the future**
 
+
       **R(6.1) Do you support ResourceSync? (OQ)**
 
+
       **Description**
+
 
       [ResourceSync](https://www.openarchives.org/rs/1.1/resourcesync) allows repositories to expose changes to their content and metadata in a structured, machine-readable way. With ResourceSync, external services (such as aggregators, harvesters and preservation systems) can keep their records in sync with the repository by automatically detecting new, updated or deleted items. Unlike OAI-PMH, which focuses on metadata harvesting, ResourceSync provides a more efficient and scalable way to track repository content changes in real time.
 
+
       **Recommendations**
 
+
       * Assess whether your repository platform supports ResourceSync, for example DSpace, EPrints or Invenio.
+
       * Provide a Resource List (all available items) and Change Lists (new, updated or deleted items) to support synchronisation.
+
       * Ensure ResourceSync feeds include persistent identifiers (DOIs, Handles) and standard metadata formats.
+
       * Document the repository’s ResourceSync base URL in public documentation for service providers.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(6.2) Do you support COAR Notify? (OQ)**
 
+
       **Description**
+
 
       COAR Notify is a protocol developed by the Confederation of Open Access Repositories (COAR) to enable interoperable, event-based communication between repositories, publishers and other scholarly services. It is built on the Linked Data Notifications (LDN) standard and allows repositories to send and receive notifications about research objects. For example, a repository can notify a publisher when a preprint has been deposited or receive a notification when a peer review has been linked to one of its records.
 
+
       **Recommendations**
 
+
       * Ensure that your repository can send notifications, for example about deposits, updates or withdrawals, and receive notifications, for example about reviews, endorsements or citations.
+
       * Align metadata and identifiers used in notifications with persistent identifiers (DOIs, ORCIDs, RORs) to maximize interoperability.
+
       * Document your repository COAR Notify endpoints and policies for external partners.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(6.3) Do you support FAIRiCat? (OQ)**
 
+
       **Description**
+
 
       FAIRiCat (FAIR Implementation Profile Catalog) is an international initiative led by GO FAIR that provides a registry of FAIR Implementation Profiles (FIPs). Read more at [https://signposting.org/FAIRiCat/](https://signposting.org/FAIRiCat/).
 
+
       **Recommendations**
 
+
       * Prepare a FAIR Implementation Profile (FIP) for your repository, describing identifiers (DOI, ORCID, ROR), metadata schemas (DataCite, Dublin Core), protocols (OAI-PMH, ResourceSync) and vocabularies in use.
+
       * Submit your FIP to the FAIRiCat registry so it is visible and reusable by the wider community.
+
       * Regularly update the FIP as your repository adopts new standards or technologies.
+
       * Reference your published FIP in the repository documentation to demonstrate compliance and transparency.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **7. Operational / Environmental considerations**
 
+
       **R(7.1) How do you manage deposits? Is there someone to check them? (OQ)**
 
+
       **Description**
+
 
       Deposit management refers to the process the repository uses to handle new submissions of research outputs.
 
+
       **Recommendations**
+
 
       Define a clear deposit workflow: self-deposit, mediated deposit or curated. Assign repository staff (curators or managers) to review submissions for metadata quality, copyright, licensing and compliance with institutional and funder policies. Provide guidance for depositors: templates, checklists, FAQs.
 
+
       * **Self-deposited** — by researchers, authors or administrative staff.
+
       * **Mediated** — by librarians or repository managers on behalf of authors.
+
       * **Curated** — before publication to ensure metadata quality, copyright compliance and adherence to repository policies.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes
+
       * **Gold:** Yes
+
 
       **R(7.2) Deposits are checked before made available. (OQ)**
 
+
       **Description**
+
 
       This requirement evaluates whether the repository implements a curation step prior to publishing new submissions. In a curated workflow, trained repository staff systematically check self-deposited or mediated submissions to ensure metadata quality, licensing validity, copyright compliance, and strict adherence to institutional and funder policies. Checking deposits before they go live ensures the overall consistency, completeness, and long-term reliability of the repository's collections.
 
+
       **Recommendations**
 
+
       * Establish a curated workflow. Transition from instant publication to a holding queue where submissions are reviewed by librarians or repository managers before becoming publicly visible.
+
       * Review metadata quality and completeness. Train repository curators to verify that all mandatory scholarly fields (such as titles, author names, abstracts, and publication dates) are correctly and consistently formatted.
+
       * Ensure copyright and licensing compliance. Check that appropriate Creative Commons or standardized licenses are specified, and that rights retention statements or publisher embargoes are legally respected and correctly tagged.
+
       * Verify cross-linking of outputs. Ensure curation guidelines prompt staff to check for the presence of Data Availability Statements and verify that research papers are properly linked to their underlying research data and software repositories.
+
       * Provide support resources. Equip depositors with clear guidance materials including templates, metadata checklists, and FAQs to help them prepare compliant submissions and reduce the curation burden on staff.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** Yes
+
       * **Silver:** Yes
+
       * **Gold:** Yes
+
 
       **R(7.3) How do you handle take-down notices? (OQ)**
 
+
       **Description**
+
 
       Handling take-down notices refers to the repository’s process for managing requests to remove or restrict access to deposited content.
 
+
       **Recommendations**
 
+
       * Establish a publicly available take-down policy, outlining when and how content may be removed.
+
       * Designate a contact point (repository manager or legal office) for receiving and handling take-down requests.
+
       * Acknowledge requests promptly and investigate validity in consultation with legal or policy experts if needed.
+
       * If the request is justified, withdraw or restrict access to the item, but preserve the metadata record with a clear note explaining the reason for removal.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes. We want to hear that the metadata record is not deleted, but only marked as deleted in OAI-PMH. Also we want to hear that updates are marked as updated.
+
       * **Gold:** Yes
+
 
       **R(7.4) How do you manage the preservation of content in your repository? (OQ)**
 
+
       **Description**
+
 
       Preservation of content in a repository refers to the set of policies, workflows and technical measures that ensure digital objects remain:
 
+
       * **Available** — can be found and opened.
+
       * **Authentic** — guaranteed to be original.
+
       * **Usable** — can be realistically reused.
+
 
       **Recommendations**
 
+
       * Define and publish a preservation policy that outlines the repository’s commitment to long-term access and specifies responsibilities.
+
       * Implement redundant storage and backup strategies: multiple servers, offsite copies, cloud storage.
+
       * Use fixity checks (checksums, hashes) to regularly verify file integrity and detect corruption.
+
       * Prefer open and widely used file formats (PDF, TXT, CSV) for better long-term sustainability.
+
       * Record and expose technical metadata (file format, size, checksum) to support digital preservation workflows.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** Yes. We just want to hear that they are aware.
+
       * **Gold:** Yes
+
 
       **R(7.5) How do you encourage researchers to get their ORCID? (OQ)**
 
+
       **Description**
+
 
       Encouraging researchers to obtain an ORCID (Open Researcher and Contributor ID) ensures that their work is uniquely identifiable and correctly attributed, regardless of name variations, institutional changes or publication platforms. ORCID adoption strengthens the quality of repository metadata, improves interoperability with publishers and funders and helps researchers gain recognition for their contributions.
 
+
       **Recommendations**
 
+
       * Promote ORCID awareness through training sessions, repository guides and onboarding materials.
+
       * Provide step-by-step instructions and links for registering an ORCID ID.
+
       * Enable ORCID authentication and login in the repository so researchers can connect their profile during deposit.
+
       * Encourage depositors to include their ORCID in the metadata of every submission.
+
       * Where possible, set ORCID as a mandatory or strongly recommended field in deposit workflows.
+
       * Integrate with the ORCID API to push publications and datasets from the repository directly to a researcher’s ORCID profile.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes. We just want to hear that they are making it possible to provide ORCID within their repository systems.
+
 
       **R(7.6) What are you doing to promote FAIR principles? (OQ)**
 
+
       **Description**
+
 
       The repository actively implements policies, technologies and community practices to make research outputs more discoverable, usable and sustainable.
 
+
       **Recommendations**
 
+
       * **Clear policies** — Publish policies that explicitly reference FAIR principles (metadata quality, licensing, preservation).
+
       * **Metadata standards** — Require rich, standardized metadata (DataCite, Dublin Core, OpenAIRE Guidelines).
+
       * **Persistent identifiers** — Support DOIs, ORCIDs, RORs and project IDs to ensure proper linking and attribution.
+
       * **Infrastructure support** — Provide OAI-PMH, ResourceSync and APIs to enable interoperability with aggregators.
+
       * **Licensing and reuse** — Encourage open licenses (CC-BY, CC0) to maximize reusability.
+
       * **Data linking** — Promote inclusion of Data Availability Statements, links to datasets and source code where relevant.
+
       * **Quality control** — Ensure deposits are reviewed for metadata completeness and compliance with FAIR.
+
       * **Awareness and training** — Organize workshops, training sessions and guidance materials for researchers on FAIR data management.
+
       * **Community engagement** — Participate in FAIR-related initiatives (GO FAIR, COAR) and align with best practices.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes
+
 
       **R(7.7) What are you doing to promote research reproducibility? (OQ)**
 
+
       **Description**
+
 
       Promoting research reproducibility means ensuring that other researchers can verify, replicate and build upon the results deposited in the repository. This goes beyond simply storing outputs: it requires linking publications with their underlying datasets, methods and documentation, as well as providing transparent metadata and persistent identifiers.
 
+
       **Recommendations**
 
+
       * Require or encourage Data Availability Statements linking publications to underlying datasets.
+
       * Enable persistent identifiers (DOIs for publications and datasets, ORCID for authors, ROR for institutions) to ensure reliable attribution and referencing.
+
       * Support versioning so users can access previous iterations of datasets or papers.
+
       * Provide metadata fields for methods and protocols, ensuring research processes are documented.
+
       * Encourage open licenses (CC-BY, MIT, GPL) so that others can reuse data and code legally.
+
       * Facilitate interoperability by using standard metadata schemas (DataCite, OpenAIRE Guidelines) so outputs can be linked across systems.
+
       * Promote best practices through guidance, training, FAQs and templates for researchers on how to deposit reproducible outputs.
+
       * Integrate with external registries (Protocols.io for methods, OpenAIRE for projects) to enhance traceability.
+
       * Provide transparency in curation. Ensure deposits are checked for completeness and proper linking of data, code and publications.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes. Are you making it possible for depositors in the repository to specify and link the research data and research software?
+
 
       **R(7.8) How do you support Open Science at your institution? (OQ)**
 
+
       **Description**
+
 
       Implementing policies, infrastructure and cultural practices that make research outputs more transparent, accessible and reusable. This includes promoting open access to publications, sharing research data, supporting reproducibility and enabling collaboration across disciplines and communities.
 
+
       **Recommendations**
 
+
       * Adopt an institutional Open Science policy aligned with national and European guidelines (EOSC, Plan S).
+
       * Provide infrastructure such as institutional repositories, data archives and integration with ORCID, DOI and ROR identifiers.
+
       * Promote FAIR data practices by training researchers in data management, metadata standards and reproducibility.
+
       * Support Open Access publishing through funding, agreements with publishers or institutional repositories (Green/Gold OA).
+
       * Encourage Data and Code Availability Statements in research outputs.
+
       * Offer training and guidance on open research practices, licensing (Creative Commons, Open Source) and copyright.
+
       * Recognize and reward Open Science practices in research evaluation, hiring and promotion.
+
       * Collaborate with external infrastructures (OpenAIRE, EOSC, COAR) to increase global visibility and interoperability.
+
       * Provide long-term preservation services to ensure open research remains accessible and trustworthy over time.
+
       * Engage the community by organizing workshops, awareness campaigns and incentives for adopting Open Science practices.
+
 
       **Compliance criteria**
 
+
       * **Bronze:** No
+
       * **Silver:** No
+
       * **Gold:** Yes. We want to hear that there is a programme within the institution to support Open Science in research papers.
     images: null
     subTitle: null
     subDescription: null
   - title: 5. How to get your repository FAIR certified?
     id: how-to
-    descriptionAbout: |
-      The sections below describe how to apply, the administrative fee, how the assessment works, which repositories can apply, what you receive, and how to upgrade your certificate.
+    descriptionAbout: >
+      The sections below describe how to apply, the administrative fee, how the
+      assessment works, which repositories can apply, what you receive, and how
+      to upgrade your certificate.
     images: null
     subTitle: null
     subDescription: null
     divider: true
   - title: 5.1. How to apply?
     id: how-to-apply
-    descriptionAbout: |
-      1. **Apply for FAIR certification.** Register your interest on the website or apply for FAIR Certification via your CORE Dashboard account (FAIR certification tab).
+    descriptionAbout: >
+      1. **Apply for FAIR certification.** Register your interest on the website
+      or apply for FAIR Certification via your CORE Dashboard account (FAIR
+      certification tab).
+
       2. **Arrange payment.** See the administrative fee table below.
+
       3. **Submit the form.** CORE will run automated checks for your repository and produce a report containing results and recommendations against the certification criteria. Review the recommendations, complete the report and submit when ready.
+
       4. **CORE team assesses the submission.** We will evaluate your repository and inform you if you qualify for the certificate. In case you don’t qualify yet, we will offer technical advice on how to satisfy the requirements. You are free to resubmit your application as many times as needed during a 365 days period.
+
       5. **Get your FAIR certificate.** Once your repository gets FAIR certification you will get your certificate via email and your organisation will appear in the FAIR certified repositories list. You can now display your certificate in your repository. A CORE FAIR Repository Certificate remains valid for 3 years.
     images: null
     subTitle: null
     subDescription: null
   - title: 5.2. Administrative fee
     id: administrative-fee
-    descriptionAbout: |
-      The administrative fee for FAIR Repository Certification varies based on the repository's size and country of origin. This certification is included with Sustaining Membership, and Supporting Members are eligible for a 50% discount.
-
-      Country groups follow the [World Bank country and lending groups](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups). Fees are in GBP.
-
-      | Data provider size | Low-income countries | Middle-income countries | High-income countries |
-      | --- | --- | --- | --- |
-      | Band 1, up to 5K articles | £1,000 | £2,000 | £3,000 |
-      | Band 2, 5K–10K articles | £1,250 | £2,250 | £3,250 |
-      | Band 3, 10K–20K articles | £1,500 | £2,500 | £3,500 |
-      | Band 4, 20K–40K articles | £1,750 | £2,750 | £3,750 |
-      | Band 5, 40K+ articles | £2,000 | £3,000 | £4,000 |
-
-      Supporting Members pay 50% of the fee for their band and country group. Sustaining Members receive certification free of charge.
+    descriptionAbout: The administrative fee for FAIR Repository Certification
+      varies based on the repository's size and country of origin. This
+      certification is included with Sustaining Membership, and Supporting
+      Members are eligible for a 50% discount. Supporting Members pay 50% of the
+      fee for their band and country group.
     images: null
     subTitle: null
     subDescription: null
   - title: 5.3. Assessment Methodology and Timeline
     id: assessment
-    descriptionAbout: |
-      The FAIR Repository Certification process is a comprehensive, multi-stage evaluation typically completed within one year. The timeline is flexible, accommodating the time required for repository managers to implement improvements and for CORE to reindex content.
+    descriptionAbout: >
+      The FAIR Repository Certification process is a comprehensive, multi-stage
+      evaluation typically completed within one year. The timeline is flexible,
+      accommodating the time required for repository managers to implement
+      improvements and for CORE to reindex content.
+
 
       **Assessment timeline**
 
+
       * **Submission and initial review.** Upon submission, the CORE team conducts a primary review, typically providing feedback within 3–5 weeks.
+
       * **Improvement phase.** Following feedback, repository managers implement necessary technical or policy adjustments. This usually takes between 1 month and 6 months.
+
       * **Reindexing and final verification.** Once improvements are integrated, CORE reindexes the repository to verify compliance. This usually takes 3–5 weeks, and the total duration often depends on the repository's size and the scale of required adjustments.
+
 
       **Methodology**
 
+
       Our certification employs a hybrid assessment model to ensure a robust evaluation of FAIR principles:
 
+
       1. **Data-driven assessment (80%).** This data-driven component utilizes automated scripts to evaluate infrastructure and metadata practices. It objectively verifies critical criteria such as identifier persistence, metadata richness, and licence adherence, ensuring high-speed, consistent, and scalable screening.
+
       2. **Qualitative review (20%).** This stage involves the manual assessment of open-ended responses addressing areas requiring human context, including:
          * Governance and long-term preservation strategies.
          * Community engagement and ethical considerations.
@@ -877,29 +1366,41 @@ items:
     subDescription: null
   - title: 5.4. Eligible repositories
     id: eligible-repositories
-    descriptionAbout: |
-      The CORE FAIR Certification programme is primarily designed for publication repositories. However, its flexible framework can also be applied to data repositories looking to evidence their FAIR maturity.
+    descriptionAbout: >
+      The CORE FAIR Certification programme is primarily designed for
+      publication repositories. However, its flexible framework can also be
+      applied to data repositories looking to evidence their FAIR maturity.
     images: null
     subTitle: null
     subDescription: null
   - title: 5.5. Certification Deliverables
     id: deliverables
-    descriptionAbout: |
-      Upon successful completion of the FAIR certification process, your repository will receive the following assets to showcase your commitment to open science:
+    descriptionAbout: >
+      Upon successful completion of the FAIR certification process, your
+      repository will receive the following assets to showcase your commitment
+      to open science:
+
 
       * **Official PDF certificate.** A high-resolution, verifiable digital certificate confirming your repository's FAIR compliance level (Bronze, Silver, or Gold). Each certificate includes a unique, persistent link to CORE, ensuring authenticity and providing external verification for researchers, funders, and other stakeholders.
+
       * **Comprehensive assessment report.** A detailed, downloadable PDF report that synthesizes your repository’s performance. This report outlines your current FAIR maturity score, identifies specific strengths, and provides actionable, data-driven recommendations to guide your future improvements.
+
       * **Verified FAIR status badge.** A high-quality “FAIR Certified” web badge that can be embedded directly onto your repository’s homepage. This acts as an immediate trust signal, clearly communicating your dedication to high-quality data stewardship and standardized FAIR practices to your users.
     images: null
     subTitle: null
     subDescription: null
   - title: 5.6. Upgrading your certification
     id: upgrading
-    descriptionAbout: |
-      Repositories can advance their FAIR maturity over time. If you wish to upgrade your existing certification level (for example, from Bronze to Silver, or Silver to Gold):
+    descriptionAbout: >
+      Repositories can advance their FAIR maturity over time. If you wish to
+      upgrade your existing certification level (for example, from Bronze to
+      Silver, or Silver to Gold):
+
 
       * **Process.** You must resubmit your application via the CORE Dashboard.
+
       * **Free upgrade window.** Holders of current Bronze or Silver certificates are eligible for a free-of-charge upgrade if applied for and completed within one year of their original application date.
+
       * **Standard fees.** After this one-year period, any request to upgrade your certification level will be subject to the standard administrative fees associated with your repository’s band and income level.
     images: null
     subTitle: null
