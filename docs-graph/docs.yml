@@ -19671,15 +19671,15 @@ items:
 
               | ----------------------------------------- | ---------- | --------------------------------- |
 
-              | Get a single Projects record              | `GET`      | `/v4/projects/{projectId}`        |
+              | Get a single Projects record              | `GET`      | `/graph/projects/{projectId}`        |
 
-              | Search Projects using URL parameters      | `GET`      | `/v4/search/projects`             |
+              | Search Projects using URL parameters      | `GET`      | `/graph/projects`             |
 
-              | Search Projects using a JSON request body | `POST`     | `/v4/search/projects`             |
+              | Search Projects using a JSON request body | `POST`     | `/graph/projects`             |
 
-              | Retrieve Works for a Projects record      | `GET`      | `/v4/projects/{projectId}/works`  |
+              | Retrieve Works for a Projects record      | `GET`      | `/graph/projects/{projectId}/works`  |
 
-              | Retrieve Grants for a Projects record     | `GET`      | `/v4/projects/{projectId}/grants` |
+              | Retrieve Grants for a Projects record     | `GET`      | `/graph/projects/{projectId}/grants` |
 
 
               #### Get a single Projects record
@@ -19690,7 +19690,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/projects/{projectId}
+              GET https://api.core.ac.uk/graph/projects/{projectId}
 
               ```
 
@@ -19734,7 +19734,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001" \
+                --url "https://api.core.ac.uk/graph/projects/coreproj____%3A%3A001" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -19776,7 +19776,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/projects/coreproj____%3A%3A001?select=projectId,title,acronym,startDate,endDate" \
+                --url "https://api.core.ac.uk/graph/projects/coreproj____%3A%3A001?select=projectId,title,acronym,startDate,endDate" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
