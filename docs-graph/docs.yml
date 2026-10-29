@@ -41,19 +41,17 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}
+              GET /graph/works/{workId}
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
-              GET /v4/institutions/{institutionId}/data-providers
+              GET /graph/institutions/{institutionId}/data-providers
 
-              GET /v4/search/works
-
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
