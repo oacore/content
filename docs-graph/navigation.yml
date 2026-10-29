@@ -434,3 +434,6 @@ navItems:
       - hidden: false
         item: How to monitor your API rate limits
         href: "#api-monitor-ratelimits"
+  - hidden: false
+    item: PDF Download Policy
+    href: "#api-pdf-download-policy"
