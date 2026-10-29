@@ -5605,15 +5605,15 @@ items:
 
               | ----------------------------------------------- | ---------- | ------------------------------------------------- |
 
-              | Get a single Data Provider                      | `GET`      | `/v4/data-providers/{dataProviderId}`             |
+              | Get a single Data Provider                      | `GET`      | `/graph/data-providers/{dataProviderId}`             |
 
-              | Search Data Providers using URL parameters      | `GET`      | `/v4/search/data-providers`                       |
+              | Search Data Providers using URL parameters      | `GET`      | `/graph/search/data-providers`                       |
 
-              | Search Data Providers using a JSON request body | `POST`     | `/v4/search/data-providers`                       |
+              | Search Data Providers using a JSON request body | `POST`     | `/graph/data-providers`                       |
 
-              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/outputs`     |
+              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/graph/data-providers/{dataProviderId}/outputs`     |
 
-              | Retrieve Data Providers for an Institution      | `GET`      | `/v4/institutions/{institutionId}/data-providers` |
+              | Retrieve Data Providers for an Institution      | `GET`      | `/graph/institutions/{institutionId}/data-providers` |
 
 
               A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
@@ -5630,7 +5630,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/data-providers/{dataProviderId}
+              GET https://api.core.ac.uk/graph/data-providers/{dataProviderId}
 
               ```
 
@@ -5674,7 +5674,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/data-providers/100" \
+                --url "https://api.core.ac.uk/graph/data-providers/100" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -5718,7 +5718,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/data-providers/100?select=dataProviderId,name,type,software,metadataFormat,homepageUrl" \
+                --url "https://api.core.ac.uk/graph/data-providers/100?select=dataProviderId,name,type,software,metadataFormat,homepageUrl" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
