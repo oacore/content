@@ -23185,7 +23185,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=scientometrics
+              GET /graph/works?q=scientometrics
 
               ```
 
@@ -23239,11 +23239,11 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:"Machine Learning"
+              GET /graph/works?q=title:"Machine Learning"
 
-              GET /v4/search/institutions?q=countryCode:GB
+              GET /graph/institutions?q=countryCode:GB
 
-              GET /v4/search/outputs?q=sdg.type:SDG04
+              GET /graph/outputs?q=sdg.type:SDG04
 
               ```
 
@@ -23271,7 +23271,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:attention is all you need
+              GET /graph/works?q=title:attention is all you need
 
               ```
 
@@ -23293,7 +23293,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:"Attention is all you need"
+              GET /graph/works?q=title:"Attention is all you need"
 
               ```
 
@@ -23338,7 +23338,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=documentType:"research article" AND yearPublished>=2020
+              GET /graph/works?q=documentType:"research article" AND yearPublished>=2020
 
               ```
 
@@ -23377,7 +23377,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=(title:"Artificial Intelligence" OR title:"Machine Learning") AND yearPublished>2020
+              GET /graph/works?q=(title:"Artificial Intelligence" OR title:"Machine Learning") AND yearPublished>2020
 
               ```
 
@@ -23408,9 +23408,9 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=yearPublished>2018
+              GET /graph/works?q=yearPublished>2018
 
-              GET /v4/search/outputs?q=sdg.score>=0.8
+              GET /graph/outputs?q=sdg.score>=0.8
 
               ```
 
@@ -23420,9 +23420,9 @@ items:
 
               ```http
 
-              GET /v4/search/affiliations?q=startDate>="2020-01-01"
+              GET /graph/affiliations?q=startDate>="2020-01-01"
 
-              GET /v4/search/journals?q=createdDate>="2025-01-01"
+              GET /graph/journals?q=createdDate>="2025-01-01"
 
               ```
 
@@ -23438,11 +23438,11 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=_exists_:fullText
+              GET /graph/works?q=_exists_:fullText
 
-              GET /v4/search/authors?q=_exists_:orcidId
+              GET /graph/authors?q=_exists_:orcidId
 
-              GET /v4/search/outputs?q=_exists_:sdg
+              GET /graph/outputs?q=_exists_:sdg
 
               ```
 
@@ -23452,7 +23452,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=NOT _exists_:discontinuedDate
+              GET /graph/journals?q=NOT _exists_:discontinuedDate
 
               ```
 
@@ -23462,7 +23462,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=!_exists_:discontinuedDate
+              GET /graph/journals?q=!_exists_:discontinuedDate
 
               ```
 
@@ -23481,7 +23481,7 @@ items:
 
               ```http
 
-              GET /v4/search/authors?q=countries:GB
+              GET /graph/authors?q=countries:GB
 
               ```
 
@@ -23491,7 +23491,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=documentType:"research article"
+              GET /graph/works?q=documentType:"research article"
 
               ```
 
@@ -23583,7 +23583,7 @@ items:
 
               ```http
 
-              GET /v4/search/{entityType}
+              GET /graph/{entityType}
 
               ```
 
@@ -23620,7 +23620,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/works?q=documentType:"research%20article"%20AND%20yearPublished>=2020&orderby=yearPublished:desc&select=workId,title,yearPublished,doi&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/works?q=documentType:"research%20article"%20AND%20yearPublished>=2020&orderby=yearPublished:desc&select=workId,title,yearPublished,doi&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -23630,7 +23630,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q=documentType:"research article" AND yearPublished>=2020
                   &orderby=yearPublished:desc
                   &select=workId,title,yearPublished,doi
@@ -23651,7 +23651,7 @@ items:
 
               ```http
 
-              POST /v4/search/{entityType}
+              POST /graph/{entityType}
 
               ```
 
@@ -23709,7 +23709,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/works" \
+                --url "https://api.core.ac.uk/graph/works" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -23761,9 +23761,8 @@ items:
             id: search-vector-and-hybrid-search
             title: Vector and hybrid search
             descriptionAbout: >-
-              
-              Vector and hybrid search are supported for canonical Works and source-specific Outputs.
-
+              Vector and hybrid search are supported for canonical Works and
+              source-specific Outputs.
 
 
               For general scholarly discovery, use Work vector search:
@@ -23771,9 +23770,9 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23786,9 +23785,9 @@ items:
 
               ```http
 
-              GET /v4/search/outputs
+              GET /graph/outputs
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
               ```
 
@@ -23799,19 +23798,18 @@ items:
               #### Search modes
 
 
-              | Mode | Description |
+              | Mode      | Description                                                                      |
 
-              | --- | --- |
+              | --------- | -------------------------------------------------------------------------------- |
 
-              | `keyword` | Uses standard keyword relevance and structured conditions. |
+              | `keyword` | Uses standard keyword relevance and structured conditions.                       |
 
-              | `vector` | Uses semantic similarity between the query embedding and indexed entity vectors. |
+              | `vector`  | Uses semantic similarity between the query embedding and indexed entity vectors. |
 
-              | `hybrid` | Combines keyword relevance and vector similarity. |
+              | `hybrid`  | Combines keyword relevance and vector similarity.                                |
 
 
               The default mode is `keyword`. When searchMode is omitted, the request uses standard keyword and structured search.
-
 
 
               #### Text-based vector search
@@ -23825,7 +23823,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining"&searchMode=vector
+              GET /graph/works?q="text and data mining"&searchMode=vector
 
               ```
 
@@ -23835,7 +23833,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23856,7 +23854,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q="climate adaptation strategies"&searchMode=vector
+              GET /graph/outputs?q="climate adaptation strategies"&searchMode=vector
 
               ```
 
@@ -23866,7 +23864,7 @@ items:
 
               ```http
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
               ```
 
@@ -23893,7 +23891,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q="text and data mining" AND yearPublished>=2020 AND documentType:"research article"
                   &searchMode=vector
               ```
@@ -23904,7 +23902,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23930,11 +23928,11 @@ items:
               In this example:
 
 
-              - The textual clause is converted into an embedding.
+              * The textual clause is converted into an embedding.
 
-              - Semantic similarity is used to retrieve candidate Works.
+              * Semantic similarity is used to retrieve candidate Works.
 
-              - Publication year and document type are applied as structured conditions.
+              * Publication year and document type are applied as structured conditions.
 
 
               #### Hybrid search
@@ -23945,7 +23943,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining"&searchMode=hybrid
+              GET /graph/works?q="text and data mining"&searchMode=hybrid
 
               ```
 
@@ -23955,7 +23953,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -23982,7 +23980,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -24017,31 +24015,31 @@ items:
               The complete API documentation must specify:
 
 
-              - The compatible embedding model
+              * The compatible embedding model
 
-              - The required number of vector dimensions
+              * The required number of vector dimensions
 
-              - The accepted numeric format
+              * The accepted numeric format
 
-              - Whether vectors must be normalised
+              * Whether vectors must be normalised
 
-              - The maximum vector length
+              * The maximum vector length
 
-              - The maximum request-body size
+              * The maximum request-body size
 
 
               A vector should be rejected when:
 
 
-              - `searchMode` is `keyword`.
+              * `searchMode` is `keyword`.
 
-              - The vector is empty.
+              * The vector is empty.
 
-              - The vector has the wrong number of dimensions.
+              * The vector has the wrong number of dimensions.
 
-              - The vector contains non-numeric values.
+              * The vector contains non-numeric values.
 
-              - The vector is incompatible with the selected entity index.
+              * The vector is incompatible with the selected entity index.
 
 
               #### Embedding-generation endpoint
@@ -24055,7 +24053,7 @@ items:
 
               ```http
 
-              POST /v4/embeddings
+              POST /graph/embeddings
 
               ```
 
@@ -24090,8 +24088,6 @@ items:
               ```
 
 
-
-
               #### Vector candidate count
 
 
@@ -24113,9 +24109,9 @@ items:
               In this example:
 
 
-              - Up to 100 nearest vector candidates are considered.
+              * Up to 100 nearest vector candidates are considered.
 
-              - At most 10 records are returned.
+              * At most 10 records are returned.
 
 
               Therefore, `vectorTopK` is not equivalent to `limit`.
@@ -24130,15 +24126,15 @@ items:
               When `orderby` is omitted, the default ordering depends on the type of search.
 
 
-              | Search type | Default order |
+              | **Search type**               | **Default order**                                       |
 
-              | --- | --- |
+              | ----------------------------- | ------------------------------------------------------- |
 
-              | Keyword query | Keyword relevance |
+              | Keyword query                 | Keyword relevance                                       |
 
-              | Vector query | Vector similarity |
+              | Vector query                  | Vector similarity                                       |
 
-              | Hybrid query | Combined relevance |
+              | Hybrid query                  | Combined relevance                                      |
 
               | Structured query without text | Implementation-defined; clients should supply `orderby` |
 
@@ -24148,7 +24144,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q="machine learning"
                   &searchMode=vector
                   &orderby=yearPublished:desc
@@ -24184,11 +24180,11 @@ items:
               The response documentation should state whether the score represents:
 
 
-              - Keyword relevance
+              * Keyword relevance
 
-              - Vector similarity
+              * Vector similarity
 
-              - Hybrid relevance
+              * Hybrid relevance
 
 
               Scores produced by different search modes should not be treated as directly comparable.
