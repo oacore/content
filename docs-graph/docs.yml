@@ -24882,3 +24882,23 @@ items:
               | `X-RateLimit-Remaining` | The number of requests you still have available in the current window. Once this value reaches zero, additional requests will be blocked until the window resets. |
 
               | `X-RateLimit-Retry-After` | Indicates when you can safely make another request after hitting the rate limit. |
+  - item: PDF Download Policy
+    children:
+      - sections:
+          - divider: false
+            border: false
+            id: api-pdf-download-policy
+            title: PDF download policy
+            descriptionAbout: >-
+              
+              - Outputs PDF downloads are possible via the original `downloadUrl` supplied link, if a URL exists. This is the preferred method.
+
+              - Where users are prevented, restricted or blocked from reaching the resource specified in `downloadUrl`, CORE API users can also use the following GET request endpoint to download PDFs directly from CORE:
+
+                ```http
+                GET https://api.core.ac.uk/graph/outputs/{identifier}/download
+                ```
+
+                This request counts against your API token allowance and is generally more expensive because it has more significant data implications.
+
+              - **IMPORTANT:** Systematic harvesting of PDFs from CORE that circumvents the API, e.g. via `https://fileserver-az.core.ac.uk/download/{identifier}.pdf` or other methods, is unacceptable. Such usage will be blocked and associated API keys will be disabled.
