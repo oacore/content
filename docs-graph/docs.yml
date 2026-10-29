@@ -18995,6 +18995,9 @@ items:
               ##### Order by preferred name
 
 
+              G﻿ET:
+
+
               ```http
 
               GET /graph/publishers?orderby=publisherName:asc
@@ -19003,6 +19006,9 @@ items:
 
 
               ##### Order by Work count
+
+
+              G﻿ET:
 
 
               ```http
@@ -19224,7 +19230,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/outputs
+              GET /graph/publishers/{publisherId}/outputs
 
               ```
 
@@ -19237,7 +19243,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=publisherId:{publisherId}
+              GET /graph/outputs?q=publisherId:{publisherId}
 
               ```
 
@@ -19247,7 +19253,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/8102/outputs?select=outputId,title,doi,publishedDate&orderby=publishedDate:desc&count=true&limit=10&offset=0
+              GET /graph/publishers/8102/outputs?select=outputId,title,doi,publishedDate&orderby=publishedDate:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -19257,7 +19263,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/journals
+              GET /graph/publishers/{publisherId}/journals
 
               ```
 
@@ -19270,7 +19276,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=publisherId:{publisherId}
+              GET /graph/journals?q=publisherId:{publisherId}
 
               ```
 
@@ -19280,7 +19286,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/8102/journals?select=journalId,title,issn&orderby=title:asc&count=true&limit=10&offset=0
+              GET /graph/publishers/8102/journals?select=journalId,title,issn&orderby=title:asc&count=true&limit=10&offset=0
 
               ```
 
@@ -19290,7 +19296,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/data-providers
+              GET /graph/publishers/{publisherId}/data-providers
 
               ```
 
@@ -19303,7 +19309,7 @@ items:
 
               ```http
 
-              GET /v4/search/data-providers?q=publisherId:{publisherId}
+              GET /graph/data-providers?q=publisherId:{publisherId}
 
               ```
 
@@ -19313,7 +19319,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/8102/data-providers?select=dataProviderId,name,type&orderby=name:asc&count=true&limit=10&offset=0
+              GET /graph/publishers/8102/data-providers?select=dataProviderId,name,type&orderby=name:asc&count=true&limit=10&offset=0
 
               ```
 
@@ -19323,7 +19329,7 @@ items:
 
               ```http
 
-              GET /v4/publishers/{publisherId}/children
+              GET /graph/publishers/{publisherId}/children
 
               ```
 
@@ -19336,7 +19342,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+              GET /graph/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
 
               ```
 
@@ -19346,7 +19352,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherParentId:{publisherId}
+              GET /graph/publishers?q=publisherParentId:{publisherId}
 
               ```
 
