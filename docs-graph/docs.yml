@@ -24818,3 +24818,67 @@ items:
 
               | `source`         | string   | Yes          | Source from which the full-text link was obtained. |
 
+  - item: Rate Limits
+    children:
+      - item: ""
+        sections:
+          - divider: false
+            border: false
+            title: Access tiers and token allowances
+            id: api-access-tiers
+            descriptionAbout: >-
+              Access to the CORE API is free and requires no authentication.
+              Providing free access to general users is part of our mission.
+              Being a sustainable scholarly infrastructure is also part of our
+              mission. As a result, we offer better performance to registered
+              users. The below table provides information about our rate limits
+              depending on your situation.
+
+
+              To control the load on our systems we use a rate-limiting technology based on tokens. Each user has access to a certain number of tokens at the start of their session and they can use them to perform their queries.
+
+
+              Certain calls in CORE are more computationally expensive than others, therefore some calls such as recommender, scroll search and bulk queries will cost you more tokens than others. As a rule of thumb, a simple query will cost you 1 token while more complex queries will cost you between 3 to 5 tokens.
+
+
+              We are monitoring the load on our servers and at some point we might decide to increase or decrease the “cost” of certain operations to control the overall load. The best way to keep on top of your API usage is to use the HTTP headers included in every API call response (see below for details about the headers).
+
+
+              | **User type**                                                                                                       | **How to obtain**                                                         | **Rate limit**                                                                                                                                                                                                                                                                                                                                                               | **Support**                |
+
+              | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+
+              | Unauthenticated users**\***                                                                                         | No registration required, just start using the API.                       | 100 tokens per day, maximum 10 per minute.                                                                                                                                                                                                                                                                                                                                   | No support                 |
+
+              | Registered Personal users                                                                                           | Registration through the [CORE API](https://core.ac.uk/services/api) form | 1,000 tokens per day, maximum 25 per minute.                                                                                                                                                                                                                                                                                                                                 | Best effort                |
+
+              | Registered academic users NOT affiliated with Supporting or Sustaining institutions.                                | Registration through the [CORE API](https://core.ac.uk/services/api) form | 5,000 tokens per day, maximum 10 per minute.                                                                                                                                                                                                                                                                                                                                 | Best effort                |
+
+              | Registered academic users affiliated with Supporting or Sustaining institutions and Non-academic organisation users | Registration through the [CORE API](https://core.ac.uk/services/api) form | The API limits are designed to allow reasonable usage and we will change them depending on the load on our servers. However, on average, we estimate this plan should be good for up to about 200k tokens per day. You are able to monitor your current API limit by looking for our customised HTTP headers: X-RateLimitRemaining X-RateLimit-Retry-After X-RateLimit-Limit | Dedicated support          |
+
+              | VIP                                                                                                                 | Contact us to discuss a dedicated plan to upgrade your registration.      | Sky is the limit. We can support your needs. Just let us know and we will find a way to accommodate your usage needs.                                                                                                                                                                                                                                                        | Unlimited priority support |
+
+
+              **\*** - Full-text is not available for unauthenticated API users.
+          - divider: false
+            border: false
+            id: api-monitor-ratelimits
+            title: How to monitor your API rate limits
+            descriptionAbout: >-
+              To ensure fair usage and maintain API stability, CORE implements
+              rate limits. These limits may be adjusted dynamically based on
+              server load and usage patterns.
+
+
+              You can monitor your current rate usage by checking the following custom HTTP response headers included in every API response:
+
+
+              | **Header** | **Description** |
+
+              | --- | --- |
+
+              | `X-RateLimit-Limit` | The total number of requests allowed within the current rate-limiting window. This represents your maximum quota before the limit resets. |
+
+              | `X-RateLimit-Remaining` | The number of requests you still have available in the current window. Once this value reaches zero, additional requests will be blocked until the window resets. |
+
+              | `X-RateLimit-Retry-After` | Indicates when you can safely make another request after hitting the rate limit. |
