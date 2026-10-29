@@ -8614,7 +8614,7 @@ items:
 
               ```http
 
-              GET /v4/journals/{journalId}/outputs
+              GET /graph/journals/{journalId}/outputs
 
               ```
 
@@ -8627,7 +8627,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=journalId:{journalId}
+              GET /graph/outputs?q=journalId:{journalId}
 
               ```
 
@@ -8650,7 +8650,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/journals/12345/outputs?select=coreId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/journals/12345/outputs?select=coreId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -8689,7 +8689,7 @@ items:
 
               ```http
 
-              GET /v4/data-providers/{dataProviderId}/journals
+              GET /graph/data-providers/{dataProviderId}/journals
 
               ```
 
@@ -8702,7 +8702,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=dataProviderId:{dataProviderId}
+              GET /graph/journals?q=dataProviderId:{dataProviderId}
 
               ```
 
@@ -8727,7 +8727,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/{institutionId}/journals
+              GET /graph/institutions/{institutionId}/journals
 
               ```
 
@@ -8740,7 +8740,7 @@ items:
 
               ```http
 
-              GET /v4/search/journals?q=institutionId:{institutionId}
+              GET /graph/journals?q=institutionId:{institutionId}
 
               ```
 
