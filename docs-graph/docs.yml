@@ -18638,9 +18638,9 @@ items:
 
               | ---------- | --------------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/publishers> |
+              | `GET`      | <https://api.core.ac.uk/graph/publishers> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/publishers> |
+              | `POST`     | <https://api.core.ac.uk/graph/publishers> |
 
 
               Both methods use the same CORE query language and return the same Publishers search-response structure.
@@ -18723,7 +18723,7 @@ items:
             border: false
             id: publishers-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >
               #### Search by Publishers name
 
 
@@ -18732,7 +18732,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherName:"Springer Nature"
+              GET /graph/publishers?q=publisherName:"Springer Nature"
 
               ```
 
@@ -18754,7 +18754,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q="Springer Nature"
+              GET /graph/publishers?q="Springer Nature"
 
               ```
 
@@ -18784,7 +18784,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRorId:"https://ror.org/0117jxy09"
+              GET /graph/publishers?q=publisherRorId:"https://ror.org/0117jxy09"
 
               ```
 
@@ -18806,7 +18806,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherIds.scheme:ror AND publisherIds.value:0117jxy09
+              GET /graph/publishers?q=publisherIds.scheme:ror AND publisherIds.value:0117jxy09
 
               ```
 
@@ -18822,7 +18822,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherCountryCodes:DE
+              GET /graph/publishers?q=publisherCountryCodes:DE
 
               ```
 
@@ -18844,7 +18844,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
+              GET /graph/publishers?q=publisherParentId:"https://openalex.org/P4310319965"
 
               ```
 
@@ -18854,7 +18854,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRoles.role:publisher
+              GET /graph/publishers?q=publisherRoles.role:publisher
 
               ```
 
@@ -18867,7 +18867,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherWorksCount>=100000&orderby=publisherWorksCount:desc
+              GET /graph/publishers?q=publisherWorksCount>=100000&orderby=publisherWorksCount:desc
 
               ```
 
@@ -18892,7 +18892,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=_exists_:publisherRorId
+              GET /graph/publishers?q=_exists_:publisherRorId
 
               ```
 
@@ -18921,7 +18921,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers
+              GET /graph/publishers
                   ?q=publisherCountryCodes:DE AND publisherWorksCount>=10000
                   &orderby=publisherWorksCount:desc
                   &select=publisherId,publisherName,publisherCountryCodes,publisherWorksCount,publisherCitedByCount
@@ -18937,7 +18937,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/publishers" \
+                --url "https://api.core.ac.uk/graph/publishers" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -18997,7 +18997,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?orderby=publisherName:asc
+              GET /graph/publishers?orderby=publisherName:asc
 
               ```
 
@@ -19007,7 +19007,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?orderby=publisherWorksCount:desc
+              GET /graph/publishers?orderby=publisherWorksCount:desc
 
               ```
 
@@ -19020,7 +19020,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?orderby=publisherHierarchyLevel:asc,publisherName:asc
+              GET /graph/publishers?orderby=publisherHierarchyLevel:asc,publisherName:asc
 
               ```
 
@@ -19054,7 +19054,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=*&facets=publisherCountryCodes,publisherRoles.role,publisherHierarchyLevel&count=true&limit=0
+              GET /graph/publishers?q=*&facets=publisherCountryCodes,publisherRoles.role,publisherHierarchyLevel&count=true&limit=0
 
               ```
 
@@ -19145,7 +19145,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherCountryCodes:GB&count=true
+              GET /graph/publishers?q=publisherCountryCodes:GB&count=true
 
               ```
 
@@ -19164,7 +19164,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=0
+              GET /graph/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=0
 
               ```
 
@@ -19174,7 +19174,7 @@ items:
 
               ```http
 
-              GET /v4/search/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=20
+              GET /graph/publishers?q=publisherRoles.role:publisher&orderby=publisherName:asc,publisherId:asc&limit=20&offset=20
 
               ```
 
@@ -19207,9 +19207,6 @@ items:
               | `429`      | The API request limit has been exceeded.                                                                        |
 
               | `500`      | An unexpected server error occurred.                                                                            |
-
-
-              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
           - divider: false
             border: false
             id: publishers-api-relationship-oriented-endpoints
