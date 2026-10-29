@@ -24628,3 +24628,149 @@ items:
               }
 
               ```
+  - item: Recommender
+    children:
+      - sections:
+          - divider: false
+            border: false
+            id: recommender-api-overview
+            title: Recommender
+            descriptionAbout: >-
+              
+              The CORE Recommender identifies records in the CORE collection related to a publication or topic. It helps users discover similar research and explore related reading.
+
+
+              Recommendations can be requested using a CORE identifier with the `core:` prefix, another supported identifier, or descriptive text. Publication metadata, such as a title, abstract, and author names, can provide additional context for identifying relevant records.
+
+
+              The request body is supplied as JSON and supports the following parameters:
+
+
+              | **Parameter**      | **Type**  | **Description**                                                                                           |
+
+              | ------------------ | --------- | --------------------------------------------------------------------------------------------------------- |
+
+              | `text`             | string    | Text describing the topic or content for which recommendations are requested.                             |
+
+              | `limit`            | string    | Maximum number of recommendations to return.                                                              |
+
+              | `identifier`       | string    | Identifier of the publication used to generate recommendations. Use the `core:` prefix for a CORE record. |
+
+              | `abstract`         | string    | Abstract of the publication used to generate recommendations.                                             |
+
+              | `authors`          | string\[] | Author names associated with the input publication.                                                       |
+
+              | `title`            | string    | Title of the input publication.                                                                           |
+
+              | `result_type`      | string    | Requested result type. Accepted values must be specified.                                                 |
+
+              | `data_provider_id` | integer   | Data provider identifier. Its effect on the recommendations must be specified.                            |
+
+
+              The response schema describes the following record fields:
+
+
+              | **Field**              | **Type**           | **Description**                                                                          |
+
+              | ---------------------- | ------------------ | ---------------------------------------------------------------------------------------- |
+
+              | `accepted_date`        | string (date-time) | Date and time when the work was first accepted.                                          |
+
+              | `authors`              | string\[]          | Author names associated with the publication.                                            |
+
+              | `contributors`         | string\[]          | Contributors associated with the publication, usually obtained from `dc.contributors`.   |
+
+              | `created_date`         | string (date-time) | Date and time when the record was first created in CORE.                                 |
+
+              | `data_provider`        | string\[]          | Data provider URLs associated with the publication.                                      |
+
+              | `deposited_date`       | string (date-time) | Date and time when the work was first deposited in an institutional repository.          |
+
+              | `abstract`             | string             | Abstract of the publication.                                                             |
+
+              | `document_type`        | string\[]          | Types assigned to the output, such as presentation, research, or thesis.                 |
+
+              | `versions`             | string\[]          | Output versions based on the COAR version vocabulary.                                    |
+
+              | `doi`                  | string             | Digital Object Identifier associated with the output.                                    |
+
+              | `oai`                  | string             | OAI identifier associated with the record.                                               |
+
+              | `download_url`         | string             | URL from which the full text can be downloaded.                                          |
+
+              | `full_text`            | string             | Plain-text extraction of the document’s full text.                                       |
+
+              | `id`                   | integer            | Unique CORE identifier of the output.                                                    |
+
+              | `identifiers`          | object\[]          | Identifiers and URLs associated with the output, usually obtained from `dc.identifier`.  |
+
+              | `title`                | string             | Title of the publication.                                                                |
+
+              | `language`             | object             | Language information associated with the publication.                                    |
+
+              | `published_date`       | string (date-time) | Date and time when the publication was first published.                                  |
+
+              | `publisher`            | object             | Publisher information associated with the publication.                                   |
+
+              | `references`           | object\[]          | References cited by the publication.                                                     |
+
+              | `source_fulltext_urls` | string\[]          | Source URLs from which the document can be downloaded.                                   |
+
+              | `updated_date`         | string (date-time) | Date and time when the record was last updated.                                          |
+
+              | `year_published`       | string             | Year in which the publication was published.                                             |
+
+              | `links`                | string\[]          | Links available for the output.                                                          |
+
+              | `tags`                 | string\[]          | Classification tags obtained from source metadata, including `dc.subject` and `dc.type`. |
+
+              | `set_specs`            | string\[]          | OAI-PMH set specifications associated with the output.                                   |
+
+              | `fulltext_status`      | string             | Full-text status of the output.                                                          |
+
+              | `subjects`             | string\[]          | Subjects associated with the publication.                                                |
+
+              | `deleted`              | string             | Deletion status of the record.                                                           |
+
+              | `journals`             | object\[]          | Journal information associated with the publication.                                     |
+
+              | `repositories`         | object\[]          | Repository information associated with the publication.                                  |
+
+              | `repository_document`  | object             | Repository-specific document information.                                                |
+
+              | `urls`                 | string\[]          | URLs associated with the publication.                                                    |
+
+              | `license`              | string             | Licence information associated with the output.                                          |
+
+              | `orcids`               | string\[]          | ORCID identifiers associated with the publication’s authors.                             |
+
+              | `disabled`             | integer            | Disabled status of the record.                                                           |
+
+              | `last_update`          | string (date-time) | Additional update timestamp supplied by the API.                                         |
+
+              | `sdg`                  | string\[]          | UN Sustainable Development Goals associated with the output. Defaults to an empty array. |
+
+
+              A successful request returns HTTP `200` with a JSON response containing recommended record metadata. The following example illustrates selected fields from a recommended record; it does not show the complete response structure.
+
+
+              ```json
+
+              {
+                "id": 216874849,
+                "title": "Machine learning approaches for scholarly document classification",
+                "authors": [
+                  "Alice Smith",
+                  "Robert Jones"
+                ],
+                "abstract": "This study explores machine learning methods for classifying scholarly documents.",
+                "year_published": "2026",
+                "download_url": "https://example.org/articles/216874849.pdf",
+                "subjects": [
+                  "Machine learning",
+                  "Scholarly document processing"
+                ],
+                "sdg": []
+              }
+
+              ```
