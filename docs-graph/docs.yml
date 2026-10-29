@@ -1068,14 +1068,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: works-api-status
-            title: Works
-            note: "**Under Development:** Works is planned for inclusion in the CORE Graph
-              API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: works-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Works is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Work entity represents a canonical, deduplicated piece of
               scholarly research.
@@ -2988,14 +2986,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: outputs-api-status
-            title: Outputs
-            note: "**Under Development:** Outputs is planned for inclusion in the CORE Graph
-              API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: outputs-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Outputs is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Outputs entity represents source-specific manifestations of
               scholarly research items harvested by CORE. An Output corresponds
@@ -5247,15 +5243,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: dataproviders-api-status
-            title: Data Providers
-            note: "**Under Development:** Data Providers is planned for inclusion in the
-              CORE Graph API but has not yet been fully specified or
-              implemented."
-          - divider: false
-            border: false
             id: dataproviders-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Data Providers is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Data Providers entity represents sources that supply scholarly
               content to CORE. Data Providers may include:
@@ -6680,14 +6673,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: journals-api-status
-            title: Journals
-            note: "**Under Development:** Journals is planned for inclusion in the CORE
-              Graph API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: journals-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Journals is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Journals entity represents academic or scholarly journals
               associated with content in the CORE collection. Journals records
@@ -13612,14 +13603,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: authors-api-status
-            title: Authors
-            note: "**Under Development:** Authors is planned for inclusion in the CORE Graph
-              API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: authors-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Authors is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Authors entity represents persistent person identities across
               scholarly Works. An Author record may contain normalised name
@@ -15047,14 +15036,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: citations-api-status
-            title: Citations
-            note: "**Under Development:** Citations is planned for inclusion in the CORE
-              Graph API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: citations-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Citations is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Citations entity represents directed bibliographic
               relationships between scholarly Works. Each Citation connects
@@ -16863,14 +16850,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: topics-api-status
-            title: Topics
-            note: "**Under Development:** Topics is planned for inclusion in the CORE Graph
-              API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: topics-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Topics is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Topics entity represents subjects, keywords, concepts, and
               classification terms associated with scholarly research in CORE.
@@ -18107,14 +18092,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: publishers-api-status
-            title: Publishers
-            note: "**Under Development:** Publishers is planned for inclusion in the CORE
-              Graph API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: publishers-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Publishers is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Publishers entity represents organisations responsible for
               publishing, hosting, or disseminating scholarly Outputs. It
@@ -19357,14 +19340,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: projects-api-status
-            title: Projects
-            note: "**Under Development:** Projects is planned for inclusion in the CORE
-              Graph API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: projects-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Projects is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Projects entity represents a funded research activity,
               programme, or initiative associated with scholarly Works. A
@@ -20511,14 +20492,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: grants-api-status
-            title: Grants
-            note: "**Under Development:** Grants is planned for inclusion in the CORE Graph
-              API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: grants-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Grants is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Grants entity represents funding awards associated with
               scholarly research. A Grants record may contain canonical and
@@ -21901,14 +21880,12 @@ items:
         sections:
           - divider: false
             border: false
-            id: funders-api-status
-            title: Funders
-            note: "**Under Development:** Funders is planned for inclusion in the CORE Graph
-              API but has not yet been fully specified or implemented."
-          - divider: false
-            border: false
             id: funders-api-introduction
             title: Introduction
+            note: >-
+              **Under Development:** Funders is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
             descriptionAbout: >-
               The Funders entity represents organisations or funding bodies that
               provide financial support for research. A Funders record contains
