@@ -6688,9 +6688,9 @@ items:
 
               | ------------------- | -------------------------------------- |
 
-              | Outputs             | `GET /v4/journals/{journalId}/outputs` |
+              | Outputs             | `GET /graph/journals/{journalId}/outputs` |
 
-              | Works               | `GET /v4/journals/{journalId}/works`   |
+              | Works               | `GET /graph/journals/{journalId}/works`   |
             images: []
             subTitle: ""
           - divider: false
@@ -7326,13 +7326,13 @@ items:
 
               | ----------------------------------------- | ---------- | ---------------------------------- |
 
-              | Get a single Journal                      | `GET`      | `/v4/journals/{journalId}`         |
+              | Get a single Journal                      | `GET`      | `/graph/journals/{journalId}`         |
 
-              | Search Journals using URL parameters      | `GET`      | `/v4/search/journals`              |
+              | Search Journals using URL parameters      | `GET`      | `/graph/journals`              |
 
-              | Search Journals using a JSON request body | `POST`     | `/v4/search/journals`              |
+              | Search Journals using a JSON request body | `POST`     | `/graph/journals`              |
 
-              | Retrieve Outputs for a Journal            | `GET`      | `/v4/journals/{journalId}/outputs` |
+              | Retrieve Outputs for a Journal            | `GET`      | `/graph/journals/{journalId}/outputs` |
 
 
               Related Journals may also be retrieved through reverse relationship endpoints:
@@ -7342,9 +7342,9 @@ items:
 
               | ------------------------------------------------ | ---------- | ---------------------------------------------- |
 
-              | Retrieve Journals supplied by a Data Provider    | `GET`      | `/v4/data-providers/{dataProviderId}/journals` |
+              | Retrieve Journals supplied by a Data Provider    | `GET`      | `/graph/data-providers/{dataProviderId}/journals` |
 
-              | Retrieve Journals associated with an Institution | `GET`      | `/v4/institutions/{institutionId}/journals`    |
+              | Retrieve Journals associated with an Institution | `GET`      | `/graph/institutions/{institutionId}/journals`    |
 
 
               A Publisher relationship endpoint should be introduced only after the Journal model contains a canonical `publisherId`.
@@ -7361,7 +7361,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/journals/{journalId}
+              GET https://api.core.ac.uk/graph/journals/{journalId}
 
               ```
 
@@ -7405,7 +7405,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/journals/12345" \
+                --url "https://api.core.ac.uk/graph/journals/12345" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -7446,7 +7446,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/journals/12345?select=journalId,title,issns,publisher,language,hasApc" \
+                --url "https://api.core.ac.uk/graph/journals/12345?select=journalId,title,issns,publisher,language,hasApc" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
