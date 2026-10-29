@@ -24208,7 +24208,7 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
                   ?q=yearPublished:2025
                   &select=workId,title,doi,yearPublished
               ```
@@ -24243,7 +24243,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?orderby=yearPublished:desc,title:asc
+              GET /graph/works?orderby=yearPublished:desc,title:asc
 
               ```
 
@@ -24295,7 +24295,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions?q=countryCode:GB&count=true
+              GET /graph/institutions?q=countryCode:GB&count=true
 
               ```
 
@@ -24337,7 +24337,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions
+              GET /graph/institutions
                   ?q=types:education
                   &orderby=displayName:asc
                   &limit=20
@@ -24349,7 +24349,7 @@ items:
 
               ```http
 
-              GET /v4/search/institutions
+              GET /graph/institutions
                   ?q=types:education
                   &orderby=displayName:asc
                   &limit=20
@@ -24403,7 +24403,7 @@ items:
 
               ```http
 
-              POST /v3/search/{entityType}/aggregate
+              POST /graph/{entityType}/aggregate
 
               ```
 
@@ -24413,9 +24413,9 @@ items:
 
               ```http
 
-              GET /v4/search/{entityType}?facets=field1,field2
+              GET /graph/{entityType}?facets=field1,field2
 
-              POST /v4/search/{entityType}
+              POST /graph/{entityType}
 
               ```
 
@@ -24425,7 +24425,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs
+              GET /graph/outputs
                   ?q=accessRights.isOpenAccess:true
                   &facets=documentType,yearPublished,sdg.type
                   &count=true
@@ -24438,7 +24438,7 @@ items:
 
               ```http
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
               ```
 
