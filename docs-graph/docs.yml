@@ -10308,7 +10308,7 @@ items:
 
               ```
 
-              GET /v4/institutions/{institutionId}/affiliations
+              GET /graph/institutions/{institutionId}/affiliations
 
               ```
 
@@ -10321,7 +10321,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:{institutionId}
+              GET /graph/search/affiliations?q=institutionId:{institutionId}
 
               ```
 
@@ -10344,7 +10344,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/affiliations?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/affiliations?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10393,7 +10393,7 @@ items:
 
               ```
 
-              GET /v4/institutions/{institutionId}/dataProviders
+              GET /graph/institutions/{institutionId}/dataProviders
 
               ```
 
@@ -10410,7 +10410,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/dataProviders?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/dataProviders?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10445,7 +10445,7 @@ items:
 
               ```
 
-              GET /v4/institutions/{institutionId}/topics
+              GET /graph/institutions/{institutionId}/topics
 
               ```
 
@@ -10462,7 +10462,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/topics?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/topics?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
