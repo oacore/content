@@ -1861,23 +1861,23 @@ items:
 
               | -------------------------------------- | ---------- | ----------------------------------- |
 
-              | Get a single Work                      | `GET`      | `/v4/works/{workId}`                |
+              | Get a single Work                      | `GET`      | `/graph/works/{workId}`                |
 
-              | Search Works using URL parameters      | `GET`      | `/v4/search/works`                  |
+              | Search Works using URL parameters      | `GET`      | `/graph/works`                  |
 
-              | Search Works using a JSON request body | `POST`     | `/v4/search/works`                  |
+              | Search Works using a JSON request body | `POST`     | `/graph/works`                  |
 
-              | Retrieve Outputs for a Work            | `GET`      | `/v4/works/{workId}/outputs`        |
+              | Retrieve Outputs for a Work            | `GET`      | `/graph/works/{workId}/outputs`        |
 
-              | Retrieve Authorships for a Work        | `GET`      | `/v4/works/{workId}/authorships`    |
+              | Retrieve Authorships for a Work        | `GET`      | `/graph/works/{workId}/authorships`    |
 
-              | Retrieve Journals for a Work           | `GET`      | `/v4/works/{workId}/journals`       |
+              | Retrieve Journals for a Work           | `GET`      | `/graph/works/{workId}/journals`       |
 
-              | Retrieve Data Providers for a Work     | `GET`      | `/v4/works/{workId}/data-providers` |
+              | Retrieve Data Providers for a Work     | `GET`      | `/graph/works/{workId}/data-providers` |
 
-              | Retrieve Projects for a Work | `GET` | `/v4/works/{workId}/projects` |
+              | Retrieve Projects for a Work | `GET` | `/graph/works/{workId}/projects` |
 
-              | Retrieve Grants for a Work | `GET` | `/v4/works/{workId}/grants` |
+              | Retrieve Grants for a Work | `GET` | `/graph/works/{workId}/grants` |
 
 
               The `POST` search method is read-only. It does not create or modify Work records.
@@ -1894,7 +1894,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/works/{workId}
+              GET https://api.core.ac.uk/graph/works/{workId}
 
               ```
 
@@ -1935,7 +1935,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168" \
+                --url "https://api.core.ac.uk/graph/works/323030168" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1946,7 +1946,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168?select=workId,title,doi,yearPublished,documentType,coreIds" \
+                --url "https://api.core.ac.uk/graph/works/323030168?select=workId,title,doi,yearPublished,documentType,coreIds" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1999,13 +1999,13 @@ items:
               Works search is available through `GET` and `POST`:
 
 
-              | **Method** | **API endpoint**                         |
+              | **Operation**                          | **Method** | **Endpoint**   |
 
-              | ---------- | ---------------------------------------- |
+              | -------------------------------------- | ---------- | -------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/works> |
+              | Search Works using URL parameters      | GET        | `/graph/works` |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/works> |
+              | Search Works using a JSON request body | POST       | `/graph/works` |
 
 
               Both methods return the same Works search-response structure.
@@ -2121,7 +2121,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=title:"edge computing"
+              GET /graph/works?q=title:"edge computing"
 
               ```
 
@@ -2144,7 +2144,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining"
+              GET /graph/works?q="text and data mining"
 
               ```
 
@@ -2174,7 +2174,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=fullText:"text and data mining"
+              GET /graph/works?q=fullText:"text and data mining"
 
               ```
 
@@ -2203,7 +2203,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=doi:"10.1109/jiot.2020.2984887"
+              GET /graph/works?q=doi:"10.1109/jiot.2020.2984887"
 
               ```
 
@@ -2228,7 +2228,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
+              GET /graph/works?q=externalIdentifiers.type:OPENALEX_ID AND externalIdentifiers.identifier:"https://openalex.org/W3030303030"
 
               ```
 
@@ -2256,7 +2256,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=yearPublished>=2020 AND documentType:"research article"
+              GET /graph/works?q=yearPublished>=2020 AND documentType:"research article"
 
               ```
 
@@ -2281,7 +2281,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=coreIds:216874849
+              GET /graph/works?q=coreIds:216874849
 
               ```
 
@@ -2306,7 +2306,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=journalIds:12345
+              GET /graph/works?q=journalIds:12345
 
               ```
 
@@ -2331,7 +2331,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=dataProviderIds:86
+              GET /graph/works?q=dataProviderIds:86
 
               ```
 
@@ -2356,7 +2356,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=references.citedDoi:"10.1000/abc456"
+              GET /graph/works?q=references.citedDoi:"10.1000/abc456"
 
               ```
 
@@ -2381,7 +2381,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=topics.topicId:T1001
+              GET /graph/works?q=topics.topicId:T1001
 
               ```
 
@@ -2406,7 +2406,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=topics.displayName:"artificial intelligence"
+              GET /graph/works?q=topics.displayName:"artificial intelligence"
 
               ```
 
@@ -2431,7 +2431,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=referenceCount>=10
+              GET /graph/works?q=referenceCount>=10
 
               ```
 
@@ -2456,7 +2456,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=citationCount>=100&orderby=citationCount:desc
+              GET /graph/works?q=citationCount>=100&orderby=citationCount:desc
 
               ```
 
@@ -2484,7 +2484,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=citationIds:7865
+              GET /graph/works?q=citationIds:7865
 
               ```
 
@@ -2509,7 +2509,7 @@ items:
 
               ```json
 
-              GET /v4/search/works?q=projectIds:11 
+              GET /graph/works?q=projectIds:11 
 
               ```
 
@@ -2535,7 +2535,7 @@ items:
 
               ```json
 
-              GET /v4/search/works?q=grantIds:701 
+              GET /graph/works?q=grantIds:701 
 
               ```
 
@@ -2560,7 +2560,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+              GET /graph/citations?q=citedDoi:"10.1000/abc456"
 
               ```
 
@@ -2588,7 +2588,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=_exists_:fullText
+              GET /graph/works?q=_exists_:fullText
 
               ```
 
@@ -2616,7 +2616,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="climate change"&searchMode=hybrid&facets=documentType,yearPublished&count=true&limit=0
+              GET /graph/works?q="climate change"&searchMode=hybrid&facets=documentType,yearPublished&count=true&limit=0
 
               ```
 
