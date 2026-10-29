@@ -73,21 +73,6 @@ table:
         - Starting
         - Supporting
         - Sustaining
-#    - id: 6
-#      title: Download statistics
-#      descriptionCardCard: >
-#        Access statistics about how many times papers from your organisation
-#        were downloaded (from CORE and directly from your repository - IRUS
-#        tracker integration required for the latter). [read
-#        more](~documentation/membership-documentation#download-statistics)
-#      descriptionCardTable: >
-#        Access statistics about how many times papers from your organisation
-#        were downloaded (from CORE and directly from your repository - IRUS
-#        tracker integration required for the latter).
-#      plans:
-#        - Starting
-#        - Supporting
-#        - Sustaining
     - id: 7
       title: |-
         Repository Discovery Boost:
@@ -480,6 +465,31 @@ table:
         - Starting
         - Supporting
         - Sustaining
+    - id: "32"
+      title: FAIR Repository Certification (50% off)
+      descriptionCardCard: Check, validate and certify that your repository meets FAIR
+        principles and guidelines using CORE’s data-driven assessment.
+      descriptionCardTable: Check, validate and certify that your repository meets
+        FAIR principles and guidelines using CORE’s data-driven assessment.
+      plans:
+        - Supporting
+        - Sustaining
+    - id: "33"
+      title: FreshFinds
+      descriptionCardCard: Discovering new papers authored by your academics from
+        around the world and depositing them into your repository.
+      descriptionCardTable: Discovering new papers authored by your academics from
+        around the world and depositing them into your repository.
+      plans:
+        - Sustaining
+    - id: "34"
+      title: FAIR Repository Certification
+      descriptionCardCard: Check, validate and certify that your repository meets FAIR
+        principles and guidelines using CORE’s data-driven assessment.
+      descriptionCardTable: Check, validate and certify that your repository meets
+        FAIR principles and guidelines using CORE’s data-driven assessment.
+      plans:
+        - Sustaining
   plans:
     title: CORE Membership levels
     cardsDescription:
@@ -605,22 +615,6 @@ table:
               - Starting
               - Supporting
               - Sustaining
-#          - id: 6
-#            title: Download statistics
-#            descriptionCardCard: >
-#              Access statistics about how many times papers from your
-#              organisation were downloaded (from CORE and directly from your
-#              repository - IRUS tracker integration required for the latter).
-#              [read
-#              more](~documentation/membership-documentation#download-statistics)
-#            descriptionCardTable: >
-#              Access statistics about how many times papers from your
-#              organisation were downloaded (from CORE and directly from your
-#              repository - IRUS tracker integration required for the latter).
-#            plans:
-#              - Starting
-#              - Supporting
-#              - Sustaining
           - id: 7
             title: |-
               Repository Discovery Boost:
@@ -904,6 +898,16 @@ table:
             plans:
               - Supporting
               - Sustaining
+          - id: 32
+            title: FAIR Repository Certification (50% off)
+            plans:
+              - Supporting
+              - Sustaining
+            descriptionCardCard: Check, validate and certify that your repository meets FAIR
+              principles and guidelines using CORE’s data-driven assessment.
+            descriptionCardTable: Check, validate and certify that your repository meets
+              FAIR principles and guidelines using CORE’s data-driven
+              assessment.
         action:
           title: Register your interest
           url: https://docs.google.com/forms/d/e/1FAIpQLSfFJmMIspYfOEM5aOKG4FTZoK4qeqozyds47O75Wm4dJ1ta2w/viewform
@@ -930,6 +934,23 @@ table:
             video:
               image: /images/tutorial.svg
               src: https://www.youtube.com/embed/X-A64CoTtcE
+          - id: 33
+            title: FreshFinds
+            descriptionCardCard: Discovering new papers authored by your academics from
+              around the world and depositing them into your repository.
+            descriptionCardTable: Discovering new papers authored by your academics from
+              around the world and depositing them into your repository.
+            plans:
+              - Sustaining
+          - id: 34
+            title: FAIR Certification
+            descriptionCardCard: Check, validate and certify that your repository meets FAIR
+              principles and guidelines using CORE’s data-driven assessment.
+            descriptionCardTable: Check, validate and certify that your repository meets
+              FAIR principles and guidelines using CORE’s data-driven
+              assessment.
+            plans:
+              - Sustaining
           - id: 19
             title: Dataset use for your university
             descriptionCardCard: >
@@ -1109,21 +1130,6 @@ table:
           - Starting
           - Supporting
           - Sustaining
-#      - id: 6
-#        title: Download statistics
-#        descriptionCardCard: >
-#          Access statistics about how many times papers from your organisation
-#          were downloaded (from CORE and directly from your repository - IRUS
-#          tracker integration required for the latter). [read
-#          more](~documentation/membership-documentation#download-statistics)
-#        descriptionCardTable: >
-#          Access statistics about how many times papers from your organisation
-#          were downloaded (from CORE and directly from your repository - IRUS
-#          tracker integration required for the latter).
-#        plans:
-#          - Starting
-#          - Supporting
-#          - Sustaining
       - id: 7
         title: |-
           Repository Discovery Boost:
