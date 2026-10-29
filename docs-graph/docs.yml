@@ -13459,9 +13459,12 @@ items:
               #### Affiliations for an Institution
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/institutions/{institutionId}/affiliations
+              GET /graph/institutions/{institutionId}/affiliations
 
 
 
@@ -13476,7 +13479,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:{institutionId}
+              GET /graph/affiliations?q=institutionId:{institutionId}
 
 
 
@@ -13503,9 +13506,12 @@ items:
               #### Authorships for an Affiliation
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/affiliations/{affiliationId}/authorships
+              GET /graph/affiliations/{affiliationId}/authorships
 
 
 
@@ -13521,7 +13527,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/affiliations/901/authorships?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/affiliations/901/authorships?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
@@ -13573,9 +13579,12 @@ items:
               #### Affiliations for an Authorship
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authorships/{authorshipId}/affiliations
+              GET /graph/authorships/{authorshipId}/affiliations
 
 
 
@@ -13591,9 +13600,12 @@ items:
               #### Affiliations for an Author
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
 
 
