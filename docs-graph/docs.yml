@@ -18482,19 +18482,19 @@ items:
 
               | ----------------------------------------------- | ---------- | --------------------------------------------- |
 
-              | Get a single Publishers record                  | `GET`      | `/v4/publishers/{publisherId}`                |
+              | Get a single Publishers record                  | `GET`      | `/graph/publishers/{publisherId}`                |
 
-              | Search Publishers using URL parameters          | `GET`      | `/v4/search/publishers`                       |
+              | Search Publishers using URL parameters          | `GET`      | `/graph/publishers`                       |
 
-              | Search Publishers using a JSON request body     | `POST`     | `/v4/search/publishers`                       |
+              | Search Publishers using a JSON request body     | `POST`     | `/graph/publishers`                       |
 
-              | Retrieve Outputs for a Publishers record        | `GET`      | `/v4/publishers/{publisherId}/outputs`        |
+              | Retrieve Outputs for a Publishers record        | `GET`      | `/graph/publishers/{publisherId}/outputs`        |
 
-              | Retrieve Journals for a Publishers record       | `GET`      | `/v4/publishers/{publisherId}/journals`       |
+              | Retrieve Journals for a Publishers record       | `GET`      | `/graph/publishers/{publisherId}/journals`       |
 
-              | Retrieve Data Providers for a Publishers record | `GET`      | `/v4/publishers/{publisherId}/data-providers` |
+              | Retrieve Data Providers for a Publishers record | `GET`      | `/graph/publishers/{publisherId}/data-providers` |
 
-              | Retrieve child Publishers records               | `GET`      | `/v4/publishers/{publisherId}/children`       |
+              | Retrieve child Publishers records               | `GET`      | `/graph/publishers/{publisherId}/children`       |
 
 
               #### Get a single Publishers record
@@ -18505,7 +18505,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/publishers/{publisherId}
+              GET https://api.core.ac.uk/graph/publishers/{publisherId}
 
               ```
 
@@ -18546,7 +18546,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/publishers/8102" \
+                --url "https://api.core.ac.uk/graph/publishers/8102" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -18581,7 +18581,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/publishers/8102?select=publisherId,publisherName,publisherCountryCodes,publisherHomepageUrl" \
+                --url "https://api.core.ac.uk/graph/publishers/8102?select=publisherId,publisherName,publisherCountryCodes,publisherHomepageUrl" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
