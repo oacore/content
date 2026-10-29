@@ -31,6 +31,9 @@ navItems:
       - item: Works
         children:
           - hidden: false
+            item: Works
+            href: "#works-api-status"
+          - hidden: false
             item: Introduction
             href: "#works-api-introduction"
           - hidden: false
@@ -53,6 +56,9 @@ navItems:
             href: "#works-api-relationship-oriented-endpoints"
       - item: Outputs
         children:
+          - hidden: false
+            item: Outputs
+            href: "#outputs-api-status"
           - hidden: false
             item: Introduction
             href: "#outputs-api-introduction"
@@ -77,6 +83,9 @@ navItems:
       - item: Data Providers
         children:
           - hidden: false
+            item: Data Providers
+            href: "#dataproviders-api-status"
+          - hidden: false
             item: Introduction
             href: "#dataproviders-api-introduction"
           - hidden: false
@@ -99,6 +108,9 @@ navItems:
             item: Relationship-oriented endpoints
       - item: Journals
         children:
+          - hidden: false
+            item: Journals
+            href: "#journals-api-status"
           - hidden: false
             item: Introduction
             href: "#journals-api-introduction"
@@ -187,6 +199,9 @@ navItems:
       - item: Authors
         children:
           - hidden: false
+            item: Authors
+            href: "#authors-api-status"
+          - hidden: false
             item: Introduction
             href: "#authors-api-introduction"
           - hidden: false
@@ -209,6 +224,9 @@ navItems:
             href: "#authors-api-relationship-oriented-endpoints"
       - item: Publishers
         children:
+          - hidden: false
+            item: Publishers
+            href: "#publishers-api-status"
           - hidden: false
             item: Introduction
             href: "#publishers-api-introduction"
@@ -233,6 +251,9 @@ navItems:
       - item: Grants
         children:
           - hidden: false
+            item: Grants
+            href: "#grants-api-status"
+          - hidden: false
             item: Introduction
             href: "#grants-api-introduction"
           - hidden: false
@@ -256,6 +277,9 @@ navItems:
       - item: Funders
         children:
           - hidden: false
+            item: Funders
+            href: "#funders-api-status"
+          - hidden: false
             item: Introduction
             href: "#funders-api-introduction"
           - hidden: false
@@ -278,6 +302,9 @@ navItems:
             href: "#funders-api-relationship-oriented-endpoints"
       - item: Topics
         children:
+          - hidden: false
+            item: Topics
+            href: "#topics-api-status"
           - hidden: false
             href: "#topics-api-introduction"
             item: Introduction
@@ -303,6 +330,9 @@ navItems:
         item: Citations
         children:
           - hidden: false
+            item: Citations
+            href: "#citations-api-status"
+          - hidden: false
             item: Introduction
             href: "#citations-api-introduction"
           - hidden: false
@@ -327,6 +357,9 @@ navItems:
         item: Projects
         href: ""
         children:
+          - hidden: false
+            item: Projects
+            href: "#projects-api-status"
           - hidden: false
             item: Introduction
             href: "#projects-api-introduction"

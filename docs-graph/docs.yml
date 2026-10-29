@@ -5,14 +5,11 @@ items:
         sections:
           - id: core-graph-api
             title: CORE Graph API
+            note: |
+              **Development status**
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
-              :::**Development status**
-
-              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
-
-              :::
-
-
               The CORE Graph API provides structured access to CORE’s global scholarly knowledge graph. It connects research works with their manifestations, creators, organisations, publication venues, funding, projects, topics, and citation relationships.
 
 
@@ -1065,6 +1062,14 @@ items:
     children:
       - item: Works
         sections:
+          - divider: false
+            border: false
+            id: works-api-status
+            title: Works
+            note: >-
+              **Under Development:** Works is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: works-api-introduction
@@ -2979,6 +2984,14 @@ items:
               ```
       - item: Outputs
         sections:
+          - divider: false
+            border: false
+            id: outputs-api-status
+            title: Outputs
+            note: >-
+              **Under Development:** Outputs is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: outputs-api-introduction
@@ -5234,6 +5247,14 @@ items:
         sections:
           - divider: false
             border: false
+            id: dataproviders-api-status
+            title: Data Providers
+            note: >-
+              **Under Development:** Data Providers is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
+          - divider: false
+            border: false
             id: dataproviders-api-introduction
             title: Introduction
             descriptionAbout: >-
@@ -6658,6 +6679,14 @@ items:
               This endpoint is documented primarily under the Institution entity.
       - item: Journals
         sections:
+          - divider: false
+            border: false
+            id: journals-api-status
+            title: Journals
+            note: >-
+              **Under Development:** Journals is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: journals-api-introduction
@@ -13586,6 +13615,14 @@ items:
         sections:
           - divider: false
             border: false
+            id: authors-api-status
+            title: Authors
+            note: >-
+              **Under Development:** Authors is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
+          - divider: false
+            border: false
             id: authors-api-introduction
             title: Introduction
             descriptionAbout: >-
@@ -15013,6 +15050,14 @@ items:
               An existing Author with no connected Affiliations returns 200 with an empty results array.
       - item: Citations
         sections:
+          - divider: false
+            border: false
+            id: citations-api-status
+            title: Citations
+            note: >-
+              **Under Development:** Citations is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: citations-api-introduction
@@ -16825,6 +16870,14 @@ items:
         sections:
           - divider: false
             border: false
+            id: topics-api-status
+            title: Topics
+            note: >-
+              **Under Development:** Topics is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
+          - divider: false
+            border: false
             id: topics-api-introduction
             title: Introduction
             descriptionAbout: >-
@@ -18061,6 +18114,14 @@ items:
               ```
       - item: Publishers
         sections:
+          - divider: false
+            border: false
+            id: publishers-api-status
+            title: Publishers
+            note: >-
+              **Under Development:** Publishers is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: publishers-api-introduction
@@ -19307,6 +19368,14 @@ items:
         sections:
           - divider: false
             border: false
+            id: projects-api-status
+            title: Projects
+            note: >-
+              **Under Development:** Projects is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
+          - divider: false
+            border: false
             id: projects-api-introduction
             title: Introduction
             descriptionAbout: >-
@@ -20453,6 +20522,14 @@ items:
               An existing Projects record with no related records returns `200 OK` with an empty `results` array. If the supplied Projects record does not exist, the relationship endpoint returns `404 Not Found`.
       - item: Grants
         sections:
+          - divider: false
+            border: false
+            id: grants-api-status
+            title: Grants
+            note: >-
+              **Under Development:** Grants is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: grants-api-introduction
@@ -21837,6 +21914,14 @@ items:
               If the funding Institution cannot be resolved, `/v4/grants/{grantId}/funder` returns either `404 Not Found` or the API's documented null-relationship response.
       - item: Funders
         sections:
+          - divider: false
+            border: false
+            id: funders-api-status
+            title: Funders
+            note: >-
+              **Under Development:** Funders is planned for inclusion in
+              the CORE Graph API but has not yet been fully specified or
+              implemented.
           - divider: false
             border: false
             id: funders-api-introduction
