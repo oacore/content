@@ -16614,9 +16614,12 @@ items:
               #### Citations made by a Work
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/works/{workId}/citations
+              GET /graph/works/{workId}/citations
 
               ```
 
@@ -16636,7 +16639,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:{workId}
+              GET /graph/citations?q=citingWorkId:{workId}
 
               ```
 
@@ -16646,7 +16649,7 @@ items:
 
               ```http
 
-              GET /v4/works/345678/citations
+              GET /graph/works/345678/citations
 
               ```
 
@@ -16680,9 +16683,12 @@ items:
               #### Works citing a Work
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/works/{workId}/cited-by
+              GET /graph/works/{workId}/cited-by
 
               ```
 
@@ -16702,7 +16708,7 @@ items:
 
               ```http
 
-              GET /v4/works/23456/cited-by
+              GET /graph/works/23456/cited-by
 
               ```
 
@@ -16734,7 +16740,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:{workId}
+              GET /graph/citations?q=citedWorkId:{workId}
 
               ```
 
@@ -16744,7 +16750,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:23456
+              GET /graph/citations?q=citedWorkId:23456
 
               ```
 
@@ -16752,9 +16758,12 @@ items:
               #### Citing Work of a Citation
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/citations/{citationId}/citing-work
+              GET /graph/citations/{citationId}/citing-work
 
               ```
 
@@ -16778,7 +16787,7 @@ items:
 
               ```http
 
-              GET /v4/citations/1256789/citing-work
+              GET /graph/citations/1256789/citing-work
 
               ```
 
@@ -16799,9 +16808,12 @@ items:
               #### Cited Work of a Citation
 
 
+              G﻿ET:
+
+
               ```http
 
-              GET /v4/citations/{citationId}/cited-work
+              GET /graph/citations/{citationId}/cited-work
 
               ```
 
@@ -16822,7 +16834,7 @@ items:
 
               ```http
 
-              GET /v4/citations/1256789/cited-work
+              GET /graph/citations/1256789/cited-work
 
               ```
 
@@ -16855,7 +16867,7 @@ items:
 
               ```http
 
-              GET /v4/citations/{citationId}
+              GET /graph/citations/{citationId}
 
               ```
       - item: Topics
