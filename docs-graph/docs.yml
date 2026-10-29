@@ -1155,7 +1155,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
               ```
 
@@ -1188,7 +1188,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
               ```
           - divider: false
@@ -5013,7 +5013,7 @@ items:
 
               ```http
 
-              GET /graph/search/works?q=coreIds:{coreId}
+              GET /graph/works?q=coreIds:{coreId}
 
               ```
 
