@@ -1980,6 +1980,21 @@ items:
               Work records.
 
 
+              Works search is available through `GET` and `POST`:
+
+
+              ```http
+
+              GET https://api.core.ac.uk/graph/works
+
+              POST https://api.core.ac.uk/graph/works
+
+              ```
+
+
+              Both methods use the same CORE query language and return the same response structure.
+
+
               Works search supports:
 
 
@@ -4111,6 +4126,22 @@ items:
               source-specific Output records.
 
 
+              Outputs search is available through `GET` and `POST`:
+
+
+              ```http
+
+              GET https://api.core.ac.uk/graph/outputs
+
+              POST https://api.core.ac.uk/graph/outputs
+
+              ```
+
+
+              Both methods use the same CORE query language and return the same response structure.
+
+
+
               Output search supports:
 
 
@@ -5765,6 +5796,21 @@ items:
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates Data
               Provider records.
+
+
+              Data Provider search is available through `GET` and `POST`:
+
+
+              ```http
+
+              GET https://api.core.ac.uk/graph/data-providers
+
+              POST https://api.core.ac.uk/graph/data-providers
+
+              ```
+
+
+              Both methods use the same CORE query language and return the same response structure.
 
 
 
@@ -7503,9 +7549,9 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/search/journals
+              GET https://api.core.ac.uk/graph/journals
 
-              POST https://api.core.ac.uk/v4/search/journals
+              POST https://api.core.ac.uk/graph/journals
 
               ```
 
