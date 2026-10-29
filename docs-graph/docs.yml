@@ -12441,7 +12441,7 @@ items:
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/affiliations?q=rawAffiliation:"Department%20of%20Computer%20Science%20Oxford"' \
+                --url 'https://api.core.ac.uk/graph/affiliations?q=rawAffiliation:"Department%20of%20Computer%20Science%20Oxford"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12451,7 +12451,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=rawAffiliation:"Department of Computer Science Oxford"
+              GET /graph/affiliations?q=rawAffiliation:"Department of Computer Science Oxford"
 
               ```
 
@@ -12462,7 +12462,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=University%20of%20Oxford" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=University%20of%20Oxford" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12476,7 +12476,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/affiliations" \
+                --url "https://api.core.ac.uk/graph/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -12506,7 +12506,7 @@ items:
 
               ```
 
-              curl --request GET \ --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"University%20of%20Oxford"' \ --header "Authorization: Bearer YOUR_API_KEY"
+              curl --request GET \ --url 'https://api.core.ac.uk/graph/affiliations?q=institutionName:"University%20of%20Oxford"' \ --header "Authorization: Bearer YOUR_API_KEY"
 
               ```
 
@@ -12550,7 +12550,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890&orderby=startDate:asc" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12581,7 +12581,7 @@ items:
 
               ```
 
-              GET /v4/authors/67890/affiliations
+              GET /graph/authors/67890/affiliations
 
               ```
 
@@ -12595,7 +12595,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:true" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890%20AND%20isCurrent:true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12635,7 +12635,7 @@ items:
 
               ```
 
-              curl --request GET \ --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc" \ --header "Authorization: Bearer YOUR_API_KEY"
+              curl --request GET \ --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc" \ --header "Authorization: Bearer YOUR_API_KEY"
 
               ```
 
@@ -12645,7 +12645,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:false&orderby=endDate:desc
+              GET /graph/affiliations?q=authorId:67890 AND isCurrent:false&orderby=endDate:desc
 
               ```
 
@@ -12680,7 +12680,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=institutionId:3201" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12702,7 +12702,7 @@ items:
 
               ```
 
-              GET /v4/institutions/3201/affiliations
+              GET /graph/institutions/3201/affiliations
 
               ```
 
@@ -12719,7 +12719,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201%20AND%20isCurrent:true" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=institutionId:3201%20AND%20isCurrent:true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12729,7 +12729,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:3201 AND isCurrent:true
+              GET /graph/affiliations?q=institutionId:3201 AND isCurrent:true
 
               ```
 
@@ -12758,7 +12758,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=evidenceWorkIds:1234" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=evidenceWorkIds:1234" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12787,7 +12787,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:evidenceWorkIds" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=_exists_:evidenceWorkIds" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12816,7 +12816,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:institutionId" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=_exists_:institutionId" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12847,7 +12847,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=startDate>="2021-01-01"
+              GET /graph/affiliations?q=startDate>="2021-01-01"
 
               ```
 
@@ -12872,7 +12872,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=endDate<"2024-01-01"
+              GET /graph/affiliations?q=endDate<"2024-01-01"
 
               ```
 
@@ -12897,7 +12897,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890 AND startDate<="2021-12-31" AND endDate>="2018-01-01"
+              GET /graph/affiliations?q=authorId:67890 AND startDate<="2021-12-31" AND endDate>="2018-01-01"
 
               ```
 
@@ -12923,7 +12923,7 @@ items:
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"Oxford"%20AND%20authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc&select=affiliationId,institutionId,institutionName,department,startDate,endDate&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/affiliations?q=institutionName:"Oxford"%20AND%20authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc&select=affiliationId,institutionId,institutionName,department,startDate,endDate&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12933,7 +12933,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations
+              GET /graph/affiliations
                   ?q=institutionName:"Oxford" AND authorId:67890 AND isCurrent:false
                   &orderby=endDate:desc
                   &select=affiliationId,institutionId,institutionName,department,startDate,endDate
@@ -12948,7 +12948,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/affiliations" \
+                --url "https://api.core.ac.uk/graph/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -13040,14 +13040,16 @@ items:
               ##### Order Affiliations chronologically
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890&orderby=startDate:asc
+              GET /graph/affiliations?q=authorId:67890&orderby=startDate:asc
 
               ```
 
 
-              \
 
               P﻿OST representation:
 
@@ -13070,9 +13072,12 @@ items:
               #### Order by multiple fields
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/search/affiliations?orderby=authorId:asc,startDate:asc
+              GET /graph/affiliations?orderby=authorId:asc,startDate:asc
 
               ```
 
@@ -13092,7 +13097,6 @@ items:
               ```
 
 
-              \
 
               Results are first ordered by `authorId`. Affiliation records belonging to the same Author are then ordered by `startDate`.
 
@@ -13100,9 +13104,12 @@ items:
               #### Order by most recently updated
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/search/affiliations?orderby=updatedDate:desc
+              GET /graph/affiliations?orderby=updatedDate:desc
 
               ```
 
@@ -13127,13 +13134,13 @@ items:
               #### Return selected fields
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc&select=affiliationId,institutionId,institutionName,startDate,endDate,isCurrent" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890&orderby=startDate:asc&select=affiliationId,institutionId,institutionName,startDate,endDate,isCurrent" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -13167,10 +13174,7 @@ items:
               ```
 
 
-              #### \
-
-
-              Affiliation facets
+              #### Affiliation facets
 
 
               The facets parameter returns value buckets and counts for fields configured as facetable.
@@ -13182,7 +13186,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&facets=isCurrent,institutionId&count=true" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890&facets=isCurrent,institutionId&count=true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -13193,7 +13197,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/affiliations" \
+                --url "https://api.core.ac.uk/graph/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -13208,7 +13212,6 @@ items:
               ```
 
 
-              \
 
               Example response:
 
@@ -13253,7 +13256,6 @@ items:
               ```
 
 
-              \
 
               Faceting by `institutionId` is technically possible, but it may produce a large number of buckets across the full Affiliation index. It is most useful when combined with a narrower filter.
 
@@ -13263,7 +13265,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890&facets=isCurrent&count=true&limit=0
+              GET /graph/affiliations?q=authorId:67890&facets=isCurrent&count=true&limit=0
 
               ```
 
@@ -13279,7 +13281,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890&count=true
+              GET /graph/affiliations?q=authorId:67890&count=true
 
               ```
 
@@ -13309,14 +13311,13 @@ items:
               A deterministic orderby expression should be used when retrieving multiple pages.
 
 
-              \
 
               First page using GET:
 
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=0
+              GET /graph/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=0
 
               ```
 
@@ -13326,7 +13327,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=20
+              GET /graph/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=20
 
               ```
 
