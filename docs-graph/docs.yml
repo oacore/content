@@ -15695,19 +15695,19 @@ items:
 
               | ------------------------------------- | ---------- | ---------------------------------------- |
 
-              | Get a single Citation                 | `GET`      | `/v4/citations/{citationId}`             |
+              | Get a single Citation                 | `GET`      | `/graph/citations/{citationId}`             |
 
-              | Search Citations using URL parameters | `GET`      | `/v4/search/citations`                   |
+              | Search Citations using URL parameters | `GET`      | `/graph/citations`                   |
 
-              | Search Citations using a JSON body    | `POST`     | `/v4/search/citations`                   |
+              | Search Citations using a JSON body    | `POST`     | `/graph/citations`                   |
 
-              | Retrieve citations made by a Work     | `GET`      | `/v4/works/{workId}/citations`           |
+              | Retrieve citations made by a Work     | `GET`      | `/graph/works/{workId}/citations`           |
 
-              | Retrieve Works citing a Work          | `GET`      | `/v4/works/{workId}/cited-by`            |
+              | Retrieve Works citing a Work          | `GET`      | `/graph/works/{workId}/cited-by`            |
 
-              | Retrieve the citing Work              | `GET`      | `/v4/citations/{citationId}/citing-work` |
+              | Retrieve the citing Work              | `GET`      | `/graph/citations/{citationId}/citing-work` |
 
-              | Retrieve the cited Work               | `GET`      | `/v4/citations/{citationId}/cited-work`  |
+              | Retrieve the cited Work               | `GET`      | `/graph/citations/{citationId}/cited-work`  |
 
 
               #### Get a single Citation
@@ -15721,7 +15721,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/citations/{citationId}
+              GET https://api.core.ac.uk/graph/citations/{citationId}
 
               ```
 
@@ -15762,7 +15762,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/citations/1256789" \
+                --url "https://api.core.ac.uk/graph/citations/1256789" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -15773,7 +15773,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/citations/1256789?select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi" \
+                --url "https://api.core.ac.uk/graph/citations/1256789?select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -15809,9 +15809,9 @@ items:
 
               | ---------- | -------------------------------------------- |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/citations> |
+              | `GET`      | <https://api.core.ac.uk/graph/citations> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/citations> |
+              | `POST`     | <https://api.core.ac.uk/graph/citations> |
 
 
               Both methods use the same CORE query language and return the same response structure.
@@ -15933,7 +15933,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:345678
+              GET /graph/citations?q=citingWorkId:345678
 
               ```
 
@@ -15961,7 +15961,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:23456
+              GET /graph/citations?q=citedWorkId:23456
 
               ```
 
@@ -15986,7 +15986,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=openCitationId:"oci:0610200888-0613012615"
+              GET /graph/citations?q=openCitationId:"oci:0610200888-0613012615"
 
               ```
 
@@ -16011,7 +16011,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingDoi:"10.1000/xyz123"
+              GET /graph/citations?q=citingDoi:"10.1000/xyz123"
 
               ```
 
@@ -16036,7 +16036,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedDoi:"10.1000/abc456"
+              GET /graph/citations?q=citedDoi:"10.1000/abc456"
 
               ```
 
@@ -16064,7 +16064,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=NOT _exists_:citedWorkId
+              GET /graph/citations?q=NOT _exists_:citedWorkId
 
               ```
 
@@ -16099,7 +16099,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=reference.articleTitle:"Quantum effects"
+              GET /graph/citations?q=reference.articleTitle:"Quantum effects"
 
               ```
 
@@ -16124,7 +16124,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=reference.unstructured:"quantum materials"
+              GET /graph/citations?q=reference.unstructured:"quantum materials"
 
               ```
 
@@ -16146,7 +16146,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q="quantum materials"
+              GET /graph/citations?q="quantum materials"
 
               ```
 
@@ -16172,7 +16172,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=metrics.authorSelfCitation:true
+              GET /graph/citations?q=metrics.authorSelfCitation:true
 
               ```
 
@@ -16197,7 +16197,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=metrics.journalSelfCitation:true
+              GET /graph/citations?q=metrics.journalSelfCitation:true
 
               ```
 
@@ -16222,7 +16222,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=creationDate>="2022-01-01"
+              GET /graph/citations?q=creationDate>="2022-01-01"
 
               ```
 
@@ -16266,7 +16266,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/citations?q=citingWorkId%3A345678%20AND%20creationDate%3E%3D%222022-01-01%22%20AND%20_exists_%3AcitedWorkId&orderby=creationDate%3Adesc&select=citationId%2CopenCitationId%2CcitingWorkId%2CcitedWorkId%2CcitingDoi%2CcitedDoi%2CcreationDate&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/citations?q=citingWorkId%3A345678%20AND%20creationDate%3E%3D%222022-01-01%22%20AND%20_exists_%3AcitedWorkId&orderby=creationDate%3Adesc&select=citationId%2CopenCitationId%2CcitingWorkId%2CcitedWorkId%2CcitingDoi%2CcitedDoi%2CcreationDate&count=true&limit=10&offset=0' \
                 --header 'Authorization: Bearer YOUR_API_KEY'
               ```
 
@@ -16276,7 +16276,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations
+              GET /graph/citations
                   ?q=citingWorkId:345678 AND creationDate>="2022-01-01" AND _exists_:citedWorkId
                   &orderby=creationDate:desc
                   &select=citationId,openCitationId,citingWorkId,citedWorkId,citingDoi,citedDoi,creationDate
@@ -16292,7 +16292,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --url 'https://api.core.ac.uk/graph/citations' \
                 --header 'Authorization: Bearer YOUR_API_KEY' \
                 --header 'Content-Type: application/json' \
                 --data '{
@@ -16353,7 +16353,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?orderby=creationDate:desc
+              GET /graph/citations?orderby=creationDate:desc
 
               ```
 
@@ -16380,7 +16380,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?orderby=citingWorkId:asc,creationDate:desc
+              GET /graph/citations?orderby=citingWorkId:asc,creationDate:desc
 
               ```
 
@@ -16418,7 +16418,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/citations?q=%2A&facets=metrics.authorSelfCitation%2Cmetrics.journalSelfCitation&count=true&limit=0' \
+                --url 'https://api.core.ac.uk/graph/citations?q=%2A&facets=metrics.authorSelfCitation%2Cmetrics.journalSelfCitation&count=true&limit=0' \
                 --header 'Authorization: Bearer YOUR_API_KEY'
               ```
 
@@ -16429,7 +16429,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url 'https://api.core.ac.uk/v4/search/citations' \
+                --url 'https://api.core.ac.uk/graph/citations' \
                 --header 'Authorization: Bearer YOUR_API_KEY' \
                 --header 'Content-Type: application/json' \
                 --data '{
@@ -16493,7 +16493,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citedWorkId:23456&count=true
+              GET /graph/citations?q=citedWorkId:23456&count=true
 
               ```
 
@@ -16528,7 +16528,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=0
+              GET /graph/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=0
 
               ```
 
@@ -16538,7 +16538,7 @@ items:
 
               ```http
 
-              GET /v4/search/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=20
+              GET /graph/citations?q=citingWorkId:345678&orderby=creationDate:desc&limit=20&offset=20
 
               ```
 
@@ -16587,7 +16587,7 @@ items:
               ```
 
 
-              #### Responses
+              #### Search responses
 
 
               | **Status** | **Description**                                                                                                 |
