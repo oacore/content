@@ -8,7 +8,7 @@ items:
             descriptionAbout: >-
               :::**Development status**
 
-              The CORE Graph API v4 is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release.
 
               :::
 
@@ -41,19 +41,17 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}
+              GET /graph/works/{workId}
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
-              GET /v4/institutions/{institutionId}/data-providers
+              GET /graph/institutions/{institutionId}/data-providers
 
-              GET /v4/search/works
-
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -99,7 +97,7 @@ items:
               Canonical Work
 
 
-              *  represented by one or more Outputs
+              * represented by one or more Outputs
 
               *  connected to Authors through Authorships
 
@@ -353,7 +351,7 @@ items:
 
               ```http
 
-              GET /v4/{entity}/{id}
+              GET /graph/{entity}/{id}
 
               ```
 
@@ -363,11 +361,11 @@ items:
 
               ```http
 
-              GET /v4/works/323030168
+              GET /graph/works/323030168
 
-              GET /v4/outputs/216874849
+              GET /graph/outputs/216874849
 
-              GET /v4/institutions/1256
+              GET /graph/institutions/1256
 
               ```
 
@@ -380,9 +378,9 @@ items:
 
               ```http
 
-              GET /v4/search/{entity}
+              GET /graph/{entity}
 
-              POST /v4/search/{entity}
+              POST /graph/{entity}
 
               ```
 
@@ -392,11 +390,11 @@ items:
 
               ```http
 
-              GET /v4/search/works
+              GET /graph/works
 
-              POST /v4/search/outputs
+              POST /graph/outputs
 
-              GET /v4/search/institutions
+              GET /graph/institutions
 
               ```
 
@@ -409,7 +407,7 @@ items:
 
               ```http
 
-              GET /v4/{entity}/{id}/{relatedEntity}
+              GET /graph/{entity}/{id}/{relatedEntity}
 
               ```
 
@@ -419,13 +417,13 @@ items:
 
               ```http
 
-              GET /v4/works/323030168/outputs
+              GET /graph/works/323030168/outputs
 
-              GET /v4/works/323030168/authorships
+              GET /graph/works/323030168/authorships
 
-              GET /v4/authors/67890/affiliations
+              GET /graph/authors/67890/affiliations
 
-              GET /v4/institutions/1256/data-providers
+              GET /graph/institutions/1256/data-providers
 
               ```
 
@@ -450,7 +448,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168
+              GET /graph/works/323030168
 
               ```
 
@@ -699,7 +697,7 @@ items:
 
               | Resource              | The API representation of an entity or collection.                                                                                              |
 
-              | Endpoint              | An API path that exposes a resource or operation, such as `/v4/works/{workId}`.                                                                 |
+              | Endpoint              | An API path that exposes a resource or operation, such as `/graph/works/{workId}`.                                                                 |
 
               | Path                  | The URL component that identifies an endpoint.                                                                                                  |
 
@@ -757,11 +755,9 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}
+              GET /graph/works/{workId}
 
-              GET /v4/works/{workId}/outputs
-
-              GET /v4/search/works
+              GET /graph/works/{workId}/outputs
 
               ```
 
@@ -780,7 +776,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -815,7 +811,7 @@ items:
 
               ```http
 
-              /v4/works/{workId}
+              /graph/works/{workId}
 
               ```
 
@@ -825,7 +821,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}
+              GET /graph/works/{workId}
 
               ```
 
@@ -853,7 +849,7 @@ items:
 
               - An HTTP client such as cURL
 
-              - The Graph API base URL: [https://api.core.ac.uk/v4](https://api.core.ac.uk/v4)
+              - The Graph API base URL: [http://api.core.ac.uk/graph/]
 
 
               Include your API key as a Bearer token in the `Authorization` header:
@@ -877,7 +873,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="particle physics"&searchMode=keyword&select=workId,title,yearPublished&count=true&limit=2
+              GET /graph/works?q="particle physics"&searchMode=keyword&select=workId,title,yearPublished&count=true&limit=2
 
               ```
 
@@ -888,7 +884,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/works?q=%22particle%20physics%22&searchMode=keyword&select=workId%2Ctitle%2CyearPublished&count=true&limit=2" \
+                --url "https://api.core.ac.uk/graph/works?q=%22particle%20physics%22&searchMode=keyword&select=workId%2Ctitle%2CyearPublished&count=true&limit=2" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -949,7 +945,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168
+              GET /graph/works/323030168
 
               ```
 
@@ -957,7 +953,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168" \
+                --url "https://api.core.ac.uk/graph/works/323030168" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -973,7 +969,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168/outputs
+              GET /graph/works/323030168/outputs
 
               ```
 
@@ -981,7 +977,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168/outputs" \
+                --url "https://api.core.ac.uk/graph/works/323030168/outputs" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1000,7 +996,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q="text and data mining" AND yearPublished>=2020&select=workId,title,yearPublished&limit=10
+              GET /graph/works?q="text and data mining" AND yearPublished>=2020&select=workId,title,yearPublished&limit=10
 
               ```
 
@@ -1011,7 +1007,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/works?q=%22text%20and%20data%20mining%22%20AND%20yearPublished%3E%3D2020&select=workId%2Ctitle%2CyearPublished&limit=10" \
+                --url "https://api.core.ac.uk/graph/works?q=%22text%20and%20data%20mining%22%20AND%20yearPublished%3E%3D2020&select=workId%2Ctitle%2CyearPublished&limit=10" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -1027,7 +1023,7 @@ items:
 
               ```http
 
-              POST /v4/search/works
+              POST /graph/works
 
               ```
 
@@ -1035,7 +1031,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/works" \
+                --url "https://api.core.ac.uk/graph/works" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -10502,7 +10498,7 @@ items:
         sections:
           - id: authorships-api-introduction
             title: Introduction
-            descriptionAbout: >-
+            descriptionAbout: >+
               An Authorship record describes how an Author appears on a
               particular scholarly Work. It contains Work-specific information
               such as the Author's position in the author list, numeric rank,
@@ -10533,65 +10529,72 @@ items:
 
 
               Each Authorship therefore links exactly one Work to exactly one Author while preserving the Author's Work-specific name, position, rank, corresponding-author status, and Affiliations.
+
+
+
+              #### Initial Authorships entity release
+
+
+              In the initial release of the CORE Graph API, the Authorships entity combines authorship information with available author details, such as display name, given names, family names, and biography. A separate Authors entity, representing researcher identities across multiple Works, is planned for a later release.
+
             images: []
             subTitle: null
             subDescription: ""
           - id: authorships-api-data-structure
             title: Data structure
             descriptionAbout: >-
-              The table below describes the top-level fields in the CORE Graph
-              metadata schema for the Authorship entity, including their types,
-              example values, descriptions, and sources.
+              ## Data structure
 
 
-              | **Property**        | **Type**   | **Example value**       | **Description**                                                                                                                                                                                                                                                                                                                            | **Source**          |
-
-              | ------------------- | ---------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
-
-              | authorshipId        | integer    | 234                     | CORE identifier for the authorship                                                                                                                                                                                                                                                                                                         | CORE                |
-
-              | workId              | integer    | 23456                   | CORE identifier of the associated work.                                                                                                                                                                                                                                                                                                    | CORE                |
-
-              | authorId            | integer    | 12                      | CORE identifier of the associated author.                                                                                                                                                                                                                                                                                                  | CORE                |
-
-              | rawName             | string     | Smith, Alice            | Verbatim author name string as supplied in the source metadata for this work.                                                                                                                                                                                                                                                              | OAI-PMH / Crossref  |
-
-              | sequence*           | string     | first                   | Author order classification within the work, such as first or additional.                                                                                                                                                                                                                                                                  | Crossref / OpenAlex |
-
-              | rank*               | integer    | 1                       | Numeric rank of the author in the author list.                                                                                                                                                                                                                                                                                             | OpenAIRE / OpenAlex |
-
-              | isFirstNamedAuthor* | boolean    | true                    | Indicates whether the author is the first-listed author on the work.                                                                                                                                                                                                                                                                       | Derived by CORE     |
-
-              | isCorresponding     | boolean    | false                   | Indicates whether the author is the corresponding author or not. **true:** the author is explicitly identified as a corresponding author. **false:** the source explicitly indicates that the author is not a corresponding author. **null:** the source does not provide sufficient information to determine corresponding-author status. |                     |
-
-              | sourceOutputIds     | integer\[] | \[216874849, 216874850] | CORE Output identifiers from which evidence for this Authorship was derived.                                                                                                                                                                                                                                                               | CORE                |
-
-              | createdDate         | string     | "2026-06-15T10:30:00Z"  | Date and time when the authorship record was created in CORE.                                                                                                                                                                                                                                                                              | CORE                |
-
-              | updatedDate         | string     | 2023-11-07T05:31:56Z    | Date and time when the authorship record was last updated in CORE.                                                                                                                                                                                                                                                                         | CORE                |
+              The table below describes the top-level fields in the CORE Graph metadata schema for the Authorship entity, including their types, example values, descriptions, and sources.
 
 
-              \* - See the Author position section below.
+              | Property | Type | Example value | Description | Source |
+
+              | --- | --- | --- | --- | --- |
+
+              | `authorshipId` | integer | `234` | CORE identifier for the authorship. | CORE |
+
+              | `workId` | integer | `23456` | CORE identifier of the associated work. | CORE |
+
+              | `authorId` | integer | `12` | CORE identifier of the associated author. | CORE |
+
+              | `rawName` | string \| null | `"Smith, Alice"` | Verbatim author name string as supplied in the source metadata for this work. | OAI-PMH / Crossref |
+
+              | `sequence`* | string \| null | `"first"` | Author order classification within the work, such as first or additional. | Crossref / OpenAlex |
+
+              | `rank`* | integer \| null | `1` | Numeric rank of the author in the author list. | OpenAIRE / OpenAlex |
+
+              | `isFirstNamedAuthor`* | boolean \| null | `true` | Indicates whether the author is the first-listed author on the work. | Derived by CORE |
+
+              | `isCorresponding` | boolean \| null | `false` | Indicates whether the author is a corresponding author.`true`: author is explicitly identified as a corresponding author.`false`: source explicitly indicates that the author is not a corresponding author.`null`: source does not provide sufficient information to determine corresponding-author status. | Derived by CORE|
+
+              | `createdDate` | string \| null | `"2026-06-15T10:30:00Z"` | Date and time when the authorship record was created in CORE. | CORE |
+
+              | `updatedDate` | string \| null | `"2023-11-07T05:31:56Z"` | Date and time when the authorship record was last updated in CORE. | CORE |
 
 
-              #### Author position
+              \* See the Author position section below.
 
 
-              The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the Author's position in the author list for the specific work.
+              ### Author position
+
+
+              The fields `rank`, `sequence`, and `isFirstNamedAuthor` describe the author’s position in the author list for the specific work.
 
 
               For example:
 
 
-              | **Author position** | **rank** | **sequence** | **isFirstNamedAuthor** |
+              | Author position | rank | sequence | isFirstNamedAuthor |
 
-              | ------------------- | -------- | ------------ | ---------------------- |
+              | --- | --- | --- | --- |
 
-              | First author        | 1        | "first"      | true                   |
+              | First author | `1` | `"first"` | `true` |
 
-              | Middle author       | 2        | "additional" | false                  |
+              | Middle author | `2` | `"additional"` | `false` |
 
-              | Final author        | 5        | "last"       | false                  |
+              | Final author | `5` | `"last"` | `false` |
 
 
               The `rank` property provides the exact numeric position of the Author.
@@ -10628,10 +10631,6 @@ items:
                 "rank": 1,
                 "isFirstNamedAuthor": true,
                 "isCorresponding": true,
-                "sourceOutputIds": [
-                  216874849,
-                  216874850
-                ],
                 "createdDate": "2026-06-15T10:30:00Z",
                 "updatedDate": "2026-07-01T14:20:00Z"
               }
@@ -10693,107 +10692,61 @@ items:
             subDescription: null
           - id: authorships-api-supported-field-operations
             title: Supported field operations
-            descriptionAbout: >
+            descriptionAbout: >-
               The table below describes which Authorship properties can be
               searched, queried through field lookups, ordered, or used as
               facets.
 
 
-              | Attribute | Searchable | Filterable | Sortable | Facetable |
+              | **Attribute**        | **Searchable** | **Filterable** | **Sortable** | **Facetable** |
 
-              | --- | --- | --- | --- | --- |
+              | -------------------- | -------------- | -------------- | ------------ | ------------- |
 
-              | authorshipId | No | Yes | No | No |
+              | `authorshipId`       | No             | Yes            | No           | No            |
 
-              | workId | No | Yes | Yes | No |
+              | `workId`             | No             | Yes            | Yes          | No            |
 
-              | authorId | No | Yes | Yes | No |
+              | `authorId`           | No             | Yes            | Yes          | No            |
 
-              | rawName | Yes | No | No | No |
+              | `rawName`            | Yes            | No             | Yes          | No            |
 
-              | sequence | No | Yes | Yes | Yes |
+              | `sequence`           | No             | Yes            | Yes          | Yes           |
 
-              | rank | No | Yes | Yes | Yes |
+              | `rank`               | No             | Yes            | Yes          | Yes           |
 
-              | isFirstNamedAuthor | No | Yes | No | Yes |
+              | `isFirstNamedAuthor` | No             | Yes            | No           | Yes           |
 
-              | isCorresponding | No | Yes | No | Yes |
+              | `isCorresponding`    | No             | Yes            | No           | Yes           |
 
-              | sourceOutputIds | No | Yes | No | No |
+              | `createdDate`        | No             | Yes            | Yes          | No            |
 
-              | createdDate | No | Yes | Yes | No |
-
-              | updatedDate | No | Yes | Yes | No |
-
-
-              The field-operation settings have the following meanings:
-
-
-              - **Searchable** fields can participate in textual queries through `q`.
-
-              - **Filterable** fields can be used in field lookups, Boolean conditions, range expressions, and existence queries through `q`.
-
-              - **Sortable** fields can be used with `orderby`.
-
-              - **Facetable** fields can be used with `facets`.
-
-
-              Refer to the common CORE API Query Language documentation for the complete query syntax.
-
-
-              ## Boolean query syntax
-
-
-              The examples in this document use explicit Boolean operators:
-
-
-              ```
-
-              workId:12345 AND isCorresponding:true
-
-              ```
-
-
-              Commas are not used as an alternative to `AND` inside `q`.
-
-
-              In executable URLs, spaces should be URL-encoded:
-
-
-              ```
-
-              workId:12345%20AND%20isCorresponding:true
-
-              ```
-
-
-              Readable examples may show the unencoded form for clarity.
+              | `updatedDate`        | No             | Yes            | Yes          | No            |
           - id: authorships-api-authorships-endpoints
             title: Authorships endpoints
             descriptionAbout: >-
               | Operation                                    | Method |
-              Endpoint                                      |
+              Endpoint                                         |
 
-              | -------------------------------------------- | ------ | --------------------------------------------- |
+              | -------------------------------------------- | ------ | ------------------------------------------------ |
 
-              | Get a single Authorship                      | GET    | `/v4/authorships/{authorshipId}`              |
+              | Get a single Authorship                      | GET    | `/graph/authorships/{authorshipId}`              |
 
-              | Search Authorships using URL parameters      | GET    | `/v4/search/authorships`                      |
+              | Search Authorships using URL parameters      | GET    | `/graph/authorships`                             |
 
-              | Search Authorships using a JSON request body | POST   | `/v4/search/authorships`                      |
+              | Search Authorships using a JSON request body | POST   | `/graph/authorships`                             |
 
-              | Retrieve Affiliations for an Authorship      | GET    | `/v4/authorships/{authorshipId}/affiliations` |
+              | Retrieve Affiliations for an Authorship      | GET    | `/graph/authorships/{authorshipId}/affiliations` |
 
 
               Authorship records may also be retrieved through relationship-oriented endpoints:
 
 
-              * `GET /v4/works/{workId}/authorships`
+              * `GET /graph/works/{workId}/authorships`
 
-              * `GET /v4/authors/{authorId}/authorships`
+              * `GET /graph/authors/{authorId}/authorships`
 
 
-              The Author relationship endpoint should only be exposed in a version that provides the Author entity.
+              The Author relationship endpoint will be exposed in a version that provides the Author entity.
 
 
               #### Get a single Authorship
@@ -10810,7 +10763,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/authorships/{authorshipId}
+              GET https://api.core.ac.uk/graph/authorships/{authorshipId}
 
               ```
 
@@ -10818,45 +10771,45 @@ items:
               ##### Authorization
 
 
-              | Parameter     | Location | Type   | Required | Description                                               |
+              | **Parameter** | **Location** | **Type** | **Required** | **Description**                                           |
 
-              | ------------- | -------- | ------ | -------- | --------------------------------------------------------- |
+              | ------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
 
-              | Authorization | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
+              | Authorization | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
 
 
               ##### Path parameters
 
 
-              | Parameter    | Type    | Required | Description                                      |
+              | **Parameter** | **Type** | **Required** | **Description**                                  |
 
-              | ------------ | ------- | -------- | ------------------------------------------------ |
+              | ------------- | -------- | ------------ | ------------------------------------------------ |
 
-              | authorshipId | integer | Yes      | Unique CORE identifier of the Authorship record. |
+              | authorshipId  | integer  | Yes          | Unique CORE identifier of the Authorship record. |
 
 
               ##### Query parameters
 
 
-              | Parameter | Type   | Required | Description                                                                                                    |
+              | **Parameter** | **Type** | **Required** | **Description**                                                                                                |
 
-              | --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------- |
+              | ------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------- |
 
-              | select    | string | No       | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
+              | select        | string   | No           | Comma-separated list of top-level Authorship fields to return. Example: `select=authorshipId,workId,authorId`. |
 
 
-              ##### Example request
+              Example request:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authorships/987654" \
+                --url "https://api.core.ac.uk/graph/authorships/987654" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              ##### Example response
+              Example response:
 
 
               ```json
@@ -10870,10 +10823,6 @@ items:
                 "rank": 1,
                 "isFirstNamedAuthor": true,
                 "isCorresponding": true,
-                "sourceOutputIds": [
-                  216874849,
-                  216874850
-                ],
                 "createdDate": "2026-06-15T10:30:00Z",
                 "updatedDate": "2026-07-01T14:20:00Z"
               }
@@ -10881,18 +10830,18 @@ items:
               ```
 
 
-              ##### Example request using select
+              Example request using select:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
+                --url "https://api.core.ac.uk/graph/authorships/987654?select=authorshipId,workId,authorId,rank,isCorresponding" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              ##### Example response using select
+              Example response using `select`
 
 
               ```json
@@ -10911,7 +10860,7 @@ items:
               #### Retrieve Affiliations for an Authorship
 
 
-              Retrieves the Affiliation records connected to an Authorship through the `Athorship_Affiliation` bridge.
+              Retrieves the Affiliation records connected to an Authorship through the `Authorship_Affiliation` bridge.
 
 
               ##### API endpoint
@@ -10919,7 +10868,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/authorships/{authorshipId}/affiliations
+              GET https://api.core.ac.uk/graph/authorships/{authorshipId}/affiliations
 
               ```
 
@@ -10927,47 +10876,82 @@ items:
               ##### Path parameters
 
 
-              | Parameter    | Type    | Required | Description                                                               |
+              | **Parameter** | **Type** | **Required** | **Description**                                                           |
 
-              | ------------ | ------- | -------- | ------------------------------------------------------------------------- |
+              | ------------- | -------- | ------------ | ------------------------------------------------------------------------- |
 
-              | authorshipId | integer | Yes      | CORE identifier of the Authorship whose Affiliations should be retrieved. |
+              | authorshipId  | integer  | Yes          | CORE identifier of the Authorship whose Affiliations should be retrieved. |
 
 
-              ##### Example request
+              Example request:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authorships/987654/affiliations" \
+                --url "https://api.core.ac.uk/graph/authorships/1/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              ##### Example response
+              Example response:
 
 
               ```json
 
               {
-                "totalHits": 2,
+                "totalHits": 3,
                 "results": [
                   {
-                    "affiliationId": 901,
-                    "authorId": 67890,
-                    "rawAffiliation": "Department of Computer Science, University of Oxford, UK",
-                    "department": "Department of Computer Science",
-                    "institutionId": 3201,
-                    "institutionName": "University of Oxford"
+                    "affiliationId": 1,
+                    "authorId": 574792711,
+                    "rawAffiliation": "University of Cambridge",
+                    "department": null,
+                    "institutionId": 122484,
+                    "institutionName": "University of Cambridge",
+                    "isCurrent": null,
+                    "startDate": null,
+                    "endDate": null,
+                    "evidenceWorkIds": [],
+                    "externalIds": [],
+                    "address": null,
+                    "url": null,
+                    "createdDate": "2026-07-30T16:05:32Z",
+                    "updatedDate": "2026-07-30T17:31:07Z"
                   },
                   {
-                    "affiliationId": 902,
-                    "authorId": 67890,
-                    "rawAffiliation": "Oxford Internet Institute, University of Oxford, UK",
-                    "department": "Oxford Internet Institute",
-                    "institutionId": 3201,
-                    "institutionName": "University of Oxford"
+                    "affiliationId": 6453,
+                    "authorId": 574792711,
+                    "rawAffiliation": "Central Saint Martins, University of Arts London",
+                    "department": null,
+                    "institutionId": 20004,
+                    "institutionName": "Saint Martin's University",
+                    "isCurrent": null,
+                    "startDate": null,
+                    "endDate": null,
+                    "evidenceWorkIds": [],
+                    "externalIds": [],
+                    "address": null,
+                    "url": null,
+                    "createdDate": "2026-07-30T17:31:06Z",
+                    "updatedDate": "2026-07-30T17:31:06Z"
+                  },
+                  {
+                    "affiliationId": 6454,
+                    "authorId": 574792711,
+                    "rawAffiliation": "Central Saint Martins, University of Arts London",
+                    "department": null,
+                    "institutionId": 156,
+                    "institutionName": "University of the Arts London",
+                    "isCurrent": null,
+                    "startDate": null,
+                    "endDate": null,
+                    "evidenceWorkIds": [],
+                    "externalIds": [],
+                    "address": null,
+                    "url": null,
+                    "createdDate": "2026-07-30T17:31:06Z",
+                    "updatedDate": "2026-07-30T17:31:06Z"
                   }
                 ]
               }
@@ -10978,50 +10962,27 @@ items:
               This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
 
 
-              ## Responses
+              #### Responses
 
 
-              ### Get a single Authorship
+              | **Status** | **Description**                                                      |
 
+              | ---------- | -------------------------------------------------------------------- |
 
-              | Status | Description                                                          |
+              | 200        | The Authorship record was retrieved successfully.                    |
 
-              | ------ | -------------------------------------------------------------------- |
+              | 400        | The request contains an invalid parameter or unsupported field name. |
 
-              | 200    | The Authorship record was retrieved successfully.                    |
+              | 401        | Authentication credentials are missing or invalid.                   |
 
-              | 400    | The request contains an invalid parameter or unsupported field name. |
+              | 404        | No Authorship record was found for the supplied identifier.          |
 
-              | 401    | Authentication credentials are missing or invalid.                   |
+              | 429        | The API request limit has been exceeded.                             |
 
-              | 404    | No Authorship record was found for the supplied identifier.          |
-
-              | 429    | The API request limit has been exceeded.                             |
-
-              | 500    | An unexpected server error occurred.                                 |
-
-
-              ### Search Authorships
-
-
-              | Status | Description                                                                                                   |
-
-              | ------ | ------------------------------------------------------------------------------------------------------------- |
-
-              | 200    | The Authorship search was completed successfully.                                                             |
-
-              | 400    | The request contains an invalid query, unsupported field, invalid facet, or invalid result-control parameter. |
-
-              | 401    | Authentication credentials are missing or invalid.                                                            |
-
-              | 413    | The POST request body exceeds the permitted size.                                                             |
-
-              | 429    | The API request limit has been exceeded.                                                                      |
-
-              | 500    | An unexpected server error occurred.                                                                          |
+              | 500        | An unexpected server error occurred.                                 |
           - id: authorships-api-search-authorships
             title: Search Authorships
-            descriptionAbout: >
+            descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates
               Authorship records.
 
@@ -11029,97 +10990,97 @@ items:
               Authorship search is available through GET and POST:
 
 
-              - `GET https://api.core.ac.uk/v4/search/authorships`
+              * `GET https://api.core.ac.uk/graph/authorships`
 
-              - `POST https://api.core.ac.uk/v4/search/authorships`
+              * `POST https://api.core.ac.uk/graph/authorships` 
 
 
               Both methods use the same CORE query language and return the same response structure.
 
 
-              ## GET and POST search parameters
+              #### GET and POST search parameters
 
 
-              ### GET query parameters
+              ##### GET query parameters
 
 
-              | Parameter | Type | Required | Default | Description |
+              | **Parameter** | **Type** | **Required** | **Default**                   | **Description**                                                                                                                     |
 
-              | --- | --- | --- | --- | --- |
+              | ------------- | -------- | ------------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q | string | No | * | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | q             | string   | No           | \*                            | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby | string | No | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format. |
+              | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                    |
 
-              | select | string | No | All retrievable fields | Comma-separated list of fields to include in each result. |
+              | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                           |
 
-              | facets | string | No | — | Comma-separated list of facetable fields for which value buckets and counts should be returned. |
+              | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                     |
 
-              | count | boolean | No | false | Indicates whether the total number of matching Authorship records should be included. |
+              | count         | boolean  | No           | false                         | Indicates whether the total number of matching Authorship records should be included.                                               |
 
-              | limit | integer | No | 10 | Maximum number of Authorship records to return. |
+              | limit         | integer  | No           | 10                            | Maximum number of Authorship records to return.                                                                                     |
 
-              | offset | integer | No | 0 | Number of matching Authorship records to skip. |
-
-
-              ### POST request body
+              | offset        | integer  | No           | 0                             | Number of matching Authorship records to skip.                                                                                      |
 
 
-              | Property | Type | Required | Default | Description |
-
-              | --- | --- | --- | --- | --- |
-
-              | q | string | No | * | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
-
-              | orderby | string[] | No | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format. |
-
-              | select | string[] | No | All retrievable fields | List of fields to include in each result. |
-
-              | facets | string[] | No | — | List of facetable fields for which value buckets and counts should be returned. |
-
-              | count | boolean | No | false | Indicates whether the total number of matching Authorship records should be included. |
-
-              | limit | integer | No | 10 | Maximum number of Authorship records to return. |
-
-              | offset | integer | No | 0 | Number of matching Authorship records to skip. |
+              ##### POST request body
 
 
-              ### GET and POST parameter mapping
+              | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                     |
+
+              | ------------ | --------- | ------------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+
+              | q            | string    | No           | \*                            | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+
+              | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                     |
+
+              | select       | string\[] | No           | All retrievable fields        | List of fields to include in each result.                                                                                           |
+
+              | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                     |
+
+              | count        | boolean   | No           | false                         | Indicates whether the total number of matching Authorship records should be included.                                               |
+
+              | limit        | integer   | No           | 10                            | Maximum number of Authorship records to return.                                                                                     |
+
+              | offset       | integer   | No           | 0                             | Number of matching Authorship records to skip.                                                                                      |
 
 
-              | GET query parameter | POST body property |
+              ##### GET and POST parameter mapping
 
-              | --- | --- |
 
-              | `q=workId:12345` | `"q": "workId:12345"` |
+              | GET query parameter                 | POST body property                               |
 
-              | `orderby=rank:asc` | `"orderby": ["rank:asc"]` |
+              | ----------------------------------- | ------------------------------------------------ |
+
+              | `q=workId:12345`                    | `"q": "workId:12345"`                            |
+
+              | `orderby=rank:asc`                  | `"orderby": ["rank:asc"]`                        |
 
               | `select=authorshipId,authorId,rank` | `"select": ["authorshipId", "authorId", "rank"]` |
 
-              | `facets=sequence,isCorresponding` | `"facets": ["sequence", "isCorresponding"]` |
+              | `facets=sequence,isCorresponding`   | `"facets": ["sequence", "isCorresponding"]`      |
 
-              | `count=true` | `"count": true` |
+              | `count=true`                        | `"count": true`                                  |
 
-              | `limit=10` | `"limit": 10` |
+              | `limit=10`                          | `"limit": 10`                                    |
 
-              | `offset=0` | `"offset": 0` |
+              | `offset=0`                          | `"offset": 0`                                    |
           - id: authorships-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Search by raw Author name
 
 
-              The `rawName` property is the principal searchable field in the Authorship entity.
+              The `rawName` property is the only field available for text searches in the Authorship entity.
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"' \
+                --url 'https://api.core.ac.uk/graph/authorships?q=rawName:"Smith"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11130,18 +11091,18 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=Smith" \
+                --url "https://api.core.ac.uk/graph/authorships?q=Smith" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11159,24 +11120,24 @@ items:
               #### Retrieve Authorships for a Work
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&orderby=rank:asc" \
+                --url "https://api.core.ac.uk/graph/authorships?q=workId:12345&orderby=rank:asc" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11196,7 +11157,7 @@ items:
 
               ```
 
-              GET /v4/works/12345/authorships
+              GET /graph/works/12345/authorships
 
               ```
 
@@ -11204,24 +11165,24 @@ items:
               #### Retrieve Authorships for an Author
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=authorId:67890" \
+                --url "https://api.core.ac.uk/graph/authorships?q=authorId:67890" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11238,7 +11199,7 @@ items:
 
               ```
 
-              GET /v4/authors/67890/authorships
+              GET /graph/authors/67890/authorships
 
               ```
 
@@ -11246,13 +11207,13 @@ items:
               #### Retrieve corresponding Authorships for a Work
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345%20AND%20isCorresponding:true" \
+                --url "https://api.core.ac.uk/graph/authorships?q=workId:12345%20AND%20isCorresponding:true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11262,18 +11223,18 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=workId:12345 AND isCorresponding:true
+              GET /graph/authorships?q=workId:12345 AND isCorresponding:true
 
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11291,13 +11252,13 @@ items:
               #### Retrieve first or last Authorships
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=(sequence:first%20OR%20sequence:last)" \
+                --url "https://api.core.ac.uk/graph/authorships?q=(sequence:first%20OR%20sequence:last)" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11307,12 +11268,12 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=(sequence:first OR sequence:last)
+              GET /graph/authorships?q=(sequence:first OR sequence:last)
 
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```json
@@ -11346,13 +11307,13 @@ items:
               * returns a maximum of ten records.
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authorships?q=rawName:"Smith"%20AND%20workId:12345&orderby=rank:asc&select=authorshipId,authorId,rawName,rank,isCorresponding&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/authorships?q=rawName:"Smith"%20AND%20workId:12345&orderby=rank:asc&select=authorshipId,authorId,rawName,rank,isCorresponding&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -11362,7 +11323,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships
+              GET /graph/authorships
                   ?q=rawName:"Smith" AND workId:12345
                   &orderby=rank:asc
                   &select=authorshipId,authorId,rawName,rank,isCorresponding
@@ -11372,13 +11333,13 @@ items:
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11400,7 +11361,7 @@ items:
               ```
 
 
-              E﻿xample search response
+              E﻿xample search response:
 
 
               ```json
@@ -11434,23 +11395,23 @@ items:
               #### Order by Author rank
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authorships?q=workId:12345&orderby=rank:asc
+              GET /graph/authorships?q=workId:12345&orderby=rank:asc
 
               ```
 
 
-              E﻿quivalent POST
+              E﻿quivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11475,7 +11436,7 @@ items:
               #### Order by multiple fields
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
@@ -11508,7 +11469,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?orderby=updatedDate:desc
+              GET /graph/authorships?orderby=updatedDate:desc
 
               ```
 
@@ -11536,24 +11497,24 @@ items:
               The `facets` option returns value buckets and counts for fields configured as facetable.
 
 
-              GET
+              GET:
 
 
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authorships?q=workId:12345&facets=sequence,isCorresponding&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/authorships?q=workId:12345&facets=sequence,isCorresponding&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authorships" \
+                --url "https://api.core.ac.uk/graph/authorships" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -11568,7 +11529,7 @@ items:
               ```
 
 
-              E﻿xample facet response
+              E﻿xample facet response:
 
 
               ```json
@@ -11618,7 +11579,7 @@ items:
 
               ```
 
-              POST /v4/search/authorships/aggregate
+              POST /graph/authorships/aggregate
 
               ```
 
@@ -11629,17 +11590,17 @@ items:
               Set `count=true` to include the total number of matching Authorship records.
 
 
-              GET
+              GET:
 
 
               ```
 
-              GET /v4/search/authorships?q=authorId:67890&count=true
+              GET /graph/authorships?q=authorId:67890&count=true
 
               ```
 
 
-              Equivalent POST
+              Equivalent POST:
 
 
               ```json
@@ -11671,7 +11632,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=0
+              GET /graph/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=0
 
               ```
 
@@ -11681,7 +11642,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=20
+              GET /graph/authorships?q=authorId:67890&orderby=workId:asc&limit=20&offset=20
 
               ```
 
@@ -11728,6 +11689,7 @@ items:
               offset = page size × number of previous pages
 
               ```
+
           - id: authorships-api-relationship-endpoints
             title: Relationship-oriented endpoints
             descriptionAbout: >
@@ -11738,12 +11700,12 @@ items:
               They do not introduce a different Authorship representation. Internally, they apply the appropriate relationship condition to the Authorship collection.
 
 
-              ## Authorships for a Work
+              #### Authorships for a Work
 
 
               ```
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
               ```
 
@@ -11766,7 +11728,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+              GET /graph/authorships?q=workId:{workId}&orderby=rank:asc
 
               ```
 
@@ -11789,12 +11751,12 @@ items:
               This relationship endpoint is documented under the Works entity.
 
 
-              ## Authorships for an Author
+              #### Authorships for an Author
 
 
               ```
 
-              GET /v4/authors/{authorId}/authorships
+              GET /graph/authors/{authorId}/authorships
 
               ```
 
@@ -11807,7 +11769,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?q=authorId:{authorId}
+              GET /graph/authorships?q=authorId:{authorId}
 
               ```
 
@@ -11824,12 +11786,12 @@ items:
               ```
 
 
-              ## Affiliations for an Authorship
+              #### Affiliations for an Authorship
 
 
               ```
 
-              GET /v4/authorships/{authorshipId}/affiliations
+              GET /graph/authorships/{authorshipId}/affiliations
 
               ```
 
@@ -11837,12 +11799,12 @@ items:
               This relationship is resolved through `authorship_affiliation`.
 
 
-              ## Authorships for an Affiliation
+              #### Authorships for an Affiliation
 
 
               ```
 
-              GET /v4/affiliations/{affiliationId}/authorships
+              GET /graph/affiliations/{affiliationId}/authorships
 
               ```
 
@@ -11974,7 +11936,7 @@ items:
               The `evidenceWorkIds` property and the `Authorship_Affiliation` bridge serve related but different purposes.
 
 
-              | Mechanism              | Purpose                                                                        |
+              | **Mechanism**          | **Purpose**                                                                    |
 
               | ---------------------- | ------------------------------------------------------------------------------ |
 
@@ -12103,15 +12065,13 @@ items:
               Affiliations used by an Author on a particular Work are connected to Authorship records through the Authorship_Affiliation bridge entity.
 
 
-              | Property      | Type    | Example value | Description                                                           | Source |
+              | **Property**  | **Type** | **Example value** | **Description**                                                       | **Source** |
 
-              | ------------- | ------- | ------------- | --------------------------------------------------------------------- | ------ |
+              | ------------- | -------- | ----------------- | --------------------------------------------------------------------- | ---------- |
 
-              | authorshipId  | integer | `987654`      | CORE identifier of the Authorship participating in the relationship.  | CORE   |
+              | authorshipId  | integer  | `987654`          | CORE identifier of the Authorship participating in the relationship.  | CORE       |
 
-              | affiliationId | integer | `901`         | CORE identifier of the Affiliation participating in the relationship. | CORE   |
-
-
+              | affiliationId | integer  | `901`             | CORE identifier of the Affiliation participating in the relationship. | CORE       |
 
 
               Example bridge records:
@@ -12131,8 +12091,6 @@ items:
               ]
 
               ```
-
-
 
 
               These records indicate that Authorship 987654 is linked to Affiliations 901 and 902.
@@ -12204,13 +12162,13 @@ items:
 
               | --------------------------------------------- | ------ | ---------------------------------------------- |
 
-              | Get a single Affiliation                      | GET    | `/v4/affiliations/{affiliationId}`             |
+              | Get a single Affiliation                      | GET    | `/graph/affiliations/{affiliationId}`             |
 
-              | Search Affiliations using URL parameters      | GET    | `/v4/search/affiliations`                      |
+              | Search Affiliations using URL parameters      | GET    | `/graph/affiliations`                      |
 
-              | Search Affiliations using a JSON request body | POST   | `/v4/search/affiliations`                      |
+              | Search Affiliations using a JSON request body | POST   | `/graph/affiliations`                      |
 
-              | Retrieve Authorships for an Affiliation       | GET    | `/v4/affiliations/{affiliationId}/authorships` |
+              | Retrieve Authorships for an Affiliation       | GET    | `/graph/affiliations/{affiliationId}/authorships` |
 
 
               Affiliation records may also be retrieved through relationship-oriented endpoints:
@@ -12218,11 +12176,11 @@ items:
 
               ```
 
-              GET /v4/authorships/{authorshipId}/affiliations
+              GET /graph/authorships/{authorshipId}/affiliations
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
-              GET /v4/institutions/{institutionId}/affiliations
+              GET /graph/institutions/{institutionId}/affiliations
 
               ```
 
@@ -12241,7 +12199,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/affiliations/{affiliationId}
+              GET https://api.core.ac.uk/graph/affiliations/{affiliationId}
 
               ```
 
@@ -12282,7 +12240,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/affiliations/901" \
+                --url "https://api.core.ac.uk/graph/affiliations/901" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12331,7 +12289,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
+                --url "https://api.core.ac.uk/graph/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12384,9 +12342,9 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/search/affiliations
+              GET https://api.core.ac.uk/graph/affiliations
 
-              POST https://api.core.ac.uk/v4/search/affiliations
+              POST https://api.core.ac.uk/graph/affiliations
 
               ```
 
@@ -12419,7 +12377,7 @@ items:
               | offset        | integer  | No           | `0`                           | Number of matching Affiliation records to skip.                                                                                     |
 
 
-              POST request body
+              ##### POST request body
 
 
               | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                     |
@@ -12484,7 +12442,7 @@ items:
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/affiliations?q=rawAffiliation:"Department%20of%20Computer%20Science%20Oxford"' \
+                --url 'https://api.core.ac.uk/graph/affiliations?q=rawAffiliation:"Department%20of%20Computer%20Science%20Oxford"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12494,7 +12452,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=rawAffiliation:"Department of Computer Science Oxford"
+              GET /graph/affiliations?q=rawAffiliation:"Department of Computer Science Oxford"
 
               ```
 
@@ -12505,7 +12463,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=University%20of%20Oxford" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=University%20of%20Oxford" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12519,7 +12477,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/affiliations" \
+                --url "https://api.core.ac.uk/graph/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -12549,7 +12507,7 @@ items:
 
               ```
 
-              curl --request GET \ --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"University%20of%20Oxford"' \ --header "Authorization: Bearer YOUR_API_KEY"
+              curl --request GET \ --url 'https://api.core.ac.uk/graph/affiliations?q=institutionName:"University%20of%20Oxford"' \ --header "Authorization: Bearer YOUR_API_KEY"
 
               ```
 
@@ -12593,7 +12551,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890&orderby=startDate:asc" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12624,7 +12582,7 @@ items:
 
               ```
 
-              GET /v4/authors/67890/affiliations
+              GET /graph/authors/67890/affiliations
 
               ```
 
@@ -12638,7 +12596,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:true" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890%20AND%20isCurrent:true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12678,7 +12636,7 @@ items:
 
               ```
 
-              curl --request GET \ --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc" \ --header "Authorization: Bearer YOUR_API_KEY"
+              curl --request GET \ --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc" \ --header "Authorization: Bearer YOUR_API_KEY"
 
               ```
 
@@ -12688,7 +12646,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:false&orderby=endDate:desc
+              GET /graph/affiliations?q=authorId:67890 AND isCurrent:false&orderby=endDate:desc
 
               ```
 
@@ -12723,7 +12681,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=institutionId:3201" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12745,7 +12703,7 @@ items:
 
               ```
 
-              GET /v4/institutions/3201/affiliations
+              GET /graph/institutions/3201/affiliations
 
               ```
 
@@ -12762,7 +12720,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=institutionId:3201%20AND%20isCurrent:true" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=institutionId:3201%20AND%20isCurrent:true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12772,7 +12730,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:3201 AND isCurrent:true
+              GET /graph/affiliations?q=institutionId:3201 AND isCurrent:true
 
               ```
 
@@ -12801,7 +12759,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=evidenceWorkIds:1234" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=evidenceWorkIds:1234" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12830,7 +12788,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:evidenceWorkIds" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=_exists_:evidenceWorkIds" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12859,7 +12817,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=_exists_:institutionId" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=_exists_:institutionId" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12890,7 +12848,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=startDate>="2021-01-01"
+              GET /graph/affiliations?q=startDate>="2021-01-01"
 
               ```
 
@@ -12915,7 +12873,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=endDate<"2024-01-01"
+              GET /graph/affiliations?q=endDate<"2024-01-01"
 
               ```
 
@@ -12940,7 +12898,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890 AND startDate<="2021-12-31" AND endDate>="2018-01-01"
+              GET /graph/affiliations?q=authorId:67890 AND startDate<="2021-12-31" AND endDate>="2018-01-01"
 
               ```
 
@@ -12966,7 +12924,7 @@ items:
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/affiliations?q=institutionName:"Oxford"%20AND%20authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc&select=affiliationId,institutionId,institutionName,department,startDate,endDate&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/affiliations?q=institutionName:"Oxford"%20AND%20authorId:67890%20AND%20isCurrent:false&orderby=endDate:desc&select=affiliationId,institutionId,institutionName,department,startDate,endDate&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12976,7 +12934,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations
+              GET /graph/affiliations
                   ?q=institutionName:"Oxford" AND authorId:67890 AND isCurrent:false
                   &orderby=endDate:desc
                   &select=affiliationId,institutionId,institutionName,department,startDate,endDate
@@ -12991,7 +12949,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/affiliations" \
+                --url "https://api.core.ac.uk/graph/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -13052,27 +13010,6 @@ items:
               ```
 
 
-              #### R﻿esponses
-
-
-              | **Status** | **Description**                                                                                                 |
-
-              | ---------- | --------------------------------------------------------------------------------------------------------------- |
-
-              | 200        | The Affiliation search was completed successfully.                                                              |
-
-              | 400        | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
-
-              | 401        | Authentication credentials are missing or invalid.                                                              |
-
-              | 413        | The POST request body exceeds the permitted size.                                                               |
-
-              | 429        | The API request limit has been exceeded.                                                                        |
-
-              | 500        | An unexpected server error occurred.                                                                            |
-
-
-
 
               #### Ordering Affiliation results
 
@@ -13083,14 +13020,16 @@ items:
               ##### Order Affiliations chronologically
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890&orderby=startDate:asc
+              GET /graph/affiliations?q=authorId:67890&orderby=startDate:asc
 
               ```
 
 
-              \
 
               P﻿OST representation:
 
@@ -13113,9 +13052,12 @@ items:
               #### Order by multiple fields
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/search/affiliations?orderby=authorId:asc,startDate:asc
+              GET /graph/affiliations?orderby=authorId:asc,startDate:asc
 
               ```
 
@@ -13135,7 +13077,6 @@ items:
               ```
 
 
-              \
 
               Results are first ordered by `authorId`. Affiliation records belonging to the same Author are then ordered by `startDate`.
 
@@ -13143,9 +13084,12 @@ items:
               #### Order by most recently updated
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/search/affiliations?orderby=updatedDate:desc
+              GET /graph/affiliations?orderby=updatedDate:desc
 
               ```
 
@@ -13170,13 +13114,13 @@ items:
               #### Return selected fields
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&orderby=startDate:asc&select=affiliationId,institutionId,institutionName,startDate,endDate,isCurrent" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890&orderby=startDate:asc&select=affiliationId,institutionId,institutionName,startDate,endDate,isCurrent" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -13210,10 +13154,7 @@ items:
               ```
 
 
-              #### \
-
-
-              Affiliation facets
+              #### Affiliation facets
 
 
               The facets parameter returns value buckets and counts for fields configured as facetable.
@@ -13225,7 +13166,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/affiliations?q=authorId:67890&facets=isCurrent,institutionId&count=true" \
+                --url "https://api.core.ac.uk/graph/affiliations?q=authorId:67890&facets=isCurrent,institutionId&count=true" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -13236,7 +13177,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/affiliations" \
+                --url "https://api.core.ac.uk/graph/affiliations" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -13251,7 +13192,6 @@ items:
               ```
 
 
-              \
 
               Example response:
 
@@ -13296,7 +13236,6 @@ items:
               ```
 
 
-              \
 
               Faceting by `institutionId` is technically possible, but it may produce a large number of buckets across the full Affiliation index. It is most useful when combined with a narrower filter.
 
@@ -13306,7 +13245,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890&facets=isCurrent&count=true&limit=0
+              GET /graph/affiliations?q=authorId:67890&facets=isCurrent&count=true&limit=0
 
               ```
 
@@ -13322,7 +13261,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890&count=true
+              GET /graph/affiliations?q=authorId:67890&count=true
 
               ```
 
@@ -13352,14 +13291,13 @@ items:
               A deterministic orderby expression should be used when retrieving multiple pages.
 
 
-              \
 
               First page using GET:
 
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=0
+              GET /graph/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=0
 
               ```
 
@@ -13369,7 +13307,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=20
+              GET /graph/affiliations?q=institutionId:3201&orderby=authorId:asc&limit=20&offset=20
 
               ```
 
@@ -13474,6 +13412,26 @@ items:
               }
 
               ```
+
+
+              #### Search responses
+
+
+              | **Status** | **Description**                                                                                                 |
+
+              | ---------- | --------------------------------------------------------------------------------------------------------------- |
+
+              | 200        | The Affiliation search was completed successfully.                                                              |
+
+              | 400        | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | 401        | Authentication credentials are missing or invalid.                                                              |
+
+              | 413        | The POST request body exceeds the permitted size.                                                               |
+
+              | 429        | The API request limit has been exceeded.                                                                        |
+
+              | 500        | An unexpected server error occurred.                                                                            |
           - divider: false
             border: false
             id: affiliations-api-relationship-oriented-endpoints
