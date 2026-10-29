@@ -11935,7 +11935,7 @@ items:
               The `evidenceWorkIds` property and the `Authorship_Affiliation` bridge serve related but different purposes.
 
 
-              | Mechanism              | Purpose                                                                        |
+              | **Mechanism**          | **Purpose**                                                                    |
 
               | ---------------------- | ------------------------------------------------------------------------------ |
 
@@ -12064,15 +12064,13 @@ items:
               Affiliations used by an Author on a particular Work are connected to Authorship records through the Authorship_Affiliation bridge entity.
 
 
-              | Property      | Type    | Example value | Description                                                           | Source |
+              | **Property**  | **Type** | **Example value** | **Description**                                                       | **Source** |
 
-              | ------------- | ------- | ------------- | --------------------------------------------------------------------- | ------ |
+              | ------------- | -------- | ----------------- | --------------------------------------------------------------------- | ---------- |
 
-              | authorshipId  | integer | `987654`      | CORE identifier of the Authorship participating in the relationship.  | CORE   |
+              | authorshipId  | integer  | `987654`          | CORE identifier of the Authorship participating in the relationship.  | CORE       |
 
-              | affiliationId | integer | `901`         | CORE identifier of the Affiliation participating in the relationship. | CORE   |
-
-
+              | affiliationId | integer  | `901`             | CORE identifier of the Affiliation participating in the relationship. | CORE       |
 
 
               Example bridge records:
@@ -12092,8 +12090,6 @@ items:
               ]
 
               ```
-
-
 
 
               These records indicate that Authorship 987654 is linked to Affiliations 901 and 902.
@@ -12165,13 +12161,13 @@ items:
 
               | --------------------------------------------- | ------ | ---------------------------------------------- |
 
-              | Get a single Affiliation                      | GET    | `/v4/affiliations/{affiliationId}`             |
+              | Get a single Affiliation                      | GET    | `/graph/affiliations/{affiliationId}`             |
 
-              | Search Affiliations using URL parameters      | GET    | `/v4/search/affiliations`                      |
+              | Search Affiliations using URL parameters      | GET    | `/graph/affiliations`                      |
 
-              | Search Affiliations using a JSON request body | POST   | `/v4/search/affiliations`                      |
+              | Search Affiliations using a JSON request body | POST   | `/graph/affiliations`                      |
 
-              | Retrieve Authorships for an Affiliation       | GET    | `/v4/affiliations/{affiliationId}/authorships` |
+              | Retrieve Authorships for an Affiliation       | GET    | `/graph/affiliations/{affiliationId}/authorships` |
 
 
               Affiliation records may also be retrieved through relationship-oriented endpoints:
@@ -12179,11 +12175,11 @@ items:
 
               ```
 
-              GET /v4/authorships/{authorshipId}/affiliations
+              GET /graph/authorships/{authorshipId}/affiliations
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
-              GET /v4/institutions/{institutionId}/affiliations
+              GET /graph/institutions/{institutionId}/affiliations
 
               ```
 
@@ -12202,7 +12198,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/affiliations/{affiliationId}
+              GET https://api.core.ac.uk/graph/affiliations/{affiliationId}
 
               ```
 
@@ -12243,7 +12239,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/affiliations/901" \
+                --url "https://api.core.ac.uk/graph/affiliations/901" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12292,7 +12288,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
+                --url "https://api.core.ac.uk/graph/affiliations/901?select=affiliationId,authorId,institutionId,institutionName,isCurrent" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -12345,9 +12341,9 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/search/affiliations
+              GET https://api.core.ac.uk/graph/affiliations
 
-              POST https://api.core.ac.uk/v4/search/affiliations
+              POST https://api.core.ac.uk/graph/affiliations
 
               ```
 
@@ -12380,7 +12376,7 @@ items:
               | offset        | integer  | No           | `0`                           | Number of matching Affiliation records to skip.                                                                                     |
 
 
-              POST request body
+              ##### POST request body
 
 
               | **Property** | **Type**  | **Required** | **Default**                   | **Description**                                                                                                                     |
