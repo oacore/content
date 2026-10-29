@@ -417,3 +417,7 @@ navItems:
       - hidden: false
         item: Responses
         href: "#search-responses"
+  - hidden: false
+    item: Recommender
+    children: []
+    href: "#recommender-api-overview"
