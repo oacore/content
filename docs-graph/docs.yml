@@ -6488,7 +6488,7 @@ items:
 
               ```http
 
-              GET /v4/data-providers/{dataProviderId}/outputs
+              GET /graph/data-providers/{dataProviderId}/outputs
 
               ```
 
@@ -6501,7 +6501,7 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+              GET /graph/outputs?q=dataProviderId:{dataProviderId}
 
               ```
 
@@ -6524,7 +6524,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/data-providers/100/outputs?select=coreId,title,yearPublished,documentType&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/data-providers/100/outputs?select=coreId,title,yearPublished,documentType&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -6567,7 +6567,7 @@ items:
 
               ```http
 
-              GET /v4/institutions/{institutionId}/data-providers
+              GET /graph/institutions/{institutionId}/data-providers
 
               ```
 
@@ -6584,7 +6584,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256/data-providers?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/institutions/1256/data-providers?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
