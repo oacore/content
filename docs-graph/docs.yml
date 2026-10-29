@@ -9348,11 +9348,11 @@ items:
 
               | --------------------------------------------- | ---------- | ---------------------------------- |
 
-              | Get a single Institution                      | GET        | `/v4/institutions/{institutionId}` |
+              | Get a single Institution                      | GET        | `/graph/institutions/{institutionId}` |
 
-              | Search Institutions                           | GET        | `/v4/search/institutions`          |
+              | Search Institutions                           | GET        | `/graph/institutions`          |
 
-              | Search Institutions using a JSON request body | POST       | `/v4/search/institutions`          |
+              | Search Institutions using a JSON request body | POST       | `/graph/institutions`          |
 
 
               Related records may also be retrieved through relationship-oriented endpoints:
@@ -9362,11 +9362,11 @@ items:
 
               | ------------------------------------------ | ---------- | ------------------------------------------------ |
 
-              | Retrieve Affiliations for an Institution   | GET        | `/v4/institutions/{institutionId}/affiliations`  |
+              | Retrieve Affiliations for an Institution   | GET        | `/graph/institutions/{institutionId}/affiliations`  |
 
-              | Retrieve Data Providers for an Institution | GET        | `/v4/institutions/{institutionId}/dataProviders` |
+              | Retrieve Data Providers for an Institution | GET        | `/graph/institutions/{institutionId}/dataProviders` |
 
-              | Retrieve Topics for an Institution         | GET        | `/v4/institutions/{institutionId}/topics`        |
+              | Retrieve Topics for an Institution         | GET        | `/graph/institutions/{institutionId}/topics`        |
 
 
               #### Get a single Institution
@@ -9380,7 +9380,7 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/institutions/{institutionId}
+              GET https://api.core.ac.uk/graph/institutions/{institutionId}
 
               ```
 
@@ -9421,7 +9421,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256" \
+                --url "https://api.core.ac.uk/graph/institutions/1256" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -9461,7 +9461,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/institutions/1256?select=institutionId,rorId,displayName,countryCode,types,status" \
+                --url "https://api.core.ac.uk/graph/institutions/1256?select=institutionId,rorId,displayName,countryCode,types,status" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -9518,14 +9518,14 @@ items:
 
               ```
 
-              GET https://api.core.ac.uk/v4/search/institutions
+              GET https://api.core.ac.uk/graph/search/institutions
 
               ```
 
 
               ```
 
-              POST https://api.core.ac.uk/v4/search/institutions
+              POST https://api.core.ac.uk/graph/search/institutions
 
               ```
 
@@ -9616,7 +9616,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=displayName:"The Open University"
+              GET /graph/institutions?q=displayName:"The Open University"
 
               ```
 
@@ -9626,7 +9626,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q="Open University"
+              GET /graph/institutions?q="Open University"
 
               ```
 
@@ -9679,7 +9679,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=rorId:"https://ror.org/05mzfcs16"
+              GET /graph/institutions?q=rorId:"https://ror.org/05mzfcs16"
 
               ```
 
@@ -9704,7 +9704,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=domains:"open.ac.uk"
+              GET /graph/institutions?q=domains:"open.ac.uk"
 
               ```
 
@@ -9729,7 +9729,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education AND countryCode:GB
+              GET /graph/institutions?q=types:education AND countryCode:GB
 
               ```
 
@@ -9754,7 +9754,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=status:active
+              GET /graph/institutions?q=status:active
 
               ```
 
@@ -9779,7 +9779,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=establishedYear>2000
+              GET /graph/institutions?q=establishedYear>2000
 
               ```
 
@@ -9804,7 +9804,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=_exists_:dataProviderIds
+              GET /graph/institutions?q=_exists_:dataProviderIds
 
               ```
 
@@ -9829,7 +9829,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=topics.topicId:"23"
+              GET /graph/institutions?q=topics.topicId:"23"
 
               ```
 
@@ -9851,7 +9851,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=topics.displayName:"Particle physics"
+              GET /graph/institutions?q=topics.displayName:"Particle physics"
 
               ```
 
@@ -9867,7 +9867,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000
+              GET /graph/institutions?q=yearlyMetrics.year:2024 AND yearlyMetrics.worksCount>10000
 
               ```
 
@@ -9895,7 +9895,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions
+              GET /graph/institutions
                   ?q=displayName:"Open" AND types:education AND countryCode:GB
                   &orderby=displayName:asc
                   &select=institutionId,rorId,displayName,countryCode,types,status
@@ -9926,7 +9926,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/institutions" \
+                --url "https://api.core.ac.uk/graph/institutions" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -9985,7 +9985,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&orderby=displayName:asc
+              GET /graph/institutions?q=types:education&orderby=displayName:asc
 
               ```
 
@@ -10013,7 +10013,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?orderby=establishedYear:asc
+              GET /graph/institutions?orderby=establishedYear:asc
 
               ```
 
@@ -10040,7 +10040,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?orderby=countryCode:asc,displayName:asc
+              GET /graph/institutions?orderby=countryCode:asc,displayName:asc
 
               ```
 
@@ -10050,7 +10050,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=countryCode:GB&orderby=displayName:asc
+              GET /graph/institutions?q=countryCode:GB&orderby=displayName:asc
 
               ```
 
@@ -10063,7 +10063,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?orderby=updatedAt:desc
+              GET /graph/institutions?orderby=updatedAt:desc
 
               ```
 
@@ -10094,7 +10094,7 @@ items:
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/institutions?q=status:active&facets=types,status,countryCode&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/institutions?q=status:active&facets=types,status,countryCode&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -10105,7 +10105,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/institutions" \
+                --url "https://api.core.ac.uk/graph/institutions" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -10180,7 +10180,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&count=true
+              GET /graph/institutions?q=types:education&count=true
 
               ```
 
@@ -10212,7 +10212,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=0
+              GET /graph/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=0
 
               ```
 
@@ -10222,7 +10222,7 @@ items:
 
               ```
 
-              GET /v4/search/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=20
+              GET /graph/institutions?q=types:education&orderby=displayName:asc&limit=20&offset=20
 
               ```
 
@@ -10273,7 +10273,7 @@ items:
 
 
 
-              #### R﻿esponses
+              #### Search responses
 
 
               | Status | Description |
