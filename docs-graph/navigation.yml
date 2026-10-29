@@ -29,6 +29,7 @@ navItems:
   - item: Entities
     children:
       - item: Works
+        href: "#works-api-introduction"
         children:
           - hidden: false
             item: Works
@@ -55,6 +56,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#works-api-relationship-oriented-endpoints"
       - item: Outputs
+        href: "#outputs-api-introduction"
         children:
           - hidden: false
             item: Outputs
@@ -81,6 +83,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#outputs-api-relationship-oriented-endpoints"
       - item: Data Providers
+        href: "#dataproviders-api-introduction"
         children:
           - hidden: false
             item: Data Providers
@@ -107,6 +110,7 @@ navItems:
             href: "#dataproviders-api-relationship-oriented-endpoints"
             item: Relationship-oriented endpoints
       - item: Journals
+        href: "#journals-api-introduction"
         children:
           - hidden: false
             item: Journals
@@ -133,6 +137,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#journals-api-relationship-oriented-endpoints"
       - item: Institutions
+        href: "#institutions-api-introduction"
         children:
           - hidden: false
             item: Introduction
@@ -156,6 +161,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#institutions-api-relationship-oriented-endpoints"
       - item: Authorships
+        href: "#authorships-api-introduction"
         children:
           - item: Introduction
             href: "#authorships-api-introduction"
@@ -174,6 +180,7 @@ navItems:
           - item: Relationship-oriented endpoints
             href: "#authorships-api-relationship-endpoints"
       - item: Affiliations
+        href: "#affiliations-api-introduction"
         children:
           - hidden: false
             item: Introduction
@@ -197,6 +204,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#affiliations-api-relationship-oriented-endpoints"
       - item: Authors
+        href: "#authors-api-introduction"
         children:
           - hidden: false
             item: Authors
@@ -223,6 +231,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#authors-api-relationship-oriented-endpoints"
       - item: Publishers
+        href: "#publishers-api-introduction"
         children:
           - hidden: false
             item: Publishers
@@ -249,6 +258,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#publishers-api-relationship-oriented-endpoints"
       - item: Grants
+        href: "#grants-api-introduction"
         children:
           - hidden: false
             item: Grants
@@ -275,6 +285,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#grants-api-relationship-oriented-endpoints"
       - item: Funders
+        href: "#funders-api-introduction"
         children:
           - hidden: false
             item: Funders
@@ -301,6 +312,7 @@ navItems:
             item: Relationship-oriented endpoints
             href: "#funders-api-relationship-oriented-endpoints"
       - item: Topics
+        href: "#topics-api-introduction"
         children:
           - hidden: false
             item: Topics
@@ -328,6 +340,7 @@ navItems:
             href: "#topics-api-relationship-oriented-endpoints"
       - hidden: false
         item: Citations
+        href: "#citations-api-introduction"
         children:
           - hidden: false
             item: Citations
@@ -355,7 +368,7 @@ navItems:
             href: "#citations-api-relationship-oriented-endpoints"
       - hidden: false
         item: Projects
-        href: ""
+        href: "#projects-api-introduction"
         children:
           - hidden: false
             item: Projects
