@@ -2771,7 +2771,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
               ```
 
@@ -2782,7 +2782,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/works/323030168/outputs?count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/works/323030168/outputs?count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -2829,7 +2829,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/authorships
+              GET /graph/works/{workId}/authorships
 
               ```
 
@@ -2842,7 +2842,7 @@ items:
 
               ```http
 
-              GET /v4/search/authorships?q=workId:{workId}&orderby=rank:asc
+              GET /graph/search/authorships?q=workId:{workId}&orderby=rank:asc
 
               ```
 
@@ -2873,7 +2873,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/journals
+              GET /graph/works/{workId}/journals
 
               ```
 
@@ -2889,7 +2889,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/data-providers
+              GET /graph/works/{workId}/data-providers
 
               ```
 
@@ -2900,7 +2900,7 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/projects
+              GET /graph/works/{workId}/projects
 
               ```
 
@@ -2911,7 +2911,7 @@ items:
               Example request:
 
 
-              ```GET /v4/works/323030168/projects?count=true&limit=10&offset=0
+              ```GET /graph/works/323030168/projects?count=true&limit=10&offset=0
 
               ```
 
@@ -2931,7 +2931,7 @@ items:
 
               ```http
 
-              GET /v4/projects/{projectId}/works
+              GET /graph/projects/{projectId}/works
 
               ```
 
@@ -2941,7 +2941,7 @@ items:
 
               ```http 
 
-              GET /v4/works/{workId}/grants 
+              GET /graph/works/{workId}/grants 
 
               ```
 
@@ -2954,7 +2954,7 @@ items:
 
               ```http
 
-              GET /v4/works/323030168/grants?count=true&limit=10&offset=0 
+              GET /graph/works/323030168/grants?count=true&limit=10&offset=0 
 
               ```
 
@@ -2974,7 +2974,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/works 
+              GET /graph/grants/{grantId}/works 
 
               ```
       - item: Outputs
