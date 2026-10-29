@@ -14106,7 +14106,7 @@ items:
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authors?q=displayName:"Alice%20Smith"' \
+                --url 'https://api.core.ac.uk/graph/authors?q=displayName:"Alice%20Smith"' \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -14116,7 +14116,7 @@ items:
 
               ```
 
-              GET /v4/search/authors?q=displayName:"Alice Smith"
+              GET /graph/authors?q=displayName:"Alice Smith"
 
               ```
 
@@ -14126,7 +14126,7 @@ items:
 
               ```
 
-              GET /v4/search/authors?q="Alice Smith"
+              GET /graph/authors?q="Alice Smith"
 
               ```
 
@@ -14137,7 +14137,7 @@ items:
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authors" \
+                --url "https://api.core.ac.uk/graph/authors" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -14170,17 +14170,17 @@ items:
               #### **Retrieve an Author by ORCID**
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=orcidId:"0000-0002-1825-0097"
+              GET /graph/authors?q=orcidId:"0000-0002-1825-0097"
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14195,19 +14195,19 @@ items:
               #### Search by research keyword
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=keywords:"Machine Learning"
+              GET /graph/authors?q=keywords:"Machine Learning"
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14224,19 +14224,19 @@ items:
               #### Retrieve Authors associated with a country
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=countries:GB
+              GET /graph/authors?q=countries:GB
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14254,19 +14254,19 @@ items:
               #### **Retrieve Authors by career stage**
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=careerStage:early-career
+              GET /graph/authors?q=careerStage:early-career
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14283,19 +14283,19 @@ items:
               #### **Retrieve Authors with ORCID identifiers**
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=_exists_:orcidId
+              GET /graph/authors?q=_exists_:orcidId
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14330,13 +14330,13 @@ items:
               * returns a maximum of ten records.
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
               curl --request GET \
-                --url 'https://api.core.ac.uk/v4/search/authors?q=keywords:"Machine%20Learning"%20AND%20countries:GB&orderby=displayName:asc&select=authorId,orcidId,displayName,countries,careerStage,keywords&count=true&limit=10&offset=0' \
+                --url 'https://api.core.ac.uk/graph/authors?q=keywords:"Machine%20Learning"%20AND%20countries:GB&orderby=displayName:asc&select=authorId,orcidId,displayName,countries,careerStage,keywords&count=true&limit=10&offset=0' \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
@@ -14348,7 +14348,7 @@ items:
 
               ```
 
-              GET /v4/search/authors
+              GET /graph/authors
                   ?q=keywords:"Machine Learning" AND countries:GB
                   &orderby=displayName:asc
                   &select=authorId,orcidId,displayName,countries,careerStage,keywords
@@ -14358,13 +14358,13 @@ items:
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authors" \
+                --url "https://api.core.ac.uk/graph/authors" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -14426,19 +14426,19 @@ items:
               ##### Order by display name
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=displayName:asc
+              GET /graph/authors?orderby=displayName:asc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14457,19 +14457,19 @@ items:
               ##### Order by creation date
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=createdDate:asc
+              GET /graph/authors?orderby=createdDate:asc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14488,19 +14488,19 @@ items:
               ##### Order by update date
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=updatedDate:desc
+              GET /graph/authors?orderby=updatedDate:desc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14519,19 +14519,19 @@ items:
               ##### Order by multiple fields
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?orderby=displayName:asc,updatedDate:desc
+              GET /graph/authors?orderby=displayName:asc,updatedDate:desc
 
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14559,26 +14559,26 @@ items:
               The facets option returns value buckets and counts for fields configured as facetable.
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/search/authors?q=*&facets=countries,careerStage,keywords&count=true&limit=0" \
+                --url "https://api.core.ac.uk/graph/authors?q=*&facets=countries,careerStage,keywords&count=true&limit=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/authors" \
+                --url "https://api.core.ac.uk/graph/authors" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -14659,21 +14659,20 @@ items:
               Set count=true to include the total number of matching Author records.
 
 
-              G﻿ET
+              G﻿ET:
 
 
               ```
 
-              GET /v4/search/authors?q=countries:GB&count=true
+              GET /graph/authors?q=countries:GB&count=true
 
 
 
               ```
 
 
-              \
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14700,29 +14699,29 @@ items:
               A deterministic orderby expression should be used when retrieving multiple pages.
 
 
-              F﻿irst page using GET
+              F﻿irst page using GET:
 
 
               ```
 
-              GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=0
+              GET /graph/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=0
 
 
 
               ```
 
 
-              Second page using GET
+              Second page using GET:
 
 
               ```
 
-              GET /v4/search/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=20
+              GET /graph/authors?q=keywords:"Artificial Intelligence"&orderby=displayName:asc&limit=20&offset=20
 
               ```
 
 
-              First page using POST
+              First page using POST:
 
 
               ```
@@ -14741,9 +14740,8 @@ items:
               ```
 
 
-              \
 
-              Second page using POST
+              Second page using POST:
 
 
               ```
@@ -14766,6 +14764,26 @@ items:
 
 
               offset = page size × number of previous pages
+
+
+              ### Search responses
+
+
+              | **Status** | **Description** |
+
+              | --- | --- |
+
+              | 200 | The Author search was completed successfully. |
+
+              | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | 401 | Authentication credentials are missing or invalid. |
+
+              | 413 | The POST request body exceeds the permitted size. |
+
+              | 429 | The API request limit has been exceeded. |
+
+              | 500 | An unexpected server error occurred. |
           - divider: false
             border: false
             id: authors-api-relationship-oriented-endpoints
@@ -14780,24 +14798,27 @@ items:
 
               #### Authorships for an Author
 
-
-              ```
-
-              GET /v4/authors/{authorId}/authorships
-
+              G﻿ET:
 
 
               ```
 
+              GET /graph/authors/{authorId}/authorships
 
-              Retrieves Authorship records associated with the Author.\
+
+
+              ```
+
+
+              Retrieves Authorship records associated with the Author.
+
 
               Equivalent GET search:
 
 
               ```
 
-              GET /v4/search/authorships?q=authorId:{authorId}
+              GET /graph/authorships?q=authorId:{authorId}
 
 
 
@@ -14818,20 +14839,20 @@ items:
               ```
 
 
-              E﻿xample request
+              E﻿xample request:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890/authorships?orderby=workId:asc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/authors/67890/authorships?orderby=workId:asc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
               ```
 
 
-              E﻿xample response
+              E﻿xample response:
 
 
               ```
@@ -14870,9 +14891,12 @@ items:
               #### Works for an Author
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authors/{authorId}/works
+              GET /graph/authors/{authorId}/works
 
 
 
@@ -14882,18 +14906,18 @@ items:
               Retrieves Works connected to the Author through Authorship records.
 
 
-              E﻿xample request
+              E﻿xample request:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890/works?select=workId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/authors/67890/works?select=workId,title,yearPublished,doi&orderby=yearPublished:desc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
 
-              E﻿xample response
+              E﻿xample response:
 
 
               ```
@@ -14921,7 +14945,6 @@ items:
               ```
 
 
-              \
 
               An existing Author with no connected Works returns 200 with an empty results array.
 
@@ -14929,9 +14952,12 @@ items:
               #### Affiliations for an Author
 
 
+              G﻿ET:
+
+
               ```
 
-              GET /v4/authors/{authorId}/affiliations
+              GET /graph/authors/{authorId}/affiliations
 
 
 
@@ -14946,7 +14972,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:{authorId}&orderby=startDate:asc
+              GET /graph/affiliations?q=authorId:{authorId}&orderby=startDate:asc
 
 
 
@@ -14970,20 +14996,20 @@ items:
               ```
 
 
-              E﻿xample request
+              E﻿xample request:
 
 
               ```
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/authors/67890/affiliations?orderby=startDate:asc&count=true&limit=10&offset=0" \
+                --url "https://api.core.ac.uk/graph/authors/67890/affiliations?orderby=startDate:asc&count=true&limit=10&offset=0" \
                 --header "Authorization: Bearer YOUR_API_KEY"
 
 
               ```
 
 
-              E﻿xample response
+              E﻿xample response:
 
 
               ```
