@@ -17628,7 +17628,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=label:"particle physics"
+              GET /graph/topics?q=label:"particle physics"
 
               ```
 
@@ -17650,7 +17650,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q="particle physics"
+              GET /graph/topics?q="particle physics"
 
               ```
 
@@ -17666,7 +17666,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=domainName:"Physical Sciences"
+              GET /graph/topics?q=domainName:"Physical Sciences"
 
               ```
 
@@ -17691,7 +17691,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=fieldName:"Physics and Astronomy"
+              GET /graph/topics?q=fieldName:"Physics and Astronomy"
 
               ```
 
@@ -17716,7 +17716,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=subfieldName:"Nuclear and High Energy Physics"
+              GET /graph/topics?q=subfieldName:"Nuclear and High Energy Physics"
 
               ```
 
@@ -17741,7 +17741,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=isControlled:true
+              GET /graph/topics?q=isControlled:true
 
               ```
 
@@ -17766,7 +17766,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=source:OpenAIRE
+              GET /graph/topics?q=source:OpenAIRE
 
               ```
 
@@ -17791,7 +17791,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=scheme:DDC
+              GET /graph/topics?q=scheme:DDC
 
               ```
 
@@ -17816,7 +17816,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=trustScore>=0.8
+              GET /graph/topics?q=trustScore>=0.8
 
               ```
 
@@ -17841,7 +17841,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=score>=0.9
+              GET /graph/topics?q=score>=0.9
 
               ```
 
@@ -17891,7 +17891,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?q=_exists_:spatial
+              GET /graph/topics?q=_exists_:spatial
 
               ```
 
@@ -17919,7 +17919,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics
+              GET /graph/topics
                   ?q=*
                   &facets=type,language,scheme,source,domainName,fieldName,subfieldName,isControlled
                   &count=true
@@ -17976,7 +17976,7 @@ items:
 
               ```http
 
-              GET /v4/search/topics?orderby=label:asc
+              GET /graph/topics?orderby=label:asc
 
               ```
 
@@ -17986,12 +17986,12 @@ items:
 
               ```http
 
-              GET /v4/search/topics?orderby=score:desc
+              GET /graph/topics?orderby=score:desc
 
               ```
 
 
-              #### Search Topics responses
+              #### Search responses
 
 
               | **Status** | **Description**                                                                                  |
