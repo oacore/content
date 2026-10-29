@@ -5000,7 +5000,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/work
+              GET /graph/outputs/{coreId}/work
 
               ```
 
@@ -5013,7 +5013,7 @@ items:
 
               ```http
 
-              GET /v4/search/works?q=coreIds:{coreId}
+              GET /graph/search/works?q=coreIds:{coreId}
 
               ```
 
@@ -5036,7 +5036,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/outputs/216874849/work" \
+                --url "https://api.core.ac.uk/graph/outputs/216874849/work" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -5068,7 +5068,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/data-provider
+              GET /graph/outputs/{coreId}/data-provider
 
               ```
 
@@ -5100,7 +5100,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/journal
+              GET /graph/outputs/{coreId}/journal
 
               ```
 
@@ -5133,7 +5133,7 @@ items:
 
               ```http
 
-              GET /v4/outputs/{coreId}/publisher
+              GET /graph/outputs/{coreId}/publisher
 
               ```
 
@@ -5152,13 +5152,13 @@ items:
 
               ```http
 
-              GET /v4/works/{workId}/outputs
+              GET /graph/works/{workId}/outputs
 
-              GET /v4/data-providers/{dataProviderId}/outputs
+              GET /graph/data-providers/{dataProviderId}/outputs
 
-              GET /v4/journals/{journalId}/outputs
+              GET /graph/journals/{journalId}/outputs
 
-              GET /v4/publishers/{publisherId}/outputs
+              GET /graph/publishers/{publisherId}/outputs
 
               ```
 
@@ -5171,11 +5171,11 @@ items:
 
               ```http
 
-              GET /v4/search/outputs?q=dataProviderId:{dataProviderId}
+              GET /graph/outputs?q=dataProviderId:{dataProviderId}
 
-              GET /v4/search/outputs?q=journalId:{journalId}
+              GET /graph/outputs?q=journalId:{journalId}
 
-              GET /v4/search/outputs?q=publisherId:{publisherId}
+              GET /graph/outputs?q=publisherId:{publisherId}
 
               ```
       - item: Data Providers
