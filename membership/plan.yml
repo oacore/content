@@ -669,6 +669,18 @@ table:
               - Starting
               - Supporting
               - Sustaining
+          - id: 35
+            title: Software mentions
+            descriptionCardCard: This module enables repositories to receive requests to
+              validate extracted software mentions related to research papers in
+              their repository by the authors of those research papers.
+            descriptionCardTable: This module enables repositories to receive requests to
+              validate extracted software mentions related to research papers in
+              their repository by the authors of those research papers.
+            plans:
+              - Starting
+              - Supporting
+              - Sustaining
           - id: 28
             title: Desirable Characteristics Repository Validator
             descriptionCardCard: >
@@ -702,18 +714,6 @@ table:
             descriptionCardTable: Associate the logo of your institution or repository on a
               dedicated data provider’s page showcasing your research. Your logo
               can be uploaded from the CORE Repository Dashboard.
-            plans:
-              - Starting
-              - Supporting
-              - Sustaining
-          - id: 35
-            title: Software mentions
-            descriptionCardCard: This module enables repositories to receive requests to
-              validate extracted software mentions related to research papers in
-              their repository by the authors of those research papers.
-            descriptionCardTable: This module enables repositories to receive requests to
-              validate extracted software mentions related to research papers in
-              their repository by the authors of those research papers.
             plans:
               - Starting
               - Supporting
