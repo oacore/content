@@ -22200,17 +22200,17 @@ items:
 
               | ----------------------------------------------- | ---------- | --------------------------------- |
 
-              | Get a single Funders record                     | `GET`      | `/v4/funders/{funderId}`          |
+              | Get a single Funders record                     | `GET`      | `/graph/funders/{funderId}`          |
 
-              | Search Funders using URL parameters             | `GET`      | `/v4/search/funders`              |
+              | Search Funders using URL parameters             | `GET`      | `/graph/funders`              |
 
-              | Search Funders using a JSON request body        | `POST`     | `/v4/search/funders`              |
+              | Search Funders using a JSON request body        | `POST`     | `/graph/funders`              |
 
-              | Retrieve Grants awarded by a Funders record     | `GET`      | `/v4/funders/{funderId}/grants`   |
+              | Retrieve Grants awarded by a Funders record     | `GET`      | `/graph/funders/{funderId}/grants`   |
 
-              | Retrieve Projects supported by a Funders record | `GET`      | `/v4/funders/{funderId}/projects` |
+              | Retrieve Projects supported by a Funders record | `GET`      | `/graph/funders/{funderId}/projects` |
 
-              | Retrieve Works supported by a Funders record    | `GET`      | `/v4/funders/{funderId}/works`    |
+              | Retrieve Works supported by a Funders record    | `GET`      | `/graph/funders/{funderId}/works`    |
 
 
               #### Get a single Funders record
@@ -22221,7 +22221,7 @@ items:
 
               ```http
 
-              GET https://api.core.ac.uk/v4/funders/{funderId}
+              GET https://api.core.ac.uk/graph/funders/{funderId}
 
               ```
 
@@ -22262,7 +22262,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/funders/501" \
+                --url "https://api.core.ac.uk/graph/funders/501" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -22299,7 +22299,7 @@ items:
               ```bash
 
               curl --request GET \
-                --url "https://api.core.ac.uk/v4/funders/501?select=funderId,name,shortName,funderDoi,jurisdiction" \
+                --url "https://api.core.ac.uk/graph/funders/501?select=funderId,name,shortName,funderDoi,jurisdiction" \
                 --header "Authorization: Bearer YOUR_API_KEY"
               ```
 
@@ -22354,9 +22354,9 @@ items:
 
               | ---------- | ------------------------------------------ |
 
-              | `GET`      | <https://api.core.ac.uk/v4/search/funders> |
+              | `GET`      | <https://api.core.ac.uk/graph/funders> |
 
-              | `POST`     | <https://api.core.ac.uk/v4/search/funders> |
+              | `POST`     | <https://api.core.ac.uk/graph/funders> |
 
 
               Both methods use the same CORE query language and return the same Funders search-response structure.
@@ -22448,7 +22448,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=name:"Wellcome Trust"
+              GET /graph/funders?q=name:"Wellcome Trust"
 
               ```
 
@@ -22470,7 +22470,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q="Wellcome"
+              GET /graph/funders?q="Wellcome"
 
               ```
 
@@ -22500,7 +22500,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=funderDoi:"10.13039/100004440"
+              GET /graph/funders?q=funderDoi:"10.13039/100004440"
 
               ```
 
@@ -22522,7 +22522,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=identifiers.scheme:FUNDER_DOI AND identifiers.value:"10.13039/100004440"
+              GET /graph/funders?q=identifiers.scheme:FUNDER_DOI AND identifiers.value:"10.13039/100004440"
 
               ```
 
@@ -22535,7 +22535,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB
+              GET /graph/funders?q=jurisdiction:GB
 
               ```
 
@@ -22545,7 +22545,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=awardNumber:WT123456
+              GET /graph/funders?q=awardNumber:WT123456
 
               ```
 
@@ -22558,7 +22558,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=fundingStream:"Biomedical Research"
+              GET /graph/funders?q=fundingStream:"Biomedical Research"
 
               ```
 
@@ -22568,7 +22568,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=projectId:12034
+              GET /graph/funders?q=projectId:12034
 
               ```
 
@@ -22581,7 +22581,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=projectValidatedByFunder:true
+              GET /graph/funders?q=projectValidatedByFunder:true
 
               ```
 
@@ -22591,7 +22591,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=clinicalTrialNumbers:"NCT04512345"
+              GET /graph/funders?q=clinicalTrialNumbers:"NCT04512345"
 
               ```
 
@@ -22618,7 +22618,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders
+              GET /graph/funders
                   ?q="Wellcome" AND jurisdiction:GB AND projectValidatedByFunder:true
                   &orderby=name:asc,funderId:asc
                   &select=funderId,name,shortName,funderDoi,jurisdiction
@@ -22634,7 +22634,7 @@ items:
               ```bash
 
               curl --request POST \
-                --url "https://api.core.ac.uk/v4/search/funders" \
+                --url "https://api.core.ac.uk/graph/funders" \
                 --header "Authorization: Bearer YOUR_API_KEY" \
                 --header "Content-Type: application/json" \
                 --data '{
@@ -22692,7 +22692,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?orderby=name:asc
+              GET /graph/funders?orderby=name:asc
 
               ```
 
@@ -22702,7 +22702,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?orderby=projectValidatedDate:desc
+              GET /graph/funders?orderby=projectValidatedDate:desc
 
               ```
 
@@ -22715,7 +22715,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?orderby=name:asc,funderId:asc
+              GET /graph/funders?orderby=name:asc,funderId:asc
 
               ```
 
@@ -22749,7 +22749,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=*&facets=jurisdiction,fundingStream,identifiers.scheme,projectValidatedByFunder&count=true&limit=0
+              GET /graph/funders?q=*&facets=jurisdiction,fundingStream,identifiers.scheme,projectValidatedByFunder&count=true&limit=0
 
               ```
 
@@ -22843,7 +22843,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB&count=true
+              GET /graph/funders?q=jurisdiction:GB&count=true
 
               ```
 
@@ -22862,7 +22862,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=0
+              GET /graph/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=0
 
               ```
 
@@ -22872,7 +22872,7 @@ items:
 
               ```http
 
-              GET /v4/search/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=20
+              GET /graph/funders?q=jurisdiction:GB&orderby=name:asc,funderId:asc&limit=20&offset=20
 
               ```
 
@@ -22922,7 +22922,7 @@ items:
 
               ```http
 
-              GET /v4/funders/{funderId}/grants
+              GET /graph/funders/{funderId}/grants
 
               ```
 
@@ -22935,7 +22935,7 @@ items:
 
               ```http
 
-              GET /v4/search/grants?q=funderId:{funderId}
+              GET /graph/grants?q=funderId:{funderId}
 
               ```
 
@@ -22945,7 +22945,7 @@ items:
 
               ```http
 
-              GET /v4/funders/501/grants?select=grantId,grantName,funderAwardId,amount,currency,startDate,endDate&count=true&limit=10&offset=0
+              GET /graph/funders/501/grants?select=grantId,grantName,funderAwardId,amount,currency,startDate,endDate&count=true&limit=10&offset=0
 
               ```
 
@@ -22955,7 +22955,7 @@ items:
 
               ```http
 
-              GET /v4/grants/{grantId}/funder
+              GET /graph/grants/{grantId}/funder
 
               ```
 
@@ -22965,7 +22965,7 @@ items:
 
               ```http
 
-              GET /v4/funders/{funderId}/projects
+              GET /graph/funders/{funderId}/projects
 
               ```
 
@@ -22978,7 +22978,7 @@ items:
 
               ```http
 
-              GET /v4/funders/501/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
+              GET /graph/funders/501/projects?select=projectId,code,acronym,title,startDate,endDate&count=true&limit=10&offset=0
 
               ```
 
@@ -22988,7 +22988,7 @@ items:
 
               ```http
 
-              GET /v4/funders/{funderId}/works
+              GET /graph/funders/{funderId}/works
 
               ```
 
@@ -23001,7 +23001,7 @@ items:
 
               ```http
 
-              GET /v4/funders/501/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/funders/501/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
