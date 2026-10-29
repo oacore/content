@@ -11067,7 +11067,7 @@ items:
               | `offset=0`                          | `"offset": 0`                                    |
           - id: authorships-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Search by raw Author name
 
 
@@ -11689,6 +11689,7 @@ items:
               offset = page size × number of previous pages
 
               ```
+
           - id: authorships-api-relationship-endpoints
             title: Relationship-oriented endpoints
             descriptionAbout: >
