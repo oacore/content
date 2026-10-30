@@ -49,6 +49,8 @@ navItems:
     href: "#unlimited-support"
   - item: CORE OA Compliance Dashboard
     href: "#compliance-dashboard"
+  - item: FreshFind
+    href: "#freshfind"
   - item: Dataset use for your university
     href: "#dataset-university"
   - item: Repository health check
@@ -63,5 +65,3 @@ navItems:
     href: "#licencing"
   - item: CORE badges
     href: "#core-badges"
-  - item: FreshFind
-    href: "#freshfind"
