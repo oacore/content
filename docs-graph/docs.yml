@@ -1071,7 +1071,7 @@ items:
             id: works-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Works is planned for inclusion in
+              **Under development:** Works is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -2990,7 +2990,7 @@ items:
             id: outputs-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Outputs is planned for inclusion in
+              **Under development:** Outputs is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -5225,7 +5225,7 @@ items:
             id: dataproviders-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Data Providers is planned for inclusion in
+              **Under development:** Data Providers is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -6656,7 +6656,7 @@ items:
             id: journals-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Journals is planned for inclusion in
+              **Under development:** Journals is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -13619,7 +13619,7 @@ items:
             id: authors-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Authors is planned for inclusion in
+              **Under development:** Authors is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -15078,7 +15078,7 @@ items:
             id: citations-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Citations is planned for inclusion in
+              **Under development:** Citations is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -16904,7 +16904,7 @@ items:
             id: topics-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Topics is planned for inclusion in
+              **Under development:** Topics is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -18149,7 +18149,7 @@ items:
             id: publishers-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Publishers is planned for inclusion in
+              **Under development:** Publishers is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -19400,7 +19400,7 @@ items:
             id: projects-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Projects is planned for inclusion in
+              **Under development:** Projects is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -20582,7 +20582,7 @@ items:
             id: grants-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Grants is planned for inclusion in
+              **Under development:** Grants is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
@@ -21946,7 +21946,7 @@ items:
             id: funders-api-introduction
             title: Introduction
             note: >-
-              **Under Development:** Funders is planned for inclusion in
+              **Under development:** Funders is planned for inclusion in
               the CORE Graph API but has not yet been fully specified or
               implemented.
             descriptionAbout: >-
