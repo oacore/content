@@ -1073,6 +1073,312 @@ items:
       text: Watch tutorial
       img: /images/docs-membership/tutorial.svg
       src: https://www.youtube.com/embed/X-A64CoTtcE
+  - id: freshfinds
+    title: FreshFinds
+    membership-types:
+      starting: No
+      supporting: No
+      sustaining: Yes
+    descriptionAbout: >-
+      The FreshFinds module tells institutions about newly published papers by
+      their researchers that are not yet in their repository. It makes
+      depositing papers easier and helps repositories keep a complete record of
+      their researchers’ work.
+
+
+      To set up depositing of FreshFinds directly to your repository, configure the settings in the FreshFinds tab.
+
+
+      Adjust these settings to get the most out of FreshFinds for your repository:
+
+
+      **Sources**: choose which sources CORE checks when looking for new papers for your repository.
+
+      **Automatic depositing**: turn this on to let CORE deposit papers to your repository automatically. You also need to set up a depositing mechanism.
+
+      **Depositing mechanism**: add your repository profile and choose how papers are deposited.
+
+
+      1) Repository profile - we currently support EPrints and DSpace, and we’re working on adding more.
+
+      2) Type of depositing - push or pull.
+
+
+      **FreshFinds Push Integration**
+
+      If your repository uses the push mechanism, fill in your SWORD endpoint details. CORE uses these details to deposit new papers to your repository. You need them for both automatic and manual depositing.
+
+
+      **FreshFinds Pull Integration**
+
+      If your repository uses the push mechanism, follow the instruction below:
+
+
+       Prerequisites: 
+
+      - Your repository must be configured for FreshFinds pull integration.
+
+       - Use the CORE repository ID assigned to your institution. 
+
+      - Every request requires a CORE API key authorised for that repository.  
+
+
+      Placeholders
+
+       {repositoryId} = your CORE repository/data-provider ID 
+
+      {workId} = the CORE work ID returned by the candidate endpoint 
+
+      {depositId} = the FreshFinds deposit ID returned after queueing  
+
+
+      **1. List available candidate works  **
+
+
+      GET https://api.core.ac.uk/internal/data-providers/{repositoryId}/fresh-finds/works?depositFilter[]=available&page=1&pageSize=50  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/json  
+
+
+      **2. Queue a selected work  **
+
+      Use the workId returned by step 1.  
+
+
+      POST https://api.core.ac.uk/internal/fresh-finds/queue/{repositoryId}  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Content-Type: application/json 
+
+      Accept: application/json  
+
+      {   
+
+      "workId": 379361689 
+
+      }
+
+        Save the depositId returned in the response.  
+
+
+      **3. List works ready for collection  **
+
+
+      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works?page=1&pageSize=50 
+
+
+       Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/json  
+
+
+      **4. Retrieve a work's metadata  **
+
+
+      Use the depositId, not the workId.  
+
+
+      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/json  
+
+
+      **5. Download the deposit package  **
+
+
+      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/package 
+
+
+       Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/zip  
+
+
+      **6. Import the package into your repository  **
+
+
+      Import the downloaded ZIP using your repository's normal import process.  
+
+
+      **7. Confirm successful receipt  **
+
+
+      Only confirm receipt after the package has been imported successfully.  
+
+
+      POST https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/received  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Content-Type: application/json
+
+       Accept: application/json
+
+        {   
+
+      "received": true 
+
+      }
+    descriptionDashboard: >-
+      The FreshFinds module tells institutions about newly published papers by
+      their researchers that are not yet in their repository. It makes
+      depositing papers easier and helps repositories keep a complete record of
+      their researchers’ work.
+
+
+      To set up depositing of FreshFinds directly to your repository, configure the settings in the FreshFinds tab.
+
+
+      Adjust these settings to get the most out of FreshFinds for your repository:
+
+
+      **Sources**: choose which sources CORE checks when looking for new papers for your repository.
+
+      **Automatic depositing**: turn this on to let CORE deposit papers to your repository automatically. You also need to set up a depositing mechanism.
+
+      **Depositing mechanism**: add your repository profile and choose how papers are deposited.
+
+
+      1) Repository profile - we currently support EPrints and DSpace, and we’re working on adding more.
+
+      2) Type of depositing - push or pull.
+
+
+      **FreshFinds Push Integration**
+
+      If your repository uses the push mechanism, fill in your SWORD endpoint details. CORE uses these details to deposit new papers to your repository. You need them for both automatic and manual depositing.
+
+
+      **FreshFinds Pull Integration**
+
+      If your repository uses the push mechanism, follow the instruction below:
+
+
+       Prerequisites: 
+
+      - Your repository must be configured for FreshFinds pull integration.
+
+       - Use the CORE repository ID assigned to your institution. 
+
+      - Every request requires a CORE API key authorised for that repository.  
+
+
+      Placeholders
+
+       {repositoryId} = your CORE repository/data-provider ID 
+
+      {workId} = the CORE work ID returned by the candidate endpoint 
+
+      {depositId} = the FreshFinds deposit ID returned after queueing  
+
+
+      **1. List available candidate works  **
+
+
+      GET https://api.core.ac.uk/internal/data-providers/{repositoryId}/fresh-finds/works?depositFilter[]=available&page=1&pageSize=50  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/json  
+
+
+      **2. Queue a selected work  **
+
+      Use the workId returned by step 1.  
+
+
+      POST https://api.core.ac.uk/internal/fresh-finds/queue/{repositoryId}  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Content-Type: application/json 
+
+      Accept: application/json  
+
+      {   
+
+      "workId": 379361689 
+
+      }
+
+        Save the depositId returned in the response.  
+
+
+      **3. List works ready for collection  **
+
+
+      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works?page=1&pageSize=50 
+
+
+       Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/json  
+
+
+      **4. Retrieve a work's metadata  **
+
+
+      Use the depositId, not the workId.  
+
+
+      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/json  
+
+
+      **5. Download the deposit package  **
+
+
+      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/package 
+
+
+       Authorization: Bearer <CORE_API_KEY> 
+
+      Accept: application/zip  
+
+
+      **6. Import the package into your repository  **
+
+
+      Import the downloaded ZIP using your repository's normal import process.  
+
+
+      **7. Confirm successful receipt  **
+
+
+      Only confirm receipt after the package has been imported successfully.  
+
+
+      POST https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/received  
+
+
+      Authorization: Bearer <CORE_API_KEY> 
+
+      Content-Type: application/json
+
+       Accept: application/json
+
+        {   
+
+      "received": true 
+
+      }
+    images:
+      - file: /images/docs-membership/freshfinds.png
   - title: Dataset use for your university
     id: dataset-university
     images: null
@@ -1435,312 +1741,6 @@ items:
       supporting: Yes
       sustaining: Yes
     redirect: null
-  - id: freshfinds
-    title: FreshFinds
-    membership-types:
-      starting: No
-      supporting: No
-      sustaining: Yes
-    descriptionAbout: >-
-      The FreshFinds module tells institutions about newly published papers by
-      their researchers that are not yet in their repository. It makes
-      depositing papers easier and helps repositories keep a complete record of
-      their researchers’ work.
-
-
-      To set up depositing of FreshFinds directly to your repository, configure the settings in the FreshFinds tab.
-
-
-      Adjust these settings to get the most out of FreshFinds for your repository:
-
-
-      **Sources**: choose which sources CORE checks when looking for new papers for your repository.
-
-      **Automatic depositing**: turn this on to let CORE deposit papers to your repository automatically. You also need to set up a depositing mechanism.
-
-      **Depositing mechanism**: add your repository profile and choose how papers are deposited.
-
-
-      1) Repository profile - we currently support EPrints and DSpace, and we’re working on adding more.
-
-      2) Type of depositing - push or pull.
-
-
-      **FreshFinds Push Integration**
-
-      If your repository uses the push mechanism, fill in your SWORD endpoint details. CORE uses these details to deposit new papers to your repository. You need them for both automatic and manual depositing.
-
-
-      **FreshFinds Pull Integration**
-
-      If your repository uses the push mechanism, follow the instruction below:
-
-
-       Prerequisites: 
-
-      - Your repository must be configured for FreshFinds pull integration.
-
-       - Use the CORE repository ID assigned to your institution. 
-
-      - Every request requires a CORE API key authorised for that repository.  
-
-
-      Placeholders
-
-       {repositoryId} = your CORE repository/data-provider ID 
-
-      {workId} = the CORE work ID returned by the candidate endpoint 
-
-      {depositId} = the FreshFinds deposit ID returned after queueing  
-
-
-      **1. List available candidate works  **
-
-
-      GET https://api.core.ac.uk/internal/data-providers/{repositoryId}/fresh-finds/works?depositFilter[]=available&page=1&pageSize=50  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/json  
-
-
-      **2. Queue a selected work  **
-
-      Use the workId returned by step 1.  
-
-
-      POST https://api.core.ac.uk/internal/fresh-finds/queue/{repositoryId}  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Content-Type: application/json 
-
-      Accept: application/json  
-
-      {   
-
-      "workId": 379361689 
-
-      }
-
-        Save the depositId returned in the response.  
-
-
-      **3. List works ready for collection  **
-
-
-      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works?page=1&pageSize=50 
-
-
-       Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/json  
-
-
-      **4. Retrieve a work's metadata  **
-
-
-      Use the depositId, not the workId.  
-
-
-      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/json  
-
-
-      **5. Download the deposit package  **
-
-
-      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/package 
-
-
-       Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/zip  
-
-
-      **6. Import the package into your repository  **
-
-
-      Import the downloaded ZIP using your repository's normal import process.  
-
-
-      **7. Confirm successful receipt  **
-
-
-      Only confirm receipt after the package has been imported successfully.  
-
-
-      POST https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/received  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Content-Type: application/json
-
-       Accept: application/json
-
-        {   
-
-      "received": true 
-
-      }
-    descriptionDashboard: >-
-      The FreshFinds module tells institutions about newly published papers by
-      their researchers that are not yet in their repository. It makes
-      depositing papers easier and helps repositories keep a complete record of
-      their researchers’ work.
-
-
-      To set up depositing of FreshFinds directly to your repository, configure the settings in the FreshFinds tab.
-
-
-      Adjust these settings to get the most out of FreshFinds for your repository:
-
-
-      **Sources**: choose which sources CORE checks when looking for new papers for your repository.
-
-      **Automatic depositing**: turn this on to let CORE deposit papers to your repository automatically. You also need to set up a depositing mechanism.
-
-      **Depositing mechanism**: add your repository profile and choose how papers are deposited.
-
-
-      1) Repository profile - we currently support EPrints and DSpace, and we’re working on adding more.
-
-      2) Type of depositing - push or pull.
-
-
-      **FreshFinds Push Integration**
-
-      If your repository uses the push mechanism, fill in your SWORD endpoint details. CORE uses these details to deposit new papers to your repository. You need them for both automatic and manual depositing.
-
-
-      **FreshFinds Pull Integration**
-
-      If your repository uses the push mechanism, follow the instruction below:
-
-
-       Prerequisites: 
-
-      - Your repository must be configured for FreshFinds pull integration.
-
-       - Use the CORE repository ID assigned to your institution. 
-
-      - Every request requires a CORE API key authorised for that repository.  
-
-
-      Placeholders
-
-       {repositoryId} = your CORE repository/data-provider ID 
-
-      {workId} = the CORE work ID returned by the candidate endpoint 
-
-      {depositId} = the FreshFinds deposit ID returned after queueing  
-
-
-      **1. List available candidate works  **
-
-
-      GET https://api.core.ac.uk/internal/data-providers/{repositoryId}/fresh-finds/works?depositFilter[]=available&page=1&pageSize=50  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/json  
-
-
-      **2. Queue a selected work  **
-
-      Use the workId returned by step 1.  
-
-
-      POST https://api.core.ac.uk/internal/fresh-finds/queue/{repositoryId}  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Content-Type: application/json 
-
-      Accept: application/json  
-
-      {   
-
-      "workId": 379361689 
-
-      }
-
-        Save the depositId returned in the response.  
-
-
-      **3. List works ready for collection  **
-
-
-      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works?page=1&pageSize=50 
-
-
-       Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/json  
-
-
-      **4. Retrieve a work's metadata  **
-
-
-      Use the depositId, not the workId.  
-
-
-      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/json  
-
-
-      **5. Download the deposit package  **
-
-
-      GET https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/package 
-
-
-       Authorization: Bearer <CORE_API_KEY> 
-
-      Accept: application/zip  
-
-
-      **6. Import the package into your repository  **
-
-
-      Import the downloaded ZIP using your repository's normal import process.  
-
-
-      **7. Confirm successful receipt  **
-
-
-      Only confirm receipt after the package has been imported successfully.  
-
-
-      POST https://api.core.ac.uk/integrations/fresh-finds/{repositoryId}/works/{depositId}/received  
-
-
-      Authorization: Bearer <CORE_API_KEY> 
-
-      Content-Type: application/json
-
-       Accept: application/json
-
-        {   
-
-      "received": true 
-
-      }
-    images:
-      - file: /images/docs-membership/freshfinds.png
 tutorial:
   text: Watch the CORE Dashboard webinar
   img: /images/docs-membership/video.svg
