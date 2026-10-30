@@ -8781,6 +8781,8 @@ items:
             border: false
             id: institutions-api-introduction
             title: Introduction
+            note: >-
+              Institutions is implemented in the CORE Graph API but has not yet been fully specified.
             descriptionAbout: >-
               The Institutions entity represents universities, research
               organisations, healthcare organisations, companies, government
@@ -23060,6 +23062,8 @@ items:
             border: false
             id: search-overview
             title: Overview
+            note: >-
+              **Development status** CORE Graph API search endpoints are under development. Some of the search capabilities may not be available yet.
             descriptionAbout: >-
               The CORE Graph API provides a common search interface across graph
               entities.
