@@ -59,7 +59,7 @@ howItWorks:
   image: /images/services/work.svg
   description: >
     CORE FreshFinds continuously monitors new research across bibliographic
-    databases, preprint servers, and a global network of open repositories. It
+    databases, preprint servers, and a global network of [open repositories](https://core.ac.uk/data). It
     uses metadata matching and AI on full-text documents to identify
     institutional author affiliations, deduplicate entries against your
     existing holdings, and deliver direct deposits via SWORD.
