@@ -1,7 +1,6 @@
 ---
 title: CORE API documentation
 ---
-![CORE API image](images/api-core.png)
 
 CORE indexes, maintains, enriches and makes available metadata and full-text
 content (typically a PDF) from many Open Access journals and repositories.
