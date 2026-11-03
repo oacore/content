@@ -39,6 +39,13 @@ features:
     description: >
       Save about 500h* of manual data input per year at a mid-size institution
       by adopting FreshFinds in your workflow.
+    tooltipLabel: 500h*
+    tooltip: |
+      A mid to large institution often adds about 2,000 articles per year. We estimate that FreshFinds can save about 15 minutes per article in manual data input. Indicative averages of yearly new articles per repository size are:
+
+      - Small repository (500–1,000 articles): 125–250 hours
+      - Medium repository (1,000–4,000 articles): 250–1,000 hours
+      - Large repository (4,000+ articles): 1,000+ hours
   - title: Full-text manuscript ingest
     description: >
       Capable of delivering manuscript files alongside metadata records.
