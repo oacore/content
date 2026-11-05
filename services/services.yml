@@ -126,6 +126,17 @@ sections:
         action:
           caption: Go to search
           url: search/?q=
+      - id: fresh-finds
+        title: FreshFinds
+        short-description: Discover and deposit papers by your academics
+        logo: /images/freshFindsIcon.svg
+        description: |
+          Discovering new papers authored by your academics from around the world and depositing them into your repository.
+        recommender:
+          - title: Academic institutions
+        action:
+          caption: Learn more
+          url: fresh-finds
   -
     id: managing-content
     title: Managing content
@@ -156,6 +167,17 @@ sections:
         action:
           caption: Learn more
           url: services/repository-dashboard
+      - id: fair-certification
+        title: FAIR Repository Certification
+        short-description: Certify that your repository meets FAIR principles
+        logo: /images/fairIcon.svg
+        description: |
+          Check, validate and certify that your repository meets FAIR principles and guidelines using CORE’s data-driven assessment.
+        recommender:
+          - title: Academic institutions
+        action:
+          caption: Learn more
+          url: services/fair-certification
   -
     id: oai-identifies
     title: OAI identifiers
