@@ -179,30 +179,33 @@ testimonials:
         be spent searching for and validating publication information.
 
 faqs:
-  title: Frequently asked questions about FreshFinds
+  title: FAQs about FreshFinds
   expandLabel: Expand all
   collapseLabel: Collapse all
   items:
     - id: repository-software
       question: Does FreshFinds work with my institution's repository software?
-      answer: >
-        FreshFinds delivers metadata and full-text files over SWORD, or as a
-        manual export, and does not require changes to your repository
-        architecture. Repository profiles are currently available for EPrints
-        and DSpace. Support for more repository software is being added.
+      answer: |
+        Yes! FreshFinds is designed to work with any institutional repository, regardless of the software your institution uses. FreshFinds offers several flexible ways to integrate with your repository. You can export the provider table from the FreshFinds module in the CORE Dashboard, including suggested publications and their metadata in a range of commonly used formats, such as RIS, BibTeX and CSV. This makes it easy to incorporate the information into your existing workflows.
+
+        For institutions interested in a more automated solution, FreshFinds also supports two integration methods:
+
+        - Push integration: FreshFinds can automatically deliver publication data and metadata to repository systems that support the SWORD deposit protocol.
+        - Pull integration: Institutions or their repository software providers can implement a lightweight module to retrieve publication data from FreshFinds and import it directly into their repository.
+
+        We understand that every institution has different technical requirements. Our team is happy to work with you and your repository software provider to identify the best integration approach. We can also provide technical documentation and support to make the integration process as straightforward as possible.
     - id: automatic-deposit
       question: Can FreshFinds automatically deposit publications into my institutional repository?
-      answer: >
-        Yes. After you configure a depositing mechanism in the CORE Dashboard,
-        you can turn on automatic depositing. You can also review suggested
-        papers in the dashboard and choose which ones to deposit.
+      answer: |
+        Yes! FreshFinds supports automated deposit, although the available integration options depend on your repository software. For repositories supporting the SWORD protocol, FreshFinds can deliver publications and their metadata directly through an automated push integration. Alternatively, FreshFinds supports a pull integration, where your institution or software provider can implement a lightweight module to retrieve publication data from FreshFinds and import it into your repository.
+
+        If your repository does not currently support either approach, don't worry! You can still use FreshFinds and export publication data in RIS, BibTeX or CSV directly from the FreshFinds module in the CORE Dashboard. We are also happy to collaborate directly with your repository software provider to explore and enable automated integration. Simply put us in touch with your technical team or software vendor, and we will be glad to help find a suitable solution.
     - id: digital-commons
       question: Does FreshFinds support Digital Commons?
-      answer: >
-        Digital Commons is not one of the repository profiles available today.
-        FreshFinds currently supports EPrints and DSpace. You can still review
-        suggested papers and export records manually, and you can
-        [contact us](/about#contact) about support for your repository software.
+      answer: |
+        Yes! FreshFinds can be used with Digital Commons, just as it can with any other institutional repository software. FreshFinds allows you to identify relevant publications and export their information in RIS, BibTeX or CSV through the CORE Dashboard, regardless of the repository platform you use.
+
+        For fully automated deposit, we would need to confirm which integration options your Digital Commons installation supports. If your repository does not currently support SWORD deposit, we would be very happy to explore alternative integration approaches. We are also happy to work directly with your repository team or software provider to investigate how automated deposit could be enabled. If you could introduce us to the relevant technical contact, we'd be delighted to help!
 
 relatedServices:
   title: You might be also interested in
