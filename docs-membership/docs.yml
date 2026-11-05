@@ -1082,11 +1082,13 @@ items:
     images: null
     descriptionAbout: |
       The FreshFinds module tells institutions about newly published papers by their researchers that are not yet in their repository. It makes depositing papers easier and helps repositories keep a complete record of their researchers’ work.
-
-      ![FreshFinds in the dashboard](/images/docs-membership/settingsView.png)
       
       
       To set up depositing of FreshFinds directly to your repository, configure the settings in the FreshFinds tab.
+      
+      
+      ![FreshFinds in the dashboard](/images/docs-membership/settingsView.png)
+      
 
       Adjust these settings to get the most out of FreshFinds for your repository:
 
