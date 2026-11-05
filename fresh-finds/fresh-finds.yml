@@ -11,6 +11,12 @@ headerLink:
     href: '#workflow'
   - link: How to apply?
     href: '#how-to-apply'
+  - link: Use cases
+    href: '#use-cases'
+  - link: Testimonials
+    href: '#testimonials'
+  - link: FAQs
+    href: '#faqs'
 
 header:
   title: FreshFinds
@@ -63,6 +69,10 @@ howItWorks:
     uses metadata matching and AI on full-text documents to identify
     institutional author affiliations, deduplicate entries against your
     existing holdings, and deliver direct deposits via SWORD.
+  action:
+    caption: Access documentation
+    variant: contained
+    url: /documentation/membership-documentation#freshfinds
 
 workflow:
   title: FreshFinds workflow
@@ -114,6 +124,85 @@ start:
       variant: outlined
       url: https://dashboard.core.ac.uk
       target: _blank
+
+useCases:
+  title: Find out how other institutions benefited from FreshFinds
+  highlight: benefited
+  items:
+    - title: How the University of Glasgow uses CORE FreshFinds to streamline repository workflows.
+      description: >
+        ... To address these challenges, the University of Glasgow participated
+        in the CORE FreshFinds pilot, integrating the FreshFinds service
+        directly into its EPrints review workflow.
+
+
+        FreshFinds continuously monitors a range of bibliographic sources,
+        including Crossref, open access journals, preprint servers and
+        institutional repositories, to identify newly published research...
+      user: George Macgregor
+      position: Assistant Director – Digital Library, University of Glasgow
+      img: /images/fresh-finds/university-of-glasgow.jpg
+      action:
+        title: Read more
+        url: https://blog.core.ac.uk/2026/11/04/how-the-university-of-glasgow-uses-core-freshfinds-to-streamline-repository-workflows/
+
+testimonials:
+  title: What institutions say about FreshFinds
+  items:
+    - name: George Macgregor
+      role: Assistant Director – Digital Library, University of Glasgow
+      picture: /images/fresh-finds/university-of-glasgow.jpg
+      quote: >
+        At the University of Glasgow, we operate a mediated deposit workflow
+        where our team reviews everything destined for deposit in the
+        repository. FreshFinds has the added potential of supplying
+        considerably more full-text than Publications Router could ever have
+        delivered. Anyone deploying it with an E-Prints system should find
+        that it works pretty much out-of-the-box, giving decent metadata and
+        crucially, the full-text as well. It has been received positively at
+        the University of Glasgow, and our team can't wait to make more use
+        of it. I would therefore recommend it as more than a substitute for
+        Publications Router.
+    - name: Jessie McLean
+      role: Open Research & Publishing Librarian, Buckinghamshire New University
+      picture: /images/fresh-finds/buckinghamshire-new-university.jpg
+      quote: >
+        FreshFinds fits well within our repository workflow. As we deposit
+        manuscripts on acceptance, it helps us identify when articles are
+        published and DOIs become available, allowing us to update existing
+        records without relying solely on researchers to notify us. It also
+        provides reassurance that REF-eligible outputs are not missed.
+        FreshFinds has the potential to reduce administrative effort by
+        automating the identification of published outputs and supplying key
+        metadata. While manual work is still required to create deposits and
+        manage REF compliance requirements, it saves time that would otherwise
+        be spent searching for and validating publication information.
+
+faqs:
+  title: Frequently asked questions about FreshFinds
+  expandLabel: Expand all
+  collapseLabel: Collapse all
+  items:
+    - id: repository-software
+      question: Does FreshFinds work with my institution's repository software?
+      answer: >
+        FreshFinds delivers metadata and full-text files over SWORD, or as a
+        manual export, and does not require changes to your repository
+        architecture. Repository profiles are currently available for EPrints
+        and DSpace. Support for more repository software is being added.
+    - id: automatic-deposit
+      question: Can FreshFinds automatically deposit publications into my institutional repository?
+      answer: >
+        Yes. After you configure a depositing mechanism in the CORE Dashboard,
+        you can turn on automatic depositing. You can also review suggested
+        papers in the dashboard and choose which ones to deposit.
+    - id: digital-commons
+      question: Does FreshFinds support Digital Commons?
+      answer: >
+        Digital Commons is not one of the repository profiles available today.
+        FreshFinds currently supports EPrints and DSpace. You can still review
+        suggested papers and export records manually, and you can
+        [contact us](/about#contact) about support for your repository software.
 
 relatedServices:
   title: You might be also interested in
