@@ -1083,6 +1083,9 @@ items:
     descriptionAbout: |
       The FreshFinds module tells institutions about newly published papers by their researchers that are not yet in their repository. It makes depositing papers easier and helps repositories keep a complete record of their researchers’ work.
 
+      ![FreshFinds in the dashboard](/images/docs-membership/settingsView.png)
+      
+      
       To set up depositing of FreshFinds directly to your repository, configure the settings in the FreshFinds tab.
 
       Adjust these settings to get the most out of FreshFinds for your repository:
@@ -1091,11 +1094,9 @@ items:
       * **Automatic depositing**: turn this on to let CORE deposit papers to your repository automatically. You also need to set up a depositing mechanism.
       * **Depositing mechanism**: add your repository profile and choose how papers are deposited.
 
-      1\) Repository profile - we currently support EPrints and DSpace, and we’re working on adding more.
+      **1) Repository profile** - we currently support EPrints and DSpace, and we’re working on adding more.
 
-      2\) Type of depositing - push or pull.
-
-      ![FreshFinds in the dashboard](/images/docs-membership/settingsView.png)
+      **2) Type of depositing** - push or pull.
 
       ![FreshFinds settings](/images/docs-membership/settingsInner.png)
 
