@@ -11795,39 +11795,39 @@ items:
               example values, descriptions, and sources.
 
 
-              | **Property**     | **Type**   | **Example value**                                                  | **Description**                                                                                                                                                                                                                                                                                      | **Source**                                    |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ---------------- | ---------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | affiliationId    | integer    | `901`                                                              | Unique CORE identifier for the Affiliation record.                                                                                                                                                                                                                                                   | CORE                                          |
+              | affiliationId | integer | `901` | Unique CORE identifier for the Affiliation record. |
 
-              | authorId         | integer    | `67890`                                                            | CORE identifier of the Author associated with the Affiliation.                                                                                                                                                                                                                                       | CORE                                          |
+              | authorId | integer | `67890` | CORE identifier of the Author associated with the Affiliation. |
 
-              | rawAffiliation   | string     | `"Department of Computer Science, University of Oxford, UK"`       | Verbatim affiliation string supplied in the source metadata.                                                                                                                                                                                                                                         | OAI-PMH / Crossref / OpenAlex / OpenAIRE      |
+              | rawAffiliation | string | `"Department of Computer Science, University of Oxford, UK"` | Verbatim affiliation string supplied in the source metadata. |
 
-              | department       | string     | `"Department of Computer Science"`                                 | Department, faculty, school, laboratory, or other organisational subunit associated with the Affiliation.                                                                                                                                                                                            | ORCID / Crossref / OpenAIRE / Derived by CORE |
+              | department | string | `"Department of Computer Science"` | Department, faculty, school, laboratory, or other organisational subunit associated with the Affiliation. |
 
-              | institutionId    | integer    | `3201`                                                             | CORE identifier of the associated Institution, when the Institution has been resolved.                                                                                                                                                                                                               | CORE                                          |
+              | institutionId | integer | `3201` | CORE identifier of the associated Institution, when the Institution has been resolved. |
 
-              | institutionName  | string     | `"University of Oxford"`                                           | Name of the affiliated Institution as supplied by the source or derived during institution resolution.                                                                                                                                                                                               | ORCID / Crossref / OpenAlex / OpenAIRE / CORE |
+              | institutionName | string | `"University of Oxford"` | Name of the affiliated Institution as supplied by the source or derived during institution resolution. |
 
-              | isCurrent        | boolean    | `true`                                                             | Indicates whether the Affiliation is identified as current. `true`: explicitly identified or confidently derived as current. `false`: explicitly identified or confidently derived as no longer current. `null`: available metadata is insufficient to determine whether the Affiliation is current. | ORCID / Derived by CORE                       |
+              | isCurrent | boolean | `true` | Indicates whether the Affiliation is identified as current. `true`: explicitly identified or confidently derived as current. `false`: explicitly identified or confidently derived as no longer current. `null`: available metadata is insufficient to determine whether the Affiliation is current. |
 
-              | startDate        | string     | `"2021-01-01"`                                                     | Start date of the Affiliation, when available. Follows ISO 8601 standards.                                                                                                                                                                                                                           | ORCID                                         |
+              | startDate | string | `"2021-01-01"` | Start date of the Affiliation, when available. Follows ISO 8601 standards. |
 
-              | endDate          | string     | `"2023-12-31"`                                                     | End date of the Affiliation, when available. A current Affiliation may have a null end date. Follows ISO 8601 standards.                                                                                                                                                                             | ORCID                                         |
+              | endDate | string | `"2023-12-31"` | End date of the Affiliation, when available. A current Affiliation may have a null end date. Follows ISO 8601 standards. |
 
-              | evidenceWorkIds* | integer\[] | `[1234, 428765]`                                                   | CORE Work identifiers that provide evidence for the relationship between the Author and Institution.                                                                                                                                                                                                 | CORE                                          |
+              | evidenceWorkIds\* | integer[] | `[1234, 428765]` | CORE Work identifiers that provide evidence for the relationship between the Author and Institution. |
 
-              | externalIds      | object\[]  | `[{"type": "orcid-put-code", "value": "123456"}]`                  | External identifiers associated with the Affiliation record or its source representation. Each entry identifies the identifier type and value.                                                                                                                                                       | ORCID / Other source systems                  |
+              | externalIds | object[] | `[{"type": "orcid-put-code", "value": "123456"}]` | External identifiers associated with the Affiliation record or its source representation. Each entry identifies the identifier type and value. |
 
-              | address          | object     | `{"city": "Oxford", "region": "Oxfordshire", "countryCode": "GB"}` | Source-provided location information for the organisation associated with the Affiliation. Contains the city or locality; region, state, province, or other country subdivision; and the ISO 3166-1 alpha-2 country code associated with the Affiliation.                                            | ORCID                                         |
+              | address | object | `{"city": "Oxford", "region": "Oxfordshire", "countryCode": "GB"}` | Source-provided location information for the organisation associated with the Affiliation. Contains the city or locality; region, state, province, or other country subdivision; and the ISO 3166-1 alpha-2 country code associated with the Affiliation. |
 
-              | url              | string     | `"https://www.cs.ox.ac.uk/"`                                       | URL supplied by the source for the Affiliation, department, or associated organisation.                                                                                                                                                                                                              | ORCID                                         |
+              | url | string | `"https://www.cs.ox.ac.uk/"` | URL supplied by the source for the Affiliation, department, or associated organisation. |
 
-              | createdDate      | string     | `"2026-06-15T10:30:00Z"`                                           | Date and time when the Affiliation record was created in CORE.                                                                                                                                                                                                                                       | CORE                                          |
+              | createdDate | string | `"2026-06-15T10:30:00Z"` | Date and time when the Affiliation record was created in CORE. |
 
-              | updatedDate      | string     | `"2026-07-01T14:20:00Z"`                                           | Date and time when the Affiliation record was last updated in CORE.                                                                                                                                                                                                                                  | CORE                                          |
+              | updatedDate | string | `"2026-07-01T14:20:00Z"` | Date and time when the Affiliation record was last updated in CORE. |
 
 
               \*More information is available in the following sections.
@@ -11867,7 +11867,6 @@ items:
 
               * support temporal inference.
 
-              *
 
 
               #### Evidence Works and the Authorship bridge
@@ -11901,7 +11900,6 @@ items:
               ```
 
 
-              \
 
               The corresponding bridge records may be:
 
@@ -12005,13 +12003,13 @@ items:
               Affiliations used by an Author on a particular Work are connected to Authorship records through the Authorship_Affiliation bridge entity.
 
 
-              | **Property**  | **Type** | **Example value** | **Description**                                                       | **Source** |
+              | **Property**  | **Type** | **Example value** | **Description**                                                       |
 
-              | ------------- | -------- | ----------------- | --------------------------------------------------------------------- | ---------- |
+              | ------------- | -------- | ----------------- | --------------------------------------------------------------------- | 
 
-              | authorshipId  | integer  | `987654`          | CORE identifier of the Authorship participating in the relationship.  | CORE       |
+              | authorshipId  | integer  | `987654`          | CORE identifier of the Authorship participating in the relationship.  | 
 
-              | affiliationId | integer  | `901`             | CORE identifier of the Affiliation participating in the relationship. | CORE       |
+              | affiliationId | integer  | `901`             | CORE identifier of the Affiliation participating in the relationship. | 
 
 
               Example bridge records:
