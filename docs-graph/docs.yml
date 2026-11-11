@@ -8956,45 +8956,45 @@ items:
               | other      | Organisation not represented by another category.       |
 
 
-              #### Relationships
+              Relationships
 
 
               An Institution may have one or more relationships with other organisations. Supported relationships include parent, child, related, predecessor, and successor.
 
 
-              | **Property**     | **Type**  | **Example value**                | **Description**                                                    | **Source**     |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ---------------- | --------- | -------------------------------- | ------------------------------------------------------------------ | -------------- |
+              | --- | --- | --- | --- |
 
-              | institutionId    | integer   | `1256`                           | CORE identifier of the related Institution, when resolved.         | CORE           |
+              | institutionId | integer | `1256` | CORE identifier of the related Institution, when resolved. |
 
-              | rorId            | string    | `"https://ror.org/01c3xc117"`    | ROR identifier of the related Institution.                         | OpenAlex / ROR |
+              | rorId | string | `"https://ror.org/01c3xc117"` | ROR identifier of the related Institution. |
 
-              | displayName      | string    | `"University of Michigan–Flint"` | Display name of the related Institution.                           | OpenAlex / ROR |
+              | displayName | string | `"University of Michigan–Flint"` | Display name of the related Institution. |
 
-              | countryCode      | string    | `"US"`                           | ISO 3166-1 alpha-2 country code of the related Institution.        | OpenAlex       |
+              | countryCode | string | `"US"` | ISO 3166-1 alpha-2 country code of the related Institution. |
 
-              | types            | string\[] | `["education", "funder"]`        | Types assigned to the related Institution.                         | OpenAlex       |
+              | types | string[] | `["education", "funder"]` | Types assigned to the related Institution. |
 
-              | relationshipType | string    | `"related"`                      | Type of relationship between the current and related Institutions. | OpenAlex / ROR |
+              | relationshipType | string | `"related"` | Type of relationship between the current and related Institutions. |
 
 
               Supported relationship types are:
 
 
-              | **Value**   | **Description**                                                                           | **Source** |
+              | **Value** | **Description** |
 
-              | ----------- | ----------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- |
 
-              | parent      | The related Institution is a parent organisation of the current Institution.              | ROR        |
+              | parent | The related Institution is a parent organisation of the current Institution. |
 
-              | child       | The related Institution is a child or subsidiary organisation of the current Institution. | ROR        |
+              | child | The related Institution is a child or subsidiary organisation of the current Institution. |
 
-              | related     | The Institutions have a non-hierarchical relationship.                                    | ROR        |
+              | related | The Institutions have a non-hierarchical relationship. |
 
-              | predecessor | The related Institution historically preceded the current Institution.                    | ROR        |
+              | predecessor | The related Institution historically preceded the current Institution. |
 
-              | successor   | The related Institution succeeded or replaced the current Institution.                    | ROR        |
+              | successor | The related Institution succeeded or replaced the current Institution. |
 
 
               #### Dates
@@ -9003,15 +9003,15 @@ items:
               These properties describe when the record was created or modified and when the Institution was established.
 
 
-              | **Property**    | **Type** | **Example value** | **Description**                                             | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | --------------- | -------- | ----------------- | ----------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | createdAt       | string   | `"2018-11-14"`    | Date when the Institution record was originally created.    | CORE       |
+              | createdAt | string | `"2018-11-14"` | Date when the Institution record was originally created. |
 
-              | updatedAt       | string   | `"2024-12-11"`    | Date when the Institution record was most recently updated. | CORE       |
+              | updatedAt | string | `"2024-12-11"` | Date when the Institution record was most recently updated. |
 
-              | establishedYear | integer  | `1966`            | Year in which the Institution was established.              | ROR        |
+              | establishedYear | integer | `1966` | Year in which the Institution was established. |
 
 
               ### Topics
@@ -9020,29 +9020,29 @@ items:
               Topics describe the research areas associated with the Institution. Each topic may include its position within a topic classification hierarchy.
 
 
-              | **Property** | **Type** | **Example value**                                         | **Description**                                                                | **Source**      |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | -------- | --------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------- |
+              | --- | --- | --- | --- |
 
-              | topicId      | string   | `"23"`                                                    | CORE identifier for the topic.                                                 | CORE            |
+              | topicId | string | `"23"` | CORE identifier for the topic. |
 
-              | displayName  | string   | `"Particle physics theoretical and experimental studies"` | Display name of the topic.                                                     | CORE            |
+              | displayName | string | `"Particle physics theoretical and experimental studies"` | Display name of the topic. |
 
-              | count        | integer  | `6107`                                                    | Number of works or associations contributing to the topic for the Institution. | CORE            |
+              | count | integer | `6107` | Number of works or associations contributing to the topic for the Institution. |
 
-              | score        | number   | `1`                                                       | Relevance score for the topic’s association with the Institution.              | CORE            |
+              | score | number | `1` | Relevance score for the topic’s association with the Institution. |
 
-              | subfieldId   | string   | `"67"`                                                    | Identifier of the subfield to which the topic belongs.                         | CORE            |
+              | subfieldId | string | `"67"` | Identifier of the subfield to which the topic belongs. |
 
-              | subfieldName | string   | `"Nuclear and High Energy Physics"`                       | Name of the subfield associated with the topic.                                | CORE / OpenAlex |
+              | subfieldName | string | `"Nuclear and High Energy Physics"` | Name of the subfield associated with the topic. |
 
-              | fieldId      | string   | `"96"`                                                    | CORE identifier for the broader field.                                         | CORE            |
+              | fieldId | string | `"96"` | CORE identifier for the broader field. |
 
-              | fieldName    | string   | `"Physics and Astronomy"`                                 | Name of the broader field associated with the topic.                           | CORE / OpenAlex |
+              | fieldName | string | `"Physics and Astronomy"` | Name of the broader field associated with the topic. |
 
-              | domainId     | string   | `"56"`                                                    | CORE identifier for the highest-level domain.                                  | CORE            |
+              | domainId | string | `"56"` | CORE identifier for the highest-level domain. |
 
-              | domainName   | string   | `"Physical Sciences"`                                     | Name of the highest-level domain associated with the topic.                    | CORE / OpenAlex |
+              | domainName | string | `"Physical Sciences"` | Name of the highest-level domain associated with the topic. |
 
 
               #### Citation metrics
@@ -9051,18 +9051,17 @@ items:
               Citation metrics provide yearly publication and citation statistics for the Institution.
 
 
-              | **Property** | **Type** | **Example value** | **Description**                                                                       | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | year         | integer  | `2024`            | Year for which the metrics are reported.                                              | OpenAlex   |
+              | year | integer | `2024` | Year for which the metrics are reported. |
 
-              | worksCount   | integer  | `24125`           | Total number of Works associated with the Institution in that year.                   | OpenAlex   |
+              | worksCount | integer | `24125` | Total number of Works associated with the Institution in that year. |
 
-              | oaWorksCount | integer  | `16994`           | Number of open-access Works associated with the Institution in that year.             | OpenAlex   |
+              | oaWorksCount | integer | `16994` | Number of open-access Works associated with the Institution in that year. |
 
-              | citedByCount | integer  | `123548`          | Total number of citations received by the Institution’s Works published in that year. | OpenAlex   |
-
+              | citedByCount | integer | `123548` | Total number of citations received by the Institution’s Works published in that year. |
 
 
 
