@@ -2727,15 +2727,15 @@ items:
 
               | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-              | `200`      | The Work search was completed successfully.                                                                                                                                              |
+              | `200`      | Works search was completed successfully.                                                                                                                                              |
 
-              | `400`      | The request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400`      | Request contains an invalid query, unsupported search mode, invalid vector, incompatible vector dimensions, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | `401`      | Authentication credentials are missing or invalid.                                                                                                                                       |
 
-              | `413`      | The `POST` request body exceeds the permitted size.                                                                                                                                      |
+              | `413`      | `POST` request body exceeds the permitted size.                                                                                                                                      |
 
-              | `429`      | The API request limit has been exceeded.                                                                                                                                                 |
+              | `429`      | API request limit has been exceeded.                                                                                                                                                 |
 
               | `500`      | An unexpected server error occurred.                                                                                                                                                     |
           - divider: false
