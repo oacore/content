@@ -16834,51 +16834,51 @@ items:
               Topic entity.
 
 
-              | **Property**   | **Type**  | **Example value**                                         | **Description**                                       | **Source**                                                                                           |                                                     |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | -------------- | --------- | --------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `id`           | string    | `"core-topic-12345"`                                      | CORE internal identifier for the Topic entity.        | CORE                                                                                                 |                                                     |
+              | `id` | string | `"core-topic-12345"` | CORE internal identifier for the Topic entity. |
 
-              | `label`        | string    | `"Particle physics theoretical and experimental studies"` | Preferred label describing the Topic.                 | CORE                                                                                                 |                                                     |
+              | `label` | string | `"Particle physics theoretical and experimental studies"` | Preferred label describing the Topic. |
 
-              | `altLabels`    | string\[] | null                                                      | `["Particle physics"]`                                | Alternative labels, synonyms, or variants associated with the Topic.                                 | CORE / OpenAlex / OpenAIRE / Dublin Core / Crossref |
+              | `altLabels` | string[] | `["Particle physics"]` | Alternative labels, synonyms, or variants associated with the Topic. |
 
-              | `type`         | string    | null                                                      | `"topic"`                                             | General classification of the subject entity.                                                        | CORE                                                |
+              | `type` | string | `"topic"` | General classification of the subject entity. |
 
-              | `language`     | string    | null                                                      | `"en"`                                                | Language of the Topic label, where available.                                                        | QDC / Dublin Core Terms                             |
+              | `language` | string | `"en"` | Language of the Topic label, where available. |
 
-              | `source`       | string\[] | `["OpenAlex", "OpenAIRE"]`                                | Source systems contributing information to the Topic. | CORE                                                                                                 |                                                     |
+              | `source` | string[] | `["OpenAlex", "OpenAIRE"]` | Source systems contributing information to the Topic. |
 
-              | `scheme`       | string    | null                                                      | `"DDC"`                                               | Subject or classification scheme associated with the Topic.                                          | DataCite / Dublin Core Terms / OpenAIRE / CORE      |
+              | `scheme` | string | `"DDC"` | Subject or classification scheme associated with the Topic. |
 
-              | `schemeUri`    | string    | null                                                      | `"http://dewey.info/"`                                | URI identifying the classification scheme.                                                           | DataCite / OpenAIRE                                 |
+              | `schemeUri` | string | `"http://dewey.info/"` | URI identifying the classification scheme. |
 
-              | `spatial`      | string    | null                                                      | `"Scotland"`                                          | Spatial subject coverage associated with the Topic.                                                  | QDC                                                 |
+              | `spatial` | string | `"Scotland"` | Spatial subject coverage associated with the Topic. |
 
-              | `temporal`     | string    | null                                                      | `"19th century"`                                      | Temporal subject coverage associated with the Topic.                                                 | QDC                                                 |
+              | `temporal` | string | `"19th century"` | Temporal subject coverage associated with the Topic. |
 
-              | `topicId`      | integer   | null                                                      | `12345`                                               | CORE Topic identifier, where available.                                                              | CORE                                                |
+              | `topicId` | integer | `12345` | CORE Topic identifier, where available. |
 
-              | `score`        | number    | null                                                      | `0.91`                                                | Relevance score associated with the Topic.                                                           | CORE                                                |
+              | `score` | number | `0.91` | Relevance score associated with the Topic. |
 
-              | `domainId`     | string    | null                                                      | `"1"`                                                 | Identifier of the broader research domain.                                                           | CORE                                                |
+              | `domainId` | string | `"1"` | Identifier of the broader research domain. |
 
-              | `domainName`   | string    | null                                                      | `"Physical Sciences"`                                 | Name of the broader research domain.                                                                 | CORE                                                |
+              | `domainName` | string | `"Physical Sciences"` | Name of the broader research domain. |
 
-              | `fieldId`      | string    | null                                                      | `"12"`                                                | Identifier of the research field.                                                                    | CORE                                                |
+              | `fieldId` | string | `"12"` | Identifier of the research field. |
 
-              | `fieldName`    | string    | null                                                      | `"Physics and Astronomy"`                             | Name of the research field.                                                                          | CORE                                                |
+              | `fieldName` | string | `"Physics and Astronomy"` | Name of the research field. |
 
-              | `subfieldId`   | string    | null                                                      | `"1206"`                                              | Identifier of the research subfield.                                                                 | CORE                                                |
+              | `subfieldId` | string | `"1206"` | Identifier of the research subfield. |
 
-              | `subfieldName` | string    | null                                                      | `"Nuclear and High Energy Physics"`                   | Name of the research subfield.                                                                       | CORE                                                |
+              | `subfieldName` | string | `"Nuclear and High Energy Physics"` | Name of the research subfield. |
 
-              | `provenance`   | string    | null                                                      | `"inferred by CORE"`                                  | Statement describing how the Topic or classification was assigned.                                   | CORE                                                |
+              | `provenance` | string | `"inferred by CORE"` | Statement describing how the Topic or classification was assigned. |
 
-              | `trustScore`   | number    | null                                                      | `0.85`                                                | Confidence or trust score associated with the Topic assignment.                                      | CORE                                                |
+              | `trustScore` | number | `0.85` | Confidence or trust score associated with the Topic assignment. |
 
-              | `isControlled` | boolean   | null                                                      | `true`                                                | Indicates whether the Topic originates from a controlled vocabulary or formal classification scheme. | CORE                                                |
+              | `isControlled` | boolean | `true` | Indicates whether the Topic originates from a controlled vocabulary or formal classification scheme. |
 
 
               #### Topic labels
@@ -16965,7 +16965,6 @@ items:
               | `temporal`       | Temporal or historical subject coverage.                  |
 
 
-              > The final controlled vocabulary should be defined before implementation.
 
 
               #### Language
@@ -16998,7 +16997,7 @@ items:
               The value should follow a recognised language-code convention. The exact ISO language-code standard should be specified before public release.
 
 
-              ## Classification scheme
+              #### Classification scheme
 
 
               A Topic may originate from a formal subject-classification or controlled-vocabulary scheme.
@@ -17014,13 +17013,13 @@ items:
               ```
 
 
-              | **Property** | **Type** | **Description** |                                                  |
+              | **Property** | **Type** | **Description** |                                                  
 
-              | ------------ | -------- | --------------- | ------------------------------------------------ |
+              | ------------ | -------- | --------------- | 
 
-              | `scheme`     | string   | null            | Name or identifier of the classification scheme. |
+              | `scheme`     | string               | Name or identifier of the classification scheme. |
 
-              | `schemeUri`  | string   | null            | URI identifying or describing the scheme.        |
+              | `schemeUri`  | string              | URI identifying or describing the scheme.        |
 
 
               Examples may include schemes supplied through DataCite, OpenAIRE, Dublin Core Terms, or CORE.
@@ -17116,9 +17115,9 @@ items:
               ##### Hierarchy properties
 
 
-              | **Property**   | **Type** | **Description** |                                                                                       |
+              | **Property**   | **Type** | **Description** |                                                                                       
 
-              | -------------- | -------- | --------------- | ------------------------------------------------------------------------------------- |
+              | -------------- | -------- | --------------- | 
 
               | `domainId`     | string               | Identifier of the broadest research domain.                                           |
 
