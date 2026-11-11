@@ -18385,27 +18385,27 @@ items:
             border: false
             id: publishers-api-publishers-endpoints
             title: Publishers endpoints
-            descriptionAbout: >-
+            descriptionAbout: >
               #### Available endpoints
 
 
-              | **Operation**                                   | **Method** | **Endpoint**                                  |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ----------------------------------------------- | ---------- | --------------------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Publishers record                  | `GET`      | `/graph/publishers/{publisherId}`                |
+              | Get a single Publisher | `GET` | `/graph/publishers/{publisherId}` |
 
-              | Search Publishers using URL parameters          | `GET`      | `/graph/publishers`                       |
+              | Search Publishers using query parameters | `GET` | `/graph/publishers?q={query}` |
 
-              | Search Publishers using a JSON request body     | `POST`     | `/graph/publishers`                       |
+              | Search Publishers using a JSON request body | `POST` | `/graph/publishers`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Outputs for a Publishers record        | `GET`      | `/graph/publishers/{publisherId}/outputs`        |
+              | Retrieve Outputs for a Publisher | `GET` | `/graph/publishers/{publisherId}/outputs` |
 
-              | Retrieve Journals for a Publishers record       | `GET`      | `/graph/publishers/{publisherId}/journals`       |
+              | Retrieve Journals for a Publisher | `GET` | `/graph/publishers/{publisherId}/journals` |
 
-              | Retrieve Data Providers for a Publishers record | `GET`      | `/graph/publishers/{publisherId}/data-providers` |
+              | Retrieve Data Providers for a Publisher | `GET` | `/graph/publishers/{publisherId}/data-providers` |
 
-              | Retrieve child Publishers records               | `GET`      | `/graph/publishers/{publisherId}/children`       |
+              | Retrieve child Publishers | `GET` | `/graph/publishers/{publisherId}/children` |
 
 
               #### Get a single Publishers record
@@ -18513,26 +18513,6 @@ items:
               }
 
               ```
-
-
-              #### Responses
-
-
-              | **Status** | **Description**                                              |
-
-              | ---------- | ------------------------------------------------------------ |
-
-              | `200`      | The Publishers record was returned successfully.             |
-
-              | `400`      | The Publishers identifier or `select` expression is invalid. |
-
-              | `401`      | Authentication credentials are missing or invalid.           |
-
-              | `404`      | No Publishers record exists for the supplied `publisherId`.  |
-
-              | `429`      | The API request limit has been exceeded.                     |
-
-              | `500`      | An unexpected server error occurred.                         |
           - divider: false
             border: false
             id: "#publishers-api-search-publishers"
@@ -19113,15 +19093,15 @@ items:
 
               | ---------- | --------------------------------------------------------------------------------------------------------------- |
 
-              | `200`      | The Publishers search was completed successfully.                                                               |
+              | `200`      | Publishers search was completed successfully.                                                               |
 
-              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400`      | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | `401`      | Authentication credentials are missing or invalid.                                                              |
 
-              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+              | `413`      | POST request body exceeds the permitted size.                                                             |
 
-              | `429`      | The API request limit has been exceeded.                                                                        |
+              | `429`      | API request limit has been exceeded.                                                                        |
 
               | `500`      | An unexpected server error occurred.                                                                            |
           - divider: false
