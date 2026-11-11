@@ -7363,17 +7363,17 @@ items:
               #### Available endpoints
 
 
-              | **Operation**                             | **Method** | **Endpoint**                       |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ----------------------------------------- | ---------- | ---------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Journal                      | `GET`      | `/graph/journals/{journalId}`         |
+              | Get a single Journal | `GET` | `/graph/journals/{journalId}` |
 
-              | Search Journals using URL parameters      | `GET`      | `/graph/journals`              |
+              | Search Journals using query parameters | `GET` | `/graph/journals?q={query}` |
 
-              | Search Journals using a JSON request body | `POST`     | `/graph/journals`              |
+              | Search Journals using a JSON request body | `POST` | `/graph/journals`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Outputs for a Journal            | `GET`      | `/graph/journals/{journalId}/outputs` |
+              | Retrieve Outputs for a Journal | `GET` | `/graph/journals/{journalId}/outputs` |
 
 
               Related Journals may also be retrieved through reverse relationship endpoints:
