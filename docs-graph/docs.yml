@@ -14025,7 +14025,7 @@ items:
               #﻿### Search by author name
 
 
-              GET
+              GET:
 
 
               ```
@@ -14056,7 +14056,7 @@ items:
               ```
 
 
-              P﻿OST
+              P﻿OST:
 
 
               ```
@@ -14092,7 +14092,7 @@ items:
               When a textual query is supplied and orderby is omitted, results are ordered by relevance.
 
 
-              #### **Retrieve an Author by ORCID**
+              #### Retrieve an Author by ORCID
 
 
               G﻿ET:
@@ -14176,7 +14176,7 @@ items:
               This query uses countries derived from known Affiliations and does not imply nationality.
 
 
-              #### **Retrieve Authors by career stage**
+              #### Retrieve Authors by career stage
 
 
               G﻿ET:
@@ -14205,7 +14205,7 @@ items:
               ```
 
 
-              #### **Retrieve Authors with ORCID identifiers**
+              #### Retrieve Authors with ORCID identifiers
 
 
               G﻿ET:
@@ -14235,8 +14235,6 @@ items:
 
 
               #### Combined search, selection, and ordering
-
-
 
 
               The following request:
@@ -14477,8 +14475,7 @@ items:
 
 
 
-
-              #### **Facets**
+              #### Facets
 
 
               The facets option returns value buckets and counts for fields configured as facetable.
@@ -14618,7 +14615,7 @@ items:
               #### Pagination
 
 
-              Use limit and offset to paginate Author results.
+              Use `limit` and `offset` to paginate Author results.
 
 
               A deterministic orderby expression should be used when retrieving multiple pages.
@@ -14665,7 +14662,6 @@ items:
               ```
 
 
-
               Second page using POST:
 
 
@@ -14698,15 +14694,15 @@ items:
 
               | --- | --- |
 
-              | 200 | The Author search was completed successfully. |
+              | 200 | Author search was completed successfully. |
 
-              | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | 400 | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | 401 | Authentication credentials are missing or invalid. |
 
-              | 413 | The POST request body exceeds the permitted size. |
+              | 413 | POST request body exceeds the permitted size. |
 
-              | 429 | The API request limit has been exceeded. |
+              | 429 | API request limit has been exceeded. |
 
               | 500 | An unexpected server error occurred. |
           - divider: false
