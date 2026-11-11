@@ -5007,6 +5007,26 @@ items:
 
 
               Because the vector index may change between requests, result positions may change when pages are retrieved at different times.
+
+
+              #### Search responses
+
+
+              | Status | Description |
+
+              | --- | --- |
+
+              | `200` | Output search was completed successfully. |
+
+              | `400` | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+
+              | `401` | Authentication credentials are missing or invalid. |
+
+              | `413` | POST request body exceeds the permitted size. |
+
+              | `429` | API request limit has been exceeded. |
+
+              | `500` | An unexpected server error occurred. |
           - divider: false
             border: false
             id: outputs-api-relationship-oriented-endpoints
@@ -5620,7 +5640,7 @@ items:
             border: false
             id: dataproviders-api-data-providers-endpoints
             title: Data providers endpoints
-            descriptionAbout: >-
+            descriptionAbout: >
               #### Available endpoints
 
 
@@ -5641,7 +5661,7 @@ items:
               A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
 
 
-              ### Get a single Data Provider
+              #### Get a single Data Provider
 
 
               Retrieves a single Data Provider record using its unique CORE identifier.
@@ -5760,26 +5780,6 @@ items:
               }
 
               ```
-
-
-              #### Responses
-
-
-              | **Status** | **Description**                                                      |
-
-              | ---------- | -------------------------------------------------------------------- |
-
-              | `200`      | Data Provider record was retrieved successfully.                 |
-
-              | `400`      | Request contains an invalid parameter or unsupported field name. |
-
-              | `401`      | Authentication credentials are missing or invalid.                   |
-
-              | `404`      | No Data Provider record was found for the supplied identifier.       |
-
-              | `429`      | API request limit has been exceeded.                             |
-
-              | `500`      | An unexpected server error occurred.                                 |
           - divider: false
             border: false
             id: dataproviders-api-search-data-providers
@@ -6493,22 +6493,22 @@ items:
               ```
 
 
-              #### Responses
+              #### Search responses
 
 
               | Status | Description |
 
               | --- | --- |
 
-              | `200` | The Data Provider search was completed successfully. |
+              | `200` | Data Provider search was completed successfully. |
 
-              | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400` | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | `401` | Authentication credentials are missing or invalid. |
 
-              | `413` | The POST request body exceeds the permitted size. |
+              | `413` | POST request body exceeds the permitted size. |
 
-              | `429` | The API request limit has been exceeded. |
+              | `429` | API request limit has been exceeded. |
 
               | `500` | An unexpected server error occurred. |
           - divider: false
@@ -7357,7 +7357,7 @@ items:
             border: false
             id: journals-api-journals-endpoints
             title: Journals endpoints
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Available endpoints
 
 
@@ -7509,25 +7509,6 @@ items:
 
               ```
 
-
-              #### Responses
-
-
-              | **Status** | **Description**                                                      |
-
-              | ---------- | -------------------------------------------------------------------- |
-
-              | `200`      | The Journal record was retrieved successfully.                       |
-
-              | `400`      | The request contains an invalid parameter or unsupported field name. |
-
-              | `401`      | Authentication credentials are missing or invalid.                   |
-
-              | `404`      | No Journal record was found for the supplied identifier.             |
-
-              | `429`      | The API request limit has been exceeded.                             |
-
-              | `500`      | An unexpected server error occurred.                                 |
           - divider: false
             border: false
             id: journals-api-search-journals
@@ -8579,15 +8560,15 @@ items:
 
               | --- | --- |
 
-              | `200` | The Journal search was completed successfully. |
+              | `200` | Journal search was completed successfully. |
 
-              | `400` | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400` | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | `401` | Authentication credentials are missing or invalid. |
 
-              | `413` | The POST request body exceeds the permitted size. |
+              | `413` | POST request body exceeds the permitted size. |
 
-              | `429` | The API request limit has been exceeded. |
+              | `429` | API request limit has been exceeded. |
 
               | `500` | An unexpected server error occurred. |
           - divider: false
