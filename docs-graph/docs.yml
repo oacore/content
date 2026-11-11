@@ -5266,17 +5266,17 @@ items:
               #### Identifiers
 
 
-              | **Property**        | **Type**      | **Example value**             | **Description**                                                                               | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------------- | ------------- | ----------------------------- | --------------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `dataProviderId`    | integer       | `100`                         | Unique CORE internal identifier for the Data Provider.                                        | CORE       |
+              | `dataProviderId` | integer | `100` | Unique CORE internal identifier for the Data Provider. |
 
-              | `openDoarId`        | string  | `"1275"`                      | OpenDOAR identifier for the repository, when available.                                       | OpenDOAR   |
+              | `openDoarId` | string | `"1275"` | OpenDOAR identifier for the repository, when available. |
 
-              | `rorId`             | string  | `"https://ror.org/04ea70f07"` | ROR identifier of the Institution associated with the Data Provider, when available.          | ROR / CORE |
+              | `rorId` | string | `"https://ror.org/04ea70f07"` | ROR identifier of the Institution associated with the Data Provider, when available. |
 
-              | `otherIdentifiers`* | object  | See below                     | Other external identifiers associated with the Institution responsible for the Data Provider. | ROR        |
+              | `otherIdentifiers`\* | object | See below | Other external identifiers associated with the Institution responsible for the Data Provider. |
 
 
               \* More information is provided below.
@@ -5347,15 +5347,15 @@ items:
               #### Names and labels
 
 
-              | **Property**      | **Type**         | **Example value**                               | **Description**                                                                 | **Source**                                       |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ----------------- | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ |
+              | --- | --- | --- | --- |
 
-              | `name`            | string           | `"Apollo - University of Cambridge Repository"` | Preferred name of the Data Provider or repository.                              | CORE / Manually curated / Automatically detected |
+              | `name` | string | `"Apollo - University of Cambridge Repository"` | Preferred name of the Data Provider or repository. |
 
-              | `aliases`         | string\[]  | `["Apollo", "Cambridge Repository"]`            | Alternative names, acronyms, or aliases associated with the Data Provider.      | ROR / CORE                                       |
+              | `aliases` | string[] | `["Apollo", "Cambridge Repository"]` | Alternative names, acronyms, or aliases associated with the Data Provider. |
 
-              | `institutionName` | string     | `"University of Cambridge"`                     | Name of the Institution responsible for operating or hosting the Data Provider. | ROR / CORE                                       |
+              | `institutionName` | string | `"University of Cambridge"` | Name of the Institution responsible for operating or hosting the Data Provider. |
 
 
               The Data Provider name and Institution name represent different concepts.
@@ -5374,15 +5374,15 @@ items:
               #### Provider type and system information
 
 
-              | **Property**     | **Type**      | **Example value** | **Description**                                                          | **Source**                    |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ---------------- | ------------- | ----------------- | ------------------------------------------------------------------------ | ----------------------------- |
+              | --- | --- | --- | --- |
 
-              | `type`           | string  | `"REPOSITORY"`    | Classification of the Data Provider, such as a repository or journal.    | CORE                          |
+              | `type` | string | `"REPOSITORY"` | Classification of the Data Provider, such as a repository or journal. |
 
-              | `software`       | string  | `"DSpace"`        | Repository or publishing software used by the Data Provider.             | CORE / Automatically detected |
+              | `software` | string | `"DSpace"` | Repository or publishing software used by the Data Provider. |
 
-              | `metadataFormat` | string  | `"rioxx"`         | Principal metadata format exposed by the Data Provider and used by CORE. | CORE / OAI-PMH                |
+              | `metadataFormat` | string | `"rioxx"` | Principal metadata format exposed by the Data Provider and used by CORE. |
 
 
               Example Data Provider types may include:
@@ -5410,13 +5410,13 @@ items:
               #### Access and harvesting
 
 
-              | **Property**  | **Type**      | **Example value**                            | **Description**                                        | **Source**                                       |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------- | ------------- | -------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------ |
+              | --- | --- | --- | --- |
 
-              | `oaiPmhUrl`   | string  | `"https://repository.cam.ac.uk/oai/request"` | OAI-PMH endpoint used by CORE for metadata harvesting. | CORE / Manually curated / Automatically detected |
+              | `oaiPmhUrl` | string | `"https://repository.cam.ac.uk/oai/request"` | OAI-PMH endpoint used by CORE for metadata harvesting. |
 
-              | `homepageUrl` | string  | `"https://repository.cam.ac.uk"`             | Public homepage URL of the Data Provider.              | CORE / Manually curated / Automatically detected |
+              | `homepageUrl` | string | `"https://repository.cam.ac.uk"` | Public homepage URL of the Data Provider. |
 
 
               The `oaiPmhUrl` property identifies the machine-readable harvesting endpoint:
@@ -5449,14 +5449,13 @@ items:
               #### Contact and branding
 
 
-              | **Property** | **Type**      | **Example value**                                     | **Description**                                                  | **Source**     |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | ------------- | ----------------------------------------------------- | ---------------------------------------------------------------- | -------------- |
+              | --- | --- | --- | --- |
 
-              | `email`      | string  | `"repository@cam.ac.uk"`                              | Contact email address associated with the Data Provider.         | CORE / OAI-PMH |
+              | `email` | string | `"repository@cam.ac.uk"` | Contact email address associated with the Data Provider. |
 
-              | `logo`       | string  | `"https://api.core.ac.uk/v4/data-providers/100/logo"` | CORE API URL from which the Data Provider logo may be retrieved. | CORE           |
-
+              | `logo` | string | `"https://api.core.ac.uk/v4/data-providers/100/logo"` | CORE API URL from which the Data Provider logo may be retrieved. |
 
               Contact information is exposed only where CORE is permitted to redistribute it.
 
@@ -5467,15 +5466,15 @@ items:
               The `location` property contains geographic information associated with the Data Provider or the Institution responsible for it.
 
 
-              | **Property**  | **Type**      | **Example value** | **Description**                                                                               | **Source**                                    |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------- | ------------- | ----------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `countryCode` | string  | `"GB"`            | ISO 3166-1 alpha-2 country code associated with the Data Provider or responsible Institution. | CORE / Repository metadata / Manually curated |
+              | `countryCode` | string | `"GB"` | ISO 3166-1 alpha-2 country code associated with the Data Provider or responsible Institution. |
 
-              | `latitude`    | number  | `52.2053`         | Latitude of the Data Provider or responsible Institution.                                     | CORE / Repository metadata / Manually curated |
+              | `latitude` | number | `52.2053` | Latitude of the Data Provider or responsible Institution. |
 
-              | `longitude`   | number  | `0.1218`          | Longitude of the Data Provider or responsible Institution.                                    | CORE / Repository metadata / Manually curated |
+              | `longitude` | number | `0.1218` | Longitude of the Data Provider or responsible Institution. |
 
 
               The location may represent the associated Institution rather than the physical infrastructure hosting the repository.
@@ -5487,13 +5486,13 @@ items:
               #### Dates
 
 
-              | **Property**  | **Type**      | **Example value**        | **Description**                                                       | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------- | ------------- | ------------------------ | --------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `createdDate` | string  | `"2025-05-21T06:18:18Z"` | Date and time when the Data Provider record was created in CORE.      | CORE       |
+              | `createdDate` | string | `"2025-05-21T06:18:18Z"` | Date and time when the Data Provider record was created in CORE. |
 
-              | `updatedDate` | string  | `"2026-05-21T06:18:18Z"` | Date and time when the Data Provider record was last updated in CORE. | CORE       |
+              | `updatedDate` | string | `"2026-05-21T06:18:18Z"` | Date and time when the Data Provider record was last updated in CORE. |
 
 
               Example Data Provider record:
