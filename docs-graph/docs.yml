@@ -11799,35 +11799,35 @@ items:
 
               | --- | --- | --- | --- |
 
-              | affiliationId | integer | `901` | Unique CORE identifier for the Affiliation record. |
+              | `affiliationId` | integer | `901` | Unique CORE identifier for the Affiliation record. |
 
-              | authorId | integer | `67890` | CORE identifier of the Author associated with the Affiliation. |
+              | `authorId` | integer | `67890` | CORE identifier of the Author associated with the Affiliation. |
 
-              | rawAffiliation | string | `"Department of Computer Science, University of Oxford, UK"` | Verbatim affiliation string supplied in the source metadata. |
+              | `rawAffiliation` | string | `"Department of Computer Science, University of Oxford, UK"` | Verbatim affiliation string supplied in the source metadata. |
 
-              | department | string | `"Department of Computer Science"` | Department, faculty, school, laboratory, or other organisational subunit associated with the Affiliation. |
+              | `department` | string | `"Department of Computer Science"` | Department, faculty, school, laboratory, or other organisational subunit associated with the Affiliation. |
 
-              | institutionId | integer | `3201` | CORE identifier of the associated Institution, when the Institution has been resolved. |
+              | `institutionId` | integer | `3201` | CORE identifier of the associated Institution, when the Institution has been resolved. |
 
-              | institutionName | string | `"University of Oxford"` | Name of the affiliated Institution as supplied by the source or derived during institution resolution. |
+              | `institutionName` | string | `"University of Oxford"` | Name of the affiliated Institution as supplied by the source or derived during institution resolution. |
 
-              | isCurrent | boolean | `true` | Indicates whether the Affiliation is identified as current. `true`: explicitly identified or confidently derived as current. `false`: explicitly identified or confidently derived as no longer current. `null`: available metadata is insufficient to determine whether the Affiliation is current. |
+              | `isCurrent` | boolean | `true` | Indicates whether the Affiliation is identified as current. `true`: explicitly identified or confidently derived as current. `false`: explicitly identified or confidently derived as no longer current. `null`: available metadata is insufficient to determine whether the Affiliation is current. |
 
-              | startDate | string | `"2021-01-01"` | Start date of the Affiliation, when available. Follows ISO 8601 standards. |
+              | `startDate` | string | `"2021-01-01"` | Start date of the Affiliation, when available. Follows ISO 8601 standards. |
 
-              | endDate | string | `"2023-12-31"` | End date of the Affiliation, when available. A current Affiliation may have a null end date. Follows ISO 8601 standards. |
+              | `endDate` | string | `"2023-12-31"` | End date of the Affiliation, when available. A current Affiliation may have a null end date. Follows ISO 8601 standards. |
 
-              | evidenceWorkIds\* | integer[] | `[1234, 428765]` | CORE Work identifiers that provide evidence for the relationship between the Author and Institution. |
+              | `evidenceWorkIds`\* | integer[] | `[1234, 428765]` | CORE Work identifiers that provide evidence for the relationship between the Author and Institution. |
 
-              | externalIds | object[] | `[{"type": "orcid-put-code", "value": "123456"}]` | External identifiers associated with the Affiliation record or its source representation. Each entry identifies the identifier type and value. |
+              | `externalIds` | object[] | `[{"type": "orcid-put-code", "value": "123456"}]` | External identifiers associated with the Affiliation record or its source representation. Each entry identifies the identifier type and value. |
 
-              | address | object | `{"city": "Oxford", "region": "Oxfordshire", "countryCode": "GB"}` | Source-provided location information for the organisation associated with the Affiliation. Contains the city or locality; region, state, province, or other country subdivision; and the ISO 3166-1 alpha-2 country code associated with the Affiliation. |
+              | `address` | object | `{"city": "Oxford", "region": "Oxfordshire", "countryCode": "GB"}` | Source-provided location information for the organisation associated with the Affiliation. Contains the city or locality; region, state, province, or other country subdivision; and the ISO 3166-1 alpha-2 country code associated with the Affiliation. |
 
-              | url | string | `"https://www.cs.ox.ac.uk/"` | URL supplied by the source for the Affiliation, department, or associated organisation. |
+              | `url` | string | `"https://www.cs.ox.ac.uk/"` | URL supplied by the source for the Affiliation, department, or associated organisation. |
 
-              | createdDate | string | `"2026-06-15T10:30:00Z"` | Date and time when the Affiliation record was created in CORE. |
+              | `createdDate` | string | `"2026-06-15T10:30:00Z"` | Date and time when the Affiliation record was created in CORE. |
 
-              | updatedDate | string | `"2026-07-01T14:20:00Z"` | Date and time when the Affiliation record was last updated in CORE. |
+              | `updatedDate` | string | `"2026-07-01T14:20:00Z"` | Date and time when the Affiliation record was last updated in CORE. |
 
 
               \*More information is available in the following sections.
@@ -11879,9 +11879,9 @@ items:
 
               | ---------------------- | ------------------------------------------------------------------------------ |
 
-              | evidenceWorkIds        | Provides an aggregated list of Works whose metadata supports the Affiliation.  |
+              | `evidenceWorkIds`        | Provides an aggregated list of Works whose metadata supports the Affiliation.  |
 
-              | authorship_affiliation | Connects the Affiliation to the exact Authorship records on which it was used. |
+              | `authorship_affiliation` | Connects the Affiliation to the exact Authorship records on which it was used. |
 
 
               For example:
@@ -12007,9 +12007,9 @@ items:
 
               | ------------- | -------- | ----------------- | --------------------------------------------------------------------- | 
 
-              | authorshipId  | integer  | `987654`          | CORE identifier of the Authorship participating in the relationship.  | 
+              | `authorshipId`  | integer  | `987654`          | CORE identifier of the Authorship participating in the relationship.  | 
 
-              | affiliationId | integer  | `901`             | CORE identifier of the Affiliation participating in the relationship. | 
+              | `affiliationId` | integer  | `901`             | CORE identifier of the Affiliation participating in the relationship. | 
 
 
               Example bridge records:
@@ -12059,35 +12059,35 @@ items:
 
               | --------------- | -------------- | -------------- | ------------ | ------------- |
 
-              | affiliationId   | No             | Yes            | No           | No            |
+              | `affiliationId`   | No             | Yes            | No           | No            |
 
-              | authorId        | No             | Yes            | Yes          | No            |
+              | `authorId`        | No             | Yes            | Yes          | No            |
 
-              | rawAffiliation  | Yes            | No             | No           | No            |
+              | `rawAffiliation`  | Yes            | No             | No           | No            |
 
-              | department      | Yes            | Yes            | No           | Yes           |
+              | `department`      | Yes            | Yes            | No           | Yes           |
 
-              | institutionId   | No             | Yes            | Yes          | Yes           |
+              | `institutionId`   | No             | Yes            | Yes          | Yes           |
 
-              | institutionName | Yes            | No             | No           | No            |
+              | `institutionName` | Yes            | No             | No           | No            |
 
-              | isCurrent       | No             | Yes            | No           | Yes           |
+              | `isCurrent`       | No             | Yes            | No           | Yes           |
 
-              | startDate       | No             | Yes            | Yes          | No            |
+              | `startDate`       | No             | Yes            | Yes          | No            |
 
-              | endDate         | No             | Yes            | Yes          | No            |
+              | `endDate`         | No             | Yes            | Yes          | No            |
 
-              | evidenceWorkIds | No             | Yes            | No           | No            |
+              | `evidenceWorkIds` | No             | Yes            | No           | No            |
 
-              | externalIds     | No             | No             | No           | No            |
+              | `externalIds`     | No             | No             | No           | No            |
 
-              | address         | No             | No             | No           | No            |
+              | `address`         | No             | No             | No           | No            |
 
-              | url             | No             | No             | No           | No            |
+              | `url`             | No             | No             | No           | No            |
 
-              | createdDate     | No             | Yes            | Yes          | No            |
+              | `createdDate`     | No             | Yes            | Yes          | No            |
 
-              | updatedDate     | No             | Yes            | Yes          | No            |
+              | `updatedDate`     | No             | Yes            | Yes          | No            |
           - divider: false
             border: false
             id: affiliations-api-affiliations-endpoints
@@ -13559,101 +13559,101 @@ items:
               planned CORE Graph metadata schema for the Author entity.
 
 
-              #### **Identifiers**
+              #### Identifiers
 
 
-              | Property    | Type      | Example value                                | Description                                                         | Source                                 |
+              | **Property** | **Type**  | **Example value**                            | **Description**                                                     |
 
-              | ----------- | --------- | -------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------- |
+              | ------------ | --------- | -------------------------------------------- | ------------------------------------------------------------------- |
 
-              | authorId    | integer   | 67890                                        | Unique CORE internal canonical identifier for the Author entity.    | CORE                                   |
+              | `authorId`     | integer   | `67890`                                      | Unique CORE internal canonical identifier for the Author entity.    |
 
-              | orcidId     | string    | `"0000-0002-1825-0097"`                      | ORCID identifier associated with the Author, when available.        | ORCID / Crossref / OpenAIRE / OpenAlex |
+              | `orcidId`      | string    | `"0000-0002-1825-0097"`                      | ORCID identifier associated with the Author, when available.        |
 
-              | externalIds | string\[] | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. | OpenAIRE / RIOXX / Crossref / ORCID    |
-
-
-              #### **Names**
+              | `externalIds`  | string\[] | `["openaire____::abc123", "rioxx____::x45"]` | Source-specific Author identifiers retained in their original form. |
 
 
-              | Property    | Type      | Example value                  | Description                                                                                                                  | Source                                                               |
-
-              | ----------- | --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-
-              | displayName | string    | `"Alice Smith"`                | Preferred display name selected by CORE for the Author.                                                                      | CORE / Crossref / OpenAlex / OpenAIRE / ORCID                        |
-
-              | givenNames  | string\[] | `["Alice"]`                    | Given names or first names associated with the Author. Multiple values may be retained when sources provide different forms. | Crossref / OpenAIRE / ORCID                                          |
-
-              | familyNames | string\[] | `["Smith"]`                    | Family names or last names associated with the Author. Multiple values may be retained when sources provide different forms. | Crossref / OpenAIRE / ORCID                                          |
-
-              | prefixes    | string\[] | `["Dr"]`                       | Name prefixes or honorifics associated with the Author.                                                                      | Crossref / ORCID                                                     |
-
-              | suffixes    | string\[] | `["Jr"]`                       | Name suffixes associated with the Author.                                                                                    | Crossref / ORCID                                                     |
-
-              | altNames    | string\[] | `["Smith, Alice", "A. Smith"]` | Alternative, abbreviated, transliterated, or normalised name forms associated with the Author.                               | Dublin Core / OpenAlex / RIOXX / OpenAIRE / ORCID                    |
-
-              | rawNames    | string\[] | `["Smith, Alice", "A. Smith"]` | Verbatim Author name strings supplied in source metadata.                                                                    | Dublin Core / Qualified Dublin Core / Crossref / OpenAIRE / OpenAlex |
+              #### Names
 
 
-              #### **Profile and career information**
+              | **Property** | **Type**  | **Example value**              | **Description**                                                                                                              |
+
+              | ------------ | --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+
+              | `displayName`  | string    | `"Alice Smith"`                | Preferred display name selected by CORE for the Author.                                                                      |
+
+              | `givenNames`   | string\[] | `["Alice"]`                    | Given names or first names associated with the Author. Multiple values may be retained when sources provide different forms. |
+
+              | `familyNames`  | string\[] | `["Smith"]`                    | Family names or last names associated with the Author. Multiple values may be retained when sources provide different forms. |
+
+              | `prefixes`     | string\[] | `["Dr"]`                       | Name prefixes or honorifics associated with the Author.                                                                      |
+
+              | `suffixes`     | string\[] | `["Jr"]`                       | Name suffixes associated with the Author.                                                                                    |
+
+              | `altNames`     | string\[] | `["Smith, Alice", "A. Smith"]` | Alternative, abbreviated, transliterated, or normalised name forms associated with the Author.                               |
+
+              | `rawNames`     | string\[] | `["Smith, Alice", "A. Smith"]` | Verbatim Author name strings supplied in source metadata.                                                                    |
 
 
-              | Property    | Type      | Example value                                                                | Description                                                                                                                                           | Source          |
+              #### Profile and career information
 
-              | ----------- | --------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 
-              | biography   | string    | `"Researcher working in information retrieval and scholarly communication."` | Public biographical information about the Author and their research career.                                                                           | ORCID           |
+              | **Property** | **Type**  | **Example value**                                                            | **Description**                                                                                                                                       |
 
-              | countries   | string\[] | `["GB", "US"]`                                                               | ISO 3166-1 alpha-2 country codes derived from the Author’s known institutional Affiliations. This property does not represent nationality.            | OpenAlex / CORE |
+              | ------------ | --------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-              | careerStage | string    | `"early-career"`                                                             | Career-stage classification inferred by CORE from available evidence, such as the time between the Author’s first and most recent known publications. | CORE            |
+              | `biography`    | string    | `"Researcher working in information retrieval and scholarly communication."` | Public biographical information about the Author and their research career.                                                                           |
+
+              | `countries`    | string\[] | `["GB", "US"]`                                                               | ISO 3166-1 alpha-2 country codes derived from the Author’s known institutional Affiliations. This property does not represent nationality.            |
+
+              | `careerStage`  | string    | `"early-career"`                                                             | Career-stage classification inferred by CORE from available evidence, such as the time between the Author’s first and most recent known publications. |
 
 
               Recommended controlled values for careerStage may include:
 
 
-              | Value        | Description                                                                           |
+              | **Value**    | **Description**                                                                       |
 
               | ------------ | ------------------------------------------------------------------------------------- |
 
-              | early-career | Author whose known publication history falls within the defined early-career period.  |
+              | `early-career` | Author whose known publication history falls within the defined early-career period.  |
 
-              | mid-career   | Author whose known publication history falls within the defined middle-career period. |
+              | `mid-career`   | Author whose known publication history falls within the defined middle-career period. |
 
-              | experienced  | Author with a longer known publication history.                                       |
+              | `experienced`  | Author with a longer known publication history.                                       |
 
-              | unknown      | Available evidence is insufficient to classify the Author.                            |
-
-
-              #### **Links and research interests**
+              | `unknown`      | Available evidence is insufficient to classify the Author.                            |
 
 
-              | Property      | Type      | Example value                                       | Description                                                                                  | Source                          |
-
-              | ------------- | --------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------- |
-
-              | authorUrl     | string    | `"https://kmi.open.ac.uk/people/member/petr-knoth"` | URL of a public website or profile associated with the Author.                               | ORCID                           |
-
-              | authorUrlDesc | string    | `"Institutional researcher profile"`                | Source-provided description of the resource identified by `authorUrl`.                       | ORCID                           |
-
-              | email         | string    | `"mark@example.edu"`                                | Public email address associated with the Author, when the source permits its redistribution. | ORCID / Other permitted sources |
-
-              | keywords      | string\[] | `["Artificial Intelligence", "Machine Learning"]`   | Words or phrases describing the Author’s research activities and areas of interest.          | ORCID                           |
+              #### Links and research interests
 
 
-              #### **Dates**
+              | **Property**  | **Type**  | **Example value**                                   | **Description**                                                                              | 
+
+              | ------------- | --------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------- | 
+
+              | `authorUrl`     | string    | `"https://kmi.open.ac.uk/people/member/petr-knoth"` | URL of a public website or profile associated with the Author.                               | 
+
+              | `authorUrlDesc` | string    | `"Institutional researcher profile"`                | Source-provided description of the resource identified by `authorUrl`.                       | 
+
+              | `email`         | string    | `"mark@example.edu"`                                | Public email address associated with the Author, when the source permits its redistribution. | 
+
+              | `keywords`      | string\[] | `["Artificial Intelligence", "Machine Learning"]`   | Words or phrases describing the Author’s research activities and areas of interest.          | 
 
 
-              | Property    | Type   | Example value            | Description                                                              | Source |
-
-              | ----------- | ------ | ------------------------ | ------------------------------------------------------------------------ | ------ |
-
-              | createdDate | string | `"2026-06-15T10:30:00Z"` | Date and time when the canonical Author record was created in CORE.      | CORE   |
-
-              | updatedDate | string | `"2026-07-01T14:20:00Z"` | Date and time when the canonical Author record was last updated in CORE. | CORE   |
+              #### Dates
 
 
-              #### Example Author record
+              | **Property** | **Type** | **Example value**        | **Description**                                                          | 
+
+              | ------------ | -------- | ------------------------ | ------------------------------------------------------------------------ | 
+
+              | `createdDate`  | string   | `"2026-06-15T10:30:00Z"` | Date and time when the canonical Author record was created in CORE.      | 
+
+              | `updatedDate`  | string   | `"2026-07-01T14:20:00Z"` | Date and time when the canonical Author record was last updated in CORE. | 
+
+
+              Example Author record:
 
 
               ```
