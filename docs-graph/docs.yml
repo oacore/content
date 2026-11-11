@@ -1213,8 +1213,6 @@ items:
 
               | `title`               | string    | `"Intelligent edge computing for scholarly infrastructures"`                    | Preferred title selected for the canonical Work.                                                        |
 
-              | `abstract`            | string    | `"This paper explores..."`                                                      | Preferred abstract or summary of the Work.                                                              |
-
               | `invertedAbstract`    | object    | `{"This":[0],"paper":[1],"explores":[2]}`                                       | Abstract represented as an inverted index, where each token maps to its positions in the original text. |
 
               | `fullText`            | string    | `"The rapid growth of scholarly content..."`                                    | Full-text content associated with the Work.                                                             |
@@ -1615,7 +1613,6 @@ items:
                   }
                 ],
                 "title": "Intelligent edge computing for scholarly infrastructures",
-                "abstract": "This paper explores intelligent edge computing methods for scholarly infrastructure.",
                 "invertedAbstract": {
                   "This": [
                     0
@@ -1627,7 +1624,6 @@ items:
                     2
                   ]
                 },
-                "fullText": "The rapid growth of scholarly content has created...",
                 "doi": "10.1109/jiot.2020.2984887",
                 "yearPublished": 2022,
                 "documentType": [
