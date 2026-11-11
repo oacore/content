@@ -1977,20 +1977,20 @@ items:
             id: works-api-search-works
             title: Search Works
             descriptionAbout: >-
-              Searches, filters, orders, facets, counts, and paginates canonical
-              Work records.
+              
+              Searches, filters, orders, facets, counts, and paginates canonical Work records.
 
 
-              Works search is available through `GET` and `POST`:
+              Work search is planned for `GET` and `POST`.
 
 
-              ```http
+              | **Method** | **API endpoint** |
 
-              GET https://api.core.ac.uk/graph/works
+              | :--- | :--- |
 
-              POST https://api.core.ac.uk/graph/works
+              | `GET` | [https://api.core.ac.uk/graph/works](https://api.core.ac.uk/graph/works) |
 
-              ```
+              | `POST` | [https://api.core.ac.uk/graph/works](https://api.core.ac.uk/graph/works) |
 
 
               Both methods use the same CORE query language and return the same response structure.
