@@ -17416,17 +17416,17 @@ items:
               #### Available endpoints
 
 
-              | **Operation**                           | **Method** | **Endpoint**                 |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | --------------------------------------- | ---------- | ---------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Topic                      | `GET`      | `/graph/topics/{topicId}`       |
+              | Get a single Topic | `GET` | `/graph/topics/{topicId}` |
 
-              | Search Topics using URL parameters      | `GET`      | `/graph/topics`          |
+              | Search Topics using query parameters | `GET` | `/graph/topics?q={query}` |
 
-              | Search Topics using a JSON request body | `POST`     | `/graph/topics`          |
+              | Search Topics using a JSON request body | `POST` | `/graph/topics`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Works associated with a Topic  | `GET`      | `/graph/topics/{topicId}/works` |
+              | Retrieve Works associated with a Topic | `GET` | `/graph/topics/{topicId}/works` |
 
 
               A reverse relationship may also be exposed:
@@ -17880,7 +17880,7 @@ items:
               Topics may be ordered by fields configured as sortable.
 
 
-              #### Alphabetically by label
+              ##### Alphabetically by label
 
 
               ```http
@@ -17913,7 +17913,7 @@ items:
 
               | `401`      | Authentication credentials are missing or invalid.                                               |
 
-              | `413`      | `POST` request body exceeds the permitted size.                                                  |
+              | `413`      | POST request body exceeds the permitted size.                                                  |
 
               | `429`      | API request limit has been exceeded.                                                             |
 
