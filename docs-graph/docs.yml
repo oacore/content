@@ -3996,23 +3996,23 @@ items:
               #### Available endpoints
 
 
-              | **Operation**                              | **Method** | **Endpoint**                         |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ------------------------------------------ | ---------- | ------------------------------------ |
+              | :--- | :--- | :--- |
 
-              | Get a single Output                        | `GET`      | `/graph/outputs/{coreId}`               |
+              | Get a single Output | `GET` | `/graph/outputs/{coreId}` |
 
-              | Search Outputs using URL parameters        | `GET`      | `/graph/outputs`                 |
+              | Search Outputs using query parameters | `GET` | `/graph/outputs?q={query}` |
 
-              | Search Outputs using a JSON request body   | `POST`     | `/graph/outputs`                 |
+              | Search Outputs using a JSON request body | `POST` | `/graph/outputs`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve the Work represented by an Output | `GET`      | `/graph/outputs/{coreId}/work`          |
+              | Retrieve the Work represented by an Output | `GET` | `/graph/outputs/{coreId}/work` |
 
-              | Retrieve the Data Provider of an Output    | `GET`      | `/graph/outputs/{coreId}/data-provider` |
+              | Retrieve the Data Provider of an Output | `GET` | `/graph/outputs/{coreId}/data-provider` |
 
-              | Retrieve the Journal of an Output          | `GET`      | `/graph/outputs/{coreId}/journal`       |
+              | Retrieve the Journal of an Output | `GET` | `/graph/outputs/{coreId}/journal` |
 
-              | Retrieve the Publisher of an Output        | `GET`      | `/graph/outputs/{coreId}/publisher`     |
+              | Retrieve the Publisher of an Output | `GET` | `/graph/outputs/{coreId}/publisher` |
 
 
               The `POST` search method is read-only. It does not create or modify Output records.
