@@ -4112,21 +4112,20 @@ items:
             title: Search Outputs
             subTitle: ""
             descriptionAbout: >-
-              Searches, filters, orders, facets, counts, and paginates
-              source-specific Output records.
+              
+              Searches, filters, orders, facets, counts, and paginates source-specific Output records.
 
 
-              Outputs search is available through `GET` and `POST`:
+              Output search is available through `GET` and `POST`:
 
 
-              ```http
+              | **Method** | **API endpoint** |
 
-              GET https://api.core.ac.uk/graph/outputs
+              | :--- | :--- |
 
-              POST https://api.core.ac.uk/graph/outputs
+              | `GET` | [https://api.core.ac.uk/graph/outputs](https://api.core.ac.uk/graph/outputs) |
 
-              ```
-
+              | `POST` | [https://api.core.ac.uk/graph/outputs](https://api.core.ac.uk/graph/outputs) |
 
               Both methods use the same CORE query language and return the same response structure.
 
