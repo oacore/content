@@ -3499,21 +3499,21 @@ items:
               ```
 
 
-              | **Property**     | **Type**  | **Example value**                                | **Description**                                  | **Source**                             |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ---------------- | --------- | ------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `name`           | string    | `"CC BY 4.0"`                                    | Normalised licence name.                         | OAI-PMH / OpenAIRE / OpenAlex          |
+              | `name` | string | `"CC BY 4.0"` | Normalised licence name. |
 
-              | `uri`            | string    | `"https://creativecommons.org/licenses/by/4.0/"` | URI containing or identifying the licence terms. | Crossref / OpenAIRE / OpenAlex / RIOXX |
+              | `uri` | string | `"https://creativecommons.org/licenses/by/4.0/"` | URI containing or identifying the licence terms. |
 
-              | `startDate`      | string    | `"2022-05-01"`                                   | Date from which the licence applies.             | Crossref / RIOXX / OpenAIRE            |
+              | `startDate` | string | `"2022-05-01"` | Date from which the licence applies. |
 
-              | `delayDays`      | integer   | `365`                                            | Embargo or licence delay in days.                | Crossref                               |
+              | `delayDays` | integer | `365` | Embargo or licence delay in days. |
 
-              | `contentVersion` | string    | `"published"`                                    | Content version covered by the licence.          | Crossref                               |
+              | `contentVersion` | string | `"published"` | Content version covered by the licence. |
 
-              | `raw`            | string\[] | `["CC-BY"]`                                      | Raw licence strings supplied by source metadata. | OAI-PMH / OpenAIRE / Crossref          |
+              | `raw` | string[] | `["CC-BY"]` | Raw licence strings supplied by source metadata. |
 
 
               #### Links
@@ -3641,13 +3641,13 @@ items:
               ```
 
 
-              | **Property** | **Type** | **Example value** | **Description**                                                                                                          | **Source**    |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------- |
+              | --- | --- | --- | --- |
 
-              | `type`       | string   | `"SDG04"`         | Identifier of the United Nations Sustainable Development Goal assigned to the Output.                                    | CORE ML model |
+              | `type` | string | `"SDG04"` | Identifier of the United Nations Sustainable Development Goal assigned to the Output. |
 
-              | `score`      | number   | `0.92`            | Confidence or relevance score for the SDG classification. Higher values indicate stronger model confidence or relevance. | CORE ML model |
+              | `score` | number | `0.92` | Confidence or relevance score for the SDG classification. Higher values indicate stronger model confidence or relevance. |
 
 
               Example Output record:
