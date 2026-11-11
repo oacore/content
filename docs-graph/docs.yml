@@ -1538,15 +1538,15 @@ items:
               ```
 
 
-              | **Property** | **Type** | **Example value** | **Description**                                                   | **Source**                                       |
+              | **Property** | **Type** | **Example value** | **Description**                                                   |
 
-              | ------------ | -------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------ |
+              | ------------ | -------- | ----------------- | ----------------------------------------------------------------- |
 
-              | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.                  | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+              | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.                  |
 
-              | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or an organisation. | DataCite / OpenAIRE                              |
+              | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or an organisation. |
 
-              | `role`       | string   | `"editor"`        | Role performed by the contributor.                                | Crossref / DataCite / OpenAIRE                   |
+              | `role`       | string   | `"editor"`        | Role performed by the contributor.                                |
 
 
               Possible roles include `editor`, `translator`, `reviewer`, and `hosting_institution`.
