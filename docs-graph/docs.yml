@@ -1722,8 +1722,6 @@ items:
 
               | `title`                          | Yes            | No             | Yes          | No            |
 
-              | `abstract`                       | Yes            | No             | No           | No            |
-
               | `invertedAbstract`               | No             | No             | No           | No            |
 
               | `fullText`                       | Yes            | No             | No           | No            |
@@ -1864,9 +1862,15 @@ items:
 
               | Get a single Work                      | `GET`      | `/graph/works/{workId}`                |
 
-              | Search Works using URL parameters      | `GET`      | `/graph/works`                  |
+              | Search Works using URL parameters      | `GET`      | `/graph/works?q={query}`                  |
 
-              | Search Works using a JSON request body | `POST`     | `/graph/works`                  |
+              | Search Works using a JSON request body | `POST`     | `/graph/works`   
+
+              Content-Type: application/json
+
+              {
+                "q": {query}
+              }               |
 
               | Retrieve Outputs for a Work            | `GET`      | `/graph/works/{workId}/outputs`        |
 
