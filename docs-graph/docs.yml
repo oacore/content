@@ -4163,9 +4163,9 @@ items:
 
               ```http
 
-              GET /graph/search/works
+              GET /graph/works
 
-              POST /graph/search/works
+              POST /graph/works
 
               ```
 
