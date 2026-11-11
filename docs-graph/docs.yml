@@ -1412,33 +1412,34 @@ items:
               Supported date types may include:
 
 
-              | **Value**          | **Description**                                                     | **Source**                                          |
+              | **Value**          | **Description**                                                     |
 
-              | ------------------ | ------------------------------------------------------------------- | --------------------------------------------------- |
+              | ------------------ | ------------------------------------------------------------------- |
 
-              | `published`        | Preferred publication date selected from the best available source. | OAI-PMH / Crossref / DataCite / OpenAlex / OpenAIRE |
+              | `published`        | Preferred publication date selected from the best available source. |
 
-              | `published_online` | Online publication date.                                            | Crossref                                            |
+              | `published_online` | Online publication date.                                            |
 
-              | `published_print`  | Print publication date.                                             | Crossref                                            |
+              | `published_print`  | Print publication date.                                             |
 
-              | `issued`           | Date on which the Work was formally issued.                         | Dublin Core Terms / Crossref                        |
+              | `issued`           | Date on which the Work was formally issued.                         |
 
-              | `accepted`         | Date on which the Work was accepted.                                | Dublin Core Terms / Crossref                        |
+              | `accepted`         | Date on which the Work was accepted.                                |
 
-              | `deposited`        | Date on which metadata was deposited with the source.               | Crossref                                            |
+              | `deposited`        | Date on which metadata was deposited with the source.               |
 
-              | `created`          | Date on which the source or CORE record was created.                | CORE / Crossref / OpenAlex                          |
+              | `created`          | Date on which the source or CORE record was created.                |
 
-              | `updated`          | Date on which the record was last updated.                          | CORE / Crossref / OpenAlex / OpenAIRE               |
+              | `updated`          | Date on which the record was last updated.                          |
 
-              | `indexed`          | Date on which the record was indexed.                               | CORE                                                |
+              | `indexed`          | Date on which the record was indexed.                               |
 
-              | `available`        | Date on which the Work became available.                            | DataCite / OAI-PMH                                  |
+              | `available`        | Date on which the Work became available.                            |
 
-              | `public_release`   | Date on which the Work was publicly released.                       | RIOXX                                               |
+              | `public_release`   | Date on which the Work was publicly released.                       |
 
-              | `collected`        | Date on which the source record was collected by CORE.              | CORE / OpenAIRE                                     |
+              | `collected`        | Date on which the source record was collected by CORE.              |
+
 
 
               Because `dates` is a collection, ordering Works directly by `dates.value` is ambiguous.
@@ -1479,31 +1480,31 @@ items:
               ```
 
 
-              | **Property**   | **Type**  | **Example value**                | **Description**                                            | **Source**                   |
+              | **Property**   | **Type** | **Example value**                | **Description**                                            |
 
-              | -------------- | --------- | -------------------------------- | ---------------------------------------------------------- | ---------------------------- |
+              | -------------- | -------- | -------------------------------- | ---------------------------------------------------------- |
 
-              | `citationId`   | integer   | `7865`                           | CORE Citation identifier for the reference, when resolved. | CORE                         |
+              | `citationId`   | integer  | `7865`                           | CORE Citation identifier for the reference, when resolved. |
 
-              | `citedCoreId`  | integer   | `999`                            | CORE Work identifier of the cited item, when matched.      | CORE                         |
+              | `citedCoreId`  | integer  | `999`                            | CORE Work identifier of the cited item, when matched.      |
 
-              | `citedDoi`     | string    | `"10.1000/abc456"`               | DOI of the cited item.                                     | Crossref / OpenCitations     |
+              | `citedDoi`     | string   | `"10.1000/abc456"`               | DOI of the cited item.                                     |
 
-              | `articleTitle` | string    | `"Quantum effects in materials"` | Title of the cited item.                                   | Crossref / Full-text parsing |
+              | `articleTitle` | string   | `"Quantum effects in materials"` | Title of the cited item.                                   |
 
-              | `author`       | string\[] | `["Smith J","Lee B"]`            | Authors as provided in the bibliographic reference.        | Crossref / OpenAIRE          |
+              | `author`       | string[] | `["Smith J","Lee B"]`            | Authors as provided in the bibliographic reference.        |
 
-              | `journalTitle` | string    | `"Physical Review Letters"`      | Journal title of the cited item.                           | Crossref                     |
+              | `journalTitle` | string   | `"Physical Review Letters"`      | Journal title of the cited item.                           |
 
-              | `volume`       | string    | `"50"`                           | Volume of the cited item.                                  | Crossref / OpenAIRE          |
+              | `volume`       | string   | `"50"`                           | Volume of the cited item.                                  |
 
-              | `issue`        | string    | `"3"`                            | Issue of the cited item.                                   | Crossref / OpenAIRE          |
+              | `issue`        | string   | `"3"`                            | Issue of the cited item.                                   |
 
-              | `startPage`    | string    | `"101"`                          | First page of the cited item.                              | Crossref / OpenAIRE          |
+              | `startPage`    | string   | `"101"`                          | First page of the cited item.                              |
 
-              | `endPage`      | string    | `"118"`                          | Last page of the cited item.                               | Crossref / OpenAIRE          |
+              | `endPage`      | string   | `"118"`                          | Last page of the cited item.                               |
 
-              | `unstructured` | string    | `"Smith J. Quantum effects..."`  | Complete unstructured reference string.                    | Crossref / Full-text parsing |
+              | `unstructured` | string   | `"Smith J. Quantum effects..."`  | Complete unstructured reference string.                    |
 
 
               #### Contributors
