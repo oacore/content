@@ -5624,20 +5624,19 @@ items:
               #### Available endpoints
 
 
-              | **Operation**                                   | **Method** | **Endpoint**                                      |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ----------------------------------------------- | ---------- | ------------------------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Data Provider                      | `GET`      | `/graph/data-providers/{dataProviderId}`             |
+              | Get a single Data Provider | `GET` | `/graph/data-providers/{dataProviderId}` |
 
-              | Search Data Providers using URL parameters      | `GET`      | `/graph/search/data-providers`                       |
+              | Search Data Providers using query parameters | `GET` | `/graph/data-providers?q={query}` |
 
-              | Search Data Providers using a JSON request body | `POST`     | `/graph/data-providers`                       |
+              | Search Data Providers using a JSON request body | `POST` | `/graph/data-providers`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Outputs supplied by a Data Provider    | `GET`      | `/graph/data-providers/{dataProviderId}/outputs`     |
+              | Retrieve Outputs supplied by a Data Provider | `GET` | `/graph/data-providers/{dataProviderId}/outputs` |
 
-              | Retrieve Data Providers for an Institution      | `GET`      | `/graph/institutions/{institutionId}/data-providers` |
-
+              | Retrieve Data Providers for an Institution | `GET` | `/graph/institutions/{institutionId}/data-providers` |
 
               A direct Data Provider-to-Institution endpoint is not included in this draft because the Data Provider schema does not currently contain a canonical CORE `institutionId`.
 
