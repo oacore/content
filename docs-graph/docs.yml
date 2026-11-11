@@ -9302,16 +9302,15 @@ items:
               #### Available endpoints
 
 
-              | **Operation**                                 | **Method** | **Endpoint**                       |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | --------------------------------------------- | ---------- | ---------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Institution                      | GET        | `/graph/institutions/{institutionId}` |
+              | Get a single Institution | `GET` | `/graph/institutions/{institutionId}` |
 
-              | Search Institutions                           | GET        | `/graph/institutions`          |
+              | Search Institutions using query parameters | `GET` | `/graph/institutions?q={query}` |
 
-              | Search Institutions using a JSON request body | POST       | `/graph/institutions`          |
-
+              | Search Institutions using a JSON request body | `POST` | `/graph/institutions`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
               Related records may also be retrieved through relationship-oriented endpoints:
 
