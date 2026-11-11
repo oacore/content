@@ -2696,7 +2696,6 @@ items:
                   {
                     "workId": 323030168,
                     "title": "Text and data mining for scholarly repositories",
-                    "abstract": "This study examines semantic discovery across scholarly repositories.",
                     "yearPublished": 2025,
                     "documentType": [
                       "research article"
@@ -2706,7 +2705,6 @@ items:
                   {
                     "workId": 323030169,
                     "title": "Semantic retrieval for open research infrastructures",
-                    "abstract": "A vector-based method for discovering related scholarly resources.",
                     "yearPublished": 2024,
                     "documentType": [
                       "research article"
