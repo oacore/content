@@ -2829,7 +2829,7 @@ items:
 
               ```http
 
-              GET /graph/search/authorships?q=workId:{workId}&orderby=rank:asc
+              GET /graph/authorships?q=workId:{workId}&orderby=rank:asc
 
               ```
 
@@ -2944,7 +2944,6 @@ items:
               GET /graph/works/323030168/grants?count=true&limit=10&offset=0 
 
               ```
-
 
 
               The relationship is resolved as:
