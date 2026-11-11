@@ -5785,20 +5785,20 @@ items:
             id: dataproviders-api-search-data-providers
             title: Search Data providers
             descriptionAbout: >-
-              Searches, filters, orders, facets, counts, and paginates Data
-              Provider records.
+              
+              Searches, filters, orders, facets, counts, and paginates Data Provider records.
 
 
-              Data provider search is available through `GET` and `POST`:
+              Data Provider search is available through `GET` and `POST`:
 
 
-              ```http
+              | **Method** | **API endpoint** |
 
-              GET https://api.core.ac.uk/graph/data-providers
+              | :--- | :--- |
 
-              POST https://api.core.ac.uk/graph/data-providers
+              | `GET` | [https://api.core.ac.uk/graph/data-providers](https://api.core.ac.uk/graph/data-providers) |
 
-              ```
+              | `POST` | [https://api.core.ac.uk/graph/data-providers](https://api.core.ac.uk/graph/data-providers) |
 
 
               Both methods use the same CORE query language and return the same response structure.
