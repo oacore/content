@@ -7516,20 +7516,20 @@ items:
             id: journals-api-search-journals
             title: Search Journals
             descriptionAbout: >-
-              Searches, filters, orders, facets, counts, and paginates Journal
-              records.
+              
+              Searches, filters, orders, facets, counts, and paginates Journal records.
 
 
               Journal search is available through `GET` and `POST`:
 
 
-              ```http
+              | **Method** | **API endpoint** |
 
-              GET https://api.core.ac.uk/graph/journals
+              | :--- | :--- |
 
-              POST https://api.core.ac.uk/graph/journals
+              | `GET` | [https://api.core.ac.uk/graph/journals](https://api.core.ac.uk/graph/journals) |
 
-              ```
+              | `POST` | [https://api.core.ac.uk/graph/journals](https://api.core.ac.uk/graph/journals) |
 
 
               Both methods use the same CORE query language and return the same response structure.
@@ -9173,127 +9173,127 @@ items:
 
               | ------------------------------ | -------------- | -------------- | ------------ | ------------- |
 
-              | institutionId                  | No             | Yes            | No           | No            |
+              | `institutionId`                  | No             | Yes            | No           | No            |
 
-              | rorId                          | No             | Yes            | No           | No            |
+              | `rorId`                          | No             | Yes            | No           | No            |
 
-              | openalexId                     | No             | Yes            | No           | No            |
+              | `openalexId`                     | No             | Yes            | No           | No            |
 
-              | gridId                         | No             | Yes            | No           | No            |
+              | `gridId`                         | No             | Yes            | No           | No            |
 
-              | isniId                         | No             | Yes            | No           | No            |
+              | `isniId`                         | No             | Yes            | No           | No            |
 
-              | wikiDataId                     | No             | Yes            | No           | No            |
+              | `wikiDataId`                     | No             | Yes            | No           | No            |
 
-              | ofrId                          | No             | Yes            | No           | No            |
+              | `ofrId`                          | No             | Yes            | No           | No            |
 
-              | externalIdentifiers.scheme     | No             | Yes            | No           | Yes           |
+              | `externalIdentifiers.scheme`     | No             | Yes            | No           | Yes           |
 
-              | externalIdentifiers.value      | No             | Yes            | No           | No            |
+              | `externalIdentifiers.value`      | No             | Yes            | No           | No            |
 
-              | externalIdentifiers.preferred  | No             | Yes            | No           | No            |
+              | `externalIdentifiers.preferred`  | No             | Yes            | No           | No            |
 
-              | displayName                    | Yes            | No             | Yes          | No            |
+              | `displayName`                    | Yes            | No             | Yes          | No            |
 
-              | displayNameLang                | No             | Yes            | No           | Yes           |
+              | `displayNameLang`                | No             | Yes            | No           | Yes           |
 
-              | acronym                        | Yes            | No             | No           | No            |
+              | `acronym`                        | Yes            | No             | No           | No            |
 
-              | altNames                       | Yes            | No             | No           | No            |
+              | `altNames`                       | Yes            | No             | No           | No            |
 
-              | formerNames                    | Yes            | No             | No           | No            |
+              | `formerNames`                    | Yes            | No             | No           | No            |
 
-              | names.lang                     | No             | Yes            | No           | Yes           |
+              | `names.lang`                     | No             | Yes            | No           | Yes           |
 
-              | names.types                    | No             | Yes            | No           | Yes           |
+              | `names.types`                    | No             | Yes            | No           | Yes           |
 
-              | names.value                    | Yes            | No             | No           | No            |
+              | `names.value`                    | Yes            | No             | No           | No            |
 
-              | countryCode                    | No             | Yes            | No           | Yes           |
+              | `countryCode`                    | No             | Yes            | No           | Yes           |
 
-              | countryName                    | Yes            | Yes            | No           | Yes           |
+              | `countryName`                    | Yes            | Yes            | No           | Yes           |
 
-              | continentCode                  | No             | Yes            | No           | Yes           |
+              | `continentCode`                  | No             | Yes            | No           | Yes           |
 
-              | continentName                  | Yes            | Yes            | No           | Yes           |
+              | `continentName`                  | Yes            | Yes            | No           | Yes           |
 
-              | city                           | Yes            | Yes            | No           | Yes           |
+              | `city`                           | Yes            | Yes            | No           | Yes           |
 
-              | regionCode                     | No             | Yes            | No           | Yes           |
+              | `regionCode`                     | No             | Yes            | No           | Yes           |
 
-              | region                         | Yes            | Yes            | No           | Yes           |
+              | `region`                         | Yes            | Yes            | No           | Yes           |
 
-              | latitude                       | No             | Yes            | No           | No            |
+              | `latitude`                       | No             | Yes            | No           | No            |
 
-              | longitude                      | No             | Yes            | No           | No            |
+              | `longitude`                      | No             | Yes            | No           | No            |
 
-              | websiteUrl                     | No             | No             | No           | No            |
+              | `websiteUrl`                     | No             | No             | No           | No            |
 
-              | domains                        | No             | Yes            | No           | No            |
+              | `domains`                        | No             | Yes            | No           | No            |
 
-              | additionalLinks.type           | No             | No             | No           | No            |
+              | `additionalLinks.type`           | No             | No             | No           | No            |
 
-              | additionalLinks.value          | No             | No             | No           | No            |
+              | `additionalLinks.value`          | No             | No             | No           | No            |
 
-              | dataProviderIds                | No             | Yes            | No           | No            |
+              | `dataProviderIds`                | No             | Yes            | No           | No            |
 
-              | dataProviderNames              | Yes            | No             | No           | No            |
+              | `dataProviderNames`              | Yes            | No             | No           | No            |
 
-              | hostOrganisationId             | No             | Yes            | No           | No            |
+              | `hostOrganisationId`             | No             | Yes            | No           | No            |
 
-              | hostOrganisationName           | Yes            | No             | No           | No            |
+              | `hostOrganisationName`           | Yes            | No             | No           | No            |
 
-              | hostOrganisationLineage        | No             | Yes            | No           | No            |
+              | `hostOrganisationLineage`        | No             | Yes            | No           | No            |
 
-              | types                          | No             | Yes            | No           | Yes           |
+              | `types`                          | No             | Yes            | No           | Yes           |
 
-              | status                         | No             | Yes            | No           | Yes           |
+              | `status`                         | No             | Yes            | No           | Yes           |
 
-              | relationships.institutionId    | No             | Yes            | No           | No            |
+              | `relationships.institutionId`    | No             | Yes            | No           | No            |
 
-              | relationships.rorId            | No             | Yes            | No           | No            |
+              | `relationships.rorId`            | No             | Yes            | No           | No            |
 
-              | relationships.displayName      | Yes            | No             | No           | No            |
+              | `relationships.displayName`      | Yes            | No             | No           | No            |
 
-              | relationships.countryCode      | No             | Yes            | No           | Yes           |
+              | `relationships.countryCode`      | No             | Yes            | No           | Yes           |
 
-              | relationships.types            | No             | Yes            | No           | Yes           |
+              | `relationships.types`            | No             | Yes            | No           | Yes           |
 
-              | relationships.relationshipType | No             | Yes            | No           | Yes           |
+              | `relationships.relationshipType` | No             | Yes            | No           | Yes           |
 
-              | createdAt                      | No             | Yes            | Yes          | No            |
+              | `createdAt`                      | No             | Yes            | Yes          | No            |
 
-              | updatedAt                      | No             | Yes            | Yes          | No            |
+              | `updatedAt`                      | No             | Yes            | Yes          | No            |
 
-              | establishedYear                | No             | Yes            | Yes          | Yes           |
+              | `establishedYear`                | No             | Yes            | Yes          | Yes           |
 
-              | topics.topicId                 | No             | Yes            | No           | Yes           |
+              | `topics.topicId`                | No             | Yes            | No           | Yes           |
 
-              | topics.displayName             | Yes            | No             | No           | No            |
+              | `topics.displayName`             | Yes            | No             | No           | No            |
 
-              | topics.count                   | No             | Yes            | No           | No            |
+              | `topics.count`                   | No             | Yes            | No           | No            |
 
-              | topics.score                   | No             | Yes            | No           | No            |
+              | `topics.score`                   | No             | Yes            | No           | No            |
 
-              | topics.subfieldId              | No             | Yes            | No           | Yes           |
+              | `topics.subfieldId`              | No             | Yes            | No           | Yes           |
 
-              | topics.subfieldName            | Yes            | Yes            | No           | Yes           |
+              | `topics.subfieldName`            | Yes            | Yes            | No           | Yes           |
 
-              | topics.fieldId                 | No             | Yes            | No           | Yes           |
+              | `topics.fieldId`                 | No             | Yes            | No           | Yes           |
 
-              | topics.fieldName               | Yes            | Yes            | No           | Yes           |
+              | `topics.fieldName`               | Yes            | Yes            | No           | Yes           |
 
-              | topics.domainId                | No             | Yes            | No           | Yes           |
+              | `topics.domainId`                | No             | Yes            | No           | Yes           |
 
-              | topics.domainName              | Yes            | Yes            | No           | Yes           |
+              | `topics.domainName`              | Yes            | Yes            | No           | Yes           |
 
-              | yearlyMetrics.year             | No             | Yes            | No           | Yes           |
+              | `yearlyMetrics.year`             | No             | Yes            | No           | Yes           |
 
-              | yearlyMetrics.worksCount       | No             | Yes            | No           | No            |
+              | `yearlyMetrics.worksCount`       | No             | Yes            | No           | No            |
 
-              | yearlyMetrics.oaWorksCount     | No             | Yes            | No           | No            |
+              | `yearlyMetrics.oaWorksCount`     | No             | Yes            | No           | No            |
 
-              | yearlyMetrics.citedByCount     | No             | Yes            | No           | No            |
+              | `yearlyMetrics.citedByCount`     | No             | Yes            | No           | No            |
           - divider: false
             border: false
             id: institutions-api-institutions-endpoints
@@ -9448,25 +9448,20 @@ items:
             id: institutions-api-search-institutions
             title: Search institutions
             descriptionAbout: >-
-              Searches, filters, orders, facets, and paginates Institution
-              records.
+              
+              Searches, filters, orders, facets, counts, and paginates Institution records.
 
 
-              #### API endpoints
+              Institution search is available through `GET` and `POST`:
 
 
-              ```
+              | **Method** | **API endpoint** |
 
-              GET https://api.core.ac.uk/graph/institutions
+              | :--- | :--- |
 
-              ```
+              | `GET` | [https://api.core.ac.uk/graph/institutions](https://api.core.ac.uk/graph/institutions) |
 
-
-              ```
-
-              POST https://api.core.ac.uk/graph/institutions
-
-              ```
+              | `POST` | [https://api.core.ac.uk/graph/institutions](https://api.core.ac.uk/graph/institutions) |
 
 
               The endpoint uses the CORE API query language through the `q` parameter. Additional parameters such as `orderby`, `select`, `facets`, `count`, `limit`, and `offset` control how the results are returned.
@@ -9482,19 +9477,19 @@ items:
 
               | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q             | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | `q`             | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+              | `orderby`       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
 
-              | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
+              | `select`        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
 
-              | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+              | `facets`        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
 
-              | count         | boolean  | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
+              | `count`         | boolean  | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
 
-              | limit         | integer  | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
+              | `limit`         | integer  | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
 
-              | offset        | integer  | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
+              | `offset`        | integer  | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
 
 
               ##### POST request body
@@ -9504,19 +9499,19 @@ items:
 
               | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q            | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | `q`           | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+              | `orderby`      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
 
-              | select       | string\[] | No           | All retrievable fields        | List of Institution fields to include in each result.                                                                             |
+              | `select`       | string\[] | No           | All retrievable fields        | List of Institution fields to include in each result.                                                                             |
 
-              | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+              | `facets`       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
 
-              | count        | boolean   | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
+              | `count`        | boolean   | No           | `false`                       | Indicates whether the total number of matching Institution records should be included.                                            |
 
-              | limit        | integer   | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
+              | `limit`        | integer   | No           | `10`                          | Maximum number of Institution records to return.                                                                                  |
 
-              | offset       | integer   | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
+              | `offset`       | integer   | No           | `0`                           | Number of matching Institution records to skip.                                                                                   |
 
 
               #### GET and POST parameter mapping
@@ -10488,29 +10483,29 @@ items:
               The table below describes the top-level fields in the CORE Graph metadata schema for the Authorship entity, including their types, example values, descriptions, and sources.
 
 
-              | Property | Type | Example value | Description |
+              | Property              | Type           | Example value            | Description                                                                                                                                                                                                                                                                                                  |
 
-              | --- | --- | --- | --- |
+              | --------------------- | -------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-              | `authorshipId` | integer | `234` | CORE identifier for the authorship. |
+              | `authorshipId`        | integer        | `234`                    | CORE identifier for the authorship.                                                                                                                                                                                                                                                                          |
 
-              | `workId` | integer | `23456` | CORE identifier of the associated work. |
+              | `workId`              | integer        | `23456`                  | CORE identifier of the associated work.                                                                                                                                                                                                                                                                      |
 
-              | `authorId` | integer | `12` | CORE identifier of the associated author. |
+              | `authorId`            | integer        | `12`                     | CORE identifier of the associated author.                                                                                                                                                                                                                                                                    |
 
-              | `rawName` | string \| null | `"Smith, Alice"` | Verbatim author name string as supplied in the source metadata for this work. |
+              | `rawName`             | string | null  | `"Smith, Alice"`         | Verbatim author name string as supplied in the source metadata for this work.                                                                                                                                                                                                                                |
 
-              | `sequence`\* | string \| null | `"first"` | Author order classification within the work, such as first or additional. |
+              | `sequence`*           | string | null  | `"first"`                | Author order classification within the work, such as first or additional.                                                                                                                                                                                                                                    |
 
-              | `rank`\* | integer \| null | `1` | Numeric rank of the author in the author list. |
+              | `rank`*               | integer | null | `1`                      | Numeric rank of the author in the author list.                                                                                                                                                                                                                                                               |
 
-              | `isFirstNamedAuthor`\* | boolean \| null | `true` | Indicates whether the author is the first-listed author on the work. |
+              | `isFirstNamedAuthor`* | boolean | null | `true`                   | Indicates whether the author is the first-listed author on the work.                                                                                                                                                                                                                                         |
 
-              | `isCorresponding` | boolean \| null | `false` | Indicates whether the author is a corresponding author.`true`: author is explicitly identified as a corresponding author.`false`: source explicitly indicates that the author is not a corresponding author.`null`: source does not provide sufficient information to determine corresponding-author status. |
+              | `isCorresponding`     | boolean | null | `false`                  | Indicates whether the author is a corresponding author.`true`: author is explicitly identified as a corresponding author.`false`: source explicitly indicates that the author is not a corresponding author.`null`: source does not provide sufficient information to determine corresponding-author status. |
 
-              | `createdDate` | string \| null | `"2026-06-15T10:30:00Z"` | Date and time when the authorship record was created in CORE. |
+              | `createdDate`         | string | null  | `"2026-06-15T10:30:00Z"` | Date and time when the authorship record was created in CORE.                                                                                                                                                                                                                                                |
 
-              | `updatedDate` | string \| null | `"2023-11-07T05:31:56Z"` | Date and time when the authorship record was last updated in CORE. |
+              | `updatedDate`         | string | null  | `"2023-11-07T05:31:56Z"` | Date and time when the authorship record was last updated in CORE.                                                                                                                                                                                                                                           |
 
 
               \* See the Author position section below.
@@ -10525,15 +10520,15 @@ items:
               For example:
 
 
-              | Author position | rank | sequence | isFirstNamedAuthor |
+              | **Author position** | **rank** | **sequence**   | **isFirstNamedAuthor** |
 
-              | --- | --- | --- | --- |
+              | ------------------- | -------- | -------------- | ---------------------- |
 
-              | First author | `1` | `"first"` | `true` |
+              | First author        | `1`      | `"first"`      | `true`                 |
 
-              | Middle author | `2` | `"additional"` | `false` |
+              | Middle author       | `2`      | `"additional"` | `false`                |
 
-              | Final author | `5` | `"last"` | `false` |
+              | Final author        | `5`      | `"last"`       | `false`                |
 
 
               The `rank` property provides the exact numeric position of the Author.
@@ -10904,16 +10899,17 @@ items:
           - id: authorships-api-search-authorships
             title: Search Authorships
             descriptionAbout: >-
-              Searches, filters, orders, facets, counts, and paginates
-              Authorship records.
+              
+              Authorship search is available through `GET` and `POST`:
 
 
-              Authorship search is available through GET and POST:
+              | **Method** | **API endpoint** |
 
+              | :--- | :--- |
 
-              * `GET https://api.core.ac.uk/graph/authorships`
+              | `GET` | [https://api.core.ac.uk/graph/authorships](https://api.core.ac.uk/graph/authorships) |
 
-              * `POST https://api.core.ac.uk/graph/authorships` 
+              | `POST` | [https://api.core.ac.uk/graph/authorships](https://api.core.ac.uk/graph/authorships) |
 
 
               Both methods use the same CORE query language and return the same response structure.
@@ -10929,19 +10925,19 @@ items:
 
               | ------------- | -------- | ------------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q             | string   | No           | \*                            | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | `q`             | string   | No           | `*`                            | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                    |
+              | `orderby`       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                    |
 
-              | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                           |
+              | `select`        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                           |
 
-              | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                     |
+              | `facets`        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                     |
 
-              | count         | boolean  | No           | false                         | Indicates whether the total number of matching Authorship records should be included.                                               |
+              | `count`         | boolean  | No           | `false`                         | Indicates whether the total number of matching Authorship records should be included.                                               |
 
-              | limit         | integer  | No           | 10                            | Maximum number of Authorship records to return.                                                                                     |
+              | `limit`         | integer  | No           | `10`                            | Maximum number of Authorship records to return.                                                                                     |
 
-              | offset        | integer  | No           | 0                             | Number of matching Authorship records to skip.                                                                                      |
+              | `offset`        | integer  | No           | `0`                             | Number of matching Authorship records to skip.                                                                                      |
 
 
               ##### POST request body
@@ -10951,19 +10947,19 @@ items:
 
               | ------------ | --------- | ------------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q            | string    | No           | \*                            | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | `q`            | string    | No           | `*`                            | CORE query expression supporting free-text search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                     |
+              | `orderby`      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                     |
 
-              | select       | string\[] | No           | All retrievable fields        | List of fields to include in each result.                                                                                           |
+              | `select`       | string\[] | No           | All retrievable fields        | List of fields to include in each result.                                                                                           |
 
-              | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                     |
+              | `facets`       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                     |
 
-              | count        | boolean   | No           | false                         | Indicates whether the total number of matching Authorship records should be included.                                               |
+              | `count`        | boolean   | No           | `false`                         | Indicates whether the total number of matching Authorship records should be included.                                               
 
-              | limit        | integer   | No           | 10                            | Maximum number of Authorship records to return.                                                                                     |
+              | `limit`        | integer   | No           | `10`                            | Maximum number of Authorship records to return.                                                                                     |
 
-              | offset       | integer   | No           | 0                             | Number of matching Authorship records to skip.                                                                                      |
+              | `offset`       | integer   | No           | `0`                             | Number of matching Authorship records to skip.                                                                                      |
 
 
               ##### GET and POST parameter mapping
@@ -13929,19 +13925,20 @@ items:
             id: authors-api-search-authors
             title: Search Authors
             descriptionAbout: >-
-              Searches, filters, orders, facets, and paginates Author records.
+              Searches, filters, orders, facets, counts, and paginates Author
+              records.
 
 
-              #### API endpoints
+              Author search is available through `GET` and `POST`:
 
 
-              ```
+              | **Method** | **API endpoint** |
 
-              GET https://api.core.ac.uk/graph/authors 
+              | :--- | :--- |
 
-              POST https://api.core.ac.uk/graph/authors
+              | `GET` | [https://api.core.ac.uk/graph/authors](https://api.core.ac.uk/graph/authors) |
 
-              ```
+              | `POST` | [https://api.core.ac.uk/graph/authors](https://api.core.ac.uk/graph/authors) |
 
 
               Both methods use the same CORE query language and return the same response structure.
@@ -13960,19 +13957,19 @@ items:
 
               | ------------- | -------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q             | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | `q`             | string   | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
+              | `orderby`       | string   | No           | Relevance for textual queries | Comma-separated ordering directives in `field:direction` format.                                                                  |
 
-              | select        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
+              | `select`        | string   | No           | All retrievable fields        | Comma-separated list of fields to include in each result.                                                                         |
 
-              | facets        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
+              | `facets`        | string   | No           | —                             | Comma-separated list of facetable fields for which value buckets and counts should be returned.                                   |
 
-              | count         | boolean  | No           | `false`                       | Indicates whether the total number of matching Author records should be included.                                                 |
+              | `count`         | boolean  | No           | `false`                       | Indicates whether the total number of matching Author records should be included.                                                 |
 
-              | limit         | integer  | No           | `10`                          | Maximum number of Author records to return.                                                                                       |
+              | `limit`         | integer  | No           | `10`                          | Maximum number of Author records to return.                                                                                       |
 
-              | offset        | integer  | No           | `0`                           | Number of matching Author records to skip.                                                                                        |
+              | `offset`        | integer  | No           | `0`                           | Number of matching Author records to skip.                                                                                        |
 
 
               #### POST request body
@@ -13982,19 +13979,19 @@ items:
 
               | ------------ | --------- | ------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 
-              | q            | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
+              | `q`            | string    | No           | `*`                           | CORE query expression supporting textual search, field lookup, Boolean operators, grouping, range queries, and existence queries. |
 
-              | orderby      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
+              | `orderby`      | string\[] | No           | Relevance for textual queries | Ordered list of sorting directives in `field:direction` format.                                                                   |
 
-              | select       | string\[] | No           | All retrievable fields        | List of Author fields to include in each result.                                                                                  |
+              | `select`       | string\[] | No           | All retrievable fields        | List of Author fields to include in each result.                                                                                  |
 
-              | facets       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
+              | `facets`       | string\[] | No           | —                             | List of facetable fields for which value buckets and counts should be returned.                                                   |
 
-              | count        | boolean   | No           | `false`                       | Indicates whether the total number of matching Author records should be included.                                                 |
+              | `count`        | boolean   | No           | `false`                       | Indicates whether the total number of matching Author records should be included.                                                 |
 
-              | limit        | integer   | No           | `10`                          | Maximum number of Author records to return.                                                                                       |
+              | `limit`        | integer   | No           | `10`                          | Maximum number of Author records to return.                                                                                       |
 
-              | offset       | integer   | No           | `0`                           | Number of matching Author records to skip.                                                                                        |
+              | `offset`       | integer   | No           | `0`                           | Number of matching Author records to skip.                                                                                        |
 
 
               #### GET and POST parameter mapping
@@ -15603,23 +15600,23 @@ items:
               #### Available endpoints
 
 
-              | **Operation** | **Method** | **Endpoint** |
+              | **Operation**                              | **Method** | **Endpoint**                                                                               |
 
-              | --- | --- | --- |
+              | ------------------------------------------ | ---------- | ------------------------------------------------------------------------------------------ |
 
-              | Get a single Citation | `GET` | `/graph/citations/{citationId}` |
+              | Get a single Citation                      | `GET`      | `/graph/citations/{citationId}`                                                            |
 
-              | Search Citations using query parameters | `GET` | `/graph/citations?q={query}` |
+              | Search Citations using query parameters    | `GET`      | `/graph/citations?q={query}`                                                               |
 
-              | Search Citations using a JSON request body | `POST` | `/graph/citations`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
+              | Search Citations using a JSON request body | `POST`     | `/graph/citations`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve citations made by a Work | `GET` | `/graph/works/{workId}/citations` |
+              | Retrieve citations made by a Work          | `GET`      | `/graph/works/{workId}/citations`                                                          |
 
-              | Retrieve Works citing a Work | `GET` | `/graph/works/{workId}/cited-by` |
+              | Retrieve Works citing a Work               | `GET`      | `/graph/works/{workId}/cited-by`                                                           |
 
-              | Retrieve the citing Work | `GET` | `/graph/citations/{citationId}/citing-work` |
+              | Retrieve the citing Work                   | `GET`      | `/graph/citations/{citationId}/citing-work`                                                |
 
-              | Retrieve the cited Work | `GET` | `/graph/citations/{citationId}/cited-work` |
+              | Retrieve the cited Work                    | `GET`      | `/graph/citations/{citationId}/cited-work`                                                 |
 
 
               #### Get a single Citation
@@ -15641,31 +15638,31 @@ items:
               ##### Authorization
 
 
-              | Parameter       | Location | Type   | Required | Description                                               |
+              | **Parameter**   | **Location** | **Type** | **Required** | **Description**                                           |
 
-              | --------------- | -------- | ------ | -------- | --------------------------------------------------------- |
+              | --------------- | ------------ | -------- | ------------ | --------------------------------------------------------- |
 
-              | `Authorization` | Header   | string | Yes      | CORE API authentication token supplied as a Bearer token. |
+              | `Authorization` | Header       | string   | Yes          | CORE API authentication token supplied as a Bearer token. |
 
 
               ##### Path parameters
 
 
-              | Parameter    | Type    | Required | Description                                          |
+              | **Parameter** | **Type** | **Required** | **Description**                                      |
 
-              | ------------ | ------- | -------- | ---------------------------------------------------- |
+              | ------------- | -------- | ------------ | ---------------------------------------------------- |
 
-              | `citationId` | integer | Yes      | Unique CORE identifier of the Citation relationship. |
+              | `citationId`  | integer  | Yes          | Unique CORE identifier of the Citation relationship. |
 
 
               ##### Query parameters
 
 
-              | Parameter | Type   | Required | Description                                                  |
+              | **Parameter** | **Type** | **Required** | **Description**                                              |
 
-              | --------- | ------ | -------- | ------------------------------------------------------------ |
+              | ------------- | -------- | ------------ | ------------------------------------------------------------ |
 
-              | `select`  | string | No       | Comma-separated list of top-level Citation fields to return. |
+              | `select`      | string   | No           | Comma-separated list of top-level Citation fields to return. |
 
 
               Example request:
