@@ -12096,17 +12096,17 @@ items:
               #### Available endpoints
 
 
-              | Operation                                     | Method | Endpoint                                       |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | --------------------------------------------- | ------ | ---------------------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Affiliation                      | GET    | `/graph/affiliations/{affiliationId}`             |
+              | Get a single Affiliation | `GET` | `/graph/affiliations/{affiliationId}` |
 
-              | Search Affiliations using URL parameters      | GET    | `/graph/affiliations`                      |
+              | Search Affiliations using query parameters | `GET` | `/graph/affiliations?q={query}` |
 
-              | Search Affiliations using a JSON request body | POST   | `/graph/affiliations`                      |
+              | Search Affiliations using a JSON request body | `POST` | `/graph/affiliations`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Authorships for an Affiliation       | GET    | `/graph/affiliations/{affiliationId}/authorships` |
+              | Retrieve Authorships for an Affiliation | `GET` | `/graph/affiliations/{affiliationId}/authorships` |
 
 
               Affiliation records may also be retrieved through relationship-oriented endpoints:
