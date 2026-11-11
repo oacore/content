@@ -15358,8 +15358,6 @@ items:
               | `referenceCount` | integer | `38` | Number of references associated with the relevant record, where available. |
 
 
-              > The precise meaning and calculation method for source-derived scores such as `influence`, `popularity`, and `impulse` should be documented before public release.
-
 
               #### Self-citation indicators
 
@@ -15480,9 +15478,7 @@ items:
             id: citations-api-supported-field-operations
             title: Supported field operations
             descriptionAbout: >-
-              ## Supported field operations
-
-
+              
               The following table presents the recommended search configuration based on the proposed Citation fields.
 
 
@@ -15607,23 +15603,23 @@ items:
               #### Available endpoints
 
 
-              | **Operation**                         | **Method** | **Endpoint**                             |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ------------------------------------- | ---------- | ---------------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Citation                 | `GET`      | `/graph/citations/{citationId}`             |
+              | Get a single Citation | `GET` | `/graph/citations/{citationId}` |
 
-              | Search Citations using URL parameters | `GET`      | `/graph/citations`                   |
+              | Search Citations using query parameters | `GET` | `/graph/citations?q={query}` |
 
-              | Search Citations using a JSON body    | `POST`     | `/graph/citations`                   |
+              | Search Citations using a JSON request body | `POST` | `/graph/citations`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve citations made by a Work     | `GET`      | `/graph/works/{workId}/citations`           |
+              | Retrieve citations made by a Work | `GET` | `/graph/works/{workId}/citations` |
 
-              | Retrieve Works citing a Work          | `GET`      | `/graph/works/{workId}/cited-by`            |
+              | Retrieve Works citing a Work | `GET` | `/graph/works/{workId}/cited-by` |
 
-              | Retrieve the citing Work              | `GET`      | `/graph/citations/{citationId}/citing-work` |
+              | Retrieve the citing Work | `GET` | `/graph/citations/{citationId}/citing-work` |
 
-              | Retrieve the cited Work               | `GET`      | `/graph/citations/{citationId}/cited-work`  |
+              | Retrieve the cited Work | `GET` | `/graph/citations/{citationId}/cited-work` |
 
 
               #### Get a single Citation
