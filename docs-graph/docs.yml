@@ -12527,7 +12527,7 @@ items:
 
               ```
 
-              GET /v4/search/affiliations?q=authorId:67890 AND isCurrent:true
+              GET /graph/affiliations?q=authorId:67890 AND isCurrent:true
 
               ```
 
@@ -12968,7 +12968,7 @@ items:
               This returns the known Affiliation history for the Author in chronological order.
 
 
-              #### Order by multiple fields
+              ##### Order by multiple fields
 
 
               G﻿ET:
@@ -13000,7 +13000,7 @@ items:
               Results are first ordered by `authorId`. Affiliation records belonging to the same Author are then ordered by `startDate`.
 
 
-              #### Order by most recently updated
+              ##### Order by most recently updated
 
 
               G﻿ET:
@@ -13340,15 +13340,15 @@ items:
 
               | ---------- | --------------------------------------------------------------------------------------------------------------- |
 
-              | 200        | The Affiliation search was completed successfully.                                                              |
+              | 200        | Affiliation search was completed successfully.                                                              |
 
-              | 400        | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | 400        | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | 401        | Authentication credentials are missing or invalid.                                                              |
 
-              | 413        | The POST request body exceeds the permitted size.                                                               |
+              | 413        | POST request body exceeds the permitted size.                                                               |
 
-              | 429        | The API request limit has been exceeded.                                                                        |
+              | 429        | API request limit has been exceeded.                                                                        |
 
               | 500        | An unexpected server error occurred.                                                                            |
           - divider: false
