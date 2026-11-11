@@ -3119,7 +3119,7 @@ items:
                 "externalIdentifiers": [
                   {
                     "type": "CORE_ID",
-                    "identifier": "216874849"
+                    "identifier": 216874849
                   },
                   {
                     "type": "DOI",
@@ -3149,7 +3149,7 @@ items:
 
               | `type`       | string   | `"DOI"`           | Identifier scheme or classification.         |
 
-              | `identifier` | string   | `"10.1000/xyz"`   | Identifier value associated with the Output. |
+              | `identifier` | string/integer   | `"10.1000/xyz"`   | Identifier value associated with the Output. |
 
 
               T﻿he property, `type` can have following values:
@@ -3275,33 +3275,33 @@ items:
               Supported date types may include:
 
 
-              | **Value**          | **Description**                                       | **Source**                                          |
+              | **Value**          | **Description**                                       |
 
-              | ------------------ | ----------------------------------------------------- | --------------------------------------------------- |
+              | ------------------ | ----------------------------------------------------- |
 
-              | `published`        | Preferred publication date.                           | OAI-PMH / DataCite / Crossref / OpenAlex / OpenAIRE |
+              | `published`        | Preferred publication date.                           |
 
-              | `published_online` | Online publication date.                              | Crossref                                            |
+              | `published_online` | Online publication date.                              |
 
-              | `published_print`  | Print publication date.                               | Crossref                                            |
+              | `published_print`  | Print publication date.                               |
 
-              | `issued`           | Date on which the resource was formally issued.       | Dublin Core Terms / Crossref                        |
+              | `issued`           | Date on which the resource was formally issued.       |
 
-              | `accepted`         | Date on which the resource was accepted.              | Dublin Core Terms / Crossref                        |
+              | `accepted`         | Date on which the resource was accepted.              |
 
-              | `deposited`        | Date on which metadata was deposited with the source. | Crossref                                            |
+              | `deposited`        | Date on which metadata was deposited with the source. |
 
-              | `created`          | Date on which the source or CORE record was created.  | CORE / Crossref / OpenAlex                          |
+              | `created`          | Date on which the source or CORE record was created.  |
 
-              | `updated`          | Date on which the Output record was last updated.     | CORE / Crossref / OpenAIRE / OpenAlex               |
+              | `updated`          | Date on which the Output record was last updated.     |
 
-              | `indexed`          | Date on which the Output was indexed by CORE.         | CORE                                                |
+              | `indexed`          | Date on which the Output was indexed by CORE.         |
 
-              | `available`        | Date on which the resource became available.          | DataCite / OAI-PMH                                  |
+              | `available`        | Date on which the resource became available.          |
 
-              | `public_release`   | Date on which the resource was publicly released.     | RIOXX                                               |
+              | `public_release`   | Date on which the resource was publicly released.     |
 
-              | `collected`        | Date on which CORE collected the source record.       | CORE / OpenAIRE                                     |
+              | `collected`        | Date on which CORE collected the source record.       |
 
 
               Because `dates` is a collection, the Output cannot be unambiguously ordered by `dates.value`.
@@ -3341,15 +3341,15 @@ items:
               ```
 
 
-              | **Property** | **Type** | **Example value** | **Description**                                                | **Source**                                       |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | -------- | ----------------- | -------------------------------------------------------------- | ------------------------------------------------ |
+              | --- | --- | --- | --- |
 
-              | `name`       | string   | `"Alice Smith"`   | Name of the contributing person or organisation.               | OAI-PMH / RIOXX / DataCite / Crossref / OpenAIRE |
+              | `name` | string | `"Alice Smith"` | Name of the contributing person or organisation. |
 
-              | `type`       | string   | `"Personal"`      | Indicates whether the contributor is a person or organisation. | DataCite / OpenAIRE                              |
+              | `type` | string | `"Personal"` | Indicates whether the contributor is a person or organisation. |
 
-              | `role`       | string   | `"editor"`        | Role performed by the contributor.                             | Crossref / DataCite / OpenAIRE                   |
+              | `role` | string | `"editor"` | Role performed by the contributor. |
 
 
               Possible roles may include:
@@ -3388,15 +3388,16 @@ items:
               ```
 
 
-              | **Property** | **Type** | **Example value** | **Description**                                                      | **Source**                   |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | -------- | ----------------- | -------------------------------------------------------------------- | ---------------------------- |
+              | --- | --- | --- | --- |
 
-              | `id`         | integer  | `1`               | Internal identifier for the language classification, when available. | CORE                         |
+              | `id` | integer | `1` | Internal identifier for the language classification, when available. |
 
-              | `code`       | string   | `"en"`            | ISO 639 language code.                                               | OAI-PMH / Language detection |
+              | `code` | string | `"en"` | ISO 639 language code. |
 
-              | `name`       | string   | `"English"`       | Human-readable language name.                                        | OAI-PMH / CORE               |
+              | `name` | string | `"English"` | Human-readable language name. |
+
 
 
               An Output may contain multiple language records when more than one language is identified.
@@ -3438,39 +3439,39 @@ items:
               ```
 
 
-              | **Property**               | **Type**  | **Example value**                            | **Description**                                                               | **Source**                               |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | -------------------------- | --------- | -------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `accessRight`              | string    | `"open access"`                              | Human-readable access-right status.                                           | COAR / OpenAIRE / OAI-PMH / DataCite     |
+              | `accessRight` | string | `"open access"` | Human-readable access-right status. |
 
-              | `accessRightUri`           | string    | `"http://purl.org/coar/access_right/c_abf2"` | URI identifying the access-right status.                                      | COAR / DataCite / OpenAIRE               |
+              | `accessRightUri` | string | `"http://purl.org/coar/access_right/c_abf2"` | URI identifying the access-right status. |
 
-              | `scheme`                   | string    | `"COAR"`                                     | Vocabulary or scheme used for the access-right value.                         | OpenAIRE                                 |
+              | `scheme` | string | `"COAR"` | Vocabulary or scheme used for the access-right value. |
 
-              | `isOpenAccess`             | boolean   | `true`                                       | Indicates whether the Output is considered open access.                       | OpenAlex / OpenAIRE / Derived by CORE    |
+              | `isOpenAccess` | boolean | `true` | Indicates whether the Output is considered open access. |
 
-              | `oaStatus`                 | string    | `"gold"`                                     | Open-access status, such as `gold`, `green`, `bronze`, `hybrid`, or `closed`. | OpenAlex / OpenAIRE                      |
+              | `oaStatus` | string | `"gold"` | Open-access status, such as `gold`, `green`, `bronze`, `hybrid`, or `closed`. |
 
-              | `openAccessRoute`          | string    | `"gold"`                                     | Open-access route, when supplied separately from the status.                  | OpenAIRE                                 |
+              | `openAccessRoute` | string | `"gold"` | Open-access route, when supplied separately from the status. |
 
-              | `freeToRead`               | boolean   | `true`                                       | Indicates whether the Output is free to read.                                 | RIOXX / ALI                              |
+              | `freeToRead` | boolean | `true` | Indicates whether the Output is free to read. |
 
-              | `accessStartDate`          | string    | `"2022-05-01"`                               | Date from which access begins.                                                | RIOXX / Crossref / Qualified Dublin Core |
+              | `accessStartDate` | string | `"2022-05-01"` | Date from which access begins. |
 
-              | `accessEndDate`            | string    | `"2024-05-01"`                               | Date on which access ends, when supplied.                                     | RIOXX                                    |
+              | `accessEndDate` | string | `"2024-05-01"` | Date on which access ends, when supplied. |
 
-              | `embargoEndDate`           | string    | `"2023-05-01"`                               | Date on which an embargo ends.                                                | OpenAIRE                                 |
+              | `embargoEndDate` | string | `"2023-05-01"` | Date on which an embargo ends. |
 
-              | `version`                  | string    | `"publishedVersion"`                         | Version associated with the accessible copy.                                  | Crossref / RIOXX / OpenAlex / OpenAIRE   |
+              | `version` | string | `"publishedVersion"` | Version associated with the accessible copy. |
 
-              | `oaUrl`                    | string    | `"https://example.org/article"`              | Landing-page URL of an open-access copy.                                      | OpenAlex                                 |
+              | `oaUrl` | string | `"https://example.org/article"` | Landing-page URL of an open-access copy. |
 
-              | `pdfUrl`                   | string    | `"https://example.org/article.pdf"`          | Direct PDF URL of an open-access copy.                                        | OpenAlex                                 |
+              | `pdfUrl` | string | `"https://example.org/article.pdf"` | Direct PDF URL of an open-access copy. |
 
-              | `anyRepositoryHasFulltext` | boolean   | `true`                                       | Indicates whether any known repository provides full text.                    | OpenAlex                                 |
+              | `anyRepositoryHasFulltext` | boolean | `true` | Indicates whether any known repository provides full text. |
 
-              | `raw`                      | string\[] | `["open access"]`                            | Raw access-right strings supplied by source metadata.                         | OAI-PMH / OpenAIRE                       |
+              | `raw` | string[] | `["open access"]` | Raw access-right strings supplied by source metadata. |
 
 
               #### Licence
