@@ -10584,13 +10584,13 @@ items:
               and Affiliation records.
 
 
-              | Property | Type | Example value | Description | Source |
+              | Property | Type | Example value | Description | 
 
-              | --- | --- | --- | --- | --- |
+              | --- | --- | --- | --- | 
 
-              | authorshipId | integer | 987654 | CORE identifier of the Authorship participating in the relationship. | CORE |
+              | authorshipId | integer | 987654 | CORE identifier of the Authorship participating in the relationship. | 
 
-              | affiliationId | integer | 901 | CORE identifier of the Affiliation participating in the relationship. | CORE |
+              | affiliationId | integer | 901 | CORE identifier of the Affiliation participating in the relationship. | 
 
 
               Example bridge records:
@@ -10662,20 +10662,21 @@ items:
               | `updatedDate`        | No             | Yes            | Yes          | No            |
           - id: authorships-api-authorships-endpoints
             title: Authorships endpoints
-            descriptionAbout: >-
-              | Operation                                    | Method |
-              Endpoint                                         |
+            descriptionAbout: >+
+              #﻿### Available endpoints
 
-              | -------------------------------------------- | ------ | ------------------------------------------------ |
 
-              | Get a single Authorship                      | GET    | `/graph/authorships/{authorshipId}`              |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | Search Authorships using URL parameters      | GET    | `/graph/authorships`                             |
+              | --- | --- | --- |
 
-              | Search Authorships using a JSON request body | POST   | `/graph/authorships`                             |
+              | Get a single Authorship | `GET` | `/graph/authorships/{authorshipId}` |
 
-              | Retrieve Affiliations for an Authorship      | GET    | `/graph/authorships/{authorshipId}/affiliations` |
+              | Search Authorships using query parameters | `GET` | `/graph/authorships?q={query}` |
 
+              | Search Authorships using a JSON request body | `POST` | `/graph/authorships`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
+
+              | Retrieve Affiliations for an Authorship | `GET` | `/graph/authorships/{authorshipId}/affiliations` |
 
               Authorship records may also be retrieved through relationship-oriented endpoints:
 
@@ -10900,25 +10901,6 @@ items:
 
               This endpoint returns Affiliation records, not `authorship_affiliation` bridge records.
 
-
-              #### Responses
-
-
-              | **Status** | **Description**                                                      |
-
-              | ---------- | -------------------------------------------------------------------- |
-
-              | 200        | The Authorship record was retrieved successfully.                    |
-
-              | 400        | The request contains an invalid parameter or unsupported field name. |
-
-              | 401        | Authentication credentials are missing or invalid.                   |
-
-              | 404        | No Authorship record was found for the supplied identifier.          |
-
-              | 429        | The API request limit has been exceeded.                             |
-
-              | 500        | An unexpected server error occurred.                                 |
           - id: authorships-api-search-authorships
             title: Search Authorships
             descriptionAbout: >-
@@ -11328,10 +11310,10 @@ items:
               ```
 
 
-              ### Ordering Authorship results
+              #### Ordering Authorship results
 
 
-              #### Order by Author rank
+              ##### Order by Author rank
 
 
               G﻿ET:
@@ -11372,7 +11354,7 @@ items:
               ```
 
 
-              #### Order by multiple fields
+              ##### Order by multiple fields
 
 
               G﻿ET:
@@ -11380,7 +11362,7 @@ items:
 
               ```
 
-              GET /v4/search/authorships?orderby=workId:asc,rank:asc
+              GET /graph/authorships?orderby=workId:asc,rank:asc
 
               ```
 
@@ -11403,7 +11385,7 @@ items:
               Results are first ordered by `workId`. Authorship records associated with the same Work are then ordered by rank.
 
 
-              #### Order by update date
+              ##### Order by update date
 
 
               ```
@@ -11557,7 +11539,7 @@ items:
 
 
 
-              ### P﻿agination
+              #### P﻿agination
 
 
               Use `limit` and `offset` to paginate through Authorship results.
@@ -11637,15 +11619,15 @@ items:
 
               | --- | --- |
 
-              | 200 | The Authorship search was completed successfully. |
+              | 200 | Authorship search was completed successfully. |
 
-              | 400 | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | 400 | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | 401 | Authentication credentials are missing or invalid. |
 
-              | 413 | The POST request body exceeds the permitted size. |
+              | 413 | POST request body exceeds the permitted size. |
 
-              | 429 | The API request limit has been exceeded. |
+              | 429 | API request limit has been exceeded. |
 
               | 500 | An unexpected server error occurred. |
           - id: authorships-api-relationship-endpoints
