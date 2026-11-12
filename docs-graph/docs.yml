@@ -19300,7 +19300,7 @@ items:
 
               | --- | --- | --- | --- |
 
-              | `projectId` | string | `"coreproj____::001"` | Unique CORE internal canonical identifier for a record in the Projects entity. |
+              | `projectId` | integer | `001` | Unique CORE internal canonical identifier for a record in the Projects entity. |
 
               | `openaireId` | string | `"corda__h2020::70ea22400fd890c5033cb31642c4ae68"` | OpenAIRE identifier associated with the Projects record. |
 
@@ -19447,7 +19447,7 @@ items:
               ```json
 
               {
-                "projectId": "coreproj____::001",
+                "projectId": "001",
                 "openaireId": "corda__h2020::70ea22400fd890c5033cb31642c4ae68",
                 "code": "777541",
                 "acronym": "OpenAIRE-Advance",
@@ -19556,23 +19556,23 @@ items:
             border: false
             id: projects-api-projects-endpoints
             title: Projects endpoints
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Available endpoints
 
 
-              | **Operation**                             | **Method** | **Endpoint**                      |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ----------------------------------------- | ---------- | --------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Projects record              | `GET`      | `/graph/projects/{projectId}`        |
+              | Get a single Project | `GET` | `/graph/projects/{projectId}` |
 
-              | Search Projects using URL parameters      | `GET`      | `/graph/projects`             |
+              | Search Projects using query parameters | `GET` | `/graph/projects?q={query}` |
 
-              | Search Projects using a JSON request body | `POST`     | `/graph/projects`             |
+              | Search Projects using a JSON request body | `POST` | `/graph/projects`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Works for a Projects record      | `GET`      | `/graph/projects/{projectId}/works`  |
+              | Retrieve Works for a Project | `GET` | `/graph/projects/{projectId}/works` |
 
-              | Retrieve Grants for a Projects record     | `GET`      | `/graph/projects/{projectId}/grants` |
+              | Retrieve Grants for a Project | `GET` | `/graph/projects/{projectId}/grants` |
 
 
               #### Get a single Projects record
@@ -19689,25 +19689,6 @@ items:
 
               ```
 
-
-              #### Responses
-
-
-              | **Status** | **Description**                                         |
-
-              | ---------- | ------------------------------------------------------- |
-
-              | `200`      | Projects record was returned successfully.              |
-
-              | `400`      | Projects identifier or `select` expression is invalid.  |
-
-              | `401`      | Authentication credentials are missing or invalid.      |
-
-              | `404`      | No Projects record exists for the supplied `projectId`. |
-
-              | `429`      | API request limit has been exceeded.                    |
-
-              | `500`      | An unexpected server error occurred.                    |
           - divider: false
             border: false
             id: projects-api-search-projects
@@ -19809,7 +19790,7 @@ items:
             border: false
             id: projects-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Search by title
 
 
@@ -20067,7 +20048,7 @@ items:
                 "offset": 0,
                 "results": [
                   {
-                    "projectId": "coreproj____::001",
+                    "projectId": "001",
                     "code": "777541",
                     "acronym": "OpenAIRE-Advance",
                     "title": "OpenAIRE Advancing Open Scholarship",
@@ -20313,20 +20294,18 @@ items:
 
               | ---------- | --------------------------------------------------------------------------------------------------------------- |
 
-              | `200`      | The Projects search was completed successfully.                                                                 |
+              | `200`      | Projects search was completed successfully.                                                                 |
 
-              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400`      | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | `401`      | Authentication credentials are missing or invalid.                                                              |
 
-              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+              | `413`      | POST request body exceeds the permitted size.                                                             |
 
-              | `429`      | The API request limit has been exceeded.                                                                        |
+              | `429`      | API request limit has been exceeded.                                                                        |
 
               | `500`      | An unexpected server error occurred.                                                                            |
 
-
-              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
           - divider: false
             border: false
             id: projects-api-relationship-oriented-endpoints
