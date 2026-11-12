@@ -19293,52 +19293,52 @@ items:
               planned CORE Graph metadata schema for the Projects entity.
 
 
-              #### Identifiers
+              #### Identifiers 
 
 
-              | **Property**     | **Type**      | **Example value**                                  | **Description**                                                                | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ---------------- | ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------ | ---------- |
+              | --- | --- | --- | --- |
 
-              | `projectId`      | string        | `"coreproj____::001"`                              | Unique CORE internal canonical identifier for a record in the Projects entity. | CORE       |
+              | `projectId` | string | `"coreproj____::001"` | Unique CORE internal canonical identifier for a record in the Projects entity. |
 
-              | `openaireId`     | string | null | `"corda__h2020::70ea22400fd890c5033cb31642c4ae68"` | OpenAIRE identifier associated with the Projects record.                       | OpenAIRE   |
+              | `openaireId` | string | `"corda__h2020::70ea22400fd890c5033cb31642c4ae68"` | OpenAIRE identifier associated with the Projects record. |
 
-              | `code`           | string | null | `"777541"`                                         | Source-supplied project code or grant agreement code.                          | OpenAIRE   |
+              | `code` | string | `"777541"` | Source-supplied project code or grant agreement code. |
 
-              | `acronym`        | string | null | `"OpenAIRE-Advance"`                               | Acronym associated with the Projects record.                                   | OpenAIRE   |
+              | `acronym` | string | `"OpenAIRE-Advance"` | Acronym associated with the Projects record. |
 
-              | `callIdentifier` | string | null | `"H2020-EINFRA-2017"`                              | Identifier of the funding call associated with the Projects record.            | OpenAIRE   |
+              | `callIdentifier` | string | `"H2020-EINFRA-2017"` | Identifier of the funding call associated with the Projects record. |
 
 
               #### Descriptive metadata
 
 
-              | **Property** | **Type**         | **Example value**                                                       | **Description**                                                                                | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | ---------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `title`      | string           | `"OpenAIRE Advancing Open Scholarship"`                                 | Preferred title of the Projects record.                                                        | OpenAIRE   |
+              | `title` | string | `"OpenAIRE Advancing Open Scholarship"` | Preferred title of the Projects record. |
 
-              | `summary`    | string | null    | `"OpenAIRE-Advance continues the mission of OpenAIRE..."`               | Short summary or abstract describing the research activity represented by the Projects record. | OpenAIRE   |
+              | `summary` | string | `"OpenAIRE-Advance continues the mission of OpenAIRE..."` | Short summary or abstract describing the research activity represented by the Projects record. |
 
-              | `keywords`   | string\[] | null | `["Open Science", "Repositories", "Open Access"]`                       | Keywords associated with the Projects record.                                                  | OpenAIRE   |
+              | `keywords` | string[] | `["Open Science", "Repositories", "Open Access"]` | Keywords associated with the Projects record. |
 
-              | `subjects`   | string\[] | null | `["Data and Distributed Computing e-infrastructures for Open Science"]` | Subjects or thematic areas associated with the Projects record.                                | OpenAIRE   |
+              | `subjects` | string[] | `["Data and Distributed Computing e-infrastructures for Open Science"]` | Subjects or thematic areas associated with the Projects record. |
 
-              | `websiteUrl` | string | null    | `"https://www.openaire.eu/advance/"`                                    | Public website associated with the Projects record.                                            | OpenAIRE   |
+              | `websiteUrl` | string | `"https://www.openaire.eu/advance/"` | Public website associated with the Projects record. |
 
 
               #### Temporal coverage
 
 
-              | **Property** | **Type**      | **Example value** | **Description**                                                                                        | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------ | ---------- |
+              | --- | --- | --- | --- |
 
-              | `startDate`  | string | null | `"2018-01-01"`    | Start date of the research activity represented by the Projects record, formatted as an ISO 8601 date. | OpenAIRE   |
+              | `startDate` | string | `"2018-01-01"` | Start date of the research activity represented by the Projects record, formatted as an ISO 8601 date. |
 
-              | `endDate`    | string | null | `"2021-02-28"`    | End date of the research activity represented by the Projects record, formatted as an ISO 8601 date.   | OpenAIRE   |
+              | `endDate` | string | `"2021-02-28"` | End date of the research activity represented by the Projects record, formatted as an ISO 8601 date. |
 
 
               These dates describe the planned or recorded duration of the activity represented by the Projects record. They are not CORE record-management dates.
@@ -19347,55 +19347,55 @@ items:
               #### Funding
 
 
-              | **Property** | **Type**         | **Example value** | **Description**                                                                           | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | ---------------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `fundings`   | object\[] | null | See below         | Funding organisations and funding-stream information associated with the Projects record. | OpenAIRE   |
+              | `fundings` | object[] | See below | Funding organisations and funding-stream information associated with the Projects record. |
 
-              | `granted`    | object | null    | See below         | Financial information associated with the funding award recorded for the Projects record. | OpenAIRE   |
+              | `granted` | object | See below | Financial information associated with the funding award recorded for the Projects record. |
 
 
               ##### `fundings` fields
 
 
-              | **Property**    | **Type**      | **Example value**       | **Description**                                                   |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | --------------- | ------------- | ----------------------- | ----------------------------------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `name`          | string | null | `"European Commission"` | Name of the funding organisation.                                 |
+              | `name` | string | `"European Commission"` | |
 
-              | `shortName`     | string | null | `"EC"`                  | Short name or acronym of the funding organisation.                |
+              | `shortName` | string | `"EC"` | |
 
-              | `jurisdiction`  | string | null | `"EU"`                  | Jurisdiction or country associated with the funding organisation. |
+              | `jurisdiction` | string | `"EU"` | |
 
-              | `fundingStream` | object | null | See below               | Funding stream associated with the Projects record.               |
+              | `fundingStream` | object | See below | |
 
 
               ##### `fundings.fundingStream` fields
 
 
-              | **Property**  | **Type**      | **Example value**                                                     | **Description**                          |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------- | ------------- | --------------------------------------------------------------------- | ---------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `id`          | string | null | `"EC::H2020::RIA"`                                                    | Source identifier of the funding stream. |
+              | `id` | string | `"EC::H2020::RIA"` | |
 
-              | `description` | string | null | `"Horizon 2020 Framework Programme - Research and Innovation action"` | Description of the funding stream.       |
+              | `description` | string | `"Horizon 2020 Framework Programme - Research and Innovation action"` | |
 
 
               ##### `granted` fields
 
 
-              | **Property**   | **Type**      | **Example value** | **Description**                                                                               |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | -------------- | ------------- | ----------------- | --------------------------------------------------------------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `currency`     | string | null | `"EUR"`           | ISO 4217 currency code used for the financial values.                                         |
+              | `currency` | string | `"EUR"` | |
 
-              | `fundedAmount` | number | null | `10000000`        | Amount awarded to the activity represented by the Projects record, in the specified currency. |
+              | `fundedAmount` | number | `10000000` | |
 
-              | `totalCost`    | number | null | `10000000`        | Total recorded cost associated with the Projects record, in the specified currency.           |
+              | `totalCost` | number | `10000000` | |
 
 
               Financial values should always be interpreted together with `granted.currency`. Missing values must not be treated as zero.
@@ -19404,23 +19404,23 @@ items:
               #### Programme information
 
 
-              | Property          | Type             | Example value | Description                                                  | Source   |
+              | Property | Type | Example value | Description |
 
-              | ----------------- | ---------------- | ------------- | ------------------------------------------------------------ | -------- |
+              | --- | --- | --- | --- |
 
-              | `h2020Programmes` | object\[] | null | See below     | Horizon 2020 programmes associated with the Projects record. | OpenAIRE |
+              | `h2020Programmes` | object[] | See below | Horizon 2020 programmes associated with the Projects record. |
 
 
               ##### `h2020Programmes` fields
 
 
-              | Property      | Type          | Example value                                                            | Description                   |
+              | Property | Type | Example value | Description |
 
-              | ------------- | ------------- | ------------------------------------------------------------------------ | ----------------------------- |
+              | --- | --- | --- | --- |
 
-              | `code`        | string | null | `"H2020-EU.1.4.1.3."`                                                    | Horizon 2020 programme code.  |
+              | `code` | string | `"H2020-EU.1.4.1.3."` | |
 
-              | `description` | string | null | `"Development, deployment and operation of ICT-based e-infrastructures"` | Description of the programme. |
+              | `description` | string | `"Development, deployment and operation of ICT-based e-infrastructures"` | |
 
 
               `h2020Programmes` is specific to Horizon 2020. If CORE later ingests structured programme information from additional funding schemes, a source-neutral property such as `programmes` may provide a more extensible representation.
@@ -19429,13 +19429,13 @@ items:
               #### Open-access mandates
 
 
-              | **Property**                       | **Type**       | **Example value** | **Description**                                                                         | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ---------------------------------- | -------------- | ----------------- | --------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `openAccessMandateForDataset`      | boolean | null | `true`            | Indicates whether the Projects record includes an open-access mandate for datasets.     | OpenAIRE   |
+              | `openAccessMandateForDataset` | boolean | `true` | Indicates whether the Projects record includes an open-access mandate for datasets. |
 
-              | `openAccessMandateForPublications` | boolean | null | `true`            | Indicates whether the Projects record includes an open-access mandate for publications. | OpenAIRE   |
+              | `openAccessMandateForPublications` | boolean | `true` | Indicates whether the Projects record includes an open-access mandate for publications. |
 
 
               A `null` value means that the source did not provide enough information to determine whether the mandate applies. It must not be interpreted as `false`.
