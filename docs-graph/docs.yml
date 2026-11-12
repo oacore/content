@@ -21747,9 +21747,6 @@ items:
               GET /graph/authors/{authorId}/grants
 
               ```
-
-
-              An existing Grants record with no related records returns `200 OK` with an empty `results` array. If the supplied Grants record does not exist, a collection relationship endpoint returns `404 Not Found`.
       - item: Funders
         sections:
           - divider: false
@@ -21801,53 +21798,53 @@ items:
               #### Identifiers and names
 
 
-              | **Property**       | **Type**         | **Example value**        | **Description**                                                                                    | **Source**                             |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------------ | ---------------- | ------------------------ | -------------------------------------------------------------------------------------------------- | -------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `funderId`         | integer          | `501`                    | Unique CORE internal canonical identifier for a record in the Funders entity.                      | CORE                                   |
+              | `funderId` | integer | `501` | Unique CORE internal canonical identifier for a record in the Funders entity. |
 
-              | `name`             | string | null    | `"Wellcome Trust"`       | Preferred name selected by CORE for the Funders record.                                            | CORE / Crossref / OpenAlex / OpenAIRE  |
+              | `name` | string | `"Wellcome Trust"` | Preferred name selected by CORE for the Funders record. |
 
-              | `shortName`        | string | null    | `"Wellcome"`             | Short or abbreviated name associated with the Funders record.                                      | OpenAIRE                               |
+              | `shortName` | string | `"Wellcome"` | Short or abbreviated name associated with the Funders record. |
 
-              | `alternativeNames` | string\[] | null | `["The Wellcome Trust"]` | Alternative, historical, or source-provided names associated with the Funders record.              | RIOXX / OpenAIRE / Crossref / OpenAlex |
+              | `alternativeNames` | string[] | `["The Wellcome Trust"]` | Alternative, historical, or source-provided names associated with the Funders record. |
 
-              | `funderDoi`        | string | null    | `"10.13039/100004440"`   | Crossref Funder Registry DOI associated with the Funders record.                                   | Crossref / RIOXX / OpenAIRE            |
+              | `funderDoi` | string | `"10.13039/100004440"` | Crossref Funder Registry DOI associated with the Funders record. |
 
-              | `funderIds`        | string\[] | null | `["100004440"]`          | Source-provided external identifiers for the Funders record. These are not CORE `funderId` values. | RIOXX / OpenAIRE / Crossref            |
+              | `funderIds` | string[] | `["100004440"]` | Source-provided external identifiers for the Funders record. These are not CORE `funderId` values. |
 
-              | `identifiers`      | object\[]        | See below                | Structured list of all known external identifiers associated with the Funders record.              | CORE                                   |
+              | `identifiers` | object[] | See below | Structured list of all known external identifiers associated with the Funders record. |
 
 
               ##### `identifiers` fields
 
 
-              | **Property** | **Type**      | **Example value**      | **Description**                                  |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------ | ------------- | ---------------------- | ------------------------------------------------ |
+              | --- | --- | --- | --- |
 
-              | `scheme`     | string        | `"FUNDER_DOI"`         | Identifier scheme or classification.             |
+              | `scheme` | string | `"FUNDER_DOI"` | Identifier scheme or classification. |
 
-              | `value`      | string        | `"10.13039/100004440"` | Identifier value.                                |
+              | `value` | string | `"10.13039/100004440"` | Identifier value. |
 
-              | `assertedBy` | string | null | `"Crossref"`           | Source that supplied or asserted the identifier. |
+              | `assertedBy` | string | `"Crossref"` | |
 
 
               Recommended controlled values for `scheme` may include:
 
 
-              * `FUNDER_DOI`
+              - `FUNDER_DOI`
 
-              * `ROR`
+              - `ROR`
 
-              * `ISNI`
+              - `ISNI`
 
-              * `OFR`
+              - `OFR`
 
-              * `OPENALEX_ID`
+              - `OPENALEX_ID`
 
-              * `OPENAIRE_ID`
+              - `OPENAIRE_ID`
 
 
               `funderId` is the canonical CORE integer identifier. Values in `funderIds` and `identifiers` are external identifiers and therefore remain strings.
@@ -21856,19 +21853,19 @@ items:
               #### Award and Grants context
 
 
-              | **Property**    | **Type**       | **Example value**                       | **Description**                                                  | **Source**                            |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | --------------- | -------------- | --------------------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
+              | --- | --- | --- | --- |
 
-              | `awardNumber`   | string | null  | `"WT123456"`                            | Award number associated with this source funding assertion.      | OpenAIRE / Crossref / OpenAlex        |
+              | `awardNumber` | string | `"WT123456"` | Award number associated with this source funding assertion. |
 
-              | `awardUri`      | string | null  | `"https://example.org/grants/WT123456"` | URI associated with the award number.                            | OpenAIRE                              |
+              | `awardUri` | string | `"https://example.org/grants/WT123456"` | URI associated with the award number. |
 
-              | `awardTitle`    | string | null  | `"AI methods for biomedical discovery"` | Title of the associated award or Grants record.                  | OpenAIRE                              |
+              | `awardTitle` | string | `"AI methods for biomedical discovery"` | Title of the associated award or Grants record. |
 
-              | `fundingStream` | string | null  | `"Biomedical Research"`                 | Funding stream or programme through which the award was made.    | OpenAIRE                              |
+              | `fundingStream` | string | `"Biomedical Research"` | Funding stream or programme through which the award was made. |
 
-              | `projectId`     | integer | null | `12034`                                 | CORE identifier of an associated Projects record, when resolved. | CORE resolution from RIOXX / OpenAIRE |
+              | `projectId` | integer | `12034` | CORE identifier of an associated Projects record, when resolved. |
 
 
               These properties describe one award or Projects association. If a Funders record can be associated with multiple awards or Projects records, they should not be treated as single-valued permanent properties of the organisation.
@@ -21876,12 +21873,12 @@ items:
 
               Prefer relationships such as:
 
-
               ```text
 
               Funders.funderId → Grants.funderId
 
               Grants.projectIds → Projects.projectId
+
 
               ```
 
@@ -21889,15 +21886,15 @@ items:
               #### Funders context and identifier provenance
 
 
-              | **Property**    | **Type**      | **Example value** | **Description**                                                                                                                 | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | --------------- | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `jurisdiction`  | string | null | `"GB"`            | Jurisdiction or country associated with the Funders record. Use an ISO 3166-1 alpha-2 code when the value represents a country. | OpenAIRE   |
+              | `jurisdiction` | string | `"GB"` | Jurisdiction or country associated with the Funders record. Use an ISO 3166-1 alpha-2 code when the value represents a country. |
 
-              | `doiAssertedBy` | string | null | `"publisher"`     | Source that asserted `funderDoi`.                                                                                               | Crossref   |
+              | `doiAssertedBy` | string | `"publisher"` | Source that asserted `funderDoi`. |
 
-              | `idAssertedBy`  | string | null | `"publisher"`     | Source that asserted an external identifier for the Funders record.                                                             | Crossref   |
+              | `idAssertedBy` | string | `"publisher"` | Source that asserted an external identifier for the Funders record. |
 
 
               `doiAssertedBy` and `idAssertedBy` overlap with `identifiers.assertedBy`. If the structured `identifiers` collection is authoritative, the top-level assertion fields may be retained only as compatibility aliases.
@@ -21906,13 +21903,13 @@ items:
               #### Project validation
 
 
-              | **Property**               | **Type**       | **Example value** | **Description**                                                                                             | **Source** |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | -------------------------- | -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ---------- |
+              | --- | --- | --- | --- |
 
-              | `projectValidatedDate`     | string | null  | `"2023-06-14"`    | Date on which the associated Projects or funding record was validated, formatted as an ISO 8601 date.       | OpenAIRE   |
+              | `projectValidatedDate` | string | `"2023-06-14"` | Date on which the associated Projects or funding record was validated, formatted as an ISO 8601 date. |
 
-              | `projectValidatedByFunder` | boolean | null | `true`            | Indicates whether the associated Projects or funding information was validated by the funding organisation. | OpenAIRE   |
+              | `projectValidatedByFunder` | boolean | `true` | Indicates whether the associated Projects or funding information was validated by the funding organisation. |
 
 
               These values describe a particular Projects or funding association. A `null` validation flag means that the source did not provide enough information to determine validation status; it must not be interpreted as `false`.
@@ -21921,15 +21918,15 @@ items:
               #### Clinical-trial context
 
 
-              | **Property**                    | **Type**         | **Example value**                      | **Description**                                                                                | **Source**                     |
+              | **Property** | **Type** | **Example value** | **Description** |
 
-              | ------------------------------- | ---------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------ |
+              | --- | --- | --- | --- |
 
-              | `clinicalTrialNumbers`          | string\[] | null | `["NCT04512345", "ISRCTN12345678"]`    | Clinical-trial identifiers associated with the funded Work, Grants record, or Projects record. | Repository metadata / Crossref |
+              | `clinicalTrialNumbers` | string[] | `["NCT04512345", "ISRCTN12345678"]` | Clinical-trial identifiers associated with the funded Work, Grants record, or Projects record. |
 
-              | `clinicalTrialNumberRegistries` | string\[] | null | `["clinicaltrials.gov", "isrctn"]`     | Registries associated with the clinical-trial identifiers.                                     | Repository metadata / Crossref |
+              | `clinicalTrialNumberRegistries` | string[] | `["clinicaltrials.gov", "isrctn"]` | Registries associated with the clinical-trial identifiers. |
 
-              | `clinicalTrialNumberTypes`      | string\[] | null | `["pre-registration", "post-results"]` | Types or categories associated with the clinical-trial identifiers.                            | Repository metadata / Crossref |
+              | `clinicalTrialNumberTypes` | string[] | `["pre-registration", "post-results"]` | Types or categories associated with the clinical-trial identifiers. |
 
 
               When the arrays are used, values at the same array position must describe the same clinical trial. For example, index `0` across the three arrays describes `NCT04512345`, its registry, and its type.
@@ -22048,25 +22045,25 @@ items:
             border: false
             id: funders-api-funders-endpoints
             title: Funders endpoints
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Available endpoints
 
 
-              | **Operation**                                   | **Method** | **Endpoint**                      |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | ----------------------------------------------- | ---------- | --------------------------------- |
+              | --- | --- | --- |
 
-              | Get a single Funders record                     | `GET`      | `/graph/funders/{funderId}`          |
+              | Get a single Funder | `GET` | `/graph/funders/{funderId}` |
 
-              | Search Funders using URL parameters             | `GET`      | `/graph/funders`              |
+              | Search Funders using query parameters | `GET` | `/graph/funders?q={query}` |
 
-              | Search Funders using a JSON request body        | `POST`     | `/graph/funders`              |
+              | Search Funders using a JSON request body | `POST` | `/graph/funders`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Grants awarded by a Funders record     | `GET`      | `/graph/funders/{funderId}/grants`   |
+              | Retrieve Grants awarded by a Funder | `GET` | `/graph/funders/{funderId}/grants` |
 
-              | Retrieve Projects supported by a Funders record | `GET`      | `/graph/funders/{funderId}/projects` |
+              | Retrieve Projects supported by a Funder | `GET` | `/graph/funders/{funderId}/projects` |
 
-              | Retrieve Works supported by a Funders record    | `GET`      | `/graph/funders/{funderId}/works`    |
+              | Retrieve Works supported by a Funder | `GET` | `/graph/funders/{funderId}/works` |
 
 
               #### Get a single Funders record
@@ -22175,25 +22172,6 @@ items:
 
               ```
 
-
-              #### Responses
-
-
-              | **Status** | **Description**                                            |
-
-              | ---------- | ---------------------------------------------------------- |
-
-              | `200`      | The Funders record was returned successfully.              |
-
-              | `400`      | The supplied `funderId` or `select` expression is invalid. |
-
-              | `401`      | Authentication credentials are missing or invalid.         |
-
-              | `404`      | No Funders record exists for the supplied `funderId`.      |
-
-              | `429`      | The API request limit has been exceeded.                   |
-
-              | `500`      | An unexpected server error occurred.                       |
           - divider: false
             border: false
             id: funders-api-search-funders
@@ -22750,15 +22728,15 @@ items:
 
               | ---------- | --------------------------------------------------------------------------------------------------------------- |
 
-              | `200`      | The Funders search was completed successfully.                                                                  |
+              | `200`      | Funders search was completed successfully.                                                                  |
 
-              | `400`      | The request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
+              | `400`      | Request contains an invalid query, unsupported field, invalid facet, or invalid response-control parameter. |
 
               | `401`      | Authentication credentials are missing or invalid.                                                              |
 
-              | `413`      | The `POST` request body exceeds the permitted size.                                                             |
+              | `413`      | POST request body exceeds the permitted size.                                                             |
 
-              | `429`      | The API request limit has been exceeded.                                                                        |
+              | `429`      | API request limit has been exceeded.                                                                        |
 
               | `500`      | An unexpected server error occurred.                                                                            |
 
