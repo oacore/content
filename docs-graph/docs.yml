@@ -22273,7 +22273,7 @@ items:
             border: false
             id: funders-api-search-examples
             title: Search examples
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Search by name
 
 
@@ -22740,8 +22740,6 @@ items:
 
               | `500`      | An unexpected server error occurred.                                                                            |
 
-
-              An empty search returns `200 OK` with an empty `results` array. Nullable fields remain present with a JSON `null` value unless they are omitted through `select` or the API's general response conventions specify otherwise.
           - divider: false
             border: false
             id: funders-api-relationship-oriented-endpoints
