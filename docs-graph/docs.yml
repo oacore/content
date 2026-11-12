@@ -20339,7 +20339,7 @@ items:
 
               ```http
 
-              GET /graph/projects/coreproj____%3A%3A001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
+              GET /graph/projects/001/works?select=workId,title,doi,yearPublished&orderby=yearPublished:desc&count=true&limit=10&offset=0
 
               ```
 
@@ -20349,7 +20349,7 @@ items:
 
               ```http
 
-              GET /graph/works?q=projectIds:"coreproj____::001"
+              GET /graph/works?q=projectIds:001
 
               ```
 
@@ -20382,7 +20382,7 @@ items:
 
               ```http
 
-              GET /graph/projects/coreproj____%3A%3A001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
+              GET /graph/projects/001/grants?select=grantId,code,title,fundedAmount,currency&count=true&limit=10&offset=0
 
               ```
 
@@ -20392,7 +20392,7 @@ items:
 
               ```http
 
-              GET /graph/grants?q=projectIds:"coreproj____::001"
+              GET /graph/grants?q=projectIds:001
 
               ```
 
