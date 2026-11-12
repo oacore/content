@@ -20832,27 +20832,27 @@ items:
             border: false
             id: grants-api-grants-endpoints
             title: Grants endpoints
-            descriptionAbout: >-
+            descriptionAbout: >+
               #### Available endpoints
 
 
-              | **Operation**                           | **Method** | **Endpoint**                         |
+              | **Operation** | **Method** | **Endpoint** |
 
-              | --------------------------------------- | ---------- | ------------------------------------ |
+              | --- | --- | --- |
 
-              | Get a single Grants record              | `GET`      | `/graph/grants/{grantId}`               |
+              | Get a single Grant | `GET` | `/graph/grants/{grantId}` |
 
-              | Search Grants using URL parameters      | `GET`      | `/graph/grants`                  |
+              | Search Grants using query parameters | `GET` | `/graph/grants?q={query}` |
 
-              | Search Grants using a JSON request body | `POST`     | `/graph/grants`                  |
+              | Search Grants using a JSON request body | `POST` | `/graph/grants`<br>`Header: Content-Type: application/json`<br>`Body: {"q": "{query}"}` |
 
-              | Retrieve Works for a Grants record      | `GET`      | `/graph/grants/{grantId}/works`         |
+              | Retrieve Works for a Grant | `GET` | `/graph/grants/{grantId}/works` |
 
-              | Retrieve Projects for a Grants record   | `GET`      | `/graph/grants/{grantId}/projects`      |
+              | Retrieve Projects for a Grant | `GET` | `/graph/grants/{grantId}/projects` |
 
-              | Retrieve the funding Institution        | `GET`      | `/graph/grants/{grantId}/funder`        |
+              | Retrieve the funding Institution | `GET` | `/graph/grants/{grantId}/funder` |
 
-              | Retrieve investigators                  | `GET`      | `/graph/grants/{grantId}/investigators` |
+              | Retrieve investigators for a Grant | `GET` | `/graph/grants/{grantId}/investigators` |
 
 
               #### Get a single Grants record
@@ -20962,25 +20962,6 @@ items:
 
               ```
 
-
-              #### Responses
-
-
-              | **Status** | **Description**                                           |
-
-              | ---------- | --------------------------------------------------------- |
-
-              | `200`      | The Grants record was returned successfully.              |
-
-              | `400`      | The supplied `grantId` or `select` expression is invalid. |
-
-              | `401`      | Authentication credentials are missing or invalid.        |
-
-              | `404`      | No Grants record exists for the supplied `grantId`.       |
-
-              | `429`      | The API request limit has been exceeded.                  |
-
-              | `500`      | An unexpected server error occurred.                      |
           - divider: false
             border: false
             id: grants-api-search-grants
