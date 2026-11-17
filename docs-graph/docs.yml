@@ -145,6 +145,11 @@ items:
             border: false
             id: "#core-graph-design-principles"
             title: Design principles
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
               ##### Canonical entities and source records are separated
 
@@ -286,6 +291,11 @@ items:
             border: false
             id: "#core-graph-core-data-model"
             title: CORE data model
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
               The CORE Graph API data model contains the following principal
               entities.
@@ -326,6 +336,11 @@ items:
             descriptionAbout: The following diagram presents a simplified view of the main
               graph relationships.
             title: Principal relationships
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             images:
               - file: /images/docs-graph/data-model.png
             subTitle: ""
@@ -339,6 +354,11 @@ items:
             border: false
             id: core-graph-resource-and-endpoint-patterns
             title: Resource and endpoint patterns
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
               
               The Graph API uses consistent resource patterns.
@@ -434,6 +454,11 @@ items:
             border: false
             id: graph-api-common-response-conventions
             title: Common response conventions
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
               The CORE Graph API uses consistent response structures for
               single-entity and collection operations. Individual endpoint pages
@@ -611,6 +636,11 @@ items:
             border: false
             id: graph-api-naming-conventions
             title: Naming conventions
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
               The following naming conventions are used throughout the Graph
               API.
@@ -832,6 +862,11 @@ items:
             border: false
             id: "#graph-api-quick-start"
             title: Quick start
+            note: >
+              **Development status**
+
+
+              The CORE Graph API is under active development. Some endpoints, fields, and search capabilities may not yet be available for every entity and may change before the stable release. Entities marked ‘under development’  are placeholders for further functionality that has not yet been finalised. Their schema, endpoints, relationships, and examples are currently under development and will be documented in a future revision of this specification
             descriptionAbout: >-
               
               This guide shows how to authenticate, search for Works, retrieve a specific Work, and navigate from the canonical Work to its source-specific Outputs.
@@ -1198,6 +1233,8 @@ items:
             border: false
             id: works-api-data-structure
             title: Data structure
+            note: "**Under development:** Works is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The table below describes the top-level properties in the CORE
               Graph Work schema.
@@ -1706,6 +1743,8 @@ items:
             border: false
             id: works-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Works is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The table below describes which Work properties can be searched,
               queried through field lookups or ranges, ordered, or used as
@@ -1854,6 +1893,8 @@ items:
             border: false
             id: works-api-works-endpoints
             title: Works endpoints
+            note: "**Under development:** Works is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Available endpoints
 
@@ -1976,6 +2017,8 @@ items:
             border: false
             id: works-api-search-works
             title: Search Works
+            note: "**Under development:** Works is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Searches, filters, orders, facets, counts, and paginates canonical Work records.
@@ -2185,6 +2228,8 @@ items:
             border: false
             id: works-api-search-examples
             title: Search examples
+            note: "**Under development:** Works is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Retrieve a Work by DOI
 
@@ -2744,6 +2789,8 @@ items:
             border: false
             id: works-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Works is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to records connected to a Work.
@@ -3039,6 +3086,8 @@ items:
             border: false
             id: outputs-api-data-structure
             title: Data structure
+            note: "**Under development:** Outputs is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following table describes the top-level fields in the CORE
               Graph metadata schema for the Output entity.
@@ -3800,6 +3849,8 @@ items:
             border: false
             id: outputs-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Outputs is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The table below describes which Output properties can be searched,
               queried through field lookups or ranges, ordered, or used as
@@ -3991,6 +4042,8 @@ items:
           - divider: false
             border: false
             title: Outputs endpoints
+            note: "**Under development:** Outputs is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             id: outputs-api-outputs-endpoints
             descriptionAbout: >-
               #### Available endpoints
@@ -4110,6 +4163,8 @@ items:
             border: false
             id: outputs-api-search-outputs
             title: Search Outputs
+            note: "**Under development:** Outputs is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             subTitle: ""
             descriptionAbout: >-
               
@@ -4285,6 +4340,8 @@ items:
             border: false
             id: outputs-api-search-examples
             title: Search examples
+            note: "**Under development:** Outputs is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               #### Search by title
@@ -5030,6 +5087,8 @@ items:
             border: false
             id: outputs-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Outputs is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to graph entities connected to an Output.
@@ -5277,6 +5336,9 @@ items:
             border: false
             id: dataproviders-api-data-structure
             title: Data structure
+            note: "**Under development:** Data Providers is planned for inclusion in the
+              CORE Graph API but has not yet been fully specified or
+              implemented."
             descriptionAbout: >-
               The following sections describe the fields in the CORE Graph
               metadata schema for the Data Provider entity.
@@ -5576,6 +5638,9 @@ items:
             border: false
             id: dataproviders-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Data Providers is planned for inclusion in the
+              CORE Graph API but has not yet been fully specified or
+              implemented."
             descriptionAbout: >-
               The table below describes which Data Provider properties can be
               searched, queried through field lookups or ranges, ordered, or
@@ -5639,6 +5704,9 @@ items:
             border: false
             id: dataproviders-api-data-providers-endpoints
             title: Data providers endpoints
+            note: "**Under development:** Data Providers is planned for inclusion in the
+              CORE Graph API but has not yet been fully specified or
+              implemented."
             descriptionAbout: >
               #### Available endpoints
 
@@ -5783,6 +5851,9 @@ items:
             border: false
             id: dataproviders-api-search-data-providers
             title: Search Data providers
+            note: "**Under development:** Data Providers is planned for inclusion in the
+              CORE Graph API but has not yet been fully specified or
+              implemented."
             descriptionAbout: >-
               
               Searches, filters, orders, facets, counts, and paginates Data Provider records.
@@ -5878,6 +5949,9 @@ items:
             border: false
             id: dataproviders-api-search-examples
             title: Search examples
+            note: "**Under development:** Data Providers is planned for inclusion in the
+              CORE Graph API but has not yet been fully specified or
+              implemented."
             descriptionAbout: >-
               
               #### Search by Data Provider name
@@ -6514,6 +6588,9 @@ items:
             border: false
             id: dataproviders-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Data Providers is planned for inclusion in the
+              CORE Graph API but has not yet been fully specified or
+              implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to records connected to a Data Provider.
@@ -6735,6 +6812,8 @@ items:
             border: false
             id: journals-api-data-structure
             title: Data structure
+            note: "**Under development:** Journals is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following sections describe the fields in the CORE Graph
               metadata schema for the Journal entity.
@@ -7143,6 +7222,8 @@ items:
             border: false
             id: journals-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Journals is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The table below describes which Journal properties can be
               searched, queried through field lookups or ranges, ordered, or
@@ -7358,6 +7439,8 @@ items:
             border: false
             id: journals-api-journals-endpoints
             title: Journals endpoints
+            note: "**Under development:** Journals is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >+
               #### Available endpoints
 
@@ -7514,6 +7597,8 @@ items:
             border: false
             id: journals-api-search-journals
             title: Search Journals
+            note: "**Under development:** Journals is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Searches, filters, orders, facets, counts, and paginates Journal records.
@@ -7608,6 +7693,8 @@ items:
             border: false
             id: journals-api-search-examples
             title: Search examples
+            note: "**Under development:** Journals is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               #### Search by Journal title
@@ -8576,6 +8663,8 @@ items:
             border: false
             id: journals-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Journals is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to graph entities connected to a Journal.
@@ -8797,6 +8886,8 @@ items:
             border: false
             id: institutions-api-data-structure
             title: Data structure
+            note: Institutions is implemented in the CORE Graph API but has not yet been
+              fully specified.
             descriptionAbout: >-
               The tables below describe the top-level fields in the CORE Graph
               metadata schema for the Institution entity.
@@ -9160,6 +9251,8 @@ items:
             border: false
             id: institutions-api-supported-field-operations
             title: Supported field operations
+            note: Institutions is implemented in the CORE Graph API but has not yet been
+              fully specified.
             descriptionAbout: >-
               The table below describes which Institution properties can be
               searched, queried through field lookups or ranges, ordered, or
@@ -9297,6 +9390,8 @@ items:
             border: false
             id: institutions-api-institutions-endpoints
             title: Institutions endpoints
+            note: Institutions is implemented in the CORE Graph API but has not yet been
+              fully specified.
             descriptionAbout: >+
               #### Available endpoints
 
@@ -9446,6 +9541,8 @@ items:
             border: false
             id: institutions-api-search-institutions
             title: Search institutions
+            note: Institutions is implemented in the CORE Graph API but has not yet been
+              fully specified.
             descriptionAbout: >-
               
               Searches, filters, orders, facets, counts, and paginates Institution records.
@@ -9540,6 +9637,8 @@ items:
             border: false
             id: institutions-api-search-examples
             title: Search examples
+            note: Institutions is implemented in the CORE Graph API but has not yet been
+              fully specified.
             descriptionAbout: >-
               #### Search by Institution name
 
@@ -10228,6 +10327,8 @@ items:
             border: false
             id: institutions-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: Institutions is implemented in the CORE Graph API but has not yet been
+              fully specified.
             descriptionAbout: >-
               Relationship-oriented endpoints provide convenient access to
               records connected to an Institution.
@@ -13549,6 +13650,8 @@ items:
             border: false
             id: authors-api-data-structure
             title: Data structure
+            note: "**Under development:** Authors is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following sections describe the top-level fields in the
               planned CORE Graph metadata schema for the Author entity.
@@ -13720,6 +13823,8 @@ items:
             border: false
             id: authors-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Authors is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The table below describes the proposed field operations for the
               future Author entity.
@@ -13770,6 +13875,8 @@ items:
             border: false
             id: authors-api-authors-endpoints
             title: Authors endpoints
+            note: "**Under development:** Authors is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Available endpoints
 
@@ -13923,6 +14030,8 @@ items:
             border: false
             id: authors-api-search-authors
             title: Search Authors
+            note: "**Under development:** Authors is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates Author
               records.
@@ -14017,6 +14126,8 @@ items:
             border: false
             id: authors-api-search-examples
             title: Search examples
+            note: "**Under development:** Authors is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #﻿### Search by author name
 
@@ -14705,6 +14816,8 @@ items:
             border: false
             id: authors-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Authors is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Relationship-oriented endpoints provide convenient access to
               records connected to an Author.
@@ -15063,6 +15176,8 @@ items:
             border: false
             id: citations-api-data-structure
             title: Data structure
+            note: "**Under development:** Citations is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following table describes the proposed top-level fields of the
               Citation entity.
@@ -15473,6 +15588,8 @@ items:
             border: false
             id: citations-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Citations is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               The following table presents the recommended search configuration based on the proposed Citation fields.
@@ -15595,6 +15712,8 @@ items:
             border: false
             id: citations-api-citations-endpoints
             title: Citations endpoints
+            note: "**Under development:** Citations is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Available endpoints
 
@@ -15705,6 +15824,8 @@ items:
             border: false
             id: citations-api-search-citations
             title: Search citations
+            note: "**Under development:** Citations is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates Citation
               records.
@@ -15829,6 +15950,8 @@ items:
             border: false
             id: citations-api-search-examples
             title: Search examples
+            note: "**Under development:** Citations is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Retrieve citations made by a Work
 
@@ -16517,6 +16640,8 @@ items:
             border: false
             id: citations-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Citations is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               #### Citations made by a Work
@@ -16829,6 +16954,8 @@ items:
             border: false
             id: topics-api-data-structure
             title: Data structure
+            note: "**Under development:** Topics is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following table describes the proposed top-level fields of the
               Topic entity.
@@ -17346,6 +17473,8 @@ items:
             border: false
             id: topics-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Topics is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >
               The following table presents the recommended search configuration
               based on the semantics of the proposed Topic fields.
@@ -17412,6 +17541,8 @@ items:
             border: false
             id: topics-api-topics-endpoints
             title: Topics endpoints
+            note: "**Under development:** Topics is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Available endpoints
 
@@ -17528,6 +17659,8 @@ items:
             border: false
             id: topics-api-search-examples
             title: Search examples
+            note: "**Under development:** Topics is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               #### Search Topics by label
 
@@ -17922,6 +18055,8 @@ items:
             border: false
             id: topics-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Topics is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               #### Works associated with a Topic
@@ -18066,6 +18201,8 @@ items:
             border: false
             id: publishers-api-data-structure
             title: Data structure
+            note: "**Under development:** Publishers is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following sections describe the top-level fields in the
               planned CORE Graph metadata schema for the Publishers entity.
@@ -18305,6 +18442,8 @@ items:
             border: false
             id: publishers-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Publishers is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following table describes the proposed field operations for
               the future Publishers entity.
@@ -18385,6 +18524,8 @@ items:
             border: false
             id: publishers-api-publishers-endpoints
             title: Publishers endpoints
+            note: "**Under development:** Publishers is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >
               #### Available endpoints
 
@@ -18517,6 +18658,8 @@ items:
             border: false
             id: "#publishers-api-search-publishers"
             title: Search Publishers
+            note: "**Under development:** Publishers is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates
               Publishers records.
@@ -18614,6 +18757,8 @@ items:
             border: false
             id: publishers-api-search-examples
             title: Search examples
+            note: "**Under development:** Publishers is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >
               #### Search by Publishers name
 
@@ -19108,6 +19253,8 @@ items:
             border: false
             id: publishers-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Publishers is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to entities directly connected to a Publishers record. They return related records rather than embedding those records in the Publishers response.
@@ -19288,6 +19435,8 @@ items:
             border: false
             id: projects-api-data-structure
             title: Data structure
+            note: "**Under development:** Projects is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following sections describe the top-level fields in the
               planned CORE Graph metadata schema for the Projects entity.
@@ -19496,6 +19645,8 @@ items:
             border: false
             id: projects-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Projects is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following table describes the proposed field operations for
               the future Projects entity.
@@ -19556,6 +19707,8 @@ items:
             border: false
             id: projects-api-projects-endpoints
             title: Projects endpoints
+            note: "**Under development:** Projects is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >+
               #### Available endpoints
 
@@ -19693,6 +19846,8 @@ items:
             border: false
             id: projects-api-search-projects
             title: Search Projects
+            note: "**Under development:** Projects is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates Projects
               records.
@@ -19790,6 +19945,8 @@ items:
             border: false
             id: projects-api-search-examples
             title: Search examples
+            note: "**Under development:** Projects is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >+
               #### Search by title
 
@@ -20310,6 +20467,8 @@ items:
             border: false
             id: projects-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Projects is planned for inclusion in the CORE
+              Graph API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to entities directly connected to a Projects record. They return related records rather than embedding those records in the Projects response.
@@ -20448,6 +20607,8 @@ items:
             border: false
             id: grants-api-data-structure
             title: Data structure
+            note: "**Under development:** Grants is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following sections describe the top-level fields in the
               planned CORE Graph metadata schema for the Grants entity.
@@ -20730,6 +20891,8 @@ items:
             border: false
             id: grants-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Grants is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following table describes the field operations for Grants
               entity.
@@ -20832,6 +20995,8 @@ items:
             border: false
             id: grants-api-grants-endpoints
             title: Grants endpoints
+            note: "**Under development:** Grants is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >+
               #### Available endpoints
 
@@ -20966,6 +21131,8 @@ items:
             border: false
             id: grants-api-search-grants
             title: Search Grants
+            note: "**Under development:** Grants is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates Grants
               records.
@@ -21063,6 +21230,8 @@ items:
             border: false
             id: grants-api-search-examples
             title: Search examples
+            note: "**Under development:** Grants is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >
               #### Search by name
 
@@ -21566,6 +21735,8 @@ items:
             border: false
             id: grants-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Grants is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >
               
               Relationship-oriented endpoints provide convenient access to entities directly connected to a Grants record. They return related records rather than embedding complete related entities in the Grants response.
@@ -21788,6 +21959,8 @@ items:
             border: false
             id: funders-api-data-structure
             title: Data structure
+            note: "**Under development:** Funders is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               The following sections describe the fields in the planned CORE
               Graph metadata schema for the Funders entity. All CORE entity
@@ -21989,6 +22162,8 @@ items:
             border: false
             id: funders-api-supported-field-operations
             title: Supported field operations
+            note: "**Under development:** Funders is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               The following table describes the proposed field operations for the Funders entity.
@@ -22045,6 +22220,8 @@ items:
             border: false
             id: funders-api-funders-endpoints
             title: Funders endpoints
+            note: "**Under development:** Funders is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >+
               #### Available endpoints
 
@@ -22176,6 +22353,8 @@ items:
             border: false
             id: funders-api-search-funders
             title: Search Funders
+            note: "**Under development:** Funders is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               Searches, filters, orders, facets, counts, and paginates Funders
               records.
@@ -22273,6 +22452,8 @@ items:
             border: false
             id: funders-api-search-examples
             title: Search examples
+            note: "**Under development:** Funders is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >+
               #### Search by name
 
@@ -22744,6 +22925,8 @@ items:
             border: false
             id: funders-api-relationship-oriented-endpoints
             title: Relationship-oriented endpoints
+            note: "**Under development:** Funders is planned for inclusion in the CORE Graph
+              API but has not yet been fully specified or implemented."
             descriptionAbout: >-
               
               Relationship-oriented endpoints provide convenient access to records connected to a Funders record. The Grants relationship is direct. Relationships with Projects and Works can be derived through Grants.
@@ -22955,6 +23138,9 @@ items:
             border: false
             id: search-core-api-query-language
             title: CORE API query language
+            note: "**Development status** CORE Graph API search endpoints are under
+              development. Some of the search capabilities may not be available
+              yet."
             descriptionAbout: >-
               
               The `q` parameter contains a CORE query expression.
@@ -23406,6 +23592,9 @@ items:
             border: false
             id: search-search-request
             title: Search request
+            note: "**Development status** CORE Graph API search endpoints are under
+              development. Some of the search capabilities may not be available
+              yet."
             descriptionAbout: >-
               Search requests can be submitted using either `GET` or `POST`.
 
@@ -23595,6 +23784,9 @@ items:
             border: false
             id: search-vector-and-hybrid-search
             title: Vector and hybrid search
+            note: "**Development status** CORE Graph API search endpoints are under
+              development. Some of the search capabilities may not be available
+              yet."
             descriptionAbout: >-
               Vector and hybrid search are supported for canonical Works and
               source-specific Outputs.
@@ -24027,6 +24219,9 @@ items:
             border: false
             id: search-result-control
             title: Result control
+            note: "**Development status** CORE Graph API search endpoints are under
+              development. Some of the search capabilities may not be available
+              yet."
             descriptionAbout: >-
               
               This page describes the generic controls applied after or alongside retrieval.
@@ -24226,6 +24421,9 @@ items:
             border: false
             id: search-facets-and-agrregation
             title: Facets and aggregation
+            note: "**Development status** CORE Graph API search endpoints are under
+              development. Some of the search capabilities may not be available
+              yet."
             descriptionAbout: >-
               #### Facets and aggregation
 
@@ -24353,6 +24551,9 @@ items:
             border: false
             id: search-responses
             title: Responses
+            note: "**Development status** CORE Graph API search endpoints are under
+              development. Some of the search capabilities may not be available
+              yet."
             descriptionAbout: >-
               A standard search response may contain:
 
