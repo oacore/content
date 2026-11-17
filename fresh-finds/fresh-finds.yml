@@ -21,7 +21,7 @@ headerLink:
 header:
   title: FreshFinds
   icon: /images/freshFinds.svg
-  image: /images/freshFindsCount.png
+  image: /images/freshFindsCount.svg
   imageAlt: Universities linked to your repository, with counts of associated papers
   description: >
     Discovering new papers authored by your academics from around the world

@@ -1,406 +1,406 @@
 navTitle: CORE Graph API Documentation
 navItems:
-  - item: Overview
+  - item: "**1. Overview**"
     children:
       - hidden: false
-        item: "CORE Graph API "
+        item: 1.1. CORE Graph API
         href: "#core-graph-api"
       - hidden: false
-        item: Design Principles
+        item: 1.2. Design Principles
         href: "#core-graph-design-principles"
       - hidden: false
-        item: CORE data model
+        item: 1.3. CORE data model
         href: "#core-graph-core-data-model"
       - hidden: false
-        item: Principal relationships
+        item: 1.4. Principal relationships
         href: "#core-graph-principal-relationships"
       - hidden: false
-        item: Resource and endpoint patterns
+        item: 1.5. Resource and endpoint patterns
         href: "#core-graph-resource-and-endpoint-patterns"
       - hidden: false
-        item: Common response conventions
+        item: 1.6. Common response conventions
         href: "#graph-api-common-response-conventions"
       - hidden: false
-        item: Naming conventions
+        item: 1.7. Naming conventions
         href: "#graph-api-naming-conventions"
       - hidden: false
-        item: Quick start
+        item: 1.8. Quick start
         href: "#graph-api-quick-start"
-  - item: Entities
+  - item: "**2. Entities**"
     children:
-      - item: Works
+      - item: 2.1. Works
         href: "#works-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.1.1. Introduction
             href: "#works-api-introduction"
           - hidden: false
             href: "#works-api-data-structure"
-            item: Data structure
+            item: 2.1.2. Data structure
           - hidden: false
-            item: Supported field operations
+            item: 2.1.3. Supported field operations
             href: "#works-api-supported-field-operations"
           - hidden: false
-            item: Works endpoints
+            item: 2.1.4. Works endpoints
             href: "#works-api-works-endpoints"
           - hidden: false
-            item: Search Works
+            item: 2.1.5. Search Works
             href: "#works-api-search-works"
           - hidden: false
-            item: Search examples
+            item: 2.1.6. Search examples
             href: "#works-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.1.7. Relationship-oriented endpoints
             href: "#works-api-relationship-oriented-endpoints"
-      - item: Outputs
+      - item: 2.2. Outputs
         href: "#outputs-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.2.1. Introduction
             href: "#outputs-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.2.2. Data structure
             href: "#outputs-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.2.3. Supported field operations
             href: "#outputs-api-supported-field-operations"
           - hidden: false
-            item: Outputs endpoints
+            item: 2.2.4. Outputs endpoints
             href: "#outputs-api-outputs-endpoints"
           - hidden: false
-            item: Search Outputs
+            item: 2.2.5. Search Outputs
             href: "#outputs-api-search-outputs"
           - hidden: false
-            item: Search examples
+            item: 2.2.6. Search examples
             href: "#outputs-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.2.7. Relationship-oriented endpoints
             href: "#outputs-api-relationship-oriented-endpoints"
-      - item: Data Providers
+      - item: 2.3. Data Providers
         href: "#dataproviders-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.3.1. Introduction
             href: "#dataproviders-api-introduction"
           - hidden: false
             href: "#dataproviders-api-data-structure"
-            item: Data structure
+            item: 2.3.2. Data structure
           - hidden: false
             href: "#dataproviders-api-supported-field-operations"
-            item: Supported field operations
+            item: 2.3.3. Supported field operations
           - hidden: false
-            item: Data Providers endpoints
+            item: 2.3.4. Data Providers endpoints
             href: "#dataproviders-api-data-providers-endpoints"
           - hidden: false
             href: "#dataproviders-api-search-data-providers"
-            item: Search Data providers
+            item: 2.3.5. Search Data providers
           - hidden: false
             href: "#dataproviders-api-search-examples"
-            item: Search examples
+            item: 2.3.6. Search examples
           - hidden: false
             href: "#dataproviders-api-relationship-oriented-endpoints"
-            item: Relationship-oriented endpoints
-      - item: Journals
+            item: 2.3.7. Relationship-oriented endpoints
+      - item: 2.4. Journals
         href: "#journals-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.4.1. Introduction
             href: "#journals-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.4.2. Data structure
             href: "#journals-api-data-structure"
           - hidden: false
             href: "#journals-api-supported-field-operations"
-            item: Supported field operations
+            item: 2.4.3. Supported field operations
           - hidden: false
             href: "#journals-api-journals-endpoints"
-            item: Journals endpoints
+            item: 2.4.4. Journals endpoints
           - hidden: false
             href: "#journals-api-search-journals"
-            item: Search Journals
+            item: 2.4.5. Search Journals
           - hidden: false
             href: "#journals-api-search-examples"
-            item: Search examples
+            item: 2.4.6. Search examples
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.4.7. Relationship-oriented endpoints
             href: "#journals-api-relationship-oriented-endpoints"
-      - item: Institutions
+      - item: 2.5. Institutions
         href: "#institutions-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.5.1. Introduction
             href: "#institutions-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.5.2. Data structure
             href: "#institutions-api-data-structure"
           - hidden: false
             href: "#institutions-api-supported-field-operations"
-            item: Supported field operations
+            item: 2.5.3. Supported field operations
           - hidden: false
-            item: Institutions endpoints
+            item: 2.5.4. Institutions endpoints
             href: "#institutions-api-institutions-endpoints"
           - hidden: false
-            item: Search Institutions
+            item: 2.5.5. Search Institutions
             href: "#institutions-api-search-institutions"
           - hidden: false
             href: "#institutions-api-search-examples"
-            item: Search examples
+            item: 2.5.6. Search examples
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.5.7. Relationship-oriented endpoints
             href: "#institutions-api-relationship-oriented-endpoints"
-      - item: Authorships
+      - item: 2.6. Authorships
         href: "#authorships-api-introduction"
         children:
-          - item: Introduction
+          - item: 2.6.1. Introduction
             href: "#authorships-api-introduction"
-          - item: Data structure
+          - item: 2.6.2. Data structure
             href: "#authorships-api-data-structure"
-          - item: Authorship–Affiliation relationship
+          - item: 2.6.3. Authorship–Affiliation relationship
             href: "#authorships-api-authorship-affiliation-relationship"
-          - item: Supported field operations
+          - item: 2.6.4. Supported field operations
             href: "#authorships-api-supported-field-operations"
-          - item: Authorships endpoints
+          - item: 2.6.5. Authorships endpoints
             href: "#authorships-api-authorships-endpoints"
-          - item: Search Authorships
+          - item: 2.6.6. Search Authorships
             href: "#authorships-api-search-authorships"
-          - item: Search examples
+          - item: 2.6.7. Search examples
             href: "#authorships-api-search-examples"
-          - item: Relationship-oriented endpoints
+          - item: 2.6.8. Relationship-oriented endpoints
             href: "#authorships-api-relationship-endpoints"
-      - item: Affiliations
+      - item: 2.7. Affiliations
         href: "#affiliations-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.7.1. Introduction
             href: "#affiliations-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.7.2. Data structure
             href: "#affiliations-api-data-structure"
           - hidden: false
             href: "#affiliations-api-supported-field-operations"
-            item: Supported field operations
+            item: 2.7.3. Supported field operations
           - hidden: false
-            item: Affiliations endpoints
+            item: 2.7.4. Affiliations endpoints
             href: "#affiliations-api-affiliations-endpoints"
           - hidden: false
-            item: Search Affiliations
+            item: 2.7.5. Search Affiliations
             href: "#affiliations-api-search-affiliations"
           - hidden: false
-            item: Search examples
+            item: 2.7.6. Search examples
             href: "#affiliations-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.7.7. Relationship-oriented endpoints
             href: "#affiliations-api-relationship-oriented-endpoints"
-      - item: Authors
+      - item: 2.8. Authors
         href: "#authors-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.8.1. Introduction
             href: "#authors-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.8.2. Data structure
             href: "#authors-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.8.3. Supported field operations
             href: "#authors-api-supported-field-operations"
           - hidden: false
-            item: Authors endpoints
+            item: 2.8.4. Authors endpoints
             href: "#authors-api-authors-endpoints"
           - hidden: false
-            item: Search Authors
+            item: 2.8.5. Search Authors
             href: "#authors-api-search-authors"
           - hidden: false
-            item: Search examples
+            item: 2.8.6. Search examples
             href: "#authors-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.8.7. Relationship-oriented endpoints
             href: "#authors-api-relationship-oriented-endpoints"
-      - item: Publishers
+      - item: 2.9. Publishers
         href: "#publishers-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.9.1. Introduction
             href: "#publishers-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.9.2. Data structure
             href: "#publishers-api-data-structure"
           - hidden: false
             href: "#publishers-api-supported-field-operations"
-            item: Supported field operations
+            item: 2.9.3. Supported field operations
           - hidden: false
-            item: Publishers endpoints
+            item: 2.9.4. Publishers endpoints
             href: "#publishers-api-publishers-endpoints"
           - hidden: false
-            item: Search Publishers
+            item: 2.9.5. Search Publishers
             href: "#publishers-api-search-publishers"
           - hidden: false
-            item: Search examples
+            item: 2.9.6. Search examples
             href: "#publishers-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.9.7. Relationship-oriented endpoints
             href: "#publishers-api-relationship-oriented-endpoints"
-      - item: Grants
+      - item: 2.10. Grants
         href: "#grants-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.10.1. Introduction
             href: "#grants-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.10.2. Data structure
             href: "#grants-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.10.3. Supported field operations
             href: "#grants-api-supported-field-operations"
           - hidden: false
-            item: Grants endpoints
+            item: 2.10.4. Grants endpoints
             href: "#grants-api-grants-endpoints"
           - hidden: false
-            item: Search Grants
+            item: 2.10.5. Search Grants
             href: "#grants-api-search-grants"
           - hidden: false
-            item: Search examples
+            item: 2.10.6. Search examples
             href: "#grants-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.10.7. Relationship-oriented endpoints
             href: "#grants-api-relationship-oriented-endpoints"
-      - item: Funders
+      - item: 2.11. Funders
         href: "#funders-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.11.1. Introduction
             href: "#funders-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.11.2. Data structure
             href: "#funders-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.11.3. Supported field operations
             href: "#funders-api-supported-field-operations"
           - hidden: false
-            item: Funders endpoints
+            item: 2.11.4. Funders endpoints
             href: "#funders-api-funders-endpoints"
           - hidden: false
-            item: Search funders
+            item: 2.11.5. Search funders
             href: "#funders-api-search-funders"
           - hidden: false
-            item: Search examples
+            item: 2.11.6. Search examples
             href: "#funders-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.11.7. Relationship-oriented endpoints
             href: "#funders-api-relationship-oriented-endpoints"
-      - item: Topics
+      - item: 2.12. Topics
         href: "#topics-api-introduction"
         children:
           - hidden: false
             href: "#topics-api-introduction"
-            item: Introduction
+            item: 2.12.1. Introduction
           - hidden: false
-            item: Data structure
+            item: 2.12.2. Data structure
             href: "#topics-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.12.3. Supported field operations
             href: "#topics-api-supported-field-operations"
           - hidden: false
-            item: Topics endpoints
+            item: 2.12.4. Topics endpoints
             href: "#topics-api-topics-endpoints"
           - hidden: false
-            item: Search Topics
+            item: 2.12.5. Search Topics
             href: "#topics-api-search-topics"
           - hidden: false
-            item: Search examples
+            item: 2.12.6. Search examples
             href: "#topics-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.12.7. Relationship-oriented endpoints
             href: "#topics-api-relationship-oriented-endpoints"
       - hidden: false
-        item: Citations
+        item: 2.13. Citations
         href: "#citations-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.13.1. Introduction
             href: "#citations-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.13.2. Data structure
             href: "#citations-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.13.3. Supported field operations
             href: "#citations-api-supported-field-operations"
           - hidden: false
-            item: Citations endpoints
+            item: 2.13.4. Citations endpoints
             href: "#citations-api-citations-endpoints"
           - hidden: false
-            item: Search citations
+            item: 2.13.5. Search citations
             href: "#citations-api-search-citations"
           - hidden: false
-            item: Search examples
+            item: 2.13.6. Search examples
             href: "#citations-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.13.7. Relationship-oriented endpoints
             href: "#citations-api-relationship-oriented-endpoints"
       - hidden: false
-        item: Projects
+        item: 2.14. Projects
         href: "#projects-api-introduction"
         children:
           - hidden: false
-            item: Introduction
+            item: 2.14.1. Introduction
             href: "#projects-api-introduction"
           - hidden: false
-            item: Data structure
+            item: 2.14.2. Data structure
             href: "#projects-api-data-structure"
           - hidden: false
-            item: Supported field operations
+            item: 2.14.3. Supported field operations
             href: "#projects-api-supported-field-operations"
           - hidden: false
-            item: Projects endpoints
+            item: 2.14.4. Projects endpoints
             href: "#projects-api-projects-endpoints"
           - hidden: false
-            item: Search Projects
+            item: 2.14.5. Search Projects
             href: "#projects-api-search-projects"
           - hidden: false
-            item: Search examples
+            item: 2.14.6. Search examples
             href: "#projects-api-search-examples"
           - hidden: false
-            item: Relationship-oriented endpoints
+            item: 2.14.7. Relationship-oriented endpoints
             href: "#projects-api-relationship-oriented-endpoints"
-  - item: Search
+  - item: "**3. Search**"
     children:
-      - item: Overview
+      - item: 3.1. Overview
         children: []
         href: "#search-overview"
       - hidden: false
-        item: CORE API Query Language
+        item: 3.2. CORE API Query Language
         href: "#search-core-api-query-language"
       - hidden: false
-        item: Search request
+        item: 3.3. Search request
         href: "#search-search-request"
       - hidden: false
-        item: Vector and Hybrid search
+        item: 3.4. Vector and Hybrid search
         href: "#search-vector-and-hybrid-search"
       - hidden: false
-        item: Result control
+        item: 3.5. Result control
         href: "#search-result-control"
       - hidden: false
-        item: Facets and aggregation
+        item: 3.6. Facets and aggregation
         href: "#search-facets-and-aggregation"
       - hidden: false
-        item: Responses
+        item: 3.7. Responses
         href: "#search-responses"
   - hidden: false
-    item: Recommender
+    item: "**4. Recommender**"
     children: []
     href: "#recommender-api-overview"
   - hidden: false
-    item: Discovery
+    item: "**5. Discovery**"
     href: "#discovery-api-overview"
   - hidden: false
-    item: Rate limits
+    item: "**6. Rate limits**"
     href: ""
     children:
       - hidden: false
-        item: Access tiers and token allowances
+        item: 6.1. Access tiers and token allowances
         href: "#api-access-tiers"
       - hidden: false
-        item: How to monitor your API rate limits
+        item: 6.2. How to monitor your API rate limits
         href: "#api-monitor-ratelimits"
   - hidden: false
-    item: PDF Download Policy
+    item: "**7. PDF Download Policy**"
     href: "#api-pdf-download-policy"
