@@ -1,3 +1,5 @@
+labels:
+  - text: Version 1.0
 items:
   - item: Overview
     id: overview
