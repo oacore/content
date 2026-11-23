@@ -9,7 +9,7 @@ additional:
     * API for developers and third party services
   actions:
     -
-      url: https://chrome.google.com/webstore/detail/core-discovery/ockidfiihjhkngdalfnbeeepgfbmkmlh
+      url: https://chromewebstore.google.com/detail/core-discovery/kdjnfipcfgdjlgnomcpmplkambenhecj
       caption: Get browser extention
       hint: For those who are CORE Data Providers
       primary: true

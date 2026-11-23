@@ -13,7 +13,7 @@ header:
   actions:
     - caption: Get browser extention
       variant: contained
-      url: 'https://chrome.google.com/webstore/detail/core-discovery/ockidfiihjhkngdalfnbeeepgfbmkmlh'
+      url: 'https://chromewebstore.google.com/detail/core-discovery/kdjnfipcfgdjlgnomcpmplkambenhecj'
       target: _blank
     - caption: Get repository plugin
       variant: text
