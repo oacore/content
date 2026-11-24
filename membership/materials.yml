@@ -110,3 +110,11 @@ materials:
       action:
         caption: Open Newsletter
         url: /images/pdfs/core-community-newsletter-november-2026-2-.pdf
+    - image: /images/videoPreview.svg
+      key: FreshFinds
+      title: FreshFinds video tutorial
+      action:
+        caption: Watch video
+        url: ""
+      video:
+        src: https://youtu.be/7P2-jsV_F0M
