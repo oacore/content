@@ -3,7 +3,6 @@ header:
   title: FAIR Repository Certification
   icon: /images/fairLogo.svg
   image: /images/fairCertificate.svg
-  label: Coming soon
   description: |
     *Certify that your repository meets FAIR principles.*
     
